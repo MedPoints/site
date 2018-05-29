@@ -1,0 +1,38 @@
+#Ставим кодировку utf-8
+AddDefaultCharset utf-8
+php_value default_charset "utf-8"
+PHP_VALUE default_charset utf-8
+
+#Защищаем .htaccess файл
+<files .htaccess="">
+order allow,deny
+deny from all
+</files>
+
+#Убираем расширение файла из URL
+RewriteEngine On
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^(([^/]+/)*[^.]+)$ /$1.php [L]
+
+#Убирает www
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^www\.(.*) [NC]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^/?(.*) http://%1/$1 [L,R=permanent]
+
+#Своя 404 страница
+ErrorDocument 404 404.php
+
+#Своя 403 страница
+ErrorDocument 403 403.php
+
+#Своя 500 страница
+ErrorDocument 500 500.php
+
+#Своя 503 страница
+ErrorDocument 503 503.php
+
+#Своя стартовая страница
+DirectoryIndex index.php

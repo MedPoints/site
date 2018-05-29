@@ -1,0 +1,161 @@
+<?php define( '_ACCESS', 1 ); ?>
+
+<?php
+
+    $page_name = 'account-foundations';
+    $page_title = 'Account assistance foundations';
+	$page_keywords = '';
+	$page_description = '';
+	
+?>
+
+    <?php include($_SERVER["DOCUMENT_ROOT"]."/inc/header.php"); ?>
+
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="/account">Account</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><?=$page_title?></li>
+        </ol>
+    </nav>
+ 
+    <ul>
+        <li id="191" class="alert alert-warning parent" role="alert">
+            <strong>Note!</strong> <a class="" href="#">General Hospital</a> <small>Public</small> request your medical records at 11:24 - 12.02.2018. <a href="/account-request">Choose records to open</a>
+            <a name="delete" id="191" class="delete-parent" href="#"><i class="fas fa-times"></i></a>
+        </li>
+
+        <li id="192" class="alert alert-warning parent" role="alert">
+            <strong>Note!</strong> At 2011-08-20 <strong>16:45:00</strong> from your account will be charged <strong class="text-danger">35 MPT</strong> as Monthly insurance fee
+            <a name="delete" id="192" class="delete-parent" href="#"><i class="fas fa-times"></i></a>
+        </li>
+    </ul>
+
+	<div class="row">
+        <div class="col-xl-3 push-xl-9 col-lg-4 push-lg-8 col-md-5 push-md-7 col-sm-12 push-sm-0"> 
+            <nav class="sticky-top"> 
+                <?php include($_SERVER["DOCUMENT_ROOT"]."/inc/right.php"); ?> 
+            </nav> 
+        </div>
+        <!--/.col--> 
+        <div class="col-xl-9 pull-xl-3 col-lg-8 pull-lg-4 col-md-7 pull-md-5 col-sm-12 pull-sm-0"> 
+		 
+    		<div class="table-responsive">
+                        <table summary="" class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <h5>Direction</h5>
+                                    </th>
+                                    <th>
+                                        <h5>Value</h5>
+                                    </th>
+                                    <th>
+                                        <h5>Time</h5>
+                                    </th>
+                                    <th>
+                                        <h5>Transaction info</h5>
+                                    </th> 
+                                </tr>
+                            </thead>
+                            <tbody> 
+                                <tr>
+                                    <td class="alert-danger text-center">
+										<i class="fas fa-minus"></i>
+                                        <div>Foundations for</div>
+										<a class="" href="/fundation-case">Julia Ostin</a> 
+                                		<br />
+										<small>Heart transplantation</small>
+									</td>
+                            		<td class="price-td"><strong class="text-danger">35 MPT</strong></td>
+                                    <td>2011-08-19 <strong>13:45:00</strong></td>
+                                    <td> 
+										<div class="card">
+                        					<ul>
+												<li>Transaction code <span id="transactionId">Ghhhsbb$hfhjaj77ghsFGGDa91PPvDa</span></li>
+                								<li><a class="copy-link btn-copy1" onclick="copyToClipboard('#transactionId')"><i class="far fa-copy"></i> Copy</a> / <a href="#" data-toggle="modal" data-target="#sorry">Check in blockchain explorer</a></li>
+                        						<li>Transaction status <span class="text-success">Success</span> <small class="float-right">confirmations 5/5</small></li> 
+											</ul>
+										</div><!--/.card-->
+									</td> 
+                                </tr> 
+                                <tr>
+                                    <td class="alert-danger text-center">
+										<i class="fas fa-minus"></i>
+                                        <div>Foundations for</div>
+										<a class="" href="/fundation-case">Julia Ostin</a> 
+                                		<br />
+										<small>Heart transplantation</small>
+									</td>
+                            		<td class="price-td"><strong class="text-danger">35 MPT</strong></td>
+                                    <td>2011-08-19 <strong>13:45:00</strong></td>
+                                    <td> 
+										<div class="card">
+                        					<ul>
+												<li>Transaction code <span id="transactionId">Ghhhsbb$hfhjaj77ghsFGGDa91PPvDa</span></li>
+                								<li><a class="copy-link btn-copy1" onclick="copyToClipboard('#transactionId')"><i class="far fa-copy"></i> Copy</a> / <a href="#" data-toggle="modal" data-target="#sorry">Check in blockchain explorer</a></li>
+                        						<li>Transaction status <span class="text-success">Success</span> <small class="float-right">confirmations 5/5</small></li> 
+											</ul>
+										</div><!--/.card-->
+									</td> 
+                                </tr> 
+                                <tr>
+                                    <td class="alert-danger text-center">
+										<i class="fas fa-minus"></i>
+                                        <div>Foundations for</div>
+										<a class="" href="/fundation-case">Julia Ostin</a> 
+                                		<br />
+										<small>Heart transplantation</small>
+									</td>
+                            		<td class="price-td"><strong class="text-danger">35 MPT</strong></td>
+                                    <td>2011-08-19 <strong>13:45:00</strong></td>
+                                    <td> 
+										<div class="card">
+                        					<ul>
+												<li>Transaction code <span id="transactionId">Ghhhsbb$hfhjaj77ghsFGGDa91PPvDa</span></li>
+                								<li><a class="copy-link btn-copy1" onclick="copyToClipboard('#transactionId')"><i class="far fa-copy"></i> Copy</a> / <a href="#" data-toggle="modal" data-target="#sorry">Check in blockchain explorer</a></li>
+                        						<li>Transaction status <span class="text-success">Success</span> <small class="float-right">confirmations 5/5</small></li> 
+											</ul>
+										</div><!--/.card-->
+									</td> 
+                                </tr> 
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--end of .table-responsive--> 
+					
+					<br />
+ 
+			<div class="row pagination-line">
+            	<div class="col">
+					<nav aria-label="...">
+                <ul class="pagination">
+                    <li class="page-item disabled">
+                        <span class="page-link">Previous</span>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item active">
+                        <span class="page-link">2<span class="sr-only">(current)</span></span>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+            		</nav>
+            	</div>
+            	<!--/.col-->
+            	<div class="col"> 
+					<em>1-5 / 3154</em>
+            	</div>
+            	<!--/.col-->
+          	</div>
+          	<!--/.row-->
+			
+        </div>
+        <!--/.col-->
+    </div>
+    <!--/.row-->
+	 
+    <?php include($_SERVER["DOCUMENT_ROOT"]."/inc/footer.php"); ?>

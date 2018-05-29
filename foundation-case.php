@@ -1,0 +1,167 @@
+<?php define( '_ACCESS', 1 ); ?>
+
+<?php
+
+    $page_name = 'foundation-case';
+    $page_title = 'Julia Ostin foundation case';
+	$page_keywords = '';
+	$page_description = '';
+	
+?>
+
+    <?php include($_SERVER["DOCUMENT_ROOT"]."/inc/header.php"); ?>
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item"><a href="/foundation-cases">Foundation cases</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><?=$page_title?></li>
+        </ol>
+    </nav>
+
+	<div class="row">
+        <div class="col-xl-8 col-md-8 col-sm-12">
+
+            <div class="row">
+                <div class="col">
+
+                    <img src="img/_demo/foundation-case1.jpg" alt="" class="img-thumbnail float-left">
+
+                    <h3>Julia Ostin <small>12 y.o.</small></h3>
+                    <p><a href="/foundation-cases">New York</a>, <a href="/foundation-cases">NY</a>, <a href="/foundation-cases">United States</a></p>
+                    <div>Required medical treatment:</div>
+                    <h5>Heart transplantation</h5>
+                    <div>Curator:
+                        <h4><a class="" href="/clinic">General Hospital</a> <small>Public</small></h4>
+                    </div>
+
+                    <hr />
+
+                    <p>Lorem ipsum dolor sit amet, dolores mandamus moderatius ea ius, sed civibus vivendum imperdiet ei, amet tritani sea id. Ut veri diceret fierent mei, qui facilisi suavitate euripidis ad. In vim mucius menandri convenire, an brute zril
+                        vis. Ancillae delectus necessitatibus no eam, at porro solet veniam mel, ad everti nostrud vim. Eam no menandri pertinacia deterruisset.</p>
+                    <p>Lorem ipsum dolor sit amet, dolores mandamus moderatius ea ius, sed civibus vivendum imperdiet ei, amet tritani sea id. Ut veri diceret fierent mei, qui facilisi suavitate euripidis ad. In vim mucius menandri convenire, an brute zril
+                        vis. Ancillae delectus necessitatibus no eam, at porro solet veniam mel, ad everti nostrud vim. Eam no menandri pertinacia deterruisset.</p>
+                    <p>Lorem ipsum dolor sit amet, dolores mandamus moderatius ea ius, sed civibus vivendum imperdiet ei, amet tritani sea id. Ut veri diceret fierent mei, qui facilisi suavitate euripidis ad. In vim mucius menandri convenire, an brute zril
+                        vis. Ancillae delectus necessitatibus no eam, at porro solet veniam mel, ad everti nostrud vim. Eam no menandri pertinacia deterruisset.</p>
+					
+					<hr />
+ 
+            		<h3>Photos</h3>
+
+            		<div class="gallery">
+                		<ul class="owl-carousel owl-theme">
+                    		<li class="item"><a class="gallery-img" href="img/_demo/foundation-case1.jpg" title="Caption for gallery item 1"><img src="img/_demo/foundation-case1.jpg" alt="" /></a></li>
+                    		<li class="item"><a class="gallery-img" href="img/_demo/foundation-case2.jpg" title="Caption for gallery item 2"><img src="img/_demo/foundation-case2.jpg" alt="" /></a></li>
+                		</ul>
+            		</div>
+			 
+                </div>
+                <!--/.col-->
+            </div>
+            <!--/.row-->
+
+        </div>
+        <!--/.col-->
+        <div class="col-xl-4 col-md-4 col-sm-12">
+
+            <nav class="sticky-top">
+ 
+                <div class="wave text-center">
+                    <p>Required amount <br /><strong class="text-info">$55.000</strong> / <strong class="text-success">25.000 MPT</strong></p>
+                    <p>Collected funds <br /><strong>$35.000</strong> / <strong>15.000 MPT</strong></p>
+                    <p><strong>462</strong> users participated in fundraising</p> 
+					<h3><span id="clock101"></span></h3>  
+                    <script>
+                        // Count down  
+                        $('#clock101').countdown('2018/09/10', function(event) {
+                        	$(this).html(event.strftime('%D days %H:%M:%S'));
+                        });
+                    </script> 
+						 
+					<form>
+                    	<div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                            <div class="input-group-addon">MPT</div>
+                            <input type="text" name="amount" class="form-control" id="amount" placeholder="100" />
+                            <div class="input-group-btn">
+								<a class="btn btn-primary" href="">List funds</a>
+							</div>
+                    	</div>
+					</form> 
+ 
+                    <i class="fas fa-credit-card"></i> <a href="#" data-toggle="modal" data-target="#addBalance">Add balance</a>
+							
+                </div>
+                <!--/.wave-->
+
+                <br />
+						
+				<div class="text-center">
+				
+					<a href="#" data-toggle="modal" data-target="#listFunds">Make donation to General fund</a>
+							
+					<br />
+						
+					<small>Points from <strong>General fund</strong> serve for partial coverage in cases when required amount for the full treatment remains less then 10%, but the company's time has passed.</small>
+						
+					<br />
+						
+					<br />
+						
+				</div>
+				<!--/.-->
+  
+            </nav>
+ 
+        </div>
+        <!--/.col-->
+    </div>
+    <!--/.row--> 
+
+    <section class="bg-gray">
+
+        <div class="reviews" id="opinions">
+
+            <h3 class="float-left">Wishes of recovery <span class="badge">8</span></h3> 
+			<h5 class="float-right">List some funds to add a wish</h5>
+            <ul class="owl-carousel owl-theme">
+                <li class="item">
+                    <em>June 15 2017</em> 
+                    <p>Lorem ipsum dolor sit amet, dolores mandamus moderatius ea ius, sed civibus vivendum imperdiet ei, amet tritani sea id. Ut veri diceret fierent mei, qui facilisi suavitate euripidis ad. In vim mucius menandri convenire, an brute zril </p>
+                </li>
+                <li class="item">
+                    <em>June 15 2017</em> 
+                    <p>Lorem ipsum dolor sit amet, dolores mandamus moderatius ea ius, sed civibus vivendum imperdiet ei, amet tritani sea id.</p>
+                </li>
+                <li class="item">
+                    <em>June 15 2017</em> 
+                    <p>Lorem ipsum dolor sit amet, dolores mandamus moderatius ea ius, sed civibus vivendum imperdiet ei, amet tritani sea id. Ut veri diceret fierent mei, qui facilisi suavitate euripidis ad. In vim mucius menandri convenire, an brute zril
+                        vis. Ancillae delectus necessitatibus no eam, at porro solet veniam mel, ad everti nostrud vim. Eam no menandri pertinacia deterruisset.</p>
+                </li>
+                <li class="item">
+                    <em>June 15 2017</em> 
+                    <p>Lorem ipsum dolor sit amet, dolores mandamus moderatius ea ius, sed civibus vivendum imperdiet ei, amet tritani sea id. Ut veri diceret fierent mei, qui facilisi suavitate euripidis ad. In vim mucius menandri convenire, an brute zril.</p>
+                </li>
+                <li class="item">
+                    <em>June 15 2017</em> 
+                    <p>Lorem ipsum dolor sit amet, dolores mandamus moderatius ea ius, sed civibus vivendum imperdiet ei, amet tritani sea id. Ut veri diceret fierent mei, qui facilisi suavitate euripidis ad. In vim mucius menandri convenire, an brute zril
+                        vis. Ancillae delectus necessitatibus no eam, at porro solet veniam mel, ad everti nostrud vim. Eam no menandri pertinacia deterruisset.</p>
+                </li>
+                <li class="item">
+                    <em>June 15 2017</em> 
+                    <p>Lorem ipsum dolor sit amet, dolores mandamus moderatius ea ius, sed civibus vivendum imperdiet ei.</p>
+                </li>
+                <li class="item">
+                    <em>June 15 2017</em> 
+                    <p>Lorem ipsum dolor sit amet, dolores mandamus moderatius ea ius, sed civibus vivendum imperdiet ei, amet tritani sea id..</p>
+                </li>
+                <li class="item">
+                    <em>June 15 2017</em> 
+                    <p>Lorem ipsum dolor sit amet, dolores mandamus moderatius ea ius, sed civibus vivendum imperdiet ei, amet tritani sea id. Ut veri diceret fierent mei, qui facilisi suavitate euripidis ad..</p>
+                </li>
+            </ul>
+        </div>
+        <!--/.reviews-->
+
+    </section>
+ 
+    <?php include($_SERVER["DOCUMENT_ROOT"]."/inc/footer.php"); ?>
