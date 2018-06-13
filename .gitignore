@@ -1,0 +1,6 @@
+.DS_Store
+node_modules/
+*.log
+.idea
+variables.env
+variables.env.now
