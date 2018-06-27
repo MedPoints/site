@@ -18,314 +18,46 @@
     <meta name="keywords" content="<?=$page_keywords?>" />
     <meta name="description" content="<?=$page_description?>" />
 
-    <link href="css/reset.css" rel="stylesheet">
+    <link href="/css/reset.css" rel="stylesheet">
     <link href="https://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-    <link href="css/normalize.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/owl.carousel.css" rel="stylesheet">
-    <link href="css/flag-icon.min.css" rel="stylesheet">
-    <link href="css/simpleLightbox.min.css" rel="stylesheet">
-    <link href="css/zabuto_calendar.css" rel="stylesheet">
+    <link href="/css/normalize.min.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/owl.carousel.css" rel="stylesheet">
+    <link href="/css/flag-icon.min.css" rel="stylesheet">
+    <link href="/css/simpleLightbox.min.css" rel="stylesheet">
+    <link href="/css/zabuto_calendar.css" rel="stylesheet">
 
-    <script src="js/modernizr.js"></script>
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/jquery.countdown.js" type="text/javascript"></script>
+    <script src="/js/modernizr.js"></script>
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="/js/jquery.countdown.js" type="text/javascript"></script>
 
 </head>
 
 <body class="<?=$page_name?>">
 
-    <!--  -->
-    <form class="modal fade" id="chooseLocation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Choose your location</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          				<span aria-hidden="true"><i class="fas fa-times"></i></span>
-        			</button>
-                </div>
-                <div class="modal-body">
-                    <label>Start type your City name</label>
-                    <input type="text" class="form-control" placeholder="example: New-York" />
-                    <br />
-                    <ul>
-                        <li><a href="#"><strong>New-York</strong> USA</a></li>
-                        <li><a href="#"><strong>Berlin</strong> Germany</a></li>
-                        <li><a href="#"><strong>Moscow</strong> Russian Federation</a></li>
-                    </ul>
-                </div>
-                <!--/.modal-body-->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Save location</button>
-                </div>
-            </div>
-        </div>
-    </form>
+    {{!-- {{ currentPath }} --}}
 
-    <!--  -->
-    <form class="modal fade" id="sorry" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Demonstration limits</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          				<span aria-hidden="true"><i class="fas fa-times"></i></span>
-        			</button>
-                </div>
-                <div class="modal-body">
-                    <h3>Sorry, this functionality is not yet available.</h3>
-                </div>
-                <!--/.modal-body--> 
-            </div>
-        </div>
-    </form>
+    {{> choose-location }}
+    {{> sorry }}
+    {{> login }}
+    {{> edit-payment }}
+    {{> add-balance }}
+    {{> list-funds }}
+    {{> free-license }}
 
-    <!--  -->
-    <form class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Log in to MedPoints</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          				<span aria-hidden="true"><i class="fas fa-times"></i></span>
-        			</button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="walletId">Wallet ID</label>
-                        <input type="text" class="form-control" id="walletId" placeholder="Wallet ID" required />
-                    </div>
-                    <div class="form-group">
-                        <label for="walletKey">Wallet key</label>
-                        <input type="text" class="form-control" id="walletKey" placeholder="Wallet key" required />
-                    </div>
-                    <br />
-                    <label class="custom-control custom-checkbox">
-						<input type="checkbox" class="custom-control-input">
-  						<span class="custom-control-indicator"></span>
-  						<span class="custom-control-description">Remember me</span>
-					</label>
-                    <a class="float-right" href="/faq#technical">Sign in problems?</a>
-                </div>
-                <!--/.modal-body-->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Log in</button>
-                </div>
-            </div>
-        </div>
-    </form>
-    <!--  -->
+
 
 
     <!--  -->
-    <form class="modal fade" id="editPaymentInfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Edit payment Information</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          				<span aria-hidden="true"><i class="fas fa-times"></i></span>
-        			</button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="cardNumber">Card number</label>
-                        <input type="text" name="cardNumber" class="form-control" id="cardNumber" placeholder="0000000000000000" required />
-                    </div>
-                    <div class="form-group">
-                        <label for="cardHolder">Card holder (in latin)</label>
-                        <input type="text" name="cardHolder" class="form-control" id="cardHolder" placeholder="JOHN DOE" required />
-                    </div>
 
-                    <div class="row">
-                        <div class="col-8">
 
-                            <span class="label">Expiration date</span>
-                            <div class="row">
-                                <div class="col">
-                                    <select class="custom-select mb-2 mr-sm-2 mb-sm-0 justify" id="expirationMonth">
-    									<option selected>Month</option>
-    									<option value="1">One</option>
-    									<option value="2">Two</option>
-    									<option value="3">Three</option>
-  									</select>
-                                </div>
-                                <!--/.col-->
-                                <div class="col">
-                                    <select class="custom-select mb-2 mr-sm-2 mb-sm-0 justify" id="expirationYear">
-    									<option selected>Year</option>
-    									<option value="1">One</option>
-    									<option value="2">Two</option>
-    									<option value="3">Three</option>
-  									</select>
-                                </div>
-                                <!--/.col-->
-                            </div>
-                            <!--/.row-->
-                        </div>
-                        <!--/.col-->
-                        <div class="col-4">
-                            <label for="CVCCode">CVC/CVV code</label>
-                            <input type="text" name="CVCCode" class="form-control" id="CVCCode" placeholder="***" required />
-                        </div>
-                        <!--/.col-->
-                    </div>
-                    <!--/.row-->
-                </div>
-                <!--/.modal-body-->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
-        </div>
-    </form>
-
-    <!--  -->
-    <form class="modal fade" id="addBalance" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Add balance</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          				<span aria-hidden="true"><i class="fas fa-times"></i></span>
-        			</button>
-                </div>
-                <div class="modal-body">
-                    <div>Card number</div>
-                    <p><strong>0000 **** **** 0000</strong></p>
-                    <div>Card holder (in latin)</div>
-                    <p><strong>JOHN DOE</strong></p>
-                    <div class="row">
-                        <div class="col">
-                            <div>Expiration date</div>
-                            <p><strong>05.2020</strong></p>
-                        </div>
-                        <!--/.col-->
-                        <div class="col">
-                            <div>CVC/CVV code</div>
-                            <p>***</p>
-                        </div>
-                        <!--/.col-->
-                    </div>
-                    <!--/.row-->
-
-                    <label for="amount">Amount</label>
-                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                        <div class="input-group-addon">$</div>
-                        <input type="text" name="amount" class="form-control" id="amount" placeholder="100" />
-                    </div>
-
-                </div>
-                <!--/.modal-body-->
-                <div class="modal-footer">
-                    <a class="btn btn-primary" href="">Add funds</a> Or <a class="btn btn-secondary" href="">pay via Paypal</a>
-                </div>
-            </div>
-        </div>
-    </form>
-
-    <!--  -->
-    <form class="modal fade" id="listFunds" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Make donation to General fund</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          				<span aria-hidden="true"><i class="fas fa-times"></i></span>
-        			</button>
-                </div>
-                <div class="modal-body">
-                    <div>Card number</div>
-                    <p><strong>0000 **** **** 0000</strong></p>
-                    <div>Card holder (in latin)</div>
-                    <p><strong>JOHN DOE</strong></p>
-                    <div class="row">
-                        <div class="col">
-                            <div>Expiration date</div>
-                            <p><strong>05.2020</strong></p>
-                        </div>
-                        <!--/.col-->
-                        <div class="col">
-                            <div>CVC/CVV code</div>
-                            <p>***</p>
-                        </div>
-                        <!--/.col-->
-                    </div>
-                    <!--/.row-->
-
-                    <label for="amount">Amount</label>
-                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                        <div class="input-group-addon">$</div>
-                        <input type="text" name="amount" class="form-control" id="amount" placeholder="100" />
-                    </div>
-
-                </div>
-                <!--/.modal-body-->
-                <div class="modal-footer">
-                    <a class="btn btn-primary" href="">List funds</a> Or <a class="btn btn-secondary" href="">pay via Paypal</a>
-                </div>
-            </div>
-        </div>
-    </form>
-
-    <!--  -->
-    <form class="modal fade" id="freeLicense" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Get free license</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          				<span aria-hidden="true"><i class="fas fa-times"></i></span>
-        			</button>
-                </div>
-                <div class="modal-body">
-
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-group">
-                                <label for="clinicName">Clinic's name</label>
-                                <input type="text" name="amount" class="form-control" id="clinicName" placeholder="Clinic's name" />
-                            </div>
-                        </div>
-                        <!--/.col-->
-                    </div>
-                    <!--/.row-->
-
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-group">
-                                <label for="contactPerson">Contact person</label>
-                                <input type="text" name="amount" class="form-control" id="contactPerson" placeholder="Contact person" />
-                            </div>
-                        </div>
-                        <!--/.col-->
-                    </div>
-                    <!--/.row-->
-
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-group">
-                                <label for="eMail">E-mail</label>
-                                <input type="text" name="amount" class="form-control" id="eMail" placeholder="E-mail" />
-                            </div>
-                            <div class="alert alert-warning" role="alert"><strong>Attention!</strong> Specify a <strong>real e-mail</strong>, because this address will receive a link to download the program and activation keys.</div>
-                        </div>
-                        <!--/.col-->
-                    </div>
-                    <!--/.row-->
- 
-                </div>
-                <!--/.modal-body-->
-                <div class="modal-footer">
-                    <a class="btn btn-primary" href="">Get free MedPoins Software</a>
-                </div>
-            </div>
-        </div>
-    </form>
-
-    <div class="ico-info-box">Welcome to MedPoints&#8482;! This is a basic demo that simulates user experience, but does not contain the full functionality at the moment. <br />If you want to become part of the project and support its development, please join our <a href="https://medpoints.io" target="_blank">ICO company</a>.</div>
+    <div class="ico-info-box"
+        >Welcome to MedPoints&#8482;! 
+        This is a basic demo that simulates user experience, 
+        but does not contain the full functionality at the moment. <br />
+        If you want to become part of the project and support its development, please join our 
+        <a href="https://medpoints.io" target="_blank">ICO company</a>.</div>
 
     <header>
 
@@ -333,7 +65,7 @@
 
             <button id="btn-menu" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation"><i class="fas fa-bars"></i><span> Open menu</span></button>
 			
-            <a class="navbar-brand" href="/"><img src="img/logo.svg" alt="" /></a>
+            <a class="navbar-brand" href="/"><img src="/img/logo.svg" alt="" /></a>
 
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
 
@@ -426,22 +158,22 @@
                 <div class="col-xl-9 pull-xl-3 col-lg-12 pull-lg-0">
 				<div class="cats">
 					<ul class="row">
-                    	<li class="col active">
+                    	<li class="col {{activeLink currentPath '/clinics'}}">
                     		<a class="" href="/clinics"><span>60 000+</span><h3>Clinics</h3></a>
                 		</li>
                 		<!--/.col-->
-                		<li class="col">
+                		<li class="col {{activeLink currentPath '/services'}}">
                     		<a class="" href="/services"><span>2 000+</span><h3>Services</h3></a>
                 		</li>
-                		<li class="col">
+                		<li class="col {{activeLink currentPath '/doctors'}}">
                     		<a class="" href="/doctors"><span>1 000 000+</span><h3>Doctors</h3></a>
                 		</li>
                 		<!--/.col-->
-                		<li class="col">
+                		<li class="col {{activeLink currentPath '/pharmacies'}}">
                     		<a class="" href="/pharmacies"><span>3 100 000+</span><h3>Pharmacies</h3></a>
                 		</li>
                 		<!--/.col-->
-                		<li class="col">
+                		<li class="col {{activeLink currentPath '/drugs'}}">
                     		<a class="" href="/drugs"><span>240 000 000+</span><h3>Drugs</h3></a>
                 		</li>
                 		<!--/.col-->	 
@@ -498,10 +230,10 @@
 
     {{{body}}}
 
-<?php defined('_ACCESS') or die('У вас нет прав для вызова данной страницы!'); ?>
+
 
 </div>
-<!--/.wrapper-->
+
 
 <footer> 
 
@@ -626,10 +358,10 @@
 <!-- Placed at the end of the document so the pages load faster -->
 
 
-<script src="js/tether.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="/js/tether.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="js/ie10-viewport-bug-workaround.js"></script>
+{{!-- <script src="/js/app.js"></script> --}}
 
 <!-- Tooltips -->
 <script> 
@@ -671,7 +403,7 @@
   </script>
 
 <!-- Ccarousels -->
-<script src="js/owl.carousel.js"></script>
+<script src="/js/owl.carousel.js"></script>
 
 <!-- Reviews carousel-->
 <script>
@@ -731,7 +463,7 @@
 </script>
 
 <!-- LightBox -->
-<script src="js/simpleLightbox.js"></script>
+<script src="/js/simpleLightbox.js"></script>
 <script>
     $('.gallery a.gallery-img').simpleLightbox();
 </script>
