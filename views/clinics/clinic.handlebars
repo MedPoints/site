@@ -4,24 +4,28 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/">Home</a></li>
             <li class="breadcrumb-item"><a href="/clinics">Clinics</a></li>
-            <li class="breadcrumb-item active" aria-current="page"><?=$page_title?></li>
+            <li class="breadcrumb-item active" aria-current="page">{{hospital.name}}</li>
         </ol>
     </nav>
- 
+
     <div class="row">
         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
 
             <div class="row">
-                <div class="col-xl-4 col-md-12"> 
+                <div class="col-xl-4 col-md-12">
                     <a class="avatar" href="/clinic"><div class="crop"><img src="/img/_demo/clinic1.jpg" alt="" /></div></a>
                     <div class="text-success" data-toggle="tooltip" data-placement="top" title="Participant in the program of insurance points"><i class="fas fa-heartbeat"></i> Insurance</div>
                     <div class="text-success" data-toggle="tooltip" data-placement="top" title="Participant in the program of Help foundation"><i class="far fa-life-ring"></i> Help foundation</div>
                 </div>
                 <!--/.col-->
                 <div class="col-xl-8 col-md-12">
-                    <h3>Public</h3> 
-                    <div><a href="/clinics">Dietology</a>, <a href="/clinics">Oncology</a>, <a href="/clinics">Traumatology</a> + 123 more</div>
-                    <p>462 First Avenue, <a href="/clinics">New York</a>, <a href="/clinics">NY</a>, <a href="/clinics">United States</a></p>
+                    <h3>Public</h3>
+                    <div>
+                        {{#each hospital.specialiazions as |specialization| }}
+                            <a href="/clinics/test">{{specialization}}</a>&nbsp;
+                        {{/each}}
+                    </div>
+                    <p>{{hospital.address}}</p>
                     <div class="row">
                         <div class="col">
 							<div class="card">
@@ -33,7 +37,7 @@
 							</div><!--/.card-->
                         </div>
                         <!--/.col-->
-                        <div class="col">
+                        <div class="col" hidden>
                             <div class="color-gray" data-toggle="tooltip" data-placement="top" title="Provides a transfer from the airport"><i class="fas fa-plane"></i> Airport transfer</div>
                             <div class="" data-toggle="tooltip" data-placement="top" title="Available with bus routes"><i class="fas fa-bus"></i> Bus route</div>
                             <div class="" data-toggle="tooltip" data-placement="top" title="Has free parking"><i class="fas fa-car"></i> Free parking</div>
@@ -41,36 +45,36 @@
                         <!--/.col-->
                     </div>
                     <!--/.row-->
- 
+
                 </div>
                 <!--/.col-->
             </div>
-            <!--/.row--> 
-			
+            <!--/.row-->
+
 			<br />
 
             <p>Lorem ipsum dolor sit amet, dolores mandamus moderatius ea ius, sed civibus vivendum imperdiet ei, amet tritani sea id. Ut veri diceret fierent mei, qui facilisi suavitate euripidis ad. In vim mucius menandri convenire, an brute zril vis. Ancillae delectus necessitatibus no eam, at porro solet veniam mel, ad everti nostrud vim. Eam no menandri pertinacia deterruisset.</p>
- 
+
             <div class="table-responsive">
                 <table summary="" class="table table-hover">
                     <tbody>
                         <tr>
                             <td><strong>Network</strong></td>
-                            <td>NYC Health + Hospitals, NYU Langone Health System</td>
+                            <td>{{hospital.network}}</td>
                         </tr>
-                        <tr>
+                        <tr hidden>
                             <td><strong>Beds</strong></td>
                             <td>1,500 (1,160 general, 340 psychiatric)</td>
                         </tr>
-                        <tr>
+                        <tr hidden>
                             <td><strong>Hospital type</strong></td>
                             <td>Teaching</td>
                         </tr>
-                        <tr>
+                        <tr hidden>
                             <td><strong>Affiliated university</strong></td>
                             <td>NYU School of Medicine</td>
                         </tr>
-                        <tr>
+                        <tr hidden>
                             <td><strong>Emergency department</strong></td>
                             <td>Level I trauma center</td>
                         </tr>
@@ -80,7 +84,7 @@
             <!--/.table-responsive-->
 
             <hr />
- 
+
             <h3>Clinic gallery</h3>
 
             <div class="gallery">
@@ -96,7 +100,7 @@
                     <li class="item"><a class="gallery-img" href="/img/_demo/clinic9.jpg" title="Caption for gallery item 3"><img src="/img/_demo/clinic9.jpg" alt="Gallery image 3" /></a></li>
                 </ul>
             </div>
- 
+
         </div>
         <!--/.col-->
         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
@@ -104,12 +108,12 @@
             <nav class="sticky-top">
 
                 <div class="row">
-					
+
                     <div class="col-xl-6 col-lg-12">
 
                         <div class="wave text-center">
-                            <h4>Rating <strong class="text-success">9.99</strong></h4>
-                            <p>based on <strong><a class="" href="#opinions">58 opinions</a></strong></p>
+                            <h4 hidden>Rating <strong class="text-success">9.99</strong></h4>
+                            <p hidden>based on <strong><a class="" href="#opinions">58 opinions</a></strong></p>
                             <p><a class="btn btn-primary btn-lg justify" href="/doctors"><strong>215</strong> doctors</a></p>
                             <p><a class="" href="/services"><strong>1425</strong> services</a></p>
 
@@ -121,7 +125,7 @@
                         <!--/.wave-->
                     </div>
                     <!--/.col-->
-				
+
                     <div class="col-xl-6 col-lg-12">
 						<div class="map hidden-lg-down">
                         	<iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d84016.36429915384!2d2.161754161251458!3d48.848458114630624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e0!4m0!4m5!1s0x47e67031f8c20147%3A0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris%2C+3+Avenue+Victoria%2C+75004+Paris%2C+Francia!3m2!1d48.856836099999995!2d2.3504327!5e0!3m2!1sen!2sru!4v1517149847463"
@@ -135,12 +139,12 @@
 						</div>
                     </div>
                     <!--/.col-->
-					
+
                 </div>
                 <!--/.row-->
- 
+
             </nav>
- 
+
         </div>
         <!--/.col-->
     </div>
@@ -150,7 +154,7 @@
 
     <div class="row">
         <div class="col">
- 
+
             <h3>Departments</h3>
 
             <ul class="nav-pills">
@@ -177,7 +181,7 @@
 
     <hr />
 
-    <div class="row">
+    <div class="row" hidden>
         <div class="col">
 
             <h3>Services and prices <span class="badge">212</span></h3>
@@ -196,7 +200,7 @@
                                 <h5>Price</h5>
                             </th>
                             <th>
-                                <h5>Rating</h5> 
+                                <h5>Rating</h5>
                             </th>
                             <th>
                                 <h5>Insurance</h5>
@@ -214,7 +218,7 @@
                             </td>
                             <td>30 min.</td>
                             <td class="price-td">from <strong class="text-dark">$24</strong><br /><strong class="text-success">1 MPT</strong></td>
-                            <td>
+                            <td hidden>
 								<h4><strong class="text-success">9.99</strong></h4>
                             	<p>based on <strong><a class="" href="/service#opinions">58 opinions</a></strong></p>
 							</td>
@@ -326,15 +330,15 @@
                         		<!--/.col-->
 							</div><!--/.row-->
                         </div>
-                        <!--/.col--> 
+                        <!--/.col-->
                         <div class="col-xl-4 col-md-5 col-sm-12">
                             <div class="wave text-center">
                                 <p>Required amount <br /><strong class="text-info">$55.000</strong> / <strong class="text-success">25.000 MPT</strong></p>
                                 <p>Collected funds <br /><strong>$35.000</strong> / <strong>15.000 MPT</strong></p>
-                                <p><strong>462</strong> users participated in fundraising</p> 
-								<h3><span id="clock101"></span></h3>  
+                                <p><strong>462</strong> users participated in fundraising</p>
+								<h3><span id="clock101"></span></h3>
                                 <script>
-                                    // Count down  
+                                    // Count down
                                     	$('#clock101').countdown('2018/09/10', function(event) {
                                       $(this).html(event.strftime('%D days %H:%M:%S'));
                                     });
@@ -347,7 +351,7 @@
                         <!--/.col-->
                     </div>
                     <!--/.row-->
-                </li> 
+                </li>
                 <li>
                     <div class="row">
                         <div class="col-xl-8 col-md-7 col-sm-12">
@@ -369,24 +373,24 @@
                         		<!--/.col-->
 							</div><!--/.row-->
                         </div>
-                        <!--/.col--> 
+                        <!--/.col-->
                         <div class="col-xl-4 col-md-5 col-sm-12">
                             <div class="wave text-center">
                                 <p>Required amount <br /><strong class="text-info">$55.000</strong> / <strong class="text-success">25.000 MPT</strong></p>
                                 <p>Collected funds <br /><strong class="text-info">$55.000</strong> / <strong class="text-success">25.000 MPT</strong></p>
-                                <p><strong>1462</strong> users participated in fundraising</p> 
-								<h3>Case successfully closed</h3>   
+                                <p><strong>1462</strong> users participated in fundraising</p>
+								<h3>Case successfully closed</h3>
                             </div>
                             <!--/.wave-->
                         </div>
                         <!--/.col-->
                     </div>
                     <!--/.row-->
-                </li> 
+                </li>
             </ul>
- 
+
             <a class="btn btn-primary" href="/foundation-cases">View all foundation cases</a>
- 
+
         </div>
         <!--/.col-->
     </div>
@@ -394,7 +398,7 @@
 
     <br />
 
-    <section class="bg-gray">
+    <section class="bg-gray" hidden>
 
         <div class="reviews" id="opinions">
 

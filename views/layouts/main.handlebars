@@ -53,10 +53,10 @@
 
 
     <div class="ico-info-box"
-        >Welcome to MedPoints&#8482;! 
-        This is a basic demo that simulates user experience, 
+        >Welcome to MedPoints&#8482;!
+        This is a basic demo that simulates user experience,
         but does not contain the full functionality at the moment. <br />
-        If you want to become part of the project and support its development, please join our 
+        If you want to become part of the project and support its development, please join our
         <a href="https://medpoints.io" target="_blank">ICO company</a>.</div>
 
     <header>
@@ -64,7 +64,7 @@
         <nav class="navbar navbar-toggleable-md">
 
             <button id="btn-menu" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation"><i class="fas fa-bars"></i><span> Open menu</span></button>
-			
+
             <a class="navbar-brand" href="/"><img src="/img/logo.svg" alt="" /></a>
 
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
@@ -99,8 +99,8 @@
                         <span class="nav-link">Font-size</span>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link sizer" href="#" id="small">A</a> 
-                        <a class="nav-link sizer selected" href="#" id="medium" class="selected">A</a> 
+                        <a class="nav-link sizer" href="#" id="small">A</a>
+                        <a class="nav-link sizer selected" href="#" id="medium" class="selected">A</a>
                         <a class="nav-link sizer" href="#" id="large">A</a>
                     </li>
                 </ul>
@@ -128,7 +128,7 @@
                     <div class="col-9">
                         <h1 class="display-3">MedPoints&#8482; - Blockchain based <br />worldwide <strong>medical booking</strong></h1>
                     </div>
-                    <!--/.col--> 
+                    <!--/.col-->
                 </div>
                 <!--/.row-->
 
@@ -136,17 +136,17 @@
         </section>
 
         <h1 class="page-title" id="js-intro"><?=$page_title?></h1>
- 
+
             <div class="row">
                 <div class="col-xl-3 push-xl-9 col-lg-12 push-lg-0">
 					<div class="extra">
 					<ul class="row">
-                    	<li class="col-xl-12 col-lg-6 text-xl-right text-lg-left"> 
+                    	<li class="col-xl-12 col-lg-6 text-xl-right text-lg-left">
                     		<a href="/insurance"><i class="fas fa-heartbeat"></i> Insurance program</a>
                     	</li>
                     	<!--/.col-->
                     	<li class="col-xl-12 col-lg-6 text-xl-right text-lg-left">
-                    		<a href="/foundation"><i class="far fa-life-ring"></i> Help foundation</a> 
+                    		<a href="/foundation"><i class="far fa-life-ring"></i> Help foundation</a>
                     	</li>
                     	<!--/.col-->
                     </ul>
@@ -176,38 +176,38 @@
                 		<li class="col {{activeLink currentPath '/drugs'}}">
                     		<a class="" href="/drugs"><span>240 000 000+</span><h3>Drugs</h3></a>
                 		</li>
-                		<!--/.col-->	 
+                		<!--/.col-->
                     </ul>
-                    <!--/.row--> 
+                    <!--/.row-->
         		</div>
         		<!--/.cats-->
                 </div>
-                <!--/.col--> 
+                <!--/.col-->
             </div>
-            <!--/.row--> 
+            <!--/.row-->
 
     </header>
 
     <div class="wrapper">
 
-        <form class="search">
+        <form class="search" method="post" action="/search">
 
             <div class="row">
                 <div class="col-xl-9 col-md-8 col-sm-12">
                     <div class="input-group input-group-lg">
-                        <input type="text" class="form-control" placeholder="Type your search request ..." />
+                        <input type="text" class="form-control" name="search" placeholder="Type your search request ..." />
 
-                        <select class="custom-select">
+                        <select name="category" class="custom-select">
   							<option selected>Category</option>
-  							<option value="1">Clinics</option>
-  							<option value="2">Services</option>
-  							<option value="3">Doctors</option>
-  							<option value="4">Pharmacies</option>
-  							<option value="5">Drugs</option> 
+  							<option >Clinics</option>
+  							<option value="2" hidden>Services</option>
+  							<option >Doctors</option>
+  							<option value="4" hidden>Pharmacies</option>
+  							<option value="5" hidden>Drugs</option>
 						</select>
 
                         <div class="input-group-btn">
-                            <button type="button" class="btn btn-primary">
+                            <button type="submit" class="btn btn-primary">
           						<i class="fas fa-search"></i><span> Search</span>
         					</button>
                         </div>
@@ -235,11 +235,11 @@
 </div>
 
 
-<footer> 
+<footer>
 
-    <div class="row"> 
+    <div class="row">
         <div class="col-xl-8 col-md-7 col-sm-12">
-		
+
 			<div class="row">
                 <div class="col-xl-4 col-md-4 col-sm-6">
             		<h4>Project</h4>
@@ -250,10 +250,10 @@
                 		<li><a href="/partnership">Partnership</a></li>
 						<li><a href="/explorer">Blockchain explorer</a></li>
 						<li><a href="/blog">Blog</a></li>
-            		</ul> 
+            		</ul>
                 </div>
                 <!--/.col-->
-                <div class="col-xl-4 col-md-4 col-sm-6"> 
+                <div class="col-xl-4 col-md-4 col-sm-6">
             		<h4>Support</h4>
             		<ul>
                 		<li><a href="/faq">FAQ</a></li>
@@ -263,7 +263,7 @@
             		</ul>
                 </div>
                 <!--/.col-->
-                <div class="col-xl-4 col-md-4 col-sm-12"> 
+                <div class="col-xl-4 col-md-4 col-sm-12">
             		<h4>Applications</h4>
             		<div class="row">
                 		<div class="col-xl-6 col-md-12 col-sm-6">
@@ -284,18 +284,18 @@
                 		</div>
                 		<!--/.col-->
             		</div>
-            		<!--/.row--> 
+            		<!--/.row-->
                 </div>
                 <!--/.col-->
             </div>
-            <!--/.row--> 
-             
+            <!--/.row-->
+
         </div>
         <!--/.col-->
         <div class="col-xl-4 col-md-5 col-sm-12">
-		
+
             <p>Sign up for updates of MedPoints&#8482;<br /><small>Without any spam and advertising</small></p>
-			
+
             <form>
 
                 <div class="input-group">
@@ -307,9 +307,9 @@
         				</button>
                     </div>
                 </div>
- 
+
             </form>
-			 
+
 			<div class="row social-bottom">
         		<div class="col-xl-6 col-md-12 col-sm-12">
             		<small>Follow the updates in the official project groups</small>
@@ -326,13 +326,13 @@
         		<!--/.col-->
     		</div>
     		<!--/.row /.social-bottom-->
-		 
+
         </div>
         <!--/.col-->
     </div>
     <!--/.row-->
 
-	<p><div class="alert alert-info text-center"><h5>Information on the site is provided for informational purposes only.</h5> Clinics and doctors are not official partners of the system. Medicinal guides may not be 100% faithful, as well as a description of specific drugs and services.</div></p> 
+	<p><div class="alert alert-info text-center"><h5>Information on the site is provided for informational purposes only.</h5> Clinics and doctors are not official partners of the system. Medicinal guides may not be 100% faithful, as well as a description of specific drugs and services.</div></p>
 
     <div class="row">
         <div class="col">
@@ -364,8 +364,8 @@
 {{!-- <script src="/js/app.js"></script> --}}
 
 <!-- Tooltips -->
-<script> 
-	$('[data-toggle="tooltip"]').tooltip(); 
+<script>
+	$('[data-toggle="tooltip"]').tooltip();
 </script>
 
 <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
@@ -445,7 +445,7 @@
             600:{
                 items:2,
                 nav:false
-            }, 
+            },
             1000:{
                 items:3,
                 nav:true,
@@ -471,158 +471,158 @@
 <!-- Adaptive style -->
 <script>
     $(document).ready(function(){
-      
+
       $("#small").click(function(event){
         event.preventDefault();
         $("body").addClass("small");
         $("body").removeClass("medium");
         $("body").removeClass("large");
-        
+
       });
-      
+
       $("#medium").click(function(event){
         event.preventDefault();
         $("body").removeClass("small");
         $("body").removeClass("large");
-        
+
       });
-      
+
       $("#large").click(function(event){
         event.preventDefault();
         $("body").addClass("large");
         $("body").removeClass("small");
         $("body").removeClass("medium");
-        
+
       });
-      
+
       $( "a.sizer" ).click(function() {
        $("a.sizer").removeClass("selected");
       $(this).addClass("selected");
-      
+
      });
-    
+
     });
 </script>
-	
+
 	<!-- Change btn text on copied -->
 <script>
-    // Count down  
+    // Count down
     $(document).ready(function(){
-      
+
       $('.btn-copy1').click(function () {
     if($('.btn-copy1 i').hasClass('fa-copy'))
     {
-        $('.btn-copy1').html('<i class="far fa-copy"></i> Copied');   
-        $('.btn-copy2').html('<i class="far fa-copy"></i> Copy'); 
+        $('.btn-copy1').html('<i class="far fa-copy"></i> Copied');
+        $('.btn-copy2').html('<i class="far fa-copy"></i> Copy');
     }
     else
-    {      
-        $('.btn-copy1').html('<i class="far fa-copy"></i> Copy'); 
+    {
+        $('.btn-copy1').html('<i class="far fa-copy"></i> Copy');
     }
-    }); 
-      
+    });
+
       $('.btn-copy2').click(function () {
     if($('.btn-copy2 i').hasClass('fa-copy'))
     {
-        $('.btn-copy2').html('<i class="far fa-copy"></i> Copied');   
-        $('.btn-copy1').html('<i class="far fa-copy"></i> Copy'); 
+        $('.btn-copy2').html('<i class="far fa-copy"></i> Copied');
+        $('.btn-copy1').html('<i class="far fa-copy"></i> Copy');
     }
     else
-    {      
-        $('.btn-copy2').html('<i class="far fa-copy"></i> Copy'); 
+    {
+        $('.btn-copy2').html('<i class="far fa-copy"></i> Copy');
     }
-    }); 
-    
     });
-</script> 
-	
+
+    });
+</script>
+
 	<!-- Change btn text on copied -->
 <script>
-    // Count down  
+    // Count down
     $(document).ready(function(){
-      
+
       $('.btn-map').click(function () {
     if($('.btn-map i').hasClass('fa-map-marker'))
     {
-        $('.btn-map').html('<i class="fas fa-map-marker"></i> Close map');    
+        $('.btn-map').html('<i class="fas fa-map-marker"></i> Close map');
     }
     else
-    {      
-        $('.btn-map').html('<i class="fas fa-map-marker"></i> Show on map'); 
+    {
+        $('.btn-map').html('<i class="fas fa-map-marker"></i> Show on map');
     }
-    });  
-    
     });
-</script> 
+
+    });
+</script>
 
 <!-- Change btn text on collapse status -->
 <script>
-    // Count down  
+    // Count down
     $(document).ready(function(){
-      
+
       $('#btn-more').click(function () {
     if($('#btn-more i').hasClass('fa-angle-down'))
     {
-        $('#btn-more').html('<i class="fas fa-angle-up"></i> Less filters'); 
+        $('#btn-more').html('<i class="fas fa-angle-up"></i> Less filters');
     }
     else
-    {      
-        $('#btn-more').html('<i class="fas fa-angle-down"></i> More filters'); 
+    {
+        $('#btn-more').html('<i class="fas fa-angle-down"></i> More filters');
     }
-    }); 
-    
+    });
+
     });
 </script>
 
 <!-- Nav toggle -->
 <script>
-    // Count down  
+    // Count down
     $(document).ready(function(){
-      
+
       $('#btn-menu').click(function () {
     if($('#btn-menu i').hasClass('fa-bars'))
     {
-        $('#btn-menu').html('<i class="fas fa-times"></i><span> Close menu</span>'); 
+        $('#btn-menu').html('<i class="fas fa-times"></i><span> Close menu</span>');
     }
     else
-    {      
-        $('#btn-menu').html('<i class="fas fa-bars"></i><span> Open menu</span>'); 
+    {
+        $('#btn-menu').html('<i class="fas fa-bars"></i><span> Open menu</span>');
     }
-    }); 
-    
+    });
+
     });
 </script>
 
 <!-- bell toggle -->
 <script>
-    // Count down  
+    // Count down
     $(document).ready(function(){
-      
+
       $('.btn-bell1').click(function () {
     if($('.btn-bell1 i').hasClass('fa-bell'))
     {
-        $('.btn-bell1').html('<i class="fas fa-bell-slash text-danger"></i>'); 
+        $('.btn-bell1').html('<i class="fas fa-bell-slash text-danger"></i>');
     }
     else
-    {      
-        $('.btn-bell1').html('<i class="fas fa-bell text-success"></i>'); 
+    {
+        $('.btn-bell1').html('<i class="fas fa-bell text-success"></i>');
     }
-    });  
-      
+    });
+
       $('.btn-bell2').click(function () {
     if($('.btn-bell2 i').hasClass('fa-bell'))
     {
-        $('.btn-bell2').html('<i class="fas fa-bell-slash text-danger"></i>'); 
+        $('.btn-bell2').html('<i class="fas fa-bell-slash text-danger"></i>');
     }
     else
-    {      
-        $('.btn-bell2').html('<i class="fas fa-bell text-success"></i>'); 
+    {
+        $('.btn-bell2').html('<i class="fas fa-bell text-success"></i>');
     }
-    });  
-    
+    });
+
     });
 </script>
- 
+
 <!-- Delete parent -->
 <script>
     $("a.delete-parent").click(function(event) {
@@ -630,7 +630,7 @@
       $(this).parent('.parent').remove();
     });
 </script>
- 
+
 <!-- Crop -->
 <script>
 function repos(imgs) {
@@ -660,7 +660,7 @@ $(window).resize(function () {
 
 repos($('.crop img'))
 </script>
- 
+
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
     (function (d, w, c) {
