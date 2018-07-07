@@ -204,105 +204,26 @@
                         </tr>
                     </thead>
                     <tbody>
+                        {{#each drugs as |drug|}}
                         <tr>
                             <td>
-                                <h4><a href="/drug" title="">Aspirin</a> acetylsalicylic acid (ASA)</h4>
-                                <p>The prototypical analgesic used in the treatment of mild to moderate pain. It has anti-inflammatory and antipyretic properties and acts as an inhibitor of cyclooxygenase which results in the inhibition of the biosynthesis
-                                    of prostaglandins. </p>
+                                <h4><a href="/drugs/{{ drug.id }}" title="">{{ drug.name }}</a></h4>
+                                <p>{{ drug.short_descr }}</p>
                             </td>
-                            <td class="price-td">from <strong class="text-dark">$24</strong><br /><strong class="text-success">240 MPT</strong></td>
-                            <td class="text-center"><i class="fas fa-plus text-success" data-toggle="tooltip" data-placement="top" title="Can be purchased for insurance points"></i></td>
-                            <td class="text-center"><i class="fas fa-plus text-success" data-toggle="tooltip" data-placement="top" title="Can be purchased for insurance points"></i></td>
-                            <td><a class="btn btn-primary float-right" href="/doctors"><strong>1270</strong> Pharmacies</a></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h4><a href="/drug" title="">Aspirin</a> acetylsalicylic acid (ASA)</h4>
-                                <p>The prototypical analgesic used in the treatment of mild to moderate pain. It has anti-inflammatory and antipyretic properties and acts as an inhibitor of cyclooxygenase which results in the inhibition of the biosynthesis
-                                    of prostaglandins. </p>
+                            <td class="price-td">from <strong class="text-dark">${{ drug.price.dollars }}</strong><br /><strong class="text-success">{{ drug.price.mpts }} MPT</strong></td>
+                            <td class="text-center">
+                                {{#if drug.is_covered_by_insurance}}
+                                <i class="fas fa-plus text-success" data-toggle="tooltip" data-placement="top" title="Can be purchased for insurance points"></i>
+                                {{/if}}
                             </td>
-                            <td class="price-td">from <strong class="text-dark">$24</strong><br /><strong class="text-success">240 MPT</strong></td>
-                            <td></td>
-                            <td></td>
-                            <td><a class="btn btn-primary float-right" href="/doctors"><strong>1270</strong> Pharmacies</a></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h4><a href="/drug" title="">Aspirin</a> acetylsalicylic acid (ASA)</h4>
-                                <p>The prototypical analgesic used in the treatment of mild to moderate pain. It has anti-inflammatory and antipyretic properties and acts as an inhibitor of cyclooxygenase which results in the inhibition of the biosynthesis
-                                    of prostaglandins. </p>
+                            <td class="text-center">
+                                {{#if drug.is_by_prescription}}
+                                <i class="fas fa-plus text-success" data-toggle="tooltip" data-placement="top" title="Can be purchased for insurance points"></i>
+                                {{/if}}
                             </td>
-                            <td class="price-td">from <strong class="text-dark">$24</strong><br /><strong class="text-success">240 MPT</strong></td>
-                            <td></td>
-                            <td></td>
-                            <td><a class="btn btn-primary float-right" href="/doctors"><strong>1270</strong> Pharmacies</a></td>
+                            <td><a class="btn btn-primary float-right" href="/doctors"><strong>{{ drug.providers.pharmacies }}</strong> Pharmacies</a></td>
                         </tr>
-                        <tr>
-                            <td>
-                                <h4><a href="/drug" title="">Aspirin</a> acetylsalicylic acid (ASA)</h4>
-                                <p>The prototypical analgesic used in the treatment of mild to moderate pain. It has anti-inflammatory and antipyretic properties and acts as an inhibitor of cyclooxygenase which results in the inhibition of the biosynthesis
-                                    of prostaglandins. </p>
-                            </td>
-                            <td class="price-td">from <strong class="text-dark">$24</strong><br /><strong class="text-success">240 MPT</strong></td>
-                            <td class="text-center"><i class="fas fa-plus text-success" data-toggle="tooltip" data-placement="top" title="Can be purchased for insurance points"></i></td>
-                            <td class="text-center"><i class="fas fa-plus text-success" data-toggle="tooltip" data-placement="top" title="Can be purchased for insurance points"></i></td>
-                            <td><a class="btn btn-primary float-right" href="/doctors"><strong>1270</strong> Pharmacies</a></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h4><a href="/drug" title="">Aspirin</a> acetylsalicylic acid (ASA)</h4>
-                                <p>The prototypical analgesic used in the treatment of mild to moderate pain. It has anti-inflammatory and antipyretic properties and acts as an inhibitor of cyclooxygenase which results in the inhibition of the biosynthesis
-                                    of prostaglandins. </p>
-                            </td>
-                            <td class="price-td">from <strong class="text-dark">$24</strong><br /><strong class="text-success">240 MPT</strong></td>
-                            <td class="text-center"><i class="fas fa-plus text-success" data-toggle="tooltip" data-placement="top" title="Can be purchased for insurance points"></i></td>
-                            <td class="text-center"><i class="fas fa-plus text-success" data-toggle="tooltip" data-placement="top" title="Can be purchased for insurance points"></i></td>
-                            <td><a class="btn btn-primary float-right" href="/doctors"><strong>1270</strong> Pharmacies</a></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h4><a href="/drug" title="">Aspirin</a> acetylsalicylic acid (ASA)</h4>
-                                <p>The prototypical analgesic used in the treatment of mild to moderate pain. It has anti-inflammatory and antipyretic properties and acts as an inhibitor of cyclooxygenase which results in the inhibition of the biosynthesis
-                                    of prostaglandins. </p>
-                            </td>
-                            <td class="price-td">from <strong class="text-dark">$24</strong><br /><strong class="text-success">240 MPT</strong></td>
-                            <td class="text-center"><i class="fas fa-plus text-success" data-toggle="tooltip" data-placement="top" title="Can be purchased for insurance points"></i></td>
-                            <td></td>
-                            <td><a class="btn btn-primary float-right" href="/doctors"><strong>1270</strong> Pharmacies</a></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h4><a href="/drug" title="">Aspirin</a> acetylsalicylic acid (ASA)</h4>
-                                <p>The prototypical analgesic used in the treatment of mild to moderate pain. It has anti-inflammatory and antipyretic properties and acts as an inhibitor of cyclooxygenase which results in the inhibition of the biosynthesis
-                                    of prostaglandins. </p>
-                            </td>
-                            <td class="price-td">from <strong class="text-dark">$24</strong><br /><strong class="text-success">240 MPT</strong></td>
-                            <td></td>
-                            <td></td>
-                            <td><a class="btn btn-primary float-right" href="/doctors"><strong>1270</strong> Pharmacies</a></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h4><a href="/drug" title="">Aspirin</a> acetylsalicylic acid (ASA)</h4>
-                                <p>The prototypical analgesic used in the treatment of mild to moderate pain. It has anti-inflammatory and antipyretic properties and acts as an inhibitor of cyclooxygenase which results in the inhibition of the biosynthesis
-                                    of prostaglandins. </p>
-                            </td>
-                            <td class="price-td">from <strong class="text-dark">$24</strong><br /><strong class="text-success">240 MPT</strong></td>
-                            <td></td>
-                            <td></td>
-                            <td><a class="btn btn-primary float-right" href="/doctors"><strong>1270</strong> Pharmacies</a></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h4><a href="/drug" title="">Aspirin</a> acetylsalicylic acid (ASA)</h4>
-                                <p>The prototypical analgesic used in the treatment of mild to moderate pain. It has anti-inflammatory and antipyretic properties and acts as an inhibitor of cyclooxygenase which results in the inhibition of the biosynthesis
-                                    of prostaglandins. </p>
-                            </td>
-                            <td class="price-td">from <strong class="text-dark">$24</strong><br /><strong class="text-success">240 MPT</strong></td>
-                            <td></td>
-                            <td></td>
-                            <td><a class="btn btn-primary float-right" href="/doctors"><strong>1270</strong> Pharmacies</a></td>
-                        </tr>
+                        {{/each}}
                     </tbody>
                 </table>
             </div>

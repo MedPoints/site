@@ -144,23 +144,23 @@
         <div class="col-xl-8 pull-xl-4 col-lg-12 pull-lg-0">
 
             <ul class="items-list">
-			
+			    {{#each pharmacies as |pharmacy|}}
                 <li>
                     <div class="row">
                         <div class="col-xl-3 col-md-3 col-sm-4">
-                            <a class="avatar" href="/pharmacy"><div class="crop"><img src="img/_demo/pharmacy1.jpg" alt="" /></div></a> 
+                            <a class="avatar" href="/pharmacies/{{ pharmacy.id }}"><div class="crop"><img src="img/_demo/pharmacy1.jpg" alt="" /></div></a> 
                         </div>
                         <!--/.col-->
                         <div class="col-xl-5 col-md-5 col-sm-8">
-                            <h3><a class="" href="/pharmacy">Pharmacy Store #1</a></h3>
-                            <p><i class="fas fa-map-marker"></i> 462 First Avenue, <a href="/clinics">New York</a>, <a href="/clinics">NY</a>, <a href="/clinics">United States</a></p>
+                            <h3><a class="" href="/pharmacies/{{ pharmacy.id }}">{{ pharmacy.name }}</a></h3>
+                            <p><i class="fas fa-map-marker"></i> {{ pharmacy.location.address }}, <a href="/clinics">{{ pharmacy.location.city }}</a>, <a href="/clinics">{{ pharmacy.location.state }}</a>, <a href="/clinics">{{ pharmacy.location.country }}</a></p>
                             <div class="row">
                                 <div class="col">
 									<div class="card">
                                     	<ul>
-                                        	<li><small>Monday-Friday:</small> <br />8:00 - 17:00</li>
-                                        	<li><small>Saturday:</small> <br />10:00 - 16:00</li>
-                                        	<li><small>Sunday:</small> <br />12:00 - 14:00</li>
+                                            {{#each pharmacy.work_time as |work_time|}}
+                                        	<li><small>{{ work_time.weekdays }}:</small> <br />{{ work_time.time }}</li>
+                                            {{/each}}
                                     	</ul>
 									</div><!--/.card-->
                                 </div>
@@ -176,175 +176,15 @@
                             <div class="wave text-center">
                                 <h4>Rating <strong class="text-success">9.99</strong></h4>
                                 <p>based on <strong><a class="" href="/pharmacy#opinions">58 opinions</a></strong></p>
-                                <a class="btn btn-primary btn-lg justify" href="/drugs"><strong>33 661</strong> drugs</a>
+                                <a class="btn btn-primary btn-lg justify" href="/drugs"><strong>{{ pharmacy.drugs }}</strong> drugs</a>
                             </div>
                             <!--/.wave-->
                         </div>
                         <!--/.col-->
                     </div>
                     <!--/.row-->
-                </li>  
-			
-                <li>
-                    <div class="row">
-                        <div class="col-xl-3 col-md-3 col-sm-4">
-                            <a class="avatar" href="/pharmacy"><div class="crop"><img src="img/_demo/pharmacy1.jpg" alt="" /></div></a> 
-                        </div>
-                        <!--/.col-->
-                        <div class="col-xl-5 col-md-5 col-sm-8">
-                            <h3><a class="" href="/pharmacy">Pharmacy Store #1</a></h3>
-                            <p><i class="fas fa-map-marker"></i> 462 First Avenue, <a href="/clinics">New York</a>, <a href="/clinics">NY</a>, <a href="/clinics">United States</a></p>
-                            <div class="row">
-                                <div class="col">
-									<div class="card">
-                                    	<ul>
-                                        	<li><small>Monday-Friday:</small> <br />8:00 - 17:00</li>
-                                        	<li><small>Saturday:</small> <br />10:00 - 16:00</li>
-                                        	<li><small>Sunday:</small> <br />12:00 - 14:00</li>
-                                    	</ul>
-									</div><!--/.card-->
-                                </div>
-                                <!--/.col-->
-                                <div class="col"> 
-                                </div>
-                                <!--/.col-->
-                            </div>
-                            <!--/.row-->
-                        </div>
-                        <!--/.col-->
-                        <div class="col-xl-4 col-md-4 col-sm-12">
-                            <div class="wave text-center">
-                                <h4>Rating <strong class="text-success">9.99</strong></h4>
-                                <p>based on <strong><a class="" href="/pharmacy#opinions">58 opinions</a></strong></p>
-                                <a class="btn btn-primary btn-lg justify" href="/drugs"><strong>33 661</strong> drugs</a>
-                            </div>
-                            <!--/.wave-->
-                        </div>
-                        <!--/.col-->
-                    </div>
-                    <!--/.row-->
-                </li> 
-			
-                <li>
-                    <div class="row">
-                        <div class="col-xl-3 col-md-3 col-sm-4">
-                            <a class="avatar" href="/pharmacy"><div class="crop"><img src="img/_demo/pharmacy1.jpg" alt="" /></div></a> 
-                        </div>
-                        <!--/.col-->
-                        <div class="col-xl-5 col-md-5 col-sm-8">
-                            <h3><a class="" href="/pharmacy">Pharmacy Store #1</a></h3>
-                            <p><i class="fas fa-map-marker"></i> 462 First Avenue, <a href="/clinics">New York</a>, <a href="/clinics">NY</a>, <a href="/clinics">United States</a></p>
-                            <div class="row">
-                                <div class="col">
-									<div class="card">
-                                    	<ul>
-                                        	<li><small>Monday-Friday:</small> <br />8:00 - 17:00</li>
-                                        	<li><small>Saturday:</small> <br />10:00 - 16:00</li>
-                                        	<li><small>Sunday:</small> <br />12:00 - 14:00</li>
-                                    	</ul>
-									</div><!--/.card-->
-                                </div>
-                                <!--/.col-->
-                                <div class="col"> 
-                                </div>
-                                <!--/.col-->
-                            </div>
-                            <!--/.row-->
-                        </div>
-                        <!--/.col-->
-                        <div class="col-xl-4 col-md-4 col-sm-12">
-                            <div class="wave text-center">
-                                <h4>Rating <strong class="text-success">9.99</strong></h4>
-                                <p>based on <strong><a class="" href="/pharmacy#opinions">58 opinions</a></strong></p>
-                                <a class="btn btn-primary btn-lg justify" href="/drugs"><strong>33 661</strong> drugs</a>
-                            </div>
-                            <!--/.wave-->
-                        </div>
-                        <!--/.col-->
-                    </div>
-                    <!--/.row-->
-                </li> 
-			
-                <li>
-                    <div class="row">
-                        <div class="col-xl-3 col-md-3 col-sm-4">
-                            <a class="avatar" href="/pharmacy"><div class="crop"><img src="img/_demo/pharmacy1.jpg" alt="" /></div></a> 
-                        </div>
-                        <!--/.col-->
-                        <div class="col-xl-5 col-md-5 col-sm-8">
-                            <h3><a class="" href="/pharmacy">Pharmacy Store #1</a></h3>
-                            <p><i class="fas fa-map-marker"></i> 462 First Avenue, <a href="/clinics">New York</a>, <a href="/clinics">NY</a>, <a href="/clinics">United States</a></p>
-                            <div class="row">
-                                <div class="col">
-									<div class="card">
-                                    	<ul>
-                                        	<li><small>Monday-Friday:</small> <br />8:00 - 17:00</li>
-                                        	<li><small>Saturday:</small> <br />10:00 - 16:00</li>
-                                        	<li><small>Sunday:</small> <br />12:00 - 14:00</li>
-                                    	</ul>
-									</div><!--/.card-->
-                                </div>
-                                <!--/.col-->
-                                <div class="col"> 
-                                </div>
-                                <!--/.col-->
-                            </div>
-                            <!--/.row-->
-                        </div>
-                        <!--/.col-->
-                        <div class="col-xl-4 col-md-4 col-sm-12">
-                            <div class="wave text-center">
-                                <h4>Rating <strong class="text-success">9.99</strong></h4>
-                                <p>based on <strong><a class="" href="/pharmacy#opinions">58 opinions</a></strong></p>
-                                <a class="btn btn-primary btn-lg justify" href="/drugs"><strong>33 661</strong> drugs</a>
-                            </div>
-                            <!--/.wave-->
-                        </div>
-                        <!--/.col-->
-                    </div>
-                    <!--/.row-->
-                </li> 
-			
-                <li>
-                    <div class="row">
-                        <div class="col-xl-3 col-md-3 col-sm-4">
-                            <a class="avatar" href="/pharmacy"><div class="crop"><img src="img/_demo/pharmacy1.jpg" alt="" /></div></a> 
-                        </div>
-                        <!--/.col-->
-                        <div class="col-xl-5 col-md-5 col-sm-8">
-                            <h3><a class="" href="/pharmacy">Pharmacy Store #1</a></h3>
-                            <p><i class="fas fa-map-marker"></i> 462 First Avenue, <a href="/clinics">New York</a>, <a href="/clinics">NY</a>, <a href="/clinics">United States</a></p>
-                            <div class="row">
-                                <div class="col">
-									<div class="card">
-                                    	<ul>
-                                        	<li><small>Monday-Friday:</small> <br />8:00 - 17:00</li>
-                                        	<li><small>Saturday:</small> <br />10:00 - 16:00</li>
-                                        	<li><small>Sunday:</small> <br />12:00 - 14:00</li>
-                                    	</ul>
-									</div><!--/.card-->
-                                </div>
-                                <!--/.col-->
-                                <div class="col"> 
-                                </div>
-                                <!--/.col-->
-                            </div>
-                            <!--/.row-->
-                        </div>
-                        <!--/.col-->
-                        <div class="col-xl-4 col-md-4 col-sm-12">
-                            <div class="wave text-center">
-                                <h4>Rating <strong class="text-success">9.99</strong></h4>
-                                <p>based on <strong><a class="" href="/pharmacy#opinions">58 opinions</a></strong></p>
-                                <a class="btn btn-primary btn-lg justify" href="/drugs"><strong>33 661</strong> drugs</a>
-                            </div>
-                            <!--/.wave-->
-                        </div>
-                        <!--/.col-->
-                    </div>
-                    <!--/.row-->
-                </li> 
-				
+                </li>
+                {{/each}}	
             </ul>
  
 			<div class="row pagination-line">
@@ -377,5 +217,3 @@
         <!--/.col--> 
     </div>
     <!--/.row-->
- 
-    <?php include($_SERVER["DOCUMENT_ROOT"]."/inc/footer.php"); ?>

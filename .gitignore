@@ -2,5 +2,6 @@
 node_modules/
 *.log
 .idea
+.vscode
 variables.env
 variables.env.now

@@ -1,48 +1,29 @@
-<?php define( '_ACCESS', 1 ); ?>
-
-<?php
-
-    $page_name = 'pharmacy';
-    $page_title = 'Pharmacy';
-	$page_keywords = '';
-	$page_description = '';
-	
-?>
-
-    <?php include($_SERVER["DOCUMENT_ROOT"]."/inc/header.php"); ?>
-
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/">Home</a></li>
             <li class="breadcrumb-item"><a href="/pharmacies">Pharmacies</a></li>
-            <li class="breadcrumb-item active" aria-current="page"><?=$page_title?></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ pharmacy.name }}</li>
         </ol>
     </nav>
  
     <div class="row">
         <div class="col-6">
-
             <div class="row">
                 <div class="col-xl-4 col-md-12">
-                    <a class="avatar" href="/pharmacy"><div class="crop"><img src="img/_demo/pharmacy1.jpg" alt="" /></div></a>
+                    <a class="avatar" href="/pharmacies/{{ pharmacy.id }}"><div class="crop"><img src="/img/_demo/pharmacy1.jpg" alt="" /></div></a>
                 </div>
                 <!--/.col-->
                 <div class="col-xl-8 col-md-12">
-                    <p><i class="fas fa-map-marker"></i> 462 First Avenue, <a href="/clinics">New York</a>, <a href="/clinics">NY</a>, <a href="/clinics">United States</a></p>
+                    <p><i class="fas fa-map-marker"></i> {{ pharmacy.location.address }}, <a href="/clinics">{{ pharmacy.location.city }}</a>, <a href="/clinics">{{ pharmacy.location.state }}</a>, <a href="/clinics">{{ pharmacy.location.country }}</a></p>
                     <div class="row">
                         <div class="col">
 							<div class="card">
                                <ul>
-									<li><small>Monday-Friday:</small> <br />8:00 - 17:00</li>
-									<li><small>Saturday:</small> <br />10:00 - 16:00</li>
-									<li><small>Sunday:</small> <br />12:00 - 14:00</li>
+									{{#each pharmacy.work_time as |work_time|}}
+                                    <li><small>{{ work_time.weekdays }}:</small> <br />{{ work_time.time }}</li>
+                                    {{/each}}
                                </ul>
 							</div><!--/.card-->
-                        </div>
-                        <!--/.col-->
-                        <div class="col"> 
-                            <div class="" data-toggle="tooltip" data-placement="top" title="Available with bus routes"><i class="fas fa-bus"></i> Bus route</div>
-                            <div class="" data-toggle="tooltip" data-placement="top" title="Has free parking"><i class="fas fa-car"></i> Free parking</div>
                         </div>
                         <!--/.col-->
                     </div>
@@ -54,21 +35,7 @@
 
             <hr />
 
-            <p>Lorem ipsum dolor sit amet, dolores mandamus moderatius ea ius, sed civibus vivendum imperdiet ei, amet tritani sea id. Ut veri diceret fierent mei, qui facilisi suavitate euripidis ad. In vim mucius menandri convenire, an brute zril vis.
-                Ancillae delectus necessitatibus no eam, at porro solet veniam mel, ad everti nostrud vim. Eam no menandri pertinacia deterruisset.</p>
-
-
-            <div class="table-responsive">
-                <table summary="" class="table table-hover">
-                    <tbody>
-                        <tr>
-                            <td><strong>Network</strong></td>
-                            <td>None</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <!--/.table-responsive-->
+            <p>{{ pharmacy.description }}</p>
 
             <hr />
 
@@ -77,11 +44,11 @@
 
             <div class="gallery">
                 <ul class="owl-carousel owl-theme">
-                    <li class="item"><a class="gallery-img" href="img/_demo/pharmacy1.jpg" title="Caption for gallery item 1"><img src="img/_demo/pharmacy1.jpg" alt="" /></a></li>
-                    <li class="item"><a class="gallery-img" href="img/_demo/pharmacy2.jpg" title="Caption for gallery item 2"><img src="img/_demo/pharmacy2.jpg" alt="" /></a></li>
-                    <li class="item"><a class="gallery-img" href="img/_demo/pharmacy3.jpg" title="Caption for gallery item 3"><img src="img/_demo/pharmacy3.jpg" alt="" /></a></li>
-                    <li class="item"><a class="gallery-img" href="img/_demo/pharmacy4.jpg" title="Caption for gallery item 4"><img src="img/_demo/pharmacy4.jpg" alt="" /></a></li>
-                    <li class="item"><a class="gallery-img" href="img/_demo/pharmacy5.jpg" title="Caption for gallery item 5"><img src="img/_demo/pharmacy5.jpg" alt="" /></a></li> 
+                    <li class="item"><a class="gallery-img" href="/img/_demo/pharmacy1.jpg" title="Caption for gallery item 1"><img src="/img/_demo/pharmacy1.jpg" alt="" /></a></li>
+                    <li class="item"><a class="gallery-img" href="/img/_demo/pharmacy2.jpg" title="Caption for gallery item 2"><img src="/img/_demo/pharmacy2.jpg" alt="" /></a></li>
+                    <li class="item"><a class="gallery-img" href="/img/_demo/pharmacy3.jpg" title="Caption for gallery item 3"><img src="/img/_demo/pharmacy3.jpg" alt="" /></a></li>
+                    <li class="item"><a class="gallery-img" href="/img/_demo/pharmacy4.jpg" title="Caption for gallery item 4"><img src="/img/_demo/pharmacy4.jpg" alt="" /></a></li>
+                    <li class="item"><a class="gallery-img" href="/img/_demo/pharmacy5.jpg" title="Caption for gallery item 5"><img src="/img/_demo/pharmacy5.jpg" alt="" /></a></li> 
                 </ul>
             </div>
 
@@ -134,7 +101,7 @@
                             </ul>
                             <!--/.rating-->
 							
-                            <p><a class="btn btn-primary btn-lg justify" href="/drugs"><strong>15 215</strong> drugs</a></p>
+                            <p><a class="btn btn-primary btn-lg justify" href="/drugs"><strong>{{ pharmacy.drugs }}</strong> drugs</a></p>
 
                             <p>In favorites at <strong>462</strong> users</p>
 

@@ -4,29 +4,25 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/">Home</a></li>
             <li class="breadcrumb-item"><a href="/drugs">Drugs</a></li>
-            <li class="breadcrumb-item active" aria-current="page"><?=$page_title?></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ drug.name }}</li>
         </ol>
     </nav>
 	
 	<div class="row">
         <div class="col-xl-6 col-lg-8 col-md-12 col-sm-12">
-
             <div class="row">
                 <div class="col">
 
-                    <img src="img/_demo/drug1.jpg" alt="" class="img-thumbnail float-left">
+                    <img src="/img/_demo/drug1.jpg" alt="" class="img-thumbnail float-left">
 
-                    <div>Group <a href="/drugs">Analgesic</a></div>
-                    <div>Price from <strong class="text-dark">$24</strong> <strong class="text-success">240 MPT</strong></div>
+                    <div>Group <a href="/drugs/?group={{ drug.group.id }}">{{ drug.group.name }}</a></div>
+                    <div>Price from <strong class="text-dark">${{ drug.price.dollars }}</strong> <strong class="text-success">{{ drug.price.mpts }} MPT</strong></div>
 
                     <hr />
 
-                    <p>Lorem ipsum dolor sit amet, dolores mandamus moderatius ea ius, sed civibus vivendum imperdiet ei, amet tritani sea id. Ut veri diceret fierent mei, qui facilisi suavitate euripidis ad. In vim mucius menandri convenire, an brute zril
-                        vis. Ancillae delectus necessitatibus no eam, at porro solet veniam mel, ad everti nostrud vim. Eam no menandri pertinacia deterruisset.</p>
-                    <p>Lorem ipsum dolor sit amet, dolores mandamus moderatius ea ius, sed civibus vivendum imperdiet ei, amet tritani sea id. Ut veri diceret fierent mei, qui facilisi suavitate euripidis ad. In vim mucius menandri convenire, an brute zril
-                        vis. Ancillae delectus necessitatibus no eam, at porro solet veniam mel, ad everti nostrud vim. Eam no menandri pertinacia deterruisset.</p>
-                    <p>Lorem ipsum dolor sit amet, dolores mandamus moderatius ea ius, sed civibus vivendum imperdiet ei, amet tritani sea id. Ut veri diceret fierent mei, qui facilisi suavitate euripidis ad. In vim mucius menandri convenire, an brute zril
-                        vis. Ancillae delectus necessitatibus no eam, at porro solet veniam mel, ad everti nostrud vim. Eam no menandri pertinacia deterruisset.</p>
+                    <div>
+                        {{{ drug.full_descr }}}
+                    </div>
                 </div>
                 <!--/.col-->
             </div>
@@ -43,7 +39,7 @@
 
                         <div class="wave text-center">
                             <p>Available in</p> 
-                            <a class="btn btn-primary btn-lg justify" href="/pharmacies"><strong>2215</strong> Pharmacies</a>
+                            <a class="btn btn-primary btn-lg justify" href="/pharmacies"><strong>{{ drug.providers.pharmacies }}</strong> Pharmacies</a>
                         </div>
                         <!--/.wave-->
 						
@@ -77,7 +73,7 @@
 	<div class="row">
         <div class="col"> 
 
-            <h3>Price comparison for <strong>Aspirin</strong> in <strong>New York</strong></h3>
+            <h3>Price comparison for <strong>{{ drug.name }}</strong> in <strong>New York</strong></h3>
 
             <div class="table-responsive">
                 <table summary="" class="table table-hover">

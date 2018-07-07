@@ -3,7 +3,7 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/">Home</a></li>
             <li class="breadcrumb-item"><a href="/services">Services</a></li>
-            <li class="breadcrumb-item active" aria-current="page"><?=$page_title?></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ service.name }}</li>
         </ol>
     </nav>
  
@@ -12,21 +12,20 @@
 
             <div class="row">
                 <div class="col">
+                    <img src="/img/_demo/service1.jpg" alt="" class="img-thumbnail float-left">
 
-                    <img src="img/_demo/service1.jpg" alt="" class="img-thumbnail float-left">
-
-                    <div><a href="/clinics">Abdominal Radiology</a></div>
-                    <div>Time <strong>30 min.</strong></div>
-                    <div>Price from <strong class="text-dark">$24</strong> <strong class="text-success">240 MPT</strong></div>
+                    {{!-- TODO what page should this link lead to? --}}
+                    {{!-- <div><a href="/clinics">Abdominal Radiology</a></div> --}}
+                    {{!-- TODO replaced a link with service name --}}
+                    <h3>{{ service.name }}</h3>
+                    <div>Time <strong>{{ service.time }}</strong></div>
+                    <div>Price from <strong class="text-dark">${{ service.price.dollars }}</strong> <strong class="text-success">{{ service.price.mpts }} MPT</strong></div>
 
                     <hr />
 
-                    <p>Lorem ipsum dolor sit amet, dolores mandamus moderatius ea ius, sed civibus vivendum imperdiet ei, amet tritani sea id. Ut veri diceret fierent mei, qui facilisi suavitate euripidis ad. In vim mucius menandri convenire, an brute zril
-                        vis. Ancillae delectus necessitatibus no eam, at porro solet veniam mel, ad everti nostrud vim. Eam no menandri pertinacia deterruisset.</p>
-                    <p>Lorem ipsum dolor sit amet, dolores mandamus moderatius ea ius, sed civibus vivendum imperdiet ei, amet tritani sea id. Ut veri diceret fierent mei, qui facilisi suavitate euripidis ad. In vim mucius menandri convenire, an brute zril
-                        vis. Ancillae delectus necessitatibus no eam, at porro solet veniam mel, ad everti nostrud vim. Eam no menandri pertinacia deterruisset.</p>
-                    <p>Lorem ipsum dolor sit amet, dolores mandamus moderatius ea ius, sed civibus vivendum imperdiet ei, amet tritani sea id. Ut veri diceret fierent mei, qui facilisi suavitate euripidis ad. In vim mucius menandri convenire, an brute zril
-                        vis. Ancillae delectus necessitatibus no eam, at porro solet veniam mel, ad everti nostrud vim. Eam no menandri pertinacia deterruisset.</p>
+                    <p>
+                        {{{ service.full_descr }}}
+                    </p>
                 </div>
                 <!--/.col-->
             </div>
@@ -44,9 +43,9 @@
                         <div class="wave">
 							<h4>Rating <strong>7.7</strong> - <strong class="text-success">9.99</strong></h4>
                             <p>based on <strong><a class="" href="#opinions">58 opinions</a></strong></p>
-                            <a class="btn btn-primary btn-lg justify" href="/doctors"><strong>2215</strong> doctors</a>
+                            <a class="btn btn-primary btn-lg justify" href="/doctors"><strong>{{ service.providers.doctors }}</strong> doctors</a>
                             <br />
-                            <p><a class="" href="/services"><strong>425</strong> clinics</a></p>
+                            <p><a class="" href="/services"><strong>{{ service.providers.clinics }}</strong> clinics</a></p>
                         </div>
                         <!--/.wave-->
 						

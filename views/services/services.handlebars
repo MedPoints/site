@@ -3,7 +3,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page"><?=$page_title?></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ pageTitle }}</li>
         </ol>
     </nav>
 
@@ -182,124 +182,27 @@
                         </tr>
                     </thead>
                     <tbody>
+                        {{#each services as |service|}}
                         <tr>
                             <td>
-                                <h4><a href="/service" title="">New patient visit</a></h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                <h4><a href="/services/{{ service.id }}" title="{{ service.name }}">{{ service.name }}</a></h4>
+                                <p>{{ service.short_descr }}</p>
                             </td>
-                            <td>30 min.</td>
-                            <td class="price-td">from <strong class="text-dark">$24</strong><br /><strong class="text-success">240 MPT</strong></td>
-                            <td class="text-center"><i class="fas fa-plus text-success" data-toggle="tooltip" data-placement="top" title="Can be covered by insurance points"></i></td>
-                            <td><a class="btn btn-primary float-right" href="/doctors"><strong>1270</strong> doctors</a><br /><br /><a class="btn btn-secondary float-right" href="/clinics"><strong>240</strong> clinics</a></td>
-                        </tr>
-                        <tr>
+                            <td>{{ service.time }}</td>
+                            <td class="price-td">from <strong class="text-dark">${{ service.price.dollars }}</strong><br /><strong class="text-success">{{ service.price.mpts }} MPT</strong></td>
+                            <td class="text-center">
+                                {{#if service.is_covered_by_insurance}}
+                                <i class="fas fa-plus text-success" data-toggle="tooltip" data-placement="top" title="Can be covered by insurance points"></i>
+                                {{/if}}
+                            </td>
+                            {{!-- TODO create doctors and clinics links according to the service ID --}}
                             <td>
-                                <h4><a href="/service" title="">General consultation</a></h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                <a class="btn btn-primary float-right" href="/doctors"><strong>{{ service.providers.doctors }}</strong> doctors</a>
+                                <br /><br />
+                                <a class="btn btn-secondary float-right" href="/clinics"><strong>{{ service.providers.clinics }}</strong> clinics</a>
                             </td>
-                            <td>30</td>
-                            <td class="price-td">from <strong class="text-dark">$24</strong><br /><strong class="text-success">240 MPT</strong></td>
-                            <td class="text-center"></td>
-                            <td><a class="btn btn-primary float-right" href="/doctors"><strong>1270</strong> doctors</a><br /><br /><a class="btn btn-secondary float-right" href="/clinics"><strong>240</strong> clinics</a></td>
                         </tr>
-                        <tr>
-                            <td>
-                                <h4><a href="/service" title="">Back Pain examination</a></h4>
-                            </td>
-                            <td>30 min.</td>
-                            <td class="price-td">from <strong class="text-dark">$24</strong><br /><strong class="text-success">240 MPT</strong></td>
-                            <td class="text-center"></td>
-                            <td><a class="btn btn-primary float-right" href="/doctors"><strong>1270</strong> doctors</a><br /><br /><a class="btn btn-secondary float-right" href="/clinics"><strong>240</strong> clinics</a></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h4><a href="/service" title="">Diabetes Consultation</a></h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            </td>
-                            <td>45 min.</td>
-                            <td class="price-td">from <strong class="text-dark">$24</strong><br /><strong class="text-success">240 MPT</strong></td>
-                            <td class="text-center"><i class="fas fa-plus text-success" data-toggle="tooltip" data-placement="top" title="Can be covered by insurance points"></i></td>
-                            <td><a class="btn btn-primary float-right" href="/doctors"><strong>1270</strong> doctors</a><br /><br /><a class="btn btn-secondary float-right" href="/clinics"><strong>240</strong> clinics</a></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h4><a href="/service" title="">Eating disorder</a></h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            </td>
-                            <td>60 min.</td>
-                            <td class="price-td">from <strong class="text-dark">$24</strong><br /><strong class="text-success">240 MPT</strong></td>
-                            <td class="text-center"><i class="fas fa-plus text-success" data-toggle="tooltip" data-placement="top" title="Can be covered by insurance points"></i></td>
-                            <td><a class="btn btn-primary float-right" href="/doctors"><strong>1270</strong> doctors</a><br /><br /><a class="btn btn-secondary float-right" href="/clinics"><strong>240</strong> clinics</a></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h4><a href="/service" title="">Foot Pain</a></h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            </td>
-                            <td>30 min.</td>
-                            <td class="price-td">from <strong class="text-dark">$24</strong><br /><strong class="text-success">240 MPT</strong></td>
-                            <td class="text-center"></td>
-                            <td><a class="btn btn-primary float-right" href="/doctors"><strong>1270</strong> doctors</a><br /><br /><a class="btn btn-secondary float-right" href="/clinics"><strong>240</strong> clinics</a></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h4><a href="/service" title="">New patient visit</a></h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            </td>
-                            <td>30 min.</td>
-                            <td class="price-td">from <strong class="text-dark">$24</strong><br /><strong class="text-success">240 MPT</strong></td>
-                            <td class="text-center"><i class="fas fa-plus text-success" data-toggle="tooltip" data-placement="top" title="Can be covered by insurance points"></i></td>
-                            <td><a class="btn btn-primary float-right" href="/doctors"><strong>1270</strong> doctors</a><br /><br /><a class="btn btn-secondary float-right" href="/clinics"><strong>240</strong> clinics</a></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h4><a href="/service" title="">General consultation</a></h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            </td>
-                            <td>30 min.</td>
-                            <td class="price-td">from <strong class="text-dark">$24</strong><br /><strong class="text-success">240 MPT</strong></td>
-                            <td class="text-center"></td>
-                            <td><a class="btn btn-primary float-right" href="/doctors"><strong>1270</strong> doctors</a><br /><br /><a class="btn btn-secondary float-right" href="/clinics"><strong>240</strong> clinics</a></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h4><a href="/service" title="">Back Pain examination</a></h4>
-                            </td>
-                            <td>30 min.</td>
-                            <td class="price-td">from <strong class="text-dark">$24</strong><br /><strong class="text-success">240 MPT</strong></td>
-                            <td class="text-center"></td>
-                            <td><a class="btn btn-primary float-right" href="/doctors"><strong>1270</strong> doctors</a><br /><br /><a class="btn btn-secondary float-right" href="/clinics"><strong>240</strong> clinics</a></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h4><a href="/service" title="">Diabetes Consultation</a></h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            </td>
-                            <td>45 min.</td>
-                            <td class="price-td">from <strong class="text-dark">$24</strong><br /><strong class="text-success">240 MPT</strong></td>
-                            <td class="text-center"><i class="fas fa-plus text-success" data-toggle="tooltip" data-placement="top" title="Can be covered by insurance points"></i></td>
-                            <td><a class="btn btn-primary float-right" href="/doctors"><strong>1270</strong> doctors</a><br /><br /><a class="btn btn-secondary float-right" href="/clinics"><strong>240</strong> clinics</a></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h4><a href="/service" title="">Eating disorder</a></h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            </td>
-                            <td>60 min.</td>
-                            <td class="price-td">from <strong class="text-dark">$24</strong><br /><strong class="text-success">240 MPT</strong></td>
-                            <td class="text-center"><i class="fas fa-plus text-success" data-toggle="tooltip" data-placement="top" title="Can be covered by insurance points"></i></td>
-                            <td><a class="btn btn-primary float-right" href="/doctors"><strong>1270</strong> doctors</a><br /><br /><a class="btn btn-secondary float-right" href="/clinics"><strong>240</strong> clinics</a></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h4><a href="/service" title="">Foot Pain</a></h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            </td>
-                            <td>30 min.</td>
-                            <td class="price-td">from <strong class="text-dark">$24</strong><br /><strong class="text-success">240 MPT</strong></td>
-                            <td class="text-center"></td>
-                            <td><a class="btn btn-primary float-right" href="/doctors"><strong>1270</strong> doctors</a><br /><br /><a class="btn btn-secondary float-right" href="/clinics"><strong>240</strong> clinics</a></td>
-                        </tr>
+                        {{/each}}
                     </tbody>
                 </table>
             </div>
