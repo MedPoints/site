@@ -9,7 +9,7 @@ exports.getDoctors = async (req, res) => {
     url += `?name=${name}`;
   }
   const request = await axios.get(url);
-  let doctors = request.data.result;
+  let doctors = request.data.result.data ;
   if (!Array.isArray(doctors)) {
     doctors = [doctors];
   }
@@ -20,20 +20,5 @@ exports.getDoctor = async (req, res) => {
   const id = req.params.id;
   const request = await axios.get(`${API_URL}/api/doctors?id=${id}`);
   const doctor = request.data.result;
-  const rate = doctor.ratings.reduce((result, rate) => {
-    const {knowledge, skills, attention, priceQuality} = rate.commonRate;
-    result.knowledge += knowledge;
-    result.skills += skills;
-    result.attention += attention;
-    result.priceQuality += priceQuality;
-    return result;
-  }, {knowledge: 0, skills: 0, attention: 0, priceQuality: 0});
-  if (doctor.ratings.length !== 0) {
-	  rate.knowledge /= doctor.ratings.length;
-	  rate.skills /= doctor.ratings.length;
-	  rate.attention /= doctor.ratings.length;
-	  rate.priceQuality /= doctor.ratings.length;
-  }
-  doctor.opinion = rate;
   res.render('doctors/doctor', { doctor });
 };
