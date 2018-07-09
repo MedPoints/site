@@ -168,28 +168,31 @@
 			<div class="row pagination-line">
             	<div class="col">
 					<nav aria-label="...">
-                <ul class="pagination">
-                    <li class="page-item disabled">
-                        <span class="page-link">Previous</span>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item active">
-                        <span class="page-link">2<span class="sr-only">(current)</span></span>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">Next</a>
-                    </li>
-                </ul>
-            		</nav>
+                    {{#pagination pager.pageIndex pager.pages pager.pageSize}}
+                        <ul class="pagination">
+                        {{#unless startFromFirstPage}}
+                            <a class="page-link" href="/doctors?page={{ previousPage }}&size={{ size }}">Previous</a>
+                        {{/unless}}
+
+                        {{#each pages}}
+                            {{#if isCurrent}}
+                            <li class="page-item active">
+                                <span class="page-link">{{ page }}</span><span class="sr-only">(current)</span></span>
+                            </li>
+                            {{/if}}
+                            {{#unless isCurrent}}
+                            <li class="page-item"><a class="page-link" href="/doctors?page={{ page }}&size={{ size }}">{{ page }}</a></li>
+                            {{/unless}}
+                        {{/each}}
+
+                        {{#unless endAtLastPage}}
+                            <a class="page-link" href="/doctors?page={{ nextPage }}&size={{ size }}">Next</a>
+                        {{/unless}}
+                        </ul>
+                    {{/pagination}}
+                </nav>
             	</div>
-            	<!--/.col-->
-            	<div class="col">
-					<em>1-5 / 3154</em>
-            	</div>
-            	<!--/.col-->
           	</div>
-          	<!--/.row-->
 
         </div>
         <!--/.col-->

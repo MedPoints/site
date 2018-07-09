@@ -1,19 +1,27 @@
 const config = require('config');
 const axios = require('axios');
 const API_URL = config.get('API_URL');
+const { Pager, PAGE_SIZE } = require('./../helpers/pager');
 
 exports.getDoctors = async (req, res) => {
   const {name} = req.query;
-  let url = `${API_URL}/api/doctors`;
+  const page = Number(req.query.page) || 1;
+  let url = `${API_URL}/api/doctors?page=${page}&count=${PAGE_SIZE}`;
   if (name) {
-    url += `?name=${name}`;
+    url += `&name=${name}`;
   }
   const request = await axios.get(url);
   let doctors = request.data.result.data ;
   if (!Array.isArray(doctors)) {
     doctors = [doctors];
   }
-  res.render('doctors/doctors', { doctors });
+
+  const pager = new Pager(
+    PAGE_SIZE, 
+    page, 
+    request.data.result.meta.pages);
+
+  res.render('doctors/doctors', { doctors, pager });
 };
 
 exports.getDoctor = async (req, res) => {

@@ -1,20 +1,28 @@
 const config = require('config');
 const axios = require('axios');
 const API_URL = config.get('API_URL');
+const { Pager, PAGE_SIZE } = require('./../helpers/pager');
 
 
 exports.getClinics = async (req, res) => {
   const {name} = req.query;
-  let url = `${API_URL}/api/hospitals`;
+  const page = Number(req.query.page) || 1;
+  let url = `${API_URL}/api/hospitals?page=${page}&count=${PAGE_SIZE}`;
   if (name) {
-    url += `?name=${name}`;
+    url += `&name=${name}`;
   }
   const request = await axios.get(url);
   let hospitals = request.data.result.data;
   if (!Array.isArray(hospitals)) {
     hospitals = [hospitals];
   }
-  res.render('clinics/clinics', { hospitals });
+
+  const pager = new Pager(
+    PAGE_SIZE, 
+    page, 
+    request.data.result.meta.pages);
+
+  res.render('clinics/clinics', { hospitals, pager });
 };
 
 exports.getClinic = async (req, res) => {
