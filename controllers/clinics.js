@@ -10,7 +10,7 @@ exports.getClinics = async (req, res) => {
     url += `?name=${name}`;
   }
   const request = await axios.get(url);
-  let hospitals = request.data.result;
+  let hospitals = request.data.result.data;
   if (!Array.isArray(hospitals)) {
     hospitals = [hospitals];
   }
