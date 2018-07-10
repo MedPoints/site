@@ -20,8 +20,12 @@ exports.getPharmacies = async (req, res) => {
     PAGE_SIZE, 
     page, 
     request.data.result.meta.pages);
+  const pagerInfo = {
+    pager,
+    baseUrl: '/pharmacies'
+  };
 
-  res.render('pharmacies/pharmacies', { pharmacies, pager });
+  res.render('pharmacies/pharmacies', { pharmacies, pagerInfo });
 };
 
 exports.getPharmacy = async (req, res) => {

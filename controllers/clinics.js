@@ -21,8 +21,12 @@ exports.getClinics = async (req, res) => {
     PAGE_SIZE, 
     page, 
     request.data.result.meta.pages);
+  const pagerInfo = {
+    pager,
+    baseUrl: '/clinics'
+  };
 
-  res.render('clinics/clinics', { hospitals, pager });
+  res.render('clinics/clinics', { hospitals, pagerInfo });
 };
 
 exports.getClinic = async (req, res) => {

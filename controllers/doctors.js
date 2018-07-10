@@ -20,8 +20,12 @@ exports.getDoctors = async (req, res) => {
     PAGE_SIZE, 
     page, 
     request.data.result.meta.pages);
+  const pagerInfo = {
+    pager,
+    baseUrl: '/doctors'
+  };
 
-  res.render('doctors/doctors', { doctors, pager });
+  res.render('doctors/doctors', { doctors, pagerInfo });
 };
 
 exports.getDoctor = async (req, res) => {

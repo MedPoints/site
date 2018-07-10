@@ -4,12 +4,8 @@ class Pager {
         this.pageIndex = currentPage;
         this.pages = pages;
     }
-
     getPagerUrlParameters() {
         return `page=${this.pageIndex}&count=${this.pageSize}`;
-    }
-    getPageIndices() {
-        return Array.apply(null, {length: this.pages}).map(Number.call, Number);
     }
 }
 

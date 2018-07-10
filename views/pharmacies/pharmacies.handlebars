@@ -1,16 +1,3 @@
-<?php define( '_ACCESS', 1 ); ?>
-
-<?php
-
-    $page_name = 'pharmacies';
-    $page_title = 'Pharmacies';
-	$page_keywords = '';
-	$page_description = '';
-	
-?>
-
-    <?php include($_SERVER["DOCUMENT_ROOT"]."/inc/header.php"); ?>
-
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/">Home</a></li>
@@ -190,24 +177,8 @@
 			<div class="row pagination-line">
             	<div class="col">
 					<nav aria-label="...">
-                <ul class="pagination">
-                    <li class="page-item disabled">
-                        <span class="page-link">Previous</span>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item active">
-                        <span class="page-link">2<span class="sr-only">(current)</span></span>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">Next</a>
-                    </li>
-                </ul>
+                        {{> pager pagerInfo }}
             		</nav>
-            	</div>
-            	<!--/.col-->
-            	<div class="col"> 
-					<em>1-5 / 3154</em>
             	</div>
             	<!--/.col-->
           	</div>

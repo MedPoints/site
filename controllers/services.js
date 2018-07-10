@@ -15,9 +15,13 @@ exports.getServices = async (req, res) => {
     PAGE_SIZE, 
     page, 
     request.data.result.meta.pages);
+  const pagerInfo = {
+    pager,
+    baseUrl: '/services'
+  };
 
   const services = request.data.result.data;
-  res.render('services/services', { services, pager });
+  res.render('services/services', { services, pagerInfo });
 };
 
 exports.getService = async (req, res) => {
