@@ -6,17 +6,21 @@ const { Pager, PAGE_SIZE } = require('./../helpers/pager');
 const PAGE_TITLE = 'Drugs';
 
 exports.getDrugs = async (req, res) => {
-  const {name} = req.query;
+  const {group} = req.query;
   const page = Number(req.query.page) || 1;
-  let url = `${API_URL}/api/drugs?page=${page}&count=${PAGE_SIZE}`;
-  if (name) {
-    url += `&name=${name}`;
+  let drugsUrl = `${API_URL}/api/drugs?page=${page}&count=${PAGE_SIZE}`;
+  if (group) {
+    drugsUrl += `&group=${group}`;
   }
-  const request = await axios.get(url);
+  const request = await axios.get(drugsUrl);
   let drugs = request.data.result.data ;
   if (!Array.isArray(drugs)) {
     drugs = [drugs];
   }
+
+  const groupsUrl = `${API_URL}/api/groups`;
+  const categoriesRequest = await axios.get(groupsUrl);
+  const categories = categoriesRequest.data.result.data;
 
   const pager = new Pager(
     PAGE_SIZE, 
@@ -24,10 +28,12 @@ exports.getDrugs = async (req, res) => {
     request.data.result.meta.pages);
   const pagerInfo = {
     pager,
-    baseUrl: '/drugs'
+    baseUrl: '/drugs',
+    searchParameterName: 'group',
+    searchQuery: group,
   };
 
-  res.render('drugs/drugs', { drugs, pagerInfo, PAGE_TITLE });
+  res.render('drugs/drugs', { drugs, pagerInfo, PAGE_TITLE, categories });
 };
 
 exports.getDrug = async (req, res) => {

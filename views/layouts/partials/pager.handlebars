@@ -1,7 +1,7 @@
-{{#pagination pager.pageIndex pager.pages pager.pageSize}}
+{{#pagination pager.pageIndex pager.pages pager.pageSize }}
 <ul class="pagination">
 {{#unless startFromFirstPage}}
-    <a class="page-link" href="{{ ../baseUrl }}?page={{ previousPage }}&size={{ size }}">Previous</a>
+    <a class="page-link" href="{{#persistGetParameters ../this this 'previous'}}{{/persistGetParameters}}">Previous</a>
 {{/unless}}
 
 {{#each pages}}
@@ -11,12 +11,12 @@
     </li>
     {{/if}}
     {{#unless isCurrent}}
-    <li class="page-item"><a class="page-link" href="{{ ../baseUrl }}?page={{ page }}&size={{ ../size }}">{{ page }}</a></li>
+    <li class="page-item"><a class="page-link" href="{{#persistGetParameters ../../this this 'nth'}}{{/persistGetParameters}}">{{ page }}</a></li>
     {{/unless}}
 {{/each}}
 
 {{#unless endAtLastPage}}
-    <a class="page-link" href="{{ ../baseUrl }}?page={{ nextPage }}&size={{ size }}">Next</a>
+    <a class="page-link" href="{{#persistGetParameters ../this this 'next'}}{{/persistGetParameters}}">Next</a>
 {{/unless}}
 </ul>
 {{/pagination}}

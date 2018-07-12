@@ -17,14 +17,16 @@ exports.getDoctors = async (req, res) => {
   if (!Array.isArray(doctors)) {
     doctors = [doctors];
   }
-
+  
   const pager = new Pager(
     PAGE_SIZE, 
     page, 
     request.data.result.meta.pages);
   const pagerInfo = {
     pager,
-    baseUrl: '/doctors'
+    baseUrl: '/doctors',
+    searchQuery: name,
+    searchParameterName: 'name'
   };
 
   res.render('doctors/doctors', { doctors, pagerInfo, PAGE_TITLE });

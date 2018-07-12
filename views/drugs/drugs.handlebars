@@ -122,27 +122,10 @@
             <h3>Categories</h3>
 
             <ul class="cat-list">
-                <li><a class="active" href="#">All</a></li>
-                <li><a href="/drugs">Allergenics</a> <span class="badge">1015</span></li>
-                <li><a href="/drugs">Analgesics</a> <span class="badge">1015</span></li> 
-                <li><a href="/drugs">Antacids</a> <span class="badge">1015</span></li>
-                <li><a href="/drugs">Antidotes</a> <span class="badge">1015</span></li>
-                <li><a href="/drugs">Benzodiazepines</a> <span class="badge">1015</span></li>
-                <li><a href="/drugs">Catecholamines</a> <span class="badge">1015</span></li>
-                <li><a href="/drugs">Diuretics</a> <span class="badge">1015</span></li>
-                <li><a href="/drugs">Estrogens</a> <span class="badge">1015</span></li>
-                <li><a href="/drugs">Fibric acid derivatives</a> <span class="badge">1015</span></li>
-                <li><a href="/drugs">GI stimulants</a> <span class="badge">1015</span></li>
-                <li><a href="/drugs">Hormones</a> <span class="badge">1015</span></li>
-                <li><a href="/drugs">Interleukins</a> <span class="badge">1015</span></li>
-                <li><a href="/drugs">Laxatives</a> <span class="badge">1015</span></li>
-                <li><a href="/drugs">Meglitinides</a> <span class="badge">1015</span></li>
-                <li><a href="/drugs">NS5A inhibitors</a> <span class="badge">1015</span></li>
-                <li><a href="/drugs">Oral nutritional supplements</a> <span class="badge">1015</span></li>
-                <li><a href="/drugs">Penicillins</a> <span class="badge">1015</span></li>
-                <li><a href="/drugs">Radiologic agents</a> <span class="badge">1015</span></li>
-                <li><a href="/drugs">Statins</a> <span class="badge">1015</span></li>
-                <li><a href="/drugs">Vitamins</a> <span class="badge">1015</span></li>
+                <li><a class="active" href="/drugs">All</a></li>
+                {{#each categories as |category|}}
+                    <li><a href="/drugs?group={{category.id}}">{{category.name}}</a><span class="badge">{{category.drugs.length}}</span></li>
+                {{/each}}
             </ul><!--/.cat-list-->
 
         </div>

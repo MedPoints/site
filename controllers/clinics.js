@@ -8,7 +8,7 @@ const PAGE_TITLE = 'Clinics';
 exports.getClinics = async (req, res) => {
   const {name} = req.query;
   const page = Number(req.query.page) || 1;
-  let url = `${API_URL}/api/hospitals?page=${page}&count=${PAGE_SIZE}`;
+  let url = `${API_URL}/api/hospitals?page=${page}`;
   if (name) {
     url += `&name=${name}`;
   }
@@ -24,7 +24,9 @@ exports.getClinics = async (req, res) => {
     request.data.result.meta.pages);
   const pagerInfo = {
     pager,
-    baseUrl: '/clinics'
+    baseUrl: '/clinics',
+    searchQuery: name,
+    searchParameterName: 'name'
   };
 
   res.render('clinics/clinics', { hospitals, pagerInfo });

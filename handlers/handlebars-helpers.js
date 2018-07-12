@@ -1,5 +1,4 @@
 const moment = require('moment');
-
 const Handlebars = require('handlebars');
 
 exports.hbsHelpers = {
@@ -42,6 +41,27 @@ exports.hbsHelpers = {
   },
   getProgressBarWidth: (skill) => {
     return skill * 10;
+  },
+  persistGetParameters: (pagerInfo, pagerData, pageType) => {
+    let page = 0;
+    switch (pageType) {
+      case 'previous':
+        page = pagerData.previousPage;
+        break;
+      case 'next':
+        page = pagerData.nextPage;
+        break;
+      case 'nth':
+        page = pagerData.page;
+        break;
+    }
+
+    const baseUrl = pagerInfo.baseUrl;
+    const searchQuery = pagerInfo.searchQuery;
+
+    if (searchQuery)
+      return `${baseUrl}?page=${page}&${pagerInfo.searchParameterName}=${searchQuery}`;
+    return `${baseUrl}?page=${page}`;
   },
   pagination: (currentPage, totalPage, size, options) => {
     var startPage, endPage, context;
