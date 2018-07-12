@@ -9,7 +9,7 @@
     </nav>
 
     <div class="row">
-        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
 
             <div class="row">
                 <div class="col-xl-4 col-md-12">
@@ -30,9 +30,9 @@
                         <div class="col">
 							<div class="card">
                                <ul>
-									<li><small>Monday-Friday:</small> <br />8:00 - 17:00</li>
-									<li><small>Saturday:</small> <br />10:00 - 16:00</li>
-									<li><small>Sunday:</small> <br />12:00 - 14:00</li>
+									{{#each hospital.work_time as |work_time|}}
+                                    <li><small>{{ work_time.weekdays }}:</small> <br />{{ work_time.time }}</li>
+                                    {{/each}}
                                </ul>
 							</div><!--/.card-->
                         </div>
@@ -103,7 +103,7 @@
 
         </div>
         <!--/.col-->
-        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+        {{!-- <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
 
             <nav class="sticky-top">
 
@@ -145,14 +145,14 @@
 
             </nav>
 
-        </div>
+        </div> --}}
         <!--/.col-->
     </div>
     <!--/.row-->
 
     <hr />
 
-    <div class="row">
+    {{!-- <div class="row">
         <div class="col">
 
             <h3>Departments</h3>
@@ -176,12 +176,12 @@
             </ul>
         </div>
         <!--/.col-->
-    </div>
+    </div> --}}
     <!--/.row-->
 
     <hr />
 
-    <div class="row" hidden>
+    {{!-- <div class="row" hidden>
         <div class="col">
 
             <h3>Services and prices <span class="badge">212</span></h3>
@@ -393,12 +393,12 @@
 
         </div>
         <!--/.col-->
-    </div>
+    </div> --}}
     <!--/.row-->
 
     <br />
 
-    <section class="bg-gray" hidden>
+    {{!-- <section class="bg-gray" hidden>
 
         <div class="reviews" id="opinions">
 
@@ -554,4 +554,4 @@
         </div>
         <!--/.reviews-->
 
-    </section>
+    </section> --}}

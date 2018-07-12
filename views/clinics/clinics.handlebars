@@ -2,11 +2,11 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page"><?=$page_title?></li>
+            <li class="breadcrumb-item active" aria-current="page">{{PAGE_TITLE}}</li>
         </ol>
     </nav>
 
-    <section class="bg-gray">
+    {{!-- <section class="bg-gray">
 
         <form class="filter">
             <div class="row">
@@ -128,7 +128,7 @@
 
         </form>
 
-    </section>
+    </section> --}}
 
     <div class="row">
 
@@ -169,9 +169,9 @@
                                 <div class="col">
 									<div class="card">
                                     	<ul>
-                                        	<li><small>Monday-Friday:</small> <br />8:00 - 17:00</li>
-                                        	<li><small>Saturday:</small> <br />10:00 - 16:00</li>
-                                        	<li><small>Sunday:</small> <br />12:00 - 14:00</li>
+                                        	{{#each hospital.work_time as |work_time|}}
+                                            <li><small>{{ work_time.weekdays }}:</small> <br />{{ work_time.time }}</li>
+                                            {{/each}}
                                     	</ul>
 									</div><!--/.card-->
                                 </div>

@@ -4,7 +4,7 @@ const API_URL = config.get('API_URL');
 
 const { Pager, PAGE_SIZE } = require('./../helpers/pager');
 
-exports.pageTitle = 'Services';
+const PAGE_TITLE = 'Services';
 
 exports.getServices = async (req, res) => {
   const page = Number(req.query.page) || 1;

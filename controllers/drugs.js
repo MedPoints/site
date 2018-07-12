@@ -3,6 +3,8 @@ const axios = require('axios');
 const API_URL = config.get('API_URL');
 const { Pager, PAGE_SIZE } = require('./../helpers/pager');
 
+const PAGE_TITLE = 'Drugs';
+
 exports.getDrugs = async (req, res) => {
   const {name} = req.query;
   const page = Number(req.query.page) || 1;
@@ -25,7 +27,7 @@ exports.getDrugs = async (req, res) => {
     baseUrl: '/drugs'
   };
 
-  res.render('drugs/drugs', { drugs, pagerInfo });
+  res.render('drugs/drugs', { drugs, pagerInfo, PAGE_TITLE });
 };
 
 exports.getDrug = async (req, res) => {

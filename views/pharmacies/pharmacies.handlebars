@@ -1,11 +1,11 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page"><?=$page_title?></li>
+            <li class="breadcrumb-item active" aria-current="page">{{PAGE_TITLE}}</li>
         </ol>
     </nav>
 
-    <section class="bg-gray">
+    {{!-- <section class="bg-gray">
 
         <form class="filter">
             <div class="row">
@@ -111,7 +111,7 @@
  
         </form>
 
-    </section>
+    </section> --}}
 	
 	<div class="row">
 	
@@ -134,11 +134,11 @@
 			    {{#each pharmacies as |pharmacy|}}
                 <li>
                     <div class="row">
-                        <div class="col-xl-3 col-md-3 col-sm-4">
+                        <div class="col-xl-4 col-md-3 col-sm-5">
                             <a class="avatar" href="/pharmacies/{{ pharmacy.id }}"><div class="crop"><img src="img/_demo/pharmacy1.jpg" alt="" /></div></a> 
                         </div>
                         <!--/.col-->
-                        <div class="col-xl-5 col-md-5 col-sm-8">
+                        <div class="col-xl-8 col-md-9 col-sm-7">
                             <h3><a class="" href="/pharmacies/{{ pharmacy.id }}">{{ pharmacy.name }}</a></h3>
                             <p><i class="fas fa-map-marker"></i> {{ pharmacy.location.address }}, <a href="/clinics">{{ pharmacy.location.city }}</a>, <a href="/clinics">{{ pharmacy.location.state }}</a>, <a href="/clinics">{{ pharmacy.location.country }}</a></p>
                             <div class="row">
@@ -159,14 +159,14 @@
                             <!--/.row-->
                         </div>
                         <!--/.col-->
-                        <div class="col-xl-4 col-md-4 col-sm-12">
+                        {{!-- <div class="col-xl-4 col-md-4 col-sm-12">
                             <div class="wave text-center">
                                 <h4>Rating <strong class="text-success">9.99</strong></h4>
                                 <p>based on <strong><a class="" href="/pharmacy#opinions">58 opinions</a></strong></p>
                                 <a class="btn btn-primary btn-lg justify" href="/drugs"><strong>{{ pharmacy.drugs }}</strong> drugs</a>
                             </div>
                             <!--/.wave-->
-                        </div>
+                        </div> --}}
                         <!--/.col-->
                     </div>
                     <!--/.row-->
