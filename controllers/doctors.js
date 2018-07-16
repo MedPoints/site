@@ -6,11 +6,13 @@ const { Pager, PAGE_SIZE } = require('./../helpers/pager');
 const PAGE_TITLE = 'Doctors';
 
 exports.getDoctors = async (req, res) => {
-  const {name} = req.query;
+  const {name, department} = req.query;
   const page = Number(req.query.page) || 1;
   let url = `${API_URL}/api/doctors?page=${page}&count=${PAGE_SIZE}`;
   if (name) {
     url += `&name=${name}`;
+  } else if (department) {
+    url += `&specialization=${department}`;
   }
   const request = await axios.get(url);
   let doctors = request.data.result.data ;
@@ -19,8 +21,8 @@ exports.getDoctors = async (req, res) => {
   }
 
   const pager = new Pager(
-    PAGE_SIZE, 
-    page, 
+    PAGE_SIZE,
+    page,
     request.data.result.meta.pages);
   const pagerInfo = {
     pager,
