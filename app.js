@@ -6,6 +6,9 @@ const routes = require('./routes/index');
 const errorHandlers = require('./handlers/errorHandlers');
 const hbsHelpers = require('./handlers/handlebars-helpers').hbsHelpers;
 
+const config = require('config');
+const API_URL = config.get('API_URL');
+
 // create our Express app
 const app = express();
 
@@ -30,6 +33,9 @@ app.use((req, res, next) => {
   // res.locals.flashes = req.flash();
   // res.locals.user = req.user || null;
   res.locals.currentPath = req.path;
+  res.locals.api = {
+    url: API_URL,
+  };
   next();
 });
 

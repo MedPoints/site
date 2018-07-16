@@ -11,7 +11,9 @@ exports.getDoctors = async (req, res) => {
   let url = `${API_URL}/api/doctors?page=${page}&count=${PAGE_SIZE}`;
   if (name) {
     url += `&name=${name}`;
-  } else if (department) {
+  }
+  
+  if (department) {
     url += `&specialization=${department}`;
   }
   const request = await axios.get(url);
@@ -28,7 +30,9 @@ exports.getDoctors = async (req, res) => {
     pager,
     baseUrl: '/doctors',
     searchQuery: name,
-    searchParameterName: 'name'
+    searchParameterName: 'name',
+    specializationQuery: department,
+    specializationParameterName: 'department'
   };
 
   res.render('doctors/doctors', { doctors, pagerInfo, PAGE_TITLE });
@@ -39,4 +43,17 @@ exports.getDoctor = async (req, res) => {
   const request = await axios.get(`${API_URL}/api/doctors?id=${id}`);
   const doctor = request.data.result;
   res.render('doctors/doctor', { doctor });
+};
+
+exports.getSpecializations = async (req, res) => {
+  let url = `${API_URL}/api/specializations`;
+  const request = await axios.get(url);
+  return request.data.result.data;
+};
+
+exports.getCount = async (req, res) => {
+  const request = await axios.get(`${API_URL}/api/doctors/count`);
+  const count = request.data.result;
+  res.setHeader('Content-Type', 'application/json');
+  res.send(JSON.stringify({ count}));
 };

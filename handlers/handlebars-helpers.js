@@ -58,10 +58,15 @@ exports.hbsHelpers = {
 
     const baseUrl = pagerInfo.baseUrl;
     const searchQuery = pagerInfo.searchQuery;
+    const specializationQuery = pagerInfo.specializationQuery;
+
+    var resultingUrl = `${baseUrl}?page=${page}`;
 
     if (searchQuery)
-      return `${baseUrl}?page=${page}&${pagerInfo.searchParameterName}=${searchQuery}`;
-    return `${baseUrl}?page=${page}`;
+      resultingUrl += `&${pagerInfo.searchParameterName}=${searchQuery}`;
+    if (specializationQuery)
+      resultingUrl += `&${pagerInfo.specializationParameterName}=${specializationQuery}`;
+    return resultingUrl;
   },
   pagination: (currentPage, totalPage, size, options) => {
     var startPage, endPage, context;
@@ -109,6 +114,22 @@ exports.hbsHelpers = {
       context.endAtLastPage = true;
     }
   
+    return options.fn(context);
+  },
+  groupSpecializations: (specializations, options) => {
+    var context = {
+      specializations: []
+    };
+    specializations = options.data.root.specializations;
+    if (specializations) {
+      let chunkSize = 13;
+      context.specializations = [].concat.apply([],
+        specializations.map(function(elem,i) {
+              return i%chunkSize ? [] : [specializations.slice(i,i+chunkSize)];
+          })
+      );
+    }
+
     return options.fn(context);
   }
 };

@@ -38,3 +38,10 @@ exports.getClinic = async (req, res) => {
   const hospital = request.data.result;
   res.render('clinics/clinic', { hospital });
 };
+
+exports.getCount = async (req, res) => {
+  const request = await axios.get(`${API_URL}/api/hospitals/count`);
+  const count = request.data.result;
+  res.setHeader('Content-Type', 'application/json');
+  res.send(JSON.stringify({ count}));
+};

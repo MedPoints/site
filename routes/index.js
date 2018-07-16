@@ -1,6 +1,16 @@
 const router = require('express').Router();
+const getSpecializations = require('../controllers/doctors').getSpecializations;
+const catchErrors = require('../handlers/errorHandlers').catchErrors;
 
-router.get('/', (req, res) => res.render('index'));
+
+router.get('/', catchErrors(async (req, res) => {
+	var specializations = await getSpecializations(req, res);
+	res.render('index', { specializations: specializations })
+}));
+// async (req, res) => {
+//     var specializations = await getSpecializations(req, res);
+// 	res.render('index', { specialiations: specializations })
+// });
 router.use('/doctors', require('./doctors'));
 router.use('/clinics', require('./clinics'));
 router.use('/services', require('./services'));
@@ -18,7 +28,6 @@ router.post('/search', async (req, res) => {
 			return;
 	}
 });
-
 router.use('/', require('./pages'));
 
 module.exports = router;

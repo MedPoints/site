@@ -36,3 +36,10 @@ exports.getPharmacy = async (req, res) => {
   const pharmacy = request.data.result;
   res.render('pharmacies/pharmacy', { pharmacy });
 }
+
+exports.getCount = async (req, res) => {
+  const request = await axios.get(`${API_URL}/api/pharmacies/count`);
+  const count = request.data.result;
+  res.setHeader('Content-Type', 'application/json');
+  res.send(JSON.stringify({ count}));
+};
