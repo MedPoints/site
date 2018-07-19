@@ -1,0 +1,42 @@
+    <form class="modal fade" id="addBalance" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add balance</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          				<span aria-hidden="true"><i class="fas fa-times"></i></span>
+        			</button>
+                </div>
+                <div class="modal-body">
+                    <div>Card number</div>
+                    <p><strong>0000 **** **** 0000</strong></p>
+                    <div>Card holder (in latin)</div>
+                    <p><strong>JOHN DOE</strong></p>
+                    <div class="row">
+                        <div class="col">
+                            <div>Expiration date</div>
+                            <p><strong>05.2020</strong></p>
+                        </div>
+                        <!--/.col-->
+                        <div class="col">
+                            <div>CVC/CVV code</div>
+                            <p>***</p>
+                        </div>
+                        <!--/.col-->
+                    </div>
+                    <!--/.row-->
+
+                    <label for="amount">Amount</label>
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon">$</div>
+                        <input type="text" name="amount" class="form-control" id="amount" placeholder="100" />
+                    </div>
+
+                </div>
+                <!--/.modal-body-->
+                <div class="modal-footer">
+                    <a class="btn btn-primary" href="">Add funds</a> Or <a class="btn btn-secondary" href="">pay via Paypal</a>
+                </div>
+            </div>
+        </div>
+    </form>

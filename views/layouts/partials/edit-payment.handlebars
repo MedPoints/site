@@ -1,0 +1,61 @@
+    <form class="modal fade" id="editPaymentInfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit payment Information</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          				<span aria-hidden="true"><i class="fas fa-times"></i></span>
+        			</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="cardNumber">Card number</label>
+                        <input type="text" name="cardNumber" class="form-control" id="cardNumber" placeholder="0000000000000000" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="cardHolder">Card holder (in latin)</label>
+                        <input type="text" name="cardHolder" class="form-control" id="cardHolder" placeholder="JOHN DOE" required />
+                    </div>
+
+                    <div class="row">
+                        <div class="col-8">
+
+                            <span class="label">Expiration date</span>
+                            <div class="row">
+                                <div class="col">
+                                    <select class="custom-select mb-2 mr-sm-2 mb-sm-0 justify" id="expirationMonth">
+    									<option selected>Month</option>
+    									<option value="1">One</option>
+    									<option value="2">Two</option>
+    									<option value="3">Three</option>
+  									</select>
+                                </div>
+                                <!--/.col-->
+                                <div class="col">
+                                    <select class="custom-select mb-2 mr-sm-2 mb-sm-0 justify" id="expirationYear">
+    									<option selected>Year</option>
+    									<option value="1">One</option>
+    									<option value="2">Two</option>
+    									<option value="3">Three</option>
+  									</select>
+                                </div>
+                                <!--/.col-->
+                            </div>
+                            <!--/.row-->
+                        </div>
+                        <!--/.col-->
+                        <div class="col-4">
+                            <label for="CVCCode">CVC/CVV code</label>
+                            <input type="text" name="CVCCode" class="form-control" id="CVCCode" placeholder="***" required />
+                        </div>
+                        <!--/.col-->
+                    </div>
+                    <!--/.row-->
+                </div>
+                <!--/.modal-body-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </form>

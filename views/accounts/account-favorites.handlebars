@@ -1,0 +1,217 @@
+
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="/account">Account</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><?=$page_title?></li>
+        </ol>
+    </nav>
+
+    <ul>
+        <li id="191" class="alert alert-warning parent" role="alert">
+            <strong>Note!</strong> <a class="" href="#">General Hospital</a> <small>Public</small> request your medical records at 11:24 - 12.02.2018. <a href="/account-request">Choose records to open</a>
+            <a name="delete" id="191" class="delete-parent" href="#"><i class="fas fa-times"></i></a>
+        </li>
+
+        <li id="192" class="alert alert-warning parent" role="alert">
+            <strong>Note!</strong> At 2011-08-20 <strong>16:45:00</strong> from your account will be charged <strong class="text-danger">35 MPT</strong> as Monthly insurance fee
+            <a name="delete" id="192" class="delete-parent" href="#"><i class="fas fa-times"></i></a>
+        </li>
+    </ul>
+
+    <div class="row">
+        <div class="col-xl-3 push-xl-9 col-lg-4 push-lg-8 col-md-5 push-md-7 col-sm-12 push-sm-0"> 
+            <nav class="sticky-top"> 
+                <?php include($_SERVER["DOCUMENT_ROOT"]."/inc/right.php"); ?> 
+            </nav> 
+        </div>
+        <!--/.col--> 
+        <div class="col-xl-9 pull-xl-3 col-lg-8 pull-lg-4 col-md-7 pull-md-5 col-sm-12 pull-sm-0"> 
+		 
+    		<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-1" role="tab" aria-controls="pills-1" aria-selected="true">All</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-2" role="tab" aria-controls="pills-2" aria-selected="false">Clinics</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-3" role="tab" aria-controls="pills-3" aria-selected="false">Doctors</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-4" role="tab" aria-controls="pills-4" aria-selected="false">Pharmacies</a>
+                </li>
+            </ul>
+
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-1" role="tabpanel" aria-labelledby="pills-home-tab">
+
+                    <ul class="items-list">
+					
+                <li>
+                    <div class="row">
+                        <div class="col-xl-3 col-md-6 col-sm-5">
+                            <a class="avatar" href="/doctor"><div class="crop"><img src="img/_demo/doctor1.jpg" alt="" /></div></a>
+                    		<div class="text-success" data-toggle="tooltip" data-placement="top" title="Participant in the program of insurance points"><i class="fas fa-heartbeat"></i> Insurance</div> 
+                        </div>
+                        <!--/.col-->
+                        <div class="col-xl-5 col-md-6 col-sm-7">
+                            <h3><a href="/doctor"><strong>Smith</strong> John</a> <small>M.D</small></h3>
+                            <div><a href="/doctors">Dietologist</a></div>
+                            <h4><a href="/clinic">General hospital</a> <small>Public</small></h4>
+                            <p>462 First Avenue, <a href="/doctors">New York</a>, <a href="/doctors">NY</a>, <a href="/doctors">United States</a></p>
+                            <div>Work experience <strong>9+</strong> years</div>
+                            <div>First visit from = <strong>100 MPT</strong> <br />+ <strong class="text-success">100 MPT bonus</strong> for next visits</div>
+                        </div>
+                        <!--/.col-->
+                        <div class="col-xl-4 col-md-12 col-sm-12">
+                            <div class="wave text-center">
+                                <h4>Rating <strong class="text-success">9.99</strong></h4>
+                                <p>based on <strong><a class="" href="/doctor#opinions">8 opinions</a></strong></p>
+                                <a class="btn btn-primary btn-lg justify" href="/booking">Book to visit</a>
+                            </div>
+                            <!--/.wave-->
+                        </div>
+                        <!--/.col-->
+                    </div>
+                    <!--/.row-->
+                </li> 
+			
+                <li>
+                    <div class="row">
+                        <div class="col-xl-3 col-md-3 col-sm-4">
+                            <a class="avatar" href="/pharmacy"><div class="crop"><img src="img/_demo/pharmacy1.jpg" alt="" /></div></a> 
+                        </div>
+                        <!--/.col-->
+                        <div class="col-xl-5 col-md-5 col-sm-8">
+                            <h3><a class="" href="/pharmacy">Pharmacy Store #1</a></h3>
+                            <p><i class="fas fa-map-marker"></i> 462 First Avenue, <a href="/clinics">New York</a>, <a href="/clinics">NY</a>, <a href="/clinics">United States</a></p>
+                            <div class="row">
+                                <div class="col">
+									<div class="card">
+                                    	<ul>
+                                        	<li><small>Monday-Friday:</small> <br />8:00 - 17:00</li>
+                                        	<li><small>Saturday:</small> <br />10:00 - 16:00</li>
+                                        	<li><small>Sunday:</small> <br />12:00 - 14:00</li>
+                                    	</ul>
+									</div><!--/.card-->
+                                </div>
+                                <!--/.col-->
+                                <div class="col"> 
+                                </div>
+                                <!--/.col-->
+                            </div>
+                            <!--/.row-->
+                        </div>
+                        <!--/.col-->
+                        <div class="col-xl-4 col-md-4 col-sm-12">
+                            <div class="wave text-center">
+                                <h4>Rating <strong class="text-success">9.99</strong></h4>
+                                <p>based on <strong><a class="" href="/pharmacy#opinions">58 opinions</a></strong></p>
+                                <a class="btn btn-primary btn-lg justify" href="/drugs"><strong>33 661</strong> drugs</a>
+                            </div>
+                            <!--/.wave-->
+                        </div>
+                        <!--/.col-->
+                    </div>
+                    <!--/.row-->
+                </li>  
+				
+                <li>
+                    <div class="row">
+                        <div class="col-xl-3 col-md-6 col-sm-5">
+                            <a class="avatar" href="/clinic"><div class="crop"><img src="img/_demo/clinic1.jpg" alt="" /></div></a>
+                            <div class="text-success" data-toggle="tooltip" data-placement="top" title="Participant in the program of insurance points"><i class="fas fa-heartbeat"></i> Insurance</div> 
+                            <div class="text-success" data-toggle="tooltip" data-placement="top" title="Participant in the program of Help foundation"><i class="far fa-life-ring"></i> Help foundation</div>
+                        </div>
+                        <!--/.col-->
+                        <div class="col-xl-5 col-md-6 col-sm-7">
+                            <h3><a class="" href="/clinic">General Hospital</a> <small>Public</small></h3>
+                            <div><a href="/clinics">Dietology</a>, <a href="/clinics">Oncology</a>, <a href="/clinics">Traumatology</a> + 123 more</div>
+                            <p>462 First Avenue, <a href="/clinics">New York</a>, <a href="/clinics">NY</a>, <a href="/clinics">United States</a></p>
+                            <div class="row">
+                                <div class="col">
+									<div class="card">
+                                    	<ul>
+                                        	<li><small>Monday-Friday:</small> <br />8:00 - 17:00</li>
+                                        	<li><small>Saturday:</small> <br />10:00 - 16:00</li>
+                                        	<li><small>Sunday:</small> <br />12:00 - 14:00</li>
+                                    	</ul>
+									</div><!--/.card-->
+                                </div>
+                                <!--/.col-->
+                                <div class="col">
+                                    <div class="color-gray" data-toggle="tooltip" data-placement="top" title="Provides a transfer from the airport"><i class="fas fa-plane"></i> Airport transfer</div>
+                                    <div class="" data-toggle="tooltip" data-placement="top" title="Available with bus routes"><i class="fas fa-bus"></i> Bus route</div>
+                                    <div class="" data-toggle="tooltip" data-placement="top" title="Has free parking"><i class="fas fa-car"></i> Free parking</div>
+                                </div>
+                                <!--/.col-->
+                            </div>
+                            <!--/.row-->
+                        </div>
+                        <!--/.col-->
+                        <div class="col-xl-4 col-md-12 col-sm-12">
+                            <div class="wave text-center">
+                                <h4>Rating <strong class="text-success">9.99</strong></h4>
+                                <p>based on <strong><a class="" href="/clinic#opinions">58 opinions</a></strong></p>
+                                <a class="btn btn-primary btn-lg justify" href="/doctors"><strong>215</strong> doctors</a>
+                                <div><a class="" href="/services"><strong>1425</strong> services</a></div>
+                            </div>
+                            <!--/.wave-->
+                        </div>
+                        <!--/.col-->
+                    </div>
+                    <!--/.row-->
+                </li> 
+				
+            </ul>
+ 
+			<div class="row pagination-line">
+            	<div class="col">
+					<nav aria-label="...">
+                <ul class="pagination">
+                    <li class="page-item disabled">
+                        <span class="page-link">Previous</span>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item active">
+                        <span class="page-link">2<span class="sr-only">(current)</span></span>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+            		</nav>
+            	</div>
+            	<!--/.col-->
+            	<div class="col"> 
+					<em>1-5 / 3154</em>
+            	</div>
+            	<!--/.col-->
+          	</div>
+          	<!--/.row-->
+
+                </div>
+                <!--/.tab-pane-->
+                <div class="tab-pane fade" id="pills-2" role="tabpane2" aria-labelledby="pills-profile-tab">
+                    Clinics
+                </div>
+                <!--/.tab-pane-->
+                <div class="tab-pane fade" id="pills-3" role="tabpane3" aria-labelledby="pills-contact-tab">
+                    Doctors
+                </div>
+                <!--/.tab-pane-->
+                <div class="tab-pane fade" id="pills-4" role="tabpane4" aria-labelledby="pills-contact-tab">
+                    Pharmacies
+                </div>
+                <!--/.tab-pane-->
+            </div>
+            <!--/.tab-content--> 
+			
+        </div>
+        <!--/.col-->
+    </div>
+    <!--/.row-->
+ 

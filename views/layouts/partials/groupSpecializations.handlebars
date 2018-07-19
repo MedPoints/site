@@ -1,0 +1,13 @@
+{{#groupSpecializations specializations }}
+
+{{#each specializations as |group|}}
+    <div class="col-xl-4 col-md-4 col-sm-6">
+        <ul>
+            {{#each group as |specialization|}}
+            <li><a href="/doctors?department={{specialization.name}}">{{specialization.name}}</a> <span class="badge">{{specialization.count}}</span></li>
+            {{/each}}
+        </ul>
+    </div>
+{{/each}}
+
+{{/groupSpecializations}}
