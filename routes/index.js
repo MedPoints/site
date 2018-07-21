@@ -16,6 +16,7 @@ router.use('/clinics', require('./clinics'));
 router.use('/services', require('./services'));
 router.use('/pharmacies', require('./pharmacies'));
 router.use('/drugs', require('./drugs'));
+router.use('/foundation', require('./foundation'));
 router.post('/search', async (req, res) => {
 	const {category, search} = req.body;
 	switch(category.toLowerCase()){

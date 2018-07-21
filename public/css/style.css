@@ -206,17 +206,17 @@ a.sizer.selected {
 }
  a.sizer#small {
      font-size:10px !important;
-     padding: 1.6em 0 1.3em 1em !important;
+     padding: 1.6em .5em 1.3em .5em !important;
      line-height: 110% !important;
 }
  a.sizer#medium {
      font-size:16px !important;
-     padding: .7em 0 .5em 1em !important;
+     padding: .7em .5em .5em .5em !important;
      line-height: 110% !important;
 }
  a.sizer#large {
      font-size:22px !important;
-     padding: .3em 0 .1em .8em !important;
+     padding: .3em .3em .1em .3em !important;
      line-height: 110% !important;
 }
 
@@ -342,7 +342,7 @@ footer {
      padding: 0 2rem;
      position: relative;
      z-index: 3;
-     bottom: -1px;
+     bottom: -2px;
 }
 
 .cats ul {
