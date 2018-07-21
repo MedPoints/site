@@ -920,15 +920,15 @@ body.small .custom-select {
 	}
  
 body.small a.sizer#small { 
-     padding: 1.4em 0 1.3em 1em !important; 
+     padding: 1.4em .5em 1.3em .5em !important; 
 }
 
 body.small a.sizer#medium { 
-     padding: .5em 0 .5em 1em !important; 
+     padding: .5em .5em .5em 1em !important; 
 }
 
 body.small a.sizer#large { 
-     padding: .2em 0 .1em .8em !important; 
+     padding: .2em .4em .1em .4em !important; 
 }
 
 /* */
