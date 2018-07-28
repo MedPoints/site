@@ -1,16 +1,18 @@
 const router = require('express').Router();
 const getSpecializations = require('../controllers/doctors').getSpecializations;
+const getClinicsByLocation = require('../controllers/clinics').getClinicsByLocation
 const catchErrors = require('../handlers/errorHandlers').catchErrors;
 
 
 router.get('/', catchErrors(async (req, res) => {
 	var specializations = await getSpecializations(req, res);
-	res.render('index', { specializations: specializations })
+	var locations = await getClinicsByLocation(req, res); 
+
+	res.render('index', { 
+		specializationsData: { data: specializations, dataOptions: { baseUrl: '/doctors', filterQuery: '?department=', filterProperty: 'id', labelProperty: 'name', badgeProperty: 'count' }}, 
+		locationsData: { data: locations, dataOptions: { baseUrl: '/clinics', filterQuery: '?location=', filterProperty: 'countryCode', labelProperty: 'countryName', badgeProperty: 'count' }} 
+	})
 }));
-// async (req, res) => {
-//     var specializations = await getSpecializations(req, res);
-// 	res.render('index', { specialiations: specializations })
-// });
 router.use('/doctors', require('./doctors'));
 router.use('/clinics', require('./clinics'));
 router.use('/services', require('./services'));

@@ -116,20 +116,26 @@ exports.hbsHelpers = {
   
     return options.fn(context);
   },
-  groupSpecializations: (specializations, options) => {
+  dataColumns: (data, dataOptions, options) => {
     var context = {
-      specializations: []
+      dataGroups: [],
+      dataOptions
     };
-    specializations = options.data.root.specializations;
-    if (specializations) {
-      let chunkSize = 13;
-      context.specializations = [].concat.apply([],
-        specializations.map(function(elem,i) {
-              return i%chunkSize ? [] : [specializations.slice(i,i+chunkSize)];
+    if (data) {
+      let chunkSize = dataOptions.chunkSize || 13;
+      context.dataGroups = [].concat.apply([],
+        data.map(function(elem,i) {
+              return i%chunkSize ? [] : [data.slice(i,i+chunkSize)];
           })
       );
     }
 
     return options.fn(context);
+  },
+  getPropertyValue: (options) => {
+    let propertyValue = options.hash.obj[options.hash.propName];
+    if (propertyValue === null || propertyValue === undefined)
+      propertyValue = '';
+    return propertyValue;
   }
 };
