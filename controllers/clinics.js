@@ -3,6 +3,7 @@ const axios = require('axios');
 const fs = require('fs');
 const API_URL = config.get('API_URL');
 const { Pager, PAGE_SIZE } = require('./../helpers/pager');
+const { prepareClinicData } = require('./../helpers/clinics');
 
 
 const PAGE_TITLE = 'Clinics';
@@ -56,8 +57,8 @@ exports.getClinicsByLocation = async (req, res) => {
 
 exports.getClinic = async (req, res) => {
   const id = req.params.id;
-  const request = await axios.get(`${API_URL}/api/hospitals/location`);
-  const hospital = request.data.result;
+  const request = await axios.get(`${API_URL}/api/hospitals?id=${id}`);
+  const hospital = prepareClinicData(request.data.result);
   res.render('clinics/clinic', { hospital });
 };
 

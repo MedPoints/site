@@ -9,11 +9,11 @@
     </nav>
 
     <div class="row">
-        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
 
             <div class="row">
                 <div class="col-xl-4 col-md-12">
-                    <a class="avatar" href="/clinic"><div class="crop"><img src="/img/_demo/clinic1.jpg" alt="" /></div></a>
+                    <div class="avatar crop"><img src="{{hospital.photos}}" alt="The hospital photo" /></div>
                     <div class="text-success" data-toggle="tooltip" data-placement="top" title="Participant in the program of insurance points"><i class="fas fa-heartbeat"></i> Insurance</div>
                     <div class="text-success" data-toggle="tooltip" data-placement="top" title="Participant in the program of Help foundation"><i class="far fa-life-ring"></i> Help foundation</div>
                 </div>
@@ -21,7 +21,7 @@
                 <div class="col-xl-8 col-md-12">
                     <h3>Public</h3>
                     <div>
-                        {{#each hospital.specialiazions as |specialization| }}
+                        {{#each hospital.specializations as |specialization| }}
                             <a href="/clinics/test">{{specialization}}</a>&nbsp;
                         {{/each}}
                     </div>
@@ -37,7 +37,7 @@
 							</div><!--/.card-->
                         </div>
                         <!--/.col-->
-                        <div class="col" hidden>
+                        <div class="col">
                             <div class="color-gray" data-toggle="tooltip" data-placement="top" title="Provides a transfer from the airport"><i class="fas fa-plane"></i> Airport transfer</div>
                             <div class="" data-toggle="tooltip" data-placement="top" title="Available with bus routes"><i class="fas fa-bus"></i> Bus route</div>
                             <div class="" data-toggle="tooltip" data-placement="top" title="Has free parking"><i class="fas fa-car"></i> Free parking</div>
@@ -103,7 +103,8 @@
 
         </div>
         <!--/.col-->
-        {{!-- <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+        
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
 
             <nav class="sticky-top">
 
@@ -112,8 +113,8 @@
                     <div class="col-xl-6 col-lg-12">
 
                         <div class="wave text-center">
-                            <h4 hidden>Rating <strong class="text-success">9.99</strong></h4>
-                            <p hidden>based on <strong><a class="" href="#opinions">58 opinions</a></strong></p>
+                            <h4>Rating <strong class="text-success">9.99</strong></h4>
+                            <p>based on <strong><a class="" href="#opinions">58 opinions</a></strong></p>
                             <p><a class="btn btn-primary btn-lg justify" href="/doctors"><strong>215</strong> doctors</a></p>
                             <p><a class="" href="/services"><strong>1425</strong> services</a></p>
 
@@ -127,16 +128,16 @@
                     <!--/.col-->
 
                     <div class="col-xl-6 col-lg-12">
-						<div class="map hidden-lg-down">
-                        	<iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d84016.36429915384!2d2.161754161251458!3d48.848458114630624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e0!4m0!4m5!1s0x47e67031f8c20147%3A0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris%2C+3+Avenue+Victoria%2C+75004+Paris%2C+Francia!3m2!1d48.856836099999995!2d2.3504327!5e0!3m2!1sen!2sru!4v1517149847463"
+                        <div class="map hidden-lg-down">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d84016.36429915384!2d2.161754161251458!3d48.848458114630624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e0!4m0!4m5!1s0x47e67031f8c20147%3A0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris%2C+3+Avenue+Victoria%2C+75004+Paris%2C+Francia!3m2!1d48.856836099999995!2d2.3504327!5e0!3m2!1sen!2sru!4v1517149847463"
                             width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-						</div><!--/.map-->
-						<div class="hidden-xl-up"><br /><a class="btn-map" href="#" data-toggle="collapse" data-target="#showMap"><i class="fas fa-map-marker"></i> Show on map</a>
-							<div class="collapse" id="showMap">
-								<iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d84016.36429915384!2d2.161754161251458!3d48.848458114630624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e0!4m0!4m5!1s0x47e67031f8c20147%3A0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris%2C+3+Avenue+Victoria%2C+75004+Paris%2C+Francia!3m2!1d48.856836099999995!2d2.3504327!5e0!3m2!1sen!2sru!4v1517149847463"
+                        </div><!--/.map-->
+                        <div class="hidden-xl-up"><br /><a class="btn-map" href="#" data-toggle="collapse" data-target="#showMap"><i class="fas fa-map-marker"></i> Show on map</a>
+                            <div class="collapse" id="showMap">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d84016.36429915384!2d2.161754161251458!3d48.848458114630624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e0!4m0!4m5!1s0x47e67031f8c20147%3A0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris%2C+3+Avenue+Victoria%2C+75004+Paris%2C+Francia!3m2!1d48.856836099999995!2d2.3504327!5e0!3m2!1sen!2sru!4v1517149847463"
                         width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-							</div><!--/.collapse-->
-						</div>
+                            </div><!--/.collapse-->
+                        </div>
                     </div>
                     <!--/.col-->
 
@@ -145,7 +146,7 @@
 
             </nav>
 
-        </div> --}}
+        </div>
         <!--/.col-->
     </div>
     <!--/.row-->

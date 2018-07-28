@@ -152,7 +152,11 @@
                 <li>
                     <div class="row">
                         <div class="col-xl-3 col-md-3 col-sm-4">
-                            <a class="avatar" href="/clinics/{{hospital.id}}"><div class="crop"><img src="img/_demo/clinic1.jpg" alt="" /></div></a>
+                            <a class="avatar" href="/clinics/{{hospital.id}}">
+                                <div class="crop">
+                                    <img src="{{hospital.photos}}" alt="The clinic photo" />
+                                </div>
+                            </a>
                             <div class="text-success" data-toggle="tooltip" data-placement="top" title="Participant in the program of insurance points"><i class="fas fa-heartbeat"></i> Insurance</div>
                             <div class="text-success" data-toggle="tooltip" data-placement="top" title="Participant in the program of Help foundation"><i class="far fa-life-ring"></i> Help foundation</div>
                         </div>
@@ -160,11 +164,11 @@
                         <div class="col-xl-5 col-md-5 col-sm-8">
                             <h3><a class="" href="/clinics/{{hospital.id}}">{{hospital.name}}</a> <small>Public</small></h3>
                             <div>
-                                {{#each hospital.specialiazions as |specialization| }}
+                                {{#each hospital.specializations as |specialization| }}
                                 <a href="/clinics/test">{{specialization}}</a>&nbsp;
                                 {{/each}}
                             </div>
-                            <p>{{hospital.address}}</p>
+                            <p>{{hospital.location.address}}</p>
                             <div class="row">
                                 <div class="col">
 									<div class="card">
@@ -176,7 +180,7 @@
 									</div><!--/.card-->
                                 </div>
                                 <!--/.col-->
-                                <div class="col" hidden>
+                                <div class="col">
                                     <div class="color-gray" data-toggle="tooltip" data-placement="top" title="Provides a transfer from the airport"><i class="fas fa-plane"></i> Airport transfer</div>
                                     <div class="" data-toggle="tooltip" data-placement="top" title="Available with bus routes"><i class="fas fa-bus"></i> Bus route</div>
                                     <div class="" data-toggle="tooltip" data-placement="top" title="Has free parking"><i class="fas fa-car"></i> Free parking</div>
