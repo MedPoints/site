@@ -2,38 +2,25 @@ const config = require('config');
 const axios = require('axios');
 const API_URL = config.get('API_URL');
 const { Pager, PAGE_SIZE } = require('./../helpers/pager');
+const { queryPersistant } = require('./../helpers/query-persistant');
 
 const PAGE_TITLE = 'Doctors';
 
 exports.getDoctors = async (req, res) => {
-  const {name, department} = req.query;
-  const page = Number(req.query.page) || 1;
-  let url = `${API_URL}/api/doctors?page=${page}&count=${PAGE_SIZE}`;
-  if (name) {
-    url += `&name=${name}`;
-  }
-  
-  if (department) {
-    url += `&specialization=${department}`;
-  }
+  let url = queryPersistant.applyRequestQueryParameters(req.query, `${API_URL}/api/doctors`);  
   const request = await axios.get(url);
   let doctors = request.data.result.data ;
-  if (!Array.isArray(doctors)) {
-    doctors = [doctors];
-  }
-  
+
   const pager = new Pager(
-    PAGE_SIZE,
-    page,
+    PAGE_SIZE, 
+    Number(req.query.page) || 1, 
     request.data.result.meta.pages);
   const pagerInfo = {
     pager,
     baseUrl: '/doctors',
-    searchQuery: name,
-    searchParameterName: 'name',
-    specializationQuery: department,
-    specializationParameterName: 'department'
+    parameters: req.query
   };
+
 
   res.render('doctors/doctors', { doctors, pagerInfo, PAGE_TITLE });
 };

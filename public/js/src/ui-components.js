@@ -216,3 +216,24 @@ function repos(imgs) {
 
     })
 }
+
+$('#pills-2').on('shown', function (e) { 
+    
+});
+
+$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+    var target = $(e.target).attr("href") // activated tab
+    if (target === 'pills-2') {
+        console.log('shown')
+        initMap(); // google map init function
+    }
+});
+
+function initMap() {
+    var map = new google.maps.Map(
+        document.getElementById('map'));
+    for (var i = 0, length = locations.length; i < length; i++) {
+        var location = locations[i];
+        new google.maps.Marker({position: {lat: location.lat, lng: location.lng}, map: map});
+    }
+}

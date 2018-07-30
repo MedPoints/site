@@ -7,20 +7,21 @@ const { Pager, PAGE_SIZE } = require('./../helpers/pager');
 const PAGE_TITLE = 'Services';
 
 exports.getServices = async (req, res) => {
-  const page = Number(req.query.page) || 1;
+  let url = queryPersistant.applyRequestQueryParameters(req.query, `${API_URL}/api/services`);  
+  const request = await axios.get(url);
+  let services = request.data.result.data ;
 
-  const request = await axios.get(`${API_URL}/api/services?page=${page}&count=${PAGE_SIZE}`);
-  
+
   const pager = new Pager(
     PAGE_SIZE, 
-    page, 
+    Number(req.query.page) || 1, 
     request.data.result.meta.pages);
   const pagerInfo = {
     pager,
-    baseUrl: '/services'
+    baseUrl: '/services',
+    parameters: req.query
   };
 
-  const services = request.data.result.data;
   res.render('services/services', { services, pagerInfo });
 };
 

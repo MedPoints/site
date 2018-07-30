@@ -1,5 +1,6 @@
 const moment = require('moment');
 const Handlebars = require('handlebars');
+const {queryPersistant} = require('./../helpers/query-persistant');
 
 exports.hbsHelpers = {
   activeLink: (url, path) => url.startsWith(path) ? 'active' : '',
@@ -55,18 +56,7 @@ exports.hbsHelpers = {
         page = pagerData.page;
         break;
     }
-
-    const baseUrl = pagerInfo.baseUrl;
-    const searchQuery = pagerInfo.searchQuery;
-    const specializationQuery = pagerInfo.specializationQuery;
-
-    var resultingUrl = `${baseUrl}?page=${page}`;
-
-    if (searchQuery)
-      resultingUrl += `&${pagerInfo.searchParameterName}=${searchQuery}`;
-    if (specializationQuery)
-      resultingUrl += `&${pagerInfo.specializationParameterName}=${specializationQuery}`;
-    return resultingUrl;
+    return queryPersistant.applyRequestQueryParameters(pagerInfo.parameters, `${pagerInfo.baseUrl}?page=${page}`);
   },
   pagination: (currentPage, totalPage, size, options) => {
     var startPage, endPage, context;
@@ -137,5 +127,8 @@ exports.hbsHelpers = {
     if (propertyValue === null || propertyValue === undefined)
       propertyValue = '';
     return propertyValue;
-  }
+  },
+  escape: (variable) => {
+    return variable.replace(/(['"])/g, '\\$1');
+  },
 };

@@ -6,25 +6,19 @@ const { Pager, PAGE_SIZE } = require('./../helpers/pager');
 const PAGE_TITLE = 'Pharmacies';
 
 exports.getPharmacies = async (req, res) => {
-  const {name} = req.query;
-  const page = Number(req.query.page) || 1;
-  let url = `${API_URL}/api/pharmacies?page=${page}&count=${PAGE_SIZE}`;
-  if (name) {
-    url += `&name=${name}`;
-  }
+  let url = queryPersistant.applyRequestQueryParameters(req.query, `${API_URL}/api/pharmacies`);  
   const request = await axios.get(url);
   let pharmacies = request.data.result.data ;
-  if (!Array.isArray(pharmacies)) {
-    pharmacies = [pharmacies];
-  }
+
 
   const pager = new Pager(
     PAGE_SIZE, 
-    page, 
+    Number(req.query.page) || 1, 
     request.data.result.meta.pages);
   const pagerInfo = {
     pager,
-    baseUrl: '/pharmacies'
+    baseUrl: '/pharmacies',
+    parameters: req.query
   };
 
   res.render('pharmacies/pharmacies', { pharmacies, pagerInfo, PAGE_TITLE });
