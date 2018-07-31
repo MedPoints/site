@@ -11,7 +11,7 @@ router.get('/', catchErrors(async (req, res) => {
 	res.render('index', { 
 		specializationsData: { data: specializations, dataOptions: { baseUrl: '/doctors', filterQuery: '?department=', filterProperty: 'id', labelProperty: 'name', badgeProperty: 'count' }}, 
 		locationsData: { data: locations.clinicsGroups, dataOptions: { baseUrl: '/clinics', filterQuery: '?country=', filterProperty: 'countryCode', labelProperty: 'countryName', badgeProperty: 'count' }},
-		locations: locations.locations.slice(0, 20)
+		locations: locations.locations
 	})
 }));
 router.use('/doctors', require('./doctors'));

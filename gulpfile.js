@@ -7,10 +7,10 @@ const
 
 
 gulp.task('run', ['build', 'watch'], function (cb) {
-    let env = argv.dev ? 'dev' : 'start';
-    exec(`npm run ${env}`, function (err, stdout, stderr) {
+    exec('npm run start', function (err, stdout, stderr) {
         console.log(stdout);
         console.log(stderr);
+        console.log(err);
         cb(err);
     });
 });

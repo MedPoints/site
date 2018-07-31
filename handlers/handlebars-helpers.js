@@ -131,4 +131,7 @@ exports.hbsHelpers = {
   escape: (variable) => {
     return variable.replace(/(['"])/g, '\\$1');
   },
+  jsonify: (obj) => {
+    return JSON.stringify(obj);
+  },
 };

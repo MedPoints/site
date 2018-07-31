@@ -13,6 +13,24 @@ exports.getClinics = async (req, res) => {
   let url = queryPersistant.applyRequestQueryParameters(req.query, `${API_URL}/api/hospitals`);  
   const request = await axios.get(url);
   let hospitals = request.data.result.data.map(clinic => prepareClinicData(clinic));
+  
+  
+  let avgCoordinates = {lat: 0, lng: 0};
+  let count = 0;
+  for (let i = 0, length = hospitals.length; i < length; i++) {
+    const hospital = hospitals[i];
+    if (hospital.coordinations && hospital.coordinations.lat && hospital.coordinations.lon) {
+      count++;
+      avgCoordinates.lat += hospital.coordinations.lat;
+      avgCoordinates.lng += hospital.coordinations.lon;
+    }
+  }
+  if (count > 0) {
+    avgCoordinates.lat = avgCoordinates.lat / count;
+    avgCoordinates.lng = avgCoordinates.lng / count;  
+  }
+  
+
 
   const pager = new Pager(
     PAGE_SIZE, 
@@ -24,7 +42,7 @@ exports.getClinics = async (req, res) => {
     parameters: req.query
   };
 
-  res.render('clinics/clinics', { hospitals, pagerInfo });
+  res.render('clinics/clinics', { hospitals, pagerInfo, avgCoordinates });
 };
 
 exports.getClinicsByLocation = async (req, res) => {
@@ -64,7 +82,7 @@ exports.getClinic = async (req, res) => {
   const id = req.params.id;
   const request = await axios.get(`${API_URL}/api/hospitals?id=${id}`);
   const hospital = prepareClinicData(request.data.result);
-  res.render('clinics/clinic', { hospital });
+  res.render('clinics/clinic', { hospital, hospitalJson: JSON.stringify(hospital) });
 };
 
 exports.getCount = async (req, res) => {
