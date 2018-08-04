@@ -206,7 +206,8 @@
                         <div class="col-xl-3 col-md-3 col-sm-4">
                             <a class="avatar" href="/clinics/{{hospital.id}}">
                                 <div class="crop">
-                                    <img src="{{hospital.photos}}" alt="The clinic photo" />
+                                    <img src="{{hospital.photos}}" alt="The clinic photo"
+                                        onerror="this.onerror=null;this.src='/img/logo_stub.svg';this.style.width='100px';" />
                                 </div>
                             </a>
                             <div class="text-success" data-toggle="tooltip" data-placement="top" title="Participant in the program of insurance points"><i class="fas fa-heartbeat"></i> Insurance</div>

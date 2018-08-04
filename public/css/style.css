@@ -1264,5 +1264,6 @@ ul.cat-list li {
     min-height:100%;
 	max-width: 300px;
     top:0%;
-    left:0
+    left:0;
+    background-color: #0d47a1;
 }
