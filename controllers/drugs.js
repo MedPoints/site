@@ -2,6 +2,7 @@ const config = require('config');
 const axios = require('axios');
 const API_URL = config.get('API_URL');
 const { Pager, PAGE_SIZE } = require('./../helpers/pager');
+const { queryPersistant } = require('./../helpers/query-persistant');
 
 const PAGE_TITLE = 'Drugs';
 
