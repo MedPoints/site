@@ -218,7 +218,7 @@
                             <h3><a class="" href="/clinics/{{hospital.id}}">{{hospital.name}}</a> <small>Public</small></h3>
                             <div>
                                 {{#each hospital.specializations as |specialization| }}
-                                <a href="/clinics/test">{{specialization}}</a>&nbsp;
+                                <a href="/clinics/?specialization={{specialization.id}}">{{specialization.name}}</a>&nbsp;
                                 {{/each}}
                             </div>
                             <p>{{hospital.location.address}}</p>

@@ -32,7 +32,17 @@ exports.getDrug = async (req, res) => {
   const id = req.params.id;
   const request = await axios.get(`${API_URL}/api/drugs?id=${id}`);
   const drug = request.data.result;
-  res.render('drugs/drug', { drug });
+
+  let providersLocations = [];
+  for (let i = 0, length = drug.providers.pharmacies.length; i < length; i++) {
+    let provider = drug.providers.pharmacies[i];
+    if (provider && provider.coordinations &&
+      provider.coordinations.lat && provider.coordinations.lon) {
+
+        providersLocations.push(provider);
+      }
+  }
+  res.render('drugs/drug', { drug, providersLocations });
 }
 
 exports.getCount = async (req, res) => {

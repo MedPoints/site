@@ -1267,3 +1267,7 @@ ul.cat-list li {
     left:0;
     background-color: #0d47a1;
 }
+
+.info-window {
+    max-width: 150px;
+}

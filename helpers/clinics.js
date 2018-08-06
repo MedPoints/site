@@ -12,11 +12,10 @@ exports.prepareClinicData = (clinic) => {
         });
     }
 
-    const specializations = clinic.specializations.split(); 
-
-    return {
+    let data = {
         ...clinic,
         work_time,
-        specializations
     };
+
+    return data;
 };

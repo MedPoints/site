@@ -25,7 +25,7 @@
                     <h3>Public</h3>
                     <div>
                         {{#each hospital.specializations as |specialization| }}
-                            <a href="/clinics/test">{{specialization}}</a>&nbsp;
+                        <a href="/clinics/?specialization={{specialization.id}}">{{specialization.name}}</a>&nbsp;
                         {{/each}}
                     </div>
                     <p>
