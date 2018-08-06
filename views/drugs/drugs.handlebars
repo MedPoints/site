@@ -204,7 +204,7 @@
                                 <i class="fas fa-plus text-success" data-toggle="tooltip" data-placement="top" title="Can be purchased for insurance points"></i>
                                 {{/if}}
                             </td>
-                            <td><a class="btn btn-primary float-right" href="/doctors"><strong>{{ drug.providers.pharmacies.length }}</strong> Pharmacies</a></td>
+                            <td><a class="btn btn-primary float-right" href="/pharmacies?drugId={{drug.id}}"><strong>{{ drug.providers.pharmacies.length }}</strong> Pharmacies</a></td>
                         </tr>
                         {{/each}}
                     </tbody>

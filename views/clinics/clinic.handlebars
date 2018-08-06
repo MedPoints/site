@@ -25,7 +25,7 @@
                     <h3>Public</h3>
                     <div>
                         {{#each hospital.specializations as |specialization| }}
-                        <a href="/clinics/?specialization={{specialization.id}}">{{specialization.name}}</a>&nbsp;
+                            <a href="/clinics?specializationId={{specialization.id}}">{{specialization.name}}</a>&nbsp;
                         {{/each}}
                     </div>
                     <p>
@@ -96,15 +96,9 @@
 
             <div class="gallery">
                 <ul class="owl-carousel owl-theme">
-                    <li class="item"><a class="gallery-img" href="/img/_demo/clinic1.jpg" title="Caption for gallery item 1"><img src="/img/_demo/clinic1.jpg" alt="Gallery image 1" /></a></li>
-                    <li class="item"><a class="gallery-img" href="/img/_demo/clinic2.jpg" title="Caption for gallery item 2"><img src="/img/_demo/clinic2.jpg" alt="Gallery image 2" /></a></li>
-                    <li class="item"><a class="gallery-img" href="/img/_demo/clinic3.jpg" title="Caption for gallery item 3"><img src="/img/_demo/clinic3.jpg" alt="Gallery image 3" /></a></li>
-                    <li class="item"><a class="gallery-img" href="/img/_demo/clinic4.jpg" title="Caption for gallery item 1"><img src="/img/_demo/clinic4.jpg" alt="Gallery image 1" /></a></li>
-                    <li class="item"><a class="gallery-img" href="/img/_demo/clinic5.jpg" title="Caption for gallery item 2"><img src="/img/_demo/clinic5.jpg" alt="Gallery image 2" /></a></li>
-                    <li class="item"><a class="gallery-img" href="/img/_demo/clinic6.jpg" title="Caption for gallery item 3"><img src="/img/_demo/clinic6.jpg" alt="Gallery image 3" /></a></li>
-                    <li class="item"><a class="gallery-img" href="/img/_demo/clinic7.jpg" title="Caption for gallery item 1"><img src="/img/_demo/clinic7.jpg" alt="Gallery image 1" /></a></li>
-                    <li class="item"><a class="gallery-img" href="/img/_demo/clinic8.jpg" title="Caption for gallery item 2"><img src="/img/_demo/clinic8.jpg" alt="Gallery image 2" /></a></li>
-                    <li class="item"><a class="gallery-img" href="/img/_demo/clinic9.jpg" title="Caption for gallery item 3"><img src="/img/_demo/clinic9.jpg" alt="Gallery image 3" /></a></li>
+                    {{#each hospital.photos as |photoLink|}}
+                        <li class="item"><a class="gallery-img" href="{{photoLink}}"><img src="{{photoLink}}"/></a></li>
+                    {{/each}}
                 </ul>
             </div>
 

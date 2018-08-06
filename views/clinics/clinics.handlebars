@@ -218,10 +218,14 @@
                             <h3><a class="" href="/clinics/{{hospital.id}}">{{hospital.name}}</a> <small>Public</small></h3>
                             <div>
                                 {{#each hospital.specializations as |specialization| }}
-                                <a href="/clinics/?specialization={{specialization.id}}">{{specialization.name}}</a>&nbsp;
+                                <a href="/clinics?specializationId={{specialization.id}}">{{specialization.name}}</a>&nbsp;
                                 {{/each}}
                             </div>
-                            <p>{{hospital.location.address}}</p>
+                            <p>
+                                <a href="https://www.google.com/maps/search/?api=1&query={{hospital.location.address}}">
+                                    {{hospital.location.address}}
+                                </a>
+                            </p>
                             <div class="row">
                                 <div class="col">
 									<div class="card">

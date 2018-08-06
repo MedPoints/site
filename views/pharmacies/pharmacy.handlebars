@@ -10,13 +10,17 @@
         <div class="col-xl-6 col-md-12">
             <div class="row">
                 <div class="col-xl-4 col-md-12">
-                    <a class="avatar" href="/pharmacies/{{ pharmacy.id }}"><div class="crop"><img src="/img/_demo/pharmacy1.jpg" alt="" /></div></a>
+                    <div class="avatar crop">
+                        <img src="{{pharmacy.photos}}" alt="The clinic photo"
+                             onerror="this.onerror=null;this.src='/img/logo_stub.svg';this.style.width='100px';" />
+                    </div>
                 </div>
-                <!--/.col-->
                 <div class="col-xl-8 col-md-12">
-                    <a href="https://www.google.com/maps/search/?api=1&query={{pharmacy.location.address}}">
-                        {{pharmacy.location.address}}
-                    </a>
+                    <p>
+                        <a href="https://www.google.com/maps/search/?api=1&query={{pharmacy.location.address}}">
+                            {{pharmacy.location.address}}
+                        </a>
+                    </p>
                     <div class="row">
                         <div class="col">
 							<div class="card">
@@ -37,7 +41,34 @@
 
             <hr />
 
-            <p>{{ pharmacy.description }}</p>
+            <p>{{ pharmacy.short_descr }}</p>
+
+            <div class="table-responsive">
+                <table summary="" class="table table-hover">
+                    <tbody>
+                    <tr>
+                        <td><strong>Network</strong></td>
+                        <td>{{pharmacy.network}}</td>
+                    </tr>
+                    <tr hidden>
+                        <td><strong>Beds</strong></td>
+                        <td>1,500 (1,160 general, 340 psychiatric)</td>
+                    </tr>
+                    <tr hidden>
+                        <td><strong>Hospital type</strong></td>
+                        <td>Teaching</td>
+                    </tr>
+                    <tr hidden>
+                        <td><strong>Affiliated university</strong></td>
+                        <td>NYU School of Medicine</td>
+                    </tr>
+                    <tr hidden>
+                        <td><strong>Emergency department</strong></td>
+                        <td>Level I trauma center</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
 
             <p>Lorem ipsum dolor sit amet, dolores mandamus moderatius ea ius, sed civibus vivendum imperdiet ei, amet tritani sea id. Ut veri diceret fierent mei, qui facilisi suavitate euripidis ad. In vim mucius menandri convenire, an brute zril vis. Ancillae delectus necessitatibus no eam, at porro solet veniam mel, ad everti nostrud vim. Eam no menandri pertinacia deterruisset.</p>
 
@@ -76,11 +107,9 @@
 
             <div class="gallery">
                 <ul class="owl-carousel owl-theme">
-                    <li class="item"><a class="gallery-img" href="/img/_demo/pharmacy1.jpg" title="Caption for gallery item 1"><img src="/img/_demo/pharmacy1.jpg" alt="" /></a></li>
-                    <li class="item"><a class="gallery-img" href="/img/_demo/pharmacy2.jpg" title="Caption for gallery item 2"><img src="/img/_demo/pharmacy2.jpg" alt="" /></a></li>
-                    <li class="item"><a class="gallery-img" href="/img/_demo/pharmacy3.jpg" title="Caption for gallery item 3"><img src="/img/_demo/pharmacy3.jpg" alt="" /></a></li>
-                    <li class="item"><a class="gallery-img" href="/img/_demo/pharmacy4.jpg" title="Caption for gallery item 4"><img src="/img/_demo/pharmacy4.jpg" alt="" /></a></li>
-                    <li class="item"><a class="gallery-img" href="/img/_demo/pharmacy5.jpg" title="Caption for gallery item 5"><img src="/img/_demo/pharmacy5.jpg" alt="" /></a></li> 
+                    {{#each pharmacy.photos as |photoLink|}}
+                        <li class="item"><a class="gallery-img" href="{{photoLink}}"><img src="{{photoLink}}"/></a></li>
+                    {{/each}}
                 </ul>
             </div>
 
@@ -133,11 +162,11 @@
                             </ul>
                             <!--/.rating-->
 							
-                            <p><a class="btn btn-primary btn-lg justify" href="/drugs"><strong>{{ pharmacy.drugs.length }}</strong> drugs</a></p>
+                            <p><a class="btn btn-primary btn-lg justify" href="/drugs?pharmacyId={{pharmacy.id}}"><strong>{{ pharmacy.drugs.length }}</strong> drugs</a></p>
 
-                            <p>In favorites at <strong>462</strong> users</p>
+                            <p hidden>In favorites at <strong>462</strong> users</p>
 
-                            <a class="btn btn-secondary justify" href="#"><i class="far fa-heart"></i> Add to favorite</a>
+                            <a hidden class="btn btn-secondary justify" href="#"><i class="far fa-heart"></i> Add to favorite</a>
 
                         </div>
                         <!--/.wave-->
@@ -174,23 +203,23 @@
                                                 infowindow.setContent(content);
                                                 infowindow.open(map, marker);
                                             };
-                                        })(marker, getInfoWindowContent(pharmacy), infowindow));      
+                                        })(marker, getInfoWindowContent(pharmacy), infowindow));
                                     })
-                                    
+
                                 }
 
-                                function getInfoWindowContent(hospital) {
-                                    return '<div class="info-window">' + 
-                                    '<h5>' + (hospital.name || '') + '</h5>' +
-                                    '<i>' + (hospital.location.address || '') + '</i><br/>' +
-                                    '<a href="/clinics/' + hospital.id.toString() + '">View Clinic</a>' 
+                                function getInfoWindowContent(pharmacy) {
+                                    return '<div class="info-window">' +
+                                            '<h5>' + (pharmacy.name || '') + '</h5>' +
+                                            '<i>' + (pharmacy.location.address || '') + '</i><br/>' +
+                                            '<a href="/pharmacy/' + pharmacy.id.toString() + '">View Clinic</a>'
                                     '</div>';
                                 }
                             </script>
                             <script async defer
-                                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA839hvZlHkWX80W6YRTuv3C7HToNVZhwc&callback=initLocationMap">
+                                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA839hvZlHkWX80W6YRTuv3C7HToNVZhwc&callback=initLocationMap">
                             </script>
-						</div>
+                        </div>
                     </div>
                     <!--/.col-->
 					
