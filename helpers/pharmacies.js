@@ -11,6 +11,9 @@ exports.preparePharmaciesData = (pharmacy) => {
         });
     }
 
+    if(!pharmacy.drugs)
+        pharmacy.drugs = [];
+
     return {
         ...pharmacy,
         work_time,

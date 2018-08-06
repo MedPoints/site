@@ -32,6 +32,12 @@ exports.getDrug = async (req, res) => {
   const id = req.params.id;
   const request = await axios.get(`${API_URL}/api/drugs?id=${id}`);
   const drug = request.data.result;
+  if(!drug.providers || !drug.providers.pharmacies){
+      drug.providers = {
+          pharmacies : []
+      };
+  }
+
   res.render('drugs/drug', { drug });
 };
 
