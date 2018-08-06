@@ -1,9 +1,8 @@
 
-
-exports.prepareClinicData = (clinic) => {
+exports.preparePharmaciesData = (pharmacy) => {
     let work_time = [];
-    if (clinic.work_time) {
-        work_time = clinic.work_time.split('\n').map((workTime) => {
+    if (pharmacy.work_time) {
+        work_time = pharmacy.work_time.split('\n').map((workTime) => {
             const workTimeParts = workTime.split(' ');
             return {
                 weekdays: workTimeParts[0],
@@ -13,7 +12,7 @@ exports.prepareClinicData = (clinic) => {
     }
 
     return {
-        ...clinic,
+        ...pharmacy,
         work_time,
     };
 };

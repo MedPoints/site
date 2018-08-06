@@ -10,11 +10,17 @@
         <div class="col-6">
             <div class="row">
                 <div class="col-xl-4 col-md-12">
-                    <a class="avatar" href="/pharmacies/{{ pharmacy.id }}"><div class="crop"><img src="/img/_demo/pharmacy1.jpg" alt="" /></div></a>
+                    <div class="avatar crop">
+                        <img src="{{pharmacy.photos}}" alt="The clinic photo"
+                             onerror="this.onerror=null;this.src='/img/logo_stub.svg';this.style.width='100px';" />
+                    </div>
                 </div>
-                <!--/.col-->
                 <div class="col-xl-8 col-md-12">
-                    <p><i class="fas fa-map-marker"></i> {{ pharmacy.location.address }}, <a href="/clinics">{{ pharmacy.location.city }}</a>, <a href="/clinics">{{ pharmacy.location.state }}</a>, <a href="/clinics">{{ pharmacy.location.country }}</a></p>
+                    <p>
+                        <a href="https://www.google.com/maps/search/?api=1&query={{pharmacy.location.address}}">
+                            {{pharmacy.location.address}}
+                        </a>
+                    </p>
                     <div class="row">
                         <div class="col">
 							<div class="card">
@@ -35,7 +41,34 @@
 
             <hr />
 
-            <p>{{ pharmacy.description }}</p>
+            <p>{{ pharmacy.short_descr }}</p>
+
+            <div class="table-responsive">
+                <table summary="" class="table table-hover">
+                    <tbody>
+                    <tr>
+                        <td><strong>Network</strong></td>
+                        <td>{{pharmacy.network}}</td>
+                    </tr>
+                    <tr hidden>
+                        <td><strong>Beds</strong></td>
+                        <td>1,500 (1,160 general, 340 psychiatric)</td>
+                    </tr>
+                    <tr hidden>
+                        <td><strong>Hospital type</strong></td>
+                        <td>Teaching</td>
+                    </tr>
+                    <tr hidden>
+                        <td><strong>Affiliated university</strong></td>
+                        <td>NYU School of Medicine</td>
+                    </tr>
+                    <tr hidden>
+                        <td><strong>Emergency department</strong></td>
+                        <td>Level I trauma center</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
 
             <hr />
 
@@ -44,11 +77,9 @@
 
             <div class="gallery">
                 <ul class="owl-carousel owl-theme">
-                    <li class="item"><a class="gallery-img" href="/img/_demo/pharmacy1.jpg" title="Caption for gallery item 1"><img src="/img/_demo/pharmacy1.jpg" alt="" /></a></li>
-                    <li class="item"><a class="gallery-img" href="/img/_demo/pharmacy2.jpg" title="Caption for gallery item 2"><img src="/img/_demo/pharmacy2.jpg" alt="" /></a></li>
-                    <li class="item"><a class="gallery-img" href="/img/_demo/pharmacy3.jpg" title="Caption for gallery item 3"><img src="/img/_demo/pharmacy3.jpg" alt="" /></a></li>
-                    <li class="item"><a class="gallery-img" href="/img/_demo/pharmacy4.jpg" title="Caption for gallery item 4"><img src="/img/_demo/pharmacy4.jpg" alt="" /></a></li>
-                    <li class="item"><a class="gallery-img" href="/img/_demo/pharmacy5.jpg" title="Caption for gallery item 5"><img src="/img/_demo/pharmacy5.jpg" alt="" /></a></li> 
+                    {{#each pharmacy.photos as |photoLink|}}
+                        <li class="item"><a class="gallery-img" href="{{photoLink}}"><img src="{{photoLink}}"/></a></li>
+                    {{/each}}
                 </ul>
             </div>
 
@@ -101,28 +132,65 @@
                             </ul>
                             <!--/.rating-->
 							
-                            <p><a class="btn btn-primary btn-lg justify" href="/drugs"><strong>{{ pharmacy.drugs }}</strong> drugs</a></p>
+                            <p><a class="btn btn-primary btn-lg justify" href="/drugs?pharmacyId={{pharmacy.id}}"><strong>{{ pharmacy.drugs.length }}</strong> drugs</a></p>
 
-                            <p>In favorites at <strong>462</strong> users</p>
+                            <p hidden>In favorites at <strong>462</strong> users</p>
 
-                            <a class="btn btn-secondary justify" href="#"><i class="far fa-heart"></i> Add to favorite</a>
+                            <a hidden class="btn btn-secondary justify" href="#"><i class="far fa-heart"></i> Add to favorite</a>
 
                         </div>
                         <!--/.wave-->
                     </div>
                     <!--/.col-->
-                    
-					<div class="col-xl-6 col-lg-12">
-						<div class="map hidden-lg-down">
-                        	<iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d84016.36429915384!2d2.161754161251458!3d48.848458114630624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e0!4m0!4m5!1s0x47e67031f8c20147%3A0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris%2C+3+Avenue+Victoria%2C+75004+Paris%2C+Francia!3m2!1d48.856836099999995!2d2.3504327!5e0!3m2!1sen!2sru!4v1517149847463"
-                            width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-						</div><!--/.map-->
-						<div class="hidden-xl-up"><br /><a class="btn-map" href="#" data-toggle="collapse" data-target="#showMap"><i class="fas fa-map-marker"></i> Show on map</a>
-							<div class="collapse" id="showMap">
-								<iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d84016.36429915384!2d2.161754161251458!3d48.848458114630624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e0!4m0!4m5!1s0x47e67031f8c20147%3A0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris%2C+3+Avenue+Victoria%2C+75004+Paris%2C+Francia!3m2!1d48.856836099999995!2d2.3504327!5e0!3m2!1sen!2sru!4v1517149847463"
-                        width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-							</div><!--/.collapse-->
-						</div>
+
+                    <div class="col-xl-6 col-lg-12">
+                        <div class="map hidden-lg-down" style="height: 300px">
+                        </div><!--/.map-->
+                        <div class="hidden-xl-up"><br /><a class="btn-map" href="#" data-toggle="collapse" data-target="#showMap"><i class="fas fa-map-marker"></i> Show on map</a>
+                            <div class="map collapse" id="map" style="height: 300px">
+                            </div><!--/.collapse-->
+                            <script>
+                                var pharmacy = {{{pharmacyJson}}};
+                                function initLocationMap() {
+                                    $('.map').each(function (_, el) {
+                                        var center = {lat: pharmacy.coordinations.lat, lng: pharmacy.coordinations.lon};
+                                        var map = new google.maps.Map(
+                                                el,
+                                                {center: center, zoom: 9}
+                                        );
+
+
+                                        var infowindow = new google.maps.InfoWindow({
+                                            content: ''
+                                        });
+                                        var marker = new google.maps.Marker({
+                                            position: {lat: pharmacy.coordinations.lat, lng: pharmacy.coordinations.lon},
+                                            title: pharmacy.name,
+                                            map: map,
+                                        });
+
+                                        google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow){
+                                            return function() {
+                                                infowindow.setContent(content);
+                                                infowindow.open(map, marker);
+                                            };
+                                        })(marker, getInfoWindowContent(pharmacy), infowindow));
+                                    })
+
+                                }
+
+                                function getInfoWindowContent(pharmacy) {
+                                    return '<div class="info-window">' +
+                                            '<h5>' + (pharmacy.name || '') + '</h5>' +
+                                            '<i>' + (pharmacy.address || '') + '</i><br/>' +
+                                            '<a href="/pharmacy/' + pharmacy.id.toString() + '">View Clinic</a>'
+                                    '</div>';
+                                }
+                            </script>
+                            <script async defer
+                                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA839hvZlHkWX80W6YRTuv3C7HToNVZhwc&callback=initLocationMap">
+                            </script>
+                        </div>
                     </div>
                     <!--/.col-->
 					

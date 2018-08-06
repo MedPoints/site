@@ -33,7 +33,7 @@ exports.getDrug = async (req, res) => {
   const request = await axios.get(`${API_URL}/api/drugs?id=${id}`);
   const drug = request.data.result;
   res.render('drugs/drug', { drug });
-}
+};
 
 exports.getCount = async (req, res) => {
   const request = await axios.get(`${API_URL}/api/drugs/count`);

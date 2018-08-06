@@ -118,37 +118,100 @@
         <div class="col-xl-4 push-xl-8 col-lg-12 push-lg-0">
 
             <nav class="sticky-top">
-				<div class="map">
-                	<iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d84016.36429915384!2d2.161754161251458!3d48.848458114630624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e0!4m0!4m5!1s0x47e67031f8c20147%3A0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris%2C+3+Avenue+Victoria%2C+75004+Paris%2C+Francia!3m2!1d48.856836099999995!2d2.3504327!5e0!3m2!1sen!2sru!4v1517149847463"
-                    width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-				</div><!--/.map-->
+                <div id="map" style="height:400px">
+                </div><!--/.map-->
+                <script>
+                    var locations = {{{jsonify pharmacies}}};
+                    var avgCoordinates = {{{jsonify avgCoordinates}}}
+                            $('a[data-toggle="pill"]').on('shown.bs.tab', function (e) {
+                                var target = $(e.target).attr("href") // activated tab
+                                if (target === '#pills-2') {
+                                    initLocationsMap(); // google map init function
+                                }
+                            });
 
+                    function initLocationsMap() {
+                        var center = avgCoordinates || {lat: 39.529, lng: -101.369};
+
+                        if (locations.length === 1) {
+                            center.lat = locations[0].coordinations.lat;
+                            center.lng = locations[0].coordinations.lon;
+                        }
+                        var map = new google.maps.Map(
+                                document.getElementById('map'),
+                                {center: center, zoom: 3}
+                        );
+
+
+                        var infowindow = new google.maps.InfoWindow({
+                            content: ''
+                        });
+
+                        for (var i = 0, length = locations.length; i < length; i++) {
+                            var hospital = locations[i];
+                            var marker = new google.maps.Marker({
+                                position: {lat: hospital.coordinations.lat, lng: hospital.coordinations.lon},
+                                title: hospital.name,
+                                map: map,
+                            });
+
+                            google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow){
+                                return function() {
+                                    infowindow.setContent(content);
+                                    infowindow.open(map, marker);
+                                };
+                            })(marker, getInfoWindowContent(hospital), infowindow));
+                        }
+                    }
+
+                    function getInfoWindowContent(hospital) {
+                        return '<div class="info-window">' +
+                                '<h5>' + (hospital.name || '') + '</h5>' +
+                                '<i>' + (hospital.address || '') + '</i><br/>' +
+                                '<a href="/clinics/' + hospital.id.toString() + '">View Clinic</a>'
+                        '</div>';
+                    }
+                </script>
+                <script async defer
+                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA839hvZlHkWX80W6YRTuv3C7HToNVZhwc&callback=initLocationsMap">
+                </script>
             </nav>
 			
         </div>
         <!--/.col-->
-		
+
         <div class="col-xl-8 pull-xl-4 col-lg-12 pull-lg-0">
 
             <ul class="items-list">
-			    {{#each pharmacies as |pharmacy|}}
-                <li>
-                    <div class="row">
-                        <div class="col-xl-4 col-md-3 col-sm-5">
-                            <a class="avatar" href="/pharmacies/{{ pharmacy.id }}"><div class="crop"><img src="img/_demo/pharmacy1.jpg" alt="A pharmacy photo" onerror="this.onerror=null;this.src='/img/logo_stub.svg';this.style.width='100px';" /></div></a> 
-                        </div>
-                        <!--/.col-->
-                        <div class="col-xl-8 col-md-9 col-sm-7">
-                            <h3><a class="" href="/pharmacies/{{ pharmacy.id }}">{{ pharmacy.name }}</a></h3>
-                            <p><i class="fas fa-map-marker"></i> {{ pharmacy.location.address }}, <a href="/clinics">{{ pharmacy.location.city }}</a>, <a href="/clinics">{{ pharmacy.location.state }}</a>, <a href="/clinics">{{ pharmacy.location.country }}</a></p>
-                            <div class="row">
-                                <div class="col">
-									<div class="card">
-                                    	<ul>
-                                            {{#each pharmacy.work_time as |work_time|}}
-                                        	<li><small>{{ work_time.weekdays }}:</small> <br />{{ work_time.time }}</li>
-                                            {{/each}}
-                                    	</ul>
+                {{#each pharmacies as |pharmacy|}}
+                    <li>
+                        <div class="row">
+                            <div class="col-xl-3 col-md-3 col-sm-4">
+                                <a class="avatar" href="/pharmacies/{{ pharmacy.id }}">
+                                    <div class="crop">
+                                        <img src="{{pharmacy.photos}}" alt="The pharmacy photo"
+                                             onerror="this.onerror=null;this.src='/img/logo_stub.svg';this.style.width='100px';" />
+                                    </div>
+                                </a>
+                            </div>
+                            <!--/.col-->
+                            <div class="col-xl-8 col-md-9 col-sm-7">
+                                <h3><a class="" href="/pharmacies/{{ pharmacy.id }}">{{ pharmacy.name }}</a></h3>
+                                <p>
+                                    <a href="https://www.google.com/maps/search/?api=1&query={{pharmacy.location.address}}">
+                                        {{pharmacy.location.address}}
+                                    </a>
+                                </p>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="card">
+                                            <ul>
+                                                {{#each pharmacy.work_time as |work_time|}}
+                                                    <li>
+                                                        <small>{{ work_time.weekdays }}:</small>
+                                                        <br/>{{ work_time.time }}</li>
+                                                {{/each}}
+                                            </ul>
 									</div><!--/.card-->
                                 </div>
                                 <!--/.col-->

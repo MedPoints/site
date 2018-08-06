@@ -1,3 +1,5 @@
+const {preparePharmaciesData}  = require("../helpers/pharmacies");
+
 const config = require('config');
 const axios = require('axios');
 const API_URL = config.get('API_URL');
@@ -9,7 +11,7 @@ const PAGE_TITLE = 'Pharmacies';
 exports.getPharmacies = async (req, res) => {
   let url = queryPersistant.applyRequestQueryParameters(req.query, `${API_URL}/api/pharmacies`);  
   const request = await axios.get(url);
-  let pharmacies = request.data.result.data ;
+  let pharmacies = request.data.result.data.map(pharmacy => preparePharmaciesData(pharmacy));
 
 
   const pager = new Pager(
@@ -28,9 +30,9 @@ exports.getPharmacies = async (req, res) => {
 exports.getPharmacy = async (req, res) => {
   const id = req.params.id;
   const request = await axios.get(`${API_URL}/api/pharmacies?id=${id}`);
-  const pharmacy = request.data.result;
-  res.render('pharmacies/pharmacy', { pharmacy });
-}
+  const pharmacy = preparePharmaciesData(request.data.result);
+  res.render('pharmacies/pharmacy', { pharmacy, pharmacyJson: JSON.stringify(pharmacy) });
+};
 
 exports.getCount = async (req, res) => {
   const request = await axios.get(`${API_URL}/api/pharmacies/count`);
