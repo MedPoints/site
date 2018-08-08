@@ -12,7 +12,7 @@ const PAGE_TITLE = 'Pharmacies';
 exports.getPharmacies = async (req, res) => {
   let url = queryPersistant.applyRequestQueryParameters(req.query, `${API_URL}/api/pharmacies`);  
   const request = await axios.get(url);
-  let pharmacies = request.data.result.data.map(pharmacy => prepareClinicData(pharmacy));
+  let pharmacies = request.data.result.data.map(pharmacy => preparePharmaciesData(pharmacy));
   
   
   let avgCoordinates = {lat: 0, lng: 0};
@@ -47,10 +47,10 @@ exports.getPharmacies = async (req, res) => {
 exports.getPharmacy = async (req, res) => {
   const id = req.params.id;
   const request = await axios.get(`${API_URL}/api/pharmacies?id=${id}`);
-  const pharmacy = prepareClinicData(request.data.result);
+  const pharmacy = preparePharmaciesData(request.data.result);
 
   res.render('pharmacies/pharmacy', { pharmacy });
-}
+};
 
 exports.getCount = async (req, res) => {
   const request = await axios.get(`${API_URL}/api/pharmacies/count`);
