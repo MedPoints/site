@@ -178,7 +178,7 @@
         </div>
         <!--/.col-->
 
-        <div class="col-xl-8 pull-xl-4 col-lg-12 pull-lg-0">
+        <div class="col-xl-8 pull-xl-4 col-lg-12 pull-lg-0 pharmacies-list">
 
             <ul class="items-list">
                 {{#each pharmacies as |pharmacy|}}
@@ -193,7 +193,7 @@
                                 </a>
                             </div>
                             <!--/.col-->
-                            <div class="col-xl-8 col-md-9 col-sm-7">
+                            <div class="col-xl-5 col-md-5 col-sm-8">
                                 <h3><a class="" href="/pharmacies/{{ pharmacy.id }}">{{ pharmacy.name }}</a></h3>
                                 <p>
                                     <a href="https://www.google.com/maps/search/?api=1&query={{pharmacy.location.address}}">
@@ -213,21 +213,25 @@
 									</div><!--/.card-->
                                 </div>
                                 <!--/.col-->
-                                <div class="col"> 
-                                </div>
+                                {{!-- <div class="col"> 
+                                </div> --}}
                                 <!--/.col-->
                             </div>
                             <!--/.row-->
                         </div>
                         <!--/.col-->
-                        {{!-- <div class="col-xl-4 col-md-4 col-sm-12">
+                        <div class="col-xl-4 col-md-4 col-sm-12">
                             <div class="wave text-center">
-                                <h4>Rating <strong class="text-success">9.99</strong></h4>
-                                <p>based on <strong><a class="" href="/pharmacy#opinions">58 opinions</a></strong></p>
+                                <h4>Rating <strong class="text-success">{{pharmacy.rate}}</strong></h4>
+                                <p>based on 
+                                    <strong>
+                                        <a class="" href="/pharmacies/{{pharmacy.id}}#opinions">{{pharmacy.ratings.length}} opinions</a>
+                                    </strong>
+                                </p>
                                 <a class="btn btn-primary btn-lg justify" href="/drugs"><strong>{{ pharmacy.drugs }}</strong> drugs</a>
                             </div>
                             <!--/.wave-->
-                        </div> --}}
+                        </div>
                         <!--/.col-->
                     </div>
                     <!--/.row-->

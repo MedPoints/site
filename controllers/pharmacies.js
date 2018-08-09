@@ -4,7 +4,7 @@ const config = require('config');
 const axios = require('axios');
 const API_URL = config.get('API_URL');
 const { Pager, PAGE_SIZE } = require('./../helpers/pager');
-const { prepareClinicData } = require('./../helpers/clinics');
+const { preparePharmacyData } = require('./../helpers/pharmacies');
 const { queryPersistant } = require('./../helpers/query-persistant');
 
 const PAGE_TITLE = 'Pharmacies';
@@ -12,7 +12,7 @@ const PAGE_TITLE = 'Pharmacies';
 exports.getPharmacies = async (req, res) => {
   let url = queryPersistant.applyRequestQueryParameters(req.query, `${API_URL}/api/pharmacies`);  
   const request = await axios.get(url);
-  let pharmacies = request.data.result.data.map(pharmacy => prepareClinicData(pharmacy));
+  let pharmacies = request.data.result.data.map(pharmacy => preparePharmacyData(pharmacy));
   
   
   let avgCoordinates = {lat: 0, lng: 0};
@@ -47,7 +47,7 @@ exports.getPharmacies = async (req, res) => {
 exports.getPharmacy = async (req, res) => {
   const id = req.params.id;
   const request = await axios.get(`${API_URL}/api/pharmacies?id=${id}`);
-  const pharmacy = prepareClinicData(request.data.result);
+  const pharmacy = preparePharmacyData(request.data.result);
 
   res.render('pharmacies/pharmacy', { pharmacy });
 }

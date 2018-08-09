@@ -134,4 +134,19 @@ exports.hbsHelpers = {
   jsonify: (obj) => {
     return JSON.stringify(obj);
   },
+  percentage: (val, full) => {
+    return (val * 100) / full;
+  },
+  getRatingLabel: val => {
+    if (val < 4) {
+      return 'bad';
+    } else if (val >= 4 && val < 7) {
+      return 'normal';
+    } else {
+      return 'good';
+    }
+  },
+  getDateString: (date) => {
+    return date.toDateString();
+  },
 };

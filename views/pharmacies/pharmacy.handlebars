@@ -92,10 +92,9 @@
                 <div class="row">
 				
                     <div class="col-xl-6 col-lg-12">
-
                         <div class="wave text-center">
-                            <h4>Rating <strong class="text-success">9.99</strong></h4>
-                            <p>based on <strong><a class="" href="#opinions">58 opinions</a></strong></p> 
+                            <h4>Rating <strong class="text-success">{{pharmacy.rate}}</strong></h4>
+                            <p>based on <strong><a class="" href="#opinions">{{pharmacy.ratings.length}} opinions</a></strong></p> 
 
                             <ul class="rating"> 
 							
@@ -105,8 +104,8 @@
                                     </div>
                                     <div class="col">
                                         <div class="progress progress-striped">
-                                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                                                <span class="sr-only">6/10</span>
+                                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="{{percentage pharmacy.opinion.service 10}}" aria-valuemin="0" aria-valuemax="100" style="width: {{percentage pharmacy.opinion.service 10}}%">
+                                                <span class="sr-only">{{pharmacy.opinion.service}}/10</span>
                                             </div>
                                         </div>
                                     </div>
@@ -119,8 +118,8 @@
                                     </div>
                                     <div class="col">
                                         <div class="progress progress-striped">
-                                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
-                                                <span class="sr-only">7/10</span>
+                                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="{{percentage pharmacy.opinion.service 10}}" aria-valuemin="0" aria-valuemax="100" style="width: {{percentage pharmacy.opinion.service 10}}%">
+                                                <span class="sr-only">{{pharmacy.opinion.service}}/10</span>
                                             </div>
                                         </div>
                                     </div>
@@ -207,13 +206,14 @@
     <section class="bg-gray">
 
         <div class="reviews" id="opinions">
-
-            <h3>Opinions <span class="badge">8</span></h3>
+            {{#if pharmacy.ratings.length}}
+            <h3>Opinions <span class="badge">{{pharmacy.ratings.length}}</span></h3>
             <ul class="owl-carousel owl-theme">
+                {{#each pharmacy.ratings as |rating|}}
                 <li class="item">
-                    <em>June 15 2017</em> 
-                    <span class="stars good">
-							8 / 10
+                    <em>{{getDateString rating.dateCreated}}</em> 
+                    <span class="stars {{getRatingLabel rating.rate}}">
+							{{rating.rate}} / 10
 							<i class="fas fa-star"></i>
 							<i class="fas fa-star"></i>
 							<i class="fas fa-star"></i>
@@ -225,133 +225,14 @@
 							<i class="far fa-star"></i>
 							<i class="far fa-star"></i>
 						</span>
-                    <p>Lorem ipsum dolor sit amet, dolores mandamus moderatius ea ius, sed civibus vivendum imperdiet ei, amet tritani sea id. Ut veri diceret fierent mei, qui facilisi suavitate euripidis ad. In vim mucius menandri convenire, an brute zril </p>
+                    <p>{{rating.comment}}</p>
                 </li>
-                <li class="item">
-                    <em>June 15 2017</em>
-                    <span class="stars normal">
-							6 / 10
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-						</span>
-                    <p>Lorem ipsum dolor sit amet, dolores mandamus moderatius ea ius, sed civibus vivendum imperdiet ei, amet tritani sea id.</p>
-                </li>
-                <li class="item">
-                    <em>June 15 2017</em>
-                    <span class="stars bad">
-							3 / 10
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-						</span>
-                    <p>Lorem ipsum dolor sit amet, dolores mandamus moderatius ea ius, sed civibus vivendum imperdiet ei, amet tritani sea id. Ut veri diceret fierent mei, qui facilisi suavitate euripidis ad. In vim mucius menandri convenire, an brute zril
-                        vis. Ancillae delectus necessitatibus no eam, at porro solet veniam mel, ad everti nostrud vim. Eam no menandri pertinacia deterruisset.</p>
-                </li>
-                <li class="item">
-                    <em>June 15 2017</em>
-                    <span class="stars good">
-							8 / 10
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-						</span>
-                    <p>Lorem ipsum dolor sit amet, dolores mandamus moderatius ea ius, sed civibus vivendum imperdiet ei, amet tritani sea id. Ut veri diceret fierent mei, qui facilisi suavitate euripidis ad. In vim mucius menandri convenire, an brute zril.</p>
-                </li>
-                <li class="item">
-                    <em>June 15 2017</em>
-                    <span class="stars good">
-							8 / 10
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-						</span>
-                    <p>Lorem ipsum dolor sit amet, dolores mandamus moderatius ea ius, sed civibus vivendum imperdiet ei, amet tritani sea id. Ut veri diceret fierent mei, qui facilisi suavitate euripidis ad. In vim mucius menandri convenire, an brute zril
-                        vis. Ancillae delectus necessitatibus no eam, at porro solet veniam mel, ad everti nostrud vim. Eam no menandri pertinacia deterruisset.</p>
-                </li>
-                <li class="item">
-                    <em>June 15 2017</em>
-                    <span class="stars normal">
-							6 / 10
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-						</span>
-                    <p>Lorem ipsum dolor sit amet, dolores mandamus moderatius ea ius, sed civibus vivendum imperdiet ei.</p>
-                </li>
-                <li class="item">
-                    <em>June 15 2017</em>
-                    <span class="stars bad">
-							3 / 10
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-						</span>
-                    <p>Lorem ipsum dolor sit amet, dolores mandamus moderatius ea ius, sed civibus vivendum imperdiet ei, amet tritani sea id..</p>
-                </li>
-                <li class="item">
-                    <em>June 15 2017</em>
-                    <span class="stars good">
-							8 / 10
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-						</span>
-                    <p>Lorem ipsum dolor sit amet, dolores mandamus moderatius ea ius, sed civibus vivendum imperdiet ei, amet tritani sea id. Ut veri diceret fierent mei, qui facilisi suavitate euripidis ad..</p>
-                </li>
+                {{/each}}
             </ul>
+            {{else}}
+                <h3 style="text-align:center;">No opinions yet</h3>
+            {{/if}}
         </div>
         <!--/.reviews-->
 
     </section>
-
-    <?php include($_SERVER["DOCUMENT_ROOT"]."/inc/footer.php"); ?>

@@ -117,7 +117,7 @@
 
     <div class="row">
 
-        <div class="col-xl-4 push-xl-8 col-lg-12 push-lg-0">
+        {{!-- <div class="col-xl-4 push-xl-8 col-lg-12 push-lg-0">
 
             <nav class="sticky-top">
 				<div class="map">
@@ -127,11 +127,11 @@
 
             </nav>
 
-        </div>
+        </div> --}}
         <!--/.col-->
 
-        <div class="col-xl-8 pull-xl-4 col-lg-12 pull-lg-0">
-
+        {{!-- <div class="col-xl-8 pull-xl-4 col-lg-12 pull-lg-0"> --}}
+        <div class="col-xl-12 pull-xl-12 col-lg-12 pull-lg-0">
             <ul class="items-list">
 
                 {{#each doctors as |doctor|}}
@@ -153,7 +153,7 @@
                         <div class="col-xl-3 col-md-4 col-sm-12">
                             <div class="wave text-center">
                                 <h4>Rating <strong class="text-success">{{doctor.rate}}</strong></h4>
-                                <p>based on <strong><a class="" href="/doctor#opinions">{{doctor.ratings.length}} opinions</a></strong></p>
+                                <p>based on <strong><a class="" href="/doctor/{{doctor.id}}#opinions">{{doctor.ratings.length}} opinions</a></strong></p>
                                 <a class="btn btn-primary btn-lg justify" href="/booking">Book to visit</a>
                             </div>
                             <!--/.wave-->

@@ -9,6 +9,7 @@
 
     <div class="row">
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+        {{!-- <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12"> --}}
 
             <div class="row">
                 <div class="col-xl-4 col-md-12">
@@ -62,30 +63,26 @@
 
         </div>
         <!--/.col-->
-
         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
 
             <nav class="sticky-top">
 
                 <div class="row">
-
-                    {{!-- <div class="col-xl-6 col-lg-12">
-
+				
+                    <div class="col-xl-12 col-lg-12">
                         <div class="wave text-center">
-
                             <h4>Rating <strong class="text-success">{{doctor.rate}}</strong></h4>
+                            <p>based on <strong><a class="" href="#opinions">{{doctor.ratings.length}} opinions</a></strong></p> 
 
-                            <p>based on <strong><a class="" href="#opinions">{{doctor.ratings.length}} opinions</a></strong></p>
-
-                            <ul class="rating">
-
+                            <ul class="rating"> 
+							
                                 <li class="row">
                                     <div class="col text-right">
-                                        Knowledges
+                                        Knowledge
                                     </div>
                                     <div class="col">
                                         <div class="progress progress-striped">
-                                            <div class="progress-bar {{getProgressBarColor doctor.opinion.knowledge}}" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: {{getProgressBarWidth doctor.opinion.knowledge}}%">
+                                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="{{percentage doctor.opinion.knowledge 10}}" aria-valuemin="0" aria-valuemax="100" style="width: {{percentage doctor.opinion.knowledge 10}}%">
                                                 <span class="sr-only">{{doctor.opinion.knowledge}}/10</span>
                                             </div>
                                         </div>
@@ -99,7 +96,7 @@
                                     </div>
                                     <div class="col">
                                         <div class="progress progress-striped">
-                                            <div class="progress-bar {{getProgressBarColor doctor.opinion.skills}}" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: {{getProgressBarWidth doctor.opinion.skills}}%">
+                                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="{{percentage doctor.opinion.skills 10}}" aria-valuemin="0" aria-valuemax="100" style="width: {{percentage doctor.opinion.skills 10}}%">
                                                 <span class="sr-only">{{doctor.opinion.skills}}/10</span>
                                             </div>
                                         </div>
@@ -113,7 +110,7 @@
                                     </div>
                                     <div class="col">
                                         <div class="progress progress-striped">
-                                            <div class="progress-bar {{getProgressBarColor doctor.opinion.attention}}" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: {{getProgressBarWidth doctor.opinion.attention}}%">
+                                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="{{percentage doctor.opinion.attention 10}}" aria-valuemin="0" aria-valuemax="100" style="width: {{percentage doctor.opinion.attention 10}}%">
                                                 <span class="sr-only">{{doctor.opinion.attention}}/10</span>
                                             </div>
                                         </div>
@@ -127,7 +124,7 @@
                                     </div>
                                     <div class="col">
                                         <div class="progress progress-striped">
-                                            <div class="progress-bar {{getProgressBarColor doctor.opinion.priceQuality}}" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: {{getProgressBarWidth doctor.opinion.priceQuality}}%">
+                                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="{{percentage doctor.opinion.priceQuality 10}}" aria-valuemin="0" aria-valuemax="100" style="width: {{percentage doctor.opinion.priceQuality 10}}%">
                                                 <span class="sr-only">{{doctor.opinion.priceQuality}}/10</span>
                                             </div>
                                         </div>
@@ -138,18 +135,27 @@
 
                             </ul>
                             <!--/.rating-->
+							<a class="btn btn-primary btn-lg justify" href="/booking">Book to visit</a>
+                            <p hidden>In favorites at <strong>462</strong> users</p>
 
-                            <p><a class="btn btn-primary btn-lg justify" href="/booking">Book to visit</a></p>
-
-                            <p>In favorites at <strong>462</strong> users</p>
-
-                            <a class="btn btn-secondary justify" href="#"><i class="far fa-heart"></i> Add to favorite</a>
+                            <a hidden class="btn btn-secondary justify" href="#"><i class="far fa-heart"></i> Add to favorite</a>
 
                         </div>
                         <!--/.wave-->
-
-                    </div> --}}
+                    </div>
                     <!--/.col-->
+                </div>
+                <!--/.row-->
+ 
+            </nav>
+ 
+        </div>
+
+        {{!-- <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+
+            <nav class="sticky-top">
+
+                <div class="row">
 
                     <div class="col-xl-12 col-lg-12">
 						<div class="map hidden-lg-down">
@@ -170,34 +176,42 @@
 
             </nav>
 
-        </div>
+        </div> --}}
         <!--/.col-->
     </div>
     <!--/.row-->
 
 	<br />
 
-    {{!-- <section class="bg-gray">
-
+    <section class="bg-gray">
         <div class="reviews" id="opinions">
-
+            {{#if doctor.ratings.length}}
             <h3>Opinions <span class="badge">{{doctor.ratings.length}}</span></h3>
             <ul class="owl-carousel owl-theme">
-                {{#each doctor.ratings as |rate|}}
+                {{#each doctor.ratings as |rating|}}
                 <li class="item">
-                    <em>{{dateFormat rate.dateCreated}}</em>
-                    <p>Service <a href="/services" title="">New patient visit</a></p>
-                    <span class="stars good">
-                        {{rate.rate}} / 10
-                        {{#times rate.rate}}
-                            <i class="fas fa-star"></i>
-                        {{/times}}
-                    </span>
-                    <p>{{rate.comment}}</p>
+                    <em>{{getDateString rating.dateCreated}}</em> 
+                    <span class="stars {{getRatingLabel rating.rate}}">
+							{{rating.rate}} / 10
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="far fa-star"></i>
+							<i class="far fa-star"></i>
+						</span>
+                    <p>{{rating.comment}}</p>
                 </li>
                 {{/each}}
             </ul>
+            {{else}}
+                <h3 style="text-align:center;">No opinions yet</h3>
+            {{/if}}
         </div>
         <!--/.reviews-->
 
-    </section> --}}
+    </section>

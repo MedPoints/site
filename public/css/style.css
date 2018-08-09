@@ -1271,3 +1271,9 @@ ul.cat-list li {
 .info-window {
     max-width: 150px;
 }
+
+@media screen and (max-width: 1200px) {
+    .pharmacies-list {
+        padding-top: 2em;
+    }
+}

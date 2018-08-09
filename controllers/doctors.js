@@ -3,13 +3,14 @@ const axios = require('axios');
 const API_URL = config.get('API_URL');
 const { Pager, PAGE_SIZE } = require('./../helpers/pager');
 const { queryPersistant } = require('./../helpers/query-persistant');
-
+const { prepareDoctorData } = require('./../helpers/doctors');
+ 
 const PAGE_TITLE = 'Doctors';
 
 exports.getDoctors = async (req, res) => {
   let url = queryPersistant.applyRequestQueryParameters(req.query, `${API_URL}/api/doctors`);  
   const request = await axios.get(url);
-  let doctors = request.data.result.data ;
+  let doctors = request.data.result.data.map(doctor => prepareDoctorData(doctor));
 
   const pager = new Pager(
     PAGE_SIZE, 
@@ -28,7 +29,7 @@ exports.getDoctors = async (req, res) => {
 exports.getDoctor = async (req, res) => {
   const id = req.params.id;
   const request = await axios.get(`${API_URL}/api/doctors?id=${id}`);
-  const doctor = request.data.result;
+  const doctor = prepareDoctorData(request.data.result);
   res.render('doctors/doctor', { doctor });
 };
 
