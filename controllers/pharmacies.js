@@ -50,7 +50,7 @@ exports.getPharmacy = async (req, res) => {
   const pharmacy = preparePharmacyData(request.data.result);
 
   res.render('pharmacies/pharmacy', { pharmacy });
-}
+};
 
 exports.getCount = async (req, res) => {
   const request = await axios.get(`${API_URL}/api/pharmacies/count`);
