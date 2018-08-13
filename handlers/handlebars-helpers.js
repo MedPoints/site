@@ -149,4 +149,7 @@ exports.hbsHelpers = {
   getDateString: (date) => {
     return date.toDateString();
   },
+  defaultIfEmpty: (val, defaultVal) => {
+    return val || defaultVal;
+  },
 };

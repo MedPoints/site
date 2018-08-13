@@ -196,11 +196,10 @@
                                 <i class="fas fa-plus text-success" data-toggle="tooltip" data-placement="top" title="Can be covered by insurance points"></i>
                                 {{/if}}
                             </td>
-                            {{!-- TODO create doctors and clinics links according to the service ID --}}
                             <td>
-                                <a class="btn btn-primary float-right" href="/doctors"><strong>{{ service.providers.doctors }}</strong> doctors</a>
+                                <a class="btn btn-primary float-right" href="/doctors?service={{service.id}}"><strong>{{defaultIfEmpty service.providers.doctors 0}}</strong> doctors</a>
                                 <br /><br />
-                                <a class="btn btn-secondary float-right" href="/clinics"><strong>{{ service.providers.clinics }}</strong> clinics</a>
+                                <a class="btn btn-secondary float-right" href="/clinics?service={{service.id}}"><strong>{{defaultIfEmpty service.providers.hospitals 0}}</strong> clinics</a>
                             </td>
                         </tr>
                         {{/each}}
