@@ -17,7 +17,12 @@ gulp.task('run', ['build', 'watch'], function (cb) {
 
 gulp.task('build', ['build:js']);
 gulp.task('build:js', function(cb) {
-    var layoutBundle = gulp.src(['public/js/src/*.js'])
+    var layoutBundle = gulp.src([
+        'public/js/src/*.js', 
+        '!public/js/src/registration.js',
+        '!public/js/src/auth.js',
+        '!public/js/src/booking.js'
+    ])
         .pipe(concat('layout.bundle.js'));
     var libBundle = gulp.src([
         'public/js/lib/jquery/*.js', 

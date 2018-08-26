@@ -32,6 +32,8 @@ router.post('/search', async (req, res) => {
 			return;
 	}
 });
+router.use('/auth', require('./auth'));
+router.use('/book', require('./booking'));
 router.use('/', require('./pages'));
 
 module.exports = router;

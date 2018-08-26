@@ -45,3 +45,20 @@ exports.getCount = async (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   res.send(JSON.stringify({ count}));
 };
+
+exports.getServicesByDoctor = async (req, res) => {
+  const id = req.params.id;
+  const request = await axios.get(`${API_URL}/api/doctors/${id}/services`);
+  const services = request.data.result;
+  res.setHeader('Content-Type', 'application/json');
+  res.send(JSON.stringify({ status: 200, services }));
+};
+
+exports.getHospitalsByDoctor = async (req, res) => {
+  const id = req.params.id;
+  const service = req.params.service;
+  const request = await axios.get(`${API_URL}/api/doctors/${id}/hospitals?service=${service}`);
+  const clinics = request.data.result;
+  res.setHeader('Content-Type', 'application/json');
+  res.send(JSON.stringify({ status: 200, clinics }));
+};

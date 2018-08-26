@@ -1,0 +1,23 @@
+<form class="modal fade" id="wallet" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Your Wallet Details</h5>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="walletId">Wallet ID</label>
+                    <input type="text" class="form-control" id="infoWalletId" value="" disabled="disabled" required />
+                    <div class="copy-text" id="infoWalletIdText"></div>
+                    <a class="copy-link btn-copy1" onclick="copyToClipboard('#infoWalletIdText')"><i class="far fa-copy"></i> Copy</a>
+                </div>
+                <div class="form-group">
+                    <label for="walletKey">Wallet key</label>
+                    <input type="text" class="form-control" id="infoWalletKey" value="" disabled="disabled" required />
+                    <div class="copy-text" id="infoWalletKeyText"></div>
+                    <a class="copy-link btn-copy2" onclick="copyToClipboard('#infoWalletKeyText')"><i class="far fa-copy"></i> Copy</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

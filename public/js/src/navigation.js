@@ -1,6 +1,42 @@
 $( function() {
     prepareCategoryCount();
+    prepareLoginNavigation();
 });
+
+function copyToClipboard(element) {
+    if (el && el.html && el.html()) {
+        var el = document.createElement('textarea');
+        el.value = el.html();
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand('copy');
+        document.body.removeChild(el);
+    }
+}
+
+
+function prepareLoginNavigation() {
+    var isUserRegistered = isRegistered();
+    toggleRegisteredItems(isUserRegistered);
+    toggleUnregisteredItems(!isUserRegistered); 
+}
+
+function toggleRegisteredItems(isToggle) {
+    if (isToggle) {
+        $('.registered-item').show();
+    } else {
+        $('.registered-item').hide();
+    }
+        
+}
+
+function toggleUnregisteredItems(isToggle) {
+    if (isToggle)
+        $('.unregistered-item').show();
+    else
+        $('.unregistered-item').hide();
+}
+
 
 
 function prepareCategoryCount() {

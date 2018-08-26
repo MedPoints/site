@@ -1277,3 +1277,12 @@ ul.cat-list li {
         padding-top: 2em;
     }
 }
+
+.unregistered-item {}
+.registered-item {
+    display: none;
+}
+
+.booking-dropdown {
+    width: 100%;
+}

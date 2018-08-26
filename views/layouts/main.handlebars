@@ -36,10 +36,12 @@
     {{> choose-location }}
     {{> sorry }}
     {{> login }}
+    {{> wallet }}
     {{> edit-payment }}
     {{> add-balance }}
     {{> list-funds }}
     {{> free-license }}
+    {{> booking }}
 
 
     <div class="ico-info-box"
@@ -100,11 +102,20 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/rates">1 <strong>MPT</strong> = 0.01 <i class="fas fa-dollar-sign"></i></a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item unregistered-item">
                         <a class="nav-link" href="#" data-toggle="modal" data-target="#login">Login</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item unregistered-item">
                         <a class="nav-link" href="/registration">Registration</a>
+                    </li>
+                    <li class="nav-item registered-item">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#wallet">Show my Wallet</a>
+                    </li>
+                    <li class="nav-item registered-item">
+                        <a class="nav-link" id="logOutButton" href="javascript:void(0)">Log Out</a>
+                    </li>
+                    <li>
+                        
                     </li>
                 </ul>
 
@@ -126,7 +137,7 @@
             </div>
         </section>
 
-        <h1 class="page-title" id="js-intro"><?=$page_title?></h1>
+        <h1 class="page-title" id="js-intro"></h1>
 
             <div class="row">
                 <div class="col-xl-3 push-xl-9 col-lg-12 push-lg-0">
@@ -344,6 +355,7 @@
 </footer>
 
 
+<script src="/js/src/auth.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/async@2.6.1/dist/async.min.js"></script>
 <!-- Bootstrap core JavaScript
     ================================================== -->
