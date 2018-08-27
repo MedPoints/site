@@ -3,27 +3,40 @@ const axios = require('axios');
 const API_URL = config.get('BLOCKCHAIN_API_URL');
 
 exports.register = async (req, res) => {
-    // clinicId:""
-    // dateOfBirth:"2011-08-19"
-    // doctorId:"5b6db310a2ebf97c8518c22a"
-    // email:"rejoh@hubii-network.com"
-    // firstName:"asd"
-    // lastName:"ads"
-    // serviceId:"5b6839e803a93a1f2e1e5a05"
-    // sex:"male"
+    const {
+        clinicId,
+        doctorId,
+        serviceId,
+        bookingDate,
+        walletId,
+        firstName,
+        lastName,
+        email,
+        sex,
+        dateOfBirth,
+    } = req.body;
 
-    // {
-    //     "Id": "string",
-    //     "UserAddress": "string",
-    //     "DoctorId": "string",
-    //     "ClinicId": "string",
-    //     "ServiceId": "string",
-    //     "Description": "string",
-    //     "Date": "2018-08-26T11:54:46.662Z"
-    //   }
 
-    // const request = await axios.get(`${API_URL}/api/doctors/${id}/hospitals?service=${service}`);
-    // const clinics = request.data.result;
-    // res.setHeader('Content-Type', 'application/json');
-    // res.send(JSON.stringify({ status: 200, clinics }));
+    const data = {
+        UserAddress: walletId,
+        DoctorId: doctorId,
+        ClinicId: clinicId,
+        ServiceId: serviceId,
+        Date: bookingDate,
+        Description: JSON.stringify({
+            firstName,
+            lastName,
+            email,
+            sex,
+            dateOfBirth,
+        }),
+    }
+
+    const request = await axios.post(`${API_URL}/api/blockchain/transactions`, data);
+    if (request.status === 200) {
+        res.setHeader('Content-Type', 'application/json');
+        res.send(JSON.stringify({ status: request.status, statusText: request.statusText }));
+    } else {
+        throw new Error('Something went wrong during booking. Please try again later.');
+    }
 };

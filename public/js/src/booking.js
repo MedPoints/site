@@ -2,9 +2,23 @@ $(function () {
     if (isRegistered()) {
         $('#bookingWalletId').val(Cookies.get('MedPoints_PrivateKey'));
         $('#bookingWalletKey').val(Cookies.get('MedPoints_PublicKey'));
+    } else {
+        generateNewWallet(function (walletData) {
+            $('#bookingWalletId').val(walletData.PrivateKey);
+            $('#bookingWalletKey').val(walletData.PublicKey);
+        });
     }
 
     initBookingData();
+
+    $('#bookingPopupButton').on('click', function() {
+        var layout = '<table class="table table-hover"><tr><th scope="row">Service</th><td>';
+        layout += $('#serviceId').val();
+        layout += '</td></tr><tr><th scope="row">Clinic</th><td>';
+        layout += $('#clinicId').val();
+        layout += '</td></tr></table>';
+        $('#SelectedData').html(layout);
+    });
 
     $('#bookingButton').on('click', function () {
         var data = {};
@@ -21,15 +35,22 @@ $(function () {
         if (!data.email)
             errors.push('Enter an email');
 
+        data.bookingDate = $('#bookingDate').val();
+        if (!data.bookingDate)
+            errors.push('Enter a booking date');
+
         data.doctorId = $('#doctorId').val();
         if (!data.doctorId)
             errors.push('Select a doctor');
         data.serviceId = $('#serviceId').val();
         if (!data.serviceId)
             errors.push('Select a service');
-        data.clinicId = $('#clinicId').val();
-        //if (!data.clinicId)
-        //    errors.push('Select a clinic');
+        // data.clinicId = $('#clinicId').val();
+        // if (!data.clinicId)
+        //     errors.push('Select a clinic');
+        data.walletId = $('#bookingWalletId').val();
+        if (!data.walletId)
+            errors.push('You need a wallet to book a visit. Please register or refresh this page.');
         
         if (errors.length > 0) {
             alert(errors.join('\n'));
@@ -43,14 +64,11 @@ $(function () {
             url: '/book',
             data: data,
             success: function(res) {
-                console.log(res)
+                window.location.href = '/success';
             },
             error: function (res) {
-                console.log(res)
+                alert('An error occurred during booking. Plese try again later or contact our Support team.');
             },
-            complete: function() {
-               alert('booked');
-            }
         });
     });  
     // /api/blockchain/transactions

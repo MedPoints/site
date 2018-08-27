@@ -1286,3 +1286,8 @@ ul.cat-list li {
 .booking-dropdown {
     width: 100%;
 }
+
+.details-container {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
