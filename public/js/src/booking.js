@@ -45,9 +45,9 @@ $(function () {
         data.serviceId = $('#serviceId').val();
         if (!data.serviceId)
             errors.push('Select a service');
-        // data.clinicId = $('#clinicId').val();
-        // if (!data.clinicId)
-        //     errors.push('Select a clinic');
+        data.clinicId = $('#clinicId').val();
+        if (!data.clinicId)
+            errors.push('Select a clinic');
         data.walletId = $('#bookingWalletId').val();
         if (!data.walletId)
             errors.push('You need a wallet to book a visit. Please register or refresh this page.');
