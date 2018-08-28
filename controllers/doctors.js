@@ -56,7 +56,7 @@ exports.getServicesByDoctor = async (req, res) => {
 
 exports.getHospitalsByDoctor = async (req, res) => {
   const id = req.params.id;
-  const service = req.params.service;
+  const service = req.query.service;
   const request = await axios.get(`${API_URL}/api/doctors/${id}/hospitals?service=${service}`);
   const clinics = request.data.result;
   res.setHeader('Content-Type', 'application/json');

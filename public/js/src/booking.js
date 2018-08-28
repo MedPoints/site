@@ -13,9 +13,9 @@ $(function () {
 
     $('#bookingPopupButton').on('click', function() {
         var layout = '<table class="table table-hover"><tr><th scope="row">Service</th><td>';
-        layout += $('#serviceId').val();
+        layout += $('#serviceId option:selected').text();
         layout += '</td></tr><tr><th scope="row">Clinic</th><td>';
-        layout += $('#clinicId').val();
+        layout += $('#clinicId option:selected').text();
         layout += '</td></tr></table>';
         $('#SelectedData').html(layout);
     });
@@ -89,7 +89,7 @@ function initBookingData() {
 
     $('#doctorId').val(doctorId);
     $('#serviceId').change(function(evt) {
-        loadClinics($(this).val())
+        loadClinics($(this).val());
     });
     loadServices(doctorId);
 }
@@ -120,6 +120,7 @@ function loadClinics(serviceIdString) {
             url: '/doctors/' + doctorId + '/hospitals?service=' + serviceIdString,
             success: function(res) {
                 var $select = $('#clinicId');
+                $select.empty();
                 var clinics = res.clinics;
                 if ($select && clinics) {
                     var listitems = '<option value="">Select a clinic</option>';
