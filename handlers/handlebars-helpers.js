@@ -46,6 +46,12 @@ exports.hbsHelpers = {
   persistGetParameters: (pagerInfo, pagerData, pageType) => {
     let page = 0;
     switch (pageType) {
+      case 'first':
+        page = 1;
+        break;
+      case 'last':
+        page = pagerInfo.pager.pages;
+        break;
       case 'previous':
         page = pagerData.previousPage;
         break;
@@ -59,51 +65,55 @@ exports.hbsHelpers = {
     return queryPersistant.applyRequestQueryParameters(pagerInfo.parameters, `${pagerInfo.baseUrl}?page=${page}`);
   },
   pagination: (currentPage, totalPage, size, options) => {
-    var startPage, endPage, context;
-  
     if (arguments.length === 3) {
       options = size;
-      size = 5;
+      size = 2;
     }
-  
-    startPage = currentPage - Math.floor(size / 2);
-    endPage = currentPage + Math.floor(size / 2);
-  
-    if (startPage <= 0) {
-      endPage -= (startPage - 1);
-      startPage = 1;
+
+    var current = currentPage,
+        last = totalPage,
+        delta = 3,
+        left = current - delta,
+        right = current + delta + 1,
+        range = [],
+        rangeWithDots = [],
+        l;
+
+    for (let i = 1; i <= last; i++) {
+        if (i == 1 || i == last || i >= left && i < right) {
+            range.push(i);
+        }
     }
-  
-    if (endPage > totalPage) {
-      endPage = totalPage;
-      if (endPage - size + 1 > 0) {
-        startPage = endPage - size + 1;
-      } else {
-        startPage = 1;
-      }
+
+    for (let i of range) {
+        if (l) {
+            if (i - l === 2) {
+              rangeWithDots.push({
+                page: l + 1,
+                isCurrent: l + 1 === current,
+              });
+            } else if (i - l !== 1) {
+                rangeWithDots.push({
+                  isDots: true,
+                });
+            }
+        }
+        rangeWithDots.push({
+          page: i,
+          isCurrent: i === currentPage,
+        });
+        l = i;
     }
-  
-    context = {
-      startFromFirstPage: false,
-      pages: [],
+    
+    let context = {
+      pages: rangeWithDots,
       size: size,
-      endAtLastPage: false,
       nextPage: currentPage + 1,
       previousPage: currentPage - 1,
+      startFromFirstPage: currentPage === 1,
+      endAtLastPage: currentPage === totalPage || totalPage === 0,
     };
-    if (currentPage === 1) {
-      context.startFromFirstPage = true;
-    }
-    for (var i = startPage; i <= endPage; i++) {
-      context.pages.push({
-        page: i,
-        isCurrent: i === currentPage,
-      });
-    }
-    if (currentPage === totalPage || totalPage === 0) {
-      context.endAtLastPage = true;
-    }
-  
+
     return options.fn(context);
   },
   dataColumns: (data, dataOptions, options) => {

@@ -53,7 +53,15 @@ $(function () {
             errors.push('You need a wallet to book a visit. Please register or refresh this page.');
         
         if (errors.length > 0) {
-            alert(errors.join('\n'));
+            var errorContent = '';
+            for (var i = 0; i < errors.length; i++) {
+                errorContent += '<div class="alert alert-danger" role="alert">' + errors[i] + '</div>';
+            }
+
+            $('#modalErrorTitle').html('Validation errors');
+            $('#modalErrorContent').html(errorContent);
+    
+            $('#errorModal').modal('show');
             return;
         }
 

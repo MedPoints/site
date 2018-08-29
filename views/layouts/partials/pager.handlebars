@@ -1,22 +1,39 @@
 {{#pagination pager.pageIndex pager.pages pager.pageSize }}
 <ul class="pagination">
 {{#unless startFromFirstPage}}
-    <a class="page-link" href="{{#persistGetParameters ../this this 'previous'}}{{/persistGetParameters}}">Previous</a>
+    <li class="page-item">
+        <a class="page-link" href="{{#persistGetParameters ../this this 'previous'}}{{/persistGetParameters}}">&lt;</a>
+    </li>
 {{/unless}}
 
 {{#each pages}}
     {{#if isCurrent}}
-    <li class="page-item active">
-        <span class="page-link">{{ page }}</span><span class="sr-only">(current)</span></span>
-    </li>
+        <li class="page-item active">
+            <span class="page-link">{{ page }}</span><span class="sr-only">(current)</span></span>
+        </li>
+    {{else if isDots}}
+        <li class="page-item"><span class="page-link">...</span></li>
+    {{else}}
+        <li class="page-item"><a class="page-link" href="{{#persistGetParameters ../../this this 'nth'}}{{/persistGetParameters}}">{{ page }}</a></li>
     {{/if}}
-    {{#unless isCurrent}}
-    <li class="page-item"><a class="page-link" href="{{#persistGetParameters ../../this this 'nth'}}{{/persistGetParameters}}">{{ page }}</a></li>
-    {{/unless}}
 {{/each}}
 
 {{#unless endAtLastPage}}
-    <a class="page-link" href="{{#persistGetParameters ../this this 'next'}}{{/persistGetParameters}}">Next</a>
+    <li class="page-item">
+        <a class="page-link" href="{{#persistGetParameters ../this this 'next'}}{{/persistGetParameters}}">&gt;</a>
+    </li>
 {{/unless}}
+    <li class="stick-right">
+        <form>
+            <div class="input-group">
+                <input type="text" name="page" class="form-control" placeholder="Page">
+                <div class="input-group-btn">
+                    <button type="submit" class="btn btn-secondary">
+                        Go
+                    </button>
+                </div>
+            </div>
+        </form>
+    </li>
 </ul>
 {{/pagination}}

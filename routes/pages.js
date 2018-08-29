@@ -1,11 +1,13 @@
 const router = require('express').Router();
 const catchErrors = require('../handlers/errorHandlers').catchErrors;
 
+const explorer = require('../controllers/explorer');
+
 router.get('/about', (req, res) => res.render('pages/about'));
 router.get('/terms-of-use', (req, res) => res.render('pages/terms-of-use'));
 router.get('/privacy-policy', (req, res) => res.render('pages/privacy-policy'));
 router.get('/partnership', (req, res) => res.render('pages/partnership'));
-router.get('/explorer', (req, res) => res.render('pages/explorer'));
+router.get('/explorer', catchErrors(explorer.getBlocks));
 router.get('/blog', (req, res) => res.render('pages/blog'));
 router.get('/faq', (req, res) => res.render('pages/faq'));
 router.get('/account-tickets', (req, res) => res.render('pages/account-tickets'));

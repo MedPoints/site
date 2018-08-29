@@ -14,6 +14,14 @@ class QueryPersistant {
         return updatedUrl;
     }
 
+    renderParamsInputs(parameters) {
+        var render = '';
+        for (let parameter in parameters) {
+            render += `<input type="hidden" name="${parameter}" value="${parameters[parameter]}" />`
+        }
+        return render;
+    }
+
     isAppliedParameter(url) {
         return url.indexOf('?') >= 0;
     }

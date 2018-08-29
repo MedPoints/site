@@ -1,6 +1,7 @@
 $( function() {
     prepareCategoryCount();
     prepareLoginNavigation();
+    $('#errorModal').modal({show: false});
 });
 
 function copyToClipboard(element) {

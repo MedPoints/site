@@ -251,6 +251,14 @@ header {
      z-index: 2;
 }
 
+@media screen and (max-width: 764px) {
+    .wrapper {
+        margin-right: .5rem;
+        margin-left: .5rem;
+    }
+    
+}
+
 .justify {
      width: 100%;
      overflow: hidden;
@@ -1290,4 +1298,18 @@ ul.cat-list li {
 .details-container {
     padding-top: 15px;
     padding-bottom: 15px;
+}
+
+.stick-right {
+    margin-left: auto;
+}
+
+@media screen and (max-width: 540px) {
+    .stick-right {
+        padding-top: 1rem;
+        flex: 0 0 100%;
+    }
+    .pagination {
+        flex-wrap: wrap;
+    }
 }
