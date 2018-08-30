@@ -11,15 +11,6 @@ $(function () {
 
     initBookingData();
 
-    $('#bookingPopupButton').on('click', function() {
-        var layout = '<table class="table table-hover"><tr><th scope="row">Service</th><td>';
-        layout += $('#serviceId option:selected').text();
-        layout += '</td></tr><tr><th scope="row">Clinic</th><td>';
-        layout += $('#clinicId option:selected').text();
-        layout += '</td></tr></table>';
-        $('#SelectedData').html(layout);
-    });
-
     $('#bookingButton').on('click', function () {
         var data = {};
         var errors = [];

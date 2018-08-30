@@ -145,7 +145,7 @@
                         <div class="col-xl-6 col-md-5 col-sm-8">
                             <h3><a href="/doctors/{{doctor.id}}">{{doctor.name}}</a> <small>M.D</small></h3>
                             <div><a href="/doctors">{{doctor.specialization}}</a></div>
-                            <h4><a href="/clinic">General hospital</a> <small>Public</small></h4>
+                            <h4><a href="/clinics/{{doctor.hispital.id}}">{{doctor.hospital.name}}</h4>
                             <p>462 First Avenue, <a href="/doctors">New York</a>, <a href="/doctors">NY</a>, <a href="/doctors">United States</a></p>
                             <div>Work experience <strong>9+</strong> years</div>
                             <div>First visit from = <strong>100 MPT</strong> <br />+ <strong class="text-success">100 MPT bonus</strong> for next visits</div>
@@ -153,7 +153,7 @@
                         <div class="col-xl-3 col-md-4 col-sm-12">
                             <div class="wave text-center">
                                 <h4>Rating <strong class="text-success">{{doctor.rate}}</strong></h4>
-                                <p>based on <strong><a class="" href="/doctor/{{doctor.id}}#opinions">{{doctor.ratings.length}} opinions</a></strong></p>
+                                <p>based on <strong><a class="" href="/doctors/{{doctor.id}}#opinions">{{doctor.ratings.length}} opinions</a></strong></p>
                                 <a class="btn btn-primary btn-lg justify" href="/booking/?doctorId={{doctor.id}}">Book to visit</a>
                             </div>
                             <!--/.wave-->

@@ -2,7 +2,36 @@ $( function() {
     prepareCategoryCount();
     prepareLoginNavigation();
     $('#errorModal').modal({show: false});
+    initLocation();
 });
+
+/**
+ * Initializes the location element in the navigations bar
+ */
+function initLocation() {
+    ipLookUp(function(locationData) {
+        if (locationData) {
+            $('#locationLabel').text(locationData.city);
+        }
+    });
+}
+
+/**
+ * Gets a user's location based on the IP address
+ * using the ip-api service
+ */
+function ipLookUp (callback) {
+    $.ajax('http://ip-api.com/json')
+        .then(
+            function success(response) {
+                callback(response);
+            },
+            function fail(data, status) {
+                console.log('Request failed.  Returned status of',
+                            status);
+            }
+        );
+}
 
 function copyToClipboard(element) {
     if (el && el.html && el.html()) {

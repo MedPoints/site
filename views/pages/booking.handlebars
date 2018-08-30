@@ -140,30 +140,35 @@
 
             <br />
 
-            <div class="row">
-                <div class="col-6"> 
-                    
-                    <label>Booking Date</label><br />
-                    <input class="form-control" type="date" id="bookingDate" required>
-                    
-                </div>
-                <!--/.col-->
-            </div>
-            <!--/.row-->
-
             <hr />
             
             <h3>Select a service and a clinic</h3> 
                     
             <div class="row"> 
             
-                <div class="col-6 details-container">
-                    <a class="btn btn-primary" data-toggle="modal" data-target="#booking" href="javascript:void(0)">Select</a>
+                <div class="col-3 details-container">
+                    <div class="form-group">
+                        <label for="serviceId">Service:</label><br />
+                        <select id="serviceId" name="service" class="booking-dropdown custom-select">
+                        </select>
+                    </div>
                 </div>
-                <div id="SelectedData" class="col-6">&nbsp;</div>
+                <div class="col-3 details-container">
+                    <div class="form-group">
+                        <label>Booking Date</label><br />
+                        <input class="form-control" type="date" id="bookingDate" required>
+                    </div>
+                </div>
+                <div class="col-3 details-container">
+                    <div class="form-group">
+                        <label for="clinicId">Clinic:</label><br />
+                        <select id="clinicId" name="clinic" class="booking-dropdown custom-select">
+                        </select>
+                    </div>
+                </div>
                 
             </div> 
-        
+            <input type="hidden" id="doctorId" name="doctorId" />
             <hr />
             
             <h3>Add email, if you want to get notifications</h3> 

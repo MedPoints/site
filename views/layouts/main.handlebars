@@ -42,7 +42,6 @@
     {{> add-balance }}
     {{> list-funds }}
     {{> free-license }}
-    {{> booking }}
 
 
     <div class="ico-info-box"
@@ -64,12 +63,12 @@
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
 
                 <ul class="navbar-nav mr-auto service-menu">
-                    {{!-- <li class="nav-item">
+                    <li class="nav-item">
                         <span class="nav-link">Medical booking in</span>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" data-toggle="modal" data-target="#chooseLocation">New York &nbsp;<i class="fas fa-pencil-alt"></i></a>
-                    </li> --}}
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#chooseLocation"><span id="locationLabel">New York</span> &nbsp;<i class="fas fa-pencil-alt"></i></a>
+                    </li>
                     {{!-- <li class="nav-item">
                         <span class="nav-link">Language</span>
                     </li>
@@ -248,8 +247,6 @@
             		<h4>Project</h4>
             		<ul>
                 		<li><a href="/about">About</a></li>
-                		<li><a href="/terms-of-use">Terms of use</a></li>
-                		<li><a href="/privacy-policy">Privacy Policy</a></li>
                 		<li><a href="/partnership">Partnership</a></li>
 						<li><a href="/explorer">Blockchain explorer</a></li>
 						<li><a href="/blog">Blog</a></li>
