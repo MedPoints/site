@@ -7,11 +7,15 @@ const catchErrors = require('../handlers/errorHandlers').catchErrors;
 router.get('/', catchErrors(async (req, res) => {
 	var specializations = await getSpecializations(req, res);
 	var locations = await getClinicsByLocation(req, res); 
+	var locationsColumnsOptions = {
+		chunkSize: 15,
+	}
 
 	res.render('index', { 
 		specializationsData: { data: specializations, dataOptions: { baseUrl: '/doctors', filterQuery: '?department=', filterProperty: 'id', labelProperty: 'name', badgeProperty: 'count' }}, 
 		locationsData: { data: locations.clinicsGroups, dataOptions: { baseUrl: '/clinics', filterQuery: '?country=', filterProperty: 'countryCode', labelProperty: 'countryName', badgeProperty: 'count' }},
-		locations: locations.locations
+		locations: locations.locations,
+		locationsColumnsOptions,
 	})
 }));
 router.use('/doctors', require('./doctors'));

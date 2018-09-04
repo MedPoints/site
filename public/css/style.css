@@ -1313,3 +1313,11 @@ ul.cat-list li {
         flex-wrap: wrap;
     }
 }
+
+.pager {
+    padding-top: 1rem; 
+}
+
+.address-title, .address-subtitle {
+    flex: 0 1 100%;
+}

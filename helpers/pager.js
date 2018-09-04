@@ -1,11 +1,23 @@
 class Pager {
-    constructor(pageSize = 10, currentPage = 1, pages) {
+    constructor(pageSize = 10, currentPage = 1, pages, totalRecords) {
         this.pageSize = pageSize;
         this.pageIndex = currentPage;
         this.pages = pages;
+        this.totalRecords = totalRecords;
     }
     getPagerUrlParameters() {
         return `page=${this.pageIndex}&count=${this.pageSize}`;
+    }
+    getTotalText() {
+        let start = this.getStartPage();
+        let end = (start - 1) + this.pageSize;
+        if (end > this.totalRecords) {
+            end = this.totalRecords;
+        }
+        return `${start}-${end}&nbsp;/&nbsp;${this.totalRecords}`;
+    }
+    getStartPage() {
+        return (this.pageSize * (this.pageIndex - 1)) + 1;
     }
 }
 
@@ -16,7 +28,7 @@ class DataPager {
         this.pager = new Pager(pageSize, currentPage, pages);
     }
     getPageData() {
-        const start = this.getStartIndex();
+        const start = this.pager.getStartIndex();
         const end = start + this.pager.pageSize;
         return this.data.slice(start, end);
     }

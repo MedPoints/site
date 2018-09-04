@@ -196,7 +196,7 @@
                             <div class="col-xl-5 col-md-5 col-sm-8">
                                 <h3><a class="" href="/pharmacies/{{ pharmacy.id }}">{{ pharmacy.name }}</a></h3>
                                 <p>
-                                    <a href="https://www.google.com/maps/search/?api=1&query={{pharmacy.location.address}}">
+                                    <a href="https://www.google.com/maps/embed/place?key=1&q={{pharmacy.location.address}}" data-name="{{ pharmacy.name }}" class="map-toggle">
                                         {{pharmacy.location.address}}
                                     </a>
                                 </p>

@@ -139,7 +139,7 @@
         <!--/.col-->
 		
         {{!-- <div class="col-xl-8 pull-xl-4 col-lg-12 pull-lg-0"> --}}
-        <div class="col-xl-12 pull-xl-12 col-lg-12 pull-lg-0"></div>
+        {{!-- <div class="col-xl-12 pull-xl-12 col-lg-12 pull-lg-0"></div> --}}
 
             {{!-- <h3>Departments</h3>
 
@@ -188,6 +188,7 @@
                             <td>
                                 <h4><a href="/services/{{ service.id }}" title="{{ service.name }}">{{ service.name }}</a></h4>
                                 <p>{{ service.short_descr }}</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                             </td>
                             <td>{{ service.time }}</td>
                             <td class="price-td">from <strong class="text-dark">${{ service.price.dollars }}</strong><br /><strong class="text-success">{{ service.price.mpts }} MPT</strong></td>
@@ -207,16 +208,15 @@
                 </table>
             </div>
             <!--end of .table-responsive-->
-			
-			<br />
-            <div class="row pagination-line">
-            	<div class="col">
-					<nav aria-label="...">
-                    {{> pager pagerInfo }}
-                </nav>
-            	</div>
-          	</div>
         </div>
         <!--/.col-->
+        <div class="row pagination-line pager">
+            <div class="col">
+                <nav aria-label="...">
+                    {{> pager pagerInfo }}
+                </nav>
+            </div>
+        </div>
     </div>
     <!--/.row-->
+    

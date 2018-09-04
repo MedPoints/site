@@ -31,11 +31,15 @@ exports.getClinics = async (req, res) => {
   }
   
 
-
+  const {
+    pages,
+    total
+  } = request.data.result.meta;
   const pager = new Pager(
     PAGE_SIZE, 
     Number(req.query.page) || 1, 
-    request.data.result.meta.pages);
+    pages,
+    total);
   const pagerInfo = {
     pager,
     baseUrl: '/clinics',
@@ -50,7 +54,7 @@ exports.getClinicsByLocation = async (req, res) => {
   const request = await axios.get(`${API_URL}/api/hospitals/locations`);
   const locationsData = request.data.result;
   let clinicsGroups = [
-    { countryName: 'World', countryCode: '', count: locationsData.worldsCount },
+    { countryName: '<b>World</b>', countryCode: '', count: locationsData.worldsCount },
   ];
   let locations = [];
   for (let i = 0, length = locationsData.locations.length; i < length; i++) {

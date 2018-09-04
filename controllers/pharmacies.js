@@ -31,10 +31,15 @@ exports.getPharmacies = async (req, res) => {
   }
 
 
+  const {
+    pages,
+    total
+  } = request.data.result.meta;
   const pager = new Pager(
     PAGE_SIZE, 
     Number(req.query.page) || 1, 
-    request.data.result.meta.pages);
+    pages,
+    total);
   const pagerInfo = {
     pager,
     baseUrl: '/pharmacies',

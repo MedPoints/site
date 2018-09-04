@@ -6,6 +6,7 @@ $(function() {
     initializeFiltersToggle();
     initializeMenuToggle();
     initializeBellToggle();
+    initializeAddressMapToggle();
 
     $('[data-toggle="tooltip"]').tooltip();
     $('.gallery a.gallery-img').simpleLightbox();
@@ -21,6 +22,41 @@ $(window).resize(function () {
 })
 
 repos($('.crop img'))
+
+function initializeAddressMapToggle() {
+    $('#addressMap').modal({show:false});
+    $('.map-toggle').on('click', function(evt) {
+        evt.preventDefault();
+        var $target = $(evt.target);
+        $('#addressHeader').text($target.data('name'));
+        $('#addressSubheader').text($target.text());
+        // $('#addressFrame').attr('src', encodeURI($target.attr('href')));
+        
+        var map = new google.maps.Map(document.getElementById('addressFrame'), {
+            zoom: 8,
+            center: {lat: -34.397, lng: 150.644}
+        });
+        geocoder = new google.maps.Geocoder();
+        codeAddress(geocoder, map, $target.text());
+        
+        
+        $('#addressMap').modal();
+    });
+}
+
+function codeAddress(geocoder, map, address) {
+    geocoder.geocode({'address': address}, function(results, status) {
+        if (status === 'OK') {
+        map.setCenter(results[0].geometry.location);
+        var marker = new google.maps.Marker({
+            map: map,
+            position: results[0].geometry.location
+        });
+        } else {
+            console.log('Geocode was not successful for the following reason: ' + status);
+        }
+    });
+}
 
 function initializeAccordions() {
     $( "#accordion" ).accordion({

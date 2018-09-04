@@ -19,8 +19,8 @@
                 <!--/.col-->
                 <div class="col-xl-8 col-md-12">
                     <div><a href="/doctors">{{doctor.specialization}}</a></div>
-                    <h4><a href="/clinics/{{doctor.hispital.id}}">{{doctor.hospital.name}}</h4>
-                    <p>462 First Avenue, <a href="/doctors">New York</a>, <a href="/doctors">NY</a>, <a href="/doctors">United States</a></p>
+                    <h4><a  href="/clinics/{{doctor.hospital.id}}">{{doctor.hospital.name}}</h4>
+                    <p><a class="map-toggle" data-name="{{doctor.hospital.name}}" href="/doctors">{{doctor.hospital.location.address}}</a></p>
                     <div>Work experience <strong>9+</strong> years</div>
                     <div>First visit from = <strong>100 MPT</strong> <br />+ <strong class="text-success">100 MPT bonus</strong> for next visits</div>
                 </div>
@@ -37,12 +37,10 @@
 
                     <hr />
 
-                    <h3>All specializations</h3>
-
-
+                    <h3>All services</h3>
                     <ul class="list-inline">
-                        {{#each doctor.specialization as |specialization|}}
-                        <li class="list-inline-item"><a href="#">{{specialization}}</a></li>
+                        {{#each doctor.specializations as |specialization|}}
+                        <li class="list-inline-item">{{specialization}}</li>
                         {{/each}}
                     </ul>
 
@@ -215,3 +213,6 @@
         <!--/.reviews-->
 
     </section>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA839hvZlHkWX80W6YRTuv3C7HToNVZhwc">
+</script>

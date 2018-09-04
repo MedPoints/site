@@ -11,10 +11,15 @@ exports.getDrugs = async (req, res) => {
   const request = await axios.get(url);
   let drugs = request.data.result.data ;
 
+  const {
+    pages,
+    total
+  } = request.data.result.meta;
   const pager = new Pager(
     PAGE_SIZE, 
     Number(req.query.page) || 1, 
-    request.data.result.meta.pages);
+    pages,
+    total);
   const pagerInfo = {
     pager,
     baseUrl: '/drugs',

@@ -64,14 +64,15 @@ exports.hbsHelpers = {
     }
     return queryPersistant.applyRequestQueryParameters(pagerInfo.parameters, `${pagerInfo.baseUrl}?page=${page}`);
   },
-  pagination: (currentPage, totalPage, size, options) => {
+  pagination: (pager, options) => {
+    let {pageIndex, pages, pageSize} = pager;
     if (arguments.length === 3) {
-      options = size;
-      size = 2;
+      options = pageSize;
+      pageSize = 2;
     }
 
-    var current = currentPage,
-        last = totalPage,
+    var current = pageIndex,
+        last = pages,
         delta = 3,
         left = current - delta,
         right = current + delta + 1,
@@ -100,18 +101,19 @@ exports.hbsHelpers = {
         }
         rangeWithDots.push({
           page: i,
-          isCurrent: i === currentPage,
+          isCurrent: i === pageIndex,
         });
         l = i;
     }
     
     let context = {
       pages: rangeWithDots,
-      size: size,
-      nextPage: currentPage + 1,
-      previousPage: currentPage - 1,
-      startFromFirstPage: currentPage === 1,
-      endAtLastPage: currentPage === totalPage || totalPage === 0,
+      size: pageSize,
+      nextPage: pageIndex + 1,
+      previousPage: pageIndex - 1,
+      startFromFirstPage: pageIndex === 1,
+      endAtLastPage: pageIndex === pages || pages === 0,
+      totalText: pager.getTotalText()
     };
 
     return options.fn(context);
@@ -122,7 +124,7 @@ exports.hbsHelpers = {
       dataOptions
     };
     if (data) {
-      let chunkSize = dataOptions.chunkSize || 13;
+      let chunkSize = dataOptions.chunkSize || 16;
       context.dataGroups = [].concat.apply([],
         data.map(function(elem,i) {
               return i%chunkSize ? [] : [data.slice(i,i+chunkSize)];
@@ -136,7 +138,7 @@ exports.hbsHelpers = {
     let propertyValue = options.hash.obj[options.hash.propName];
     if (propertyValue === null || propertyValue === undefined)
       propertyValue = '';
-    return propertyValue;
+    return new Handlebars.SafeString(propertyValue);
   },
   escape: (variable) => {
     return variable.replace(/(['"])/g, '\\$1');

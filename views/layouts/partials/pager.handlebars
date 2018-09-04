@@ -1,4 +1,4 @@
-{{#pagination pager.pageIndex pager.pages pager.pageSize }}
+{{#pagination pager }}
 <ul class="pagination">
 {{#unless startFromFirstPage}}
     <li class="page-item">
@@ -23,17 +23,8 @@
         <a class="page-link" href="{{#persistGetParameters ../this this 'next'}}{{/persistGetParameters}}">&gt;</a>
     </li>
 {{/unless}}
-    {{!-- <li class="stick-right">
-        <form>
-            <div class="input-group">
-                <input type="text" name="page" class="form-control" placeholder="Page">
-                <div class="input-group-btn">
-                    <button type="submit" class="btn btn-secondary">
-                        Go
-                    </button>
-                </div>
-            </div>
-        </form>
-    </li> --}}
+    <li class="stick-right">
+        {{{totalText}}}
+    </li>
 </ul>
 {{/pagination}}
