@@ -11,6 +11,22 @@ exports.getDoctors = async (req, res) => {
   let url = queryPersistant.applyRequestQueryParameters(req.query, `${API_URL}/api/doctors`);  
   const request = await axios.get(url);
   let doctors = request.data.result.data.map(doctor => prepareDoctorData(doctor));
+  const hospitals = doctors.map(doctor => doctor.hospital);
+  
+  let avgCoordinates = {lat: 0, lng: 0};
+  let count = 0;
+  for (let i = 0, length = doctors.length; i < length; i++) {
+    const doctor = doctors[i];
+    if (doctor.coordinations && doctor.coordinations.length) {
+      count++;
+      avgCoordinates.lat += doctor.coordinations[0].lat;
+      avgCoordinates.lng += doctor.coordinations[0].lon;
+    }
+  }
+  if (count > 0) {
+    avgCoordinates.lat = avgCoordinates.lat / count;
+    avgCoordinates.lng = avgCoordinates.lng / count;  
+  }
 
   const {
     pages,
@@ -29,14 +45,15 @@ exports.getDoctors = async (req, res) => {
   };
 
 
-  res.render('doctors/doctors', { doctors, pagerInfo, PAGE_TITLE });
+  res.render('doctors/doctors', { doctors, hospitals, avgCoordinates, pagerInfo, PAGE_TITLE });
 };
 
 exports.getDoctor = async (req, res) => {
   const id = req.params.id;
   const request = await axios.get(`${API_URL}/api/doctors?id=${id}`);
   const doctor = prepareDoctorData(request.data.result);
-  res.render('doctors/doctor', { doctor });
+  const coordinates = doctor.coordinations[0];
+  res.render('doctors/doctor', { doctor, coordinates });
 };
 
 exports.getSpecializations = async (req, res) => {

@@ -1,183 +1,228 @@
 
 
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">{{PAGE_TITLE}}</li>
-        </ol>
-    </nav>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{PAGE_TITLE}}</li>
+    </ol>
+</nav>
 
-    {{!-- <section class="bg-gray">
+{{!-- <section class="bg-gray">
 
-        <form class="filter">
+    <form class="filter">
+        <div class="row">
+            <div class="col-sm-9">
+                <label class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input">
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description">Departure to the house</span>
+                </label>
+                <label class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input">
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description">Work with children</span>
+                </label>
+                <label class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input">
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description">Only high rated</span>
+                </label>
+            </div>
+            <!--/.col-->
+            <div class="col-sm-3">
+                <button type="button" id="btn-more" class="btn btn-secondary float-right" data-toggle="collapse" data-target="#moreFilters">
+                    <i class="fas fa-angle-down"></i> More filters
+                </button>
+            </div>
+            <!--/.col-->
+        </div>
+        <!--/.row-->
+
+        <div class="collapse" id="moreFilters">
+            <hr />
             <div class="row">
-                <div class="col-sm-9">
-                    <label class="custom-control custom-checkbox">
-						<input type="checkbox" class="custom-control-input">
-						<span class="custom-control-indicator"></span>
-						<span class="custom-control-description">Departure to the house</span>
-					</label>
-                    <label class="custom-control custom-checkbox">
-						<input type="checkbox" class="custom-control-input">
-						<span class="custom-control-indicator"></span>
-						<span class="custom-control-description">Work with children</span>
-					</label>
-                    <label class="custom-control custom-checkbox">
-						<input type="checkbox" class="custom-control-input">
-						<span class="custom-control-indicator"></span>
-						<span class="custom-control-description">Only high rated</span>
-					</label>
+                <div class="col-xl-3 col-md-6 col-sm-12">
+                    <h3>Sex</h3>
+                    <label class="custom-control custom-radio">
+                        <input id="radio1" name="radio" type="radio" class="custom-control-input" checked="checked">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">Any</span>
+                    </label>
+                    <label class="custom-control custom-radio">
+                        <input id="radio2" name="radio" type="radio" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">Male</span>
+                    </label>
+                    <label class="custom-control custom-radio">
+                        <input id="radio3" name="radio" type="radio" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">Female</span>
+                    </label>
                 </div>
                 <!--/.col-->
-                <div class="col-sm-3">
-                    <button type="button" id="btn-more" class="btn btn-secondary float-right" data-toggle="collapse" data-target="#moreFilters">
-						<i class="fas fa-angle-down"></i> More filters
-					</button>
+                <div class="col-xl-3 col-md-6 col-sm-12">
+                    <h3>Location</h3>
+                    <label class="custom-control custom-radio">
+                        <input id="radio2-1" name="radio2" type="radio" class="custom-control-input" checked="checked">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">In your city</span>
+                    </label>
+                    <label class="custom-control custom-radio">
+                        <input id="radio2-2" name="radio2" type="radio" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">Worldwide</span>
+                    </label>
+                </div>
+                <!--/.col-->
+                <div class="col-xl-3 col-md-6 col-sm-12">
+
+                    <h3>Sort by</h3>
+                    <label class="custom-control custom-radio">
+                        <input id="radio3-1" name="radio3" type="radio" class="custom-control-input" checked="checked">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">By rating</span>
+                    </label>
+                    <label class="custom-control custom-radio">
+                        <input id="radio3-2" name="radio3" type="radio" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">By prices</span>
+                    </label>
+                </div>
+                <!--/.col-->
+                <div class="col-xl-3 col-md-6 col-sm-12">
+
+                    <h3>Max price: <span id="demo"></span> MPT</h3>
+
+                    <input class="justify" type="range" id="myRange">
+                    <script>
+                        var slider = document.getElementById("myRange");
+                        var output = document.getElementById("demo");
+                        output.innerHTML = slider.value;
+
+                        slider.oninput = function() {
+                            output.innerHTML = this.value;
+                        }
+                    </script>
+
                 </div>
                 <!--/.col-->
             </div>
             <!--/.row-->
+        </div>
+        <!--/.collapse-->
 
-            <div class="collapse" id="moreFilters">
-                <hr />
+    </form>
+
+</section> --}}
+
+<div class="row">
+
+    <div class="col-xl-4 push-xl-8 col-lg-12 push-lg-0">
+
+        <nav class="sticky-top">
+            <div id="map" style="height:400px">
+            </div><!--/.map-->
+            <script>
+                var locations = {{{jsonify hospitals}}};
+                var avgCoordinates = {{{jsonify avgCoordinates}}}
+                var doctors = {{{jsonify doctors}}}
+                function initLocationsMap() {
+                    var center = avgCoordinates || {lat: 39.529, lng: -101.369};
+                    
+                    if (locations.length === 1) {
+                        center.lat = doctors[0].coordinations[0].lat;
+                        center.lng = doctors[0].coordinations[0].lon;
+                    }
+                    var map = new google.maps.Map(
+                        document.getElementById('map'),
+                        {center: center, zoom: 3}
+                    );
+
+                    
+                    var infowindow = new google.maps.InfoWindow({
+                        content: ''
+                    });
+
+                    for (var i = 0, length = locations.length; i < length; i++) {
+                        var hospital = locations[i];
+                        var doctor = doctors[i];
+                        var marker = new google.maps.Marker({
+                            position: {lat: doctor.coordinations[0].lat, lng: doctor.coordinations[0].lon}, 
+                            title: hospital.name,
+                            map: map,
+                        });
+
+                        google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow){ 
+                            return function() {
+                                infowindow.setContent(content);
+                                infowindow.open(map, marker);
+                            };
+                        })(marker, getInfoWindowContent(doctor), infowindow));  
+                    }
+                }
+
+                function getInfoWindowContent(doctor) {
+                    return '<div class="info-window">' + 
+                    '<h5>' + (doctor.name || '') + '</h5>' +
+                    '<i>' + (doctor.hospital.location.address || '') + '</i><br/><br/>' +
+                    '<a href="/doctors/' + doctor.id.toString() + '">View Doctor</a>' 
+                    '</div>';
+                }
+            </script>
+        </nav>
+
+        <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA839hvZlHkWX80W6YRTuv3C7HToNVZhwc&callback=initLocationsMap">
+        </script>
+
+    </div>
+    <!--/.col-->
+
+    <div class="col-xl-8 pull-xl-4 col-lg-12 pull-lg-0">
+    {{!-- <div class="col-xl-12 col-lg-12"> --}}
+        <ul class="items-list">
+
+            {{#each doctors as |doctor|}}
+            <li>
                 <div class="row">
-                    <div class="col-xl-3 col-md-6 col-sm-12">
-                        <h3>Sex</h3>
-                        <label class="custom-control custom-radio">
-							<input id="radio1" name="radio" type="radio" class="custom-control-input" checked="checked">
-							<span class="custom-control-indicator"></span>
-							<span class="custom-control-description">Any</span>
-						</label>
-                        <label class="custom-control custom-radio">
-							<input id="radio2" name="radio" type="radio" class="custom-control-input">
-							<span class="custom-control-indicator"></span>
-							<span class="custom-control-description">Male</span>
-						</label>
-                        <label class="custom-control custom-radio">
-							<input id="radio3" name="radio" type="radio" class="custom-control-input">
-							<span class="custom-control-indicator"></span>
-							<span class="custom-control-description">Female</span>
-						</label>
+                    <div class="col-xl-3 col-md-3 col-sm-4">
+                        <a class="avatar" href="/doctor"><div class="crop"><img src="img/_demo/doctor1.jpg" alt="A doctor's photo" onerror="this.onerror=null;this.src='/img/logo_stub.svg';this.style.width='100px';" /></div></a>
+                        {{!-- <div class="text-success" data-toggle="tooltip" data-placement="top" title="Participant in the program of insurance points"><i class="fas fa-heartbeat"></i> Insurance</div> --}}
                     </div>
                     <!--/.col-->
-                    <div class="col-xl-3 col-md-6 col-sm-12">
-                        <h3>Location</h3>
-                        <label class="custom-control custom-radio">
-							<input id="radio2-1" name="radio2" type="radio" class="custom-control-input" checked="checked">
-							<span class="custom-control-indicator"></span>
-							<span class="custom-control-description">In your city</span>
-						</label>
-                        <label class="custom-control custom-radio">
-							<input id="radio2-2" name="radio2" type="radio" class="custom-control-input">
-							<span class="custom-control-indicator"></span>
-							<span class="custom-control-description">Worldwide</span>
-						</label>
+                    <div class="col-xl-6 col-md-5 col-sm-8">
+                        <h3><a href="/doctors/{{doctor.id}}">{{doctor.name}}</a> <small>M.D</small></h3>
+                        <div><a href="/doctors">{{doctor.specialization}}</a></div>
+                        <h4><a href="/clinics/{{doctor.hispital.id}}">{{doctor.hospital.name}}</a></h4>
+                        <p><a class="map-toggle" data-name="{{doctor.hospital.name}}" href="/doctors">{{doctor.hospital.location.address}}</a></p>
+                        <div>Work experience <strong>9+</strong> years</div>
+                        <div>First visit from = <strong>100 MPT</strong> <br />+ <strong class="text-success">100 MPT bonus</strong> for next visits</div>
                     </div>
-                    <!--/.col-->
-                    <div class="col-xl-3 col-md-6 col-sm-12">
-
-                        <h3>Sort by</h3>
-                        <label class="custom-control custom-radio">
-							<input id="radio3-1" name="radio3" type="radio" class="custom-control-input" checked="checked">
-							<span class="custom-control-indicator"></span>
-							<span class="custom-control-description">By rating</span>
-						</label>
-                        <label class="custom-control custom-radio">
-							<input id="radio3-2" name="radio3" type="radio" class="custom-control-input">
-							<span class="custom-control-indicator"></span>
-							<span class="custom-control-description">By prices</span>
-						</label>
-                    </div>
-                    <!--/.col-->
-                    <div class="col-xl-3 col-md-6 col-sm-12">
-
-                        <h3>Max price: <span id="demo"></span> MPT</h3>
-
-                        <input class="justify" type="range" id="myRange">
-                        <script>
-                            var slider = document.getElementById("myRange");
-                            var output = document.getElementById("demo");
-                            output.innerHTML = slider.value;
-
-                            slider.oninput = function() {
-                              output.innerHTML = this.value;
-                            }
-                        </script>
-
+                    <div class="col-xl-3 col-md-4 col-sm-12">
+                        <div class="wave text-center">
+                            <h4>Rating <strong class="text-success">{{doctor.rate}}</strong></h4>
+                            <p>based on <strong><a class="" href="/doctors/{{doctor.id}}#opinions">{{doctor.ratings.length}} opinions</a></strong></p>
+                            <a class="btn btn-primary btn-lg justify book-button" href="/booking/?doctorId={{doctor.id}}">Book to visit</a>
+                        </div>
+                        <!--/.wave-->
                     </div>
                     <!--/.col-->
                 </div>
                 <!--/.row-->
+            </li>
+            {{/each}}
+        </ul>
+
+        <div class="row pagination-line">
+            <div class="col">
+                <nav aria-label="...">
+                    {{> pager pagerInfo }}
+                </nav>
             </div>
-            <!--/.collapse-->
-
-        </form>
-
-    </section> --}}
-
-    <div class="row">
-
-        {{!-- <div class="col-xl-4 push-xl-8 col-lg-12 push-lg-0">
-
-            <nav class="sticky-top">
-				<div class="map">
-                	<iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d84016.36429915384!2d2.161754161251458!3d48.848458114630624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e0!4m0!4m5!1s0x47e67031f8c20147%3A0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris%2C+3+Avenue+Victoria%2C+75004+Paris%2C+Francia!3m2!1d48.856836099999995!2d2.3504327!5e0!3m2!1sen!2sru!4v1517149847463"
-                    width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-				</div><!--/.map-->
-
-            </nav>
-
-        </div> --}}
-        <!--/.col-->
-
-        {{!-- <div class="col-xl-8 pull-xl-4 col-lg-12 pull-lg-0"> --}}
-        <div class="col-xl-12 col-lg-12">
-            <ul class="items-list">
-
-                {{#each doctors as |doctor|}}
-                <li>
-                    <div class="row">
-                        <div class="col-xl-3 col-md-3 col-sm-4">
-                            <a class="avatar" href="/doctor"><div class="crop"><img src="img/_demo/doctor1.jpg" alt="A doctor's photo" onerror="this.onerror=null;this.src='/img/logo_stub.svg';this.style.width='100px';" /></div></a>
-                    		{{!-- <div class="text-success" data-toggle="tooltip" data-placement="top" title="Participant in the program of insurance points"><i class="fas fa-heartbeat"></i> Insurance</div> --}}
-                        </div>
-                        <!--/.col-->
-                        <div class="col-xl-6 col-md-5 col-sm-8">
-                            <h3><a href="/doctors/{{doctor.id}}">{{doctor.name}}</a> <small>M.D</small></h3>
-                            <div><a href="/doctors">{{doctor.specialization}}</a></div>
-                            <h4><a href="/clinics/{{doctor.hispital.id}}">{{doctor.hospital.name}}</a></h4>
-                            <p><a class="map-toggle" data-name="{{doctor.hospital.name}}" href="/doctors">{{doctor.hospital.location.address}}</a></p>
-                            <div>Work experience <strong>9+</strong> years</div>
-                            <div>First visit from = <strong>100 MPT</strong> <br />+ <strong class="text-success">100 MPT bonus</strong> for next visits</div>
-                        </div>
-                        <div class="col-xl-3 col-md-4 col-sm-12">
-                            <div class="wave text-center">
-                                <h4>Rating <strong class="text-success">{{doctor.rate}}</strong></h4>
-                                <p>based on <strong><a class="" href="/doctors/{{doctor.id}}#opinions">{{doctor.ratings.length}} opinions</a></strong></p>
-                                <a class="btn btn-primary btn-lg justify" href="/booking/?doctorId={{doctor.id}}">Book to visit</a>
-                            </div>
-                            <!--/.wave-->
-                        </div>
-                        <!--/.col-->
-                    </div>
-                    <!--/.row-->
-                </li>
-	            {{/each}}
-            </ul>
-
-			<div class="row pagination-line">
-            	<div class="col">
-					<nav aria-label="...">
-                        {{> pager pagerInfo }}
-                    </nav>
-            	</div>
-          	</div>
-
         </div>
-        <!--/.col-->
 
     </div>
-    <!--/.row-->
-<script async defer
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA839hvZlHkWX80W6YRTuv3C7HToNVZhwc">
-</script>
+    <!--/.col-->
+
+</div>
+<!--/.row-->

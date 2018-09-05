@@ -7,13 +7,48 @@ $( function() {
 
 /**
  * Initializes the location element in the navigations bar
+ * and stores location data to a cookie variable
  */
 function initLocation() {
-    ipLookUp(function(locationData) {
-        if (locationData) {
-            $('#locationLabel').text(locationData.city);
+    var savedLocation = Cookies.get('location');
+    if (savedLocation) {
+        var locationData = JSON.parse(savedLocation);
+        $('#locationLabel').text(locationData.city);
+    } else {
+        ipLookUp(function(locationData) {
+            if (locationData) {
+                Cookies.set('location', JSON.stringify(locationData), {exoires: 3});
+                $('#locationLabel').text(locationData.city);
+            }
+        });
+    }
+
+    $('#selectLocationButton').on('click', function () {
+        var selectedLocation = $('#locationAutocomplete').val();
+        if (selectedLocation) {
+            $('#locationLabel').text(selectedLocation);
         }
+        $('#chooseLocation').modal('hide');
+    })
+
+    $('#locationAutocomplete').autocomplete({
+        source: function (request, response) {
+            $.ajax({
+                url: '/cities',
+                data: {
+                    filter: request.term,
+                },
+                success: function (data) {
+                    response(data.cities);
+                },
+            })
+        },
+        minLength: 3,
+        select: function (event, ui) {
+            
+        },
     });
+    $( "#locationAutocomplete" ).autocomplete( "option", "appendTo", "#autocompleteBody" );
 }
 
 /**

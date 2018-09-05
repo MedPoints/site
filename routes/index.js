@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const getSpecializations = require('../controllers/doctors').getSpecializations;
 const getClinicsByLocation = require('../controllers/clinics').getClinicsByLocation
+const getCities = require('../controllers/cities').getCities;
 const catchErrors = require('../handlers/errorHandlers').catchErrors;
 
 
@@ -18,6 +19,7 @@ router.get('/', catchErrors(async (req, res) => {
 		locationsColumnsOptions,
 	})
 }));
+router.use('/cities', catchErrors(getCities));
 router.use('/doctors', require('./doctors'));
 router.use('/clinics', require('./clinics'));
 router.use('/services', require('./services'));
