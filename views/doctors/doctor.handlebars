@@ -62,7 +62,6 @@
         </div>
         <!--/.col-->
         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-
             <nav class="sticky-top">
 
                 <div class="row">
@@ -201,6 +200,51 @@
     <!--/.row-->
 
 	<br />
+
+    <section class="doctor-services">
+        <div class="table-responsive">
+            <table summary="" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th width="40%">
+                            <h5>Doctor's services</h5>
+                        </th>
+                        <th>
+                            <h5>Time</h5>
+                        </th>
+                        <th>
+                            <h5>Price</h5>
+                        </th>
+                        <th>
+                            <h5>Insurance</h5>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each doctor.services as |service|}}
+                    <tr>
+                        <td>
+                            <h4><a href="/services/{{ service.id }}" title="{{ service.name }}">{{ service.name }}</a></h4>
+                            <p>{{ service.short_descr }}</p>
+                        </td>
+                        <td>{{ service.time }}</td>
+                        <td class="price-td">from <strong class="text-dark">${{ service.price.dollars }}</strong><br /><strong class="text-success">{{ service.price.mpts }} MPT</strong></td>
+                        <td class="text-center">
+                            {{#if service.is_covered_by_insurance}}
+                            <i class="fas fa-plus text-success" data-toggle="tooltip" data-placement="top" title="Can be covered by insurance points"></i>
+                            {{/if}}
+                        </td>
+                        <td>
+                            <a class="btn btn-primary btn-lg justify" href="/booking?doctorId={{../doctor.id}}&serviceId={{service.id}}">Book to visit</a>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <br />
 
     <section class="bg-gray">
         <div class="reviews" id="opinions">

@@ -90,10 +90,16 @@ function initBookingData() {
     $('#serviceId').change(function(evt) {
         loadClinics($(this).val());
     });
-    loadServices(doctorId);
+    loadServices(doctorId, function(evt) {
+        var serviceId = query.serviceId;
+        if (serviceId) {
+            $('#serviceId').val(serviceId);
+            loadClinics(serviceId);
+        }
+    });
 }
 
-function loadServices(doctorId) {
+function loadServices(doctorId, callback) {
     $.ajax({
         url: '/doctors/' + doctorId + '/services',
         success: function(res) {
@@ -106,6 +112,10 @@ function loadServices(doctorId) {
                     listitems += '<option value=' + service.id + '>' + service.name + '</option>';   
                 }
                 $select.append(listitems);
+            }
+
+            if (callback) {
+                callback();
             }
         },
         error: function(res) {

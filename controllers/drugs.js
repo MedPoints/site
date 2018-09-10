@@ -30,7 +30,7 @@ exports.getDrugs = async (req, res) => {
   const categoriesRequest = await axios.get(groupsUrl);
   const categories = categoriesRequest.data.result.data;
 
-  res.render('drugs/drugs', { drugs, pagerInfo, PAGE_TITLE, categories });
+  res.render('drugs/drugs', { drugs, pagerInfo, PAGE_TITLE, categories, title: `MedPoints™ Drugs` });
 };
 
 exports.getDrug = async (req, res) => {
@@ -47,7 +47,7 @@ exports.getDrug = async (req, res) => {
         providersLocations.push(provider);
       }
   }
-  res.render('drugs/drug', { drug, providersLocations });
+  res.render('drugs/drug', { drug, providersLocations, title: `MedPoints™ - Drugs - ${drug.name}` });
 }
 
 exports.getCount = async (req, res) => {

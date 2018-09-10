@@ -30,6 +30,7 @@ exports.getBlocks = async (req, res) => {
         blocks: dataPager.getPageData().map((block, index) => prepareBlockData(block, index, chain.length)),
         pagerInfo,
         PAGE_TITLE, 
-        transactions,  
+        transactions, 
+        title: `MedPoints™ Blockchain`
     });
 };

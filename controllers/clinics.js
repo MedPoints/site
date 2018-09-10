@@ -46,7 +46,7 @@ exports.getClinics = async (req, res) => {
     parameters: req.query
   };
 
-  res.render('clinics/clinics', { hospitals, pagerInfo, avgCoordinates });
+  res.render('clinics/clinics', { hospitals, pagerInfo, avgCoordinates, title: 'MedPoints™ Clinics' });
 };
 
 exports.getClinicsByLocation = async (req, res) => {
@@ -86,7 +86,7 @@ exports.getClinic = async (req, res) => {
   const id = req.params.id;
   const request = await axios.get(`${API_URL}/api/hospitals?id=${id}`);
   const hospital = prepareClinicData(request.data.result);
-  res.render('clinics/clinic', { hospital, hospitalJson: JSON.stringify(hospital) });
+  res.render('clinics/clinic', { hospital, hospitalJson: JSON.stringify(hospital), title: `MedPoints™ - Clinics - ${hospital.name}` });
 };
 
 exports.getCount = async (req, res) => {

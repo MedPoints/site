@@ -14,6 +14,12 @@ $(function () {
             alert('Both Wallet ID and Key values are required');
         }
     });
+
+    if (!isRegistered()) {
+        var supportLinkContainer = $('.support-tickets');
+        var supportLink = supportLinkContainer.find('a');
+        supportLink.attr('href', '/registration');
+    }
 });
 
 function generateNewWallet(callback) {

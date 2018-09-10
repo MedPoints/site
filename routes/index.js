@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const getSpecializations = require('../controllers/doctors').getSpecializations;
-const getClinicsByLocation = require('../controllers/clinics').getClinicsByLocation
+const getClinicsByLocation = require('../controllers/clinics').getClinicsByLocation;
 const getCities = require('../controllers/cities').getCities;
 const catchErrors = require('../handlers/errorHandlers').catchErrors;
 
@@ -17,6 +17,7 @@ router.get('/', catchErrors(async (req, res) => {
 		locationsData: { data: locations.clinicsGroups, dataOptions: { baseUrl: '/clinics', filterQuery: '?country=', filterProperty: 'countryCode', labelProperty: 'countryName', badgeProperty: 'count' }},
 		locations: locations.locations,
 		locationsColumnsOptions,
+		title: 'MedPoints™',
 	})
 }));
 router.use('/cities', catchErrors(getCities));

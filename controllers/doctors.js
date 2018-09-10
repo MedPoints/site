@@ -45,7 +45,7 @@ exports.getDoctors = async (req, res) => {
   };
 
 
-  res.render('doctors/doctors', { doctors, hospitals, avgCoordinates, pagerInfo, PAGE_TITLE });
+  res.render('doctors/doctors', { doctors, hospitals, avgCoordinates, pagerInfo, PAGE_TITLE, title: `MedPoints™ Doctors` });
 };
 
 exports.getDoctor = async (req, res) => {
@@ -53,7 +53,7 @@ exports.getDoctor = async (req, res) => {
   const request = await axios.get(`${API_URL}/api/doctors?id=${id}`);
   const doctor = prepareDoctorData(request.data.result);
   const coordinates = doctor.coordinations[0];
-  res.render('doctors/doctor', { doctor, coordinates });
+  res.render('doctors/doctor', { doctor, coordinates, title: `MedPoints™ - Doctors - ${doctor.name}` });
 };
 
 exports.getSpecializations = async (req, res) => {

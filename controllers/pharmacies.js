@@ -46,7 +46,7 @@ exports.getPharmacies = async (req, res) => {
     parameters: req.query
   };
 
-  res.render('pharmacies/pharmacies', { pharmacies, pagerInfo, PAGE_TITLE, avgCoordinates });
+  res.render('pharmacies/pharmacies', { pharmacies, pagerInfo, PAGE_TITLE, avgCoordinates, title: `MedPoints™ Pharmacies` });
 };
 
 exports.getPharmacy = async (req, res) => {
@@ -54,7 +54,7 @@ exports.getPharmacy = async (req, res) => {
   const request = await axios.get(`${API_URL}/api/pharmacies?id=${id}`);
   const pharmacy = preparePharmacyData(request.data.result);
 
-  res.render('pharmacies/pharmacy', { pharmacy });
+  res.render('pharmacies/pharmacy', { pharmacy, title: `MedPoints™ - Pharmacies - ${pharmacy.name}` });
 };
 
 exports.getCount = async (req, res) => {
