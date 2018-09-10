@@ -39,22 +39,70 @@
 
                         <div class="wave text-center">
                             <p>Available in</p> 
-                            <a class="btn btn-primary btn-lg justify" href="/pharmacies"><strong>{{ drug.providers.pharmacies }}</strong> Pharmacies</a>
+                            <a class="btn btn-primary btn-lg justify" href="/pharmacies?drugId={{drug.id}}"><strong>{{ drug.providers.pharmacies }}</strong> Pharmacies</a>
                         </div>
                         <!--/.wave-->
 						
                     </div>
                     <!--/.col-->
                     <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
-						<div class="map hidden-lg-down">
-                        	<iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d84016.36429915384!2d2.161754161251458!3d48.848458114630624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e0!4m0!4m5!1s0x47e67031f8c20147%3A0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris%2C+3+Avenue+Victoria%2C+75004+Paris%2C+Francia!3m2!1d48.856836099999995!2d2.3504327!5e0!3m2!1sen!2sru!4v1517149847463"
-                            width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+						<div class="map hidden-lg-down" style="height: 300px">
             			</div><!--/.map-->
 						<div class="hidden-xl-up"><br /><a class="btn-map" href="#" data-toggle="collapse" data-target="#showMap"><i class="fas fa-map-marker"></i> Show on map</a>
-							<div class="collapse" id="showMap">
-								<iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d84016.36429915384!2d2.161754161251458!3d48.848458114630624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e0!4m0!4m5!1s0x47e67031f8c20147%3A0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris%2C+3+Avenue+Victoria%2C+75004+Paris%2C+Francia!3m2!1d48.856836099999995!2d2.3504327!5e0!3m2!1sen!2sru!4v1517149847463"
-                        width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-							</div><!--/.collapse-->
+							<div class="map" style="height: 300px"></div>
+                            <script>
+                                var providers = {{{jsonify providersLocations}}};
+                                function initLocationMap() {
+                                    $('.map').each(function (_, el) {
+                                        var center = {lat: 0, lng: 0};
+                                        if (providers.length > 0) {
+                                            center.lat = providers[0].coordinations.lat;
+                                            center.lng = providers[0].coordinations.lon;
+                                        } else { 
+                                            $(el).hide()
+                                            return; 
+                                        }
+                                        var map = new google.maps.Map(
+                                            el,
+                                            {center: center, zoom: 3}
+                                        );
+
+                                        
+                                        var infowindow = new google.maps.InfoWindow({
+                                            content: ''
+                                        });
+
+
+                                        for (var i = 0, length = providers.length; i < length; i++) {
+                                            var provider = providers[i];
+                                            var marker = new google.maps.Marker({
+                                                position: {lat: provider.coordinations.lat, lng: provider.coordinations.lon}, 
+                                                title: provider.name,
+                                                map: map,
+                                            });
+
+                                            google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow){ 
+                                                return function() {
+                                                    infowindow.setContent(content);
+                                                    infowindow.open(map, marker);
+                                                };
+                                            })(marker, getInfoWindowContent(provider), infowindow));  
+                                        }    
+                                    })
+                                    
+                                }
+
+                                function getInfoWindowContent(provider) {
+                                    return '<div class="info-window">' + 
+                                    '<h5>' + (provider.name || '') + '</h5>' +
+                                    '<i>' + (provider.location.address || '') + '</i><br/>' +
+                                    '<a href="/pharmacies/' + provider.id.toString() + '">View Pharmacy</a>' 
+                                    '</div>';
+                                }
+                            </script>
+                            <script async defer
+                                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA839hvZlHkWX80W6YRTuv3C7HToNVZhwc&callback=initLocationMap">
+                            </script>
 						</div>
                     </div>
                     <!--/.col-->

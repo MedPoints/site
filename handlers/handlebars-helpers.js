@@ -1,5 +1,6 @@
 const moment = require('moment');
 const Handlebars = require('handlebars');
+const {queryPersistant} = require('./../helpers/query-persistant');
 
 exports.hbsHelpers = {
   activeLink: (url, path) => url.startsWith(path) ? 'active' : '',
@@ -45,6 +46,12 @@ exports.hbsHelpers = {
   persistGetParameters: (pagerInfo, pagerData, pageType) => {
     let page = 0;
     switch (pageType) {
+      case 'first':
+        page = 1;
+        break;
+      case 'last':
+        page = pagerInfo.pager.pages;
+        break;
       case 'previous':
         page = pagerData.previousPage;
         break;
@@ -55,81 +62,106 @@ exports.hbsHelpers = {
         page = pagerData.page;
         break;
     }
-
-    const baseUrl = pagerInfo.baseUrl;
-    const searchQuery = pagerInfo.searchQuery;
-    const specializationQuery = pagerInfo.specializationQuery;
-
-    var resultingUrl = `${baseUrl}?page=${page}`;
-
-    if (searchQuery)
-      resultingUrl += `&${pagerInfo.searchParameterName}=${searchQuery}`;
-    if (specializationQuery)
-      resultingUrl += `&${pagerInfo.specializationParameterName}=${specializationQuery}`;
-    return resultingUrl;
+    return queryPersistant.applyRequestQueryParameters(pagerInfo.parameters, `${pagerInfo.baseUrl}?page=${page}`);
   },
-  pagination: (currentPage, totalPage, size, options) => {
-    var startPage, endPage, context;
-  
+  pagination: (pager, options) => {
+    let {pageIndex, pages, pageSize} = pager;
     if (arguments.length === 3) {
-      options = size;
-      size = 5;
+      options = pageSize;
+      pageSize = 2;
     }
-  
-    startPage = currentPage - Math.floor(size / 2);
-    endPage = currentPage + Math.floor(size / 2);
-  
-    if (startPage <= 0) {
-      endPage -= (startPage - 1);
-      startPage = 1;
+
+    var current = pageIndex,
+        last = pages,
+        delta = 3,
+        left = current - delta,
+        right = current + delta + 1,
+        range = [],
+        rangeWithDots = [],
+        l;
+
+    for (let i = 1; i <= last; i++) {
+        if (i == 1 || i == last || i >= left && i < right) {
+            range.push(i);
+        }
     }
-  
-    if (endPage > totalPage) {
-      endPage = totalPage;
-      if (endPage - size + 1 > 0) {
-        startPage = endPage - size + 1;
-      } else {
-        startPage = 1;
-      }
+
+    for (let i of range) {
+        if (l) {
+            if (i - l === 2) {
+              rangeWithDots.push({
+                page: l + 1,
+                isCurrent: l + 1 === current,
+              });
+            } else if (i - l !== 1) {
+                rangeWithDots.push({
+                  isDots: true,
+                });
+            }
+        }
+        rangeWithDots.push({
+          page: i,
+          isCurrent: i === pageIndex,
+        });
+        l = i;
     }
-  
-    context = {
-      startFromFirstPage: false,
-      pages: [],
-      size: size,
-      endAtLastPage: false,
-      nextPage: currentPage + 1,
-      previousPage: currentPage - 1,
+    
+    let context = {
+      pages: rangeWithDots,
+      size: pageSize,
+      nextPage: pageIndex + 1,
+      previousPage: pageIndex - 1,
+      startFromFirstPage: pageIndex === 1,
+      endAtLastPage: pageIndex === pages || pages === 0,
+      totalText: pager.getTotalText()
     };
-    if (currentPage === 1) {
-      context.startFromFirstPage = true;
-    }
-    for (var i = startPage; i <= endPage; i++) {
-      context.pages.push({
-        page: i,
-        isCurrent: i === currentPage,
-      });
-    }
-    if (currentPage === totalPage || totalPage === 0) {
-      context.endAtLastPage = true;
-    }
-  
+
     return options.fn(context);
   },
-  groupSpecializations: (specializations, options) => {
+  dataColumns: (data, dataOptions, options) => {
     var context = {
-      specializations: []
+      dataGroups: [],
+      dataOptions
     };
-    specializations = options.data.root.specializations;
-    if (specializations) {
-      let chunkSize = 13;
-      context.specializations = [].concat.apply([],
-        specializations.map(function(elem,i) {
-              return i%chunkSize ? [] : [specializations.slice(i,i+chunkSize)];
+    if (data) {
+      let chunkSize = dataOptions.chunkSize || 16;
+      context.dataGroups = [].concat.apply([],
+        data.map(function(elem,i) {
+              return i%chunkSize ? [] : [data.slice(i,i+chunkSize)];
           })
       );
     }
 
     return options.fn(context);
-  }
+  },
+  getPropertyValue: (options) => {
+    let propertyValue = options.hash.obj[options.hash.propName];
+    if (propertyValue === null || propertyValue === undefined)
+      propertyValue = '';
+    return new Handlebars.SafeString(propertyValue);
+  },
+  escape: (variable) => {
+    return variable.replace(/(['"])/g, '\\$1');
+  },
+  jsonify: (obj) => {
+    return JSON.stringify(obj);
+  },
+  percentage: (val, full) => {
+    return (val * 100) / full;
+  },
+  getRatingLabel: val => {
+    if (val < 4) {
+      return 'bad';
+    } else if (val >= 4 && val < 7) {
+      return 'normal';
+    } else {
+      return 'good';
+    }
+  },
+  getDateString: (date) => {
+    return date.toDateString();
+  },
+  defaultIfEmpty: (val, defaultVal) => {
+    return val || defaultVal;
+  },
 };

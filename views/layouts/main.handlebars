@@ -14,7 +14,7 @@
     <link rel="icon" href="img/favicon.png" type="image/x-icon" />
     <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon" />
 
-    <title>MedPoints</title>
+    <title>{{title}}</title>
     <meta name="keywords" content="<?=$page_keywords?>" />
     <meta name="description" content="<?=$page_description?>" />
 
@@ -27,29 +27,22 @@
     <link href="/css/flag-icon.min.css" rel="stylesheet">
     <link href="/css/simpleLightbox.min.css" rel="stylesheet">
     <link href="/css/zabuto_calendar.css" rel="stylesheet">
-
-    <script src="/js/modernizr.js"></script>
-    <script src="/js/jquery-3.3.1.min.js"></script>
-    <script src="/js/jquery.countdown.js" type="text/javascript"></script>
+    <script src="/js/dist/lib.bundle.js"></script>
+    <script src="/js/dist/layout.bundle.js"></script>
 
 </head>
 
 <body>
-
-    {{!-- {{ currentPath }} --}}
-
     {{> choose-location }}
     {{> sorry }}
     {{> login }}
+    {{> wallet }}
+    {{> error-modal }}
     {{> edit-payment }}
     {{> add-balance }}
     {{> list-funds }}
     {{> free-license }}
-
-
-
-
-    <!--  -->
+    {{> address }}
 
 
     <div class="ico-info-box"
@@ -57,7 +50,8 @@
         This is a basic demo that simulates user experience,
         but does not contain the full functionality at the moment. <br />
         If you want to become part of the project and support its development, please join our
-        <a href="https://medpoints.io" target="_blank">ICO company</a>.</div>
+        <a href="https://medpoints.io" target="_blank">ICO company</a>.
+    </div>
 
     <header>
 
@@ -69,14 +63,14 @@
 
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
 
-                <ul class="navbar-nav mr-auto">
+                <ul class="navbar-nav mr-auto service-menu">
                     <li class="nav-item">
                         <span class="nav-link">Medical booking in</span>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" data-toggle="modal" data-target="#chooseLocation">New York &nbsp;<i class="fas fa-pencil-alt"></i></a>
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#chooseLocation"><span id="locationLabel">New York</span> &nbsp;<i class="fas fa-pencil-alt"></i></a>
                     </li>
-                    <li class="nav-item">
+                    {{!-- <li class="nav-item">
                         <span class="nav-link">Language</span>
                     </li>
                     <li class="nav-item dropdown">
@@ -94,14 +88,14 @@
                             <a class="dropdown-item" href="#"><i class="flag-icon flag-icon-it"></i> Italiana</a>
                             <a class="dropdown-item" href="#"><i class="flag-icon flag-icon-pt"></i> Portugues</a>
                         </div>
-                    </li>
+                    </li> --}}
                     <li class="nav-item">
                         <span class="nav-link">Font-size</span>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link sizer" href="#" id="small">A</a>
-                        <a class="nav-link sizer selected" href="#" id="medium" class="selected">A</a>
-                        <a class="nav-link sizer" href="#" id="large">A</a>
+                        <a class="nav-link sizer" href="#" id="small" title="Small font size">A</a>
+                        <a class="nav-link sizer" href="#" id="medium" title="Medium font size">A</a>
+                        <a class="nav-link sizer" href="#" id="large" title="Large font size">A</a>
                     </li>
                 </ul>
 
@@ -109,11 +103,20 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/rates">1 <strong>MPT</strong> = 0.01 <i class="fas fa-dollar-sign"></i></a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item unregistered-item">
                         <a class="nav-link" href="#" data-toggle="modal" data-target="#login">Login</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item unregistered-item">
                         <a class="nav-link" href="/registration">Registration</a>
+                    </li>
+                    <li class="nav-item registered-item">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#wallet">Show my Wallet</a>
+                    </li>
+                    <li class="nav-item registered-item">
+                        <a class="nav-link" id="logOutButton" href="javascript:void(0)">Log Out</a>
+                    </li>
+                    <li>
+                        
                     </li>
                 </ul>
 
@@ -135,7 +138,7 @@
             </div>
         </section>
 
-        <h1 class="page-title" id="js-intro"><?=$page_title?></h1>
+        <h1 class="page-title" id="js-intro"></h1>
 
             <div class="row">
                 <div class="col-xl-3 push-xl-9 col-lg-12 push-lg-0">
@@ -245,8 +248,6 @@
             		<h4>Project</h4>
             		<ul>
                 		<li><a href="/about">About</a></li>
-                		<li><a href="/terms-of-use">Terms of use</a></li>
-                		<li><a href="/privacy-policy">Privacy Policy</a></li>
                 		<li><a href="/partnership">Partnership</a></li>
 						<li><a href="/explorer">Blockchain explorer</a></li>
 						<li><a href="/blog">Blog</a></li>
@@ -257,7 +258,7 @@
             		<h4>Support</h4>
             		<ul>
                 		<li><a href="/faq">FAQ</a></li>
-                		<li><a href="/account-tickets">Support</a></li>
+                		<li class="support-tickets"><a href="/account-tickets">Support</a></li>
 						<li><a href="/terms-of-use">Terms of use</a></li>
 						<li><a href="/privacy-policy">Privacy Policy</a></li>
             		</ul>
@@ -353,401 +354,23 @@
 </footer>
 
 
+<script src="/js/src/auth.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/async@2.6.1/dist/async.min.js"></script>
 <!-- Bootstrap core JavaScript
     ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-
-
-<script src="/js/tether.min.js"></script>
+    
+{{!-- <script src="/js/tether.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-{{!-- <script src="/js/app.js"></script> --}}
+<script src="/js/simpleLightbox.js"></script>
+<script src="/js/owl.carousel.js"></script>
+<script src="/js/modernizr.js"></script>
+<script src="/js/jquery-3.3.1.min.js"></script>
+<script src="/js/jquery.countdown.js" type="text/javascript"></script> --}}
 
-<!-- Tooltips -->
-<script>
-	$('[data-toggle="tooltip"]').tooltip();
-</script>
 
 <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/async@2.6.1/dist/async.min.js"></script>
-
-  <script>
-  $( function() {
-    prepareCategoryCount();
-
-
-    $( "#accordion" ).accordion({
-      heightStyle: "content"
-    });
-    $( "#accordion2" ).accordion({
-      heightStyle: "content",
-        collapsible: true,
-        active: false
-    });
-    $( "#accordion3" ).accordion({
-      heightStyle: "content",
-        collapsible: true,
-        active: false
-    });
-    $( "#accordion4" ).accordion({
-      heightStyle: "content",
-        collapsible: true,
-        active: false
-    });
-    $( "#accordion5" ).accordion({
-      heightStyle: "content",
-        collapsible: true,
-        active: false
-    });
-    $( "#accordion6" ).accordion({
-      heightStyle: "content",
-        collapsible: true,
-        active: false
-    });
-    
-
-    function prepareCategoryCount() {
-        async.parallel([
-            function(callback) {
-                getCategoryData('/doctors/count', 'doctors', callback);
-            },
-            function(callback) {
-                getCategoryData('/clinics/count', 'clinics', callback);
-            },
-            function(callback) {
-                getCategoryData('/services/count', 'services', callback);
-            },
-            function(callback) {
-                getCategoryData('/pharmacies/count', 'pharmacies', callback);
-            },
-            function(callback) {
-                getCategoryData('/drugs/count', 'drugs', callback);
-            }
-        ],
-        // optional callback
-        function(err, results) {
-            for (var i = 0, length = results.length; i < length; i++) {
-                var category = results[i];
-                $('#' + category.name + 'Count').html(category.value);
-            }
-        })
-
-        function getCategoryData(url, paramName, callback) {
-            $.ajax({
-                url: url,
-                dataType: 'application/json',
-                success: function (res) {
-                    var obj = {};
-                    obj.name = paramName;
-                    obj.value = res.count;
-                    callback(null, obj);
-                }, 
-                error: function (res) {
-                    var count = 0;
-                    try {
-                        count = JSON.parse(res.responseText).count;
-                    } catch (err) {}
-                    callback(null, {
-                        name: paramName,
-                        value: count
-                    });
-                }
-            })
-        }
-    }
-  } );
-  </script>
-
-<!-- Ccarousels -->
-<script src="/js/owl.carousel.js"></script>
-
-<!-- Reviews carousel-->
-<script>
-    $('.reviews ul').owlCarousel({
-        loop:true,
-        margin:10,
-        responsiveClass:true,
-        responsive:{
-            0:{
-                items:1,
-                nav:true
-            },
-            600:{
-                items:2,
-                nav:false
-            },
-            1000:{
-                items:4,
-                nav:true,
-                loop:false
-            }
-        }
-    })
-     $( ".owl-prev").html('<i class="fas fa-long-arrow-alt-left"></i>');
-     $( ".owl-next").html('<i class="fas fa-long-arrow-alt-right"></i>');
-</script>
-
-<!-- Galleries carousels-->
-<script>
-    $('.gallery ul.owl-carousel').owlCarousel({
-        loop:true,
-        margin:10,
-        responsiveClass:true,
-        responsive:{
-            0:{
-                items:1,
-                nav:true
-            },
-            600:{
-                items:2,
-                nav:false
-            },
-            1000:{
-                items:3,
-                nav:true,
-                loop:false
-            },
-            1400:{
-                items:4,
-                nav:true,
-                loop:false
-            }
-        }
-    })
-     $( ".owl-prev").html('<i class="fas fa-long-arrow-alt-left"></i>');
-     $( ".owl-next").html('<i class="fas fa-long-arrow-alt-right"></i>');
-</script>
-
-<!-- LightBox -->
-<script src="/js/simpleLightbox.js"></script>
-<script>
-    $('.gallery a.gallery-img').simpleLightbox();
-</script>
-
-<!-- Adaptive style -->
-<script>
-    $(document).ready(function(){
-
-      $("#small").click(function(event){
-        event.preventDefault();
-        $("body").addClass("small");
-        $("body").removeClass("medium");
-        $("body").removeClass("large");
-
-      });
-
-      $("#medium").click(function(event){
-        event.preventDefault();
-        $("body").removeClass("small");
-        $("body").removeClass("large");
-
-      });
-
-      $("#large").click(function(event){
-        event.preventDefault();
-        $("body").addClass("large");
-        $("body").removeClass("small");
-        $("body").removeClass("medium");
-
-      });
-
-      $( "a.sizer" ).click(function() {
-       $("a.sizer").removeClass("selected");
-      $(this).addClass("selected");
-
-     });
-
-    });
-</script>
-
-	<!-- Change btn text on copied -->
-<script>
-    // Count down
-    $(document).ready(function(){
-
-      $('.btn-copy1').click(function () {
-    if($('.btn-copy1 i').hasClass('fa-copy'))
-    {
-        $('.btn-copy1').html('<i class="far fa-copy"></i> Copied');
-        $('.btn-copy2').html('<i class="far fa-copy"></i> Copy');
-    }
-    else
-    {
-        $('.btn-copy1').html('<i class="far fa-copy"></i> Copy');
-    }
-    });
-
-      $('.btn-copy2').click(function () {
-    if($('.btn-copy2 i').hasClass('fa-copy'))
-    {
-        $('.btn-copy2').html('<i class="far fa-copy"></i> Copied');
-        $('.btn-copy1').html('<i class="far fa-copy"></i> Copy');
-    }
-    else
-    {
-        $('.btn-copy2').html('<i class="far fa-copy"></i> Copy');
-    }
-    });
-
-    });
-</script>
-
-	<!-- Change btn text on copied -->
-<script>
-    // Count down
-    $(document).ready(function(){
-
-      $('.btn-map').click(function () {
-    if($('.btn-map i').hasClass('fa-map-marker'))
-    {
-        $('.btn-map').html('<i class="fas fa-map-marker"></i> Close map');
-    }
-    else
-    {
-        $('.btn-map').html('<i class="fas fa-map-marker"></i> Show on map');
-    }
-    });
-
-    });
-</script>
-
-<!-- Change btn text on collapse status -->
-<script>
-    // Count down
-    $(document).ready(function(){
-
-      $('#btn-more').click(function () {
-    if($('#btn-more i').hasClass('fa-angle-down'))
-    {
-        $('#btn-more').html('<i class="fas fa-angle-up"></i> Less filters');
-    }
-    else
-    {
-        $('#btn-more').html('<i class="fas fa-angle-down"></i> More filters');
-    }
-    });
-
-    });
-</script>
-
-<!-- Nav toggle -->
-<script>
-    // Count down
-    $(document).ready(function(){
-
-      $('#btn-menu').click(function () {
-    if($('#btn-menu i').hasClass('fa-bars'))
-    {
-        $('#btn-menu').html('<i class="fas fa-times"></i><span> Close menu</span>');
-    }
-    else
-    {
-        $('#btn-menu').html('<i class="fas fa-bars"></i><span> Open menu</span>');
-    }
-    });
-
-    });
-</script>
-
-<!-- bell toggle -->
-<script>
-    // Count down
-    $(document).ready(function(){
-
-      $('.btn-bell1').click(function () {
-    if($('.btn-bell1 i').hasClass('fa-bell'))
-    {
-        $('.btn-bell1').html('<i class="fas fa-bell-slash text-danger"></i>');
-    }
-    else
-    {
-        $('.btn-bell1').html('<i class="fas fa-bell text-success"></i>');
-    }
-    });
-
-      $('.btn-bell2').click(function () {
-    if($('.btn-bell2 i').hasClass('fa-bell'))
-    {
-        $('.btn-bell2').html('<i class="fas fa-bell-slash text-danger"></i>');
-    }
-    else
-    {
-        $('.btn-bell2').html('<i class="fas fa-bell text-success"></i>');
-    }
-    });
-
-    });
-</script>
-
-<!-- Delete parent -->
-<script>
-    $("a.delete-parent").click(function(event) {
-      event.preventDefault();
-      $(this).parent('.parent').remove();
-    });
-</script>
-
-<!-- Crop -->
-<script>
-function repos(imgs) {
-    imgs.each(function (i, o) {
-        var imgw = $(o).width()
-        var boxw = $(o).parent('div').width()
-        var imgh = $(o).height()
-        var boxh = $(o).parent('div').outerHeight()
-
-        if (imgw > boxw) {
-            $(o).css('left', ((imgw / 3) - (boxw / 3)) * -1)
-        } else {
-            $(o).css('left', 0)
-        }
-
-        if (imgh > boxh) {
-            $(o).css('top', ((imgh / 3) - (boxh / 3)) * -1)
-        } else {
-            $(o).css('top', 0)
-        }
-
-    })
-}
-$(window).resize(function () {
-    repos($('.crop img'))
-})
-
-repos($('.crop img'))
-</script>
-
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript">
-    (function (d, w, c) {
-        (w[c] = w[c] || []).push(function() {
-            try {
-                w.yaCounter47967821 = new Ya.Metrika({
-                    id:47967821,
-                    clickmap:true,
-                    trackLinks:true,
-                    accurateTrackBounce:true,
-                    webvisor:true,
-                    trackHash:true,
-                    ut:"noindex"
-                });
-            } catch(e) { }
-        });
-
-        var n = d.getElementsByTagName("script")[0],
-            s = d.createElement("script"),
-            f = function () { n.parentNode.insertBefore(s, n); };
-        s.type = "text/javascript";
-        s.async = true;
-        s.src = "https://mc.yandex.ru/metrika/watch.js";
-
-        if (w.opera == "[object Opera]") {
-            d.addEventListener("DOMContentLoaded", f, false);
-        } else { f(); }
-    })(document, window, "yandex_metrika_callbacks");
-</script>
 <noscript><div><img src="https://mc.yandex.ru/watch/47967821?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
 
 </body>
 

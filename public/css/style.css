@@ -206,17 +206,17 @@ a.sizer.selected {
 }
  a.sizer#small {
      font-size:10px !important;
-     padding: 1.6em 0 1.3em 1em !important;
+     padding: 1.6em .5em 1.3em .5em !important;
      line-height: 110% !important;
 }
  a.sizer#medium {
      font-size:16px !important;
-     padding: .7em 0 .5em 1em !important;
+     padding: .7em .5em .5em .5em !important;
      line-height: 110% !important;
 }
  a.sizer#large {
      font-size:22px !important;
-     padding: .3em 0 .1em .8em !important;
+     padding: .3em .3em .1em .3em !important;
      line-height: 110% !important;
 }
 
@@ -249,6 +249,14 @@ header {
      padding: 0 2rem 2rem 2rem;
      position: relative;
      z-index: 2;
+}
+
+@media screen and (max-width: 764px) {
+    .wrapper {
+        margin-right: .5rem;
+        margin-left: .5rem;
+    }
+    
 }
 
 .justify {
@@ -342,7 +350,7 @@ footer {
      padding: 0 2rem;
      position: relative;
      z-index: 3;
-     bottom: -1px;
+     bottom: -2px;
 }
 
 .cats ul {
@@ -920,15 +928,15 @@ body.small .custom-select {
 	}
  
 body.small a.sizer#small { 
-     padding: 1.4em 0 1.3em 1em !important; 
+     padding: 1.4em .5em 1.3em .5em !important; 
 }
 
 body.small a.sizer#medium { 
-     padding: .5em 0 .5em 1em !important; 
+     padding: .5em .5em .5em 1em !important; 
 }
 
 body.small a.sizer#large { 
-     padding: .2em 0 .1em .8em !important; 
+     padding: .2em .4em .1em .4em !important; 
 }
 
 /* */
@@ -1059,7 +1067,82 @@ body.large .card small {
 .copy-link {
 	cursor: pointer;
 	}
-	
+    
+/* Autocomplete */    
+.ui-autocomplete {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1510 !important;
+    float: left;
+    display: none;
+    min-width: 160px;
+    width: 160px;
+    padding: 4px 0;
+    margin: 2px 0 0 0;
+    list-style: none;
+    background-color: #ffffff;
+    border-color: #ccc;
+    border-color: rgba(0, 0, 0, 0.2);
+    border-style: solid;
+    border-width: 1px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+    *border-right-width: 2px;
+    *border-bottom-width: 2px;
+}
+
+.ui-autocomplete-input {
+    z-index: 1511;
+    position: relative;
+}
+.ui-menu {
+    background-color: #ffffff;
+    color: #000000;
+    overflow: auto;
+}
+.ui-menu .ui-menu-item a {
+    height: 20px;
+    font-size: 12px;
+    
+}
+
+.ui-menu-item {
+    padding-left: 0.5rem;
+}
+
+.ui-menu-item > a.ui-corner-all {
+    display: block;
+    padding: 3px 15px;
+    clear: both;
+    font-weight: normal;
+    line-height: 18px;
+    color: #555555;
+    white-space: nowrap;
+    text-decoration: none;
+}
+.ui-state-hover, .ui-state-active {
+    color: #ffffff;
+    text-decoration: none;
+    background-color: #0088cc;
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    background-image: none;
+}
+
+.ui-widget-content {
+    height: 200px;
+}
+
+
 /* Accordion */
 
 .ui-accordion {
@@ -1264,5 +1347,60 @@ ul.cat-list li {
     min-height:100%;
 	max-width: 300px;
     top:0%;
-    left:0
+    left:0;
+    background-color: #0d47a1;
+}
+
+.info-window {
+    max-width: 150px;
+}
+
+@media screen and (max-width: 1200px) {
+    .pharmacies-list {
+        padding-top: 2em;
+    }
+}
+
+.unregistered-item {}
+.registered-item {
+    display: none;
+}
+
+.booking-dropdown {
+    width: 100%;
+}
+
+.details-container {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.stick-right {
+    margin-left: auto;
+}
+
+@media screen and (max-width: 540px) {
+    .stick-right {
+        padding-top: 1rem;
+        flex: 0 0 100%;
+    }
+    .pagination {
+        flex-wrap: wrap;
+    }
+}
+
+.pager {
+    padding-top: 1rem; 
+}
+
+.address-title, .address-subtitle {
+    flex: 0 1 100%;
+}
+
+.book-button {
+    padding: .5rem 1rem;
+}
+
+.booking-editors .booking-control {
+    height: 42px;
 }

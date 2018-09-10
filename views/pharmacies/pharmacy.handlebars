@@ -7,14 +7,20 @@
     </nav>
  
     <div class="row">
-        <div class="col-6">
+        <div class="col-xl-6 col-md-12">
             <div class="row">
                 <div class="col-xl-4 col-md-12">
-                    <a class="avatar" href="/pharmacies/{{ pharmacy.id }}"><div class="crop"><img src="/img/_demo/pharmacy1.jpg" alt="" /></div></a>
+                    <div class="avatar crop">
+                        <img src="{{pharmacy.photos}}" alt="The clinic photo"
+                             onerror="this.onerror=null;this.src='/img/logo_stub.svg';this.style.width='100px';" />
+                    </div>
                 </div>
-                <!--/.col-->
                 <div class="col-xl-8 col-md-12">
-                    <p><i class="fas fa-map-marker"></i> {{ pharmacy.location.address }}, <a href="/clinics">{{ pharmacy.location.city }}</a>, <a href="/clinics">{{ pharmacy.location.state }}</a>, <a href="/clinics">{{ pharmacy.location.country }}</a></p>
+                    <p>
+                        <a href="https://www.google.com/maps/embed/place?key=1&q={{pharmacy.location.address}}" data-name="{{ pharmacy.name }}" class="map-toggle">
+                            {{pharmacy.location.address}}
+                        </a>
+                    </p>
                     <div class="row">
                         <div class="col">
 							<div class="card">
@@ -35,37 +41,64 @@
 
             <hr />
 
-            <p>{{ pharmacy.description }}</p>
+            <p>{{ pharmacy.short_descr }}</p>
 
-            <hr />
+            <div class="table-responsive">
+                <table summary="" class="table table-hover">
+                    <tbody>
+                        <tr>
+                            <td><strong>Network</strong></td>
+                            <td>{{pharmacy.network}}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Site</strong></td>
+                            <td><a href="{{pharmacy.site}}">Go to site</a></td>
+                        </tr>
+                        <tr hidden>
+                            <td><strong>Beds</strong></td>
+                            <td>1,500 (1,160 general, 340 psychiatric)</td>
+                        </tr>
+                        <tr hidden>
+                            <td><strong>Hospital type</strong></td>
+                            <td>Teaching</td>
+                        </tr>
+                        <tr hidden>
+                            <td><strong>Affiliated university</strong></td>
+                            <td>NYU School of Medicine</td>
+                        </tr>
+                        <tr hidden>
+                            <td><strong>Emergency department</strong></td>
+                            <td>Level I trauma center</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!--/.table-responsive-->
 
 
             <h3>Pharmacy gallery</h3>
 
             <div class="gallery">
                 <ul class="owl-carousel owl-theme">
-                    <li class="item"><a class="gallery-img" href="/img/_demo/pharmacy1.jpg" title="Caption for gallery item 1"><img src="/img/_demo/pharmacy1.jpg" alt="" /></a></li>
-                    <li class="item"><a class="gallery-img" href="/img/_demo/pharmacy2.jpg" title="Caption for gallery item 2"><img src="/img/_demo/pharmacy2.jpg" alt="" /></a></li>
-                    <li class="item"><a class="gallery-img" href="/img/_demo/pharmacy3.jpg" title="Caption for gallery item 3"><img src="/img/_demo/pharmacy3.jpg" alt="" /></a></li>
-                    <li class="item"><a class="gallery-img" href="/img/_demo/pharmacy4.jpg" title="Caption for gallery item 4"><img src="/img/_demo/pharmacy4.jpg" alt="" /></a></li>
-                    <li class="item"><a class="gallery-img" href="/img/_demo/pharmacy5.jpg" title="Caption for gallery item 5"><img src="/img/_demo/pharmacy5.jpg" alt="" /></a></li> 
+                    {{#each pharmacy.photos as |photoLink|}}
+                        <li class="item"><a class="gallery-img" href="{{photoLink}}"><img src="{{photoLink}}"/></a></li>
+                    {{/each}}
                 </ul>
             </div>
 
 
         </div>
         <!--/.col-->
-        <div class="col">
+        <div class="col-xl-6 col-md-12">
 
             <nav class="sticky-top">
 
                 <div class="row">
 				
                     <div class="col-xl-6 col-lg-12">
-
                         <div class="wave text-center">
-                            <h4>Rating <strong class="text-success">9.99</strong></h4>
-                            <p>based on <strong><a class="" href="#opinions">58 opinions</a></strong></p> 
+                            <h4>Rating <strong class="text-success">{{pharmacy.rate}}</strong></h4>
+                            <p>based on <strong><a class="" href="#opinions">{{pharmacy.ratings.length}} opinions</a></strong></p> 
 
                             <ul class="rating"> 
 							
@@ -75,8 +108,8 @@
                                     </div>
                                     <div class="col">
                                         <div class="progress progress-striped">
-                                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                                                <span class="sr-only">6/10</span>
+                                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="{{percentage pharmacy.opinion.service 10}}" aria-valuemin="0" aria-valuemax="100" style="width: {{percentage pharmacy.opinion.service 10}}%">
+                                                <span class="sr-only">{{pharmacy.opinion.service}}/10</span>
                                             </div>
                                         </div>
                                     </div>
@@ -89,8 +122,8 @@
                                     </div>
                                     <div class="col">
                                         <div class="progress progress-striped">
-                                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
-                                                <span class="sr-only">7/10</span>
+                                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="{{percentage pharmacy.opinion.service 10}}" aria-valuemin="0" aria-valuemax="100" style="width: {{percentage pharmacy.opinion.service 10}}%">
+                                                <span class="sr-only">{{pharmacy.opinion.service}}/10</span>
                                             </div>
                                         </div>
                                     </div>
@@ -101,11 +134,11 @@
                             </ul>
                             <!--/.rating-->
 							
-                            <p><a class="btn btn-primary btn-lg justify" href="/drugs"><strong>{{ pharmacy.drugs }}</strong> drugs</a></p>
+                            <p><a class="btn btn-primary btn-lg justify" href="/drugs?pharmacyId={{pharmacy.id}}"><strong>{{ pharmacy.drugs.length }}</strong> drugs</a></p>
 
-                            <p>In favorites at <strong>462</strong> users</p>
+                            <p hidden>In favorites at <strong>462</strong> users</p>
 
-                            <a class="btn btn-secondary justify" href="#"><i class="far fa-heart"></i> Add to favorite</a>
+                            <a hidden class="btn btn-secondary justify" href="#"><i class="far fa-heart"></i> Add to favorite</a>
 
                         </div>
                         <!--/.wave-->
@@ -113,16 +146,52 @@
                     <!--/.col-->
                     
 					<div class="col-xl-6 col-lg-12">
-						<div class="map hidden-lg-down">
-                        	<iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d84016.36429915384!2d2.161754161251458!3d48.848458114630624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e0!4m0!4m5!1s0x47e67031f8c20147%3A0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris%2C+3+Avenue+Victoria%2C+75004+Paris%2C+Francia!3m2!1d48.856836099999995!2d2.3504327!5e0!3m2!1sen!2sru!4v1517149847463"
-                            width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+						<div class="map hidden-lg-down" style="height: 300px">
 						</div><!--/.map-->
 						<div class="hidden-xl-up"><br /><a class="btn-map" href="#" data-toggle="collapse" data-target="#showMap"><i class="fas fa-map-marker"></i> Show on map</a>
-							<div class="collapse" id="showMap">
-								<iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d84016.36429915384!2d2.161754161251458!3d48.848458114630624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e0!4m0!4m5!1s0x47e67031f8c20147%3A0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris%2C+3+Avenue+Victoria%2C+75004+Paris%2C+Francia!3m2!1d48.856836099999995!2d2.3504327!5e0!3m2!1sen!2sru!4v1517149847463"
-                        width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-							</div><!--/.collapse-->
-						</div>
+							<div class="map" style="height: 300px"></div>
+                            <script>
+                                var pharmacy = {{{jsonify pharmacy}}};
+                                function initLocationMap() {
+                                    $('.map').each(function (_, el) {
+                                        var center = {lat: pharmacy.coordinations.lat, lng: pharmacy.coordinations.lon};
+                                        var map = new google.maps.Map(
+                                            el,
+                                            {center: center, zoom: 9}
+                                        );
+
+                                        
+                                        var infowindow = new google.maps.InfoWindow({
+                                            content: ''
+                                        });
+                                        var marker = new google.maps.Marker({
+                                            position: {lat: pharmacy.coordinations.lat, lng: pharmacy.coordinations.lon}, 
+                                            title: pharmacy.name,
+                                            map: map,
+                                        });
+
+                                        google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow){ 
+                                            return function() {
+                                                infowindow.setContent(content);
+                                                infowindow.open(map, marker);
+                                            };
+                                        })(marker, getInfoWindowContent(pharmacy), infowindow));
+                                    })
+
+                                }
+
+                                function getInfoWindowContent(pharmacy) {
+                                    return '<div class="info-window">' +
+                                            '<h5>' + (pharmacy.name || '') + '</h5>' +
+                                            '<i>' + (pharmacy.location.address || '') + '</i><br/>' +
+                                            '<a href="/pharmacy/' + pharmacy.id.toString() + '">View Clinic</a>'
+                                    '</div>';
+                                }
+                            </script>
+                            <script async defer
+                                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA839hvZlHkWX80W6YRTuv3C7HToNVZhwc&callback=initLocationMap">
+                            </script>
+                        </div>
                     </div>
                     <!--/.col-->
 					
@@ -141,13 +210,14 @@
     <section class="bg-gray">
 
         <div class="reviews" id="opinions">
-
-            <h3>Opinions <span class="badge">8</span></h3>
+            {{#if pharmacy.ratings.length}}
+            <h3>Opinions <span class="badge">{{pharmacy.ratings.length}}</span></h3>
             <ul class="owl-carousel owl-theme">
+                {{#each pharmacy.ratings as |rating|}}
                 <li class="item">
-                    <em>June 15 2017</em> 
-                    <span class="stars good">
-							8 / 10
+                    <em>{{getDateString rating.dateCreated}}</em> 
+                    <span class="stars {{getRatingLabel rating.rate}}">
+							{{rating.rate}} / 10
 							<i class="fas fa-star"></i>
 							<i class="fas fa-star"></i>
 							<i class="fas fa-star"></i>
@@ -159,133 +229,14 @@
 							<i class="far fa-star"></i>
 							<i class="far fa-star"></i>
 						</span>
-                    <p>Lorem ipsum dolor sit amet, dolores mandamus moderatius ea ius, sed civibus vivendum imperdiet ei, amet tritani sea id. Ut veri diceret fierent mei, qui facilisi suavitate euripidis ad. In vim mucius menandri convenire, an brute zril </p>
+                    <p>{{rating.comment}}</p>
                 </li>
-                <li class="item">
-                    <em>June 15 2017</em>
-                    <span class="stars normal">
-							6 / 10
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-						</span>
-                    <p>Lorem ipsum dolor sit amet, dolores mandamus moderatius ea ius, sed civibus vivendum imperdiet ei, amet tritani sea id.</p>
-                </li>
-                <li class="item">
-                    <em>June 15 2017</em>
-                    <span class="stars bad">
-							3 / 10
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-						</span>
-                    <p>Lorem ipsum dolor sit amet, dolores mandamus moderatius ea ius, sed civibus vivendum imperdiet ei, amet tritani sea id. Ut veri diceret fierent mei, qui facilisi suavitate euripidis ad. In vim mucius menandri convenire, an brute zril
-                        vis. Ancillae delectus necessitatibus no eam, at porro solet veniam mel, ad everti nostrud vim. Eam no menandri pertinacia deterruisset.</p>
-                </li>
-                <li class="item">
-                    <em>June 15 2017</em>
-                    <span class="stars good">
-							8 / 10
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-						</span>
-                    <p>Lorem ipsum dolor sit amet, dolores mandamus moderatius ea ius, sed civibus vivendum imperdiet ei, amet tritani sea id. Ut veri diceret fierent mei, qui facilisi suavitate euripidis ad. In vim mucius menandri convenire, an brute zril.</p>
-                </li>
-                <li class="item">
-                    <em>June 15 2017</em>
-                    <span class="stars good">
-							8 / 10
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-						</span>
-                    <p>Lorem ipsum dolor sit amet, dolores mandamus moderatius ea ius, sed civibus vivendum imperdiet ei, amet tritani sea id. Ut veri diceret fierent mei, qui facilisi suavitate euripidis ad. In vim mucius menandri convenire, an brute zril
-                        vis. Ancillae delectus necessitatibus no eam, at porro solet veniam mel, ad everti nostrud vim. Eam no menandri pertinacia deterruisset.</p>
-                </li>
-                <li class="item">
-                    <em>June 15 2017</em>
-                    <span class="stars normal">
-							6 / 10
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-						</span>
-                    <p>Lorem ipsum dolor sit amet, dolores mandamus moderatius ea ius, sed civibus vivendum imperdiet ei.</p>
-                </li>
-                <li class="item">
-                    <em>June 15 2017</em>
-                    <span class="stars bad">
-							3 / 10
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-						</span>
-                    <p>Lorem ipsum dolor sit amet, dolores mandamus moderatius ea ius, sed civibus vivendum imperdiet ei, amet tritani sea id..</p>
-                </li>
-                <li class="item">
-                    <em>June 15 2017</em>
-                    <span class="stars good">
-							8 / 10
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-						</span>
-                    <p>Lorem ipsum dolor sit amet, dolores mandamus moderatius ea ius, sed civibus vivendum imperdiet ei, amet tritani sea id. Ut veri diceret fierent mei, qui facilisi suavitate euripidis ad..</p>
-                </li>
+                {{/each}}
             </ul>
+            {{else}}
+                <h3 style="text-align:center;">There are no opinions. <b>Add an opinion after the closing of the service’s smart-contrac.</b></h3>
+            {{/if}}
         </div>
         <!--/.reviews-->
 
     </section>
-
-    <?php include($_SERVER["DOCUMENT_ROOT"]."/inc/footer.php"); ?>

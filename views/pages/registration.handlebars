@@ -1,23 +1,16 @@
-<?php define( '_ACCESS', 1 ); ?>
 
-<?php
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Registration</li>
+    </ol>
+</nav>
 
-    $page_name = 'registration';
-    $page_title = 'Registration';
-	$page_keywords = '';
-	$page_description = '';
-	
-?>
+<div class="alert alert-info alreadyRegisteredContainer" role="alert" style="display:none;">
+    <strong>Welcome!</strong> You are already logged in. If you want to register again, please log out and refresh this page.
+</div>
 
-    <?php include($_SERVER["DOCUMENT_ROOT"]."/inc/header.php"); ?>
-	
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page"><?=$page_title?></li>
-        </ol>
-    </nav>
-
+<div class="registerContainer">
     <h2>Exisitng Customer? <a href="#" data-toggle="modal" data-target="#login">Click here to login</a></h2>
 
     <br />
@@ -25,106 +18,53 @@
     <div class="alert alert-info" role="alert">
         <strong>Welcome!</strong> We have generated for you a unique <strong>ID</strong> and a <strong>KEY</strong> for authorization on the platform.
     </div>
- 
+
     <div class="row">
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
             <div class="form-group">
                 <label for="walletId">Wallet ID</label>
-                <input type="text" class="form-control" id="walletId" value="Ghhhsbb$hfhjaj77ghsFGGDa91PPvDa" disabled="disabled" required />
-				<div class="copy-text" id="walletIdText">Ghhhsbb$hfhjaj77ghsFGGDa91PPvDa</div>
-                <a class="copy-link btn-copy1" onclick="copyToClipboard('#walletIdText')"><i class="far fa-copy"></i> Copy</a>
+                <input type="text" class="form-control" id="registerWalletId" value="" disabled="disabled" required />
+                <div class="copy-text" id="registerWalletIdText"></div>
+                <a class="copy-link btn-copy1" onclick="copyToClipboard('#registerWalletIdText')"><i class="far fa-copy"></i> Copy</a>
             </div>
         </div>
         <!--/.col-->
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
             <div class="form-group">
                 <label for="walletKey">Wallet key</label>
-                <input type="text" class="form-control" id="walletKey" value="EEtdgg177FDahhdSpQnnVBCq333Fad" disabled="disabled" required />
-				<div class="copy-text" id="walletKeyText">EEtdgg177FDahhdSpQnnVBCq333Fad</div>
-                <a class="copy-link btn-copy2" onclick="copyToClipboard('#walletKeyText')"><i class="far fa-copy"></i> Copy</a>
+                <input type="text" class="form-control" id="registerWalletKey" value="" disabled="disabled" required />
+                <div class="copy-text" id="registerWalletKeyText"></div>
+                <a class="copy-link btn-copy2" onclick="copyToClipboard('#registerWalletKeyText')"><i class="far fa-copy"></i> Copy</a>
             </div>
         </div>
         <!--/.col-->
     </div>
     <!--/.row--> 
- 
-    <div class="row">
-        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-            <label for="firstName">First name</label>
-            <input type="text" name="firstName" class="form-control" id="firstName" placeholder="First name" required />
-        </div>
-        <!--/.col-->
-        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-            <label for="lastName">Last name</label>
-            <input type="text" name="lastName" class="form-control" id="lastName" placeholder="Last name" required />
-        </div>
-        <!--/.col-->
-    </div>
-    <!--/.row-->
- 
-    <div class="row">
-        <div class="col"> 
-		
-			<br />
 
-    		<h3>Sex</h3> 
-    		<label class="custom-control custom-radio">
-				<input id="radio2" name="radio" type="radio" class="custom-control-input" checked="checked">
-				<span class="custom-control-indicator"></span>
-				<span class="custom-control-description">Male</span>
-			</label>
-    		<label class="custom-control custom-radio">
-				<input id="radio3" name="radio" type="radio" class="custom-control-input">
-				<span class="custom-control-indicator"></span>
-				<span class="custom-control-description">Female</span>
-			</label> 
-        </div>
-        <!--/.col--> 
-    </div>
-    <!--/.row-->
-			 
-    <hr />
-				
-	<h3>Add email, if you want to get notifications</h3> 
-						
-	<div class="row"> 
-                   
-		<div class="col-6">
-			<label for="email">Email</label>
-			<input type="text" name="email" class="form-control" id="email" placeholder="Email" />
-		</div>
-		<!--/.col-->
-		<div class="col-6">
-			<label for="confirmEmail">Confirm email</label>
-			<input type="text" name="confirmEmail" class="form-control" id="confirmEmail" placeholder="Confirm email" />
-		</div>
-		<!--/.col-->
-					
-	</div>
-	<!--/.row--> 
-	
-	<br />
- 
+    <br />
+
     <div class="row">
         <div class="col">  
-			<label class="custom-control custom-checkbox">
-				<input type="checkbox" class="custom-control-input" checked="checked">
-				<span class="custom-control-indicator"></span>
-				<span class="custom-control-description">I accept</span>
-			</label> <a href="/terms-of-use" target="_blank">Terms of use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy</a> 
+            <label class="custom-control custom-checkbox">
+                <input type="checkbox" id="termsAccept" class="custom-control-input" checked="checked">
+                <span class="custom-control-indicator"></span>
+                <span class="custom-control-description">I accept</span>
+            </label> <a href="/terms-of-use" target="_blank">Terms of use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy</a> 
         </div>
         <!--/.col--> 
     </div>
     <!--/.row-->
 
     <hr />
- 
+
     <div class="row">
         <div class="col">  
-    		<a class="btn btn-primary" href="">Registration</a>
+            <a id="registerButton" class="btn btn-primary" href="/">Registration</a>
         </div>
         <!--/.col--> 
     </div>
     <!--/.row-->
-	 
-    <?php include($_SERVER["DOCUMENT_ROOT"]."/inc/footer.php"); ?>
+</div>
+
+<script src="/js/src/auth.js"></script>
+<script src="/js/src/registration.js"></script>

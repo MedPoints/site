@@ -7,19 +7,13 @@
                 <span aria-hidden="true"><i class="fas fa-times"></i></span>
             </button>
               </div>
-              <div class="modal-body">
+              <div class="modal-body ui-front" id="autocompleteBody">
                   <label>Start type your City name</label>
-                  <input type="text" class="form-control" placeholder="example: New-York" />
-                  <br />
-                  <ul>
-                      <li><a href="#"><strong>New-York</strong> USA</a></li>
-                      <li><a href="#"><strong>Berlin</strong> Germany</a></li>
-                      <li><a href="#"><strong>Moscow</strong> Russian Federation</a></li>
-                  </ul>
+                  <input type="text" id="locationAutocomplete" class="form-control" placeholder="example: New-York" />
               </div>
               <!--/.modal-body-->
               <div class="modal-footer">
-                  <button type="button" class="btn btn-primary">Save location</button>
+                  <button type="button" id="selectLocationButton" class="btn btn-primary">Save location</button>
               </div>
           </div>
       </div>

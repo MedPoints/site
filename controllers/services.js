@@ -3,32 +3,105 @@ const config = require('config');
 const API_URL = config.get('API_URL');
 
 const { Pager, PAGE_SIZE } = require('./../helpers/pager');
+const { queryPersistant } = require('./../helpers/query-persistant');
 
 const PAGE_TITLE = 'Services';
 
 exports.getServices = async (req, res) => {
-  const page = Number(req.query.page) || 1;
+  let url = queryPersistant.applyRequestQueryParameters(req.query, `${API_URL}/api/services`);  
+  const request = await axios.get(url);
+  let services = request.data.result.data;
 
-  const request = await axios.get(`${API_URL}/api/services?page=${page}&count=${PAGE_SIZE}`);
+  let hospitals = [];
+  services.forEach(service => {
+    if (service.providers && service.providers.hospitals) {
+      service.providers.hospitals.forEach(hospital => {
+        if ((hospital.coordinations && hospital.coordinations.lat) &&
+          (hospital.coordinations && hospital.coordinations.lon))
+        hospitals.push({
+          id: hospital.id,
+          name: hospital.name,
+          coordinations: {
+            lat: hospital.coordinations.lat,
+            lng: hospital.coordinations.lon,
+          },
+          service: {
+            id: service.id,
+            name: service.name,
+          }
+        });
+      });
+    }
+  });
+
+  let avgCoordinates = {lat: 0, lng: 0};
+  let count = 0;
+  for (let i = 0, length = hospitals.length; i < length; i++) {
+    const hospital = hospitals[i];
+    count++;
+    avgCoordinates.lat += hospital.coordinations.lat;
+    avgCoordinates.lng += hospital.coordinations.lng;
+  }
+  if (count > 0) {
+    avgCoordinates.lat = avgCoordinates.lat / count;
+    avgCoordinates.lng = avgCoordinates.lng / count;  
+  }
   
+  const {
+    pages,
+    total
+  } = request.data.result.meta;
   const pager = new Pager(
     PAGE_SIZE, 
-    page, 
-    request.data.result.meta.pages);
+    Number(req.query.page) || 1, 
+    pages,
+    total);
   const pagerInfo = {
     pager,
-    baseUrl: '/services'
+    baseUrl: '/services',
+    parameters: req.query
   };
 
-  const services = request.data.result.data;
-  res.render('services/services', { services, pagerInfo });
+  res.render('services/services', { services, hospitals, avgCoordinates, pagerInfo, title: `MedPoints™ Services` });
 };
 
 exports.getService = async (req, res) => {
   const id = req.params.id;
   const request = await axios.get(`${API_URL}/api/services?id=${id}`);
   const service = request.data.result;
-  res.render('services/service', { service });
+
+  let hospitals = [];
+  service.providers.hospitals.forEach(hospital => {
+    if ((hospital.coordinations && hospital.coordinations.lat) &&
+      (hospital.coordinations && hospital.coordinations.lon))
+    hospitals.push({
+      id: hospital.id,
+      name: hospital.name,
+      coordinations: {
+        lat: hospital.coordinations.lat,
+        lng: hospital.coordinations.lon,
+      },
+      service: {
+        id: service.id,
+        name: service.name,
+      }
+    });
+  });
+
+  let avgCoordinates = {lat: 0, lng: 0};
+  let count = 0;
+  for (let i = 0, length = hospitals.length; i < length; i++) {
+    const hospital = hospitals[i];
+    count++;
+    avgCoordinates.lat += hospital.coordinations.lat;
+    avgCoordinates.lng += hospital.coordinations.lng;
+  }
+  if (count > 0) {
+    avgCoordinates.lat = avgCoordinates.lat / count;
+    avgCoordinates.lng = avgCoordinates.lng / count;  
+  }
+
+  res.render('services/service', { service, hospitals, avgCoordinates, title: `MedPoints™ - Services - ${service.name}` });
 }
 
 exports.getCount = async (req, res) => {
