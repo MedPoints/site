@@ -51,26 +51,73 @@
                         {{!-- <h4>Rating <strong>7.7</strong> - <strong class="text-success">9.99</strong></h4>
                         <p>based on <strong><a class="" href="#opinions">58 opinions</a></strong></p> --}}
 
-                        <a class="btn btn-primary btn-lg justify" href="/doctors?service={{service.id}}"><strong>{{defaultIfEmpty service.providers.doctors 0}}</strong> doctors</a>
+                        <a class="btn btn-primary btn-lg justify" href="/doctors?service={{service.id}}"><strong>{{defaultIfEmpty service.providers.doctors.length 0}}</strong> doctors</a>
                         <br />
-                        <p><a class="" href="/clinics?service={{service.id}}"><strong>{{defaultIfEmpty service.providers.hospitals 0}}</strong> clinics</a></p>
+                        <p><a class="" href="/clinics?service={{service.id}}"><strong>{{defaultIfEmpty service.providers.hospitals.length 0}}</strong> clinics</a></p>
                     </div>
                     <!--/.wave-->
                     
                 </div>
                     <!--/.col-->
-                    {{!-- <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-						<div class="map hidden-lg-down">
-                        	<iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d84016.36429915384!2d2.161754161251458!3d48.848458114630624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e0!4m0!4m5!1s0x47e67031f8c20147%3A0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris%2C+3+Avenue+Victoria%2C+75004+Paris%2C+Francia!3m2!1d48.856836099999995!2d2.3504327!5e0!3m2!1sen!2sru!4v1517149847463"
-                            width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-            			</div><!--/.map-->
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+						<div class="map hidden-lg-down" style="height: 300px">
+                        </div><!--/.map-->
 						<div class="hidden-xl-up"><br /><a class="btn-map" href="#" data-toggle="collapse" data-target="#showMap"><i class="fas fa-map-marker"></i> Show on map</a>
-							<div class="collapse" id="showMap">
-								<iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d84016.36429915384!2d2.161754161251458!3d48.848458114630624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e0!4m0!4m5!1s0x47e67031f8c20147%3A0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris%2C+3+Avenue+Victoria%2C+75004+Paris%2C+Francia!3m2!1d48.856836099999995!2d2.3504327!5e0!3m2!1sen!2sru!4v1517149847463"
-                        width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-							</div><!--/.collapse-->
+							<div class="map collapse" id="map" style="height: 300px">
+                            </div><!--/.collapse-->
 						</div>
-                    </div> --}}
+                        <script>
+                            var locations = {{{jsonify hospitals}}};
+                            var avgCoordinates = {{{jsonify avgCoordinates}}}
+
+                            function initLocationsMap() {
+                                $('.map').each(function (_, el) {
+                                    var center = avgCoordinates || {lat: 39.529, lng: -101.369};
+                                    var map = new google.maps.Map(
+                                        el,
+                                        {center: center, zoom: 3}
+                                    );
+
+                                    
+                                    if (locations.length === 1) {
+                                        center.lat = locations[0].coordinations.lat;
+                                        center.lng = locations[0].coordinations.lng;
+                                    }
+                                    var infowindow = new google.maps.InfoWindow({
+                                        content: ''
+                                    });
+
+                                    for (var i = 0, length = locations.length; i < length; i++) {
+                                        var hospital = locations[i];
+                                        var marker = new google.maps.Marker({
+                                            position: {lat: hospital.coordinations.lat, lng: hospital.coordinations.lng}, 
+                                            title: hospital.name,
+                                            map: map,
+                                        });
+
+                                        google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow){ 
+                                            return function() {
+                                                infowindow.setContent(content);
+                                                infowindow.open(map, marker);
+                                            };
+                                        })(marker, getInfoWindowContent(hospital), infowindow));  
+                                    }    
+                                });
+                            }
+
+                            function getInfoWindowContent(hospital) {
+                                return '<div class="info-window">' + 
+                                '<h5>' + (hospital.name || '') + '</h5>' +
+                                '<i>' + (hospital.address || '') + '</i><br/>' +
+                                '<b>Provides <a href="/services/' + hospital.service.id + '">' + hospital.service.name + '</b><br/>' +
+                                '<a href="/clinics/' + hospital.id.toString() + '">View Clinic</a>' 
+                                '</div>';
+                            }
+                        </script>
+                        <script async defer
+                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA839hvZlHkWX80W6YRTuv3C7HToNVZhwc&callback=initLocationsMap">
+                        </script>
+                    </div>
                     <!--/.col-->
                 </div>
                 <!--/.row-->
