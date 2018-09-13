@@ -143,16 +143,10 @@ function initializeCarousels() {
 }
 
 function initializeCopyButtons() {
-    $('.btn-copy1').click(function () {
-        if($('.btn-copy1 i').hasClass('fa-copy'))
-        {
-            $('.btn-copy1').html('<i class="far fa-copy"></i> Copied');
-            $('.btn-copy2').html('<i class="far fa-copy"></i> Copy');
-        }
-        else
-        {
-            $('.btn-copy1').html('<i class="far fa-copy"></i> Copy');
-        }
+    $('.btn-copy1').click(function (evt) {
+        var target = $(evt.target);
+        $(target).html('<i class="far fa-copy"></i> Copied');
+        $(target).addClass('copy-link--copied');
     });
     
     $('.btn-copy2').click(function () {
