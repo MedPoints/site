@@ -124,7 +124,7 @@
             <ul class="cat-list">
                 <li><a class="active" href="/drugs">All</a></li>
                 {{#each categories as |category|}}
-                    <li><a href="/drugs?group={{category.id}}">{{category.name}}</a><span class="badge">{{category.drugs.length}}</span></li>
+                    <li><a href="/drugs?group={{category.id}}">{{category.name}}</a><span class="badge">{{category.drugs}}</span></li>
                 {{/each}}
             </ul><!--/.cat-list-->
 

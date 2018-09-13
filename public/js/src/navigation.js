@@ -69,9 +69,9 @@ function ipLookUp (callback) {
 }
 
 function copyToClipboard(element) {
-    if (el && el.html && el.html()) {
+    if (element && element.val && element.val()) {
         var el = document.createElement('textarea');
-        el.value = el.html();
+        el.value = element.val();
         document.body.appendChild(el);
         el.select();
         document.execCommand('copy');

@@ -1065,8 +1065,13 @@ body.large .card small {
 	}
 	
 .copy-link {
+    color: #0275d8 !important;
+    text-decoration: none;
 	cursor: pointer;
-	}
+    }
+.copy-link--copied {
+    color: #000 !important;
+}
     
 /* Autocomplete */    
 .ui-autocomplete {
