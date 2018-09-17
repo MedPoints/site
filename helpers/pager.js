@@ -25,10 +25,10 @@ class DataPager {
     constructor(data, pageSize = 10, currentPage = 1) {
         const pages =  Math.ceil(data.length / pageSize);
         this.data = data;
-        this.pager = new Pager(pageSize, currentPage, pages);
+        this.pager = new Pager(pageSize, currentPage, pages, data.length);
     }
     getPageData() {
-        const start = this.pager.getStartIndex();
+        const start = this.pager.getStartPage() - 1;
         const end = start + this.pager.pageSize;
         return this.data.slice(start, end);
     }

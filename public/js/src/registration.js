@@ -11,10 +11,55 @@ $(function() {
             alert('Please accept our terms of use and privacy policy before proceeding');
             return false;
         }
+        
+        var registerData = {
+            publicKey: $('#registerWalletId').val(),
+            privateKey: $('#registerWalletKey').val(),
+        }
+        var errors = [];
 
-        Cookies.set('MedPoints_PrivateKey', $('#registerWalletId').val());
-        Cookies.set('MedPoints_PublicKey', $('#registerWalletKey').val());
-        return true;
+        registerData.firstName = $('#firstName').val();
+        if (!registerData.firstName)
+            errors.push('Enter a first name');
+            
+        registerData.lastName = $('#lastName').val();
+        if (!registerData.lastName)
+            errors.push('Enter a last name');
+
+        registerData.email = $('#email').val();
+        if (!registerData.email)
+            errors.push('Enter an email');
+
+        if (errors.length > 0) {
+            var errorContent = '';
+            for (var i = 0; i < errors.length; i++) {
+                errorContent += '<div class="alert alert-danger" role="alert">' + errors[i] + '</div>';
+            }
+
+            $('#modalErrorTitle').html('Validation errors');
+            $('#modalErrorContent').html(errorContent);
+    
+            $('#errorModal').modal('show');
+            return;
+        }
+
+
+        $.ajax({
+            url: '/auth/register',
+            method: 'POST',
+            data: registerData,
+            success: function (res) {
+                Cookies.set('MedPoints_PrivateKey', res.result.publicKey);
+                Cookies.set('MedPoints_PublicKey', res.result.privateKey);
+                window.location.href = '/';
+            },
+            error: function (res) {
+                alert('An error occurred during request processing. Please try again.');
+            }
+        })
+
+
+        
     });
 });
 
