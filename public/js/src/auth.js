@@ -65,8 +65,25 @@ function logOut() {
     window.location.reload();
 }
 
-function logIn(walletId, walletKey) {
-    Cookies.set('MedPoints_PrivateKey', walletId);
-    Cookies.set('MedPoints_PublicKey', walletKey);
-    window.location.reload();
+function logIn(walletId, walletKey, callback) {
+    $.ajax({
+        url: '/auth/authenticate',
+        method: 'POST',
+        data: {
+            publicKey: walletId,
+            privateKey: walletKey,
+        },
+        success: function (res) {
+            Cookies.set('MedPoints_PrivateKey', walletId);
+            Cookies.set('MedPoints_PublicKey', walletKey);
+            if (callback) {
+                callback(res.result);
+            } else {
+                window.location.reload();
+            }
+        },
+        error: function (res) {
+            alert('An error occurred during request processing. Please try again.');
+        }
+    });
 }

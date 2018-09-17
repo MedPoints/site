@@ -19,7 +19,7 @@ exports.getBlocks = async (req, res) => {
         transactions = chain[chain.length - 1].Transactions;
     }
 
-    const dataPager = new DataPager(chain.reverse(), page, count);
+    const dataPager = new DataPager(chain.reverse(), count, page);
     const pagerInfo = {
         pager: dataPager.pager,
         baseUrl: '/explorer',
