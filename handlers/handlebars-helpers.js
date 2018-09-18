@@ -1,6 +1,7 @@
 const moment = require('moment');
 const Handlebars = require('handlebars');
 const {queryPersistant} = require('./../helpers/query-persistant');
+const localization = require('./../helpers/localization').localization;
 
 exports.hbsHelpers = {
   activeLink: (url, path) => url.startsWith(path) ? 'active' : '',
@@ -163,5 +164,8 @@ exports.hbsHelpers = {
   },
   defaultIfEmpty: (val, defaultVal) => {
     return val || defaultVal;
+  },
+  localize: (path, locale) => {
+    return localization.localize(path, locale);
   },
 };

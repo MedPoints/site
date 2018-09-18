@@ -43,23 +43,7 @@ $(function() {
             return;
         }
 
-
-        $.ajax({
-            url: '/auth/register',
-            method: 'POST',
-            data: registerData,
-            success: function (res) {
-                Cookies.set('MedPoints_PrivateKey', res.result.publicKey);
-                Cookies.set('MedPoints_PublicKey', res.result.privateKey);
-                window.location.href = '/';
-            },
-            error: function (res) {
-                alert('An error occurred during request processing. Please try again.');
-            }
-        })
-
-
-        
+        register(registerData);
     });
 });
 
@@ -85,4 +69,20 @@ function initRegisterElement() {
 function initAlredyRegisteredElement() {
     $('.alreadyRegisteredContainer').show();
     $('.registerContainer').hide();
+}
+
+function register(registerData) {
+    $.ajax({
+        url: '/auth/register',
+        method: 'POST',
+        data: registerData,
+        success: function (res) {
+            Cookies.set('MedPoints_PrivateKey', res.result.publicKey);
+            Cookies.set('MedPoints_PublicKey', res.result.privateKey);
+            window.location.href = '/';
+        },
+        error: function (res) {
+            alert('An error occurred during request processing. Please try again.');
+        }
+    })
 }

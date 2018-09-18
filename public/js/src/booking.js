@@ -75,6 +75,10 @@ $(function () {
         data.sex = getSex();
         data.dateOfBirth = $('#dateOfBirth').val();
 
+        if (!isRegistered()) {
+            register(data);
+        }
+
         $.post({
             url: '/book',
             data: data,
