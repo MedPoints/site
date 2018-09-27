@@ -37,3 +37,8 @@ window.localizer = (function() {
         localize: localize
     };
 })();
+
+function setLocale(locale) {
+    Cookies.set('locale', locale);
+    window.location.reload();
+}
