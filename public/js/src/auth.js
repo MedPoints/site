@@ -11,7 +11,7 @@ $(function () {
         if (walletId && walletKey) {
             logIn(walletId, walletKey);
         } else {
-            alert('Both Wallet ID and Key values are required');
+            alert(window.localizer.localize('errors.bothKeyAndId'));
         }
     });
 
@@ -31,7 +31,7 @@ function generateNewWallet(callback) {
             }
         }, 
         error: function (res) {
-            console.log('Error generating a new wallet.')
+            console.log(window.localizer.localize('errors.newWallet'))
         }
     });
 }
@@ -83,7 +83,7 @@ function logIn(walletId, walletKey, callback) {
             }
         },
         error: function (res) {
-            alert('An error occurred during request processing. Please try again.');
+            alert(window.localizer.localize('errors.requestError'));
         }
     });
 }

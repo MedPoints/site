@@ -1,6 +1,8 @@
 const moment = require('moment');
 const Handlebars = require('handlebars');
 const {queryPersistant} = require('./../helpers/query-persistant');
+const localization = require('./../helpers/localization').localization;
+const fs = require('fs');
 
 exports.hbsHelpers = {
   activeLink: (url, path) => url.startsWith(path) ? 'active' : '',
@@ -163,5 +165,12 @@ exports.hbsHelpers = {
   },
   defaultIfEmpty: (val, defaultVal) => {
     return val || defaultVal;
+  },
+  localize: (path, options) => {
+    return localization.localize(path, options.hash);
+  },
+  localization: (locale, options) => {
+    const dictionary = fs.readFileSync(`public/data/lang/${locale}.json`, 'utf8');
+    return `<script type="text/javascript">window.dictionary = ${dictionary};</script>`;
   },
 };

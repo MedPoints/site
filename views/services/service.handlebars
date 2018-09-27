@@ -1,8 +1,8 @@
 
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/">Home</a></li>
-            <li class="breadcrumb-item"><a href="/services">Services</a></li>
+            <li class="breadcrumb-item"><a href="/">{{localize 'breadcrumbs.home'}}</a></li>
+            <li class="breadcrumb-item"><a href="/services">{{localize 'breadcrumbs.services'}}</a></li>
             <li class="breadcrumb-item active" aria-current="page">{{ service.name }}</li>
         </ol>
     </nav>
@@ -14,13 +14,9 @@
             <div class="row">
                 <div class="col">
                     <img src="/img/_demo/service1.jpg" alt="" class="img-thumbnail float-left">
-
-                    {{!-- TODO what page should this link lead to? --}}
-                    {{!-- <div><a href="/clinics">Abdominal Radiology</a></div> --}}
-                    {{!-- TODO replaced a link with service name --}}
                     <h3>{{ service.name }}</h3>
-                    <div>Time <strong>{{ service.time }}</strong></div>
-                    <div>Price from <strong class="text-dark">${{ service.price.dollars }}</strong> <strong class="text-success">{{ service.price.mpts }} MPT</strong></div>
+                    <div>{{localize 'common.time'}} <strong>{{ service.time }}</strong></div>
+                    <div>{{localize 'common.fromPriceFull'}} <strong class="text-dark">${{ service.price.dollars }}</strong> <strong class="text-success">{{ service.price.mpts }} MPT</strong></div>
 
                     <hr />
                     <div>
@@ -48,12 +44,10 @@
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
 
                     <div class="wave">
-                        {{!-- <h4>Rating <strong>7.7</strong> - <strong class="text-success">9.99</strong></h4>
-                        <p>based on <strong><a class="" href="#opinions">58 opinions</a></strong></p> --}}
 
-                        <a class="btn btn-primary btn-lg justify" href="/doctors?service={{service.id}}"><strong>{{defaultIfEmpty service.providers.doctors.length 0}}</strong> doctors</a>
+                        <a class="btn btn-primary btn-lg justify" href="/doctors?service={{service.id}}"><strong>{{defaultIfEmpty service.providers.doctors.length 0}}</strong> {{localize 'ratings.items.doctors'}}</a>
                         <br />
-                        <p><a class="" href="/clinics?service={{service.id}}"><strong>{{defaultIfEmpty service.providers.hospitals.length 0}}</strong> clinics</a></p>
+                        <p><a class="" href="/clinics?service={{service.id}}"><strong>{{defaultIfEmpty service.providers.hospitals.length 0}}</strong> {{localize 'ratings.items.clinics'}}</a></p>
                     </div>
                     <!--/.wave-->
                     
@@ -62,7 +56,7 @@
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
 						<div class="map hidden-lg-down" style="height: 300px">
                         </div><!--/.map-->
-						<div class="hidden-xl-up"><br /><a class="btn-map" href="#" data-toggle="collapse" data-target="#showMap"><i class="fas fa-map-marker"></i> Show on map</a>
+						<div class="hidden-xl-up"><br /><a class="btn-map" href="#" data-toggle="collapse" data-target="#showMap"><i class="fas fa-map-marker"></i> {{localize 'common.showOnMap'}}</a>
 							<div class="map collapse" id="map" style="height: 300px">
                             </div><!--/.collapse-->
 						</div>
@@ -134,23 +128,23 @@
 	<div class="row">
         <div class="col">
 
-        	<h3>Price comparison for <strong>New patient visit</strong> in <strong>New York</strong></h3>
+        	<h3>{{{localize 'service.table.title'}}}</h3>
 
             <div class="table-responsive">
                 <table summary="" class="table table-hover">
                     <thead>
                         <tr>
                             <th>
-                                <h5>Clinic</h5>
+                                <h5>{{localize 'service.table.clinic'}}</h5>
                             </th>
                             <th>
-                                <h5>Price</h5>
+                                <h5>{{localize 'service.table.price'}}</h5>
                             </th>
                             <th>
-                                <h5>Insurance</h5>
+                                <h5>{{localize 'service.table.insurance'}}</h5>
                             </th>
                             <th class="text-right">
-                                <h5>Providers</h5>
+                                <h5>{{localize 'service.table.providers'}}</h5>
                             </th>
                         </tr>
                     </thead>
@@ -161,7 +155,7 @@
                             </td>
                             <td class="price-td">from <strong class="text-dark">$24</strong><br /><strong class="text-success">240 MPT</strong></td>
                             <td class="text-center"><i class="fas fa-plus text-success" data-toggle="tooltip" data-placement="top" title="Can be covered by insurance points"></i></td>
-                            <td><a class="btn btn-primary float-right" href="/doctors"><strong>20</strong> doctors</a></td>
+                            <td><a class="btn btn-primary float-right" href="/doctors"><strong>20</strong> {{localize 'ratings.items.doctors'}}</a></td>
                         </tr>
                         <tr>
                             <td>
@@ -169,7 +163,7 @@
                             </td>
                             <td class="price-td">from <strong class="text-dark">$34</strong><br /><strong class="text-success">340 MPT</strong></td>
                             <td class="text-center"></td>
-                            <td><a class="btn btn-primary float-right" href="/doctors"><strong>10</strong> doctors</a></td>
+                            <td><a class="btn btn-primary float-right" href="/doctors"><strong>10</strong> {{localize 'ratings.items.doctors'}}</a></td>
                         </tr>
                         <tr>
                             <td>
@@ -177,7 +171,7 @@
                             </td>
                             <td class="price-td">from <strong class="text-dark">$44</strong><br /><strong class="text-success">440 MPT</strong></td>
                             <td class="text-center"><i class="fas fa-plus text-success" data-toggle="tooltip" data-placement="top" title="Can be covered by insurance points"></i></td>
-                            <td><a class="btn btn-primary float-right" href="/doctors"><strong>170</strong> doctors</a></td>
+                            <td><a class="btn btn-primary float-right" href="/doctors"><strong>170</strong> {{localize 'ratings.items.doctors'}}</a></td>
                         </tr>
                         <tr>
                             <td>
@@ -185,7 +179,7 @@
                             </td>
                             <td class="price-td">from <strong class="text-dark">$54</strong><br /><strong class="text-success">540 MPT</strong></td>
                             <td class="text-center"></td>
-                            <td><a class="btn btn-primary float-right" href="/doctors"><strong>140</strong> doctors</a></td>
+                            <td><a class="btn btn-primary float-right" href="/doctors"><strong>140</strong> {{localize 'ratings.items.doctors'}}</a></td>
                         </tr>
                         <tr>
                             <td>
@@ -193,14 +187,14 @@
                             </td>
                             <td class="price-td">from <strong class="text-dark">$64</strong><br /><strong class="text-success">640 MPT</strong></td>
                             <td class="text-center"><i class="fas fa-plus text-success" data-toggle="tooltip" data-placement="top" title="Can be covered by insurance points"></i></td>
-                            <td><a class="btn btn-primary float-right" href="/doctors"><strong>140</strong> doctors</a></td>
+                            <td><a class="btn btn-primary float-right" href="/doctors"><strong>140</strong> {{localize 'ratings.items.doctors'}}</a></td>
                         </tr>
                         <tr>
                             <td>
                                 <h4><a href="/clinic" title="">St. Luke's-Roosevelt Hospital Center</a></h4>
                                 <td class="price-td">from <strong class="text-dark">$74</strong><br /><strong class="text-success">740 MPT</strong></td>
                                 <td class="text-center"></td>
-                                <td><a class="btn btn-primary float-right" href="/doctors"><strong>250</strong> doctors</a></td>
+                                <td><a class="btn btn-primary float-right" href="/doctors"><strong>250</strong> {{localize 'ratings.items.doctors'}}</a></td>
                         </tr>
                         <tr>
                             <td>
@@ -208,7 +202,7 @@
                             </td>
                             <td class="price-td">from <strong class="text-dark">$84</strong><br /><strong class="text-success">840 MPT</strong></td>
                             <td class="text-center"><i class="fas fa-plus text-success" data-toggle="tooltip" data-placement="top" title="Can be covered by insurance points"></i></td>
-                            <td><a class="btn btn-primary float-right" href="/doctors"><strong>10</strong> doctors</a></td>
+                            <td><a class="btn btn-primary float-right" href="/doctors"><strong>10</strong> {{localize 'ratings.items.doctors'}}</a></td>
                         </tr>
                         <tr>
                             <td>
@@ -216,7 +210,7 @@
                             </td>
                             <td class="price-td">from <strong class="text-dark">$94</strong><br /><strong class="text-success">940 MPT</strong></td>
                             <td class="text-center"><i class="fas fa-plus text-success" data-toggle="tooltip" data-placement="top" title="Can be covered by insurance points"></i></td>
-                            <td><a class="btn btn-primary float-right" href="/doctors"><strong>140</strong> doctors</a></td>
+                            <td><a class="btn btn-primary float-right" href="/doctors"><strong>140</strong> {{localize 'ratings.items.doctors'}}</a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -257,161 +251,3 @@
     <!--/.row-->
 
 	<br />
-
-    {{!-- <section class="bg-gray">
-
-        <div class="reviews" id="opinions">
-
-            <h3>Opinions <span class="badge">8</span></h3>
-            <ul class="owl-carousel owl-theme">
-                <li class="item">
-                    <em>June 15 2017</em>
-                    <p>To <a href="/doctor" title="">Smith John M.D</a> from <a href="/clinic" title="">General Hospital</a> <small>Public</small></p>
-                    <span class="stars good">
-							8 / 10
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-						</span>
-                    <p>Lorem ipsum dolor sit amet, dolores mandamus moderatius ea ius, sed civibus vivendum imperdiet ei, amet tritani sea id. Ut veri diceret fierent mei, qui facilisi suavitate euripidis ad. In vim mucius menandri convenire, an brute zril </p>
-                </li>
-                <li class="item">
-                    <em>June 15 2017</em>
-                    <p>To <a href="/doctor" title="">Smith John M.D</a> from <a href="/clinic" title="">General Hospital</a> <small>Public</small></p>
-                    <span class="stars normal">
-							6 / 10
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-						</span>
-                    <p>Lorem ipsum dolor sit amet, dolores mandamus moderatius ea ius, sed civibus vivendum imperdiet ei, amet tritani sea id.</p>
-                </li>
-                <li class="item">
-                    <em>June 15 2017</em>
-                    <p>To <a href="/doctor" title="">Smith John M.D</a> from <a href="/clinic" title="">General Hospital</a> <small>Public</small></p>
-                    <span class="stars bad">
-							3 / 10
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-						</span>
-                    <p>Lorem ipsum dolor sit amet, dolores mandamus moderatius ea ius, sed civibus vivendum imperdiet ei, amet tritani sea id. Ut veri diceret fierent mei, qui facilisi suavitate euripidis ad. In vim mucius menandri convenire, an brute zril
-                        vis. Ancillae delectus necessitatibus no eam, at porro solet veniam mel, ad everti nostrud vim. Eam no menandri pertinacia deterruisset.</p>
-                </li>
-                <li class="item">
-                    <em>June 15 2017</em>
-                    <p>To <a href="/doctor" title="">Smith John M.D</a> from <a href="/clinic" title="">General Hospital</a> <small>Public</small></p>
-                    <span class="stars good">
-							8 / 10
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-						</span>
-                    <p>Lorem ipsum dolor sit amet, dolores mandamus moderatius ea ius, sed civibus vivendum imperdiet ei, amet tritani sea id. Ut veri diceret fierent mei, qui facilisi suavitate euripidis ad. In vim mucius menandri convenire, an brute zril.</p>
-                </li>
-                <li class="item">
-                    <em>June 15 2017</em>
-                    <p>To <a href="/doctor" title="">Smith John M.D</a> from <a href="/clinic" title="">General Hospital</a> <small>Public</small></p>
-                    <span class="stars good">
-							8 / 10
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-						</span>
-                    <p>Lorem ipsum dolor sit amet, dolores mandamus moderatius ea ius, sed civibus vivendum imperdiet ei, amet tritani sea id. Ut veri diceret fierent mei, qui facilisi suavitate euripidis ad. In vim mucius menandri convenire, an brute zril
-                        vis. Ancillae delectus necessitatibus no eam, at porro solet veniam mel, ad everti nostrud vim. Eam no menandri pertinacia deterruisset.</p>
-                </li>
-                <li class="item">
-                    <em>June 15 2017</em>
-                    <p>To <a href="/doctor" title="">Smith John M.D</a> from <a href="/clinic" title="">General Hospital</a> <small>Public</small></p>
-                    <span class="stars normal">
-							6 / 10
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-						</span>
-                    <p>Lorem ipsum dolor sit amet, dolores mandamus moderatius ea ius, sed civibus vivendum imperdiet ei.</p>
-                </li>
-                <li class="item">
-                    <em>June 15 2017</em>
-                    <p>To <a href="/doctor" title="">Smith John M.D</a> from <a href="/clinic" title="">General Hospital</a> <small>Public</small></p>
-                    <span class="stars bad">
-							3 / 10
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-						</span>
-                    <p>Lorem ipsum dolor sit amet, dolores mandamus moderatius ea ius, sed civibus vivendum imperdiet ei, amet tritani sea id..</p>
-                </li>
-                <li class="item">
-                    <em>June 15 2017</em>
-                    <p>To <a href="/doctor" title="">Smith John M.D</a> from <a href="/clinic" title="">General Hospital</a> <small>Public</small></p>
-                    <span class="stars good">
-							8 / 10
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="far fa-star"></i>
-							<i class="far fa-star"></i>
-						</span>
-                    <p>Lorem ipsum dolor sit amet, dolores mandamus moderatius ea ius, sed civibus vivendum imperdiet ei, amet tritani sea id. Ut veri diceret fierent mei, qui facilisi suavitate euripidis ad..</p>
-                </li>
-            </ul>
-        </div>
-        <!--/.reviews-->
-
-    </section> --}}

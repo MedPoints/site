@@ -1,118 +1,9 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item"><a href="/">{{localize 'breadcrumbs.home'}}</a></li>
             <li class="breadcrumb-item active" aria-current="page">{{PAGE_TITLE}}</li>
         </ol>
     </nav>
-
-    {{!-- <section class="bg-gray">
-
-        <form class="filter">
-            <div class="row">
-                <div class="col-sm-9">
-
-                    <label class="custom-control custom-checkbox">
-						<input type="checkbox" class="custom-control-input">
-						<span class="custom-control-indicator"></span>
-						<span class="custom-control-description">Member of MPT insurance program</span>
-					</label>
-
-                </div>
-                <!--/.col-->
-				
-                <div class="col-sm-3">
-                    <button type="button" id="btn-more" class="btn btn-secondary float-right" data-toggle="collapse" data-target="#moreFilters">
-						<i class="fas fa-angle-down"></i> More filters
-					</button>
-                </div>
-                <!--/.col-->
-				
-            </div>
-            <!--/.row-->
-
-            <div class="collapse" id="moreFilters">
-                <hr />
-                <div class="row">
-				
-                    <div class="col-xl-3 col-md-6 col-sm-12">
- 
-                        <h3>Funding</h3>
-                        <label class="custom-control custom-radio">
-							<input id="radio4-1" name="radio4" type="radio" class="custom-control-input" checked="checked">
-							<span class="custom-control-indicator"></span>
-							<span class="custom-control-description">Any</span>
-						</label>
-                        <label class="custom-control custom-radio">
-							<input id="radio4-2" name="radio4" type="radio" class="custom-control-input">
-							<span class="custom-control-indicator"></span>
-							<span class="custom-control-description">Public</span>
-						</label>
-                        <label class="custom-control custom-radio">
-							<input id="radio4-3" name="radio4" type="radio" class="custom-control-input">
-							<span class="custom-control-indicator"></span>
-							<span class="custom-control-description">Commercial</span>
-						</label>
-                    </div>
-                    <!--/.col-->
-
-                    <div class="col-xl-3 col-md-6 col-sm-12">
-
-                        <h3>Location</h3>
-                        <label class="custom-control custom-radio">
-							<input id="radio2-1" name="radio2" type="radio" class="custom-control-input" checked="checked">
-							<span class="custom-control-indicator"></span>
-							<span class="custom-control-description">In your city</span>
-						</label>
-                        <label class="custom-control custom-radio">
-							<input id="radio2-2" name="radio2" type="radio" class="custom-control-input">
-							<span class="custom-control-indicator"></span>
-							<span class="custom-control-description">Worldwide</span>
-						</label>
-                    </div>
-                    <!--/.col-->
-					
-                    <div class="col-xl-3 col-md-6 col-sm-12">
-
-                        <h3>Sort by</h3>
-                        <label class="custom-control custom-radio">
-							<input id="radio3-1" name="radio3" type="radio" class="custom-control-input" checked="checked">
-							<span class="custom-control-indicator"></span>
-							<span class="custom-control-description">By rating</span>
-						</label>
-                        <label class="custom-control custom-radio">
-							<input id="radio3-2" name="radio3" type="radio" class="custom-control-input">
-							<span class="custom-control-indicator"></span>
-							<span class="custom-control-description">By prices</span>
-						</label>
-                    </div>
-                    <!--/.col-->
-					
-                    <div class="col-xl-3 col-md-6 col-sm-12">
-
-                        <h3>Max price: <span id="demo"></span> MPT</h3>
-
-                        <input class="justify" type="range" id="myRange">
-                        <script>
-                            var slider = document.getElementById("myRange");
-                            var output = document.getElementById("demo");
-                            output.innerHTML = slider.value;
-                            
-                            slider.oninput = function() {
-                              output.innerHTML = this.value;
-                            }
-                        </script>
- 
-                    </div>
-                    <!--/.col-->
-                </div>
-                <!--/.row-->
-            </div>
-            <!--/.collapse-->
- 
-        </form>
-
-    </section> --}}
-	
 	<div class="row">
 	
         <div class="col-xl-4 push-xl-8 col-lg-12 push-lg-0">
@@ -213,22 +104,19 @@
 									</div><!--/.card-->
                                 </div>
                                 <!--/.col-->
-                                {{!-- <div class="col"> 
-                                </div> --}}
-                                <!--/.col-->
                             </div>
                             <!--/.row-->
                         </div>
                         <!--/.col-->
                         <div class="col-xl-4 col-md-4 col-sm-12">
                             <div class="wave text-center">
-                                <h4>Rating <strong class="text-success">{{pharmacy.rate}}</strong></h4>
-                                <p>based on 
+                                <h4>{{localize 'ratings.rating'}} <strong class="text-success">{{pharmacy.rate}}</strong></h4>
+                                <p>{{localize 'ratings.basedOn'}}
                                     <strong>
-                                        <a class="" href="/pharmacies/{{pharmacy.id}}#opinions">{{pharmacy.ratings.length}} opinions</a>
+                                        <a class="" href="/pharmacies/{{pharmacy.id}}#opinions">{{pharmacy.ratings.length}} {{localize 'ratings.opinions'}}</a>
                                     </strong>
                                 </p>
-                                <a class="btn btn-primary btn-lg justify" href="/drugs?pharmacyId={{pharmacy.id}}"><strong>{{ pharmacy.drugs.length }}</strong> drugs</a>
+                                <a class="btn btn-primary btn-lg justify" href="/drugs?pharmacyId={{pharmacy.id}}"><strong>{{ pharmacy.drugs.length }}</strong> {{localize 'ratings.items.drugs'}}</a>
                             </div>
                             <!--/.wave-->
                         </div>

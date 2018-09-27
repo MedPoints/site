@@ -75,6 +75,10 @@ $(function () {
         data.sex = getSex();
         data.dateOfBirth = $('#dateOfBirth').val();
 
+        if (!isRegistered()) {
+            register(data);
+        }
+
         $.post({
             url: '/book',
             data: data,
@@ -82,7 +86,7 @@ $(function () {
                 window.location.href = '/success';
             },
             error: function (res) {
-                alert('An error occurred during booking. Plese try again later or contact our Support team.');
+                alert(window.localizer.localize('errors.booking'));
             },
         });
     });  
@@ -98,7 +102,7 @@ function initBookingData() {
     var query = getQueryParams(window.location.search);
     doctorId = query.doctorId;
     if (!doctorId) {
-        alert('Please visit a doctor\'s page and click the "Book to visit" button to proceed');
+        alert(window.localizer.localize('errors.visitDoctor'));
         return false;
     }
 
@@ -122,7 +126,7 @@ function loadServices(doctorId, callback) {
             var $select = $('#serviceId');
             var services = res.services;
             if ($select && services) {
-                var listitems = '<option value="">Select a service</option>';
+                var listitems = '<option value="">' + window.localizer.localize('controls.selectSerivce') + '</option>';
                 for (var i = 0, length = services.length; i < length; i++) {
                     var service = services[i];
                     listitems += '<option value=' + service.id + '>' + service.name + '</option>';   
@@ -148,7 +152,7 @@ function loadClinics(serviceIdString) {
                 $select.empty();
                 var clinics = res.clinics;
                 if ($select && clinics) {
-                    var listitems = '<option value="">Select a clinic</option>';
+                    var listitems = '<option value="">' + window.localizer.localize('controls.selectClinic') + '</option>';
                     for (var i = 0, length = clinics.length; i < length; i++) {
                         var clinic = clinics[i];
                         listitems += '<option value=' + clinic.id + '>' + clinic.name + '</option>';   

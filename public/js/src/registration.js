@@ -8,7 +8,7 @@ $(function() {
 
     $('#registerButton').on('click', function(evt) {
         if (!$('#termsAccept').is(":checked")) {
-            alert('Please accept our terms of use and privacy policy before proceeding');
+            alert(window.localizer.localize('errors.terms'));
             return false;
         }
         
@@ -20,46 +20,30 @@ $(function() {
 
         registerData.firstName = $('#firstName').val();
         if (!registerData.firstName)
-            errors.push('Enter a first name');
+            errors.push(window.localizer.localize('errors.requiredFirstName'));
             
         registerData.lastName = $('#lastName').val();
         if (!registerData.lastName)
-            errors.push('Enter a last name');
+            errors.push(window.localizer.localize('errors.requiredLastName'));
 
         registerData.email = $('#email').val();
         if (!registerData.email)
-            errors.push('Enter an email');
+            errors.push(window.localizer.localize('errors.requiredEmail'));
 
         if (errors.length > 0) {
             var errorContent = '';
             for (var i = 0; i < errors.length; i++) {
                 errorContent += '<div class="alert alert-danger" role="alert">' + errors[i] + '</div>';
             }
-
-            $('#modalErrorTitle').html('Validation errors');
+            
+            $('#modalErrorTitle').html(window.localizer.localize('errorWindowTitle'));
             $('#modalErrorContent').html(errorContent);
     
             $('#errorModal').modal('show');
             return;
         }
 
-
-        $.ajax({
-            url: '/auth/register',
-            method: 'POST',
-            data: registerData,
-            success: function (res) {
-                Cookies.set('MedPoints_PrivateKey', res.result.publicKey);
-                Cookies.set('MedPoints_PublicKey', res.result.privateKey);
-                window.location.href = '/';
-            },
-            error: function (res) {
-                alert('An error occurred during request processing. Please try again.');
-            }
-        })
-
-
-        
+        register(registerData);
     });
 });
 
@@ -85,4 +69,20 @@ function initRegisterElement() {
 function initAlredyRegisteredElement() {
     $('.alreadyRegisteredContainer').show();
     $('.registerContainer').hide();
+}
+
+function register(registerData) {
+    $.ajax({
+        url: '/auth/register',
+        method: 'POST',
+        data: registerData,
+        success: function (res) {
+            Cookies.set('MedPoints_PrivateKey', res.result.publicKey);
+            Cookies.set('MedPoints_PublicKey', res.result.privateKey);
+            window.location.href = '/';
+        },
+        error: function (res) {
+            alert(window.localizer.localize('errors.requestError'));
+        }
+    })
 }
