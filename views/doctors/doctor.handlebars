@@ -1,8 +1,8 @@
 
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/">Home</a></li>
-            <li class="breadcrumb-item"><a href="/doctors">Doctors</a></li>
+            <li class="breadcrumb-item"><a href="/">{{localize 'breadcrumbs.home'}}</a></li>
+            <li class="breadcrumb-item"><a href="/doctors">{{localize 'breadcrumbs.doctors'}}</a></li>
             <li class="breadcrumb-item active" aria-current="page">{{doctor.name}}</li>
         </ol>
     </nav>
@@ -14,15 +14,14 @@
             <div class="row">
                 <div class="col-xl-4 col-md-12">
                     <a class="avatar" href="/"><div class="crop"><img src="/img/_demo/doctor1.jpg" alt="" /></div></a>
-                    {{!-- <div class="text-success" data-toggle="tooltip" data-placement="top" title="Participant in the program of insurance points"><i class="fas fa-heartbeat"></i> Insurance</div> --}}
                 </div>
                 <!--/.col-->
                 <div class="col-xl-8 col-md-12">
                     <div><a href="/doctors">{{doctor.specialization}}</a></div>
                     <h4><a  href="/clinics/{{doctor.hospital.id}}">{{doctor.hospital.name}}</h4>
                     <p><a class="map-toggle" data-name="{{doctor.hospital.name}}" href="/doctors">{{doctor.hospital.location.address}}</a></p>
-                    <div>Work experience <strong>9+</strong> years</div>
-                    <div>First visit from = <strong>100 MPT</strong> <br />+ <strong class="text-success">100 MPT bonus</strong> for next visits</div>
+                    <div>{{{localize "doctor.workExperience" years="9+"}}}</div><!-- TODO pass parameters to localization -->
+                    <div>{{{localize "doctor.bonus" amount="100"}}}</div><!-- TODO pass parameters to localization -->
                 </div>
                 <!--/.col-->
             </div>
@@ -32,12 +31,12 @@
 
             <div class="row">
                 <div class="col">
-                    <h3>Professional statement</h3>
+                    <h3>{{localize 'doctor.statement'}}</h3>
                     <p>{{doctor.statement}}</p>
 
                     <hr />
 
-                    <h3>All specializations</h3>
+                    <h3>{{localize 'doctor.allSpecializations'}}</h3>
                     <ul class="list-inline">
                         {{#each doctor.specializations as |specialization|}}
                         <li class="list-inline-item">{{specialization}}</li>
@@ -46,11 +45,11 @@
 
                     <hr />
 
-                    <h3>Education</h3>
+                    <h3>{{localize 'doctor.education'}}</h3>
 
                     <ul>
                         {{#each doctor.education as |ed|}}
-                        <li><i class="fas fa-graduation-cap"></i> <a class="" href="#">{{ed.university}}</a> - {{ed.degree}} <br /><em>Graduate of {{ed.graduated}}</em></li>
+                        <li><i class="fas fa-graduation-cap"></i> <a class="" href="#">{{ed.university}}</a> - {{ed.degree}} <br /><em>{{localize 'doctor.graduateOf'}} {{ed.graduated}}</em></li>
                         {{/each}}
                     </ul>
 
@@ -68,14 +67,14 @@
 				
                     <div class="col-xl-6 col-lg-12">
                         <div class="wave text-center">
-                            <h4>Rating <strong class="text-success">{{doctor.rate}}</strong></h4>
-                            <p>based on <strong><a class="" href="#opinions">{{doctor.ratings.length}} opinions</a></strong></p> 
+                            <h4>{{localize 'ratings.rating'}} <strong class="text-success">{{doctor.rate}}</strong></h4>
+                            <p>{{localize 'ratings.basedOn'}} <strong><a class="" href="#opinions">{{doctor.ratings.length}} {{localize 'ratings.opinions'}}</a></strong></p> 
 
                             <ul class="rating"> 
 							
                                 <li class="row">
                                     <div class="col text-right">
-                                        Knowledge
+                                        {{localize 'doctor.knowledge'}}
                                     </div>
                                     <div class="col">
                                         <div class="progress progress-striped">
@@ -89,7 +88,7 @@
                                 <!-- end row -->
                                 <li class="row">
                                     <div class="col text-right">
-                                        Skills
+                                        {{localize 'doctor.skills'}}
                                     </div>
                                     <div class="col">
                                         <div class="progress progress-striped">
@@ -103,7 +102,7 @@
                                 <!-- end row -->
                                 <li class="row">
                                     <div class="col text-right">
-                                        Attention
+                                        {{localize 'doctor.attention'}}
                                     </div>
                                     <div class="col">
                                         <div class="progress progress-striped">
@@ -117,7 +116,7 @@
                                 <!-- end row -->
                                 <li class="row">
                                     <div class="col text-right">
-                                        Price / Quality
+                                        {{localize 'doctor.priceQuality'}}
                                     </div>
                                     <div class="col">
                                         <div class="progress progress-striped">
@@ -132,10 +131,7 @@
 
                             </ul>
                             <!--/.rating-->
-							<a class="btn btn-primary btn-lg justify" href="/booking?doctorId={{doctor.id}}">Book to visit</a>
-                            <p hidden>In favorites at <strong>462</strong> users</p>
-
-                            <a hidden class="btn btn-secondary justify" href="#"><i class="far fa-heart"></i> Add to favorite</a>
+							<a class="btn btn-primary btn-lg justify" href="/booking?doctorId={{doctor.id}}">{{localize 'doctor.bookToVisit'}}</a>
 
                         </div>
                         <!--/.wave-->
@@ -144,7 +140,7 @@
                     <div class="col-xl-6 col-lg-12">
 						<div class="map hidden-lg-down" style="height: 300px">
                         </div><!--/.map-->
-                        <div class="hidden-xl-up"><br /><a class="btn-map" href="#" data-toggle="collapse" data-target="#showMap"><i class="fas fa-map-marker"></i> Show on map</a>
+                        <div class="hidden-xl-up"><br /><a class="btn-map" href="#" data-toggle="collapse" data-target="#showMap"><i class="fas fa-map-marker"></i> {{localize 'common.showOnMap'}}</a>
                         <div class="map collapse" id="map" style="height: 300px">
                         </div><!--/.collapse-->
                     </div>
@@ -207,16 +203,16 @@
                 <thead>
                     <tr>
                         <th width="40%">
-                            <h5>Doctor's services</h5>
+                            <h5>{{localize 'service.table.services'}}</h5>
                         </th>
                         <th>
-                            <h5>Time</h5>
+                            <h5>{{localize 'service.table.time'}}</h5>
                         </th>
                         <th>
-                            <h5>Price</h5>
+                            <h5>{{localize 'service.table.price'}}</h5>
                         </th>
                         <th>
-                            <h5>Insurance</h5>
+                            <h5>{{localize 'service.table.insurance'}}</h5>
                         </th>
                     </tr>
                 </thead>
@@ -228,14 +224,14 @@
                             <p>{{ service.short_descr }}</p>
                         </td>
                         <td>{{ service.time }}</td>
-                        <td class="price-td">from <strong class="text-dark">${{ service.price.dollars }}</strong><br /><strong class="text-success">{{ service.price.mpts }} MPT</strong></td>
+                        <td class="price-td">{{localize 'common.fromPrice'}} <strong class="text-dark">${{ service.price.dollars }}</strong><br /><strong class="text-success">{{ service.price.mpts }} MPT</strong></td>
                         <td class="text-center">
                             {{#if service.is_covered_by_insurance}}
                             <i class="fas fa-plus text-success" data-toggle="tooltip" data-placement="top" title="Can be covered by insurance points"></i>
                             {{/if}}
                         </td>
                         <td>
-                            <a class="btn btn-primary btn-lg justify" href="/booking?doctorId={{../doctor.id}}&serviceId={{service.id}}">Book to visit</a>
+                            <a class="btn btn-primary btn-lg justify" href="/booking?doctorId={{../doctor.id}}&serviceId={{service.id}}">{{localize 'doctor.bookToVisit'}}</a>
                         </td>
                     </tr>
                     {{/each}}
@@ -249,7 +245,7 @@
     <section class="bg-gray">
         <div class="reviews" id="opinions">
             {{#if doctor.ratings.length}}
-            <h3>Opinions <span class="badge">{{doctor.ratings.length}}</span></h3>
+            <h3>{{localize 'ratings.opinions'}} <span class="badge">{{doctor.ratings.length}}</span></h3>
             <ul class="owl-carousel owl-theme">
                 {{#each doctor.ratings as |rating|}}
                 <li class="item">
@@ -272,7 +268,8 @@
                 {{/each}}
             </ul>
             {{else}}
-                <h3 style="text-align:center;">There are no opinions. <b>Add an opinion after the closing of the service’s smart-contrac.</b></h3>
+                <h3 style="text-align:center;">{{{localize 'ratings.noOpinions'}}}</h3>
+                
             {{/if}}
         </div>
         <!--/.reviews-->

@@ -1,9 +1,246 @@
 {
+
+    "common": {
+        "title": "MedPoints&#8482; - Blockchain based <br />worldwide <strong>medical booking</strong>",
+        "showOnMap": "Show on map",
+        "fromPrice": "from",
+        "fromPriceFull": "Price from",
+        "time": "Time"
+    },
     "navigation": {
         "clinics": "Clinics",
         "services": "Services",
         "doctors": "Doctors",
         "pharmacies": "Pharmacies",
-        "drugs": "Drugs"
+        "drugs": "Drugs",
+
+        "open": "Open menu",
+        "location": "Medical booking in",
+        "font": "Font-size",
+        "login": "Login",
+        "logout": "Log Out",
+        "register": "Registration",
+        "showWallet": "Show my Wallet",
+
+        "insurance": "Insurance program",
+        "foundation": "Help foundation",
+        "search": "search"
+    },
+
+    "search": {
+        "searchDoctor": "Search doctor by <strong>department</strong>",
+        "searchClinic": "Search clinic by <strong>location</strong>",
+        "searchPrompt": "Type your search request ...",
+        "options": {
+            "default": "Categories",
+            "clinics": "Clinics",
+            "doctors": "Doctors",
+            "pharmacies": "Pharmacies",
+            "drugs": "Drugs",
+            "services": "Services"
+        }
+    },
+
+    "partnership": {
+        "addButton": "Add"
+    },
+
+    "footer": {
+        "project": {
+            "title": "Project",
+            "items": {
+                "about": "About",
+                "partnership": "Partnership",
+                "explorer": "Blockchain explorer",
+                "blog": "Blog"
+            }
+        },
+        "support": {
+            "title": "Support",
+            "items": {
+                "faq": "FAQ",
+                "Support": "Support",
+                "terms": "Terms of use",
+                "policy": "Privacy Policy"
+            }
+        },
+        "applications": {
+            "title": "Applications",
+            "items": {
+                "mobile": "Mobile",
+                "apple": "Apple",
+                "android": "Android",
+                "desktop": "Desktop",
+                "windows": "Windows",
+                "macos": "Mac OS"
+            }
+        },
+        "signup": {
+            "title": "Sign up for updates of MedPoints&#8482;",
+            "subtitle": "Without any spam and advertising",
+            "prompt": "Your e-mail here",
+            "social": "Follow the updates in the official project groups"
+        },
+        "disclaimer": {
+            "title": "Information on the site is provided for informational purposes only.",
+            "subtitle": "Clinics and doctors are not official partners of the system. Medicinal guides may not be 100% faithful, as well as a description of specific drugs and services."
+        },
+        "copyright": {
+            "title": "Copyright",
+            "copyrightTitle": "MedPoints&#8482; All rights reserved."
+        },
+        "sitemap": "Site Map"
+    },
+
+    "main": {
+        "welcome": "Welcome to MedPoints&#8482;! This is a basic demo that simulates user experience, but does not contain the full functionality at the moment. <br /> If you want to become part of the project and support its development, please join our <a href=\"https://medpoints.io\" target=\"_blank\">ICO company</a>."
+    },
+
+    "index": {
+        "list": "List",
+        "map": "Map"
+    },
+
+    "breadcrumbs": {
+        "home": "Home",
+        "clinics": "Clinics",
+        "doctors": "Doctors",
+        "pharmacies": "Pharmacies",
+        "drugs": "Drugs",
+        "services": "Services",
+        "foundationCases": "Foundation cases",
+        "foundationCase": "Foundation case",
+        "account": "Account",
+        "tickets": "Your Tickets"
+    },
+
+    "ratings": {
+        "rating": "Rating",
+        "basedOn": "based on",
+        "opinions": "opinions",
+        "metricsQuality": "Price / Quality",
+        "metricsService": "Service",
+        "noOpinions": "There are no opinions. <b>Add an opinion after the closing of the service’s smart-contrac.</b>",
+        "items": {
+            "drugs": "drugs",
+            "doctors": "doctors",
+            "clinics": "clinics",
+            "services": "services",
+            "pharmacies": "pharmacies"
+        }
+    },
+
+    "pharmacy": {
+        "details": {
+            "network": "Network",
+            "site": "Site",
+            "goToSite": "Go to site",
+            "gallery": "Pharmacy gallery"
+        }
+    },
+
+    "clinic": {
+        "details": "Network"
+    },
+
+    "service": {
+        "table": {
+            "title": "Price comparison for <strong>New patient visit</strong> in <strong>New York</strong>",
+            "service": "Service",
+            "time": "Time",
+            "insurance": "Insurance",
+            "providers": "Providers",
+            "price": "Price",
+            "clinic": "Clinic"
+        }
+    },
+
+    "doctor": {
+        "workExperience": "Work experience <strong>{years}</strong> years",
+        "bonus": "First visit from = <strong>{amount} MPT</strong> <br />+ <strong class='text-success'>{amount} MPT bonus</strong> for next visits",
+        "bookToVisit": "Book to visit",
+        "statement": "Professional statement",
+        "allSpecializations": "All specializations",
+        "education": "Education",
+        "graduateOf": "Graduate of",
+        "knowledge": "Knowledge",
+        "skills": "Skills",
+        "attention": "Attention",
+        "priceQuality": "Price / Quality",
+        "table": {
+            "service": "Doctor's services",
+            "time": "Time",
+            "insurance": "Insurance",
+            "price": "Price"
+        }
+    },
+
+    "drug": {
+        "categories": "Categories",
+        "categoriesAll": "All",
+        "group": "Group",
+        "available": "Available in",
+        "table": {
+            "name": "Name",
+            "providers": "Providers",
+            "prescription": "On prescription only",
+            "insurance": "Insurance",
+            "price": "Price"
+        }
+    },
+
+    "foundation": {
+        "makeDonation": "Make donation to General fund",
+        "points": "<small>Points from <strong>General fund</strong> serve for partial coverage in cases when required amount for the full treatment remains less then 10%, but the company's time has passed.</small>",
+        "foundationText1": "<p>One of the most significant aspects of the MedPoints&#8482; system, we believe, is the functionality of a decentralized collection of funds to help seriously ill or needy people.</p><p>Cases requiring the collection of funds for treatment and / or emergency care can be added only by representatives of clinics and medical institutions.</p><p>Even if the necessary amount has not been achieved, all collected funds are sent to the account of the medical institution for the treatment of this particular case and the patient.</p><p>The MedPoints&#8482; system does not take a percentage of the fundraising, except standard payment required to conduct transactions within the system.</p>",
+        "foundationText2": "<p>The fact that all transactions are carried out through a decentralized platform, ensures that all collected money will go to the decision of a specific case and will not go to the hands of third parties or scammers.</p><p>A separate point of medical care within the MedPoints&#8482; project is a <strong>General fund</strong> not tied to a specific fund-raising case, where anyone can make a contribution in any amount and any time. Points from <strong>General fund</strong> serve for partial coverage in cases when required amount for the full treatment remains less then 10%, but the company's time has passed.</p>"
+    },
+
+    "tickets": {
+        "addTicket": "Add ticket",
+        "table": {
+            "title": "Title",
+            "time": "Time",
+            "status": "Status"
+        }
+    },
+
+    "popups": {
+        "chooseLocation": {
+            "title": "Choose your location",
+            "saveLocation": "Save location"
+        },
+        "logIn": {
+            "title": "Log in to MedPoints",
+            "walletId": "Wallet ID",
+            "walletKey": "Wallet key",
+            "rememberMe": "Remember me",
+            "problems": "Sign in problems?",
+            "logIn": "Log in"
+        },
+        "walletDetails": {
+            "title": "Your Wallet Details",
+            "walletId": "Wallet ID",
+            "walletKey": "Wallet key"
+        }
+    },
+
+    "controls": {
+        "selectService": "Select a service",
+        "selectClinic": "Select a clinic"
+    },
+
+    "errorWindowTitle": "Validation errors",
+
+    "errors": {
+        "bothKeyAndId": "Both Wallet ID and Key values are required",
+        "newWallet": "Error generating a new wallet.",
+        "requestError": "An error occurred during request processing. Please try again.",
+        "booking": "An error occurred during booking. Plese try again later or contact our Support team.",
+        "visitDoctor": "Please visit a doctor's page and click the 'Book to visit' button to proceed",
+        "terms": "Please accept our terms of use and privacy policy before proceeding",
+        "requiredFirstName": "Enter a first name",
+        "requiredLastName": "Enter a last name",
+        "requiredEmail": "Enter an email"
     }
 }

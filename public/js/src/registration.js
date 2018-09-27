@@ -8,7 +8,7 @@ $(function() {
 
     $('#registerButton').on('click', function(evt) {
         if (!$('#termsAccept').is(":checked")) {
-            alert('Please accept our terms of use and privacy policy before proceeding');
+            alert(window.localizer.localize('errors.terms'));
             return false;
         }
         
@@ -20,23 +20,23 @@ $(function() {
 
         registerData.firstName = $('#firstName').val();
         if (!registerData.firstName)
-            errors.push('Enter a first name');
+            errors.push(window.localizer.localize('errors.requiredFirstName'));
             
         registerData.lastName = $('#lastName').val();
         if (!registerData.lastName)
-            errors.push('Enter a last name');
+            errors.push(window.localizer.localize('errors.requiredLastName'));
 
         registerData.email = $('#email').val();
         if (!registerData.email)
-            errors.push('Enter an email');
+            errors.push(window.localizer.localize('errors.requiredEmail'));
 
         if (errors.length > 0) {
             var errorContent = '';
             for (var i = 0; i < errors.length; i++) {
                 errorContent += '<div class="alert alert-danger" role="alert">' + errors[i] + '</div>';
             }
-
-            $('#modalErrorTitle').html('Validation errors');
+            
+            $('#modalErrorTitle').html(window.localizer.localize('errorWindowTitle'));
             $('#modalErrorContent').html(errorContent);
     
             $('#errorModal').modal('show');
@@ -82,7 +82,7 @@ function register(registerData) {
             window.location.href = '/';
         },
         error: function (res) {
-            alert('An error occurred during request processing. Please try again.');
+            alert(window.localizer.localize('errors.requestError'));
         }
     })
 }

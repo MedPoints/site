@@ -2,127 +2,18 @@
 
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item"><a href="/">{{localize 'breadcrumbs.home'}}</a></li>
             <li class="breadcrumb-item active" aria-current="page">{{PAGE_TITLE}}</li>
         </ol>
     </nav>
-
-    {{!-- <section class="bg-gray">
-
-        <form class="filter">
-            <div class="row">
-                <div class="col-sm-9">
-                    <label class="custom-control custom-checkbox">
-						<input type="checkbox" class="custom-control-input">
-						<span class="custom-control-indicator"></span>
-						<span class="custom-control-description">Released without a prescription</span>
-					</label>
-                    <label class="custom-control custom-checkbox">
-						<input type="checkbox" class="custom-control-input">
-						<span class="custom-control-indicator"></span>
-						<span class="custom-control-description">Can be covered by insurance points</span>
-					</label> 
-                </div>
-                <!--/.col-->
-                <div class="col-sm-3">
-                    <button type="button" id="btn-more" class="btn btn-secondary float-right" data-toggle="collapse" data-target="#moreFilters">
-						<i class="fas fa-angle-down"></i> More filters
-					</button> 
-                </div>
-                <!--/.col-->
-            </div>
-            <!--/.row-->
-
-            <div class="collapse" id="moreFilters">
-                <hr />
-                <div class="row">
-                    <div class="col-xl-3 col-md-6 col-sm-12">
-
-                        <h3>Sex</h3>
-                        <label class="custom-control custom-radio">
-							<input id="radio1" name="radio" type="radio" class="custom-control-input" checked="checked">
-							<span class="custom-control-indicator"></span>
-							<span class="custom-control-description">Any</span>
-						</label>
-                        <label class="custom-control custom-radio">
-							<input id="radio2" name="radio" type="radio" class="custom-control-input">
-							<span class="custom-control-indicator"></span>
-							<span class="custom-control-description">Male</span>
-						</label>
-                        <label class="custom-control custom-radio">
-							<input id="radio3" name="radio" type="radio" class="custom-control-input">
-							<span class="custom-control-indicator"></span>
-							<span class="custom-control-description">Female</span>
-						</label>
-                    </div>
-                    <!--/.col-->
-					
-                    <div class="col-xl-3 col-md-6 col-sm-12">
-
-                        <h3>Location</h3>
-                        <label class="custom-control custom-radio">
-							<input id="radio2-1" name="radio2" type="radio" class="custom-control-input" checked="checked">
-							<span class="custom-control-indicator"></span>
-							<span class="custom-control-description">In your city</span>
-						</label>
-                        <label class="custom-control custom-radio">
-							<input id="radio2-2" name="radio2" type="radio" class="custom-control-input">
-							<span class="custom-control-indicator"></span>
-							<span class="custom-control-description">Worldwide</span>
-						</label>
-                    </div>
-                    <!--/.col-->
-					
-                    <div class="col-xl-3 col-md-6 col-sm-12">
-
-                        <h3>Sort by</h3>
-                        <label class="custom-control custom-radio">
-							<input id="radio3-1" name="radio3" type="radio" class="custom-control-input" checked="checked">
-							<span class="custom-control-indicator"></span>
-							<span class="custom-control-description">By rating</span>
-						</label>
-                        <label class="custom-control custom-radio">
-							<input id="radio3-2" name="radio3" type="radio" class="custom-control-input">
-							<span class="custom-control-indicator"></span>
-							<span class="custom-control-description">By prices</span>
-						</label>
-                    </div>
-                    <!--/.col-->
-					
-                    <div class="col-xl-3 col-md-6 col-sm-12">
-
-                        <h3>Max price: <span id="demo"></span> MPT</h3>
-
-                        <input class="justify" type="range" id="myRange">
-                        <script>
-                            var slider = document.getElementById("myRange");
-                            var output = document.getElementById("demo");
-                            output.innerHTML = slider.value;
-                            
-                            slider.oninput = function() {
-                              output.innerHTML = this.value;
-                            }
-                        </script>
- 
-                    </div>
-                    <!--/.col-->
-                </div>
-                <!--/.row-->
-            </div>
-            <!--/.collapse-->
- 
-        </form>
-
-    </section> --}}
-	
 	<div class="row">
 	
         <div class="col-xl-3 push-xl-9 col-lg-12 push-lg-0">
 
-            <h3>Categories</h3>
+            <h3>{{localize 'drug.categories'}}</h3>
 
             <ul class="cat-list">
-                <li><a class="active" href="/drugs">All</a></li>
+                <li><a class="active" href="/drugs">{{localize 'drug.categoriesAll'}}</a></li>
                 {{#each categories as |category|}}
                     <li><a href="/drugs?group={{category.id}}">{{category.name}}</a><span class="badge">{{category.drugs}}</span></li>
                 {{/each}}
@@ -132,57 +23,24 @@
         <!--/.col-->
 		
         <div class="col-xl-9 pull-xl-3 col-lg-12 pull-lg-0">
-		
-			{{!-- <h3>Alphabetical index</h3>
-
-            <ul class="list-inline">
-                <li class="list-inline-item"><a href="#">A</a></li>
-                <li class="list-inline-item"><a href="#">B</a></li>
-                <li class="list-inline-item"><a href="#">C</a></li>
-                <li class="list-inline-item"><a href="#">D</a></li>
-                <li class="list-inline-item"><a href="#">E</a></li>
-                <li class="list-inline-item"><a href="#">F</a></li>
-                <li class="list-inline-item"><a href="#">G</a></li>
-                <li class="list-inline-item"><a href="#">H</a></li>
-                <li class="list-inline-item"><a href="#">I</a></li>
-                <li class="list-inline-item"><a href="#">J</a></li>
-                <li class="list-inline-item"><a href="#">K</a></li>
-                <li class="list-inline-item"><a href="#">L</a></li>
-                <li class="list-inline-item"><a href="#">M</a></li>
-                <li class="list-inline-item"><a href="#">N</a></li>
-                <li class="list-inline-item"><a href="#">O</a></li>
-                <li class="list-inline-item"><a href="#">P</a></li>
-                <li class="list-inline-item"><a href="#">Q</a></li>
-                <li class="list-inline-item"><a href="#">R</a></li>
-                <li class="list-inline-item"><a href="#">S</a></li>
-                <li class="list-inline-item"><a href="#">T</a></li>
-                <li class="list-inline-item"><a href="#">U</a></li>
-                <li class="list-inline-item"><a href="#">V</a></li>
-                <li class="list-inline-item"><a href="#">W</a></li>
-                <li class="list-inline-item"><a href="#">X</a></li>
-                <li class="list-inline-item"><a href="#">Y</a></li>
-                <li class="list-inline-item"><a href="#">Z</a></li>
-            </ul> --}}
-  
             <div class="table-responsive">
                 <table summary="" class="table table-hover">
                     <thead>
                         <tr>
                             <th width="40%">
-                                <h5>Name</h5>
+                                <h5>{{localize 'drugs.table.name'}}</h5>
                             </th>
                             <th>
-                                <h5>Price</h5>
+                                <h5>{{localize 'drugs.table.price'}}</h5>
                             </th>
                             <th>
-                                <h5>Insurance</h5>
+                                <h5>{{localize 'drugs.table.insurance'}}</h5>
                             </th>
                             <th>
-                                <h5>On prescription only</h5>
+                                <h5>{{localize 'drugs.table.prescription'}}</h5>
                             </th>
                             <th class="text-right">
-                                <h5>Providers</h5>
-
+                                <h5>{{localize 'drugs.table.providers'}}</h5>
                             </th>
                         </tr>
                     </thead>
@@ -193,7 +51,7 @@
                                 <h4><a href="/drugs/{{ drug.id }}" title="">{{ drug.name }}</a></h4>
                                 <p>{{ drug.short_descr }}</p>
                             </td>
-                            <td class="price-td">from <strong class="text-dark">${{ drug.price.dollars }}</strong><br /><strong class="text-success">{{ drug.price.mpts }} MPT</strong></td>
+                            <td class="price-td">{{localize 'common.fromPrice'}} <strong class="text-dark">${{ drug.price.dollars }}</strong><br /><strong class="text-success">{{ drug.price.mpts }} MPT</strong></td>
                             <td class="text-center">
                                 {{#if drug.is_covered_by_insurance}}
                                 <i class="fas fa-plus text-success" data-toggle="tooltip" data-placement="top" title="Can be purchased for insurance points"></i>
@@ -204,7 +62,7 @@
                                 <i class="fas fa-plus text-success" data-toggle="tooltip" data-placement="top" title="Can be purchased for insurance points"></i>
                                 {{/if}}
                             </td>
-                            <td><a class="btn btn-primary float-right" href="/pharmacies?drugId={{drug.id}}"><strong>{{ drug.providers.pharmacies }}</strong> Pharmacies</a></td>
+                            <td><a class="btn btn-primary float-right" href="/pharmacies?drugId={{drug.id}}"><strong>{{ drug.providers.pharmacies }}</strong> {{localize 'ratings.items.pharmacies'}}</a></td>
                         </tr>
                         {{/each}}
                     </tbody>

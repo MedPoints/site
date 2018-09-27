@@ -27,6 +27,8 @@
     <link href="/css/flag-icon.min.css" rel="stylesheet">
     <link href="/css/simpleLightbox.min.css" rel="stylesheet">
     <link href="/css/zabuto_calendar.css" rel="stylesheet">
+    {{{localization locale}}}
+    <script src="/js/src/localization.js"></script>
     <script src="/js/dist/lib.bundle.js"></script>
     <script src="/js/dist/layout.bundle.js"></script>
 
@@ -46,18 +48,15 @@
 
 
     <div class="ico-info-box"
-        >Welcome to MedPoints&#8482;!
-        This is a basic demo that simulates user experience,
-        but does not contain the full functionality at the moment. <br />
-        If you want to become part of the project and support its development, please join our
-        <a href="https://medpoints.io" target="_blank">ICO company</a>.
+        >
+        {{{localize 'main.welcome'}}}
     </div>
 
     <header>
 
         <nav class="navbar navbar-toggleable-md">
 
-            <button id="btn-menu" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation"><i class="fas fa-bars"></i><span> Open menu</span></button>
+            <button id="btn-menu" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation"><i class="fas fa-bars"></i><span> {{localize 'navigation.open'}}</span></button>
 
             <a class="navbar-brand" href="/"><img src="/img/logo.svg" alt="" /></a>
 
@@ -65,7 +64,7 @@
 
                 <ul class="navbar-nav mr-auto service-menu">
                     <li class="nav-item">
-                        <span class="nav-link">Medical booking in</span>
+                        <span class="nav-link">{{localize 'navigation.location'}}</span>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" data-toggle="modal" data-target="#chooseLocation"><span id="locationLabel">New York</span> &nbsp;<i class="fas fa-pencil-alt"></i></a>
@@ -90,7 +89,7 @@
                         </div>
                     </li> --}}
                     <li class="nav-item">
-                        <span class="nav-link">Font-size</span>
+                        <span class="nav-link">{{localize 'navigation.font'}}</span>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link sizer" href="#" id="small" title="Small font size">A</a>
@@ -104,16 +103,16 @@
                         <a class="nav-link" href="/rates">1 <strong>MPT</strong> = 0.01 <i class="fas fa-dollar-sign"></i></a>
                     </li>
                     <li class="nav-item unregistered-item">
-                        <a class="nav-link" href="#" data-toggle="modal" data-target="#login">Login</a>
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#login">{{localize 'navigation.login'}}</a>
                     </li>
                     <li class="nav-item unregistered-item">
-                        <a class="nav-link" href="/registration">Registration</a>
+                        <a class="nav-link" href="/registration">{{localize 'navigation.register'}}</a>
                     </li>
                     <li class="nav-item registered-item">
-                        <a class="nav-link" href="#" data-toggle="modal" data-target="#wallet">Show my Wallet</a>
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#wallet">{{localize 'navigation.showWallet'}}</a>
                     </li>
                     <li class="nav-item registered-item">
-                        <a class="nav-link" id="logOutButton" href="javascript:void(0)">Log Out</a>
+                        <a class="nav-link" id="logOutButton" href="javascript:void(0)">{{localize 'navigation.logout'}}</a>
                     </li>
                     <li>
                         
@@ -129,10 +128,9 @@
 
                 <div class="row">
                     <div class="col-9">
-                        <h1 class="display-3">MedPoints&#8482; - Blockchain based <br />worldwide <strong>medical booking</strong></h1>
+                        <h1 class="display-3">{{localize 'common.title'}}</h1>
                     </div>
                     <!--/.col-->
-                </div>
                 <!--/.row-->
 
             </div>
@@ -145,11 +143,11 @@
 					<div class="extra">
 					<ul class="row">
                     	<li class="col-xl-12 col-lg-6 text-xl-right text-lg-left">
-                    		<a href="/insurance"><i class="fas fa-heartbeat"></i> Insurance program</a>
+                    		<a href="/insurance"><i class="fas fa-heartbeat"></i> {{localize 'navigation.insurance'}}</a>
                     	</li>
                     	<!--/.col-->
                     	<li class="col-xl-12 col-lg-6 text-xl-right text-lg-left">
-                    		<a href="/foundation"><i class="far fa-life-ring"></i> Help foundation</a>
+                    		<a href="/foundation"><i class="far fa-life-ring"></i> {{localize 'navigation.foundation'}}</a>
                     	</li>
                     	<!--/.col-->
                     </ul>
@@ -198,20 +196,20 @@
             <div class="row">
                 <div class="col-xl-9 col-md-8 col-sm-12">
                     <div class="input-group input-group-lg">
-                        <input type="text" class="form-control" name="search" placeholder="Type your search request ..." />
+                        <input type="text" class="form-control" name="search" placeholder="{{localize 'search.searchPrompt'}}" />
 
                         <select name="category" class="custom-select">
-  							<option selected>Category</option>
-  							<option >Clinics</option>
-  							<option value="2" hidden>Services</option>
-  							<option >Doctors</option>
-  							<option value="4" hidden>Pharmacies</option>
-  							<option value="5" hidden>Drugs</option>
+  							<option selected>{{localize 'search.options.default'}}</option>
+  							<option >{{localize 'search.options.clinics'}}</option>
+  							<option value="2" hidden>{{localize 'search.options.services'}}</option>
+  							<option >{{localize 'search.options.doctors'}}</option>
+  							<option value="4" hidden>{{localize 'search.options.pharmacies'}}</option>
+  							<option value="5" hidden>{{localize 'search.options.drugs'}}</option>
 						</select>
 
                         <div class="input-group-btn">
-                            <button type="submit" class="btn btn-primary">
-          						<i class="fas fa-search"></i><span> Search</span>
+                            <button type="submit" class="btn btn-primary search-button">
+          						<i class="fas fa-search"></i><span class="search-button__text">{{localize 'navigation.search'}}</span>
         					</button>
                         </div>
                     </div>
@@ -222,7 +220,7 @@
                 </div>
                 <!--/.col-->
                 <div class="col-xl-2 col-md-2 col-sm-6">
-                    <a class="btn btn-primary btn-lg justify" href="/partnership">Add</a>
+                    <a class="btn btn-primary btn-lg justify" href="/partnership">{{localize 'partnership.addButton'}}</a>
                 </div>
                 <!--/.col-->
             </div>
@@ -245,42 +243,42 @@
 
 			<div class="row">
                 <div class="col-xl-4 col-md-4 col-sm-6">
-            		<h4>Project</h4>
+            		<h4>{{localize 'footer.project.title'}}</h4>
             		<ul>
-                		<li><a href="/about">About</a></li>
-                		<li><a href="/partnership">Partnership</a></li>
-						<li><a href="/explorer">Blockchain explorer</a></li>
-						<li><a href="/blog">Blog</a></li>
+                		<li><a href="/about">{{localize 'footer.project.items.about'}}</a></li>
+                		<li><a href="/partnership">{{localize 'footer.project.items.partnership'}}</a></li>
+						<li><a href="/explorer">{{localize 'footer.project.items.explorer'}}</a></li>
+						<li><a href="/blog">{{localize 'footer.project.items.blog'}}</a></li>
             		</ul>
                 </div>
                 <!--/.col-->
                 <div class="col-xl-4 col-md-4 col-sm-6">
-            		<h4>Support</h4>
+            		<h4>{{localize 'footer.support.title'}}</h4>
             		<ul>
-                		<li><a href="/faq">FAQ</a></li>
-                		<li class="support-tickets"><a href="/account-tickets">Support</a></li>
-						<li><a href="/terms-of-use">Terms of use</a></li>
-						<li><a href="/privacy-policy">Privacy Policy</a></li>
+                		<li><a href="/faq">{{localize 'footer.support.items.faq'}}</a></li>
+                		<li class="support-tickets"><a href="/account-tickets">{{localize 'footer.support.items.support'}}</a></li>
+						<li><a href="/terms-of-use">{{localize 'footer.support.items.terms'}}</a></li>
+						<li><a href="/privacy-policy">{{localize 'footer.support.items.policy'}}</a></li>
             		</ul>
                 </div>
                 <!--/.col-->
                 <div class="col-xl-4 col-md-4 col-sm-12">
-            		<h4>Applications</h4>
+            		<h4>{{localize 'footer.applications.title'}}</h4>
             		<div class="row">
                 		<div class="col-xl-6 col-md-12 col-sm-6">
                     		<ul>
-                        		<li><i class="fas fa-mobile-alt"></i> Mobile</li>
-                        		<li><a href="#">Apple</a></li>
-                        		<li><a href="#">Android</a></li>
-								<li><a href="#">Windows</a></li>
+                        		<li><i class="fas fa-mobile-alt"></i> {{localize 'footer.applications.items.mobile'}}</li>
+                        		<li><a href="#">{{localize 'footer.applications.items.apple'}}</a></li>
+                        		<li><a href="#">{{localize 'footer.applications.items.android'}}</a></li>
+								<li><a href="#">{{localize 'footer.applications.items.windows'}}</a></li>
                     		</ul>
                 		</div>
                 		<!--/.col-->
                 		<div class="col-xl-6 col-md-12 col-sm-6">
                     		<ul>
-                        		<li><i class="fas fa-desktop"></i> Desktop</li>
-                        		<li><a href="#">Windows</a></li>
-                        		<li><a href="#">Mac OS</a></li>
+                        		<li><i class="fas fa-desktop"></i> {{localize 'footer.applications.items.desktop'}}</li>
+                        		<li><a href="#">{{localize 'footer.applications.items.windows'}}</a></li>
+                        		<li><a href="#">{{localize 'footer.applications.items.macos'}}</a></li>
                     		</ul>
                 		</div>
                 		<!--/.col-->
@@ -295,12 +293,12 @@
         <!--/.col-->
         <div class="col-xl-4 col-md-5 col-sm-12">
 
-            <p>Sign up for updates of MedPoints&#8482;<br /><small>Without any spam and advertising</small></p>
+            <p>{{{localize 'footer.signup.title'}}}<br /><small>{{localize 'footer.signup.subtitle'}}</small></p>
 
             <form>
 
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Your e-mail here" />
+                    <input type="text" class="form-control" placeholder="{{localize 'footer.signup.prompt'}}" />
 
                     <div class="input-group-btn">
                         <button type="button" class="btn btn-secondary">
@@ -313,7 +311,7 @@
 
 			<div class="row social-bottom">
         		<div class="col-xl-6 col-md-12 col-sm-12">
-            		<small>Follow the updates in the official project groups</small>
+            		<small>{{localize 'footer.signup.social'}}</small>
         		</div>
         		<!--/.col-->
         		<div class="col-xl-6 col-md-12 col-sm-12">
@@ -333,19 +331,19 @@
     </div>
     <!--/.row-->
 
-	<p><div class="alert alert-info text-center"><h5>Information on the site is provided for informational purposes only.</h5> Clinics and doctors are not official partners of the system. Medicinal guides may not be 100% faithful, as well as a description of specific drugs and services.</div></p>
+	<p><div class="alert alert-info text-center"><h5>{{localize 'footer.disclaimer.title'}}</h5> {{localize 'footer.disclaimer.subtitle'}}</div></p>
 
     <div class="row">
         <div class="col">
-            Copyright &copy;
+            {{localize 'footer.copyright.title'}} &copy;
             <script type="text/javascript">
                 var mdate = new Date(); document.write(mdate.getFullYear());
             </script>
-			MedPoints&#8482; All rights reserved.
+            {{{localize 'footer.copyright.copyrightText'}}}
         </div>
         <!--/.col-->
         <div class="col text-right">
-            <a href="/sitemap"><i class="fas fa-sitemap"></i> Site Map</a>
+            <a href="/sitemap"><i class="fas fa-sitemap"></i> {{localize 'footer.sitemap'}}</a>
         </div>
         <!--/.col-->
     </div>
@@ -356,18 +354,6 @@
 
 <script src="/js/src/auth.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/async@2.6.1/dist/async.min.js"></script>
-<!-- Bootstrap core JavaScript
-    ================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-    
-{{!-- <script src="/js/tether.min.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/simpleLightbox.js"></script>
-<script src="/js/owl.carousel.js"></script>
-<script src="/js/modernizr.js"></script>
-<script src="/js/jquery-3.3.1.min.js"></script>
-<script src="/js/jquery.countdown.js" type="text/javascript"></script> --}}
-
 
 <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
 <noscript><div><img src="https://mc.yandex.ru/watch/47967821?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript>

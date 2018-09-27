@@ -1,7 +1,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/">Home</a></li>
-            <li class="breadcrumb-item"><a href="/pharmacies">Pharmacies</a></li>
+            <li class="breadcrumb-item"><a href="/">{{localize 'breadcrumbs.home'}}</a></li>
+            <li class="breadcrumb-item"><a href="/pharmacies">{{localize 'breadcrumbs.pharmacies'}}</a></li>
             <li class="breadcrumb-item active" aria-current="page">{{ pharmacy.name }}</li>
         </ol>
     </nav>
@@ -47,28 +47,12 @@
                 <table summary="" class="table table-hover">
                     <tbody>
                         <tr>
-                            <td><strong>Network</strong></td>
+                            <td><strong>{{localize 'pharmacy.details.network'}}</strong></td>
                             <td>{{pharmacy.network}}</td>
                         </tr>
                         <tr>
-                            <td><strong>Site</strong></td>
-                            <td><a href="{{pharmacy.site}}">Go to site</a></td>
-                        </tr>
-                        <tr hidden>
-                            <td><strong>Beds</strong></td>
-                            <td>1,500 (1,160 general, 340 psychiatric)</td>
-                        </tr>
-                        <tr hidden>
-                            <td><strong>Hospital type</strong></td>
-                            <td>Teaching</td>
-                        </tr>
-                        <tr hidden>
-                            <td><strong>Affiliated university</strong></td>
-                            <td>NYU School of Medicine</td>
-                        </tr>
-                        <tr hidden>
-                            <td><strong>Emergency department</strong></td>
-                            <td>Level I trauma center</td>
+                            <td><strong>{{localize 'pharmacy.details.site'}}</strong></td>
+                            <td><a href="{{pharmacy.site}}">{{localize 'pharmacy.details.goToSite'}}</a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -76,7 +60,7 @@
             <!--/.table-responsive-->
 
 
-            <h3>Pharmacy gallery</h3>
+            <h3>{{localize 'pharmacy.details.gallery'}}</h3>
 
             <div class="gallery">
                 <ul class="owl-carousel owl-theme">
@@ -97,14 +81,14 @@
 				
                     <div class="col-xl-6 col-lg-12">
                         <div class="wave text-center">
-                            <h4>Rating <strong class="text-success">{{pharmacy.rate}}</strong></h4>
-                            <p>based on <strong><a class="" href="#opinions">{{pharmacy.ratings.length}} opinions</a></strong></p> 
+                            <h4>{{localize 'ratings.rating'}} <strong class="text-success">{{pharmacy.rate}}</strong></h4>
+                            <p>{{localize 'ratings.basedOn'}} <strong><a class="" href="#opinions">{{pharmacy.ratings.length}} {{localize 'ratings.opinions'}}</a></strong></p> 
 
                             <ul class="rating"> 
 							
                                 <li class="row">
                                     <div class="col text-right">
-                                        Service
+                                        {{localize 'ratings.metricsService'}}
                                     </div>
                                     <div class="col">
                                         <div class="progress progress-striped">
@@ -118,7 +102,7 @@
                                 <!-- end row -->
                                 <li class="row">
                                     <div class="col text-right">
-                                        Price / Quality
+                                        {{localize 'ratings.metricsQuality'}}
                                     </div>
                                     <div class="col">
                                         <div class="progress progress-striped">
@@ -134,12 +118,7 @@
                             </ul>
                             <!--/.rating-->
 							
-                            <p><a class="btn btn-primary btn-lg justify" href="/drugs?pharmacyId={{pharmacy.id}}"><strong>{{ pharmacy.drugs.length }}</strong> drugs</a></p>
-
-                            <p hidden>In favorites at <strong>462</strong> users</p>
-
-                            <a hidden class="btn btn-secondary justify" href="#"><i class="far fa-heart"></i> Add to favorite</a>
-
+                            <p><a class="btn btn-primary btn-lg justify" href="/drugs?pharmacyId={{pharmacy.id}}"><strong>{{ pharmacy.drugs.length }}</strong> {{localize 'ratings.items.drugs'}}</a></p>
                         </div>
                         <!--/.wave-->
                     </div>
@@ -148,7 +127,7 @@
 					<div class="col-xl-6 col-lg-12">
 						<div class="map hidden-lg-down" style="height: 300px">
 						</div><!--/.map-->
-						<div class="hidden-xl-up"><br /><a class="btn-map" href="#" data-toggle="collapse" data-target="#showMap"><i class="fas fa-map-marker"></i> Show on map</a>
+						<div class="hidden-xl-up"><br /><a class="btn-map" href="#" data-toggle="collapse" data-target="#showMap"><i class="fas fa-map-marker"></i> {{localize 'common.showOnMap'}}</a>
 							<div class="map" style="height: 300px"></div>
                             <script>
                                 var pharmacy = {{{jsonify pharmacy}}};
@@ -211,7 +190,7 @@
 
         <div class="reviews" id="opinions">
             {{#if pharmacy.ratings.length}}
-            <h3>Opinions <span class="badge">{{pharmacy.ratings.length}}</span></h3>
+            <h3>{{localize 'ratings.opinions'}} <span class="badge">{{pharmacy.ratings.length}}</span></h3>
             <ul class="owl-carousel owl-theme">
                 {{#each pharmacy.ratings as |rating|}}
                 <li class="item">
@@ -234,7 +213,7 @@
                 {{/each}}
             </ul>
             {{else}}
-                <h3 style="text-align:center;">There are no opinions. <b>Add an opinion after the closing of the service’s smart-contrac.</b></h3>
+                <h3 style="text-align:center;">{{{localize 'ratings.noOpinions'}}}</h3>
             {{/if}}
         </div>
         <!--/.reviews-->

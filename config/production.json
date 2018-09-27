@@ -1,4 +1,5 @@
 {
   "API_URL": "http://46.101.121.69:8080",
-  "BLOCKCHAIN_API_URL": "http://46.101.121.69:5000"
+  "BLOCKCHAIN_API_URL": "http://46.101.121.69:5000",
+  "DEFAUL_LOCALE": "en"
 }

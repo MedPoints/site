@@ -21,13 +21,14 @@ gulp.task('build:js', function(cb) {
         'public/js/src/*.js', 
         '!public/js/src/registration.js',
         '!public/js/src/auth.js',
-        '!public/js/src/booking.js'
+        '!public/js/src/booking.js',
+        '!public/js/src/localization.js',
     ])
         .pipe(concat('layout.bundle.js'));
     var libBundle = gulp.src([
         'public/js/lib/jquery/*.js', 
         'public/js/lib/tether/*.js',
-        'public/js/lib/*.js'
+        'public/js/lib/*.js',
         ])
         .pipe(concat('lib.bundle.js'));
     if (!argv.dev) {

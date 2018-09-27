@@ -2,35 +2,23 @@
 
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item"><a href="/account">Account</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Your Tickets</li>
+            <li class="breadcrumb-item"><a href="#">{{localize 'breadcrumbs.home'}}</a></li>
+            <li class="breadcrumb-item"><a href="/account">{{localize 'breadcrumbs.account'}}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{localize 'breadcrumbs.tickets'}}</li>
         </ol>
     </nav>
-
-    <ul>
-        <li id="191" class="alert alert-warning parent" role="alert">
-            <strong>Note!</strong> <a class="" href="#">General Hospital</a> <small>Public</small> request your medical records at 11:24 - 12.02.2018. <a href="/account-request">Choose records to open</a>
-            <a name="delete" id="191" class="delete-parent" href="#"><i class="fas fa-times"></i></a>
-        </li>
-
-        <li id="192" class="alert alert-warning parent" role="alert">
-            <strong>Note!</strong> At 2011-08-20 <strong>16:45:00</strong> from your account will be charged <strong class="text-danger">35 MPT</strong> as Monthly insurance fee
-            <a name="delete" id="192" class="delete-parent" href="#"><i class="fas fa-times"></i></a>
-        </li>
-    </ul>
 
     <div class="row">
         <div class="col-xl-3 push-xl-9 col-lg-4 push-lg-8 col-md-5 push-md-7 col-sm-12 push-sm-0"> 
             <nav class="sticky-top"> 
-                <?php include($_SERVER["DOCUMENT_ROOT"]."/inc/right.php"); ?> 
+                
             </nav> 
         </div>
         <!--/.col--> 
         <div class="col-xl-9 pull-xl-3 col-lg-8 pull-lg-4 col-md-7 pull-md-5 col-sm-12 pull-sm-0">
 		
 			<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                <li class="nav-item">
+                {{!-- <li class="nav-item">
                     <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-1" role="tab" aria-controls="pills-1" aria-selected="true">All tickets</a>
                 </li>
                 <li class="nav-item">
@@ -38,7 +26,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-3" role="tab" aria-controls="pills-3" aria-selected="false">Closed</a>
-                </li>
+                </li> --}}
             </ul>
 
             <div class="tab-content" id="pills-tabContent">
@@ -48,13 +36,13 @@
                             <thead>
                                 <tr>
                                     <th>
-                                        <h5>Title</h5>
+                                        <h5>{{localize 'tickets.table.title'}}</h5>
                                     </th>
                                     <th>
-                                        <h5>Time</h5>
+                                        <h5>{{localize 'tickets.table.time'}}</h5>
                                     </th>
                                     <th>
-                                        <h5>Status</h5>
+                                        <h5>{{localize 'tickets.table.status'}}</h5>
                                     </th>
                                 </tr>
                             </thead>
@@ -86,7 +74,7 @@
             </div>
             <!--/.tab-content--> 
 		  	 
-			<a class="btn btn-primary" href="/add-ticket">Add ticket</a>   
+			<a class="btn btn-primary" href="/add-ticket">{{localize 'tickets.table.addTicket'}}</a>   
 						
         </div>
         <!--/.col-->
