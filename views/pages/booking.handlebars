@@ -2,7 +2,7 @@
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="/">{{localize 'breadcrumbs.home'}}</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Book a visit</li>
+        <li class="breadcrumb-item active" aria-current="page">{{localize 'breadcrumbs.bookAVisit'}}</li>
     </ol>
 </nav>
 
@@ -76,34 +76,34 @@
         {{!-- <div class="col-xl-8 col-lg-8 col-md-12"> --}}
         <div class="col-xl-12 col-lg-12 col-md-12">
             <div class="unregistered-item">
-                <h2>Exisitng Customer? <a href="#" data-toggle="modal" data-target="#login">Click here to login</a></h2>
+                <h2>{{{localize 'existingCustomer'}}}</h2>
 
                 <br />
                 <div class="alert alert-info" role="alert">
-                    <strong>Welcome!</strong> We have generated for you a unique ID and a key for authorization on the service.
+                    {{{localize 'welcome'}}}
                 </div>
             </div>
             
 
             <div class="form-group">
-                <label for="walletId">Wallet ID</label>
+                <label for="walletId">{{localize 'popups.walletDetails.walletId'}}</label>
                 <input type="text" class="form-control" id="bookingWalletId" value="" disabled="disabled" />
                 <a class="copy-link btn-copy1" onclick="copyToClipboard($('#bookingWalletId'))">Copy</a>
             </div>
             <div class="form-group">
-                <label for="walletKey">Wallet key</label>
+                <label for="walletKey">{{localize 'popups.walletDetails.walletKey'}}</label>
                 <input type="text" class="form-control" id="bookingWalletKey" value="" disabled="disabled" />
                 <a class="copy-link btn-copy1" onclick="copyToClipboard($('#bookingWalletKey'))">Copy</a>
             </div>
 
             <div class="row">
                 <div class="col-6">
-                    <label for="firstName">First name</label>
+                    <label for="firstName">{{localize 'booking.form.firstName'}}</label>
                     <input type="text" name="firstName" class="form-control" id="firstName" placeholder="First name" required />
                 </div>
                 <!--/.col-->
                 <div class="col-6">
-                    <label for="lastName">Last name</label>
+                    <label for="lastName">{{localize 'booking.form.lastName'}}</label>
                     <input type="text" name="lastName" class="form-control" id="lastName" placeholder="Last name" required />
                 </div>
                 <!--/.col--> 
@@ -115,24 +115,24 @@
             <div class="row">
                 <div class="col-6"> 
                     
-                    <label>Sex</label><br />
+                    <label>{{localize 'booking.form.sex'}}</label><br />
 
                     <label class="custom-control custom-radio">
                         <input id="radio2" name="radio" type="radio" class="custom-control-input" checked="checked">
                         <span class="custom-control-indicator"></span>
-                        <span class="custom-control-description">Male</span>
+                        <span class="custom-control-description">{{localize 'booking.form.sexTypes.male'}}</span>
                     </label>
                     <label class="custom-control custom-radio">
                         <input id="radio3" name="radio" type="radio" class="custom-control-input">
                         <span class="custom-control-indicator"></span>
-                        <span class="custom-control-description">Female</span>
+                        <span class="custom-control-description">{{localize 'booking.form.sexTypes.female'}}</span>
                     </label> 
                     
                 </div>
                 <!--/.col-->
                 <div class="col-6"> 
                     
-                    <label>Date of birth</label> 
+                    <label>{{localize 'booking.form.dateOfBirth'}}</label> 
                     <input class="form-control" type="date" value="2011-08-19" id="dateOfBirth">
                     
                 </div>
@@ -144,26 +144,26 @@
 
             <hr />
             
-            <h3>Select a service and a clinic</h3> 
+            <h3>{{localize 'booking.form.selectServiceAndClinic'}}</h3> 
                     
             <div class="row booking-editors"> 
             
                 <div class="col-3 details-container">
                     <div class="form-group">
-                        <label for="serviceId">Service:</label><br />
+                        <label for="serviceId">{{localize 'booking.form.service'}}:</label><br />
                         <select id="serviceId" name="service" class="booking-control booking-dropdown custom-select">
                         </select>
                     </div>
                 </div>
                 <div class="col-3 details-container">
                     <div class="form-group">
-                        <label>Booking Date</label><br />
+                        <label>{{localize 'booking.form.bookingDate'}}</label><br />
                         <input class="form-control booking-control" type="date" id="bookingDate" required>
                     </div>
                 </div>
                 <div class="col-3 details-container">
                     <div class="form-group">
-                        <label for="clinicId">Clinic:</label><br />
+                        <label for="clinicId">{{localize 'booking.form.clinic'}}:</label><br />
                         <select id="clinicId" name="clinic" class="booking-control booking-dropdown custom-select">
                         </select>
                     </div>
@@ -173,16 +173,16 @@
             <input type="hidden" id="doctorId" name="doctorId" />
             <hr />
             
-            <h3>Add email, if you want to get notifications</h3> 
+            <h3>{{localize 'booking.form.addAnEmail'}}</h3> 
                     
             <div class="row"> 
             
                 <div class="col-6">
-                    <label for="email">Email</label>
+                    <label for="email">{{localize 'booking.form.emails'}}</label>
                     <input type="text" name="email" class="form-control" id="email" placeholder="Email" />
                 </div>
                 <div class="col-6">
-                    <label for="email">Confirm Email</label>
+                    <label for="email">{{localize 'booking.form.confirmEmail'}}</label>
                     <input type="text" name="confirmEmail" class="form-control" id="confirmEmail" placeholder="Confirm Email" />
                 </div>
                 <!--/.col-->
@@ -195,14 +195,14 @@
             <label class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" checked="checked">
                 <span class="custom-control-indicator"></span>
-                <span class="custom-control-description">I accept</span>
-            </label> <a href="/terms-of-use" target="_blank">Terms of use</a> and <a href="/privacy-policy">Privacy Policy</a>
+                <span class="custom-control-description">{{localize 'booking.form.acceptTermsOfUse'}}</span>
+            </label> {{{localize 'booking.form.termsOfUse'}}}
 
             <hr />
             
             <div class="row">
                 <div class="col">
-                    <a class="btn btn-primary justify" id="bookingButton" href="javascript:void(0)">Confirm booking and checkout</a>
+                    <a class="btn btn-primary justify" id="bookingButton" href="javascript:void(0)">{{localize 'booking.form.confirmBooking'}}</a>
                     <br />
                 </div>
                 <!--/.col--> 

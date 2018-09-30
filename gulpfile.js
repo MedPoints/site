@@ -23,6 +23,8 @@ gulp.task('build:js', function(cb) {
         '!public/js/src/auth.js',
         '!public/js/src/booking.js',
         '!public/js/src/localization.js',
+        '!public/js/src/faq.js',
+        '!public/js/src/tickets.js',
     ])
         .pipe(concat('layout.bundle.js'));
     var libBundle = gulp.src([

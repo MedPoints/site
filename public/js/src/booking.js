@@ -25,39 +25,44 @@ $(function () {
         var errors = [];
         data.firstName = $('#firstName').val();
         if (!data.firstName)
-            errors.push('Enter a first name');
+            errors.push(window.localizer.localize('errors.requiredFirstName'));
             
         data.lastName = $('#lastName').val();
         if (!data.lastName)
-            errors.push('Enter a last name');
+            errors.push(window.localizer.localize('errors.requiredLastName'));
 
         data.email = $('#email').val();
-        if (!data.email)
-            errors.push('Enter an email');
+        if (!data.email) {
+            errors.push(window.localizer.localize('errors.requiredEmail'));
+        } else {
+            if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(data.email))) {
+                errors.push(window.localizer.localize('errors.incorrectEmail'));
+            }
+        }
 
         data.confirmEmail = $('#confirmEmail').val();
-        if (!data.email)
-            errors.push('Enter a confirmation email');
+        if (!data.confirmEmail)
+            errors.push(window.localizer.localize('errors.requiredConfirmEmail'));
 
         if (data.email !== data.confirmEmail)
-            errors.push('Emails do not match');
+            errors.push(window.localizer.localize('errors.emailsDoNotMatch'));
 
         data.bookingDate = $('#bookingDate').val();
         if (!data.bookingDate)
-            errors.push('Enter a booking date');
+            errors.push(window.localizer.localize('errors.requiredBookingDate'));
 
         data.doctorId = $('#doctorId').val();
         if (!data.doctorId)
-            errors.push('Select a doctor');
+            errors.push(window.localizer.localize('errors.requiredDoctor'));
         data.serviceId = $('#serviceId').val();
         if (!data.serviceId)
-            errors.push('Select a service');
+            errors.push(window.localizer.localize('errors.requiredService'));
         data.clinicId = $('#clinicId').val();
         if (!data.clinicId)
             errors.push('Select a clinic');
         data.walletId = $('#bookingWalletId').val();
         if (!data.walletId)
-            errors.push('You need a wallet to book a visit. Please register or refresh this page.');
+            errors.push(window.localizer.localize('errors.requiredWallet'));
         
         if (errors.length > 0) {
             var errorContent = '';
@@ -65,7 +70,7 @@ $(function () {
                 errorContent += '<div class="alert alert-danger" role="alert">' + errors[i] + '</div>';
             }
 
-            $('#modalErrorTitle').html('Validation errors');
+            $('#modalErrorTitle').html(window.localizer.localize('errorWindowTitle'));
             $('#modalErrorContent').html(errorContent);
     
             $('#errorModal').modal('show');

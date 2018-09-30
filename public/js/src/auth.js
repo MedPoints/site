@@ -70,8 +70,8 @@ function logIn(walletId, walletKey, callback) {
         url: '/auth/authenticate',
         method: 'POST',
         data: {
-            publicKey: walletId,
-            privateKey: walletKey,
+            publicKey: walletKey,
+            privateKey: walletId,
         },
         success: function (res) {
             Cookies.set('MedPoints_PrivateKey', walletId);
