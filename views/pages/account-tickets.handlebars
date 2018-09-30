@@ -9,13 +9,13 @@
     </nav>
 
     <div class="row">
-        <div class="col-xl-3 push-xl-9 col-lg-4 push-lg-8 col-md-5 push-md-7 col-sm-12 push-sm-0"> 
-            <nav class="sticky-top"> 
-                
-            </nav> 
-        </div>
         <!--/.col--> 
-        <div class="col-xl-9 pull-xl-3 col-lg-8 pull-lg-4 col-md-7 pull-md-5 col-sm-12 pull-sm-0">
+        {{#if requireLogIn}}
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+            <h2>{{localize 'errors.requiresLogin'}}</h2>
+        </div>
+        {{else}}
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
 		
 			<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                 {{!-- <li class="nav-item">
@@ -39,6 +39,9 @@
                                         <h5>{{localize 'tickets.table.title'}}</h5>
                                     </th>
                                     <th>
+                                        <h5>{{localize 'tickets.table.description'}}</h5>
+                                    </th>
+                                    <th>
                                         <h5>{{localize 'tickets.table.time'}}</h5>
                                     </th>
                                     <th>
@@ -47,36 +50,35 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                {{#each tickets as |ticket|}}
                                 <tr>
-                                    <td><a href="/account-ticket">Ticket title</a></td>
-                                    <td>2018-08-20 <strong>16:45:00</strong></td>
-                                    <td><span class="text-info">Open</span></td>
+                                    <td>{{ticket.title}}</td>
+                                    <td>{{ticket.text}}</td>
+                                    <td>{{ticket.dateCreated}}</td>
+                                    <td><span class="text-info">{{ticket.status}}</span></td>
                                 </tr>
-                                <tr>
-                                    <td><a href="/account-ticket">Ticket title</a></td>
-                                    <td>2018-08-18 <strong>6:45:00</strong></td>
-                                    <td><span class="">Closed</span></td>
-                                </tr>
+                                {{/each}}
                             </tbody>
                         </table>
                     </div>
                     <!--end of .table-responsive-->
                 </div>
                 <!--/.tab-pane-->
-                <div class="tab-pane fade" id="pills-2" role="tabpanel" aria-labelledby="pills-profile-tab">
+                {{!-- <div class="tab-pane fade" id="pills-2" role="tabpanel" aria-labelledby="pills-profile-tab">
 					2
 				</div>
                 <!--/.tab-pane-->
                 <div class="tab-pane fade" id="pills-3" role="tabpanel" aria-labelledby="pills-contact-tab">
 					3
-				</div>
+				</div> --}}
                 <!--/.tab-pane-->
             </div>
             <!--/.tab-content--> 
 		  	 
-			<a class="btn btn-primary" href="/add-ticket">{{localize 'tickets.table.addTicket'}}</a>   
+			<a class="btn btn-primary" href="/add-ticket">{{localize 'tickets.addTicket'}}</a>   
 						
         </div>
+        {{/if}}
         <!--/.col-->
     </div>
     <!--/.row--> 
