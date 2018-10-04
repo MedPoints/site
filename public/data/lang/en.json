@@ -5,7 +5,8 @@
         "showOnMap": "Show on map",
         "fromPrice": "from",
         "fromPriceFull": "Price from",
-        "time": "Time"
+        "time": "Time",
+        "copy": "Copy"
     },
     "navigation": {
         "clinics": "Clinics",
@@ -21,6 +22,8 @@
         "logout": "Log Out",
         "register": "Registration",
         "showWallet": "Show my Wallet",
+        "language": "Language",
+        "account": "Account",
 
         "insurance": "Insurance program",
         "foundation": "Help foundation",
@@ -111,8 +114,11 @@
         "foundationCases": "Foundation cases",
         "foundationCase": "Foundation case",
         "account": "Account",
+        "editAccount": "Edit Account",
         "tickets": "Support tickets",
-        "bookAVisit": "Book a visit"
+        "bookAVisit": "Book a visit",
+        "success": "Success",
+        "accountRecords": "Records"
     },
 
     "ratings": {
@@ -251,6 +257,7 @@
         "newWallet": "Error generating a new wallet.",
         "requestError": "An error occurred during request processing. Please try again.",
         "booking": "An error occurred during booking. Plese try again later or contact our Support team.",
+        "account": "An error occurred during your account update. Plese try again later or contact our Support team.",
         "visitDoctor": "Please visit a doctor's page and click the 'Book to visit' button to proceed",
         "terms": "Please accept our terms of use and privacy policy before proceeding",
         "requiredFirstName": "Enter a first name",
@@ -301,6 +308,7 @@
 
     "existingCustomer": "Exisitng Customer? <a href='#' data-toggle='modal' data-target='#login'>Click here to login</a>",
     "welcome": "<strong>Welcome!</strong> We have generated for you a unique ID and a key for authorization on the service.",
+    "success": "Booking was successfull. You will receive further notifications via an email.",
 
     "booking": {
         "form": {
@@ -322,6 +330,28 @@
             "acceptTermsOfUse": "I accept",
             "termsOfUse": "<a href='/terms-of-use' target='_blank'>Terms of use</a> and <a href='/privacy-policy'>Privacy Policy</a>",
             "confirmBooking": "Confirm booking and checkout"
+        }
+    },
+
+    "account": {
+        "login": "You need to log in or register, in order to view your account details",
+        "loginButton": "Login",
+        "registerButton": "Register",
+        "saveChanges": "Save changes",
+        "success": "Your account information was updated successfully.",
+        "modals": {
+            "chooseDoctor": {
+                "title": "Additional actions required",
+                "text": "<p>In order to create a new record you need to book a visit to a doctor. To do it, follow the following steps:</p><ul class=\"custom-list\"><li>Go to the <a href=\"/srvices\">\"Services\"</a> section of this site.</li><li>Find a service you want to get and click the \"doctors\" button.</li><li>Press the \"Book to visit\" button.</li><li>Enter the required data in the form and book a visit.</li></ul>"
+            }
+        },
+        "sidebar": {
+            "appointments": "Appointments",
+            "records": "Records",
+            "addRecord": "Add record",
+            "support": "Support",
+            "addTicket": "Add ticket",
+            "editProfile": "Edit profile"
         }
     }
 }

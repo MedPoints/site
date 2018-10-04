@@ -166,6 +166,9 @@ exports.hbsHelpers = {
   defaultIfEmpty: (val, defaultVal) => {
     return val || defaultVal;
   },
+  compare: (val, compareVal) => {
+    return val === compareVal;
+  },
   localize: (path, options) => {
     return localization.localize(path, options.hash);
   },

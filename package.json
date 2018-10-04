@@ -22,6 +22,7 @@
   "homepage": "https://github.com/MedPoints/site#readme",
   "dependencies": {
     "axios": "^0.18.0",
+    "bluebird": "^3.5.2",
     "body-parser": "^1.18.3",
     "config": "1.30.0",
     "cookie-parser": "^1.4.3",

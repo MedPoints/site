@@ -1419,3 +1419,20 @@ ul.cat-list li {
     padding-top: 1em;
 }
 
+.button-container {
+    padding: 1.5em 0;
+}
+
+.custom-list {
+    list-style-type: disc !important;
+    padding-left:1em !important;
+    margin-left:1em;
+}
+
+.breakable {
+    word-break: break-word;
+}
+
+.continer-wrapper {
+    padding: 2em 0;
+}

@@ -26,7 +26,7 @@
     <link href="/css/owl.carousel.css" rel="stylesheet">
     <link href="/css/flag-icon.min.css" rel="stylesheet">
     <link href="/css/simpleLightbox.min.css" rel="stylesheet">
-    <link href="/css/zabuto_calendar.css" rel="stylesheet">
+    <link href="/css/zabuto_calendar.min.css" rel="stylesheet">
     {{{localization locale}}}
     <script src="/js/src/localization.js"></script>
     <script src="/js/dist/lib.bundle.js"></script>
@@ -37,6 +37,7 @@
 <body>
     {{> choose-location }}
     {{> sorry }}
+    {{> choose-doctor}}
     {{> login }}
     {{> wallet }}
     {{> error-modal }}
@@ -45,6 +46,7 @@
     {{> list-funds }}
     {{> free-license }}
     {{> address }}
+    {{> calendar-details}}
 
 
     <div class="ico-info-box"
@@ -56,7 +58,7 @@
 
         <nav class="navbar navbar-toggleable-md">
 
-            <button id="btn-menu" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation"><i class="fas fa-bars" ></i><span> {{localize 'navigation.open'}}</span></button>
+            <button id="btn-menu" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation"><i class="fas fa-bars" data-toggle="collapse" data-target="#navbarsExampleDefault"></i><span data-toggle="collapse" data-target="#navbarsExampleDefault"> {{localize 'navigation.open'}}</span></button>
 
             <a class="navbar-brand" href="/"><img src="/img/logo.svg" alt="" /></a>
 
@@ -70,7 +72,7 @@
                         <a class="nav-link" href="#" data-toggle="modal" data-target="#chooseLocation"><span id="locationLabel">New York</span> &nbsp;<i class="fas fa-pencil-alt"></i></a>
                     </li>
                     <li class="nav-item">
-                        <span class="nav-link">Language</span>
+                        <span class="nav-link">{{localize 'navigation.language'}}</span>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="flag-icon flag-icon-gb"></i></a>
@@ -99,9 +101,9 @@
                 </ul>
 
                 <ul class="navbar-nav navbar-right">
-                    <li class="nav-item">
+                    {{!-- <li class="nav-item">
                         <a class="nav-link" href="/rates">1 <strong>MPT</strong> = 0.01 <i class="fas fa-dollar-sign"></i></a>
-                    </li>
+                    </li> --}}
                     <li class="nav-item unregistered-item">
                         <a class="nav-link" href="#" data-toggle="modal" data-target="#login">{{localize 'navigation.login'}}</a>
                     </li>
@@ -109,7 +111,7 @@
                         <a class="nav-link" href="/registration">{{localize 'navigation.register'}}</a>
                     </li>
                     <li class="nav-item registered-item">
-                        <a class="nav-link" href="#" data-toggle="modal" data-target="#wallet">{{localize 'navigation.showWallet'}}</a>
+                        <a class="nav-link" href="/account">{{localize 'navigation.account'}}</a>
                     </li>
                     <li class="nav-item registered-item">
                         <a class="nav-link" id="logOutButton" href="javascript:void(0)">{{localize 'navigation.logout'}}</a>
