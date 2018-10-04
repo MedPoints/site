@@ -192,11 +192,11 @@ function initializeMenuToggle() {
     $('#btn-menu').click(function () {
         if($('#btn-menu i').hasClass('fa-bars'))
         {
-            $('#btn-menu').html('<i class="fas fa-times"></i><span> Close menu</span>');
+            $('#btn-menu').html('<i class="fas fa-times" data-toggle="collapse" data-target="#navbarsExampleDefault"></i><span data-toggle="collapse" data-target="#navbarsExampleDefault"> Close menu</span>');
         }
         else
         {
-            $('#btn-menu').html('<i class="fas fa-bars"></i><span> Open menu</span>');
+            $('#btn-menu').html('<i class="fas fa-bars" data-toggle="collapse" data-target="#navbarsExampleDefault"></i><span data-toggle="collapse" data-target="#navbarsExampleDefault"> Open menu</span>');
         }
     });
 }
