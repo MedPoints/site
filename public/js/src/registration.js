@@ -77,8 +77,8 @@ function register(registerData) {
         method: 'POST',
         data: registerData,
         success: function (res) {
-            Cookies.set('MedPoints_PrivateKey', res.result.publicKey);
-            Cookies.set('MedPoints_PublicKey', res.result.privateKey);
+            Cookies.set('MedPoints_PrivateKey', res.result.privateKey);
+            Cookies.set('MedPoints_PublicKey', res.result.publicKey);
             window.location.href = '/';
         },
         error: function (res) {
