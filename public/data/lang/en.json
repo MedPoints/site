@@ -251,7 +251,10 @@
     },
 
     "errorWindowTitle": "Validation errors",
-
+    "customErrorWindowTitle": "An error occurred",
+    "errorsByCode": {
+        "USER_NOT_CONFIRMED": "You need to confirm your email before proceeding."
+    },
     "errors": {
         "bothKeyAndId": "Both Wallet ID and Key values are required",
         "newWallet": "Error generating a new wallet.",
@@ -273,7 +276,9 @@
         "incorrectEmail": "Entered email is not valid",
         "requiredTitle": "Title is required",
         "requiredSubject": "Subject is required",
-        "requiresLogin": "You need to log in to view your tickets"
+        "requiresLogin": "You need to log in to view your tickets",
+        "bookingRequest": "Something went wrong during booking. Please try again later.",
+        "accountUpdateRequest": "Something went wrong during account update. Please try again later."
     },
 
     "faq": {
@@ -342,7 +347,7 @@
         "modals": {
             "chooseDoctor": {
                 "title": "Additional actions required",
-                "text": "<p>In order to create a new record you need to book a visit to a doctor. To do it, follow the following steps:</p><ul class=\"custom-list\"><li>Go to the <a href=\"/srvices\">\"Services\"</a> section of this site.</li><li>Find a service you want to get and click the \"doctors\" button.</li><li>Press the \"Book to visit\" button.</li><li>Enter the required data in the form and book a visit.</li></ul>"
+                "text": "<p>In order to create a new record you need to book a visit to a doctor. To do it, follow the following steps:</p><ul class=\"custom-list\"><li>Go to the <a href=\"/services\">\"Services\"</a> section of this site.</li><li>Find a service you want to get and click the \"doctors\" button.</li><li>Press the \"Book to visit\" button.</li><li>Enter the required data in the form and book a visit.</li></ul>"
             }
         },
         "sidebar": {

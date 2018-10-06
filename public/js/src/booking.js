@@ -1,11 +1,11 @@
 $(function () {
     if (isRegistered()) {
-        logIn(Cookies.get('MedPoints_PrivateKey'),
-        Cookies.get('MedPoints_PublicKey'),
+        logIn(Cookies.get('MedPoints_PublicKey'),
+        Cookies.get('MedPoints_PrivateKey'),
         function(data) {
             if (data) {
-                $('#bookingWalletId').val(data.privateKey);
-                $('#bookingWalletKey').val(data.publicKey);
+                $('#bookingWalletId').val(data.publicKey);
+                $('#bookingWalletKey').val(data.privateKey);
                 $('#firstName').val(data.firstName);
                 $('#lastName').val(data.lastName);
                 $('#email').val(data.email);
@@ -13,8 +13,8 @@ $(function () {
         });
     } else {
         generateNewWallet(function (walletData) {
-            $('#bookingWalletId').val(walletData.PrivateKey);
-            $('#bookingWalletKey').val(walletData.PublicKey);
+            $('#bookingWalletId').val(walletData.PublicKey);
+            $('#bookingWalletKey').val(walletData.PrivateKey);
         });
     }
 

@@ -70,12 +70,12 @@ function logIn(walletId, walletKey, callback) {
         url: '/auth/authenticate',
         method: 'POST',
         data: {
-            publicKey: walletKey,
-            privateKey: walletId,
+            publicKey: walletId,
+            privateKey: walletKey,
         },
         success: function (res) {
-            Cookies.set('MedPoints_PrivateKey', walletId);
-            Cookies.set('MedPoints_PublicKey', walletKey);
+            Cookies.set('MedPoints_PrivateKey', res.result.privateKey);
+            Cookies.set('MedPoints_PublicKey', res.result.publicKey);
             if (callback) {
                 callback(res.result);
             } else {

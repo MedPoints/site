@@ -65,7 +65,7 @@
 				<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
 					<div class="form-group">
 						<label for="walletId">{{localize 'popups.walletDetails.walletId'}}</label>
-						<input type="text" class="form-control" id="bookingWalletId" value="{{accountData.privateKey}}" disabled="disabled" />
+						<input type="text" class="form-control" id="bookingWalletId" value="{{accountData.publicKey}}" disabled="disabled" />
 						<a class="copy-link btn-copy1" onclick="copyToClipboard($('#bookingWalletId'))">{{localize 'common.copy'}}</a>
 					</div>
 				</div>
@@ -73,7 +73,7 @@
 				<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
 					<div class="form-group">
 						<label for="walletKey">{{localize 'popups.walletDetails.walletKey'}}</label>
-						<input type="text" class="form-control" id="bookingWalletKey" value="{{accountData.publicKey}}" disabled="disabled" />
+						<input type="text" class="form-control" id="bookingWalletKey" value="{{accountData.privateKey}}" disabled="disabled" />
 						<a class="copy-link btn-copy1" onclick="copyToClipboard($('#bookingWalletKey'))">{{localize 'common.copy'}}</a>
 					</div>
 				</div>

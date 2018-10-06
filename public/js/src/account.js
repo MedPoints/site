@@ -45,7 +45,15 @@ $(function () {
             url: '/account/updateAccount',
             data: data,
             success: function(res) {
-                window.location.href = '/account/success';
+                if (res.status !== 200) {
+                    $('#modalErrorTitle').html(window.localizer.localize('customErrorWindowTitle'));
+                    $('#modalErrorContent').html(res.statusText);
+            
+                    $('#errorModal').modal('show');
+                } else {
+                    window.location.href = '/account/success';
+                }
+                
             },
             error: function (res) {
                 alert(window.localizer.localize('errors.account'));

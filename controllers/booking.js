@@ -2,6 +2,8 @@ const config = require('config');
 const axios = require('axios');
 const API_URL = config.get('BLOCKCHAIN_API_URL');
 
+const localization = require('../helpers/localization').localization;
+
 exports.register = async (req, res) => {
     const {
         clinicId,
@@ -37,6 +39,6 @@ exports.register = async (req, res) => {
         res.setHeader('Content-Type', 'application/json');
         res.send(JSON.stringify({ status: request.status, statusText: request.statusText }));
     } else {
-        throw new Error('Something went wrong during booking. Please try again later.');
+        throw new Error(localization.localize('errors.bookingRequest'));
     }
 };
