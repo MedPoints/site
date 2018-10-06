@@ -61,8 +61,8 @@ function initRegisterElement() {
     $('.alreadyRegisteredContainer').hide();
     $('.registerContainer').show();
     generateNewWallet(function (walletData) {
-        setWalletIdValue(walletData.PrivateKey);
-        setWalletKeyValue(walletData.PublicKey);
+        setWalletIdValue(walletData.PublicKey);
+        setWalletKeyValue(walletData.PrivateKey);
     });
 }
 

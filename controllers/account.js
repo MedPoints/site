@@ -6,6 +6,9 @@ const Promise = require('bluebird');
 const API_URL = config.get('API_URL');
 const BLOCKCHAIN_URL = config.get('BLOCKCHAIN_API_URL');
 
+const localization = require('../helpers/localization').localization;
+
+
 const { prepareClinicData } = require('./../helpers/clinics');
 const { prepareDoctorData } = require('./../helpers/doctors');
 const { prepareTransactionData, prepareAppointmentData, getTransactions } = require('./../helpers/account');
@@ -115,7 +118,7 @@ exports.editInfo = async (req, res) => {
     });
 };
 
-exports.updateAccount = async (req, res) => {
+exports.updateAccount = async (req, res, next) => {
     const {
         MedPoints_PrivateKey,
         MedPoints_PublicKey,
@@ -134,20 +137,34 @@ exports.updateAccount = async (req, res) => {
         sex,
     } = req.body;
 
-    const request = await axios.put(`${API_URL}/api/users/update`, {
-        firstName,
-        lastName,
-        email,
-        gender: sex,
-        publicKey: MedPoints_PublicKey,
-        privateKey: MedPoints_PrivateKey,
-    });
+    let request;
+
+    try {
+        request = await axios.put(`${API_URL}/api/users/update`, {
+            firstName,
+            lastName,
+            email,
+            gender: sex,
+            publicKey: MedPoints_PublicKey,
+            privateKey: MedPoints_PrivateKey,
+        });
+    } catch (error) {
+        if (error.response && error.response.data) {
+            res.setHeader('Content-Type', 'application/json');
+            res.send(JSON.stringify({ 
+                status: 500, 
+                statusText: localization.localize(`errorsByCode.${error.response.data.error}`)
+            }));
+            return;
+        }
+    }
+    
 
     if (request.status === 200) {
         res.setHeader('Content-Type', 'application/json');
         res.send(JSON.stringify({ status: request.status, statusText: request.statusText }));
     } else {
-        throw new Error('Something went wrong during account update. Please try again later.');
+        throw new Error(localize('errors.accountUpdateRequest'));
     }
 };
 
