@@ -4,7 +4,7 @@ const { DataPager } = require('./../helpers/pager');
 const { prepareBlockData } = require('./../helpers/explorer');
 const API_URL = config.get('BLOCKCHAIN_API_URL');
 
-const PAGE_TITLE = 'Blockchain explorer';
+const PAGE_TITLE = 'Blockchain Explorer';
 
 exports.getBlocks = async (req, res) => {
     const response = await axios.get(`${API_URL}/api/blockchain/blocks`);

@@ -8,6 +8,7 @@ const BLOCKCHAIN_URL = config.get('BLOCKCHAIN_API_URL');
 
 const localization = require('../helpers/localization').localization;
 
+const PAGE_TITLE = 'Account';
 
 const { prepareClinicData } = require('./../helpers/clinics');
 const { prepareDoctorData } = require('./../helpers/doctors');
@@ -28,7 +29,7 @@ exports.getAccountInfo = async (req, res) => {
 
     // Check if user is logged in and render login page if not logged in
     if (!MedPoints_PrivateKey || !MedPoints_PublicKey) {
-        res.render('accounts/login', { isLoggedIn: false, title: 'MedPoints™ Account' });
+        res.render('accounts/login', { isLoggedIn: false, PAGE_TITLE, title: 'MedPoints™ Account' });
         return;
     }
 
@@ -52,6 +53,7 @@ exports.getAccountInfo = async (req, res) => {
         recordsCount: response.data.length,
         pagerInfo: dataPager,
         transactions, 
+        PAGE_TITLE,
         appointmentsData,
         title: 'MedPoints™ Account',
     });
@@ -69,7 +71,7 @@ exports.records = async (req, res) => {
 
     // Check if user is logged in and render login page if not logged in
     if (!MedPoints_PrivateKey || !MedPoints_PublicKey) {
-        res.render('accounts/login', { isLoggedIn: false, title: 'MedPoints™ Account' });
+        res.render('accounts/login', { isLoggedIn: false, PAGE_TITLE, title: 'MedPoints™ Account' });
         return;
     }
 
@@ -91,6 +93,7 @@ exports.records = async (req, res) => {
         recordsCount: response.data.length,
         pagerInfo: dataPager,
         transactions,
+        PAGE_TITLE: 'Records',
         title: 'MedPoints™ Account Records',
     });
 };
@@ -104,7 +107,7 @@ exports.editInfo = async (req, res) => {
 
     // Check if user is logged in and render login page if not logged in
     if (!MedPoints_PrivateKey || !MedPoints_PublicKey) {
-        res.render('accounts/login', { isLoggedIn: false, title: 'MedPoints™ Account' });
+        res.render('accounts/login', { isLoggedIn: false, PAGE_TITLE, title: 'MedPoints™ Account' });
         return;
     }
 
@@ -114,6 +117,7 @@ exports.editInfo = async (req, res) => {
     res.render('accounts/account-edit', { 
         recordsCount: blockchainResponse.data.length,
         accountData: profileResponse.data.result,
+        PAGE_TITLE: 'Edit Account',
         title: 'MedPoints™ Edit Account',
     });
 };
@@ -126,7 +130,7 @@ exports.updateAccount = async (req, res, next) => {
 
     // Check if user is logged in and render login page if not logged in
     if (!MedPoints_PrivateKey || !MedPoints_PublicKey) {
-        res.render('accounts/login', { isLoggedIn: false, title: 'MedPoints™ Account' });
+        res.render('accounts/login', { isLoggedIn: false, PAGE_TITLE, title: 'MedPoints™ Account' });
         return;
     }
 

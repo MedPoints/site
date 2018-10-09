@@ -47,7 +47,7 @@ exports.getDrug = async (req, res) => {
         providersLocations.push(provider);
       }
   }
-  res.render('drugs/drug', { drug, providersLocations, title: `MedPoints™ - Drugs - ${drug.name}` });
+  res.render('drugs/drug', { drug, providersLocations, PAGE_TITLE, title: `MedPoints™ - Drugs - ${drug.name}` });
 }
 
 exports.getCount = async (req, res) => {
