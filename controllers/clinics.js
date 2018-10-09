@@ -46,7 +46,7 @@ exports.getClinics = async (req, res) => {
     parameters: req.query
   };
 
-  res.render('clinics/clinics', { hospitals, pagerInfo, avgCoordinates, title: 'MedPoints™ Clinics' });
+  res.render('clinics/clinics', { hospitals, pagerInfo, PAGE_TITLE, avgCoordinates, title: 'MedPoints™ Clinics' });
 };
 
 exports.getClinicsByLocation = async (req, res) => {

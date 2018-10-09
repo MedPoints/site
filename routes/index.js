@@ -3,6 +3,7 @@ const getSpecializations = require('../controllers/doctors').getSpecializations;
 const getClinicsByLocation = require('../controllers/clinics').getClinicsByLocation;
 const getCities = require('../controllers/cities').getCities;
 const catchErrors = require('../handlers/errorHandlers').catchErrors;
+const localization = require('../helpers/localization').localization;
 
 
 router.get('/', catchErrors(async (req, res) => {
@@ -17,6 +18,8 @@ router.get('/', catchErrors(async (req, res) => {
 		locationsData: { data: locations.clinicsGroups, dataOptions: { baseUrl: '/clinics', filterQuery: '?country=', filterProperty: 'countryCode', labelProperty: 'countryName', badgeProperty: 'count' }},
 		locations: locations.locations,
 		locationsColumnsOptions,
+		PAGE_TITLE: localization.localize('pageTitles.index'),
+		pageName: 'index',
 		title: 'MedPoints™',
 	})
 }));

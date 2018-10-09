@@ -4,6 +4,8 @@ const API_URL = config.get('API_URL');
 const { prepareTicketsData } = require('./../helpers/tickets');
 const localization = require('./../helpers/localization').localization;
 
+const PAGE_TITLE = 'Support Tickets'; 
+
 exports.sendQuestion = async (req, res) => {
     const {
         name,
@@ -65,7 +67,7 @@ exports.getTickets = async (req, res) => {
     } = req.cookies;
 
     if (!MedPoints_PrivateKey || !MedPoints_PublicKey) {
-        res.render('pages/account-tickets', { tickets: [], requireLogIn: true, title: `MedPoints™ Your support tickets` });
+        res.render('pages/account-tickets', { tickets: [], PAGE_TITLE, requireLogIn: true, title: `MedPoints™ Your support tickets` });
     }
 
     let request = {};
@@ -77,5 +79,5 @@ exports.getTickets = async (req, res) => {
         console.log('Error in the tickets request.');
     }
 
-    res.render('pages/account-tickets', { tickets, requireLogIn: false, title: `MedPoints™ Your support tickets` });
+    res.render('pages/account-tickets', { tickets, PAGE_TITLE, requireLogIn: false, title: `MedPoints™ Your support tickets` });
 };

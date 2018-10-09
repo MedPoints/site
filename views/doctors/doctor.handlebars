@@ -8,7 +8,7 @@
     </nav>
 
     <div class="row">
-        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
         {{!-- <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12"> --}}
 
             <div class="row">
@@ -38,20 +38,34 @@
 
                     <h3>{{localize 'doctor.allSpecializations'}}</h3>
                     <ul class="list-inline">
+                        <li class="list-inline-item"><a href="#">Abdominal Radiology</a></li>
+                        <li class="list-inline-item"><a href="#">Addiction Psychiatry</a></li>
+                        <li class="list-inline-item"><a href="#">Adolescent Medicine</a></li>
+                        <li class="list-inline-item"><a href="#">Cardiothoracic Radiology</a></li>
+                        <li class="list-inline-item"><a href="#">Abdominal Radiology</a></li>
+                        <li class="list-inline-item"><a href="#">Addiction Psychiatry</a></li>
+                        <li class="list-inline-item"><a href="#">Adolescent Medicine</a></li>
+                        <li class="list-inline-item"><a href="#">Cardiothoracic Radiology</a></li>
+                    </ul>
+                    {{!-- <ul class="list-inline">
                         {{#each doctor.specializations as |specialization|}}
                         <li class="list-inline-item">{{specialization}}</li>
                         {{/each}}
-                    </ul>
+                    </ul> --}}
 
                     <hr />
 
                     <h3>{{localize 'doctor.education'}}</h3>
-
                     <ul>
+                        <li><i class="fas fa-graduation-cap"></i> <a class="" href="#">New York Medical College</a> - Doctor of Medicine <br><em>Graduate of 1994</em></li>
+                        <li><i class="fas fa-graduation-cap"></i> <a class="" href="#">Montefiore Medical Center</a> - Residency in Internal Medicine <br><em>Graduate of 1998</em></li>
+                        <li><i class="fas fa-graduation-cap"></i> <a class="" href="#">New York Medical College</a> - Master Internal Medicine <br><em>Graduate of 2003</em></li>
+                    </ul>
+                    {{!-- <ul>
                         {{#each doctor.education as |ed|}}
                         <li><i class="fas fa-graduation-cap"></i> <a class="" href="#">{{ed.university}}</a> - {{ed.degree}} <br /><em>{{localize 'doctor.graduateOf'}} {{ed.graduated}}</em></li>
                         {{/each}}
-                    </ul>
+                    </ul> --}}
 
                 </div>
                 <!--/.col-->
@@ -140,7 +154,7 @@
                     <div class="col-xl-6 col-lg-12">
 						<div class="map hidden-lg-down" style="height: 300px">
                         </div><!--/.map-->
-                        <div class="hidden-xl-up"><br /><a class="btn-map" href="#" data-toggle="collapse" data-target="#showMap"><i class="fas fa-map-marker"></i> {{localize 'common.showOnMap'}}</a>
+                        <div class="hidden-xl-up"><br /><a class="btn-map" href="#" data-toggle="collapse" data-target="#map"><i class="fas fa-map-marker"></i> {{localize 'common.showOnMap'}}</a>
                         <div class="map collapse" id="map" style="height: 300px">
                         </div><!--/.collapse-->
                     </div>

@@ -30,6 +30,10 @@
         "search": "search"
     },
 
+    "pageTitles": {
+        "index": "MedPoints™ - Blockchain based <br>worldwide <strong>medical booking</strong>"
+    },
+
     "search": {
         "searchDoctor": "Search doctor by <strong>department</strong>",
         "searchClinic": "Search clinic by <strong>location</strong>",
