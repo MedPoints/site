@@ -176,4 +176,7 @@ exports.hbsHelpers = {
     const dictionary = fs.readFileSync(`public/data/lang/${locale}.json`, 'utf8');
     return `<script type="text/javascript">window.dictionary = ${dictionary};</script>`;
   },
+  equals: (val1, val2) => {
+    return val1 === val2;
+  },
 };

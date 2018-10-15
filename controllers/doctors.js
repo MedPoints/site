@@ -10,7 +10,9 @@ const PAGE_TITLE = 'Doctors';
 exports.getDoctors = async (req, res) => {
   let url = queryPersistant.applyRequestQueryParameters(req.query, `${API_URL}/api/doctors`);  
   const request = await axios.get(url);
-  let doctors = request.data.result.data.map(doctor => prepareDoctorData(doctor));
+  let doctors = request.data.result.data.map(doctor => prepareDoctorData(doctor, {
+    search: req.query.name
+  }));
   const hospitals = doctors.map(doctor => doctor.hospital);
   
   let avgCoordinates = {lat: 0, lng: 0};
@@ -45,7 +47,15 @@ exports.getDoctors = async (req, res) => {
   };
 
 
-  res.render('doctors/doctors', { doctors, hospitals, avgCoordinates, pagerInfo, PAGE_TITLE, title: `MedPoints™ Doctors` });
+  res.render('doctors/doctors', { 
+    doctors, 
+    hospitals, 
+    avgCoordinates, 
+    pagerInfo, 
+    PAGE_TITLE, 
+    title: `MedPoints™ Doctors`,
+    filter: req.query.filter, 
+  });
 };
 
 exports.getDoctor = async (req, res) => {

@@ -1,87 +1,178 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">{{localize 'breadcrumbs.home'}}</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{PAGE_TITLE}}</li>
+    </ol>
+</nav>
 
+<section class="bg-gray">
 
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/">{{localize 'breadcrumbs.home'}}</a></li>
-            <li class="breadcrumb-item active" aria-current="page">{{PAGE_TITLE}}</li>
-        </ol>
-    </nav>
-	<div class="row">
-	
-        <div class="col-xl-3 push-xl-9 col-lg-12 push-lg-0">
-
-            <h3>{{localize 'drug.categories'}}</h3>
-
-            <ul class="cat-list">
-                <li><a class="active" href="/drugs">{{localize 'drug.categoriesAll'}}</a></li>
-                {{#each categories as |category|}}
-                    <li><a href="/drugs?group={{category.id}}">{{category.name}}</a><span class="badge">{{category.drugs}}</span></li>
-                {{/each}}
-            </ul><!--/.cat-list-->
-
-        </div>
-        <!--/.col-->
-		
-        <div class="col-xl-9 pull-xl-3 col-lg-12 pull-lg-0">
-            <div class="table-responsive">
-                <table summary="" class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th width="40%">
-                                <h5>{{localize 'drugs.table.name'}}</h5>
-                            </th>
-                            <th>
-                                <h5>{{localize 'drugs.table.price'}}</h5>
-                            </th>
-                            <th>
-                                <h5>{{localize 'drugs.table.insurance'}}</h5>
-                            </th>
-                            <th>
-                                <h5>{{localize 'drugs.table.prescription'}}</h5>
-                            </th>
-                            <th class="text-right">
-                                <h5>{{localize 'drugs.table.providers'}}</h5>
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {{#each drugs as |drug|}}
-                        <tr>
-                            <td>
-                                <h4><a href="/drugs/{{ drug.id }}" title="">{{ drug.name }}</a></h4>
-                                <p>{{ drug.short_descr }}</p>
-                            </td>
-                            <td class="price-td">{{localize 'common.fromPrice'}} <strong class="text-dark">${{ drug.price.dollars }}</strong><br /><strong class="text-success">{{ drug.price.mpts }} MPT</strong></td>
-                            <td class="text-center">
-                                {{#if drug.is_covered_by_insurance}}
-                                <i class="fas fa-plus text-success" data-toggle="tooltip" data-placement="top" title="Can be purchased for insurance points"></i>
-                                {{/if}}
-                            </td>
-                            <td class="text-center">
-                                {{#if drug.is_by_prescription}}
-                                <i class="fas fa-plus text-success" data-toggle="tooltip" data-placement="top" title="Can be purchased for insurance points"></i>
-                                {{/if}}
-                            </td>
-                            <td><a class="btn btn-primary float-right" href="/pharmacies?drugId={{drug.id}}"><strong>{{ drug.providers.pharmacies }}</strong> {{localize 'ratings.items.pharmacies'}}</a></td>
-                        </tr>
-                        {{/each}}
-                    </tbody>
-                </table>
+    <form class="filter">
+        <div class="row">
+            <div class="col-sm-9">
+                <label class="custom-control custom-checkbox">
+                    <input type="checkbox" name="filter[prescription]" class="custom-control-input" {{#if filter.prescription }}checked{{/if}}>
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description">Released without a prescription</span>
+                </label>
+                <label class="custom-control custom-checkbox">
+                    <input type="checkbox" name="filter[insurance]" class="custom-control-input" {{#if filter.insurance }}checked{{/if}}>
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description">Can be covered by insurance points</span>
+                </label>
             </div>
-            <!--end of .table-responsive-->
-			
-			<br />
- 
-			<div class="row pagination-line">
-            	<div class="col">
-					<nav aria-label="...">
+            <!--/.col-->
+            <div class="col-sm-3">
+                <button type="button" id="btn-more" class="btn btn-secondary collapsed filter-button" data-toggle="collapse" data-target="#moreFilters" aria-expanded="false"><i class="fas fa-angle-down"></i> More filters</button>
+                <button type="submit" id="btn-more" class="btn btn-primary filter-button">Apply Filters</button>
+            </div>
+            <!--/.col-->
+        </div>
+        <!--/.row-->
+
+        <div class="collapse" id="moreFilters" aria-expanded="false" style="">
+            <hr>
+            <div class="row">
+                <div class="col-xl-3 col-md-6 col-sm-12">
+
+                    <h3>Location</h3>
+                    <input type="hidden" id="locationName" name="locationName"/>
+                    <label class="custom-control custom-radio">
+                        <input id="locationRadio1" name="filter[location]" value="home" type="radio" class="custom-control-input" {{#if (equals filter.location 'home') }}checked{{/if}}>
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">In your city</span>
+                    </label>
+                    <label class="custom-control custom-radio">
+                        <input id="locationRadio2" name="filter[location]" value="worldwide" type="radio" class="custom-control-input" {{#if (equals filter.location 'worldwide') }}checked{{/if}}>
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">Worldwide</span>
+                    </label>
+                </div>
+                <!--/.col-->
+
+                <div class="col-xl-3 col-md-6 col-sm-12">
+
+                    <h3>Sort by</h3>
+                    <label class="custom-control custom-radio">
+                        <input id="sortRadio1" name="filter[sort]" value="rating" type="radio" class="custom-control-input" {{#if (equals filter.sort 'rating') }}checked{{/if}}>
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">By rating</span>
+                    </label>
+                    <label class="custom-control custom-radio">
+                        <input id="sortRadio2" name="filter[sort]" value="price" type="radio" class="custom-control-input" {{#if (equals filter.sort 'price') }}checked{{/if}}>
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">By prices</span>
+                    </label>
+                </div>
+                <!--/.col-->
+
+                <div class="col-xl-3 col-md-6 col-sm-12">
+
+                    <h3>Max price: <span id="maxPriceLabel">{{filter.maxPrice}}</span> MPT</h3>
+
+                    <input class="justify" type="range" min="0" max="100" id="maxPriceRange" name="filter[maxPrice]"
+                        value="{{filter.maxPrice}}">
+                    <script>
+                        var slider = document.getElementById("maxPriceRange");
+                        var output = document.getElementById("maxPriceLabel");
+                        output.innerHTML = slider.value;
+
+                        slider.oninput = function () {
+                            output.innerHTML = this.value;
+                        }
+                    </script>
+
+
+                </div>
+                <!--/.col-->
+            </div>
+            <!--/.row-->
+        </div>
+        <!--/.collapse-->
+
+    </form>
+
+</section>
+
+<div class="row">
+
+    <div class="col-xl-3 push-xl-9 col-lg-12 push-lg-0">
+
+        <h3>{{localize 'drug.categories'}}</h3>
+
+        <ul class="cat-list">
+            <li><a class="active" href="/drugs">{{localize 'drug.categoriesAll'}}</a></li>
+            {{#each categories as |category|}}
+            <li><a href="/drugs?group={{category.id}}">{{category.name}}</a><span class="badge">{{category.drugs}}</span></li>
+            {{/each}}
+        </ul>
+        <!--/.cat-list-->
+
+    </div>
+    <!--/.col-->
+
+    <div class="col-xl-9 pull-xl-3 col-lg-12 pull-lg-0">
+        <div class="table-responsive">
+            <table summary="" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th width="40%">
+                            <h5>{{localize 'drugs.table.name'}}</h5>
+                        </th>
+                        <th>
+                            <h5>{{localize 'drugs.table.price'}}</h5>
+                        </th>
+                        <th>
+                            <h5>{{localize 'drugs.table.insurance'}}</h5>
+                        </th>
+                        <th>
+                            <h5>{{localize 'drugs.table.prescription'}}</h5>
+                        </th>
+                        <th class="text-right">
+                            <h5>{{localize 'drugs.table.providers'}}</h5>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each drugs as |drug|}}
+                    <tr>
+                        <td>
+                            <h4><a href="/drugs/{{ drug.id }}" title="">{{ drug.name }}</a></h4>
+                            <p>{{ drug.short_descr }}</p>
+                        </td>
+                        <td class="price-td">{{localize 'common.fromPrice'}} <strong class="text-dark">${{
+                                drug.price.dollars }}</strong><br /><strong class="text-success">{{ drug.price.mpts }}
+                                MPT</strong></td>
+                        <td class="text-center">
+                            {{#if drug.is_covered_by_insurance}}
+                            <i class="fas fa-plus text-success" data-toggle="tooltip" data-placement="top" title="Can be purchased for insurance points"></i>
+                            {{/if}}
+                        </td>
+                        <td class="text-center">
+                            {{#if drug.is_by_prescription}}
+                            <i class="fas fa-plus text-success" data-toggle="tooltip" data-placement="top" title="Can be purchased for insurance points"></i>
+                            {{/if}}
+                        </td>
+                        <td><a class="btn btn-primary float-right" href="/pharmacies?drugId={{drug.id}}"><strong>{{
+                                    drug.providers.pharmacies }}</strong> {{localize 'ratings.items.pharmacies'}}</a></td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+        <!--end of .table-responsive-->
+
+        <br />
+
+        <div class="row pagination-line">
+            <div class="col">
+                <nav aria-label="...">
                     {{> pager pagerInfo }}
                 </nav>
-            	</div>
-          	</div>
-
+            </div>
         </div>
-        <!--/.col-->
+
     </div>
-    <!--/.row-->
- 
+    <!--/.col-->
+</div>
+<!--/.row-->

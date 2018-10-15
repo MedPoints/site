@@ -46,7 +46,14 @@ exports.getPharmacies = async (req, res) => {
     parameters: req.query
   };
 
-  res.render('pharmacies/pharmacies', { pharmacies, pagerInfo, PAGE_TITLE, avgCoordinates, title: `MedPoints™ Pharmacies` });
+  res.render('pharmacies/pharmacies', { 
+    pharmacies, 
+    pagerInfo, 
+    PAGE_TITLE, 
+    avgCoordinates, 
+    title: `MedPoints™ Pharmacies`,
+    filter: req.query.filter, 
+  });
 };
 
 exports.getPharmacy = async (req, res) => {

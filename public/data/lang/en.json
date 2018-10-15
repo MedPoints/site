@@ -31,7 +31,8 @@
     },
 
     "pageTitles": {
-        "index": "MedPoints™ - Blockchain based <br>worldwide <strong>medical booking</strong>"
+        "index": "MedPoints™ - Blockchain based <br>worldwide <strong>medical booking</strong>",
+        "search": "Search"
     },
 
     "search": {

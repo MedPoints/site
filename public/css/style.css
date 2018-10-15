@@ -624,9 +624,13 @@ section {
  
 /* Filter */
 
- .filter .btn-secondary {
-     position: relative;
-     top: -8px;
+.filter .btn-secondary {
+    position: relative;
+}
+
+.filter-button {
+    min-width: 128px;
+    margin-top: 8px;
 }
 /* Gallery */
 
@@ -1435,4 +1439,8 @@ ul.cat-list li {
 
 .continer-wrapper {
     padding: 2em 0;
+}
+
+.highlight {
+    background-color: #ff0;
 }

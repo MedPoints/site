@@ -1,5 +1,6 @@
+const higlight = require('./text-highlighter');
 
-exports.prepareDoctorData = (doctor) => {
+exports.prepareDoctorData = (doctor, options) => {
     if (!doctor.rate) {
         doctor.rate = 0;
     }
@@ -15,6 +16,10 @@ exports.prepareDoctorData = (doctor) => {
             attention: 0,
             priceQuality: 0
         };
+    }
+
+    if (options.search) {
+        doctor.name = higlight(doctor.name, options.search);
     }
 
     return {

@@ -19,6 +19,7 @@ function initLocation() {
             if (locationData) {
                 Cookies.set('location', JSON.stringify(locationData), {exoires: 3});
                 $('#locationLabel').text(locationData.city);
+                $('#locationName').text(locationData.city);
             }
         });
     }
