@@ -1444,3 +1444,11 @@ ul.cat-list li {
 .highlight {
     background-color: #ff0;
 }
+
+.rates h2 {
+    margin-bottom: 1em;
+}
+
+.add-balance-container {
+    padding-top: 1em;
+}

@@ -3,6 +3,7 @@ const catchErrors = require('../handlers/errorHandlers').catchErrors;
 
 const explorer = require('../controllers/explorer');
 const tickets = require('../controllers/tickets');
+const rates = require('../controllers/rates');
 
 router.get('/about', (req, res) => res.render('pages/about', {PAGE_TITLE: 'About Us', pageName: 'about', title: 'MedPoints™ About Us'}));
 router.get('/terms-of-use', (req, res) => res.render('pages/terms-of-use', {title: 'MedPoints™ Terms Of Use'}));
@@ -17,10 +18,12 @@ router.get('/registration', (req, res) => res.render('pages/registration', {PAGE
 
 router.get('/booking', (req, res) => res.render('pages/booking', {title: 'MedPoints™ Book a Visit'}));
 router.get('/insurance', (req, res) => res.render('pages/insurance', {title: 'MedPoints™ Insurance'}));
-router.get('/rates', (req, res) => res.render('pages/rates', {title: 'MedPoints™ Rates'}));
 router.get('/search-results', (req, res) => res.render('pages/search-results', {title: 'MedPoints™ Search'}));
 router.get('/success', (req, res) => res.render('pages/success', {title: 'MedPoints™ Successful Booking'}));
 router.get('/text', (req, res) => res.render('pages/text'));
+
+router.get('/rates', catchErrors(rates.getRates));
+router.post('/calculateRates', catchErrors(rates.calculateRates));
 
 router.get('/account-tickets', catchErrors(tickets.getTickets));
 router.get('/add-ticket', catchErrors(tickets.addTickets));

@@ -12,14 +12,13 @@
             <div class="row">
                 <div class="col-sm-9">
                     <h3>Location</h3>
-                    <input type="hidden" id="locationName" name="locationName"/>
                     <label class="custom-control custom-radio">
-                        <input id="locationRadio1" name="filter[location]" value="home" type="radio" class="custom-control-input" {{#if (equals filter.location 'home') }}checked{{/if}}>
+                        <input id="locationRadio1" name="filter[city]" value="home" type="radio" class="custom-control-input" {{#if (equals filter.city 'home') }}checked{{/if}}>
                         <span class="custom-control-indicator"></span>
                         <span class="custom-control-description">In your city</span>
                     </label>
                     <label class="custom-control custom-radio">
-                        <input id="locationRadio2" name="filter[location]" value="worldwide" type="radio" class="custom-control-input" {{#if (equals filter.location 'worldwide') }}checked{{/if}}>
+                        <input id="locationRadio2" name="filter[city]" value="worldwide" type="radio" class="custom-control-input" {{#if (equals filter.city 'worldwide') }}checked{{/if}}>
                         <span class="custom-control-indicator"></span>
                         <span class="custom-control-description">Worldwide</span>
                     </label>
@@ -27,7 +26,7 @@
                 <!--/.col-->
 				
                 <div class="col-sm-3">
-                    <button type="button" id="btn-more" class="btn btn-secondary collapsed filter-button" data-toggle="collapse" data-target="#moreFilters" aria-expanded="false"><i class="fas fa-angle-down"></i> More filters</button>
+                    {{!-- <button type="button" id="btn-more" class="btn btn-secondary collapsed filter-button" data-toggle="collapse" data-target="#moreFilters" aria-expanded="false"><i class="fas fa-angle-down"></i> More filters</button> --}}
                     <button type="submit" id="btn-more" class="btn btn-primary filter-button">Apply Filters</button>
                 </div>
                 <!--/.col-->
@@ -35,7 +34,7 @@
             </div>
             <!--/.row-->
 
-            <div class="collapse" id="moreFilters" aria-expanded="false" style="">
+            {{!-- <div class="collapse" id="moreFilters" aria-expanded="false" style="">
 			
                 <hr>
 				
@@ -74,7 +73,7 @@
                     <!--/.col-->
                 </div>
                 <!--/.row-->
-            </div>
+            </div> --}}
             <!--/.collapse-->
         </form>
     </section>

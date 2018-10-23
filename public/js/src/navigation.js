@@ -17,7 +17,7 @@ function initLocation() {
     } else {
         ipLookUp(function(locationData) {
             if (locationData) {
-                Cookies.set('location', JSON.stringify(locationData), {exoires: 3});
+                Cookies.set('location', JSON.stringify(locationData), {expires: 3});
                 $('#locationLabel').text(locationData.city);
                 $('#locationName').text(locationData.city);
             }
@@ -28,6 +28,8 @@ function initLocation() {
         var selectedLocation = $('#locationAutocomplete').val();
         if (selectedLocation) {
             $('#locationLabel').text(selectedLocation);
+            Cookies.remove('location');
+            Cookies.set('location', JSON.stringify({city: selectedLocation}), {expires: 3});
         }
         $('#chooseLocation').modal('hide');
     })
@@ -46,7 +48,7 @@ function initLocation() {
         },
         minLength: 3,
         select: function (event, ui) {
-            
+            debugger
         },
     });
     $( "#locationAutocomplete" ).autocomplete( "option", "appendTo", "#autocompleteBody" );

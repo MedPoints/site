@@ -32,7 +32,8 @@
 
     "pageTitles": {
         "index": "MedPoints™ - Blockchain based <br>worldwide <strong>medical booking</strong>",
-        "search": "Search"
+        "search": "Search",
+        "rates": "MedPoints™ Rates"
     },
 
     "search": {
@@ -123,7 +124,8 @@
         "tickets": "Support tickets",
         "bookAVisit": "Book a visit",
         "success": "Success",
-        "accountRecords": "Records"
+        "accountRecords": "Records",
+        "rates": "Rates"
     },
 
     "ratings": {
@@ -283,7 +285,8 @@
         "requiredSubject": "Subject is required",
         "requiresLogin": "You need to log in to view your tickets",
         "bookingRequest": "Something went wrong during booking. Please try again later.",
-        "accountUpdateRequest": "Something went wrong during account update. Please try again later."
+        "accountUpdateRequest": "Something went wrong during account update. Please try again later.",
+        "mustBeNumber": "The 'Amount' value must be a number"
     },
 
     "faq": {
@@ -362,6 +365,24 @@
             "support": "Support",
             "addTicket": "Add ticket",
             "editProfile": "Edit profile"
+        }
+    },
+
+    "rates": {
+        "subtitle": "Exchange other currency to MPT on your balance",
+        "form": {
+            "addBalanceButton": "Add to your balance",
+            "calculateExchangeRate": "Calculate rate",
+            "numberOfMpt": "Number of MPT",
+            "currency": "Currency",
+            "amount": "Amount",
+            "currencies": {
+                "btc": "Bitcoin",
+                "eth": "Ethereum",
+                "xrp": "Ripple",
+                "bch": "Bitcoin Cash",
+                "ltc": "Litecoin"
+            }
         }
     }
 }
