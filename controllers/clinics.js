@@ -10,9 +10,20 @@ const {queryPersistant} = require('./../helpers/query-persistant');
 const PAGE_TITLE = 'Clinics';
 
 exports.getClinics = async (req, res) => {
-  let url = queryPersistant.applyRequestQueryParameters(req.query, `${API_URL}/api/hospitals`);  
+  const parameters = JSON.parse(JSON.stringify(req.query));
+  if (parameters.filter && parameters.filter.city === 'home') {
+    const {
+        location,
+    } = req.cookies;
+    const locationObject = JSON.parse(location);
+    parameters.filter.city = locationObject.city;
+  }
+
+  let url = queryPersistant.applyRequestQueryParameters(parameters, `${API_URL}/api/hospitals`);  
   const request = await axios.get(url);
-  let hospitals = request.data.result.data.map(clinic => prepareClinicData(clinic));
+  let hospitals = request.data.result.data.map(clinic => prepareClinicData(clinic, {
+    search: req.query.name
+  }));
   
   
   let avgCoordinates = {lat: 0, lng: 0};
@@ -46,7 +57,14 @@ exports.getClinics = async (req, res) => {
     parameters: req.query
   };
 
-  res.render('clinics/clinics', { hospitals, pagerInfo, PAGE_TITLE, avgCoordinates, title: 'MedPoints™ Clinics' });
+  res.render('clinics/clinics', { 
+    hospitals, 
+    pagerInfo, 
+    PAGE_TITLE, 
+    avgCoordinates, 
+    title: 'MedPoints™ Clinics', 
+    filter: req.query.filter
+  });
 };
 
 exports.getClinicsByLocation = async (req, res) => {

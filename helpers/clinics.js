@@ -1,6 +1,6 @@
+const higlight = require('./text-highlighter');
 
-
-exports.prepareClinicData = (clinic) => {
+exports.prepareClinicData = (clinic, options) => {
     let work_time = [];
     if (clinic.work_time) {
         work_time = clinic.work_time.split('\n').map((workTime) => {
@@ -11,6 +11,11 @@ exports.prepareClinicData = (clinic) => {
             }
         });
     }
+
+    if (options.search) {
+        clinic.name = higlight(clinic.name, options.search);
+    }
+
 
     return {
         ...clinic,

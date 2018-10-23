@@ -6,6 +6,78 @@
         </ol>
     </nav>
 
+    <section class="bg-gray">
+
+        <form class="filter">
+            <div class="row">
+                <div class="col-sm-9">
+                    <h3>Location</h3>
+                    <label class="custom-control custom-radio">
+                        <input id="locationRadio1" name="filter[city]" value="home" type="radio" class="custom-control-input" {{#if (equals filter.city 'home') }}checked{{/if}}>
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">In your city</span>
+                    </label>
+                    <label class="custom-control custom-radio">
+                        <input id="locationRadio2" name="filter[city]" value="worldwide" type="radio" class="custom-control-input" {{#if (equals filter.city 'worldwide') }}checked{{/if}}>
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">Worldwide</span>
+                    </label>
+                </div>
+                <!--/.col-->
+				
+                <div class="col-sm-3">
+                    {{!-- <button type="button" id="btn-more" class="btn btn-secondary collapsed filter-button" data-toggle="collapse" data-target="#moreFilters" aria-expanded="false"><i class="fas fa-angle-down"></i> More filters</button> --}}
+                    <button type="submit" id="btn-more" class="btn btn-primary filter-button">Apply Filters</button>
+                </div>
+                <!--/.col-->
+				
+            </div>
+            <!--/.row-->
+
+            {{!-- <div class="collapse" id="moreFilters" aria-expanded="false" style="">
+			
+                <hr>
+				
+                <div class="row">
+                    <div class="col-xl-3 col-md-6 col-sm-12">
+
+                        <h3>Sort by</h3>
+                        <label class="custom-control custom-radio">
+							<input id="sortRadio1" name="filter[sort]" value="rating" type="radio" class="custom-control-input" {{#if (equals filter.sort 'rating') }}checked{{/if}}>
+							<span class="custom-control-indicator"></span>
+							<span class="custom-control-description">By rating</span>
+						</label>
+                        <label class="custom-control custom-radio">
+							<input id="sortRadio1" name="filter[sort]" value="price" type="radio" class="custom-control-input" {{#if (equals filter.sort 'price') }}checked{{/if}}>
+							<span class="custom-control-indicator"></span>
+							<span class="custom-control-description">By prices</span>
+						</label>
+                    </div>
+                    <!--/.col-->
+                    <div class="col-xl-3 col-md-6 col-sm-12">
+
+                        <h3>Max price: <span id="maxPriceLabel">{{filter.maxPrice}}</span> MPT</h3>
+
+                        <input class="justify" type="range" min="0" max="100" id="maxPriceRange" name="filter[maxPrice]" value="{{filter.maxPrice}}">
+                        <script>
+                            var slider = document.getElementById("maxPriceRange");
+                            var output = document.getElementById("maxPriceLabel");
+                            output.innerHTML = slider.value;
+                            
+                            slider.oninput = function() {
+                                output.innerHTML = this.value;
+                            }
+                        </script>
+ 
+                    </div>
+                    <!--/.col-->
+                </div>
+                <!--/.row-->
+            </div> --}}
+            <!--/.collapse-->
+        </form>
+    </section>
+
     <div class="row">
 
         <div class="col-xl-4 push-xl-8 col-lg-12 push-lg-0" style="padding-bottom:2em;">
@@ -90,7 +162,7 @@
                         </div>
                         <!--/.col-->
                         <div class="col-xl-5 col-md-5 col-sm-8">
-                            <h3><a class="" href="/clinics/{{hospital.id}}">{{hospital.name}}</a> <small>{{hospital.type}}</small></h3>
+                            <h3><a class="" href="/clinics/{{hospital.id}}">{{{hospital.name}}}</a> <small>{{hospital.type}}</small></h3>
                             <div>
                                 {{#each hospital.specializations as |specialization| }}
                                 <a href="/clinics?specializationId={{specialization.id}}">{{specialization.name}}</a>&nbsp;

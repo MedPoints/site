@@ -27,6 +27,7 @@ gulp.task('build:js', function(cb) {
         '!public/js/src/tickets.js',
         '!public/js/src/calendar.js',
         '!public/js/src/account.js',
+        '!public/js/src/rates.js',
     ])
         .pipe(concat('layout.bundle.js'));
     var libBundle = gulp.src([

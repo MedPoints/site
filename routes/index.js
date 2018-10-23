@@ -38,7 +38,7 @@ router.post('/search', async (req, res) => {
 			res.redirect(`/${category}?name=${search}`);
 			return;
 		default:
-			res.render('index');
+			res.redirect('/');
 			return;
 	}
 });
@@ -46,5 +46,11 @@ router.use('/auth', require('./auth'));
 router.use('/book', require('./book'));
 router.use('/account', require('./account'));
 router.use('/', require('./pages'));
+
+router.use(function(req,res,next) {
+	res.locals.req = req;
+	console.log(req)
+	next();
+})
 
 module.exports = router;

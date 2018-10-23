@@ -62,7 +62,15 @@ exports.getServices = async (req, res) => {
     parameters: req.query
   };
 
-  res.render('services/services', { services, hospitals, PAGE_TITLE, avgCoordinates, pagerInfo, title: `MedPoints™ Services` });
+  res.render('services/services', { 
+    services, 
+    hospitals, 
+    PAGE_TITLE, 
+    avgCoordinates, 
+    pagerInfo, 
+    title: `MedPoints™ Services`,
+    filter: req.query.filter, 
+  });
 };
 
 exports.getService = async (req, res) => {

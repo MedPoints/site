@@ -155,10 +155,6 @@
                             <a href="/insurance"><i class="fas fa-heartbeat"></i> {{localize 'navigation.insurance'}}</a>
                         </li>
                         <!--/.col-->
-                        <li class="col-xl-12 col-lg-6 text-xl-right text-lg-left">
-                            <a href="/foundation"><i class="far fa-life-ring"></i> {{localize 'navigation.foundation'}}</a>
-                        </li>
-                        <!--/.col-->
                     </ul>
                     <!--/.row-->
                 </div>
@@ -215,7 +211,7 @@
             <div class="row">
                 <div class="col-xl-9 col-md-8 col-sm-12">
                     <div class="input-group input-group-lg">
-                        <input type="text" class="form-control" name="search" placeholder="{{localize 'search.searchPrompt'}}" />
+                        <input type="text" class="form-control" value="{{req.query.name}}" name="search" placeholder="{{localize 'search.searchPrompt'}}" />
 
                         <select name="category" class="custom-select">
                             <option selected>{{localize 'search.options.default'}}</option>

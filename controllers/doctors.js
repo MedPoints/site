@@ -1,5 +1,6 @@
 const config = require('config');
 const axios = require('axios');
+const qs = require('qs');
 const API_URL = config.get('API_URL');
 const { Pager, PAGE_SIZE } = require('./../helpers/pager');
 const { queryPersistant } = require('./../helpers/query-persistant');
@@ -8,9 +9,20 @@ const { prepareDoctorData } = require('./../helpers/doctors');
 const PAGE_TITLE = 'Doctors';
 
 exports.getDoctors = async (req, res) => {
-  let url = queryPersistant.applyRequestQueryParameters(req.query, `${API_URL}/api/doctors`);  
+  const parameters = JSON.parse(JSON.stringify(req.query));
+  if (parameters.filter && parameters.filter.city === 'home') {
+    const {
+        location,
+    } = req.cookies;
+    const locationObject = JSON.parse(location);
+    parameters.filter.city = locationObject.city;
+  }
+
+  const url = queryPersistant.applyRequestQueryParameters(parameters, `${API_URL}/api/doctors`);
   const request = await axios.get(url);
-  let doctors = request.data.result.data.map(doctor => prepareDoctorData(doctor));
+  let doctors = request.data.result.data.map(doctor => prepareDoctorData(doctor, {
+    search: req.query.name
+  }));
   const hospitals = doctors.map(doctor => doctor.hospital);
   
   let avgCoordinates = {lat: 0, lng: 0};
@@ -45,7 +57,15 @@ exports.getDoctors = async (req, res) => {
   };
 
 
-  res.render('doctors/doctors', { doctors, hospitals, avgCoordinates, pagerInfo, PAGE_TITLE, title: `MedPoints™ Doctors` });
+  res.render('doctors/doctors', { 
+    doctors, 
+    hospitals, 
+    avgCoordinates, 
+    pagerInfo, 
+    PAGE_TITLE, 
+    title: `MedPoints™ Doctors`,
+    filter: req.query.filter, 
+  });
 };
 
 exports.getDoctor = async (req, res) => {
