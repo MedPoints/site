@@ -169,6 +169,16 @@
         }
     },
 
+    "drugs": {
+        "table": {
+            "name": "Name",
+            "price": "Name",
+            "insurance": "Insurance",
+            "prescription": "On prescription only",
+            "providers": "Providers"
+        }
+    },
+
     "doctor": {
         "workExperience": "Work experience <strong>{years}</strong> years",
         "bonus": "First visit from = <strong>{amount} MPT</strong> <br />+ <strong class='text-success'>{amount} MPT bonus</strong> for next visits",
@@ -258,6 +268,9 @@
     },
 
     "errorWindowTitle": "Validation errors",
+    "errorAuthTitle": "Authorization",
+    "errorFavourites": "Please log in to be able to add this item to your favorites",
+    "successAddToFavourites": "Added to Favorites",
     "customErrorWindowTitle": "An error occurred",
     "errorsByCode": {
         "USER_NOT_CONFIRMED": "You need to confirm your email before proceeding."

@@ -18,7 +18,7 @@ exports.prepareDoctorData = (doctor, options) => {
         };
     }
 
-    if (options.search) {
+    if (options && options.search) {
         doctor.name = higlight(doctor.name, options.search);
     }
 

@@ -15,9 +15,12 @@ exports.getClinics = async (req, res) => {
     const {
         location,
     } = req.cookies;
-    const locationObject = JSON.parse(location);
-    parameters.filter.city = locationObject.city;
+    if (location) {
+      const locationObject = JSON.parse(location);
+      parameters.filter.city = locationObject.city;
+    }
   }
+
 
   let url = queryPersistant.applyRequestQueryParameters(parameters, `${API_URL}/api/hospitals`);  
   const request = await axios.get(url);

@@ -119,6 +119,11 @@
                             <!--/.rating-->
 							
                             <p><a class="btn btn-primary btn-lg justify" href="/drugs?pharmacyId={{pharmacy.id}}"><strong>{{ pharmacy.drugs.length }}</strong> {{localize 'ratings.items.drugs'}}</a></p>
+                            <p>
+                                <a class="btn btn-secondary justify" data-type="pharmacy" data-id="{{pharmacy.id}}" id="addToFavButton" href="javascript:void(0)">
+                                    <i class="far fa-heart"></i> Add to favorites
+                                </a>
+                            </p>
                         </div>
                         <!--/.wave-->
                     </div>

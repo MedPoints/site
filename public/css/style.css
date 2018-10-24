@@ -1399,7 +1399,12 @@ ul.cat-list li {
 }
 
 .pager {
+    width: 100%;
     padding-top: 1rem; 
+}
+
+.pager .stick-right {
+    line-height: 2em;
 }
 
 .address-title, .address-subtitle {
@@ -1450,5 +1455,9 @@ ul.cat-list li {
 }
 
 .add-balance-container {
+    padding-top: 1em;
+}
+
+.alphabetical-index {
     padding-top: 1em;
 }

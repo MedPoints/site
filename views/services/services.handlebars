@@ -28,36 +28,21 @@
         <div class="collapse" id="moreFilters" aria-expanded="true" style="">
             <hr>
             <div class="row">
-                <div class="col-xl-2 col-lg-3 col-md-6 col-sm-6">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                     <h3>Location</h3>
-                    <input type="hidden" id="locationName" name="locationName"/>
                     <label class="custom-control custom-radio">
-                        <input id="locationRadio1" name="filter[location]" value="home" type="radio" class="custom-control-input" {{#if (equals filter.location 'home') }}checked{{/if}}>
+                        <input id="locationRadio1" name="filter[city]" value="home" type="radio" class="custom-control-input" {{#if (equals filter.city 'home') }}checked{{/if}}>
                         <span class="custom-control-indicator"></span>
                         <span class="custom-control-description">In your city</span>
                     </label>
                     <label class="custom-control custom-radio">
-                        <input id="locationRadio2" name="filter[location]" value="worldwide" type="radio" class="custom-control-input" {{#if (equals filter.location 'worldwide') }}checked{{/if}}>
+                        <input id="locationRadio2" name="filter[city]" value="worldwide" type="radio" class="custom-control-input" {{#if (equals filter.city 'worldwide') }}checked{{/if}}>
                         <span class="custom-control-indicator"></span>
                         <span class="custom-control-description">Worldwide</span>
                     </label>
                 </div>
                 <!--/.col-->
-                <div class="col-xl-2 col-lg-3 col-md-6 col-sm-6">
-                    <h3>Sort by</h3>
-                    <label class="custom-control custom-radio">
-                        <input id="sortRadio1" name="filter[sort]" value="rating" type="radio" class="custom-control-input" {{#if (equals filter.sort 'rating') }}checked{{/if}}>
-                        <span class="custom-control-indicator"></span>
-                        <span class="custom-control-description">By rating</span>
-                    </label>
-                    <label class="custom-control custom-radio">
-                        <input id="sortRadio2" name="filter[sort]" value="price" type="radio" class="custom-control-input" {{#if (equals filter.sort 'price') }}checked{{/if}}>
-                        <span class="custom-control-indicator"></span>
-                        <span class="custom-control-description">By prices</span>
-                    </label>
-                </div>
-                <!--/.col-->
-                <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
 
                     <h3>Max price: <span id="maxPriceLabel">{{filter.maxPrice}}</span> MPT</h3>
 
