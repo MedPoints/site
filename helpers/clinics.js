@@ -12,7 +12,7 @@ exports.prepareClinicData = (clinic, options) => {
         });
     }
 
-    if (options.search) {
+    if (options && options.search) {
         clinic.name = higlight(clinic.name, options.search);
     }
 

@@ -3,6 +3,31 @@ $( function() {
     prepareLoginNavigation();
     $('#errorModal').modal({show: false});
     initLocation();
+    $('#addToFavButton').on('click', function(evt) {
+        if (!isRegistered()) {
+            $('#modalErrorTitle').html(window.localizer.localize('errorAuthTitle'));
+            $('#modalErrorContent').html(window.localizer.localize('errorFavourites'));
+    
+            $('#errorModal').modal('show');
+        } else {
+            var type = $(evt.target).data('type');
+            var id = $(evt.target).data('id');
+            $.ajax({
+                url: '/addFavourites',
+                method: 'POST',
+                data: {
+                    type: type,
+                    id: id,
+                },
+                success: function (res) {
+                    $('#addToFavButton').html(window.localizer.localize('successAddToFavourites'));
+                },
+                error: function (res) {
+                    alert(window.localizer.localize('errors.requestError'));
+                }
+            });
+        }
+    });
 });
 
 /**
@@ -47,9 +72,7 @@ function initLocation() {
             })
         },
         minLength: 3,
-        select: function (event, ui) {
-            debugger
-        },
+        select: function (event, ui) {},
     });
     $( "#locationAutocomplete" ).autocomplete( "option", "appendTo", "#autocompleteBody" );
 }

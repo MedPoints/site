@@ -4,6 +4,7 @@ const catchErrors = require('../handlers/errorHandlers').catchErrors;
 const explorer = require('../controllers/explorer');
 const tickets = require('../controllers/tickets');
 const rates = require('../controllers/rates');
+const favourites = require('../controllers/favourites');
 
 router.get('/about', (req, res) => res.render('pages/about', {PAGE_TITLE: 'About Us', pageName: 'about', title: 'MedPoints™ About Us'}));
 router.get('/terms-of-use', (req, res) => res.render('pages/terms-of-use', {title: 'MedPoints™ Terms Of Use'}));
@@ -29,5 +30,7 @@ router.get('/account-tickets', catchErrors(tickets.getTickets));
 router.get('/add-ticket', catchErrors(tickets.addTickets));
 router.post('/createTicket', catchErrors(tickets.createTicket));
 router.post('/askQuestion', catchErrors(tickets.sendQuestion));
+
+router.post('/addFavourites', catchErrors(favourites.addFavourites));
 
 module.exports = router;

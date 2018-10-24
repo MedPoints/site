@@ -8,7 +8,19 @@ const { queryPersistant } = require('./../helpers/query-persistant');
 const PAGE_TITLE = 'Services';
 
 exports.getServices = async (req, res) => {
-  let url = queryPersistant.applyRequestQueryParameters(req.query, `${API_URL}/api/services`);  
+  const parameters = JSON.parse(JSON.stringify(req.query));
+  if (parameters.filter && parameters.filter.city === 'home') {
+    const {
+        location,
+    } = req.cookies;
+    if (location) {
+      const locationObject = JSON.parse(location);
+      parameters.filter.city = locationObject.city;
+    }
+  }
+
+
+  let url = queryPersistant.applyRequestQueryParameters(parameters, `${API_URL}/api/services`);  
   const request = await axios.get(url);
   let services = request.data.result.data;
 

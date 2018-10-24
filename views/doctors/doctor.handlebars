@@ -146,7 +146,12 @@
                             </ul>
                             <!--/.rating-->
 							<a class="btn btn-primary btn-lg justify" href="/booking?doctorId={{doctor.id}}">{{localize 'doctor.bookToVisit'}}</a>
-
+                            <p style="padding-top:1em;">
+                                <a class="btn btn-secondary justify" data-type="doctor" data-id="{{doctor.id}}" id="addToFavButton" href="javascript:void(0)">
+                                    <i class="far fa-heart"></i> Add to favorites
+                                </a>
+                            </p>
+                            
                         </div>
                         <!--/.wave-->
                     </div>
