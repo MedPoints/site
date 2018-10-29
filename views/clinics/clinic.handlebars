@@ -17,8 +17,8 @@
                         <img src="{{hospital.photos}}" alt="The clinic photo"
                             onerror="this.onerror=null;this.src='/img/logo_stub.svg';this.style.width='100px';" />
                     </div>
-                    {{!-- <div class="text-success" data-toggle="tooltip" data-placement="top" title="Participant in the program of insurance points"><i class="fas fa-heartbeat"></i> Insurance</div>
-                    <div class="text-success" data-toggle="tooltip" data-placement="top" title="Participant in the program of Help foundation"><i class="far fa-life-ring"></i> Help foundation</div> --}}
+                    <div class="text-success" data-toggle="tooltip" data-placement="top" title="Participant in the program of insurance points" data-original-title=""><i class="fas fa-heartbeat"></i> {{localize 'clinic.insurance'}}</div> 
+                    <div class="text-success" data-toggle="tooltip" data-placement="top" title="Participant in the program of Help foundation" data-original-title="" aria-describedby="tooltip255942"><i class="far fa-life-ring"></i> {{localize 'clinic.helpfoundation'}}</div>
                 </div>
                 <!--/.col-->
                 <div class="col-xl-8 col-md-12">
@@ -44,11 +44,11 @@
 							</div><!--/.card-->
                         </div>
                         <!--/.col-->
-                        {{!-- <div class="col">
-                            <div class="color-gray" data-toggle="tooltip" data-placement="top" title="Provides a transfer from the airport"><i class="fas fa-plane"></i> Airport transfer</div>
-                            <div class="" data-toggle="tooltip" data-placement="top" title="Available with bus routes"><i class="fas fa-bus"></i> Bus route</div>
-                            <div class="" data-toggle="tooltip" data-placement="top" title="Has free parking"><i class="fas fa-car"></i> Free parking</div>
-                        </div> --}}
+                        <div class="col">
+                            <div class="color-gray" data-toggle="tooltip" data-placement="top" title="" data-original-title="Provides a transfer from the airport"><i class="fas fa-plane"></i> {{localize 'clinic.transfer'}}</div>
+                            <div class="" data-toggle="tooltip" data-placement="top" title="" data-original-title="Available with bus routes"><i class="fas fa-bus"></i> {{localize 'clinic.busroute'}}</div>
+                            <div class="" data-toggle="tooltip" data-placement="top" title="" data-original-title="Has free parking"><i class="fas fa-car"></i> {{localize 'clinic.freepark'}}</div>
+                        </div>
                         <!--/.col-->
                     </div>
                     <!--/.row-->
