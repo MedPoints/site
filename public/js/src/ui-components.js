@@ -8,7 +8,7 @@ $(function() {
     initializeBellToggle();
     initializeAddressMapToggle();
 
-    $('[data-toggle="tooltip"]').tooltip();
+    // $('[data-toggle="tooltip"]').tooltip();
     $('.gallery a.gallery-img').simpleLightbox();
 
     $("a.delete-parent").click(function(event) {

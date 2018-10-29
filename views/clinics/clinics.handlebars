@@ -26,7 +26,7 @@
                 <!--/.col-->
 				
                 <div class="col-sm-3">
-                    {{!-- <button type="button" id="btn-more" class="btn btn-secondary collapsed filter-button" data-toggle="collapse" data-target="#moreFilters" aria-expanded="false"><i class="fas fa-angle-down"></i> More filters</button> --}}
+                    <button type="button" id="btn-more" class="btn btn-secondary collapsed filter-button" data-toggle="collapse" data-target="#moreFilters" aria-expanded="false"><i class="fas fa-angle-down"></i> More filters</button>
                     <button type="submit" id="btn-more" class="btn btn-primary filter-button">Apply Filters</button>
                 </div>
                 <!--/.col-->
@@ -34,47 +34,25 @@
             </div>
             <!--/.row-->
 
-            {{!-- <div class="collapse" id="moreFilters" aria-expanded="false" style="">
-			
-                <hr>
-				
-                <div class="row">
-                    <div class="col-xl-3 col-md-6 col-sm-12">
-
-                        <h3>Sort by</h3>
-                        <label class="custom-control custom-radio">
-							<input id="sortRadio1" name="filter[sort]" value="rating" type="radio" class="custom-control-input" {{#if (equals filter.sort 'rating') }}checked{{/if}}>
-							<span class="custom-control-indicator"></span>
-							<span class="custom-control-description">By rating</span>
-						</label>
-                        <label class="custom-control custom-radio">
-							<input id="sortRadio1" name="filter[sort]" value="price" type="radio" class="custom-control-input" {{#if (equals filter.sort 'price') }}checked{{/if}}>
-							<span class="custom-control-indicator"></span>
-							<span class="custom-control-description">By prices</span>
-						</label>
-                    </div>
-                    <!--/.col-->
-                    <div class="col-xl-3 col-md-6 col-sm-12">
-
-                        <h3>Max price: <span id="maxPriceLabel">{{filter.maxPrice}}</span> MPT</h3>
-
-                        <input class="justify" type="range" min="0" max="100" id="maxPriceRange" name="filter[maxPrice]" value="{{filter.maxPrice}}">
-                        <script>
-                            var slider = document.getElementById("maxPriceRange");
-                            var output = document.getElementById("maxPriceLabel");
-                            output.innerHTML = slider.value;
-                            
-                            slider.oninput = function() {
-                                output.innerHTML = this.value;
-                            }
-                        </script>
- 
-                    </div>
-                    <!--/.col-->
+            <div class="collapse" id="moreFilters" aria-expanded="true" style="">
+            <hr>
+            <div class="row">
+                <div class="col-sm-12">
+                    <label class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input" disabled>
+						<span class="custom-control-indicator"></span>
+						<span class="custom-control-description">Airport transfer</span>
+					</label>
+                    <label class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input" disabled>
+						<span class="custom-control-indicator"></span>
+						<span class="custom-control-description">Member of MPT insurance program</span>
+					</label> 
                 </div>
-                <!--/.row-->
-            </div> --}}
-            <!--/.collapse-->
+                <!--/.col-->
+            </div>
+        </div>
+        <!--/.collapse-->
         </form>
     </section>
 
@@ -158,7 +136,8 @@
                                         onerror="this.onerror=null;this.src='/img/logo_stub.svg';this.style.width='100px';" />
                                 </div>
                             </a>
-                            
+                            <div class="text-success" data-toggle="tooltip" data-placement="top" title="Participant in the program of insurance points" data-original-title=""><i class="fas fa-heartbeat"></i> {{localize 'clinic.insurance'}}</div> 
+                            <div class="text-success" data-toggle="tooltip" data-placement="top" title="Participant in the program of Help foundation" data-original-title="" aria-describedby="tooltip255942"><i class="far fa-life-ring"></i> {{localize 'clinic.helpfoundation'}}</div>
                         </div>
                         <!--/.col-->
                         <div class="col-xl-5 col-md-5 col-sm-8">
@@ -184,6 +163,12 @@
 									</div><!--/.card-->
                                 </div>
                                 <!--/.col-->
+
+                                <div class="col">
+                                    <div class="color-gray" data-toggle="tooltip" data-placement="top" title="" data-original-title="Provides a transfer from the airport"><i class="fas fa-plane"></i> {{localize 'clinic.transfer'}}</div>
+                                    <div class="" data-toggle="tooltip" data-placement="top" title="" data-original-title="Available with bus routes"><i class="fas fa-bus"></i> {{localize 'clinic.busroute'}}</div>
+                                    <div class="" data-toggle="tooltip" data-placement="top" title="" data-original-title="Has free parking"><i class="fas fa-car"></i> {{localize 'clinic.freepark'}}</div>
+                                </div>
                             </div>
                             <!--/.row-->
                         </div>

@@ -154,7 +154,14 @@
     },
 
     "clinic": {
-        "details": "Network"
+        "details": {
+            "network": "Network"
+        },
+        "transfer": "Airport transfer",
+        "busroute": "Bus route",
+        "freepark": "Free parking",
+        "helpfoundation": "Help foundation",
+        "insurance": "Insurance"
     },
 
     "service": {

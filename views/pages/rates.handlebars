@@ -7,6 +7,36 @@
 
 <br />
 
+<h2>{{localize 'explorer.latestTransactions'}}</h2>
+      
+<table class="table table-hover table-striped">
+
+    <thead>
+        <tr>
+        <th>{{localize 'explorer.hash'}}</th>
+        {{!-- <th class="text-right" translate="">Value Out</th> --}}
+        </tr>
+    </thead>
+    <tbody>
+        {{#each transactions as |transaction|}}
+        <tr>
+        <td>
+            {{transaction.Id}}
+        </td>
+        {{!-- <td class="text-right">
+            0 MPT
+        </td> --}}
+        </tr>
+        {{/each}}
+    </tbody>
+</table>    
+
+<br />
+
+{{> pager pagerInfo }}
+
+<br />
+
 <h2>{{localize 'rates.subtitle'}}</h2>
 
 <div class="row">

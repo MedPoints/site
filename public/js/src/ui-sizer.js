@@ -14,7 +14,7 @@ $(function () {
             'medium',
             'large'
         ];
-        var DEFAULT_SIZE = 'medium';
+        var DEFAULT_SIZE = 'small';
         var FONT_SIZE_COOKIE_NAME = 'fontSize';
         /**
          * An object that maps the sizer element with a
