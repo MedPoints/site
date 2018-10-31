@@ -120,7 +120,7 @@
                             <p><a class="btn btn-primary btn-lg justify" href="/doctors/?hospital={{hospital.id}}"><strong>{{defaultIfEmpty hospital.doctors 0}}</strong> {{localize 'ratings.items.doctors'}}</a></p>
                             <p><a class="" href="/services/?hospital={{hospital.id}}"><strong>{{defaultIfEmpty hospital.services 0}}</strong> {{localize 'ratings.items.services'}}</a></p>
                             <a class="btn btn-secondary justify" data-type="clinic" data-id="{{hospital.id}}" id="addToFavButton" href="javascript:void(0)">
-                                <i class="far fa-heart"></i> Add to favorites
+                                <i class="far fa-heart"></i> {{localize 'addFavorites'}}
                             </a>
                         </div>
                         <!--/.wave-->

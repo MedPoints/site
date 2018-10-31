@@ -7,6 +7,7 @@ const { DataPager } = require('./../helpers/pager');
 
 const PAGE_TITLE = localization.localize('breadcrumbs.rates'); 
 const MPT_CURRENCY_CODE = 'USD';
+const DOLLAR_RATE = 0.01;
 const EXCHANGE_API = 'https://min-api.cryptocompare.com/data/price';
 
 exports.getRates = async (req, res) => {
@@ -51,6 +52,6 @@ exports.calculateRates = async (req, res) => {
     });
     const result = request.data[MPT_CURRENCY_CODE];
     res.setHeader('Content-Type', 'application/json');
-    res.send(JSON.stringify({ status: 200, rate: result }));
+    res.send(JSON.stringify({ status: 200, rate: +amount * result * DOLLAR_RATE }));
 };
 

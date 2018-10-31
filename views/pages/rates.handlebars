@@ -63,19 +63,20 @@
     <!--/.col-->
     <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
         <label>&nbsp;</label>
-        <button class="btn btn-primary justify" id="calculateRate" href="javascript:void(0)">{{localize 'rates.form.calculateExchangeRate'}}</button>
+        <button class="btn btn-secondary justify disabled" id="addBalance" data-toggle="modal" data-target="#sorry" href="javascript:void(0)">{{localize 'rates.form.addBalanceButton'}}</button>
+        {{!-- <button class="btn btn-primary justify" id="calculateRate" href="javascript:void(0)">{{localize 'rates.form.calculateExchangeRate'}}</button> --}}
     </div>
     <!--/.col-->
 </div>
 <!--/.row-->
 
-<div class="row">
+{{!-- <div class="row">
     <div class="offset-xl-9 offset-lg-9 offset-md-6 offset-sm-0"></div>
     <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 add-balance-container">
         <button class="btn btn-secondary justify disabled" id="addBalance" href="javascript:void(0)">{{localize 'rates.form.addBalanceButton'}}</button>
     </div>
     <!--/.col-->
-</div>
+</div> --}}
 <!--/.row-->
 
 <script src="/js/src/rates.js"></script>
