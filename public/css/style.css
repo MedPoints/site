@@ -1062,6 +1062,10 @@ body.large .card small {
 
 } 
 
+.map-container {
+    padding-bottom: 1em;
+}
+
 /* Copy tooltips */
 
 .copy-text {
@@ -1178,6 +1182,12 @@ body.large .card small {
 	margin: 0 0 1rem 1rem;
 	}
 	
+/*  */
+
+/* Tooltip */
+.ui-tooltip {
+    z-index: 10;
+}
 /*  */
 
 .account-menu .active a {
@@ -1379,10 +1389,10 @@ ul.cat-list li {
     width: 100%;
 }
 
-.details-container {
+/* .details-container {
     padding-top: 15px;
     padding-bottom: 15px;
-}
+} */
 
 .stick-right {
     margin-left: auto;
@@ -1461,7 +1471,18 @@ ul.cat-list li {
 .alphabetical-index {
     padding-top: 1em;
 }
+.alphabetical-index-list .active {
+    font-weight: bold;
+}
 
 .services-table {
     padding-top: 1em;
+}
+
+.map--small.show {
+    height: 300px;
+}
+
+.padded-input {
+    padding-top: 5px;
 }

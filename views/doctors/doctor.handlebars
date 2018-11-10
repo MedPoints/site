@@ -38,14 +38,10 @@
 
                     <h3>{{localize 'doctor.allSpecializations'}}</h3>
                     <ul class="list-inline">
-                        <li class="list-inline-item"><a href="#">Abdominal Radiology</a></li>
-                        <li class="list-inline-item"><a href="#">Addiction Psychiatry</a></li>
-                        <li class="list-inline-item"><a href="#">Adolescent Medicine</a></li>
-                        <li class="list-inline-item"><a href="#">Cardiothoracic Radiology</a></li>
-                        <li class="list-inline-item"><a href="#">Abdominal Radiology</a></li>
-                        <li class="list-inline-item"><a href="#">Addiction Psychiatry</a></li>
-                        <li class="list-inline-item"><a href="#">Adolescent Medicine</a></li>
-                        <li class="list-inline-item"><a href="#">Cardiothoracic Radiology</a></li>
+                        <li class="list-inline-item">Abdominal Radiology</li>
+                        <li class="list-inline-item">Addiction Psychiatry</li>
+                        <li class="list-inline-item">Adolescent Medicine</li>
+                        <li class="list-inline-item">Cardiothoracic Radiology</li>
                     </ul>
                     {{!-- <ul class="list-inline">
                         {{#each doctor.specializations as |specialization|}}
@@ -148,7 +144,7 @@
 							<a class="btn btn-primary btn-lg justify" href="/booking?doctorId={{doctor.id}}">{{localize 'doctor.bookToVisit'}}</a>
                             <p style="padding-top:1em;">
                                 <a class="btn btn-secondary justify" data-type="doctor" data-id="{{doctor.id}}" id="addToFavButton" href="javascript:void(0)">
-                                    <i class="far fa-heart"></i> Add to favorites
+                                    <i class="far fa-heart"></i> {{localize 'addFavorites'}}
                                 </a>
                             </p>
                             
@@ -159,8 +155,12 @@
                     <div class="col-xl-6 col-lg-12">
 						<div class="map hidden-lg-down" style="height: 300px">
                         </div><!--/.map-->
-                        <div class="hidden-xl-up"><br /><a class="btn-map" href="#" data-toggle="collapse" data-target="#map"><i class="fas fa-map-marker"></i> {{localize 'common.showOnMap'}}</a>
-                        <div class="map collapse" id="map" style="height: 300px">
+                        <div class="hidden-xl-up">
+                            
+                        <a class="btn-map" href="#" data-toggle="collapse" data-target="#map" aria-expanded="true">
+                            <i class="fas fa-map-marker"></i> <span id="mapLabel">{{localize 'common.closeMap'}}</span>
+                        </a>
+                        <div class="map map--small collapse show" id="map">
                         </div><!--/.collapse-->
                     </div>
                     <!--/.col-->
@@ -246,7 +246,7 @@
                         <td class="price-td">{{localize 'common.fromPrice'}} <strong class="text-dark">${{ service.price.dollars }}</strong><br /><strong class="text-success">{{ service.price.mpts }} MPT</strong></td>
                         <td class="text-center">
                             {{#if service.is_covered_by_insurance}}
-                            <i class="fas fa-plus text-success" data-toggle="tooltip" data-placement="top" title="Can be covered by insurance points"></i>
+                            <i class="fas fa-plus text-success" data-toggle="tooltip" data-placement="top" title="{{localize 'filters.covered'}}"></i>
                             {{/if}}
                         </td>
                         <td>

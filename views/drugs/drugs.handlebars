@@ -13,18 +13,18 @@
                 <label class="custom-control custom-checkbox">
                     <input type="checkbox" name="filter[prescription]" class="custom-control-input" {{#if filter.prescription }}checked{{/if}}>
                     <span class="custom-control-indicator"></span>
-                    <span class="custom-control-description">Released without a prescription</span>
+                    <span class="custom-control-description">{{localize 'filters.prescription'}}</span>
                 </label>
                 <label class="custom-control custom-checkbox">
                     <input type="checkbox" name="filter[insurance]" class="custom-control-input" {{#if filter.insurance }}checked{{/if}}>
                     <span class="custom-control-indicator"></span>
-                    <span class="custom-control-description">Can be covered by insurance points</span>
+                    <span class="custom-control-description">{{localize 'filters.covered'}}</span>
                 </label>
             </div>
             <!--/.col-->
             <div class="col-sm-3">
-                <button type="button" id="btn-more" class="btn btn-secondary collapsed filter-button" data-toggle="collapse" data-target="#moreFilters" aria-expanded="false"><i class="fas fa-angle-down"></i> More filters</button>
-                <button type="submit" id="btn-more" class="btn btn-primary filter-button">Apply Filters</button>
+                <button type="button" id="btn-more" class="btn btn-secondary collapsed filter-button" data-toggle="collapse" data-target="#moreFilters" aria-expanded="false"><i class="fas fa-angle-down"></i> {{localize 'filters.more'}}</button>
+                <button type="submit" id="btn-more" class="btn btn-primary filter-button">{{localize 'filters.apply'}}</button>
             </div>
             <!--/.col-->
         </div>
@@ -35,23 +35,23 @@
             <div class="row">
                 <div class="col-xl-6 col-md-6 col-sm-12">
 
-                    <h3>Location</h3>
+                    <h3>{{localize 'filters.location'}}</h3>
                     <label class="custom-control custom-radio">
                         <input id="locationRadio1" name="filter[city]" value="home" type="radio" class="custom-control-input" {{#if (equals filter.city 'home') }}checked{{/if}}>
                         <span class="custom-control-indicator"></span>
-                        <span class="custom-control-description">In your city</span>
+                        <span class="custom-control-description">{{localize 'filters.yourCity'}}</span>
                     </label>
                     <label class="custom-control custom-radio">
                         <input id="locationRadio2" name="filter[city]" value="worldwide" type="radio" class="custom-control-input" {{#if (equals filter.city 'worldwide') }}checked{{/if}}>
                         <span class="custom-control-indicator"></span>
-                        <span class="custom-control-description">Worldwide</span>
+                        <span class="custom-control-description">{{localize 'filters.worldwide'}}</span>
                     </label>
                 </div>
                 <!--/.col-->
 
                 <div class="col-xl-6 col-md-6 col-sm-12">
 
-                    <h3>Max price: <span id="maxPriceLabel">{{filter.maxPrice}}</span> MPT</h3>
+                    <h3>{{localize 'filters.maxPrice'}}: <span id="maxPriceLabel">{{filter.maxPrice}}</span> MPT</h3>
 
                     <input class="justify" type="range" min="0" max="100" id="maxPriceRange" name="filter[maxPrice]"
                         value="{{filter.maxPrice}}">
@@ -96,33 +96,33 @@
 
     <div class="col-xl-9 pull-xl-3 col-lg-12 pull-lg-0">
         <h3 class="alphabetical-index">Alphabetical index</h3>
-        <ul class="list-inline">
-            <li class="list-inline-item"><a href="/drugs?name=A">A</a></li>
-            <li class="list-inline-item"><a href="/drugs?name=B">B</a></li>
-            <li class="list-inline-item"><a href="/drugs?name=C">C</a></li>
-            <li class="list-inline-item"><a href="/drugs?name=D">D</a></li>
-            <li class="list-inline-item"><a href="/drugs?name=E">E</a></li>
-            <li class="list-inline-item"><a href="/drugs?name=F">F</a></li>
-            <li class="list-inline-item"><a href="/drugs?name=G">G</a></li>
-            <li class="list-inline-item"><a href="/drugs?name=H">H</a></li>
-            <li class="list-inline-item"><a href="/drugs?name=I">I</a></li>
-            <li class="list-inline-item"><a href="/drugs?name=J">J</a></li>
-            <li class="list-inline-item"><a href="/drugs?name=K">K</a></li>
-            <li class="list-inline-item"><a href="/drugs?name=L">L</a></li>
-            <li class="list-inline-item"><a href="/drugs?name=M">M</a></li>
-            <li class="list-inline-item"><a href="/drugs?name=N">N</a></li>
-            <li class="list-inline-item"><a href="/drugs?name=O">O</a></li>
-            <li class="list-inline-item"><a href="/drugs?name=P">P</a></li>
-            <li class="list-inline-item"><a href="/drugs?name=Q">Q</a></li>
-            <li class="list-inline-item"><a href="/drugs?name=R">R</a></li>
-            <li class="list-inline-item"><a href="/drugs?name=S">S</a></li>
-            <li class="list-inline-item"><a href="/drugs?name=T">T</a></li>
-            <li class="list-inline-item"><a href="/drugs?name=U">U</a></li>
-            <li class="list-inline-item"><a href="/drugs?name=V">V</a></li>
-            <li class="list-inline-item"><a href="/drugs?name=W">W</a></li>
-            <li class="list-inline-item"><a href="/drugs?name=X">X</a></li>
-            <li class="list-inline-item"><a href="/drugs?name=Y">Y</a></li>
-            <li class="list-inline-item"><a href="/drugs?name=Z">Z</a></li>
+        <ul class="list-inline alphabetical-index-list">
+            <li class="list-inline-item {{#if (compare selectedName 'A')}}active{{/if}}"><a href="/drugs?name=A">A</a></li>
+            <li class="list-inline-item {{#if (compare selectedName 'B')}}active{{/if}}"><a href="/drugs?name=B">B</a></li>
+            <li class="list-inline-item {{#if (compare selectedName 'C')}}active{{/if}}"><a href="/drugs?name=C">C</a></li>
+            <li class="list-inline-item {{#if (compare selectedName 'D')}}active{{/if}}"><a href="/drugs?name=D">D</a></li>
+            <li class="list-inline-item {{#if (compare selectedName 'E')}}active{{/if}}"><a href="/drugs?name=E">E</a></li>
+            <li class="list-inline-item {{#if (compare selectedName 'F')}}active{{/if}}"><a href="/drugs?name=F">F</a></li>
+            <li class="list-inline-item {{#if (compare selectedName 'G')}}active{{/if}}"><a href="/drugs?name=G">G</a></li>
+            <li class="list-inline-item {{#if (compare selectedName 'H')}}active{{/if}}"><a href="/drugs?name=H">H</a></li>
+            <li class="list-inline-item {{#if (compare selectedName 'I')}}active{{/if}}"><a href="/drugs?name=I">I</a></li>
+            <li class="list-inline-item {{#if (compare selectedName 'J')}}active{{/if}}"><a href="/drugs?name=J">J</a></li>
+            <li class="list-inline-item {{#if (compare selectedName 'K')}}active{{/if}}"><a href="/drugs?name=K">K</a></li>
+            <li class="list-inline-item {{#if (compare selectedName 'L')}}active{{/if}}"><a href="/drugs?name=L">L</a></li>
+            <li class="list-inline-item {{#if (compare selectedName 'M')}}active{{/if}}"><a href="/drugs?name=M">M</a></li>
+            <li class="list-inline-item {{#if (compare selectedName 'N')}}active{{/if}}"><a href="/drugs?name=N">N</a></li>
+            <li class="list-inline-item {{#if (compare selectedName 'O')}}active{{/if}}"><a href="/drugs?name=O">O</a></li>
+            <li class="list-inline-item {{#if (compare selectedName 'P')}}active{{/if}}"><a href="/drugs?name=P">P</a></li>
+            <li class="list-inline-item {{#if (compare selectedName 'Q')}}active{{/if}}"><a href="/drugs?name=Q">Q</a></li>
+            <li class="list-inline-item {{#if (compare selectedName 'R')}}active{{/if}}"><a href="/drugs?name=R">R</a></li>
+            <li class="list-inline-item {{#if (compare selectedName 'S')}}active{{/if}}"><a href="/drugs?name=S">S</a></li>
+            <li class="list-inline-item {{#if (compare selectedName 'T')}}active{{/if}}"><a href="/drugs?name=T">T</a></li>
+            <li class="list-inline-item {{#if (compare selectedName 'U')}}active{{/if}}"><a href="/drugs?name=U">U</a></li>
+            <li class="list-inline-item {{#if (compare selectedName 'V')}}active{{/if}}"><a href="/drugs?name=V">V</a></li>
+            <li class="list-inline-item {{#if (compare selectedName 'W')}}active{{/if}}"><a href="/drugs?name=W">W</a></li>
+            <li class="list-inline-item {{#if (compare selectedName 'X')}}active{{/if}}"><a href="/drugs?name=X">X</a></li>
+            <li class="list-inline-item {{#if (compare selectedName 'Y')}}active{{/if}}"><a href="/drugs?name=Y">Y</a></li>
+            <li class="list-inline-item {{#if (compare selectedName 'Z')}}active{{/if}}"><a href="/drugs?name=Z">Z</a></li>
         </ul>
 
 

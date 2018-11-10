@@ -91,7 +91,12 @@ exports.getService = async (req, res) => {
   const service = request.data.result;
 
   let hospitals = [];
-  service.providers.hospitals.forEach(hospital => {
+  const {
+    providers: {
+      hospitals: providerHospitals = []
+    }
+  } = service;
+  providerHospitals.forEach(hospital => {
     if ((hospital.coordinations && hospital.coordinations.lat) &&
       (hospital.coordinations && hospital.coordinations.lon))
     hospitals.push({

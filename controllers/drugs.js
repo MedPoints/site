@@ -46,6 +46,7 @@ exports.getDrugs = async (req, res) => {
     pagerInfo, 
     PAGE_TITLE, 
     categories, 
+    selectedName: parameters.name,
     title: `MedPoints™ Drugs`, 
     filter: req.query.filter,
   });

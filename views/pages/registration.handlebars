@@ -2,39 +2,39 @@
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="/">{{localize 'breadcrumbs.home'}}</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Registration</li>
+        <li class="breadcrumb-item active" aria-current="page">{{localize 'breadcrumbs.registration'}}</li>
     </ol>
 </nav>
 
 <div class="alert alert-info alreadyRegisteredContainer" role="alert" style="display:none;">
-    <strong>Welcome!</strong> You are already logged in. If you want to register again, please log out and refresh this page.
+    {{{localize 'registration.alreadyRegistered'}}}
 </div>
 
 <div class="registerContainer">
-    <h2>Exisitng Customer? <a href="#" data-toggle="modal" data-target="#login">Click here to login</a></h2>
+    <h2>{{localize 'registration.existing'}} <a href="#" data-toggle="modal" data-target="#login">{{localize 'registration.clickToLogIn'}}</a></h2>
 
     <br />
 
     <div class="alert alert-info" role="alert">
-        <strong>Welcome!</strong> We have generated for you a unique <strong>ID</strong> and a <strong>KEY</strong> for authorization on the platform.
+        {{{localize 'registration.login'}}}
     </div>
 
     <div class="row">
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
             <div class="form-group">
-                <label for="walletId">Wallet ID</label>
+                <label for="walletId">{{localize 'registration.form.id'}}</label>
                 <input type="text" class="form-control" id="registerWalletId" value="" disabled="disabled" required />
                 <div class="copy-text" id="registerWalletIdText"></div>
-                <a class="copy-link btn-copy1" onclick="copyToClipboard($('#registerWalletIdText'))"><i class="far fa-copy"></i> {{localize 'common.copy'}}</a>
+                <a class="copy-link btn-copy1" onclick="copyToClipboard($('#registerWalletId'))"><i class="far fa-copy"></i> {{localize 'common.copy'}}</a>
             </div>
         </div>
         <!--/.col-->
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
             <div class="form-group">
-                <label for="walletKey">Wallet key</label>
+                <label for="walletKey">{{localize 'registration.form.key'}}</label>
                 <input type="text" class="form-control" id="registerWalletKey" value="" disabled="disabled" required />
                 <div class="copy-text" id="registerWalletKeyText"></div>
-                <a class="copy-link btn-copy2" onclick="copyToClipboard($('#registerWalletKeyText'))"><i class="far fa-copy"></i> {{localize 'common.copy'}}</a>
+                <a class="copy-link btn-copy2" onclick="copyToClipboard($('#registerWalletKey'))"><i class="far fa-copy"></i> {{localize 'common.copy'}}</a>
             </div>
         </div>
         <!--/.col-->
@@ -42,17 +42,17 @@
     <!--/.row--> 
     <div class="row">
         <div class="col-4">
-            <label for="firstName">First name</label>
+            <label for="firstName">{{localize 'registration.form.firstName'}}</label>
             <input type="text" name="firstName" class="form-control" id="firstName" placeholder="First name" required />
         </div>
         <!--/.col-->
         <div class="col-4">
-            <label for="lastName">Last name</label>
+            <label for="lastName">{{localize 'registration.form.lastName'}}</label>
             <input type="text" name="lastName" class="form-control" id="lastName" placeholder="Last name" required />
         </div>
         <!--/.col--> 
         <div class="col-4">
-            <label for="email">Email</label>
+            <label for="email">{{localize 'registration.form.email'}}</label>
             <input type="text" name="email" class="form-control" id="email" placeholder="Email" />
         </div>
     </div>
@@ -65,8 +65,8 @@
             <label class="custom-control custom-checkbox">
                 <input type="checkbox" id="termsAccept" class="custom-control-input" checked="checked">
                 <span class="custom-control-indicator"></span>
-                <span class="custom-control-description">I accept</span>
-            </label> <a href="/terms-of-use" target="_blank">Terms of use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy</a> 
+                <span class="custom-control-description">{{localize 'registration.accept'}}</span>
+            </label> {{{localize 'registration.terms'}}} 
         </div>
         <!--/.col--> 
     </div>
@@ -76,7 +76,7 @@
 
     <div class="row">
         <div class="col">  
-            <a id="registerButton" class="btn btn-primary" href="javascript:void(0)">Registration</a>
+            <a id="registerButton" class="btn btn-primary" href="javascript:void(0)">{{localize 'registration.registerButton'}}</a>
         </div>
         <!--/.col--> 
     </div>

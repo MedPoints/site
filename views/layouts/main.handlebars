@@ -29,8 +29,10 @@
     <link href="/css/zabuto_calendar.min.css" rel="stylesheet">
     {{{localization locale}}}
     <script src="/js/src/localization.js"></script>
+    <script src="/js/src/popper.min.js"></script>
     <script src="/js/dist/lib.bundle.js"></script>
     <script src="/js/dist/layout.bundle.js"></script>
+    
 
 </head>
 
@@ -107,7 +109,7 @@
 
                 <ul class="navbar-nav navbar-right">
                     <li class="nav-item">
-                        <a class="nav-link" href="/rates">1 <strong>MPT</strong> = 1 <i class="fas fa-dollar-sign"></i></a>
+                        <a class="nav-link" href="/rates">1 <strong>MPT</strong> = 0.01 <i class="fas fa-dollar-sign"></i></a>
                     </li>
                     <li class="nav-item unregistered-item">
                         <a class="nav-link" href="#" data-toggle="modal" data-target="#login">{{localize
@@ -287,17 +289,17 @@
                                 <ul>
                                     <li><i class="fas fa-mobile-alt"></i> {{localize
                                         'footer.applications.items.mobile'}}</li>
-                                    <li><a href="#">{{localize 'footer.applications.items.apple'}}</a></li>
-                                    <li><a href="#">{{localize 'footer.applications.items.android'}}</a></li>
-                                    <li><a href="#">{{localize 'footer.applications.items.windows'}}</a></li>
+                                    <li><a href="#" data-toggle="modal" data-target="#sorry">{{localize 'footer.applications.items.apple'}}</a></li>
+                                    <li><a href="#" data-toggle="modal" data-target="#sorry">{{localize 'footer.applications.items.android'}}</a></li>
+                                    <li><a href="#" data-toggle="modal" data-target="#sorry">{{localize 'footer.applications.items.windows'}}</a></li>
                                 </ul>
                             </div>
                             <!--/.col-->
                             <div class="col-xl-6 col-md-12 col-sm-6">
                                 <ul>
                                     <li><i class="fas fa-desktop"></i> {{localize 'footer.applications.items.desktop'}}</li>
-                                    <li><a href="#">{{localize 'footer.applications.items.windows'}}</a></li>
-                                    <li><a href="#">{{localize 'footer.applications.items.macos'}}</a></li>
+                                    <li><a href="#" data-toggle="modal" data-target="#sorry">{{localize 'footer.applications.items.windows'}}</a></li>
+                                    <li><a href="#" data-toggle="modal" data-target="#sorry">{{localize 'footer.applications.items.macos'}}</a></li>
                                 </ul>
                             </div>
                             <!--/.col-->
@@ -382,8 +384,6 @@
 
     <script src="/js/src/auth.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/async@2.6.1/dist/async.min.js"></script>
-
-    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
     <noscript>
         <div><img src="https://mc.yandex.ru/watch/47967821?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div>
     </noscript>
