@@ -8,7 +8,7 @@ $(function() {
     initializeBellToggle();
     initializeAddressMapToggle();
 
-    // $('[data-toggle="tooltip"]').tooltip();
+    $('[data-toggle="tooltip"]').tooltip();
     $('.gallery a.gallery-img').simpleLightbox();
 
     $("a.delete-parent").click(function(event) {
@@ -164,13 +164,13 @@ function initializeCopyButtons() {
 
 function initializeMapMarkersToggle() {
     $('.btn-map').click(function () {
-        if($('.btn-map i').hasClass('fa-map-marker'))
+        if($(this).hasClass('collapsed'))
         {
-            $('.btn-map').html('<i class="fas fa-map-marker"></i> Close map');
+            $('.btn-map #mapLabel').html(window.localize('common.closeMap'));   
         }
         else
         {
-            $('.btn-map').html('<i class="fas fa-map-marker"></i> Show on map');
+            $('.btn-map #mapLabel').html(window.localize('common.showOnMap'));
         }
     });
 }

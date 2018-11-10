@@ -3,6 +3,7 @@
     "common": {
         "title": "MedPoints&#8482; - Blockchain based <br />worldwide <strong>medical booking</strong>",
         "showOnMap": "Show on map",
+        "closeMap": "Close map",
         "fromPrice": "from",
         "fromPriceFull": "Price from",
         "time": "Time",

@@ -41,23 +41,14 @@
             <nav class="sticky-top">
 
                 <div class="row text-center">
-                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-
-                    <div class="wave">
-
-                        <a class="btn btn-primary btn-lg justify" href="/doctors?service={{service.id}}"><strong>{{defaultIfEmpty service.providers.doctors.length 0}}</strong> {{localize 'ratings.items.doctors'}}</a>
-                        <br />
-                        <p><a class="" href="/clinics?service={{service.id}}"><strong>{{defaultIfEmpty service.providers.hospitals.length 0}}</strong> {{localize 'ratings.items.clinics'}}</a></p>
-                    </div>
-                    <!--/.wave-->
-                    
-                </div>
-                    <!--/.col-->
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
 						<div class="map hidden-lg-down" style="height: 300px">
                         </div><!--/.map-->
-						<div class="hidden-xl-up"><br /><a class="btn-map" href="#" data-toggle="collapse" data-target="#showMap"><i class="fas fa-map-marker"></i> {{localize 'common.showOnMap'}}</a>
-							<div class="map collapse" id="map" style="height: 300px">
+						<div class="hidden-xl-up">
+                            <a class="btn-map" href="#" data-toggle="collapse" data-target="#map" aria-expanded="true">
+                                <i class="fas fa-map-marker"></i> <span id="mapLabel">{{localize 'common.closeMap'}}</span>
+                            </a>
+							<div class="map map--small collapse show" id="map">
                             </div><!--/.collapse-->
 						</div>
                         <script>
@@ -113,6 +104,19 @@
                         </script>
                     </div>
                     <!--/.col-->
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+
+                    <div class="wave">
+
+                        <a class="btn btn-primary btn-lg justify" href="/doctors?service={{service.id}}"><strong>{{defaultIfEmpty service.providers.doctors.length 0}}</strong> {{localize 'ratings.items.doctors'}}</a>
+                        <br />
+                        <p><a class="" href="/clinics?service={{service.id}}"><strong>{{defaultIfEmpty service.providers.hospitals.length 0}}</strong> {{localize 'ratings.items.clinics'}}</a></p>
+                    </div>
+                    <!--/.wave-->
+                    
+                </div>
+                    <!--/.col-->
+                    
                 </div>
                 <!--/.row-->
  

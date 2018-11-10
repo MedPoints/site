@@ -130,9 +130,14 @@
                     <div class="col-xl-6 col-lg-12">
                         <div class="map hidden-lg-down" style="height: 300px">
                         </div><!--/.map-->
-                        <div class="hidden-xl-up"><br /><a class="btn-map" href="#" data-toggle="collapse" data-target="#showMap"><i class="fas fa-map-marker"></i> {{localize 'common.showOnMap'}}</a>
-                            <div class="map collapse" id="map" style="height: 300px">
+                        <div class="hidden-xl-up"><br />
+                        
+                            <a class="btn-map" href="#" data-toggle="collapse" data-target="#map" aria-expanded="true">
+                                <i class="fas fa-map-marker"></i> <span id="mapLabel">{{localize 'common.closeMap'}}</span>
+                            </a>
+							<div class="map map--small collapse show" id="map">
                             </div><!--/.collapse-->
+                            
                             <script>
                                 var hospital = {{{hospitalJson}}};
                                 function initLocationMap() {

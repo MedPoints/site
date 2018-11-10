@@ -3,7 +3,7 @@ const localization = require('./../helpers/localization').localization;
 const config = require('config');
 const API_URL = config.get('BLOCKCHAIN_API_URL');
 
-const { DataPager } = require('./../helpers/pager');
+const prepareTransactions = require('./../helpers/rates').prepareTransactions;
 
 const PAGE_TITLE = localization.localize('breadcrumbs.rates'); 
 const MPT_CURRENCY_CODE = 'USD';
@@ -13,10 +13,6 @@ const EXCHANGE_API = 'https://min-api.cryptocompare.com/data/price';
 exports.getRates = async (req, res) => {
     const response = await axios.get(`${API_URL}/api/blockchain/blocks`);
     const chain = response.data; 
-    const {
-        page,
-        count
-    } = req.query;
 
     let transactions = [];
     if (chain && chain.length > 0) {
@@ -25,17 +21,11 @@ exports.getRates = async (req, res) => {
         }
     }
 
-    const dataPager = new DataPager(transactions, 5, +page);
-    const pagerInfo = {
-        pager: dataPager.pager,
-        baseUrl: '/rates',
-        parameters: req.query
-      };
+    const chartTransactions = prepareTransactions(transactions);
 
     res.render('pages/rates', { 
-        PAGE_TITLE, 
-        pagerInfo,
-        transactions: dataPager.getPageData(),
+        chartTransactions,
+        PAGE_TITLE,
         pageName: 'rates',
         title: localization.localize('pageTitles.rates'),
     });

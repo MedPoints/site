@@ -33,6 +33,8 @@ gulp.task('build:js', function(cb) {
     var libBundle = gulp.src([
         'public/js/lib/jquery/*.js', 
         'public/js/lib/tether/*.js',
+        'public/js/lib/jqueryui/*.js',
+        'public/js/lib/conflictfixes/*.js',
         'public/js/lib/*.js',
         ])
         .pipe(concat('lib.bundle.js'));
