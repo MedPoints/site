@@ -170,7 +170,7 @@
         "opinions": "opinions",
         "metricsQuality": "Price / Quality",
         "metricsService": "Service",
-        "noOpinions": "There are no opinions. <b>Add an opinion after the closing of the service’s smart-contrac.</b>",
+        "noOpinions": "There are no opinions. <b>Add an opinion after the closing of the service’s smart-contract.</b>",
         "items": {
             "drugs": "drugs",
             "doctors": "doctors",
@@ -340,6 +340,7 @@
         "emailsDoNotMatch": "Emails do not match",
         "requiredBookingDate": "Enter a booking date",
         "requiredDoctor": "Select a doctor",
+        "requiredService": "Select a service",
         "requiredWallet": "You need a wallet to book a visit. Please register or refresh this page.",
         "incorrectEmail": "Entered email is not valid",
         "requiredTitle": "Title is required",
