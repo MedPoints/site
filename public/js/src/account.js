@@ -32,10 +32,10 @@ $(function () {
                 errorContent += '<div class="alert alert-danger" role="alert">' + errors[i] + '</div>';
             }
 
-            $('#modalErrorTitle').html(window.localizer.localize('errorWindowTitle'));
-            $('#modalErrorContent').html(errorContent);
-    
-            $('#errorModal').modal('show');
+            showCustomErrorModal(
+                window.localizer.localize('errorWindowTitle'),
+                errorContent
+            );
             return;
         }
 
@@ -46,17 +46,20 @@ $(function () {
             data: data,
             success: function(res) {
                 if (res.status !== 200) {
-                    $('#modalErrorTitle').html(window.localizer.localize('customErrorWindowTitle'));
-                    $('#modalErrorContent').html(res.statusText);
-            
-                    $('#errorModal').modal('show');
+                    showCustomErrorModal(
+                        window.localizer.localize('customErrorWindowTitle'),
+                        res.statusText
+                    );
                 } else {
                     window.location.href = '/account/success';
                 }
                 
             },
             error: function (res) {
-                alert(window.localizer.localize('errors.account'));
+                showCustomErrorModal(
+                    window.localizer.localize('errors.accountUpdateTitle'),
+                    window.localizer.localize('errors.account')
+                );
             },
         });
 

@@ -246,3 +246,9 @@ function repos(imgs) {
 
     })
 }
+
+function showCustomErrorModal(titleContent, bodyContent) {
+    $('#modalErrorTitle').html(titleContent);
+    $('#modalErrorContent').html(bodyContent);
+    $('#errorModal').modal('show');
+}

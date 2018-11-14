@@ -37,7 +37,10 @@ $(function () {
                 $('#askQuestion').html(window.localizer.localize('faq.thanks'));
             },
             error: function (res) {
-                alert(window.localizer.localize('errors.requestError'));
+                showCustomErrorModal(
+                    window.localizer.localize('errors.requestErrorTitle'),
+                    window.localizer.localize('errors.requestError')
+                );
             },
         });
     });

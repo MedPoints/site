@@ -91,7 +91,10 @@ $(function () {
                 window.location.href = '/success';
             },
             error: function (res) {
-                alert(window.localizer.localize('errors.booking'));
+                showCustomErrorModal(
+                    window.localizer.localize('errors.requestErrorTitle'),
+                    window.localizer.localize('errors.booking')
+                );
             },
         });
     });  
@@ -107,7 +110,10 @@ function initBookingData() {
     var query = getQueryParams(window.location.search);
     doctorId = query.doctorId;
     if (!doctorId) {
-        alert(window.localizer.localize('errors.visitDoctor'));
+        showCustomErrorModal(
+            window.localizer.localize('errors.bookingErrorTitle'),
+            window.localizer.localize('errors.visitDoctor')
+        );
         return false;
     }
 
