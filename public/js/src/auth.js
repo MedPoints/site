@@ -11,7 +11,10 @@ $(function () {
         if (walletId && walletKey) {
             logIn(walletId, walletKey);
         } else {
-            alert(window.localizer.localize('errors.bothKeyAndId'));
+            showCustomErrorModal(
+                window.localizer.localize('errors.requiredFieldsError'),
+                window.localizer.localize('errors.bothKeyAndId')
+            );
         }
     });
 
@@ -83,7 +86,10 @@ function logIn(walletId, walletKey, callback) {
             }
         },
         error: function (res) {
-            alert(window.localizer.localize('errors.requestError'));
+            showCustomErrorModal(
+                window.localizer.localize('errors.bookingErrorTitle'),
+                window.localizer.localize('errors.requestError')
+            );
         }
     });
 }

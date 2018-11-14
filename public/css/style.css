@@ -1151,6 +1151,10 @@ body.large .card small {
     background-image: none;
 }
 
+.faq-accordion .ui-state-hover, .faq-accordion .ui-state-active {
+    background-color: transparent;
+}
+
 /* .ui-widget-content {
     height: 200px;
 } */

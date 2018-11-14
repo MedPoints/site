@@ -84,9 +84,9 @@
         <h3>{{localize 'drug.categories'}}</h3>
 
         <ul class="cat-list">
-            <li><a class="active" href="/drugs">{{localize 'drug.categoriesAll'}}</a></li>
+            <li><a class="{{#if (compare selectedCategory '')}}active{{/if}}" href="/drugs">{{localize 'drug.categoriesAll'}}</a></li>
             {{#each categories as |category|}}
-            <li><a href="/drugs?groupId={{category.id}}">{{category.name}}</a><span class="badge">{{category.drugs}}</span></li>
+            <li><a href="/drugs?groupId={{category.id}}" class="{{#if (compare ../selectedCategory category.id)}}active{{/if}}">{{category.name}}</a><span class="badge">{{category.drugs}}</span></li>
             {{/each}}
         </ul>
         <!--/.cat-list-->

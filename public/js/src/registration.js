@@ -8,7 +8,10 @@ $(function() {
 
     $('#registerButton').on('click', function(evt) {
         if (!$('#termsAccept').is(":checked")) {
-            alert(window.localizer.localize('errors.terms'));
+            showCustomErrorModal(
+                window.localizer.localize('errors.attentionTitle'),
+                window.localizer.localize('errors.terms')
+            );
             return false;
         }
         
@@ -82,7 +85,10 @@ function register(registerData) {
             window.location.href = '/';
         },
         error: function (res) {
-            alert(window.localizer.localize('errors.requestError'));
+            showCustomErrorModal(
+                window.localizer.localize('errors.requestErrorTitle'),
+                window.localizer.localize('errors.requestError')
+            );
         }
     })
 }

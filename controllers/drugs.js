@@ -41,12 +41,15 @@ exports.getDrugs = async (req, res) => {
   const categoriesRequest = await axios.get(groupsUrl);
   const categories = categoriesRequest.data.result.data;
 
+  console.log(parameters.groupId)
+
   res.render('drugs/drugs', { 
     drugs, 
     pagerInfo, 
     PAGE_TITLE, 
     categories, 
     selectedName: parameters.name,
+    selectedCategory: parameters.groupId || '',
     title: `MedPoints™ Drugs`, 
     filter: req.query.filter,
   });

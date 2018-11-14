@@ -28,7 +28,10 @@ $(function () {
                 $('#exchangeRate').val(res.rate);
             },
             error: function (res) {
-                alert(window.localizer.localize('errors.requestError'));
+                showCustomErrorModal(
+                    window.localizer.localize('errors.requestErrorTitle'),
+                    window.localizer.localize('errors.requestError')
+                );
             },
         });
     });

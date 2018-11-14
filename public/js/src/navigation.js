@@ -23,7 +23,10 @@ $( function() {
                     $('#addToFavButton').html(window.localizer.localize('successAddToFavourites'));
                 },
                 error: function (res) {
-                    alert(window.localizer.localize('errors.requestError'));
+                    showCustomErrorModal(
+                        window.localizer.localize('errors.requestErrorTitle'),
+                        window.localizer.localize('errors.requestError')
+                    );
                 }
             });
         }
