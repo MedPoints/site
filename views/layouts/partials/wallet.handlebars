@@ -2,23 +2,23 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">{{localize 'popups.walletDetails.title'}}</h5>
+                <h5 class="modal-title">{{localize req 'popups.walletDetails.title'}}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true"><i class="fas fa-times"></i></span>
                 </button>
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    <label for="walletId">{{localize 'popups.walletDetails.walletId'}}</label>
+                    <label for="walletId">{{localize req 'popups.walletDetails.walletId'}}</label>
                     <input type="text" class="form-control" id="infoWalletId" value="" disabled="disabled" required />
                     <div class="copy-text" id="infoWalletIdText"></div>
-                    <a class="copy-link btn-copy1" onclick="copyToClipboard($('#infoWalletIdText'))"><i class="far fa-copy"></i> {{localize 'common.copy'}}</a>
+                    <a class="copy-link btn-copy1" onclick="copyToClipboard($('#infoWalletIdText'))"><i class="far fa-copy"></i> {{localize req 'common.copy'}}</a>
                 </div>
                 <div class="form-group">
-                    <label for="walletKey">{{localize 'popups.walletDetails.walletKey'}}</label>
+                    <label for="walletKey">{{localize req 'popups.walletDetails.walletKey'}}</label>
                     <input type="text" class="form-control" id="infoWalletKey" value="" disabled="disabled" required />
                     <div class="copy-text" id="infoWalletKeyText"></div>
-                    <a class="copy-link btn-copy2" onclick="copyToClipboard($('#infoWalletKeyText'))"><i class="far fa-copy"></i> {{localize 'common.copy'}}</a>
+                    <a class="copy-link btn-copy2" onclick="copyToClipboard($('#infoWalletKeyText'))"><i class="far fa-copy"></i> {{localize req 'common.copy'}}</a>
                 </div>
             </div>
         </div>

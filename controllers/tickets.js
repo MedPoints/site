@@ -2,7 +2,7 @@ const config = require('config');
 const axios = require('axios');
 const API_URL = config.get('API_URL');
 const { prepareTicketsData } = require('./../helpers/tickets');
-const localization = require('./../helpers/localization').localization;
+const Localization = require('./../helpers/localization').Localization;
 
 const PAGE_TITLE = 'Support Tickets'; 
 
@@ -18,6 +18,7 @@ exports.sendQuestion = async (req, res) => {
         email,
         text,
     };
+    const localization = new Localization(req.cookies.locale);
 
     const request = await axios.post(`${API_URL}/api/faq/create`, data);
     if (request.status === 200) {
@@ -46,7 +47,7 @@ exports.createTicket = async (req, res) => {
         subject,
         text,
     };
-
+    const localization = new Localization(req.cookies.locale);
     const request = await axios.post(`${API_URL}/api/tickets/create`, data);
     if (request.status === 200) {
         res.setHeader('Content-Type', 'application/json');
@@ -57,7 +58,7 @@ exports.createTicket = async (req, res) => {
 };
 
 exports.addTickets = async (req, res) => {
-    res.render('pages/add-ticket', { PAGE_TITLE: "Add ticket", title: `MedPoints™ Your support tickets` });
+    res.render('pages/add-ticket', { PAGE_TITLE: "Add ticket", title: `MedPoints™ Your support tickets`,req, });
 };
 
 exports.getTickets = async (req, res) => {
@@ -67,7 +68,7 @@ exports.getTickets = async (req, res) => {
     } = req.cookies;
 
     if (!MedPoints_PrivateKey || !MedPoints_PublicKey) {
-        res.render('pages/account-tickets', { tickets: [], PAGE_TITLE, requireLogIn: true, title: `MedPoints™ Your support tickets` });
+        res.render('pages/account-tickets', { tickets: [], PAGE_TITLE, requireLogIn: true, title: `MedPoints™ Your support tickets`,req, });
     }
 
     let request = {};
@@ -79,5 +80,5 @@ exports.getTickets = async (req, res) => {
         console.log('Error in the tickets request.');
     }
 
-    res.render('pages/account-tickets', { tickets, PAGE_TITLE, requireLogIn: false, title: `MedPoints™ Your support tickets` });
+    res.render('pages/account-tickets', { tickets, PAGE_TITLE, requireLogIn: false, title: `MedPoints™ Your support tickets`,req, });
 };

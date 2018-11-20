@@ -2,18 +2,18 @@
       <div class="modal-dialog" role="document">
           <div class="modal-content">
               <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">{{localize 'popups.chooseLocation.title'}}</h5>
+                  <h5 class="modal-title" id="exampleModalLabel">{{localize req 'popups.chooseLocation.title'}}</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true"><i class="fas fa-times"></i></span>
             </button>
               </div>
               <div class="modal-body ui-front" id="autocompleteBody">
-                  <label>{{localize 'popups.chooseLocation.prompt'}}</label>
+                  <label>{{localize req 'popups.chooseLocation.prompt'}}</label>
                   <input type="text" id="locationAutocomplete" class="form-control" placeholder="example: New-York" />
               </div>
               <!--/.modal-body-->
               <div class="modal-footer">
-                  <button type="button" id="selectLocationButton" class="btn btn-primary">{{localize 'popups.chooseLocation.saveLocation'}}</button>
+                  <button type="button" id="selectLocationButton" class="btn btn-primary">{{localize req 'popups.chooseLocation.saveLocation'}}</button>
               </div>
           </div>
       </div>

@@ -2,31 +2,31 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">{{localize 'popups.logIn.title'}}</h5>
+                <h5 class="modal-title" id="exampleModalLabel">{{localize req 'popups.logIn.title'}}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true"><i class="fas fa-times"></i></span>
                 </button>
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    <label for="walletId">{{localize 'popups.logIn.walletId'}}</label>
+                    <label for="walletId">{{localize req 'popups.logIn.walletId'}}</label>
                     <input type="text" class="form-control" id="walletId" placeholder="Wallet ID" required />
                 </div>
                 <div class="form-group">
-                    <label for="walletKey">{{localize 'popups.logIn.walletKey'}}</label>
+                    <label for="walletKey">{{localize req 'popups.logIn.walletKey'}}</label>
                     <input type="text" class="form-control" id="walletKey" placeholder="Wallet key" required />
                 </div>
                 <br />
                 <label class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
-                    <span class="custom-control-description">{{localize 'popups.logIn.rememberMe'}}</span>
+                    <span class="custom-control-description">{{localize req 'popups.logIn.rememberMe'}}</span>
                 </label>
-                <a class="float-right" href="/faq#technical">{{localize 'popups.logIn.problems'}}</a>
+                <a class="float-right" href="/faq#technical">{{localize req 'popups.logIn.problems'}}</a>
             </div>
             <!--/.modal-body-->
             <div class="modal-footer">
-                <button id="logInButton" type="button" class="btn btn-primary">{{localize 'popups.logIn.logIn'}}</button>
+                <button id="logInButton" type="button" class="btn btn-primary">{{localize req 'popups.logIn.logIn'}}</button>
             </div>
         </div>
     </div>

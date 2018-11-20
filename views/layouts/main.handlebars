@@ -52,7 +52,7 @@
 
 
     <div class="ico-info-box">
-        {{{localize 'main.welcome'}}}
+        {{{localize req 'main.welcome'}}}
     </div>
 
     <header>
@@ -62,7 +62,7 @@
             <button id="btn-menu" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
                 data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false"
                 aria-label="Toggle navigation"><i class="fas fa-bars" data-toggle="collapse" data-target="#navbarsExampleDefault"></i><span
-                    data-toggle="collapse" data-target="#navbarsExampleDefault"> {{localize 'navigation.open'}}</span></button>
+                    data-toggle="collapse" data-target="#navbarsExampleDefault"> {{localize req 'navigation.open'}}</span></button>
 
             <a class="navbar-brand" href="/"><img src="/img/logo.svg" alt="" /></a>
 
@@ -70,21 +70,20 @@
 
                 <ul class="navbar-nav mr-auto service-menu">
                     <li class="nav-item">
-                        <span class="nav-link">{{localize 'navigation.location'}}</span>
+                        <span class="nav-link">{{localize req 'navigation.location'}}</span>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" data-toggle="modal" data-target="#chooseLocation"><span id="locationLabel">New
                                 York</span> &nbsp;<i class="fas fa-pencil-alt"></i></a>
                     </li>
                     <li class="nav-item">
-                        <span class="nav-link">{{localize 'navigation.language'}}</span>
+                        <span class="nav-link">{{localize req 'navigation.language'}}</span>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false"><i class="flag-icon flag-icon-gb"></i></a>
-                        <div class="dropdown-menu" aria-labelledby="dropdown01">
-                            <a class="dropdown-item" href="javascript:setLocale('en')"><i class="flag-icon flag-icon-gb"></i>
-                                English</a>
+                    <li class="nav-item dropdown" id="langMenu">
+                        <a class="nav-link dropdown-toggle" href="#" id="langMenuItem" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                        <div class="dropdown-menu" aria-labelledby="langMenuItem">
+                            <a class="dropdown-item" data-locale="en" href="javascript:setLocale('en')"><i class="flag-icon flag-icon-gb"></i> <span class="lang-name">English</span></a>
+                            <a class="dropdown-item" data-locale="ru" href="javascript:setLocale('ru')"><i class="flag-icon flag-icon-ru"></i> <span class="lang-name">Русский</span></a>
                             {{!-- <a class="dropdown-item" href="#"><i class="flag-icon flag-icon-de"></i> Deutsche</a>
                             <a class="dropdown-item" href="#"><i class="flag-icon flag-icon-ru"></i> Русский</a>
                             <a class="dropdown-item" href="#"><i class="flag-icon flag-icon-cn"></i> 中国</a>
@@ -98,7 +97,7 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <span class="nav-link">{{localize 'navigation.font'}}</span>
+                        <span class="nav-link">{{localize req 'navigation.font'}}</span>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link sizer" href="#" id="small" title="Small font size">A</a>
@@ -112,18 +111,16 @@
                         <a class="nav-link" href="/rates">1 <strong>MPT</strong> = 0.01 <i class="fas fa-dollar-sign"></i></a>
                     </li>
                     <li class="nav-item unregistered-item">
-                        <a class="nav-link" href="#" data-toggle="modal" data-target="#login">{{localize
-                            'navigation.login'}}</a>
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#login">{{localize req 'navigation.login'}}</a>
                     </li>
                     <li class="nav-item unregistered-item">
-                        <a class="nav-link" href="/registration">{{localize 'navigation.register'}}</a>
+                        <a class="nav-link" href="/registration">{{localize req 'navigation.register'}}</a>
                     </li>
                     <li class="nav-item registered-item">
-                        <a class="nav-link" href="/account">{{localize 'navigation.account'}}</a>
+                        <a class="nav-link" href="/account">{{localize req 'navigation.account'}}</a>
                     </li>
                     <li class="nav-item registered-item">
-                        <a class="nav-link" id="logOutButton" href="javascript:void(0)">{{localize
-                            'navigation.logout'}}</a>
+                        <a class="nav-link" id="logOutButton" href="javascript:void(0)">{{localize req 'navigation.logout'}}</a>
                     </li>
                     <li>
 
@@ -154,7 +151,7 @@
                 <div class="extra">
                     <ul class="row">
                         <li class="col-xl-12 col-lg-6 text-xl-right text-lg-left">
-                            <a href="/insurance"><i class="fas fa-heartbeat"></i> {{localize 'navigation.insurance'}}</a>
+                            <a href="/insurance"><i class="fas fa-heartbeat"></i> {{localize req 'navigation.insurance'}}</a>
                         </li>
                         <!--/.col-->
                     </ul>
@@ -168,30 +165,30 @@
                     <ul class="row">
                         <li class="col {{activeLink currentPath '/clinics'}}">
                             <a class="" href="/clinics"><span id="clinicsCount">0</span>
-                                <h3>{{localize 'navigation.clinics'}}</h3>
+                                <h3>{{localize req 'navigation.clinics'}}</h3>
                             </a>
                         </li>
                         <!--/.col-->
                         <li class="col {{activeLink currentPath '/services'}}">
                             <a class="" href="/services"><span id="servicesCount">0</span>
-                                <h3>{{localize 'navigation.services'}}</h3>
+                                <h3>{{localize req 'navigation.services'}}</h3>
                             </a>
                         </li>
                         <li class="col {{activeLink currentPath '/doctors'}}">
                             <a class="" href="/doctors"><span id="doctorsCount">0</span>
-                                <h3>{{localize 'navigation.doctors'}}</h3>
+                                <h3>{{localize req 'navigation.doctors'}}</h3>
                             </a>
                         </li>
                         <!--/.col-->
                         <li class="col {{activeLink currentPath '/pharmacies'}}">
                             <a class="" href="/pharmacies"><span id="pharmaciesCount">0</span>
-                                <h3>{{localize 'navigation.pharmacies'}}</h3>
+                                <h3>{{localize req 'navigation.pharmacies'}}</h3>
                             </a>
                         </li>
                         <!--/.col-->
                         <li class="col {{activeLink currentPath '/drugs'}}">
                             <a class="" href="/drugs"><span id="drugsCount">0</span>
-                                <h3>{{localize 'navigation.drugs'}}</h3>
+                                <h3>{{localize req 'navigation.drugs'}}</h3>
                             </a>
                         </li>
                         <!--/.col-->
@@ -213,21 +210,20 @@
             <div class="row">
                 <div class="col-xl-9 col-md-8 col-sm-12">
                     <div class="input-group input-group-lg">
-                        <input type="text" class="form-control" value="{{req.query.name}}" name="search" placeholder="{{localize 'search.searchPrompt'}}" />
+                        <input type="text" class="form-control" value="{{req.query.name}}" name="search" placeholder="{{localize req 'search.searchPrompt'}}" />
 
                         <select name="category" class="custom-select">
-                            <option selected>{{localize 'search.options.default'}}</option>
-                            <option>{{localize 'search.options.clinics'}}</option>
-                            <option value="2" hidden>{{localize 'search.options.services'}}</option>
-                            <option>{{localize 'search.options.doctors'}}</option>
-                            <option value="4" hidden>{{localize 'search.options.pharmacies'}}</option>
-                            <option value="5" hidden>{{localize 'search.options.drugs'}}</option>
+                            <option selected>{{localize req 'search.options.default'}}</option>
+                            <option>{{localize req 'search.options.clinics'}}</option>
+                            <option value="2" hidden>{{localize req 'search.options.services'}}</option>
+                            <option>{{localize req 'search.options.doctors'}}</option>
+                            <option value="4" hidden>{{localize req 'search.options.pharmacies'}}</option>
+                            <option value="5" hidden>{{localize req 'search.options.drugs'}}</option>
                         </select>
 
                         <div class="input-group-btn">
                             <button type="submit" class="btn btn-primary search-button">
-                                <i class="fas fa-search"></i><span class="search-button__text">{{localize
-                                    'navigation.search'}}</span>
+                                <i class="fas fa-search"></i><span class="search-button__text">{{localize req 'navigation.search'}}</span>
                             </button>
                         </div>
                     </div>
@@ -239,7 +235,7 @@
                 </div>
                 <!--/.col-->
                 <div class="col-xl-2 col-md-2 col-sm-6">
-                    <a class="btn btn-primary btn-lg justify" href="/partnership">{{localize 'partnership.addButton'}}</a>
+                    <a class="btn btn-primary btn-lg justify" href="/partnership">{{localize req 'partnership.addButton'}}</a>
                 </div>
                 <!--/.col-->
             </div>
@@ -262,44 +258,42 @@
 
                 <div class="row">
                     <div class="col-xl-4 col-md-4 col-sm-6">
-                        <h4>{{localize 'footer.project.title'}}</h4>
+                        <h4>{{localize req 'footer.project.title'}}</h4>
                         <ul>
-                            <li><a href="/about">{{localize 'footer.project.items.about'}}</a></li>
-                            <li><a href="/partnership">{{localize 'footer.project.items.partnership'}}</a></li>
-                            <li><a href="/explorer">{{localize 'footer.project.items.explorer'}}</a></li>
-                            <li><a href="/blog">{{localize 'footer.project.items.blog'}}</a></li>
+                            <li><a href="/about">{{localize req 'footer.project.items.about'}}</a></li>
+                            <li><a href="/partnership">{{localize req 'footer.project.items.partnership'}}</a></li>
+                            <li><a href="/explorer">{{localize req 'footer.project.items.explorer'}}</a></li>
+                            <li><a href="/blog">{{localize req 'footer.project.items.blog'}}</a></li>
                         </ul>
                     </div>
                     <!--/.col-->
                     <div class="col-xl-4 col-md-4 col-sm-6">
-                        <h4>{{localize 'footer.support.title'}}</h4>
+                        <h4>{{localize req 'footer.support.title'}}</h4>
                         <ul>
-                            <li><a href="/faq">{{localize 'footer.support.items.faq'}}</a></li>
-                            <li class="support-tickets"><a href="/account-tickets">{{localize
-                                    'footer.support.items.support'}}</a></li>
-                            <li><a href="/terms-of-use">{{localize 'footer.support.items.terms'}}</a></li>
-                            <li><a href="/privacy-policy">{{localize 'footer.support.items.policy'}}</a></li>
+                            <li><a href="/faq">{{localize req 'footer.support.items.faq'}}</a></li>
+                            <li class="support-tickets"><a href="/account-tickets">{{localize req 'footer.support.items.support'}}</a></li>
+                            <li><a href="/terms-of-use">{{localize req 'footer.support.items.terms'}}</a></li>
+                            <li><a href="/privacy-policy">{{localize req 'footer.support.items.policy'}}</a></li>
                         </ul>
                     </div>
                     <!--/.col-->
                     <div class="col-xl-4 col-md-4 col-sm-12">
-                        <h4>{{localize 'footer.applications.title'}}</h4>
+                        <h4>{{localize req 'footer.applications.title'}}</h4>
                         <div class="row">
                             <div class="col-xl-6 col-md-12 col-sm-6">
                                 <ul>
-                                    <li><i class="fas fa-mobile-alt"></i> {{localize
-                                        'footer.applications.items.mobile'}}</li>
-                                    <li><a href="#" data-toggle="modal" data-target="#sorry">{{localize 'footer.applications.items.apple'}}</a></li>
-                                    <li><a href="#" data-toggle="modal" data-target="#sorry">{{localize 'footer.applications.items.android'}}</a></li>
-                                    <li><a href="#" data-toggle="modal" data-target="#sorry">{{localize 'footer.applications.items.windows'}}</a></li>
+                                    <li><i class="fas fa-mobile-alt"></i> {{localize req 'footer.applications.items.mobile'}}</li>
+                                    <li><a href="#" data-toggle="modal" data-target="#sorry">{{localize req 'footer.applications.items.apple'}}</a></li>
+                                    <li><a href="#" data-toggle="modal" data-target="#sorry">{{localize req 'footer.applications.items.android'}}</a></li>
+                                    <li><a href="#" data-toggle="modal" data-target="#sorry">{{localize req 'footer.applications.items.windows'}}</a></li>
                                 </ul>
                             </div>
                             <!--/.col-->
                             <div class="col-xl-6 col-md-12 col-sm-6">
                                 <ul>
-                                    <li><i class="fas fa-desktop"></i> {{localize 'footer.applications.items.desktop'}}</li>
-                                    <li><a href="#" data-toggle="modal" data-target="#sorry">{{localize 'footer.applications.items.windows'}}</a></li>
-                                    <li><a href="#" data-toggle="modal" data-target="#sorry">{{localize 'footer.applications.items.macos'}}</a></li>
+                                    <li><i class="fas fa-desktop"></i> {{localize req 'footer.applications.items.desktop'}}</li>
+                                    <li><a href="#" data-toggle="modal" data-target="#sorry">{{localize req 'footer.applications.items.windows'}}</a></li>
+                                    <li><a href="#" data-toggle="modal" data-target="#sorry">{{localize req 'footer.applications.items.macos'}}</a></li>
                                 </ul>
                             </div>
                             <!--/.col-->
@@ -314,12 +308,12 @@
             <!--/.col-->
             <div class="col-xl-4 col-md-5 col-sm-12">
 
-                <p>{{{localize 'footer.signup.title'}}}<br /><small>{{localize 'footer.signup.subtitle'}}</small></p>
+                <p>{{{localize req 'footer.signup.title'}}}<br /><small>{{localize req 'footer.signup.subtitle'}}</small></p>
 
                 <form>
 
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="{{localize 'footer.signup.prompt'}}" />
+                        <input type="text" class="form-control" placeholder="{{localize req 'footer.signup.prompt'}}" />
 
                         <div class="input-group-btn">
                             <button type="button" class="btn btn-secondary">
@@ -332,7 +326,7 @@
 
                 <div class="row social-bottom">
                     <div class="col-xl-6 col-md-12 col-sm-12">
-                        <small>{{localize 'footer.signup.social'}}</small>
+                        <small>{{localize req 'footer.signup.social'}}</small>
                     </div>
                     <!--/.col-->
                     <div class="col-xl-6 col-md-12 col-sm-12">
@@ -358,22 +352,22 @@
 
         <p>
             <div class="alert alert-info text-center">
-                <h5>{{localize 'footer.disclaimer.title'}}</h5> {{localize 'footer.disclaimer.subtitle'}}
+                <h5>{{localize req 'footer.disclaimer.title'}}</h5> {{localize req 'footer.disclaimer.subtitle'}}
             </div>
         </p>
 
         <div class="row">
             <div class="col">
-                {{localize 'footer.copyright.title'}} &copy;
+                {{localize req 'footer.copyright.title'}} &copy;
                 <script type="text/javascript">
                     var mdate = new Date();
                     document.write(mdate.getFullYear());
                 </script>
-                {{{localize 'footer.copyright.copyrightText'}}}
+                {{{localize req 'footer.copyright.copyrightText'}}}
             </div>
             <!--/.col-->
             <div class="col text-right">
-                <a href="/sitemap"><i class="fas fa-sitemap"></i> {{localize 'footer.sitemap'}}</a>
+                <a href="/sitemap"><i class="fas fa-sitemap"></i> {{localize req 'footer.sitemap'}}</a>
             </div>
             <!--/.col-->
         </div>

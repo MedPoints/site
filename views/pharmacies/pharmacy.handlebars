@@ -1,7 +1,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/">{{localize 'breadcrumbs.home'}}</a></li>
-            <li class="breadcrumb-item"><a href="/pharmacies">{{localize 'breadcrumbs.pharmacies'}}</a></li>
+            <li class="breadcrumb-item"><a href="/">{{localize req 'breadcrumbs.home'}}</a></li>
+            <li class="breadcrumb-item"><a href="/pharmacies">{{localize req 'breadcrumbs.pharmacies'}}</a></li>
             <li class="breadcrumb-item active" aria-current="page">{{ pharmacy.name }}</li>
         </ol>
     </nav>
@@ -52,12 +52,12 @@
                 <table summary="" class="table table-hover">
                     <tbody>
                         <tr>
-                            <td><strong>{{localize 'pharmacy.details.network'}}</strong></td>
+                            <td><strong>{{localize req 'pharmacy.details.network'}}</strong></td>
                             <td>{{pharmacy.network}}</td>
                         </tr>
                         <tr>
-                            <td><strong>{{localize 'pharmacy.details.site'}}</strong></td>
-                            <td><a href="{{pharmacy.site}}">{{localize 'pharmacy.details.goToSite'}}</a></td>
+                            <td><strong>{{localize req 'pharmacy.details.site'}}</strong></td>
+                            <td><a href="{{pharmacy.site}}">{{localize req 'pharmacy.details.goToSite'}}</a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -65,7 +65,7 @@
             <!--/.table-responsive-->
 
 
-            <h3>{{localize 'pharmacy.details.gallery'}}</h3>
+            <h3>{{localize req 'pharmacy.details.gallery'}}</h3>
 
             <div class="gallery">
                 <ul class="owl-carousel owl-theme">
@@ -86,14 +86,14 @@
 				
                     <div class="col-xl-6 col-lg-12">
                         <div class="wave text-center">
-                            <h4>{{localize 'ratings.rating'}} <strong class="text-success">{{pharmacy.rate}}</strong></h4>
-                            <p>{{localize 'ratings.basedOn'}} <strong><a class="" href="#opinions">{{pharmacy.ratings.length}} {{localize 'ratings.opinions'}}</a></strong></p> 
+                            <h4>{{localize req 'ratings.rating'}} <strong class="text-success">{{pharmacy.rate}}</strong></h4>
+                            <p>{{localize req 'ratings.basedOn'}} <strong><a class="" href="#opinions">{{pharmacy.ratings.length}} {{localize req 'ratings.opinions'}}</a></strong></p>
 
                             <ul class="rating"> 
 							
                                 <li class="row">
                                     <div class="col text-right">
-                                        {{localize 'ratings.metricsService'}}
+                                        {{localize req 'ratings.metricsService'}}
                                     </div>
                                     <div class="col">
                                         <div class="progress progress-striped">
@@ -107,7 +107,7 @@
                                 <!-- end row -->
                                 <li class="row">
                                     <div class="col text-right">
-                                        {{localize 'ratings.metricsQuality'}}
+                                        {{localize req 'ratings.metricsQuality'}}
                                     </div>
                                     <div class="col">
                                         <div class="progress progress-striped">
@@ -123,10 +123,10 @@
                             </ul>
                             <!--/.rating-->
 							
-                            <p><a class="btn btn-primary btn-lg justify" href="/drugs?pharmacyId={{pharmacy.id}}"><strong>{{ pharmacy.drugs.length }}</strong> {{localize 'ratings.items.drugs'}}</a></p>
+                            <p><a class="btn btn-primary btn-lg justify" href="/drugs?pharmacyId={{pharmacy.id}}"><strong>{{ pharmacy.drugs.length }}</strong> {{localize req 'ratings.items.drugs'}}</a></p>
                             <p>
                                 <a class="btn btn-secondary justify" data-type="pharmacy" data-id="{{pharmacy.id}}" id="addToFavButton" href="javascript:void(0)">
-                                    <i class="far fa-heart"></i> {{localize 'addFavorites'}}
+                                    <i class="far fa-heart"></i> {{localize req 'addFavorites'}}
                                 </a>
                             </p>
                         </div>
@@ -137,7 +137,7 @@
 					<div class="col-xl-6 col-lg-12">
 						<div class="map hidden-lg-down" style="height: 300px">
 						</div><!--/.map-->
-						<div class="hidden-xl-up"><br /><a class="btn-map" href="#" data-toggle="collapse" data-target="#showMap"><i class="fas fa-map-marker"></i> {{localize 'common.showOnMap'}}</a>
+						<div class="hidden-xl-up"><br /><a class="btn-map" href="#" data-toggle="collapse" data-target="#showMap"><i class="fas fa-map-marker"></i> {{localize req 'common.showOnMap'}}</a>
 							<div class="map" style="height: 300px"></div>
                             <script>
                                 var pharmacy = {{{jsonify pharmacy}}};
@@ -200,7 +200,7 @@
 
         <div class="reviews" id="opinions">
             {{#if pharmacy.ratings.length}}
-            <h3>{{localize 'ratings.opinions'}} <span class="badge">{{pharmacy.ratings.length}}</span></h3>
+            <h3>{{localize req 'ratings.opinions'}} <span class="badge">{{pharmacy.ratings.length}}</span></h3>
             <ul class="owl-carousel owl-theme">
                 {{#each pharmacy.ratings as |rating|}}
                 <li class="item">
@@ -223,7 +223,7 @@
                 {{/each}}
             </ul>
             {{else}}
-                <h3 style="text-align:center;">{{{localize 'ratings.noOpinions'}}}</h3>
+                <h3 style="text-align:center;">{{{localize req 'ratings.noOpinions'}}}</h3>
             {{/if}}
         </div>
         <!--/.reviews-->

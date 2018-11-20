@@ -1,8 +1,8 @@
 
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/">{{localize 'breadcrumbs.home'}}</a></li>
-        <li class="breadcrumb-item active" aria-current="page">{{localize 'breadcrumbs.bookAVisit'}}</li>
+        <li class="breadcrumb-item"><a href="/">{{localize req 'breadcrumbs.home'}}</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{localize req 'breadcrumbs.bookAVisit'}}</li>
     </ol>
 </nav>
 
@@ -18,7 +18,7 @@
 
                     <div class="history">
                         <h3>14.05.2018 - <a href="/clinic">General Hospital</a> <small>Public</small></h3>
-                        <p><a class="btn-map" href="#" data-toggle="collapse" data-target="#showMap"><i class="fas fa-map-marker"></i> {{localize 'common.showOnMap'}}</a>
+                        <p><a class="btn-map" href="#" data-toggle="collapse" data-target="#showMap"><i class="fas fa-map-marker"></i> {{localize req 'common.showOnMap'}}</a>
                             <div class="collapse" id="showMap">
                                 <iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d84016.36429915384!2d2.161754161251458!3d48.848458114630624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e0!4m0!4m5!1s0x47e67031f8c20147%3A0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris%2C+3+Avenue+Victoria%2C+75004+Paris%2C+Francia!3m2!1d48.856836099999995!2d2.3504327!5e0!3m2!1sen!2sru!4v1517149847463"
                     width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
@@ -76,35 +76,35 @@
         {{!-- <div class="col-xl-8 col-lg-8 col-md-12"> --}}
         <div class="col-xl-12 col-lg-12 col-md-12">
             <div class="unregistered-item">
-                <h2>{{{localize 'existingCustomer'}}}</h2>
+                <h2>{{{localize req 'existingCustomer'}}}</h2>
 
                 <br />
                 <div class="alert alert-info" role="alert">
-                    {{{localize 'welcome'}}}
+                    {{{localize req 'welcome'}}}
                 </div>
             </div>
             
 
             <div class="form-group">
-                <label for="walletId">{{localize 'popups.walletDetails.walletId'}}</label>
+                <label for="walletId">{{localize req 'popups.walletDetails.walletId'}}</label>
                 <input type="text" class="form-control" id="bookingWalletId" value="" disabled="disabled" />
-                <a class="copy-link btn-copy1" onclick="copyToClipboard($('#bookingWalletId'))">{{localize 'common.copy'}}</a>
+                <a class="copy-link btn-copy1" onclick="copyToClipboard($('#bookingWalletId'))">{{localize req 'common.copy'}}</a>
             </div>
             <div class="form-group">
-                <label for="walletKey">{{localize 'popups.walletDetails.walletKey'}}</label>
+                <label for="walletKey">{{localize req 'popups.walletDetails.walletKey'}}</label>
                 <input type="text" class="form-control" id="bookingWalletKey" value="" disabled="disabled" />
-                <a class="copy-link btn-copy1" onclick="copyToClipboard($('#bookingWalletKey'))">{{localize 'common.copy'}}</a>
+                <a class="copy-link btn-copy1" onclick="copyToClipboard($('#bookingWalletKey'))">{{localize req 'common.copy'}}</a>
             </div>
 
             <div class="row">
                 <div class="col-6">
-                    <label for="firstName">{{localize 'booking.form.firstName'}}</label>
-                    <input type="text" name="firstName" class="form-control" id="firstName" placeholder="{{localize 'booking.form.firstName'}}" required />
+                    <label for="firstName">{{localize req 'booking.form.firstName'}}</label>
+                    <input type="text" name="firstName" class="form-control" id="firstName" placeholder="{{localize req 'booking.form.firstName'}}" required />
                 </div>
                 <!--/.col-->
                 <div class="col-6">
-                    <label for="lastName">{{localize 'booking.form.lastName'}}</label>
-                    <input type="text" name="lastName" class="form-control" id="lastName" placeholder="{{localize 'booking.form.lastName'}}" required />
+                    <label for="lastName">{{localize req 'booking.form.lastName'}}</label>
+                    <input type="text" name="lastName" class="form-control" id="lastName" placeholder="{{localize req 'booking.form.lastName'}}" required />
                 </div>
                 <!--/.col--> 
             </div>
@@ -115,24 +115,24 @@
             <div class="row">
                 <div class="col-6"> 
                     
-                    <label>{{localize 'booking.form.sex'}}</label><br />
+                    <label>{{localize req 'booking.form.sex'}}</label><br />
 
                     <label class="custom-control custom-radio">
                         <input id="radio2" name="radio" type="radio" class="custom-control-input" checked="checked">
                         <span class="custom-control-indicator"></span>
-                        <span class="custom-control-description">{{localize 'booking.form.sexTypes.male'}}</span>
+                        <span class="custom-control-description">{{localize req 'booking.form.sexTypes.male'}}</span>
                     </label>
                     <label class="custom-control custom-radio">
                         <input id="radio3" name="radio" type="radio" class="custom-control-input">
                         <span class="custom-control-indicator"></span>
-                        <span class="custom-control-description">{{localize 'booking.form.sexTypes.female'}}</span>
+                        <span class="custom-control-description">{{localize req 'booking.form.sexTypes.female'}}</span>
                     </label> 
                     
                 </div>
                 <!--/.col-->
                 <div class="col-6"> 
                     
-                    <label>{{localize 'booking.form.dateOfBirth'}}</label> 
+                    <label>{{localize req 'booking.form.dateOfBirth'}}</label>
                     <input class="form-control" type="date" value="2011-08-19" id="dateOfBirth">
                     
                 </div>
@@ -144,26 +144,26 @@
 
             <hr />
             
-            <h3>{{localize 'booking.form.selectServiceAndClinic'}}</h3> 
+            <h3>{{localize req 'booking.form.selectServiceAndClinic'}}</h3>
                     
             <div class="row booking-editors"> 
             
                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 details-container">
                     <div class="form-group">
-                        <label for="serviceId">{{localize 'booking.form.service'}}:</label><br />
+                        <label for="serviceId">{{localize req 'booking.form.service'}}:</label><br />
                         <select id="serviceId" name="service" class="booking-control booking-dropdown custom-select">
                         </select>
                     </div>
                 </div>
                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 details-container">
                     <div class="form-group">
-                        <label>{{localize 'booking.form.bookingDate'}}</label><br />
+                        <label>{{localize req 'booking.form.bookingDate'}}</label><br />
                         <input class="form-control booking-control" type="date" id="bookingDate" required>
                     </div>
                 </div>
                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 details-container">
                     <div class="form-group">
-                        <label for="clinicId">{{localize 'booking.form.clinic'}}:</label><br />
+                        <label for="clinicId">{{localize req 'booking.form.clinic'}}:</label><br />
                         <select id="clinicId" name="clinic" class="booking-control booking-dropdown custom-select">
                         </select>
                     </div>
@@ -173,16 +173,16 @@
             <input type="hidden" id="doctorId" name="doctorId" />
             <hr />
             
-            <h3>{{localize 'booking.form.addAnEmail'}}</h3> 
+            <h3>{{localize req 'booking.form.addAnEmail'}}</h3>
                     
             <div class="row"> 
             
                 <div class="col-6">
-                    <label for="email">{{localize 'booking.form.email'}}</label>
+                    <label for="email">{{localize req 'booking.form.email'}}</label>
                     <input type="text" name="email" class="form-control" id="email" placeholder="Email" />
                 </div>
                 <div class="col-6">
-                    <label for="email">{{localize 'booking.form.confirmEmail'}}</label>
+                    <label for="email">{{localize req 'booking.form.confirmEmail'}}</label>
                     <input type="text" name="confirmEmail" class="form-control" id="confirmEmail" placeholder="Confirm Email" />
                 </div>
                 <!--/.col-->
@@ -195,14 +195,14 @@
             <label class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" checked="checked">
                 <span class="custom-control-indicator"></span>
-                <span class="custom-control-description">{{localize 'booking.form.acceptTermsOfUse'}}</span>
-            </label> {{{localize 'booking.form.termsOfUse'}}}
+                <span class="custom-control-description">{{localize req 'booking.form.acceptTermsOfUse'}}</span>
+            </label> {{{localize req 'booking.form.termsOfUse'}}}
 
             <hr />
             
             <div class="row">
                 <div class="col">
-                    <a class="btn btn-primary justify" id="bookingButton" href="javascript:void(0)">{{localize 'booking.form.confirmBooking'}}</a>
+                    <a class="btn btn-primary justify" id="bookingButton" href="javascript:void(0)">{{localize req 'booking.form.confirmBooking'}}</a>
                     <br />
                 </div>
                 <!--/.col--> 

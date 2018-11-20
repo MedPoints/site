@@ -1,7 +1,7 @@
 const moment = require('moment');
 const Handlebars = require('handlebars');
 const {queryPersistant} = require('./../helpers/query-persistant');
-const localization = require('./../helpers/localization').localization;
+const Localization = require('./../helpers/localization').Localization;
 const fs = require('fs');
 
 exports.hbsHelpers = {
@@ -169,12 +169,18 @@ exports.hbsHelpers = {
   compare: (val, compareVal) => {
     return val === compareVal;
   },
-  localize: (path, options) => {
-    return localization.localize(path, options.hash);
+  localize: (req, path, options) => {
+    return new Localization(req.cookies.locale).localize(path, options.hash);
   },
   localization: (locale, options) => {
     const dictionary = fs.readFileSync(`public/data/lang/${locale}.json`, 'utf8');
-    return `<script type="text/javascript">window.dictionary = ${dictionary};</script>`;
+    let backupDictionary;
+    if (locale === 'en') {
+      backupDictionary = dictionary;
+    } else {
+      backupDictionary = fs.readFileSync(`public/data/lang/en.json`, 'utf8');
+    }
+    return `<script type="text/javascript">window.dictionary = ${dictionary};window.enDictionary = ${backupDictionary}</script>`;
   },
   equals: (val1, val2) => {
     return val1 === val2;

@@ -1,12 +1,12 @@
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
-            <a href="/">{{localize 'breadcrumbs.home'}}</a>
+            <a href="/">{{localize req 'breadcrumbs.home'}}</a>
         </li>
         <li class="breadcrumb-item">
-            <a href="/account">{{localize 'breadcrumbs.account'}}</a>
+            <a href="/account">{{localize req 'breadcrumbs.account'}}</a>
         </li>
-        <li class="breadcrumb-item active" aria-current="page">{{localize 'breadcrumbs.accountRecords'}}</li>
+        <li class="breadcrumb-item active" aria-current="page">{{localize req 'breadcrumbs.accountRecords'}}</li>
     </ol>
 </nav>
 
@@ -50,7 +50,7 @@
                 <li>
                     <a class="copy-link btn-copy1" onclick="copyToClipboard($('#transactionId'))">
                         <i class="far fa-copy"></i>
-                        {{localize 'common.copy'}}</a> /
+                        {{localize req 'common.copy'}}</a> /
                     <a href="#" data-toggle="modal" data-target="#sorry">Check in blockchain explorer</a>
                 </li>
                 <li>Transaction status
