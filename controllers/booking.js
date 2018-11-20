@@ -2,7 +2,7 @@ const config = require('config');
 const axios = require('axios');
 const API_URL = config.get('BLOCKCHAIN_API_URL');
 
-const localization = require('../helpers/localization').localization;
+const Localization = require('../helpers/localization').Localization;
 
 exports.register = async (req, res) => {
     const {
@@ -33,7 +33,7 @@ exports.register = async (req, res) => {
             dateOfBirth,
         }),
     }
-
+    const localization = new Localization(req.cookies.locale);
     const request = await axios.post(`${API_URL}/api/blockchain/transactions`, data);
     if (request.status === 200) {
         res.setHeader('Content-Type', 'application/json');

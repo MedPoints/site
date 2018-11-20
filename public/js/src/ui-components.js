@@ -7,6 +7,7 @@ $(function() {
     initializeMenuToggle();
     initializeBellToggle();
     initializeAddressMapToggle();
+    initializeLocalizationControls();
 
     $('[data-toggle="tooltip"]').tooltip();
     $('.gallery a.gallery-img').simpleLightbox();
@@ -22,6 +23,13 @@ $(window).resize(function () {
 })
 
 repos($('.crop img'))
+
+function initializeLocalizationControls() {
+    var currentLocale = Cookies.get('locale') || 'en';
+    var activeLocalizationItem = $('a[data-locale=' + currentLocale + ']').clone();
+    activeLocalizationItem.find('.lang-name').remove();
+    $('#langMenuItem').html(activeLocalizationItem.html());
+}
 
 function initializeAddressMapToggle() {
     $('#addressMap').modal({show:false});

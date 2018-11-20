@@ -1,8 +1,8 @@
 
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/">{{localize 'breadcrumbs.home'}}</a></li>
-            <li class="breadcrumb-item"><a href="/services">{{localize 'breadcrumbs.services'}}</a></li>
+            <li class="breadcrumb-item"><a href="/">{{localize req 'breadcrumbs.home'}}</a></li>
+            <li class="breadcrumb-item"><a href="/services">{{localize req 'breadcrumbs.services'}}</a></li>
             <li class="breadcrumb-item active" aria-current="page">{{ service.name }}</li>
         </ol>
     </nav>
@@ -15,8 +15,8 @@
                 <div class="col">
                     <img src="/img/_demo/service1.jpg" alt="" class="img-thumbnail float-left">
                     <h3>{{ service.name }}</h3>
-                    <div>{{localize 'common.time'}} <strong>{{ service.time }}</strong></div>
-                    <div>{{localize 'common.fromPriceFull'}} <strong class="text-dark">${{ service.price.dollars }}</strong> <strong class="text-success">{{ service.price.mpts }} MPT</strong></div>
+                    <div>{{localize req 'common.time'}} <strong>{{ service.time }}</strong></div>
+                    <div>{{localize req 'common.fromPriceFull'}} <strong class="text-dark">${{ service.price.dollars }}</strong> <strong class="text-success">{{ service.price.mpts }} MPT</strong></div>
 
                     <hr />
                     <div>
@@ -46,7 +46,7 @@
                         </div><!--/.map-->
 						<div class="hidden-xl-up">
                             <a class="btn-map" href="#" data-toggle="collapse" data-target="#map" aria-expanded="true">
-                                <i class="fas fa-map-marker"></i> <span id="mapLabel">{{localize 'common.closeMap'}}</span>
+                                <i class="fas fa-map-marker"></i> <span id="mapLabel">{{localize req 'common.closeMap'}}</span>
                             </a>
 							<div class="map map--small collapse show" id="map">
                             </div><!--/.collapse-->
@@ -108,9 +108,9 @@
 
                     <div class="wave">
 
-                        <a class="btn btn-primary btn-lg justify" href="/doctors?service={{service.id}}"><strong>{{defaultIfEmpty service.providers.doctors.length 0}}</strong> {{localize 'ratings.items.doctors'}}</a>
+                        <a class="btn btn-primary btn-lg justify" href="/doctors?service={{service.id}}"><strong>{{defaultIfEmpty service.providers.doctors.length 0}}</strong> {{localize req 'ratings.items.doctors'}}</a>
                         <br />
-                        <p><a class="" href="/clinics?service={{service.id}}"><strong>{{defaultIfEmpty service.providers.hospitals.length 0}}</strong> {{localize 'ratings.items.clinics'}}</a></p>
+                        <p><a class="" href="/clinics?service={{service.id}}"><strong>{{defaultIfEmpty service.providers.hospitals.length 0}}</strong> {{localize req 'ratings.items.clinics'}}</a></p>
                     </div>
                     <!--/.wave-->
                     
@@ -132,23 +132,23 @@
 	<div class="row">
         <div class="col">
 
-        	<h3>{{{localize 'service.table.title'}}}</h3>
+        	<h3>{{{localize req 'service.table.title'}}}</h3>
 
             <div class="table-responsive">
                 <table summary="" class="table table-hover">
                     <thead>
                         <tr>
                             <th>
-                                <h5>{{localize 'service.table.clinic'}}</h5>
+                                <h5>{{localize req 'service.table.clinic'}}</h5>
                             </th>
                             <th>
-                                <h5>{{localize 'service.table.price'}}</h5>
+                                <h5>{{localize req 'service.table.price'}}</h5>
                             </th>
                             <th>
-                                <h5>{{localize 'service.table.insurance'}}</h5>
+                                <h5>{{localize req 'service.table.insurance'}}</h5>
                             </th>
                             <th class="text-right">
-                                <h5>{{localize 'service.table.providers'}}</h5>
+                                <h5>{{localize req 'service.table.providers'}}</h5>
                             </th>
                         </tr>
                     </thead>
@@ -158,8 +158,8 @@
                                 <h4><a href="/clinic" title="">General Hospital</a></h4>
                             </td>
                             <td class="price-td">from <strong class="text-dark">$24</strong><br /><strong class="text-success">240 MPT</strong></td>
-                            <td class="text-center"><i class="fas fa-plus text-success" data-toggle="tooltip" data-placement="top" title="{{localize 'filters.covered'}}"></i></td>
-                            <td><a class="btn btn-primary float-right" href="/doctors"><strong>20</strong> {{localize 'ratings.items.doctors'}}</a></td>
+                            <td class="text-center"><i class="fas fa-plus text-success" data-toggle="tooltip" data-placement="top" title="{{localize req 'filters.covered'}}"></i></td>
+                            <td><a class="btn btn-primary float-right" href="/doctors"><strong>20</strong> {{localize req 'ratings.items.doctors'}}</a></td>
                         </tr>
                         <tr>
                             <td>
@@ -167,15 +167,15 @@
                             </td>
                             <td class="price-td">from <strong class="text-dark">$34</strong><br /><strong class="text-success">340 MPT</strong></td>
                             <td class="text-center"></td>
-                            <td><a class="btn btn-primary float-right" href="/doctors"><strong>10</strong> {{localize 'ratings.items.doctors'}}</a></td>
+                            <td><a class="btn btn-primary float-right" href="/doctors"><strong>10</strong> {{localize req 'ratings.items.doctors'}}</a></td>
                         </tr>
                         <tr>
                             <td>
                                 <h4><a href="/clinic" title="">Calvary Hospital</a></h4>
                             </td>
                             <td class="price-td">from <strong class="text-dark">$44</strong><br /><strong class="text-success">440 MPT</strong></td>
-                            <td class="text-center"><i class="fas fa-plus text-success" data-toggle="tooltip" data-placement="top" title="{{localize 'filters.covered'}}"></i></td>
-                            <td><a class="btn btn-primary float-right" href="/doctors"><strong>170</strong> {{localize 'ratings.items.doctors'}}</a></td>
+                            <td class="text-center"><i class="fas fa-plus text-success" data-toggle="tooltip" data-placement="top" title="{{localize req 'filters.covered'}}"></i></td>
+                            <td><a class="btn btn-primary float-right" href="/doctors"><strong>170</strong> {{localize req 'ratings.items.doctors'}}</a></td>
                         </tr>
                         <tr>
                             <td>
@@ -183,38 +183,38 @@
                             </td>
                             <td class="price-td">from <strong class="text-dark">$54</strong><br /><strong class="text-success">540 MPT</strong></td>
                             <td class="text-center"></td>
-                            <td><a class="btn btn-primary float-right" href="/doctors"><strong>140</strong> {{localize 'ratings.items.doctors'}}</a></td>
+                            <td><a class="btn btn-primary float-right" href="/doctors"><strong>140</strong> {{localize req 'ratings.items.doctors'}}</a></td>
                         </tr>
                         <tr>
                             <td>
                                 <h4><a href="/clinic" title="">North Central Bronx Hospital</a></h4>
                             </td>
                             <td class="price-td">from <strong class="text-dark">$64</strong><br /><strong class="text-success">640 MPT</strong></td>
-                            <td class="text-center"><i class="fas fa-plus text-success" data-toggle="tooltip" data-placement="top" title="{{localize 'filters.covered'}}"></i></td>
-                            <td><a class="btn btn-primary float-right" href="/doctors"><strong>140</strong> {{localize 'ratings.items.doctors'}}</a></td>
+                            <td class="text-center"><i class="fas fa-plus text-success" data-toggle="tooltip" data-placement="top" title="{{localize req 'filters.covered'}}"></i></td>
+                            <td><a class="btn btn-primary float-right" href="/doctors"><strong>140</strong> {{localize req 'ratings.items.doctors'}}</a></td>
                         </tr>
                         <tr>
                             <td>
                                 <h4><a href="/clinic" title="">St. Luke's-Roosevelt Hospital Center</a></h4>
                                 <td class="price-td">from <strong class="text-dark">$74</strong><br /><strong class="text-success">740 MPT</strong></td>
                                 <td class="text-center"></td>
-                                <td><a class="btn btn-primary float-right" href="/doctors"><strong>250</strong> {{localize 'ratings.items.doctors'}}</a></td>
+                                <td><a class="btn btn-primary float-right" href="/doctors"><strong>250</strong> {{localize req 'ratings.items.doctors'}}</a></td>
                         </tr>
                         <tr>
                             <td>
                                 <h4><a href="/clinic" title="">Jacobi Medical Center</a></h4>
                             </td>
                             <td class="price-td">from <strong class="text-dark">$84</strong><br /><strong class="text-success">840 MPT</strong></td>
-                            <td class="text-center"><i class="fas fa-plus text-success" data-toggle="tooltip" data-placement="top" title="{{localize 'filters.covered'}}"></i></td>
-                            <td><a class="btn btn-primary float-right" href="/doctors"><strong>10</strong> {{localize 'ratings.items.doctors'}}</a></td>
+                            <td class="text-center"><i class="fas fa-plus text-success" data-toggle="tooltip" data-placement="top" title="{{localize req 'filters.covered'}}"></i></td>
+                            <td><a class="btn btn-primary float-right" href="/doctors"><strong>10</strong> {{localize req 'ratings.items.doctors'}}</a></td>
                         </tr>
                         <tr>
                             <td>
                                 <h4><a href="/clinic" title="">Queens Hospital Center</a></h4>
                             </td>
                             <td class="price-td">from <strong class="text-dark">$94</strong><br /><strong class="text-success">940 MPT</strong></td>
-                            <td class="text-center"><i class="fas fa-plus text-success" data-toggle="tooltip" data-placement="top" title="{{localize 'filters.covered'}}"></i></td>
-                            <td><a class="btn btn-primary float-right" href="/doctors"><strong>140</strong> {{localize 'ratings.items.doctors'}}</a></td>
+                            <td class="text-center"><i class="fas fa-plus text-success" data-toggle="tooltip" data-placement="top" title="{{localize req 'filters.covered'}}"></i></td>
+                            <td><a class="btn btn-primary float-right" href="/doctors"><strong>140</strong> {{localize req 'ratings.items.doctors'}}</a></td>
                         </tr>
                     </tbody>
                 </table>

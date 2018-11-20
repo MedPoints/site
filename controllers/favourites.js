@@ -2,7 +2,7 @@ const config = require('config');
 const axios = require('axios');
 const API_URL = config.get('API_URL');
 const { prepareTicketsData } = require('./../helpers/tickets');
-const localization = require('./../helpers/localization').localization;
+const Localization = require('./../helpers/localization').Localization;
 
 
 exports.addFavourites = async (req, res) => {
@@ -19,7 +19,7 @@ exports.addFavourites = async (req, res) => {
         id,
         type,
     };
-
+    const localization = new Localization(req.cookies.locale);
     const request = await axios.post(`${API_URL}/api/users/${MedPoints_PublicKey}/${MedPoints_PrivateKey}/favorites`, data);
     if (request.status === 200) {
         res.setHeader('Content-Type', 'application/json');
