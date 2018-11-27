@@ -41,8 +41,6 @@ exports.getDrugs = async (req, res) => {
   const categoriesRequest = await axios.get(groupsUrl);
   const categories = categoriesRequest.data.result.data;
 
-  console.log(parameters.groupId)
-
   res.render('drugs/drugs', { 
     drugs, 
     pagerInfo, 
@@ -52,6 +50,7 @@ exports.getDrugs = async (req, res) => {
     selectedCategory: parameters.groupId || '',
     title: `MedPoints™ Drugs`, 
     filter: req.query.filter,
+    req,
   });
 };
 
@@ -69,7 +68,7 @@ exports.getDrug = async (req, res) => {
         providersLocations.push(provider);
       }
   }
-  res.render('drugs/drug', { drug, providersLocations, PAGE_TITLE, title: `MedPoints™ - Drugs - ${drug.name}` });
+  res.render('drugs/drug', { drug, providersLocations, PAGE_TITLE, title: `MedPoints™ - Drugs - ${drug.name}`,req, });
 }
 
 exports.getCount = async (req, res) => {

@@ -81,7 +81,8 @@ exports.getServices = async (req, res) => {
     avgCoordinates, 
     pagerInfo, 
     title: `MedPoints™ Services`,
-    filter: req.query.filter, 
+    filter: req.query.filter,
+    req,
   });
 };
 
@@ -126,7 +127,7 @@ exports.getService = async (req, res) => {
     avgCoordinates.lng = avgCoordinates.lng / count;  
   }
 
-  res.render('services/service', { service, hospitals, PAGE_TITLE, avgCoordinates, title: `MedPoints™ - Services - ${service.name}` });
+  res.render('services/service', { service, hospitals, PAGE_TITLE, avgCoordinates, title: `MedPoints™ - Services - ${service.name}`,req, });
 }
 
 exports.getCount = async (req, res) => {

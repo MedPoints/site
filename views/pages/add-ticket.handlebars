@@ -1,9 +1,9 @@
 
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/">{{localize 'breadcrumbs.home'}}</a></li>
-            <li class="breadcrumb-item"><a href="/account">{{localize 'breadcrumbs.account'}}</a></li>
-            <li class="breadcrumb-item"><a href="/account-tickets">{{localize 'breadcrumbs.tickets'}}</a></li>
+            <li class="breadcrumb-item"><a href="/">{{localize req 'breadcrumbs.home'}}</a></li>
+            <li class="breadcrumb-item"><a href="/account">{{localize req 'breadcrumbs.account'}}</a></li>
+            <li class="breadcrumb-item"><a href="/account-tickets">{{localize req 'breadcrumbs.tickets'}}</a></li>
             <li class="breadcrumb-item active" aria-current="page">{{PAGE_TITLE}}</li>
         </ol>
     </nav>
@@ -17,40 +17,40 @@
             		<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
 
 						<div class="form-group row">
-                    		<label for="recordTitle" class="col-2 col-form-label">{{localize 'tickets.addTicketPage.title'}}</label>
+                    		<label for="recordTitle" class="col-2 col-form-label">{{localize req 'tickets.addTicketPage.title'}}</label>
         					<!--/.col--> 
                     		<div class="col-10">
-                        		<input type="text" class="form-control" id="recordTitle" placeholder="{{localize 'tickets.addTicketPage.titleHelp'}}" required />
+                        		<input type="text" class="form-control" id="recordTitle" placeholder="{{localize req 'tickets.addTicketPage.titleHelp'}}" required />
                     		</div>
         					<!--/.col--> 
                 		</div> 
 
                 		<div class="form-group row">
-                    		<label for="subject" class="col-2 col-form-label">{{localize 'tickets.addTicketPage.subject'}}</label>
+                    		<label for="subject" class="col-2 col-form-label">{{localize req 'tickets.addTicketPage.subject'}}</label>
         					<!--/.col--> 
                     		<div class="col-10">
                         
                                 <select class="custom-select mb-2 mr-sm-2 mb-sm-0 justify" id="subject">
-    								<option value="{{localize 'tickets.addTicketPage.subjectItems.help'}}" selected>{{localize 'tickets.addTicketPage.subjectItems.help'}}</option>
-    								<option value="{{localize 'tickets.addTicketPage.subjectItems.insurance'}}">{{localize 'tickets.addTicketPage.subjectItems.insurance'}}</option>
-    								<option value="{{localize 'tickets.addTicketPage.subjectItems.booking'}}">{{localize 'tickets.addTicketPage.subjectItems.booking'}}</option>
-    								<option value="{{localize 'tickets.addTicketPage.subjectItems.other'}}">{{localize 'tickets.addTicketPage.subjectItems.other'}}</option>
+    								<option value="{{localize req 'tickets.addTicketPage.subjectItems.help'}}" selected>{{localize req 'tickets.addTicketPage.subjectItems.help'}}</option>
+    								<option value="{{localize req 'tickets.addTicketPage.subjectItems.insurance'}}">{{localize req 'tickets.addTicketPage.subjectItems.insurance'}}</option>
+    								<option value="{{localize req 'tickets.addTicketPage.subjectItems.booking'}}">{{localize req 'tickets.addTicketPage.subjectItems.booking'}}</option>
+    								<option value="{{localize req 'tickets.addTicketPage.subjectItems.other'}}">{{localize req 'tickets.addTicketPage.subjectItems.other'}}</option>
   								</select>
                     		</div>
         					<!--/.col--> 
                 		</div>
 				
 						<div class="form-group row">
-                    		<label for="tickeText" class="col-2 col-form-label">{{localize 'tickets.addTicketPage.text'}}</label>
+                    		<label for="tickeText" class="col-2 col-form-label">{{localize req 'tickets.addTicketPage.text'}}</label>
         					<!--/.col--> 
                 			<div class="col-10">
-                    			<textarea name="textarea" class="form-control" id="ticketText" placeholder="{{localize 'tickets.addTicketPage.textHelp'}}"></textarea>
+                    			<textarea name="textarea" class="form-control" id="ticketText" placeholder="{{localize req 'tickets.addTicketPage.textHelp'}}"></textarea>
 							</div>
         					<!--/.col--> 
                 		</div> 
 				
                         <div class="form-group">
-                            <a class="btn btn-primary justify" id="addTicket" href="#">{{localize 'tickets.addTicket'}}</a>  
+                            <a class="btn btn-primary justify" id="addTicket" href="#">{{localize req 'tickets.addTicket'}}</a>
                         </div>  
 						
             		</div>

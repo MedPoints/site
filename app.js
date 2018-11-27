@@ -41,6 +41,7 @@ app.use((req, res, next) => {
     locale = DEFAUL_LOCALE;
   }
   res.locals.locale = locale;
+  res.locals.req = req;
 
   res.locals.currentPath = req.path;
   res.locals.api = {

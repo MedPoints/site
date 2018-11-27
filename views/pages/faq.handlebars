@@ -2,48 +2,48 @@
 
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/">{{localize 'breadcrumbs.home'}}</a></li>
-            <li class="breadcrumb-item active" aria-current="page">{{localize 'breadcrumbs.faq'}}</li>
+            <li class="breadcrumb-item"><a href="/">{{localize req 'breadcrumbs.home'}}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{localize req 'breadcrumbs.faq'}}</li>
         </ol>
     </nav>
 
     <div class="row">
         <div class="col-xl-9 col-lg-8 col-md-6 col-sm-12 faq-accordion">
   
-			<h3>{{localize 'faq.aboutProject'}}</h3> 
+			<h3>{{localize req 'faq.aboutProject'}}</h3>
 						
 			<div id="accordion" class="ui-accordion">
-				{{{localize 'faq.projectQuestions'}}}
+				{{{localize req 'faq.projectQuestions'}}}
 			</div><!--accordion-->
 						
-			<h3>{{localize 'faq.aboutStoring'}}</h3>
+			<h3>{{localize req 'faq.aboutStoring'}}</h3>
 						
 			<div id="accordion2" class="ui-accordion">
-				{{{localize 'faq.storingQuestions'}}}
+				{{{localize req 'faq.storingQuestions'}}}
 			</div><!--accordion2-->
 						 
-			<h3>{{localize 'faq.aboutBooking'}}</h3>
+			<h3>{{localize req 'faq.aboutBooking'}}</h3>
 						
 			<div id="accordion3" class="ui-accordion">
-				{{{localize 'faq.bookingQuestions'}}}
+				{{{localize req 'faq.bookingQuestions'}}}
 			</div><!--accordion3-->
 						
-			<h3>{{localize 'faq.aboutPartnership'}}</h3>
+			<h3>{{localize req 'faq.aboutPartnership'}}</h3>
 						
 			<div id="accordion4" class="ui-accordion">
-				{{{localize 'faq.partnershipQuestions'}}}
+				{{{localize req 'faq.partnershipQuestions'}}}
 			</div><!--accordion2-->
 						
-			<h3>{{localize 'faq.aboutPrescriptions'}}</h3>
+			<h3>{{localize req 'faq.aboutPrescriptions'}}</h3>
 						
 			<div id="accordion5" class="ui-accordion">
-				{{{localize 'faq.prescriptionsQuestions'}}}
+				{{{localize req 'faq.prescriptionsQuestions'}}}
 			</div><!--accordion5-->
 						
-			<h3>{{localize 'faq.aboutGeneral'}}</h3>
+			<h3>{{localize req 'faq.aboutGeneral'}}</h3>
 						
 			<div id="accordion6" class="ui-accordion">
-				{{{localize 'faq.generalQuestions'}}}
+				{{{localize req 'faq.generalQuestions'}}}
 			</div><!--accordion4-->
 			 
         </div>
@@ -54,25 +54,25 @@
 
                 <div class="wave" id="askQuestion">
 				
-					<h3>{{localize 'faq.asqQuestion'}}</h3>
+					<h3>{{localize req 'faq.asqQuestion'}}</h3>
   
                     <div class="form-group">
-                        <label for="yourName">{{localize 'faq.name'}}</label>
-                        <input type="text" name="name" class="form-control" id="yourName" placeholder="{{localize 'faq.name'}}" />
+                        <label for="yourName">{{localize req 'faq.name'}}</label>
+                        <input type="text" name="name" class="form-control" id="yourName" placeholder="{{localize req 'faq.name'}}" />
                     </div>
               
                     <div class="form-group">
-                        <label for="yourEmail">{{localize 'faq.email'}}</label>
-                        <input type="text" name="email" class="form-control" id="yourEmail" placeholder="{{localize 'faq.email'}}" />
+                        <label for="yourEmail">{{localize req 'faq.email'}}</label>
+                        <input type="text" name="email" class="form-control" id="yourEmail" placeholder="{{localize req 'faq.email'}}" />
                     </div> 
               
                     <div class="form-group">
-                        <label for="yourQuestion">{{localize 'faq.text'}}</label>
-                        <textarea name="question" class="form-control" id="yourQuestion" placeholder="{{localize 'faq.text'}}"></textarea>
+                        <label for="yourQuestion">{{localize req 'faq.text'}}</label>
+                        <textarea name="question" class="form-control" id="yourQuestion" placeholder="{{localize req 'faq.text'}}"></textarea>
                     </div> 
               
                     <div class="form-group">
-                        <button type="submit" id="faqButton" class="btn btn-primary justify">{{localize 'faq.send'}}</button>
+                        <button type="submit" id="faqButton" class="btn btn-primary justify">{{localize req 'faq.send'}}</button>
                     </div> 
 
                 </div>

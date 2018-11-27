@@ -18,6 +18,20 @@ window.localizer = (function() {
         }
         
         if (!localizedString) {
+          var currentObj = window.backupDictionary;
+          // recursively iterates over dictionary path
+          var dictParts = dictPath.split('.')
+          if (dictParts) {
+            for (var i = 0, length = dictParts.length; i < length; i++) {
+              if (!currentObj) continue;
+              var key = dictParts[i];
+              currentObj = currentObj[key];
+              localizedString = currentObj;
+            }
+          }
+        }
+
+        if (!localizedString) {
             localizedString = '';
         }
 
