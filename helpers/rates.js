@@ -15,3 +15,7 @@ exports.prepareTransactions = (transactions) => {
 
     return Object.entries(transactionsPerDateObject).map(([date, value]) => { return { date, value } });  
 };
+
+exports.calculateAmount = (amount, rate, dollarRate) => {
+    return (amount * rate) / dollarRate;
+};
