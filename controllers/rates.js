@@ -4,6 +4,7 @@ const config = require('config');
 const API_URL = config.get('BLOCKCHAIN_API_URL');
 
 const prepareTransactions = require('./../helpers/rates').prepareTransactions;
+const calculateAmount = require('./../helpers/rates').calculateAmount
 
 const MPT_CURRENCY_CODE = 'USD';
 const DOLLAR_RATE = 0.01;
@@ -22,8 +23,8 @@ exports.getRates = async (req, res) => {
     }
 
     const chartTransactions = prepareTransactions(transactions);
-      const localization = new Localization(req.cookies.locale);
-      const PAGE_TITLE = localization.localize('breadcrumbs.rates');
+    const localization = new Localization(req.cookies.locale);
+    const PAGE_TITLE = localization.localize('breadcrumbs.rates');
 
     res.render('pages/rates', { 
         chartTransactions,
@@ -45,6 +46,6 @@ exports.calculateRates = async (req, res) => {
     });
     const result = request.data[MPT_CURRENCY_CODE];
     res.setHeader('Content-Type', 'application/json');
-    res.send(JSON.stringify({ status: 200, rate: +amount * result * DOLLAR_RATE,req, }));
+    res.send(JSON.stringify({ status: 200, rate: calculateAmount(+amount, result, DOLLAR_RATE) }));
 };
 
