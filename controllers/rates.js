@@ -23,8 +23,8 @@ exports.getRates = async (req, res) => {
     }
 
     const chartTransactions = prepareTransactions(transactions);
-      const localization = new Localization(req.cookies.locale);
-      const PAGE_TITLE = localization.localize('breadcrumbs.rates');
+    const localization = new Localization(req.cookies.locale);
+    const PAGE_TITLE = localization.localize('breadcrumbs.rates');
 
     res.render('pages/rates', { 
         chartTransactions,
