@@ -8,6 +8,8 @@ $(function() {
     initializeBellToggle();
     initializeAddressMapToggle();
 
+    initializeEvents();
+
     $('[data-toggle="tooltip"]').tooltip();
     $('.gallery a.gallery-img').simpleLightbox();
 
@@ -251,4 +253,11 @@ function showCustomErrorModal(titleContent, bodyContent) {
     $('#modalErrorTitle').html(titleContent);
     $('#modalErrorContent').html(bodyContent);
     $('#errorModal').modal('show');
+}
+
+function initializeEvents() {
+    $('#signUpButton').click(function(){
+        var value = $('#signUpInput').val();
+        console.log(value)
+    });
 }
