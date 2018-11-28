@@ -56,6 +56,7 @@ exports.getAccountInfo = async (req, res) => {
         PAGE_TITLE,
         appointmentsData,
         title: 'MedPoints™ Account',
+        req,
     });
 };
 
@@ -95,6 +96,7 @@ exports.records = async (req, res) => {
         transactions,
         PAGE_TITLE: 'Records',
         title: 'MedPoints™ Account Records',
+        req,
     });
 };
 
@@ -119,6 +121,7 @@ exports.editInfo = async (req, res) => {
         accountData: profileResponse.data.result,
         PAGE_TITLE: 'Edit Account',
         title: 'MedPoints™ Edit Account',
+        req,
     });
 };
 

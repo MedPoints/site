@@ -4,11 +4,16 @@ $(function () {
         Cookies.get('MedPoints_PrivateKey'),
         function(data) {
             if (data) {
-                $('#bookingWalletId').val(data.publicKey);
-                $('#bookingWalletKey').val(data.privateKey);
-                $('#firstName').val(data.firstName);
-                $('#lastName').val(data.lastName);
-                $('#email').val(data.email);
+                if (data.error) {
+                    $('#bookingButton').off('click').attr('disabled', true);
+                    
+                } else {
+                    $('#bookingWalletId').val(data.publicKey);
+                    $('#bookingWalletKey').val(data.privateKey);
+                    $('#firstName').val(data.firstName);
+                    $('#lastName').val(data.lastName);
+                    $('#email').val(data.email);
+                }
             }
         });
     } else {
@@ -81,6 +86,8 @@ $(function () {
         data.dateOfBirth = $('#dateOfBirth').val();
 
         if (!isRegistered()) {
+            data.privateKey = $('#bookingWalletKey').val();
+            data.publicKey = $('#bookingWalletId').val();
             register(data);
         }
 
@@ -108,7 +115,7 @@ function getSex() {
 
 function initBookingData() {
     var query = getQueryParams(window.location.search);
-    doctorId = query.doctorId;
+    var doctorId = $('#doctorId').val();
     if (!doctorId) {
         showCustomErrorModal(
             window.localizer.localize('errors.bookingErrorTitle'),
