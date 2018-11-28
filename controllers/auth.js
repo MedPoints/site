@@ -19,7 +19,13 @@ exports.register = async (req, res) => {
         lastName,
     } = req.body;
 
-    const request = await axios.post(`${API_URL}/api/users/register`, {...req.body});
+    const request = await axios.post(`${API_URL}/api/users/register`, {
+        publicKey,
+        privateKey,
+        email,
+        firstName,
+        lastName,
+    });
     const result = request.data;
     res.setHeader('Content-Type', 'application/json');
     res.send(JSON.stringify({ status: 200, ...result }));
@@ -31,8 +37,17 @@ exports.authenticate = async (req, res) => {
         privateKey,
     } = req.body;
 
-    const request = await axios.post(`${API_URL}/api/users/auth`, {...req.body});
-    const result = request.data;
     res.setHeader('Content-Type', 'application/json');
+    let request = {};
+    try {
+        request = await axios.post(`${API_URL}/api/users/auth`, {
+            publicKey,
+            privateKey,
+        });
+    } catch (err) {
+        res.send(JSON.stringify({ status: 500, ...err.response.data }));
+    }
+    
+    const result = request.data;
     res.send(JSON.stringify({ status: 200, ...result }));
 };

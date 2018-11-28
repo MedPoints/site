@@ -1490,3 +1490,9 @@ ul.cat-list li {
 .padded-input {
     padding-top: 5px;
 }
+
+.page-item:nth-last-child(2) .page-link {
+     margin-left: 0;
+     border-bottom-right-radius: .25rem;
+     border-top-right-radius: .25rem;
+ }
