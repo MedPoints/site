@@ -31,6 +31,7 @@ exports.getBlocks = async (req, res) => {
         pagerInfo,
         PAGE_TITLE, 
         transactions, 
-        title: `MedPoints™ Blockchain`
+        title: `MedPoints™ Blockchain`,
+        req,
     });
 };

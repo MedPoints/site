@@ -66,7 +66,8 @@ exports.getClinics = async (req, res) => {
     PAGE_TITLE, 
     avgCoordinates, 
     title: 'MedPoints™ Clinics', 
-    filter: req.query.filter
+    filter: req.query.filter,
+    req,
   });
 };
 
@@ -107,7 +108,7 @@ exports.getClinic = async (req, res) => {
   const id = req.params.id;
   const request = await axios.get(`${API_URL}/api/hospitals?id=${id}`);
   const hospital = prepareClinicData(request.data.result);
-  res.render('clinics/clinic', { hospital, hospitalJson: JSON.stringify(hospital), title: `MedPoints™ - Clinics - ${hospital.name}` });
+  res.render('clinics/clinic', { hospital, hospitalJson: JSON.stringify(hospital), title: `MedPoints™ - Clinics - ${hospital.name}`, req, });
 };
 
 exports.getCount = async (req, res) => {

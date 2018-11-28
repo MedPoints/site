@@ -1,6 +1,6 @@
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/">{{localize 'breadcrumbs.home'}}</a></li>
+        <li class="breadcrumb-item"><a href="/">{{localize req 'breadcrumbs.home'}}</a></li>
         <li class="breadcrumb-item active" aria-current="page">{{PAGE_TITLE}}</li>
     </ol>
 </nav>
@@ -9,23 +9,23 @@
     <form class="filter">
             <div class="row">
                 <div class="col-sm-9">
-                    <h3>{{localize 'filters.location'}}</h3>
+                    <h3>{{localize req 'filters.location'}}</h3>
                     <label class="custom-control custom-radio">
                         <input id="locationRadio1" name="filter[city]" value="home" type="radio" class="custom-control-input" {{#if (equals filter.city 'home') }}checked{{/if}}>
                         <span class="custom-control-indicator"></span>
-                        <span class="custom-control-description">{{localize 'filters.yourCity'}}</span>
+                        <span class="custom-control-description">{{localize req 'filters.yourCity'}}</span>
                     </label>
                     <label class="custom-control custom-radio">
                         <input id="locationRadio2" name="filter[city]" value="worldwide" type="radio" class="custom-control-input" {{#if (equals filter.city 'worldwide') }}checked{{/if}}>
                         <span class="custom-control-indicator"></span>
-                        <span class="custom-control-description">{{localize 'filters.worldwide'}}</span>
+                        <span class="custom-control-description">{{localize req 'filters.worldwide'}}</span>
                     </label>
                 </div>
                 <!--/.col-->
 				
                 <div class="col-sm-3">
-                    {{!-- <button type="button" id="btn-more" class="btn btn-secondary collapsed filter-button" data-toggle="collapse" data-target="#moreFilters" aria-expanded="false"><i class="fas fa-angle-down"></i> {{localize 'filters.more'}}</button> --}}
-                    <button type="submit" id="btn-more" class="btn btn-primary filter-button">{{localize 'filters.apply'}}</button>
+                    {{!-- <button type="button" id="btn-more" class="btn btn-secondary collapsed filter-button" data-toggle="collapse" data-target="#moreFilters" aria-expanded="false"><i class="fas fa-angle-down"></i> {{localize req 'filters.more'}}</button> --}}
+                    <button type="submit" id="btn-more" class="btn btn-primary filter-button">{{localize req 'filters.apply'}}</button>
                 </div>
                 <!--/.col-->
 				
@@ -54,7 +54,7 @@
                     <!--/.col-->
                     <div class="col-xl-3 col-md-6 col-sm-12">
 
-                        <h3>{{localize 'filters.maxPrice'}}: <span id="maxPriceLabel">{{filter.maxPrice}}</span> MPT</h3>
+                        <h3>{{localize req 'filters.maxPrice'}}: <span id="maxPriceLabel">{{filter.maxPrice}}</span> MPT</h3>
 
                         <input class="justify" type="range" min="0" max="100" id="maxPriceRange" name="filter[maxPrice]" value="{{filter.maxPrice}}">
                         <script>
@@ -197,15 +197,15 @@
                     <!--/.col-->
                     <div class="col-xl-4 col-md-4 col-sm-12">
                         <div class="wave text-center">
-                            <h4>{{localize 'ratings.rating'}} <strong class="text-success">{{pharmacy.rate}}</strong></h4>
-                            <p>{{localize 'ratings.basedOn'}}
+                            <h4>{{localize ../req 'ratings.rating'}} <strong class="text-success">{{pharmacy.rate}}</strong></h4>
+                            <p>{{localize ../req 'ratings.basedOn'}}
                                 <strong>
                                     <a class="" href="/pharmacies/{{pharmacy.id}}#opinions">{{pharmacy.ratings.length}}
-                                        {{localize 'ratings.opinions'}}</a>
+                                        {{localize ../req 'ratings.opinions'}}</a>
                                 </strong>
                             </p>
                             <a class="btn btn-primary btn-lg justify" href="/drugs?pharmacyId={{pharmacy.id}}"><strong>{{
-                                    pharmacy.drugs.length }}</strong> {{localize 'ratings.items.drugs'}}</a>
+                                    pharmacy.drugs.length }}</strong> {{localize ../req 'ratings.items.drugs'}}</a>
                         </div>
                         <!--/.wave-->
                     </div>

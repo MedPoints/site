@@ -5,13 +5,29 @@ exports.prepareTransactions = (transactions) => {
     const transactionsPerDateObject = {};
     for (let i = 0, length = transactions.length; i < length; i++) {
         const transaction = transactions[i];
-        const transactionDate = moment(new Date(transaction.Date)).format('yyyy-MM-dd');
-        if (transactionsPerDateObject[transactionsPerDateObject]) {
-            transactionsPerDateObject[transactionsPerDateObject] += 1;
+
+        // In case a date was saved incorrectly throw the transaction away
+        if (checkYears(new Date(transaction.Date))) {
+            continue;
+        }
+        const transactionDate = moment(new Date(transaction.Date)).format('YYYY-MM-DD');
+        if (transactionsPerDateObject[transactionDate]) {
+            transactionsPerDateObject[transactionDate] += 1;
         } else {
-            transactionsPerDateObject[transactionsPerDateObject] = 1;
+            transactionsPerDateObject[transactionDate] = 1;
         }
     }
 
-    return Object.entries(transactionsPerDateObject).map(([date, value]) => { return { date, value } });  
+    var entries = Object.entries(transactionsPerDateObject).map(([date, value]) => { return { date, value } });
+    return entries.sort(function (x, y) {
+        return new Date(x.date) - new Date(y.date); 
+    })
 };
+
+exports.calculateAmount = (amount, rate, dollarRate) => {
+    return (amount * rate) / dollarRate;
+};
+
+function checkYears(date) {
+    return moment(date).diff(moment(new Date()), 'days', true) > 1;
+}

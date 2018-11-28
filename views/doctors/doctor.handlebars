@@ -1,8 +1,8 @@
 
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/">{{localize 'breadcrumbs.home'}}</a></li>
-            <li class="breadcrumb-item"><a href="/doctors">{{localize 'breadcrumbs.doctors'}}</a></li>
+            <li class="breadcrumb-item"><a href="/">{{localize req 'breadcrumbs.home'}}</a></li>
+            <li class="breadcrumb-item"><a href="/doctors">{{localize req 'breadcrumbs.doctors'}}</a></li>
             <li class="breadcrumb-item active" aria-current="page">{{doctor.name}}</li>
         </ol>
     </nav>
@@ -20,8 +20,8 @@
                     <div><a href="/doctors">{{doctor.specialization}}</a></div>
                     <h4><a  href="/clinics/{{doctor.hospital.id}}">{{doctor.hospital.name}}</h4>
                     <p><a class="map-toggle" data-name="{{doctor.hospital.name}}" href="/doctors">{{doctor.hospital.location.address}}</a></p>
-                    <div>{{{localize "doctor.workExperience" years="9+"}}}</div>
-                    <div>{{{localize "doctor.bonus" amount="100"}}}</div>
+                    <div>{{{localize req "doctor.workExperience" years="9+"}}}</div>
+                    <div>{{{localize req "doctor.bonus" amount="100"}}}</div>
                 </div>
                 <!--/.col-->
             </div>
@@ -31,12 +31,12 @@
 
             <div class="row">
                 <div class="col">
-                    <h3>{{localize 'doctor.statement'}}</h3>
+                    <h3>{{localize req 'doctor.statement'}}</h3>
                     <p>{{doctor.statement}}</p>
 
                     <hr />
 
-                    <h3>{{localize 'doctor.allSpecializations'}}</h3>
+                    <h3>{{localize req 'doctor.allSpecializations'}}</h3>
                     <ul class="list-inline">
                         <li class="list-inline-item">Abdominal Radiology</li>
                         <li class="list-inline-item">Addiction Psychiatry</li>
@@ -51,7 +51,7 @@
 
                     <hr />
 
-                    <h3>{{localize 'doctor.education'}}</h3>
+                    <h3>{{localize req 'doctor.education'}}</h3>
                     <ul>
                         <li><i class="fas fa-graduation-cap"></i> <a class="" href="#">New York Medical College</a> - Doctor of Medicine <br><em>Graduate of 1994</em></li>
                         <li><i class="fas fa-graduation-cap"></i> <a class="" href="#">Montefiore Medical Center</a> - Residency in Internal Medicine <br><em>Graduate of 1998</em></li>
@@ -59,7 +59,7 @@
                     </ul>
                     {{!-- <ul>
                         {{#each doctor.education as |ed|}}
-                        <li><i class="fas fa-graduation-cap"></i> <a class="" href="#">{{ed.university}}</a> - {{ed.degree}} <br /><em>{{localize 'doctor.graduateOf'}} {{ed.graduated}}</em></li>
+                        <li><i class="fas fa-graduation-cap"></i> <a class="" href="#">{{ed.university}}</a> - {{ed.degree}} <br /><em>{{localize req 'doctor.graduateOf'}} {{ed.graduated}}</em></li>
                         {{/each}}
                     </ul> --}}
 
@@ -77,14 +77,14 @@
 				
                     <div class="col-xl-6 col-lg-12">
                         <div class="wave text-center">
-                            <h4>{{localize 'ratings.rating'}} <strong class="text-success">{{doctor.rate}}</strong></h4>
-                            <p>{{localize 'ratings.basedOn'}} <strong><a class="" href="#opinions">{{doctor.ratings.length}} {{localize 'ratings.opinions'}}</a></strong></p> 
+                            <h4>{{localize req 'ratings.rating'}} <strong class="text-success">{{doctor.rate}}</strong></h4>
+                            <p>{{localize req 'ratings.basedOn'}} <strong><a class="" href="#opinions">{{doctor.ratings.length}} {{localize req 'ratings.opinions'}}</a></strong></p>
 
                             <ul class="rating"> 
 							
                                 <li class="row">
                                     <div class="col text-right">
-                                        {{localize 'doctor.knowledge'}}
+                                        {{localize req 'doctor.knowledge'}}
                                     </div>
                                     <div class="col">
                                         <div class="progress progress-striped">
@@ -98,7 +98,7 @@
                                 <!-- end row -->
                                 <li class="row">
                                     <div class="col text-right">
-                                        {{localize 'doctor.skills'}}
+                                        {{localize req 'doctor.skills'}}
                                     </div>
                                     <div class="col">
                                         <div class="progress progress-striped">
@@ -112,7 +112,7 @@
                                 <!-- end row -->
                                 <li class="row">
                                     <div class="col text-right">
-                                        {{localize 'doctor.attention'}}
+                                        {{localize req 'doctor.attention'}}
                                     </div>
                                     <div class="col">
                                         <div class="progress progress-striped">
@@ -126,7 +126,7 @@
                                 <!-- end row -->
                                 <li class="row">
                                     <div class="col text-right">
-                                        {{localize 'doctor.priceQuality'}}
+                                        {{localize req 'doctor.priceQuality'}}
                                     </div>
                                     <div class="col">
                                         <div class="progress progress-striped">
@@ -141,10 +141,10 @@
 
                             </ul>
                             <!--/.rating-->
-							<a class="btn btn-primary btn-lg justify" href="/booking?doctorId={{doctor.id}}">{{localize 'doctor.bookToVisit'}}</a>
+							<a class="btn btn-primary btn-lg justify" href="/booking?doctorId={{doctor.id}}">{{localize req 'doctor.bookToVisit'}}</a>
                             <p style="padding-top:1em;">
                                 <a class="btn btn-secondary justify" data-type="doctor" data-id="{{doctor.id}}" id="addToFavButton" href="javascript:void(0)">
-                                    <i class="far fa-heart"></i> {{localize 'addFavorites'}}
+                                    <i class="far fa-heart"></i> {{localize req 'addFavorites'}}
                                 </a>
                             </p>
                             
@@ -158,7 +158,7 @@
                         <div class="hidden-xl-up">
                             
                         <a class="btn-map" href="#" data-toggle="collapse" data-target="#map" aria-expanded="true">
-                            <i class="fas fa-map-marker"></i> <span id="mapLabel">{{localize 'common.closeMap'}}</span>
+                            <i class="fas fa-map-marker"></i> <span id="mapLabel">{{localize req 'common.closeMap'}}</span>
                         </a>
                         <div class="map map--small collapse show" id="map">
                         </div><!--/.collapse-->
@@ -222,16 +222,16 @@
                 <thead>
                     <tr>
                         <th width="40%">
-                            <h5>{{localize 'service.table.services'}}</h5>
+                            <h5>{{localize req 'service.table.services'}}</h5>
                         </th>
                         <th>
-                            <h5>{{localize 'service.table.time'}}</h5>
+                            <h5>{{localize req 'service.table.time'}}</h5>
                         </th>
                         <th>
-                            <h5>{{localize 'service.table.price'}}</h5>
+                            <h5>{{localize req 'service.table.price'}}</h5>
                         </th>
                         <th>
-                            <h5>{{localize 'service.table.insurance'}}</h5>
+                            <h5>{{localize req 'service.table.insurance'}}</h5>
                         </th>
                     </tr>
                 </thead>
@@ -243,14 +243,14 @@
                             <p>{{ service.short_descr }}</p>
                         </td>
                         <td>{{ service.time }}</td>
-                        <td class="price-td">{{localize 'common.fromPrice'}} <strong class="text-dark">${{ service.price.dollars }}</strong><br /><strong class="text-success">{{ service.price.mpts }} MPT</strong></td>
+                        <td class="price-td">{{localize ../req 'common.fromPrice'}} <strong class="text-dark">${{ service.price.dollars }}</strong><br /><strong class="text-success">{{ service.price.mpts }} MPT</strong></td>
                         <td class="text-center">
                             {{#if service.is_covered_by_insurance}}
-                            <i class="fas fa-plus text-success" data-toggle="tooltip" data-placement="top" title="{{localize 'filters.covered'}}"></i>
+                            <i class="fas fa-plus text-success" data-toggle="tooltip" data-placement="top" title="{{localize ../req 'filters.covered'}}"></i>
                             {{/if}}
                         </td>
                         <td>
-                            <a class="btn btn-primary btn-lg justify" href="/booking?doctorId={{../doctor.id}}&serviceId={{service.id}}">{{localize 'doctor.bookToVisit'}}</a>
+                            <a class="btn btn-primary btn-lg justify" href="/booking?doctorId={{../doctor.id}}&serviceId={{service.id}}">{{localize ../req 'doctor.bookToVisit'}}</a>
                         </td>
                     </tr>
                     {{/each}}
@@ -264,7 +264,7 @@
     <section class="bg-gray">
         <div class="reviews" id="opinions">
             {{#if doctor.ratings.length}}
-            <h3>{{localize 'ratings.opinions'}} <span class="badge">{{doctor.ratings.length}}</span></h3>
+            <h3>{{localize req 'ratings.opinions'}} <span class="badge">{{doctor.ratings.length}}</span></h3>
             <ul class="owl-carousel owl-theme">
                 {{#each doctor.ratings as |rating|}}
                 <li class="item">
@@ -287,7 +287,7 @@
                 {{/each}}
             </ul>
             {{else}}
-                <h3 style="text-align:center;">{{{localize 'ratings.noOpinions'}}}</h3>
+                <h3 style="text-align:center;">{{{localize req 'ratings.noOpinions'}}}</h3>
                 
             {{/if}}
         </div>

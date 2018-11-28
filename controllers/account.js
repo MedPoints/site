@@ -6,7 +6,7 @@ const Promise = require('bluebird');
 const API_URL = config.get('API_URL');
 const BLOCKCHAIN_URL = config.get('BLOCKCHAIN_API_URL');
 
-const localization = require('../helpers/localization').localization;
+const Localization = require('../helpers/localization').Localization;
 
 const PAGE_TITLE = 'Account';
 
@@ -142,6 +142,7 @@ exports.updateAccount = async (req, res, next) => {
     } = req.body;
 
     let request;
+    const localization = new Localization(req.cookies.locale);
 
     try {
         request = await axios.put(`${API_URL}/api/users/update`, {
@@ -168,7 +169,7 @@ exports.updateAccount = async (req, res, next) => {
         res.setHeader('Content-Type', 'application/json');
         res.send(JSON.stringify({ status: request.status, statusText: request.statusText }));
     } else {
-        throw new Error(localize('errors.accountUpdateRequest'));
+        throw new Error(localization.localize('errors.accountUpdateRequest'));
     }
 };
 

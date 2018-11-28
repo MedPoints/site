@@ -3,12 +3,13 @@ const getSpecializations = require('../controllers/doctors').getSpecializations;
 const getClinicsByLocation = require('../controllers/clinics').getClinicsByLocation;
 const getCities = require('../controllers/cities').getCities;
 const catchErrors = require('../handlers/errorHandlers').catchErrors;
-const localization = require('../helpers/localization').localization;
+const Localization = require('../helpers/localization').Localization;
 
 
 router.get('/', catchErrors(async (req, res) => {
 	var specializations = await getSpecializations(req, res);
-	var locations = await getClinicsByLocation(req, res); 
+	var locations = await getClinicsByLocation(req, res);
+  const localization = new Localization(req.cookies.locale);
 	var locationsColumnsOptions = {
 		chunkSize: 15,
 	}
@@ -50,7 +51,6 @@ router.use('/', require('./pages'));
 
 router.use(function(req,res,next) {
 	res.locals.req = req;
-	console.log(req)
 	next();
 })
 
