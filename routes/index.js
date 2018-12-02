@@ -5,6 +5,10 @@ const getCities = require('../controllers/cities').getCities;
 const catchErrors = require('../handlers/errorHandlers').catchErrors;
 const Localization = require('../helpers/localization').Localization;
 
+const axios = require('axios');
+const config = require('config');
+const API_URL = config.get('API_URL');
+
 
 router.get('/', catchErrors(async (req, res) => {
 	var specializations = await getSpecializations(req, res);
@@ -53,5 +57,12 @@ router.use(function(req,res,next) {
 	res.locals.req = req;
 	next();
 })
+
+router.post('/subscribe', async (req, res) => {
+	const { email } = req.body;
+	const request = await axios.post(`${API_URL}/api/subscriptions/add`,{email});
+	const result = request.data;
+	res.send(JSON.stringify({result}));
+});
 
 module.exports = router;
