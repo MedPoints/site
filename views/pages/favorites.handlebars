@@ -8,25 +8,57 @@
 
 <div class="row">
     <div class="col account-menu">
-
-        <ul class="list-group-horizontal">
-            <li class="list-group-item {{#if (compare selectedCategory 'clinics')}}active{{/if}}">
-                <a href="/account/favorites?category=clinics">{{localize req 'categories.clinics'}}</a>
+        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link {{#if (compare selectedCategory 'clinics')}}active{{/if}}" href="/account/favorites?category=clinics">{{localize req 'categories.clinics'}}</a>
             </li>
-            <li class="list-group-item {{#if (compare selectedCategory 'pharmacies')}}active{{/if}}">
-                <a href="/account/favorites?category=pharmacies">{{localize req 'categories.pharmacies'}}</a>
+            <li class="nav-item">
+                <a class="nav-link {{#if (compare selectedCategory 'pharmacies')}}active{{/if}}" href="/account/favorites?category=pharmacies">{{localize req 'categories.pharmacies'}}</a>
             </li>
-            <li class="list-group-item {{#if (compare selectedCategory 'doctors')}}active{{/if}}">
-                <a href="/account/favorites?category=doctors">{{localize req 'categories.doctors'}}</span></a>
+            <li class="nav-item">
+                <a class="nav-link {{#if (compare selectedCategory 'doctors')}}active{{/if}}" href="/account/favorites?category=doctors">{{localize req 'categories.doctors'}}</a>
             </li>
         </ul>
-
     </div>
 </div>
 
 <div class="row">
 
-    <div class="col">
+    <div class="col-xl-3 push-xl-9 col-lg-4 push-lg-8 col-md-5 push-md-7 col-sm-12 push-sm-0">
+        <nav class="sticky-top">
+
+            <div class="account-menu">
+
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <a href="/account">{{localize req 'account.sidebar.appointments'}}</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/account/records">{{localize req 'account.sidebar.records'}} <span class="badge">{{recordsCount}}</span></a>
+                        <ul>
+                            <li><a href="javascript:void(0)" data-toggle="modal" data-target="#chooseDoctor"><i class="fas fa-plus-circle"></i> {{localize req 'account.sidebar.addRecord'}}</a></li>
+                        </ul>
+                    </li>
+                    <li class="list-group-item active">
+                        <a href="/account/favorites">Favorites</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/account-tickets">{{localize req 'account.sidebar.support'}}</span></a>
+                        <ul>
+                            <li><a href="/add-ticket"><i class="fas fa-plus-circle"></i> {{localize req 'account.sidebar.addTicket'}}</a></li>
+                        </ul>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/account/edit"><i class="fas fa-cog"></i> {{localize req 'account.sidebar.editProfile'}}</a>
+                    </li>
+                </ul>
+
+            </div>
+            <!--/.account-menu-->
+        </nav>
+    </div>
+    <!--/.col-->
+    <div class="col-xl-9 pull-xl-3 col-lg-8 pull-lg-4 col-md-7 pull-md-5 col-sm-12 pull-sm-0">
         {{#if (compare selectedCategory 'clinics')}}
             <ul class="items-list">
             {{#each data as |hospital|}}

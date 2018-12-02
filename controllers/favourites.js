@@ -2,7 +2,7 @@ const config = require('config');
 const axios = require('axios');
 const API_URL = config.get('API_URL');
 const { DataPager } = require('./../helpers/pager');
-const { prepareTicketsData } = require('./../helpers/tickets');
+const { processFavoritesData } = require('./../helpers/favorites');
 const Localization = require('./../helpers/localization').Localization;
 
 const DEFAULT_CATEGORY = 'clinics';
@@ -25,7 +25,7 @@ exports.getFavorites = async (req, res) => {
     const request = await axios.get(`${API_URL}/api/users/${MedPoints_PublicKey}/${MedPoints_PrivateKey}/favorites`);
     let selectedCategory = parameters.category || DEFAULT_CATEGORY;
 
-    const data = request.data.result;
+    const data = processFavoritesData(request.data.result);
 
     
     const dataPager = new DataPager(data[selectedCategory], data[selectedCategory].count, parameters.page);
