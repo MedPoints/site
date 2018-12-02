@@ -8,6 +8,7 @@ $(function() {
     initializeBellToggle();
     initializeAddressMapToggle();
     initializeLocalizationControls();
+    initializeEvents();
 
     $('[data-toggle="tooltip"]').tooltip();
     $('.gallery a.gallery-img').simpleLightbox();
@@ -23,6 +24,19 @@ $(window).resize(function () {
 })
 
 repos($('.crop img'))
+
+function initializeEvents() {
+    $('#signUpButton').click(function(){
+        var value = $('#signUpInput').val();
+        if (value){
+            $.post('/subscribe',{email:value},function(success){
+                $('#signUpInput').val('');
+                alert('you have successfully signed up!')
+            });
+        }
+    });
+}
+
 
 function initializeLocalizationControls() {
     var currentLocale = Cookies.get('locale') || 'en';
