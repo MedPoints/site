@@ -271,6 +271,7 @@
 
     "tickets": {
         "addTicket": "Add ticket",
+        "noTickets": "No Tickets",
         "table": {
             "title": "Title",
             "description": "Description",

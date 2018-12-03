@@ -1519,3 +1519,7 @@ ul.cat-list li {
 .account-edit-row {
     padding-top: 1em;
 }
+
+.no-tickets {
+    padding: 1em 0;
+} 

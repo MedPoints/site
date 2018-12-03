@@ -75,7 +75,20 @@ exports.getTickets = async (req, res) => {
     let tickets = [];
     try {
         request = await axios.get(`${API_URL}/api/tickets/${MedPoints_PublicKey}/${MedPoints_PrivateKey}`);
-        tickets = prepareTicketsData(request.data.result);
+        tickets = prepareTicketsData(request.data.result).reduce((acc, value) => {
+            acc.all.push(value);
+            if (value.status === 'open') {
+                acc.open.push(value);
+            } else {
+                acc.closed.push(value);
+            }
+
+            return acc;
+        }, {
+            'all': [],
+            'open': [],
+            'closed': [],
+        });
     } catch(ex) {
         console.log('Error in the tickets request.');
     }
