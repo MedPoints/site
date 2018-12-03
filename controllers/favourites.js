@@ -25,7 +25,7 @@ exports.getFavorites = async (req, res) => {
     const request = await axios.get(`${API_URL}/api/users/${MedPoints_PublicKey}/${MedPoints_PrivateKey}/favorites`);
     let selectedCategory = parameters.category || DEFAULT_CATEGORY;
 
-    const data = processFavoritesData(request.data.result);
+    const data = await processFavoritesData(request.data.result) || {pharmacies: [], doctors: [], clinics: []};
 
     
     const dataPager = new DataPager(data[selectedCategory], data[selectedCategory].count, parameters.page);

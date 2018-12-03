@@ -450,6 +450,8 @@
         "registerButton": "Register",
         "saveChanges": "Save changes",
         "success": "Your account information was updated successfully.",
+        "noAppointments": "You currently have no appointments",
+        "noRecords": "You currently have no records",
         "modals": {
             "chooseDoctor": {
                 "title": "Additional actions required",

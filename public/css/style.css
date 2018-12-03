@@ -1515,3 +1515,7 @@ ul.cat-list li {
     border-bottom-left-radius:0;
     border-right-width: 1px;
 }
+
+.account-edit-row {
+    padding-top: 1em;
+}
