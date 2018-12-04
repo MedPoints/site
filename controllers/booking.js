@@ -3,6 +3,9 @@ const axios = require('axios');
 const API_URL = config.get('API_URL');
 const BLOCKCHAIN_API_URL = config.get('BLOCKCHAIN_API_URL');
 
+const { prepareClinicData } = require('./../helpers/clinics');
+const { prepareDoctorData } = require('./../helpers/doctors');
+
 const moment = require('moment');
 
 const Localization = require('../helpers/localization').Localization;
@@ -77,4 +80,35 @@ exports.register = async (req, res) => {
     } else {
         throw new Error(localization.localize('errors.bookingRequest'));
     }
+};
+
+exports.details = async (req, res) => {
+    const {
+        bookingDate,
+        serviceId,
+        doctorId,
+        clinicId,
+    } = req.body;
+
+    const [clinicRequest, doctorRequest, serviceRequest] = await Promise.all([
+        axios.get(`${API_URL}/api/hospitals?id=${clinicId}`),
+        axios.get(`${API_URL}/api/doctors?id=${doctorId}`),
+        axios.get(`${API_URL}/api/services?id=${serviceId}`),
+    ]).catch(err => {
+        console.log('Date request error: ' + err);
+    });
+
+    const random = await axios.get('https://randomuser.me/api/1.0/?seed='+doctorRequest.data.result.id);
+    const clinic = prepareClinicData(clinicRequest.data.result);
+    const doctor = prepareDoctorData(doctorRequest.data.result, '', random.data.results[0]);
+    const service = serviceRequest.data.result;
+
+    res.render('layouts/partials/booking-details', {
+        layout: false,
+        bookingDate: moment(new Date(bookingDate)).format("DD.MM.YYYY"),
+        clinic,
+        doctor,
+        service,
+        req,
+    });
 };

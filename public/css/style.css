@@ -1523,3 +1523,16 @@ ul.cat-list li {
 .no-tickets {
     padding: 1em 0;
 } 
+
+.booking-details {
+    position: relative;
+    min-height: 200px;
+}
+
+.loader {
+    position: absolute;
+    height: 50px;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+}

@@ -442,7 +442,13 @@
             "acceptTermsOfUse": "I accept",
             "termsOfUse": "<a href='/terms-of-use' target='_blank'>Terms of use</a> and <a href='/privacy-policy'>Privacy Policy</a>",
             "confirmBooking": "Confirm booking and checkout"
-        }
+        },
+        "selectServiceAndDate": "Select a service and a booking data to see details here",
+        "addBalance": "Add balance",
+        "totalCost": "Total cost",
+        "yourBalance": "Your balance is",
+        "terapist": "Terapist",
+        "price": "Price"
     },
 
     "account": {
@@ -465,7 +471,8 @@
             "addRecord": "Add record",
             "support": "Support",
             "addTicket": "Add ticket",
-            "editProfile": "Edit profile"
+            "editProfile": "Edit profile",
+            "addBalance": "Add balance"
         }
     },
 

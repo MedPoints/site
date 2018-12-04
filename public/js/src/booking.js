@@ -126,15 +126,55 @@ function initBookingData() {
 
     $('#doctorId').val(doctorId);
     $('#serviceId').change(function(evt) {
-        loadClinics($(this).val());
+        //loadClinics($(this).val());
+        updateBookingDetails();
+    });
+
+    $('#bookingDate').change(function(evt) {
+        updateBookingDetails();
     });
     loadServices(doctorId, function(evt) {
         var serviceId = query.serviceId;
         if (serviceId) {
             $('#serviceId').val(serviceId);
-            loadClinics(serviceId);
+            //loadClinics(serviceId);
         }
     });
+}
+
+function updateBookingDetails() {
+    var bookingDate = $('#bookingDate').val();
+    var serviceId = $('#serviceId').val();
+    var doctorId = $('#doctorId').val();
+    var clinicId = $('#clinicId').val();
+    if (bookingDate &&
+        serviceId &&
+        doctorId &&
+        clinicId) {
+            showLoadingPanel();
+            $('#bookingDetails').load(
+                '/booking/details/', {
+                    bookingDate: bookingDate,
+                    serviceId: serviceId,
+                    doctorId: doctorId,
+                    clinicId: clinicId
+                }, function() {
+                    hideLoadingPanel();
+                    initializeAddressMapToggle();
+                });
+        }
+}
+
+function showLoadingPanel() {
+    var imageNode = $('<img class="loader" />');
+    imageNode.attr('src', '/img/loader.gif');
+    $('#bookingDetails h3').hide();
+    $('#bookingDetails').append(imageNode);
+}
+
+function hideLoadingPanel() {
+    $('.loader').remove();
+    $('#bookingDetails h3').show();
 }
 
 function loadServices(doctorId, callback) {
@@ -161,31 +201,31 @@ function loadServices(doctorId, callback) {
         }
     });
 }
-function loadClinics(serviceIdString) {
-    if (serviceIdString) {
-        $.ajax({
-            url: '/doctors/' + doctorId + '/hospitals?service=' + serviceIdString,
-            success: function(res) {
-                var $select = $('#clinicId');
-                $select.empty();
-                var clinics = res.clinics;
-                if ($select && clinics) {
-                    var listitems = '<option value="">' + window.localizer.localize('controls.selectClinic') + '</option>';
-                    for (var i = 0, length = clinics.length; i < length; i++) {
-                        var clinic = clinics[i];
-                        listitems += '<option value=' + clinic.id + '>' + clinic.name + '</option>';   
-                    }
-                    $select.append(listitems);
-                }
-            },
-            error: function(res) {
-                console.log(res);
-            }
-        });
-    } else {
-        $("#clinicId").empty();
-    }
-}
+// function loadClinics(serviceIdString) {
+//     if (serviceIdString) {
+//         $.ajax({
+//             url: '/doctors/' + doctorId + '/hospitals?service=' + serviceIdString,
+//             success: function(res) {
+//                 var $select = $('#clinicId');
+//                 $select.empty();
+//                 var clinics = res.clinics;
+//                 if ($select && clinics) {
+//                     var listitems = '<option value="">' + window.localizer.localize('controls.selectClinic') + '</option>';
+//                     for (var i = 0, length = clinics.length; i < length; i++) {
+//                         var clinic = clinics[i];
+//                         listitems += '<option value=' + clinic.id + '>' + clinic.name + '</option>';   
+//                     }
+//                     $select.append(listitems);
+//                 }
+//             },
+//             error: function(res) {
+//                 console.log(res);
+//             }
+//         });
+//     } else {
+//         $("#clinicId").empty();
+//     }
+// }
 
 function getQueryParams(qs) {
     qs = qs.split('+').join(' ');
