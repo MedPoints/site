@@ -1,0 +1,36 @@
+<div class="history">
+    <h3>{{bookingDate}} -
+        <a href="/clinics/{{clinic.id}}">{{clinic.name}}</a>
+        <small>Public</small>
+    </h3>
+    <p>
+        <a href="https://www.google.com/maps/embed/place?key=1&q={{clinic.location.address}}" data-name="{{clinic.name}}" class="map-toggle">
+            {{clinic.location.address}}
+        </a>
+        <!--/.collapse-->
+    </p>
+    <ul class="stiled-list">
+        <li>
+            <h4>{{service.name}}</h4>
+            <div>{{localize req 'booking.terapist'}}
+                <a href="/doctors/{{doctor.id}}">{{doctor.name}}</a>
+            </div>
+            <p>{{localize req 'booking.price'}}
+                <strong>{{service.price.mpts}} MPT</strong>
+            </p>
+        </li>
+    </ul>
+
+    <hr />
+
+    <div>{{localize req 'booking.totalCost'}}
+        <strong>{{service.price.mpts}} MPT</strong>
+    </div>
+    <p>{{localize req 'booking.yourBalance'}}
+        <strong class="text-success">0 MPT</strong>
+        <a href="#" data-toggle="modal" data-target="#sorry">
+            <i class="fas fa-plus-circle"></i> {{localize req 'booking.addBalance'}}</a>
+    </p>
+
+</div>
+<!--/.history-->

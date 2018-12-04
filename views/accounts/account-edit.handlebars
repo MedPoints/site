@@ -17,8 +17,8 @@
 			<div class="account-menu">
 
 				<ul class="list-group">
-					<li class="list-group-item active">
-						<a href="/account">{{localize req 'account.sidebar.appointments'}}</a>
+					<li class="list-group-item">
+						<a href="/account">{{localize req 'account.sidebar.appointments'}} <span class="badge">{{appointmentsCount}}</span></a>
 					</li>
 					<li class="list-group-item">
 						<a href="/account/records">{{localize req 'account.sidebar.records'}}
@@ -31,12 +31,23 @@
 							</li>
 						</ul>
 					</li>
-					{{!--
 					<li class="list-group-item">
-						<a href="/account-favorites">Favorites</a>
-					</li> --}}
+						<a href="#" data-toggle="modal" data-target="#sorry"><b>MPT</b> = 120
+							<span class="badge">+ 0</span>
+						</a>
+						<ul>
+							<li>
+								<a href="#" data-toggle="modal" data-target="#sorry">
+									<i class="fas fa-plus-circle"></i> {{localize req 'account.sidebar.addBalance'}}</a>
+							</li>
+						</ul>
+					</li>
 					<li class="list-group-item">
-						<a href="/account-tickets">{{localize req 'account.sidebar.support'}}</span>
+						<a href="/account/favorites">Favorites</a>
+					</li>
+					<li class="list-group-item">
+						<a href="/account-tickets">{{localize req 'account.sidebar.support'}}
+						<span class="badge">{{ticketsCount}}</span>
 						</a>
 						<ul>
 							<li>
@@ -45,7 +56,7 @@
 							</li>
 						</ul>
 					</li>
-					<li class="list-group-item">
+					<li class="list-group-item active">
 						<a href="/account/edit">
 							<i class="fas fa-cog"></i> {{localize req 'account.sidebar.editProfile'}}</a>
 					</li>
@@ -61,7 +72,7 @@
 
 		<form>
 
-			<div class="row">
+			<div class="row account-edit-row">
 				<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
 					<div class="form-group">
 						<label for="walletId">{{localize req 'popups.walletDetails.walletId'}}</label>
@@ -81,7 +92,7 @@
 			</div>
 			<!--/.row-->
 
-			<div class="row">
+			<div class="row account-edit-row">
 				<div class="col-6">
 					<label for="firstName">{{localize req 'booking.form.firstName'}}</label>
 					<input type="text" name="firstName" value="{{accountData.firstName}}" class="form-control" id="firstName" placeholder="{{localize req 'booking.form.firstName'}}"
@@ -97,7 +108,7 @@
 			</div>
 			<!--/.row-->
 
-			<div class="row">
+			<div class="row account-edit-row">
 				<div class="col">
 
 					<label>{{localize req 'booking.form.sex'}}</label>
@@ -123,7 +134,7 @@
 
 			<h3>{{localize req 'booking.form.addAnEmail'}}</h3>
 
-			<div class="row">
+			<div class="row account-edit-row">
 
 				<div class="col-6">
 					<label for="email">{{localize req 'booking.form.email'}}</label>

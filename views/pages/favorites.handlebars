@@ -1,0 +1,250 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">{{localize req 'breadcrumbs.home'}}</a></li>
+        <li class="breadcrumb-item"><a href="/account">{{localize req 'breadcrumbs.accountRecords'}}</a></li>
+        <li class="breadcrumb-item active"><a href="/account/favorites">{{localize req 'breadcrumbs.favorites'}}</a></li>
+    </ol>
+</nav>
+
+<div class="row">
+    <div class="col account-menu">
+        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link {{#if (compare selectedCategory 'clinics')}}active{{/if}}" href="/account/favorites?category=clinics">{{localize req 'categories.clinics'}}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{#if (compare selectedCategory 'pharmacies')}}active{{/if}}" href="/account/favorites?category=pharmacies">{{localize req 'categories.pharmacies'}}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{#if (compare selectedCategory 'doctors')}}active{{/if}}" href="/account/favorites?category=doctors">{{localize req 'categories.doctors'}}</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="row">
+
+    <div class="col-xl-3 push-xl-9 col-lg-4 push-lg-8 col-md-5 push-md-7 col-sm-12 push-sm-0">
+        <nav class="sticky-top">
+
+            <div class="account-menu">
+
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <a href="/account">{{localize req 'account.sidebar.appointments'}}</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/account/records">{{localize req 'account.sidebar.records'}} <span class="badge">{{recordsCount}}</span></a>
+                        <ul>
+                            <li><a href="javascript:void(0)" data-toggle="modal" data-target="#chooseDoctor"><i class="fas fa-plus-circle"></i> {{localize req 'account.sidebar.addRecord'}}</a></li>
+                        </ul>
+                    </li>
+                    <li class="list-group-item active">
+                        <a href="/account/favorites">Favorites</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/account-tickets">{{localize req 'account.sidebar.support'}}</span></a>
+                        <ul>
+                            <li><a href="/add-ticket"><i class="fas fa-plus-circle"></i> {{localize req 'account.sidebar.addTicket'}}</a></li>
+                        </ul>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/account/edit"><i class="fas fa-cog"></i> {{localize req 'account.sidebar.editProfile'}}</a>
+                    </li>
+                </ul>
+
+            </div>
+            <!--/.account-menu-->
+        </nav>
+    </div>
+    <!--/.col-->
+    <div class="col-xl-9 pull-xl-3 col-lg-8 pull-lg-4 col-md-7 pull-md-5 col-sm-12 pull-sm-0">
+        {{#if (compare selectedCategory 'clinics')}}
+            <ul class="items-list">
+            {{#each data as |hospital|}}
+                <li>
+                    <div class="row">
+                        <div class="col-xl-3 col-md-3 col-sm-4">
+                            <a class="avatar" href="/clinics/{{hospital.id}}">
+                                <div class="crop">
+                                    <img src="{{hospital.photos}}" alt="The clinic photo"
+                                        onerror="this.onerror=null;this.src='/img/logo_stub.svg';this.style.width='100px';" />
+                                </div>
+                            </a>
+                            <div class="text-success" data-toggle="tooltip" data-placement="top" title="Participant in the program of insurance points" data-original-title=""><i class="fas fa-heartbeat"></i> {{localize ../req 'clinic.insurance'}}</div>
+                            <div class="text-success" data-toggle="tooltip" data-placement="top" title="Participant in the program of Help foundation" data-original-title="" aria-describedby="tooltip255942"><i class="far fa-life-ring"></i> {{localize ../req 'clinic.helpfoundation'}}</div>
+                        </div>
+                        <!--/.col-->
+                        <div class="col-xl-5 col-md-5 col-sm-8">
+                            <h3><a class="" href="/clinics/{{hospital.id}}">{{{hospital.name}}}</a> <small>{{hospital.type}}</small></h3>
+                            <div>
+                                {{#each hospital.specializations as |specialization| }}
+                                <a href="/clinics?specializationId={{specialization.id}}">{{specialization.name}}</a>&nbsp;
+                                {{/each}}
+                            </div>
+                            <p>
+                                <a href="https://www.google.com/maps/embed/place?key=1&q={{hospital.location.address}}" data-name="{{hospital.name}}" class="map-toggle">
+                                    {{hospital.location.address}}
+                                </a>
+                            </p>
+                            <div class="row">
+                                <div class="col">
+									<div class="card">
+                                    	<ul>
+                                        	{{#each hospital.work_time as |work_time|}}
+                                            <li><small>{{ work_time.weekdays }}:</small> <br />{{ work_time.time }}</li>
+                                            {{/each}}
+                                    	</ul>
+									</div><!--/.card-->
+                                </div>
+                                <!--/.col-->
+
+                                <div class="col">
+                                    <div class="color-gray" data-toggle="tooltip" data-placement="top" title="" data-original-title="Provides a transfer from the airport"><i class="fas fa-plane"></i> {{localize ../req 'clinic.transfer'}}</div>
+                                    <div class="" data-toggle="tooltip" data-placement="top" title="" data-original-title="Available with bus routes"><i class="fas fa-bus"></i> {{localize ../req 'clinic.busroute'}}</div>
+                                    <div class="" data-toggle="tooltip" data-placement="top" title="" data-original-title="Has free parking"><i class="fas fa-car"></i> {{localize ../req 'clinic.freepark'}}</div>
+                                </div>
+                            </div>
+                            <!--/.row-->
+                        </div>
+                        <!--/.col-->
+                        <div class="col-xl-4 col-md-4 col-sm-12">
+                            <div class="wave text-center">
+                                <h4 hidden>{{localize ../req 'ratings.rating'}} <strong class="text-success">9.99</strong></h4>
+                                <p  hidden>{{localize ../req 'ratings.basedOn'}} <strong><a class="" href="/clinics/test#opinions">58 {{localize ../req 'ratings.opinions'}}</a></strong></p>
+                                <a class="btn btn-primary btn-lg justify" href="/doctors/?hospital={{hospital.id}}"><strong>{{defaultIfEmpty hospital.doctors 0}}</strong> {{localize ../req 'ratings.items.doctors'}}</a>
+                                <div><a class="" href="/services/?hospital={{hospital.id}}"><strong>{{defaultIfEmpty hospital.services 0}}</strong> {{localize ../req 'ratings.items.services'}}</a></div>
+                            </div>
+                            <!--/.wave-->
+                        </div>
+                        <!--/.col-->
+                    </div>
+                    <!--/.row-->
+                </li>
+            {{/each}}
+            </ul>
+
+            <div class="row pagination-line">
+                <div class="col">
+                    <nav aria-label="...">
+                        {{> pager pagerInfo }}
+                    </nav>
+                </div>
+            </div>
+        {{else if (compare selectedCategory 'pharmacies')}}
+            <ul class="items-list">
+                {{#each data as |pharmacy|}}
+                <li>
+                    <div class="row">
+                        <div class="col-xl-3 col-md-3 col-sm-4">
+                            <a class="avatar" href="/pharmacies/{{ pharmacy.id }}">
+                                <div class="crop">
+                                    <img src="{{pharmacy.photos}}" alt="The pharmacy photo" onerror="this.onerror=null;this.src='/img/logo_stub.svg';this.style.width='100px';" />
+                                </div>
+                            </a>
+                        </div>
+                        <!--/.col-->
+                        <div class="col-xl-5 col-md-5 col-sm-8">
+                            <h3><a class="" href="/pharmacies/{{ pharmacy.id }}">{{ pharmacy.name }}</a></h3>
+                            <p>
+                                <a href="https://www.google.com/maps/embed/place?key=1&q={{pharmacy.location.address}}"
+                                    data-name="{{ pharmacy.name }}" class="map-toggle">
+                                    {{pharmacy.location.address}}
+                                </a>
+                            </p>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="card">
+                                        <ul>
+                                            {{#each pharmacy.work_time as |work_time|}}
+                                            <li>
+                                                <small>{{ work_time.weekdays }}:</small>
+                                                <br />{{ work_time.time }}</li>
+                                            {{/each}}
+                                        </ul>
+                                    </div>
+                                    <!--/.card-->
+                                </div>
+                                <!--/.col-->
+                                <div class="col"> 
+                                    <div class="" data-toggle="tooltip" data-placement="top" title="" data-original-title="Available with bus routes"><i class="fas fa-bus"></i> Bus route</div>
+                                    <div class="" data-toggle="tooltip" data-placement="top" title="" data-original-title="Has free parking"><i class="fas fa-car"></i> Free parking</div>
+                                </div>
+                                <!--/.col-->
+                            </div>
+                            <!--/.row-->
+                        </div>
+                        <!--/.col-->
+                        <div class="col-xl-4 col-md-4 col-sm-12">
+                            <div class="wave text-center">
+                                <h4>{{localize ../req 'ratings.rating'}} <strong class="text-success">{{pharmacy.rate}}</strong></h4>
+                                <p>{{localize ../req 'ratings.basedOn'}}
+                                    <strong>
+                                        <a class="" href="/pharmacies/{{pharmacy.id}}#opinions">{{pharmacy.ratings.length}}
+                                            {{localize ../req 'ratings.opinions'}}</a>
+                                    </strong>
+                                </p>
+                                <a class="btn btn-primary btn-lg justify" href="/drugs?pharmacyId={{pharmacy.id}}"><strong>{{
+                                        pharmacy.drugs.length }}</strong> {{localize ../req 'ratings.items.drugs'}}</a>
+                            </div>
+                            <!--/.wave-->
+                        </div>
+                        <!--/.col-->
+                    </div>
+                    <!--/.row-->
+                </li>
+                {{/each}}
+            </ul>
+
+            <div class="row pagination-line">
+                <div class="col">
+                    <nav aria-label="...">
+                        {{> pager pagerInfo }}
+                    </nav>
+                </div>
+            </div>
+        {{else if (compare selectedCategory 'doctors')}}
+            <ul class="items-list doctors-items">
+
+            {{#each doctors as |doctor|}}
+                <li>
+                    <div class="row">
+                        <div class="col-xl-3 col-md-3 col-sm-4">
+                            <a class="avatar" href="/doctor"><div class="crop"><img src="img/_demo/doctor1.jpg" alt="A doctor's photo" onerror="this.onerror=null;this.src='/img/logo_stub.svg';this.style.width='100px';" /></div></a>
+                            {{!-- <div class="text-success" data-toggle="tooltip" data-placement="top" title="Participant in the program of insurance points"><i class="fas fa-heartbeat"></i> Insurance</div> --}}
+                        </div>
+                        <!--/.col-->
+                        <div class="col-xl-6 col-md-5 col-sm-8">
+                            <h3><a href="/doctors/{{doctor.id}}">{{{doctor.name}}}</a> <small>M.D</small></h3>
+                            <div><a href="/doctors">{{doctor.specialization}}</a></div>
+                            <h4><a href="/clinics/{{doctor.hispital.id}}">{{doctor.hospital.name}}</a></h4>
+                            <p><a class="map-toggle" data-name="{{doctor.hospital.name}}" href="/doctors">{{doctor.hospital.location.address}}</a></p>
+                            <div>{{{localize ../req "doctor.workExperience" years="9+"}}}</div>
+                            <div>{{{localize ../req "doctor.bonus" amount="100"}}}</div>
+                        </div>
+                        <div class="col-xl-3 col-md-4 col-sm-12">
+                            <div class="wave text-center">
+                                <h4>{{localize ../req 'ratings.rating'}} <strong class="text-success">{{doctor.rate}}</strong></h4>
+                                <p>{{localize ../req 'ratings.basedOn'}} <strong><a class="" href="/doctors/{{doctor.id}}#opinions">{{doctor.ratings.length}} {{localize ../req 'ratings.opinions'}}</a></strong></p>
+                                <a class="btn btn-primary btn-lg justify book-button" href="/booking/?doctorId={{doctor.id}}">{{localize ../req 'doctor.bookToVisit'}}</a>
+                            </div>
+                            <!--/.wave-->
+                        </div>
+                        <!--/.col-->
+                    </div>
+                    <!--/.row-->
+                </li>
+                {{/each}}
+            </ul>
+
+            <div class="row pagination-line">
+                <div class="col">
+                    <nav aria-label="...">
+                        {{> pager pagerInfo }}
+                    </nav>
+                </div>
+            </div>
+        {{/if}}
+    </div>
+    <!--/.col-->
+</div>

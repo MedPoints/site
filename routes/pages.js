@@ -25,6 +25,7 @@ router.get('/confirm', (req, res) => res.render('pages/confirm', {title: 'MedPoi
 router.get('/text', (req, res) => res.render('pages/text'));
 
 router.get('/booking', catchErrors(booking.booking));
+router.post('/booking/details', catchErrors(booking.details));
 router.get('/rates', catchErrors(rates.getRates));
 router.post('/calculateRates', catchErrors(rates.calculateRates));
 

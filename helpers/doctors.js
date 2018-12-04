@@ -1,6 +1,11 @@
 const higlight = require('./text-highlighter');
 
-exports.prepareDoctorData = (doctor, options) => {
+exports.prepareDoctorData = (doctor, options, random) => {
+
+    if (!doctor.avatar) {
+        doctor.avatar = random.picture.large;
+    }
+
     if (!doctor.rate) {
         doctor.rate = 0;
     }

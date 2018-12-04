@@ -43,9 +43,10 @@ exports.getTransactions = async (transactions) => {
         ]).catch(err => {
             console.log('Date request error: ' + err);
         });
-        
+
+        const random = await axios.get('https://randomuser.me/api/1.0/?seed='+doctor.id);
         const clinic = prepareClinicData(clinicRequest.data.result);
-        const doctor = prepareDoctorData(doctorRequest.data.result);
+        const doctor = prepareDoctorData(doctorRequest.data.result, '', random.data.results[0]);
         const service = serviceRequest.data.result;
         transaction.ClinicInfo = clinic;
         transaction.DoctorInfo = doctor;
