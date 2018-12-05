@@ -1542,3 +1542,7 @@ ul.cat-list li {
      margin-top:25px;
      text-decoration:underline;
 }
+
+.site-footer a.active{
+     font-weight: bold;
+}

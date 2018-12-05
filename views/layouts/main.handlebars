@@ -253,7 +253,7 @@
     </div>
 
 
-    <footer>
+    <footer class="site-footer">
 
         <div class="row">
             <div class="col-xl-8 col-md-7 col-sm-12">
@@ -262,20 +262,20 @@
                     <div class="col-xl-4 col-md-4 col-sm-6">
                         <h4>{{localize req 'footer.project.title'}}</h4>
                         <ul>
-                            <li><a href="/about">{{localize req 'footer.project.items.about'}}</a></li>
-                            <li><a href="/partnership">{{localize req 'footer.project.items.partnership'}}</a></li>
-                            <li><a href="/explorer">{{localize req 'footer.project.items.explorer'}}</a></li>
-                            <li><a href="/blog">{{localize req 'footer.project.items.blog'}}</a></li>
+                            <li><a href="/about" {{#if (compare req.originalUrl '/about')}}class="active"{{/if}}>{{localize req 'footer.project.items.about'}}</a></li>
+                            <li><a href="/partnership" {{#if (compare req.originalUrl '/partnership')}}class="active"{{/if}}>{{localize req 'footer.project.items.partnership'}}</a></li>
+                            <li><a href="/explorer" {{#if (compare req.originalUrl '/explorer')}}class="active"{{/if}}>{{localize req 'footer.project.items.explorer'}}</a></li>
+                            <li><a href="/blog" {{#if (compare req.originalUrl '/blog')}}class="active"{{/if}}>{{localize req 'footer.project.items.blog'}}</a></li>
                         </ul>
                     </div>
                     <!--/.col-->
                     <div class="col-xl-4 col-md-4 col-sm-6">
                         <h4>{{localize req 'footer.support.title'}}</h4>
                         <ul>
-                            <li><a href="/faq">{{localize req 'footer.support.items.faq'}}</a></li>
+                            <li><a href="/faq" {{#if (compare req.originalUrl '/faq')}}class="active"{{/if}}>{{localize req 'footer.support.items.faq'}}</a></li>
                             <li class="support-tickets"><a href="/account-tickets">{{localize req 'footer.support.items.support'}}</a></li>
-                            <li><a href="/terms-of-use">{{localize req 'footer.support.items.terms'}}</a></li>
-                            <li><a href="/privacy-policy">{{localize req 'footer.support.items.policy'}}</a></li>
+                            <li><a href="/terms-of-use" {{#if (compare req.originalUrl '/terms-of-use')}}class="active"{{/if}}>{{localize req 'footer.support.items.terms'}}</a></li>
+                            <li><a href="/privacy-policy" {{#if (compare req.originalUrl '/privacy-policy')}}class="active"{{/if}}>{{localize req 'footer.support.items.policy'}}</a></li>
                         </ul>
                     </div>
                     <!--/.col-->
