@@ -41,6 +41,9 @@ router.post('/search', async (req, res) => {
 	switch(category.toLowerCase()){
 		case 'doctors':
 		case 'clinics':
+		case 'drugs':
+		case 'services':
+		case 'pharmacies':
 			res.redirect(`/${category}?name=${search}`);
 			return;
 		default:

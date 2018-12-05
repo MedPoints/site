@@ -1536,3 +1536,9 @@ ul.cat-list li {
     left: 50%;
     transform: translateY(-50%) translateX(-50%);
 }
+
+.no-results-add-link {
+     display:block;
+     margin-top:25px;
+     text-decoration:underline;
+}

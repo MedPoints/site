@@ -216,12 +216,11 @@
                         <input type="text" class="form-control" value="{{req.query.name}}" name="search" placeholder="{{localize req 'search.searchPrompt'}}" />
 
                         <select name="category" class="custom-select">
-                            <option selected>{{localize req 'search.options.default'}}</option>
-                            <option>{{localize req 'search.options.clinics'}}</option>
-                            <option value="2" hidden>{{localize req 'search.options.services'}}</option>
+                            <option selected>{{localize req 'search.options.clinics'}}</option>
+                            <option>{{localize req 'search.options.services'}}</option>
                             <option>{{localize req 'search.options.doctors'}}</option>
-                            <option value="4" hidden>{{localize req 'search.options.pharmacies'}}</option>
-                            <option value="5" hidden>{{localize req 'search.options.drugs'}}</option>
+                            <option>{{localize req 'search.options.pharmacies'}}</option>
+                            <option>{{localize req 'search.options.drugs'}}</option>
                         </select>
 
                         <div class="input-group-btn">

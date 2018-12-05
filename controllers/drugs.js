@@ -2,6 +2,7 @@ const config = require('config');
 const axios = require('axios');
 const API_URL = config.get('API_URL');
 const { Pager, PAGE_SIZE } = require('./../helpers/pager');
+const { prepareDrugData } = require('./../helpers/drugs');
 const { queryPersistant } = require('./../helpers/query-persistant');
 
 const Localization = require('../helpers/localization').Localization;
@@ -22,8 +23,10 @@ exports.getDrugs = async (req, res) => {
 
   let url = queryPersistant.applyRequestQueryParameters(parameters, `${API_URL}/api/drugs`);  
   const request = await axios.get(url);
-  let drugs = request.data.result.data ;
-
+  let drugs = request.data.result.data.map(drug => prepareDrugData(drug, {
+    search: req.query.name
+  }));
+  
   const {
     pages,
     total

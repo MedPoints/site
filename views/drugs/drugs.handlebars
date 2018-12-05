@@ -79,6 +79,7 @@
 
 <div class="row">
 
+    {{#if drugs.length}}
     <div class="col-xl-3 push-xl-9 col-lg-12 push-lg-0">
 
         <h3>{{localize req 'drug.categories'}}</h3>
@@ -93,8 +94,10 @@
 
     </div>
     <!--/.col-->
+    {{/if}}
 
     <div class="col-xl-9 pull-xl-3 col-lg-12 pull-lg-0">
+        {{#if drugs.length}}
         <h3 class="alphabetical-index">Alphabetical index</h3>
         <ul class="list-inline alphabetical-index-list">
             <li class="list-inline-item {{#if (compare selectedName 'A')}}active{{/if}}"><a href="/drugs?name=A">A</a></li>
@@ -151,7 +154,7 @@
                     {{#each drugs as |drug|}}
                     <tr>
                         <td>
-                            <h4><a href="/drugs/{{ drug.id }}" title="">{{ drug.name }}</a></h4>
+                            <h4><a href="/drugs/{{ drug.id }}" title="">{{{ drug.name }}}</a></h4>
                             <p>{{ drug.short_descr }}</p>
                         </td>
                         <td class="price-td">{{localize ../req 'common.fromPrice'}} <strong class="text-dark">${{
@@ -175,9 +178,13 @@
             </table>
         </div>
         <!--end of .table-responsive-->
+        {{else}}
+            <h2>{{localize req 'noResults'}}</h2>
+            <a href="/partnership" class="no-results-add-link"><h4>{{localize req 'addLinks.drug'}}</h4></a>
+        {{/if}}
 
         <br />
-
+        {{#if drugs.length}}
         <div class="row pagination-line">
             <div class="col">
                 <nav aria-label="...">
@@ -185,7 +192,7 @@
                 </nav>
             </div>
         </div>
-
+        {{/if}}
     </div>
     <!--/.col-->
 </div>

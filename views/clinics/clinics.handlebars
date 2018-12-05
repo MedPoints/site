@@ -186,9 +186,12 @@
                     </div>
                     <!--/.row-->
                 </li>
+                {{else}}
+                    <h2>{{localize req 'noResults'}}</h2>
+                    <a href="/partnership" class="no-results-add-link"><h4>{{localize req 'addLinks.clinic'}}</h4></a>
                 {{/each}}
             </ul>
-
+            {{#if hospitals.length}}
 			<div class="row pagination-line">
             	<div class="col">
 					<nav aria-label="...">
@@ -196,6 +199,7 @@
                 </nav>
             	</div>
           	</div>
+            {{/if}}
 
         </div>
         <!--/.col-->

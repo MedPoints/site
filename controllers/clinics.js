@@ -21,13 +21,11 @@ exports.getClinics = async (req, res) => {
     }
   }
 
-
   let url = queryPersistant.applyRequestQueryParameters(parameters, `${API_URL}/api/hospitals`);  
   const request = await axios.get(url);
   let hospitals = request.data.result.data.map(clinic => prepareClinicData(clinic, {
     search: req.query.name
   }));
-  
   
   let avgCoordinates = {lat: 0, lng: 0};
   let count = 0;

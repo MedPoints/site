@@ -22,6 +22,7 @@ exports.getPharmacies = async (req, res) => {
   }
 
   let url = queryPersistant.applyRequestQueryParameters(parameters, `${API_URL}/api/pharmacies`);  
+  console.log(url)
   const request = await axios.get(url);
   let pharmacies = request.data.result.data.map(pharmacy => preparePharmacyData(pharmacy));
   
