@@ -5,13 +5,13 @@ const config = require('config');
 const PAGE_TITLE = 'Foundation';
 
 exports.getFoundationInfo = async (req, res) => {
-  res.render('foundation/foundation', { PAGE_TITLE, title: `MedPoints™ Foundation` });
+  res.render('foundation/foundation', { PAGE_TITLE, title: `MedPoints™ Foundation`,req, });
 };
 
 exports.getFoundationCases = async (req, res) => {
-    res.redirect('/foundation', {title: `MedPoints™ Foundation Cases`});
+    res.redirect('/foundation', {title: `MedPoints™ Foundation Cases`,req,});
 }
 
 exports.getFoundationCase = async (req, res) => {
-    res.redirect('/foundation', {title: `MedPoints™ Foundation Case`});
+    res.redirect('/foundation', {title: `MedPoints™ Foundation Case`,req,});
 };

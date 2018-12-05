@@ -77,12 +77,22 @@ function logIn(walletId, walletKey, callback) {
             privateKey: walletKey,
         },
         success: function (res) {
-            Cookies.set('MedPoints_PrivateKey', res.result.privateKey);
-            Cookies.set('MedPoints_PublicKey', res.result.publicKey);
-            if (callback) {
-                callback(res.result);
+            if (res.error) {
+                if (res.error === 'USER_NOT_CONFIRMED') {
+                    showCustomErrorModal(
+                        window.localizer.localize('errors.confirmEmailErrorTitle'),
+                        window.localizer.localize('errors.confirmEmailError')
+                    );
+                }
+                callback({error: true});
             } else {
-                window.location.reload();
+                Cookies.set('MedPoints_PrivateKey', res.result.privateKey);
+                Cookies.set('MedPoints_PublicKey', res.result.publicKey);
+                if (callback) {
+                    callback(res.result);
+                } else {
+                    window.location.reload();
+                }
             }
         },
         error: function (res) {

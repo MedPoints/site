@@ -1,45 +1,45 @@
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/">{{localize 'breadcrumbs.home'}}</a></li>
+        <li class="breadcrumb-item"><a href="/">{{localize req 'breadcrumbs.home'}}</a></li>
         <li class="breadcrumb-item active" aria-current="page">{{PAGE_TITLE}}</li>
     </ol>
 </nav>
 
 <br />
 
-<h2>{{localize 'explorer.latestTransactions'}}</h2>
+<h2>{{localize req 'explorer.latestTransactions'}}</h2>
 <div id="chartdiv" style="overflow: visible; text-align: left;"></div>    
 
 <br />
 
-<h2>{{localize 'rates.subtitle'}}</h2>
+<h2>{{localize req 'rates.subtitle'}}</h2>
 
 <div class="row">
     <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 padded-input">
-        <label for="amount">{{localize 'rates.form.amount'}}</label>
+        <label for="amount">{{localize req 'rates.form.amount'}}</label>
         <input type="text" name="amount" class="form-control" id="exchangeAmount" placeholder="" required />
     </div>
     <!--/.col-->
     <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 padded-input">
-        <label for="currency">{{localize 'rates.form.currency'}}</label>
+        <label for="currency">{{localize req 'rates.form.currency'}}</label>
         <select class="custom-select mb-2 mr-sm-2 mb-sm-0 justify" id="exchangeCurrency">
-            <option value="btc" selected>{{localize 'rates.form.currencies.btc'}}</option>
-            <option value="eth">{{localize 'rates.form.currencies.eth'}}</option>
-            <option value="xrp">{{localize 'rates.form.currencies.xrp'}}</option>
-            <option value="bch">{{localize 'rates.form.currencies.bch'}}</option>
-            <option value="ltc">{{localize 'rates.form.currencies.ltc'}}</option>
+            <option value="btc" selected>{{localize req 'rates.form.currencies.btc'}}</option>
+            <option value="eth">{{localize req 'rates.form.currencies.eth'}}</option>
+            <option value="xrp">{{localize req 'rates.form.currencies.xrp'}}</option>
+            <option value="bch">{{localize req 'rates.form.currencies.bch'}}</option>
+            <option value="ltc">{{localize req 'rates.form.currencies.ltc'}}</option>
         </select>
     </div>
     <!--/.col-->
     <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 padded-input">
-        <label for="numberOfMPT">{{localize 'rates.form.numberOfMpt'}}</label>
+        <label for="numberOfMPT">{{localize req 'rates.form.numberOfMpt'}}</label>
         <input type="text" name="numberOfMPT" class="form-control" id="exchangeRate" placeholder="" disabled="disabled" />
     </div>
     <!--/.col-->
     <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 padded-input">
         <label>&nbsp;</label>
-        <button class="btn btn-secondary justify disabled" id="addBalance" data-toggle="modal" data-target="#sorry" href="javascript:void(0)">{{localize 'rates.form.addBalanceButton'}}</button>
-        {{!-- <button class="btn btn-primary justify" id="calculateRate" href="javascript:void(0)">{{localize 'rates.form.calculateExchangeRate'}}</button> --}}
+        <button class="btn btn-secondary justify disabled" id="addBalance" data-toggle="modal" data-target="#sorry" href="javascript:void(0)">{{localize req 'rates.form.addBalanceButton'}}</button>
+        {{!-- <button class="btn btn-primary justify" id="calculateRate" href="javascript:void(0)">{{localize req 'rates.form.calculateExchangeRate'}}</button> --}}
     </div>
     <!--/.col-->
 </div>
@@ -48,16 +48,17 @@
 {{!-- <div class="row">
     <div class="offset-xl-9 offset-lg-9 offset-md-6 offset-sm-0"></div>
     <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 add-balance-container">
-        <button class="btn btn-secondary justify disabled" id="addBalance" href="javascript:void(0)">{{localize 'rates.form.addBalanceButton'}}</button>
+        <button class="btn btn-secondary justify disabled" id="addBalance" href="javascript:void(0)">{{localize req 'rates.form.addBalanceButton'}}</button>
     </div>
     <!--/.col-->
 </div> --}}
 <!--/.row-->
 
 <script src="/js/src/rates.js"></script>
-<script src="/js/rates/amcharts.js"></script>
-<script src="/js/rates/serial.js"></script>
-<script src="/js/rates/export.min.js"></script>
+<script src="//www.amcharts.com/lib/3/amcharts.js"></script>
+<script src="//www.amcharts.com/lib/3/serial.js"></script>
+<link href="//www.amcharts.com/lib/3/plugins/export/export.css" rel="stylesheet" />
+<script src="//www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
 <link rel="stylesheet" href="/css/rates.css" type="text/css" media="all">
 <script src="/js/rates/light.js"></script>
 <script>

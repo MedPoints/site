@@ -1,7 +1,7 @@
 
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/">{{localize 'breadcrumbs.home'}}</a></li>
+            <li class="breadcrumb-item"><a href="/">{{localize req 'breadcrumbs.home'}}</a></li>
             <li class="breadcrumb-item active" aria-current="page">{{PAGE_TITLE}}</li>
         </ol>
     </nav>
@@ -11,23 +11,23 @@
         <form class="filter">
             <div class="row">
                 <div class="col-sm-9">
-                    <h3>{{localize 'filters.location'}}</h3>
+                    <h3>{{localize req 'filters.location'}}</h3>
                     <label class="custom-control custom-radio">
                         <input id="locationRadio1" name="filter[city]" value="home" type="radio" class="custom-control-input" {{#if (equals filter.city 'home') }}checked{{/if}}>
                         <span class="custom-control-indicator"></span>
-                        <span class="custom-control-description">{{localize 'filters.yourCity'}}</span>
+                        <span class="custom-control-description">{{localize req 'filters.yourCity'}}</span>
                     </label>
                     <label class="custom-control custom-radio">
                         <input id="locationRadio2" name="filter[city]" value="worldwide" type="radio" class="custom-control-input" {{#if (equals filter.city 'worldwide') }}checked{{/if}}>
                         <span class="custom-control-indicator"></span>
-                        <span class="custom-control-description">{{localize 'filters.worldwide'}}</span>
+                        <span class="custom-control-description">{{localize req 'filters.worldwide'}}</span>
                     </label>
                 </div>
                 <!--/.col-->
 				
                 <div class="col-sm-3">
-                    <button type="button" id="btn-more" class="btn btn-secondary collapsed filter-button" data-toggle="collapse" data-target="#moreFilters" aria-expanded="false"><i class="fas fa-angle-down"></i> {{localize 'filters.more'}}</button>
-                    <button type="submit" id="btn-more" class="btn btn-primary filter-button">{{localize 'filters.apply'}}</button>
+                    <button type="button" id="btn-more" class="btn btn-secondary collapsed filter-button" data-toggle="collapse" data-target="#moreFilters" aria-expanded="false"><i class="fas fa-angle-down"></i> {{localize req 'filters.more'}}</button>
+                    <button type="submit" id="btn-more" class="btn btn-primary filter-button">{{localize req 'filters.apply'}}</button>
                 </div>
                 <!--/.col-->
 				
@@ -41,12 +41,12 @@
                     <label class="custom-control custom-checkbox">
 						<input type="checkbox" class="custom-control-input" disabled>
 						<span class="custom-control-indicator"></span>
-						<span class="custom-control-description">{{localize 'filters.airportTransfer'}}</span>
+						<span class="custom-control-description">{{localize req 'filters.airportTransfer'}}</span>
 					</label>
                     <label class="custom-control custom-checkbox">
 						<input type="checkbox" class="custom-control-input" disabled>
 						<span class="custom-control-indicator"></span>
-						<span class="custom-control-description">{{localize 'filters.insuranceMember'}}</span>
+						<span class="custom-control-description">{{localize req 'filters.insuranceMember'}}</span>
 					</label> 
                 </div>
                 <!--/.col-->
@@ -136,8 +136,8 @@
                                         onerror="this.onerror=null;this.src='/img/logo_stub.svg';this.style.width='100px';" />
                                 </div>
                             </a>
-                            <div class="text-success" data-toggle="tooltip" data-placement="top" title="Participant in the program of insurance points" data-original-title=""><i class="fas fa-heartbeat"></i> {{localize 'clinic.insurance'}}</div> 
-                            <div class="text-success" data-toggle="tooltip" data-placement="top" title="Participant in the program of Help foundation" data-original-title="" aria-describedby="tooltip255942"><i class="far fa-life-ring"></i> {{localize 'clinic.helpfoundation'}}</div>
+                            <div class="text-success" data-toggle="tooltip" data-placement="top" title="Participant in the program of insurance points" data-original-title=""><i class="fas fa-heartbeat"></i> {{localize ../req 'clinic.insurance'}}</div>
+                            <div class="text-success" data-toggle="tooltip" data-placement="top" title="Participant in the program of Help foundation" data-original-title="" aria-describedby="tooltip255942"><i class="far fa-life-ring"></i> {{localize ../req 'clinic.helpfoundation'}}</div>
                         </div>
                         <!--/.col-->
                         <div class="col-xl-5 col-md-5 col-sm-8">
@@ -165,9 +165,9 @@
                                 <!--/.col-->
 
                                 <div class="col">
-                                    <div class="color-gray" data-toggle="tooltip" data-placement="top" title="" data-original-title="Provides a transfer from the airport"><i class="fas fa-plane"></i> {{localize 'clinic.transfer'}}</div>
-                                    <div class="" data-toggle="tooltip" data-placement="top" title="" data-original-title="Available with bus routes"><i class="fas fa-bus"></i> {{localize 'clinic.busroute'}}</div>
-                                    <div class="" data-toggle="tooltip" data-placement="top" title="" data-original-title="Has free parking"><i class="fas fa-car"></i> {{localize 'clinic.freepark'}}</div>
+                                    <div class="color-gray" data-toggle="tooltip" data-placement="top" title="" data-original-title="Provides a transfer from the airport"><i class="fas fa-plane"></i> {{localize ../req 'clinic.transfer'}}</div>
+                                    <div class="" data-toggle="tooltip" data-placement="top" title="" data-original-title="Available with bus routes"><i class="fas fa-bus"></i> {{localize ../req 'clinic.busroute'}}</div>
+                                    <div class="" data-toggle="tooltip" data-placement="top" title="" data-original-title="Has free parking"><i class="fas fa-car"></i> {{localize ../req 'clinic.freepark'}}</div>
                                 </div>
                             </div>
                             <!--/.row-->
@@ -175,10 +175,10 @@
                         <!--/.col-->
                         <div class="col-xl-4 col-md-4 col-sm-12">
                             <div class="wave text-center">
-                                <h4  hidden>{{localize 'ratings.rating'}} <strong class="text-success">9.99</strong></h4>
-                                <p  hidden>{{localize 'ratings.basedOn'}} <strong><a class="" href="/clinics/test#opinions">58 {{localize 'ratings.opinions'}}</a></strong></p>
-                                <a class="btn btn-primary btn-lg justify" href="/doctors/?hospital={{hospital.id}}"><strong>{{defaultIfEmpty hospital.doctors 0}}</strong> {{localize 'ratings.items.doctors'}}</a>
-                                <div><a class="" href="/services/?hospital={{hospital.id}}"><strong>{{defaultIfEmpty hospital.services 0}}</strong> {{localize 'ratings.items.services'}}</a></div>
+                                <h4  hidden>{{localize ../req 'ratings.rating'}} <strong class="text-success">9.99</strong></h4>
+                                <p  hidden>{{localize ../req 'ratings.basedOn'}} <strong><a class="" href="/clinics/test#opinions">58 {{localize ../req 'ratings.opinions'}}</a></strong></p>
+                                <a class="btn btn-primary btn-lg justify" href="/doctors/?hospital={{hospital.id}}"><strong>{{defaultIfEmpty hospital.doctors 0}}</strong> {{localize ../req 'ratings.items.doctors'}}</a>
+                                <div><a class="" href="/services/?hospital={{hospital.id}}"><strong>{{defaultIfEmpty hospital.services 0}}</strong> {{localize ../req 'ratings.items.services'}}</a></div>
                             </div>
                             <!--/.wave-->
                         </div>
@@ -186,9 +186,12 @@
                     </div>
                     <!--/.row-->
                 </li>
+                {{else}}
+                    <h2>{{localize req 'noResults'}}</h2>
+                    <a href="/partnership" class="no-results-add-link"><h4>{{localize req 'addLinks.clinic'}}</h4></a>
                 {{/each}}
             </ul>
-
+            {{#if hospitals.length}}
 			<div class="row pagination-line">
             	<div class="col">
 					<nav aria-label="...">
@@ -196,6 +199,7 @@
                 </nav>
             	</div>
           	</div>
+            {{/if}}
 
         </div>
         <!--/.col-->

@@ -6,7 +6,15 @@ class Localization {
 
     constructor(locale) {
         this.locale = locale || DEFAUL_LOCALE;
-        this.dictionary = JSON.parse(fs.readFileSync(`./public/data/lang/${locale}.json`, 'utf8'))
+        this.dictionary = JSON.parse(fs.readFileSync(`./public/data/lang/${locale}.json`, 'utf8'));
+
+        var backupDictionary;
+        if (locale === 'en') {
+          backupDictionary = this.dictionary;
+        } else {
+          backupDictionary = fs.readFileSync(`./public/data/lang/${DEFAUL_LOCALE}.json`, 'utf8');
+        }
+        this.backupDictionary = backupDictionary;
     }
 
     // gets a string from the localization dictionary
@@ -20,6 +28,15 @@ class Localization {
             currentObj = currentObj[key];
             localizedString = currentObj;
         });
+
+        if (!localizedString) {
+          currentObj = this.backupDictionary;
+          dictPath.split('.').forEach(key => {
+            if (!currentObj) return;
+            currentObj = currentObj[key];
+            localizedString = currentObj;
+          });
+        }
 
         if (!localizedString) {
             localizedString = '';
@@ -44,4 +61,4 @@ class Localization {
 }
 
 exports.DEFAUL_LOCALE = DEFAUL_LOCALE;
-exports.localization = new Localization(DEFAUL_LOCALE);
+exports.Localization = Localization;

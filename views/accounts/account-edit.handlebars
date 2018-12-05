@@ -1,12 +1,12 @@
 <nav aria-label="breadcrumb">
 	<ol class="breadcrumb">
 		<li class="breadcrumb-item">
-			<a href="/">{{localize 'breadcrumbs.home'}}</a>
+			<a href="/">{{localize req 'breadcrumbs.home'}}</a>
 		</li>
 		<li class="breadcrumb-item">
-			<a href="/account">{{localize 'breadcrumbs.account'}}</a>
+			<a href="/account">{{localize req 'breadcrumbs.account'}}</a>
 		</li>
-		<li class="breadcrumb-item active" aria-current="page">{{localize 'breadcrumbs.editAccount'}}</li>
+		<li class="breadcrumb-item active" aria-current="page">{{localize req 'breadcrumbs.editAccount'}}</li>
 	</ol>
 </nav>
 
@@ -17,37 +17,48 @@
 			<div class="account-menu">
 
 				<ul class="list-group">
-					<li class="list-group-item active">
-						<a href="/account">{{localize 'account.sidebar.appointments'}}</a>
+					<li class="list-group-item">
+						<a href="/account">{{localize req 'account.sidebar.appointments'}} <span class="badge">{{appointmentsCount}}</span></a>
 					</li>
 					<li class="list-group-item">
-						<a href="/account/records">{{localize 'account.sidebar.records'}}
+						<a href="/account/records">{{localize req 'account.sidebar.records'}}
 							<span class="badge">{{recordsCount}}</span>
 						</a>
 						<ul>
 							<li>
 								<a href="javascript:void(0)" data-toggle="modal" data-target="#chooseDoctor">
-									<i class="fas fa-plus-circle"></i> {{localize 'account.sidebar.addRecord'}}</a>
+									<i class="fas fa-plus-circle"></i> {{localize req 'account.sidebar.addRecord'}}</a>
 							</li>
 						</ul>
 					</li>
-					{{!--
 					<li class="list-group-item">
-						<a href="/account-favorites">Favorites</a>
-					</li> --}}
+						<a href="#" data-toggle="modal" data-target="#sorry"><b>MPT</b> = 120
+							<span class="badge">+ 0</span>
+						</a>
+						<ul>
+							<li>
+								<a href="#" data-toggle="modal" data-target="#sorry">
+									<i class="fas fa-plus-circle"></i> {{localize req 'account.sidebar.addBalance'}}</a>
+							</li>
+						</ul>
+					</li>
 					<li class="list-group-item">
-						<a href="/account-tickets">{{localize 'account.sidebar.support'}}</span>
+						<a href="/account/favorites">Favorites</a>
+					</li>
+					<li class="list-group-item">
+						<a href="/account-tickets">{{localize req 'account.sidebar.support'}}
+						<span class="badge">{{ticketsCount}}</span>
 						</a>
 						<ul>
 							<li>
 								<a href="/add-ticket">
-									<i class="fas fa-plus-circle"></i> {{localize 'account.sidebar.addTicket'}}</a>
+									<i class="fas fa-plus-circle"></i> {{localize req 'account.sidebar.addTicket'}}</a>
 							</li>
 						</ul>
 					</li>
-					<li class="list-group-item">
+					<li class="list-group-item active">
 						<a href="/account/edit">
-							<i class="fas fa-cog"></i> {{localize 'account.sidebar.editProfile'}}</a>
+							<i class="fas fa-cog"></i> {{localize req 'account.sidebar.editProfile'}}</a>
 					</li>
 				</ul>
 
@@ -61,57 +72,57 @@
 
 		<form>
 
-			<div class="row">
+			<div class="row account-edit-row">
 				<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
 					<div class="form-group">
-						<label for="walletId">{{localize 'popups.walletDetails.walletId'}}</label>
+						<label for="walletId">{{localize req 'popups.walletDetails.walletId'}}</label>
 						<input type="text" class="form-control" id="bookingWalletId" value="{{accountData.publicKey}}" disabled="disabled" />
-						<a class="copy-link btn-copy1" onclick="copyToClipboard($('#bookingWalletId'))">{{localize 'common.copy'}}</a>
+						<a class="copy-link btn-copy1" onclick="copyToClipboard($('#bookingWalletId'))">{{localize req 'common.copy'}}</a>
 					</div>
 				</div>
 				<!--/.col-->
 				<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
 					<div class="form-group">
-						<label for="walletKey">{{localize 'popups.walletDetails.walletKey'}}</label>
+						<label for="walletKey">{{localize req 'popups.walletDetails.walletKey'}}</label>
 						<input type="text" class="form-control" id="bookingWalletKey" value="{{accountData.privateKey}}" disabled="disabled" />
-						<a class="copy-link btn-copy1" onclick="copyToClipboard($('#bookingWalletKey'))">{{localize 'common.copy'}}</a>
+						<a class="copy-link btn-copy1" onclick="copyToClipboard($('#bookingWalletKey'))">{{localize req 'common.copy'}}</a>
 					</div>
 				</div>
 				<!--/.col-->
 			</div>
 			<!--/.row-->
 
-			<div class="row">
+			<div class="row account-edit-row">
 				<div class="col-6">
-					<label for="firstName">{{localize 'booking.form.firstName'}}</label>
-					<input type="text" name="firstName" value="{{accountData.firstName}}" class="form-control" id="firstName" placeholder="{{localize 'booking.form.firstName'}}"
+					<label for="firstName">{{localize req 'booking.form.firstName'}}</label>
+					<input type="text" name="firstName" value="{{accountData.firstName}}" class="form-control" id="firstName" placeholder="{{localize req 'booking.form.firstName'}}"
 					 required />
 				</div>
 				<!--/.col-->
 				<div class="col-6">
-					<label for="lastName">{{localize 'booking.form.lastName'}}</label>
-					<input type="text" name="lastName" value="{{accountData.lastName}}" class="form-control" id="lastName" placeholder="{{localize 'booking.form.lastName'}}"
+					<label for="lastName">{{localize req 'booking.form.lastName'}}</label>
+					<input type="text" name="lastName" value="{{accountData.lastName}}" class="form-control" id="lastName" placeholder="{{localize req 'booking.form.lastName'}}"
 					 required />
 				</div>
 				<!--/.col-->
 			</div>
 			<!--/.row-->
 
-			<div class="row">
+			<div class="row account-edit-row">
 				<div class="col">
 
-					<label>{{localize 'booking.form.sex'}}</label>
+					<label>{{localize req 'booking.form.sex'}}</label>
 					<br />
 
 					<label class="custom-control custom-radio">
 						<input id="maleRadio" name="radio" type="radio" class="custom-control-input" {{#if (compare accountData.gender 'male')}}checked{{/if}}>
 						<span class="custom-control-indicator"></span>
-						<span class="custom-control-description">{{localize 'booking.form.sexTypes.male'}}</span>
+						<span class="custom-control-description">{{localize req 'booking.form.sexTypes.male'}}</span>
 					</label>
 					<label class="custom-control custom-radio">
 						<input id="femaleRadio" name="radio" type="radio" class="custom-control-input" {{#if (compare accountData.gender 'female')}}checked{{/if}}>
 						<span class="custom-control-indicator"></span>
-						<span class="custom-control-description">{{localize 'booking.form.sexTypes.female'}}</span>
+						<span class="custom-control-description">{{localize req 'booking.form.sexTypes.female'}}</span>
 					</label>
 
 				</div>
@@ -121,18 +132,18 @@
 
 			<hr />
 
-			<h3>{{localize 'booking.form.addAnEmail'}}</h3>
+			<h3>{{localize req 'booking.form.addAnEmail'}}</h3>
 
-			<div class="row">
+			<div class="row account-edit-row">
 
 				<div class="col-6">
-					<label for="email">{{localize 'booking.form.email'}}</label>
-					<input type="text" name="email" class="form-control" id="email" value="{{accountData.email}}" placeholder="{{localize 'booking.form.email'}}"
+					<label for="email">{{localize req 'booking.form.email'}}</label>
+					<input type="text" name="email" class="form-control" id="email" value="{{accountData.email}}" placeholder="{{localize req 'booking.form.email'}}"
 					/>
 				</div>
 				<div class="col-6">
-					<label for="email">{{localize 'booking.form.confirmEmail'}}</label>
-					<input type="text" name="confirmEmail" class="form-control" id="confirmEmail" value="{{accountData.email}}" placeholder="{{localize 'booking.form.confirmEmail'}}"
+					<label for="email">{{localize req 'booking.form.confirmEmail'}}</label>
+					<input type="text" name="confirmEmail" class="form-control" id="confirmEmail" value="{{accountData.email}}" placeholder="{{localize req 'booking.form.confirmEmail'}}"
 					/>
 				</div>
 				<!--/.col-->
@@ -142,7 +153,7 @@
 
 			<br />
 
-			<a class="btn btn-primary" id="submitAccountEdit" href="javascript:void(0)">{{localize 'account.saveChanges'}}</a>
+			<a class="btn btn-primary" id="submitAccountEdit" href="javascript:void(0)">{{localize req 'account.saveChanges'}}</a>
 
 		</form>
 

@@ -2,9 +2,9 @@
 
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/">{{localize 'breadcrumbs.home'}}</a></li>
-            <li class="breadcrumb-item"><a href="/account">{{localize 'breadcrumbs.account'}}</a></li>
-            <li class="breadcrumb-item active" aria-current="page">{{localize 'breadcrumbs.tickets'}}</li>
+            <li class="breadcrumb-item"><a href="/">{{localize req 'breadcrumbs.home'}}</a></li>
+            <li class="breadcrumb-item"><a href="/account">{{localize req 'breadcrumbs.account'}}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{localize req 'breadcrumbs.tickets'}}</li>
         </ol>
     </nav>
 
@@ -12,13 +12,13 @@
         <!--/.col--> 
         {{#if requireLogIn}}
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-            <h2>{{localize 'errors.requiresLogin'}}</h2>
+            <h2>{{localize req 'errors.requiresLogin'}}</h2>
         </div>
         {{else}}
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
 		
 			<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                {{!-- <li class="nav-item">
+                <li class="nav-item">
                     <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-1" role="tab" aria-controls="pills-1" aria-selected="true">All tickets</a>
                 </li>
                 <li class="nav-item">
@@ -26,31 +26,32 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-3" role="tab" aria-controls="pills-3" aria-selected="false">Closed</a>
-                </li> --}}
+                </li>
             </ul>
 
             <div class="tab-content" id="pills-tabContent">
                 <div class="tab-pane fade show active" id="pills-1" role="tabpanel" aria-labelledby="pills-home-tab">
+                    {{#if tickets.all}}
                     <div class="table-responsive">
                         <table summary="" class="table table-hover">
                             <thead>
                                 <tr>
                                     <th>
-                                        <h5>{{localize 'tickets.table.title'}}</h5>
+                                        <h5>{{localize req 'tickets.table.title'}}</h5>
                                     </th>
                                     <th>
-                                        <h5>{{localize 'tickets.table.description'}}</h5>
+                                        <h5>{{localize req 'tickets.table.description'}}</h5>
                                     </th>
                                     <th>
-                                        <h5>{{localize 'tickets.table.time'}}</h5>
+                                        <h5>{{localize req 'tickets.table.time'}}</h5>
                                     </th>
                                     <th>
-                                        <h5>{{localize 'tickets.table.status'}}</h5>
+                                        <h5>{{localize req 'tickets.table.status'}}</h5>
                                     </th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {{#each tickets as |ticket|}}
+                                {{#each tickets.all as |ticket|}}
                                 <tr>
                                     <td>{{ticket.title}}</td>
                                     <td>{{ticket.text}}</td>
@@ -62,20 +63,91 @@
                         </table>
                     </div>
                     <!--end of .table-responsive-->
+                    {{else}}
+                        <h2 class="no-tickets">{{localize req 'tickets.noTickets'}}</h2>
+                    {{/if}}
                 </div>
                 <!--/.tab-pane-->
-                {{!-- <div class="tab-pane fade" id="pills-2" role="tabpanel" aria-labelledby="pills-profile-tab">
-					2
+                <div class="tab-pane fade" id="pills-2" role="tabpanel" aria-labelledby="pills-profile-tab">
+					{{#if tickets.open}}
+                        <div class="table-responsive">
+                            <table summary="" class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <h5>{{localize req 'tickets.table.title'}}</h5>
+                                        </th>
+                                        <th>
+                                            <h5>{{localize req 'tickets.table.description'}}</h5>
+                                        </th>
+                                        <th>
+                                            <h5>{{localize req 'tickets.table.time'}}</h5>
+                                        </th>
+                                        <th>
+                                            <h5>{{localize req 'tickets.table.status'}}</h5>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{#each tickets.open as |ticket|}}
+                                    <tr>
+                                        <td>{{ticket.title}}</td>
+                                        <td>{{ticket.text}}</td>
+                                        <td>{{ticket.dateCreated}}</td>
+                                        <td><span class="text-info">{{ticket.status}}</span></td>
+                                    </tr>
+                                    {{/each}}
+                                </tbody>
+                            </table>
+                        </div>
+                        <!--end of .table-responsive-->
+                    {{else}}
+                        <h2 class="no-tickets">{{localize req 'tickets.noTickets'}}</h2>
+                    {{/if}}
 				</div>
                 <!--/.tab-pane-->
                 <div class="tab-pane fade" id="pills-3" role="tabpanel" aria-labelledby="pills-contact-tab">
-					3
-				</div> --}}
+					{{#if tickets.closed}}
+                        <div class="table-responsive">
+                            <table summary="" class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <h5>{{localize req 'tickets.table.title'}}</h5>
+                                        </th>
+                                        <th>
+                                            <h5>{{localize req 'tickets.table.description'}}</h5>
+                                        </th>
+                                        <th>
+                                            <h5>{{localize req 'tickets.table.time'}}</h5>
+                                        </th>
+                                        <th>
+                                            <h5>{{localize req 'tickets.table.status'}}</h5>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{#each tickets.open as |ticket|}}
+                                    <tr>
+                                        <td>{{ticket.title}}</td>
+                                        <td>{{ticket.text}}</td>
+                                        <td>{{ticket.dateCreated}}</td>
+                                        <td><span class="text-info">{{ticket.status}}</span></td>
+                                    </tr>
+                                    {{/each}}
+                                </tbody>
+                            </table>
+                        </div>
+                        <!--end of .table-responsive-->
+                    {{else}}
+                        <h2 class="no-tickets">{{localize req 'tickets.noTickets'}}</h2>
+                    {{/if}}
+				</div>
                 <!--/.tab-pane-->
             </div>
             <!--/.tab-content--> 
 		  	 
-			<a class="btn btn-primary" href="/add-ticket">{{localize 'tickets.addTicket'}}</a>   
+			<a class="btn btn-primary" href="/add-ticket">{{localize req 'tickets.addTicket'}}</a>
 						
         </div>
         {{/if}}

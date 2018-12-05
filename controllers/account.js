@@ -6,7 +6,7 @@ const Promise = require('bluebird');
 const API_URL = config.get('API_URL');
 const BLOCKCHAIN_URL = config.get('BLOCKCHAIN_API_URL');
 
-const localization = require('../helpers/localization').localization;
+const Localization = require('../helpers/localization').Localization;
 
 const PAGE_TITLE = 'Account';
 
@@ -47,15 +47,19 @@ exports.getAccountInfo = async (req, res) => {
 
     // Get current data page
     let transactions = await getTransactions(dataPager.getPageData());
+    const ticketsResponse = await axios.get(`${API_URL}/api/tickets/${MedPoints_PublicKey}/${MedPoints_PrivateKey}`);
     const appointmentsData = transactions.map(transaction => prepareAppointmentData(transaction))
 
     res.render('accounts/account', { 
         recordsCount: response.data.length,
+        appointmentsCount: response.data.length,
+        ticketsCount: ticketsResponse.data.result.length,
         pagerInfo: dataPager,
         transactions, 
         PAGE_TITLE,
         appointmentsData,
         title: 'MedPoints™ Account',
+        req,
     });
 };
 
@@ -78,7 +82,7 @@ exports.records = async (req, res) => {
 
     // Get all blockchain blocks
     const response = await axios.get(`${BLOCKCHAIN_URL}/${MedPoints_PrivateKey}/transactions`);
-
+    const ticketsResponse = await axios.get(`${API_URL}/api/tickets/${MedPoints_PublicKey}/${MedPoints_PrivateKey}`);
     // Prepare pager to get only current data page
     const dataPager = new DataPager(response.data, DEFAULT_PAGE_SIZE, page);
     const pagerInfo = {
@@ -91,10 +95,13 @@ exports.records = async (req, res) => {
     let transactions = await getTransactions(dataPager.getPageData());
     res.render('accounts/account-records', { 
         recordsCount: response.data.length,
+        appointmentsCount: response.data.length,
+        ticketsCount: ticketsResponse.data.result.length,
         pagerInfo: dataPager,
         transactions,
         PAGE_TITLE: 'Records',
         title: 'MedPoints™ Account Records',
+        req,
     });
 };
 
@@ -113,12 +120,15 @@ exports.editInfo = async (req, res) => {
 
     const blockchainResponse = await axios.get(`${BLOCKCHAIN_URL}/${MedPoints_PrivateKey}/transactions`);
     const profileResponse = await axios.get(`${API_URL}/api/users/${MedPoints_PublicKey}/${MedPoints_PrivateKey}`);
-
+    const ticketsResponse = await axios.get(`${API_URL}/api/tickets/${MedPoints_PublicKey}/${MedPoints_PrivateKey}`);
     res.render('accounts/account-edit', { 
         recordsCount: blockchainResponse.data.length,
+        appointmentsCount: blockchainResponse.data.length,
+        ticketsCount: ticketsResponse.data.result.length,
         accountData: profileResponse.data.result,
         PAGE_TITLE: 'Edit Account',
         title: 'MedPoints™ Edit Account',
+        req,
     });
 };
 
@@ -142,6 +152,7 @@ exports.updateAccount = async (req, res, next) => {
     } = req.body;
 
     let request;
+    const localization = new Localization(req.cookies.locale);
 
     try {
         request = await axios.put(`${API_URL}/api/users/update`, {
@@ -168,7 +179,7 @@ exports.updateAccount = async (req, res, next) => {
         res.setHeader('Content-Type', 'application/json');
         res.send(JSON.stringify({ status: request.status, statusText: request.statusText }));
     } else {
-        throw new Error(localize('errors.accountUpdateRequest'));
+        throw new Error(localization.localize('errors.accountUpdateRequest'));
     }
 };
 

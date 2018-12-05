@@ -23,60 +23,71 @@ exports.getDoctors = async (req, res) => {
 
   const url = queryPersistant.applyRequestQueryParameters(parameters, `${API_URL}/api/doctors`);
   const request = await axios.get(url);
-  let doctors = request.data.result.data.map(doctor => prepareDoctorData(doctor, {
-    search: req.query.name
-  }));
-  const hospitals = doctors.map(doctor => doctor.hospital);
-  
-  let avgCoordinates = {lat: 0, lng: 0};
-  let count = 0;
-  for (let i = 0, length = doctors.length; i < length; i++) {
-    const doctor = doctors[i];
-    if (doctor.coordinations && doctor.coordinations.length) {
-      count++;
-      avgCoordinates.lat += doctor.coordinations[0].lat;
-      avgCoordinates.lng += doctor.coordinations[0].lon;
-    }
-  }
-  if (count > 0) {
-    avgCoordinates.lat = avgCoordinates.lat / count;
-    avgCoordinates.lng = avgCoordinates.lng / count;  
-  }
-
-  const {
-    pages,
-    total
-  } = request.data.result.meta;
-  const pager = new Pager(
-    PAGE_SIZE, 
-    Number(req.query.page) || 1, 
-    pages,
-    total,
-  );
-  const pagerInfo = {
-    pager,
-    baseUrl: '/doctors',
-    parameters: req.query
-  };
-
-
-  res.render('doctors/doctors', { 
-    doctors, 
-    hospitals, 
-    avgCoordinates, 
-    pagerInfo, 
-    PAGE_TITLE, 
-    title: `MedPoints™ Doctors`,
-    filter: req.query.filter, 
+  let doctors = request.data.result.data.map( async (doctor,i) => {
+      const random = await axios.get('https://randomuser.me/api/1.0/?seed='+doctor.id);
+      return prepareDoctorData(doctor, {
+        search: req.query.name
+      },random.data.results[0]);
   });
+
+  Promise.all(doctors).then((doctors) => {
+
+    const hospitals = doctors.map(doctor => doctor.hospital);
+  
+    let avgCoordinates = {lat: 0, lng: 0};
+    let count = 0;
+    for (let i = 0, length = doctors.length; i < length; i++) {
+      const doctor = doctors[i];
+      if (doctor.coordinations && doctor.coordinations.length) {
+        count++;
+        avgCoordinates.lat += doctor.coordinations[0].lat;
+        avgCoordinates.lng += doctor.coordinations[0].lon;
+      }
+    }
+    if (count > 0) {
+      avgCoordinates.lat = avgCoordinates.lat / count;
+      avgCoordinates.lng = avgCoordinates.lng / count;  
+    }
+
+    const {
+      pages,
+      total
+    } = request.data.result.meta;
+    const pager = new Pager(
+      PAGE_SIZE, 
+      Number(req.query.page) || 1, 
+      pages,
+      total,
+    );
+    const pagerInfo = {
+      pager,
+      baseUrl: '/doctors',
+      parameters: req.query
+    };
+
+
+    res.render('doctors/doctors', { 
+      doctors, 
+      hospitals, 
+      avgCoordinates, 
+      pagerInfo, 
+      PAGE_TITLE, 
+      title: `MedPoints™ Doctors`,
+      filter: req.query.filter,
+      req,
+    });
+
+  });
+  
 };
 
 exports.getDoctor = async (req, res) => {
   const id = req.params.id;
   const request = await axios.get(`${API_URL}/api/doctors?id=${id}`);
-  const doctor = prepareDoctorData(request.data.result);
+  const random = await axios.get('https://randomuser.me/api/1.0/?seed='+id);
+  const doctor = prepareDoctorData(request.data.result,{},random.data.results[0]);
   const coordinates = doctor.coordinations[0];
-  res.render('doctors/doctor', { doctor, coordinates, PAGE_TITLE, title: `MedPoints™ - Doctors - ${doctor.name}` });
+  res.render('doctors/doctor', { doctor, coordinates, PAGE_TITLE, title: `MedPoints™ - Doctors - ${doctor.name}`,req, });
 };
 
 exports.getSpecializations = async (req, res) => {

@@ -2,8 +2,8 @@
 
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/">{{localize 'breadcrumbs.home'}}</a></li>
-            <li class="breadcrumb-item"><a href="/drugs">{{localize 'breadcrumbs.drug'}}</a></li>
+            <li class="breadcrumb-item"><a href="/">{{localize req 'breadcrumbs.home'}}</a></li>
+            <li class="breadcrumb-item"><a href="/drugs">{{PAGE_TITLE}}</a></li>
             <li class="breadcrumb-item active" aria-current="page">{{ drug.name }}</li>
         </ol>
     </nav>
@@ -15,8 +15,8 @@
 
                     <img src="/img/_demo/drug1.jpg" alt="" class="img-thumbnail float-left">
 
-                    <div>{{localize 'drug.group'}} <a href="/drugs/?group={{ drug.group.id }}">{{ drug.group.name }}</a></div>
-                    <div>{{localize 'common.fromPriceFull'}} <strong class="text-dark">${{ drug.price.dollars }}</strong> <strong class="text-success">{{ drug.price.mpts }} MPT</strong></div>
+                    <div>{{localize req 'drug.group'}} <a href="/drugs/?group={{ drug.group.id }}">{{ drug.group.name }}</a></div>
+                    <div>{{localize req 'common.fromPriceFull'}} <strong class="text-dark">${{ drug.price.dollars }}</strong> <strong class="text-success">{{ drug.price.mpts }} MPT</strong></div>
 
                     <hr />
 
@@ -38,8 +38,8 @@
                     <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
 
                         <div class="wave text-center">
-                            <p>{{localize 'drug.available'}}</p> 
-                            <a class="btn btn-primary btn-lg justify" href="/pharmacies?drugId={{drug.id}}"><strong>{{ drug.providers.pharmacies }}</strong> {{localize 'ratings.items.pharmacies'}}</a>
+                            <p>{{localize req 'drug.available'}}</p>
+                            <a class="btn btn-primary btn-lg justify" href="/pharmacies?drugId={{drug.id}}"><strong>{{ drug.providers.pharmacies }}</strong> {{localize req 'ratings.items.pharmacies'}}</a>
                         </div>
                         <!--/.wave-->
 						
@@ -48,7 +48,7 @@
                     <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
 						<div class="map hidden-lg-down" style="height: 300px">
             			</div><!--/.map-->
-						<div class="hidden-xl-up"><br /><a class="btn-map" href="#" data-toggle="collapse" data-target="#showMap"><i class="fas fa-map-marker"></i> {{localize 'common.showOnMap'}}</a>
+						<div class="hidden-xl-up"><br /><a class="btn-map" href="#" data-toggle="collapse" data-target="#showMap"><i class="fas fa-map-marker"></i> {{localize req 'common.showOnMap'}}</a>
 							<div class="map" style="height: 300px"></div>
                             <script>
                                 var providers = {{{jsonify providersLocations}}};

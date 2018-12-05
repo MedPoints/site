@@ -2,7 +2,10 @@ const config = require('config');
 const axios = require('axios');
 const API_URL = config.get('API_URL');
 const { Pager, PAGE_SIZE } = require('./../helpers/pager');
+const { prepareDrugData } = require('./../helpers/drugs');
 const { queryPersistant } = require('./../helpers/query-persistant');
+
+const Localization = require('../helpers/localization').Localization;
 
 const PAGE_TITLE = 'Drugs';
 
@@ -20,8 +23,10 @@ exports.getDrugs = async (req, res) => {
 
   let url = queryPersistant.applyRequestQueryParameters(parameters, `${API_URL}/api/drugs`);  
   const request = await axios.get(url);
-  let drugs = request.data.result.data ;
-
+  let drugs = request.data.result.data.map(drug => prepareDrugData(drug, {
+    search: req.query.name
+  }));
+  
   const {
     pages,
     total
@@ -40,18 +45,18 @@ exports.getDrugs = async (req, res) => {
   const groupsUrl = `${API_URL}/api/groups`;
   const categoriesRequest = await axios.get(groupsUrl);
   const categories = categoriesRequest.data.result.data;
-
-  console.log(parameters.groupId)
+  const localization = new Localization(req.cookies.locale);
 
   res.render('drugs/drugs', { 
     drugs, 
     pagerInfo, 
-    PAGE_TITLE, 
+    PAGE_TITLE: localization.localize('breadcrumbs.drugs'), 
     categories, 
     selectedName: parameters.name,
     selectedCategory: parameters.groupId || '',
     title: `MedPoints™ Drugs`, 
     filter: req.query.filter,
+    req,
   });
 };
 
@@ -69,7 +74,15 @@ exports.getDrug = async (req, res) => {
         providersLocations.push(provider);
       }
   }
-  res.render('drugs/drug', { drug, providersLocations, PAGE_TITLE, title: `MedPoints™ - Drugs - ${drug.name}` });
+  const localization = new Localization(req.cookies.locale);
+
+  res.render('drugs/drug', { 
+    drug, 
+    providersLocations, 
+    PAGE_TITLE: localization.localize('breadcrumbs.drugs'), 
+    title: `MedPoints™ - Drugs - ${drug.name}`,
+    req, 
+  });
 }
 
 exports.getCount = async (req, res) => {

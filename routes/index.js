@@ -3,12 +3,17 @@ const getSpecializations = require('../controllers/doctors').getSpecializations;
 const getClinicsByLocation = require('../controllers/clinics').getClinicsByLocation;
 const getCities = require('../controllers/cities').getCities;
 const catchErrors = require('../handlers/errorHandlers').catchErrors;
-const localization = require('../helpers/localization').localization;
+const Localization = require('../helpers/localization').Localization;
+
+const axios = require('axios');
+const config = require('config');
+const API_URL = config.get('API_URL');
 
 
 router.get('/', catchErrors(async (req, res) => {
 	var specializations = await getSpecializations(req, res);
-	var locations = await getClinicsByLocation(req, res); 
+	var locations = await getClinicsByLocation(req, res);
+  const localization = new Localization(req.cookies.locale);
 	var locationsColumnsOptions = {
 		chunkSize: 15,
 	}
@@ -36,6 +41,9 @@ router.post('/search', async (req, res) => {
 	switch(category.toLowerCase()){
 		case 'doctors':
 		case 'clinics':
+		case 'drugs':
+		case 'services':
+		case 'pharmacies':
 			res.redirect(`/${category}?name=${search}`);
 			return;
 		default:
@@ -50,8 +58,14 @@ router.use('/', require('./pages'));
 
 router.use(function(req,res,next) {
 	res.locals.req = req;
-	console.log(req)
 	next();
 })
+
+router.post('/subscribe', async (req, res) => {
+	const { email } = req.body;
+	const request = await axios.post(`${API_URL}/api/subscriptions/add`,{email});
+	const result = request.data;
+	res.send(JSON.stringify({result}));
+});
 
 module.exports = router;

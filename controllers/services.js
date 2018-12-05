@@ -3,6 +3,7 @@ const config = require('config');
 const API_URL = config.get('API_URL');
 
 const { Pager, PAGE_SIZE } = require('./../helpers/pager');
+const { prepareServiceData } = require('./../helpers/services');
 const { queryPersistant } = require('./../helpers/query-persistant');
 
 const PAGE_TITLE = 'Services';
@@ -18,11 +19,13 @@ exports.getServices = async (req, res) => {
       parameters.filter.city = locationObject.city;
     }
   }
-
-
+  
   let url = queryPersistant.applyRequestQueryParameters(parameters, `${API_URL}/api/services`);  
   const request = await axios.get(url);
-  let services = request.data.result.data;
+  
+  let services = request.data.result.data.map(service => prepareServiceData(service, {
+    search: req.query.name
+  }));
 
   let hospitals = [];
   services.forEach(service => {
@@ -81,7 +84,8 @@ exports.getServices = async (req, res) => {
     avgCoordinates, 
     pagerInfo, 
     title: `MedPoints™ Services`,
-    filter: req.query.filter, 
+    filter: req.query.filter,
+    req,
   });
 };
 
@@ -126,7 +130,7 @@ exports.getService = async (req, res) => {
     avgCoordinates.lng = avgCoordinates.lng / count;  
   }
 
-  res.render('services/service', { service, hospitals, PAGE_TITLE, avgCoordinates, title: `MedPoints™ - Services - ${service.name}` });
+  res.render('services/service', { service, hospitals, PAGE_TITLE, avgCoordinates, title: `MedPoints™ - Services - ${service.name}`,req, });
 }
 
 exports.getCount = async (req, res) => {

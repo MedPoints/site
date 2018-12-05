@@ -1,6 +1,6 @@
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/">{{localize 'breadcrumbs.home'}}</a></li>
+        <li class="breadcrumb-item"><a href="/">{{localize req 'breadcrumbs.home'}}</a></li>
         <li class="breadcrumb-item active" aria-current="page">{{ PAGE_TITLE }}</li>
     </ol>
 </nav>
@@ -13,13 +13,13 @@
                 <label class="custom-control custom-checkbox">
                     <input type="checkbox" name="filter[insurance]" class="custom-control-input" {{#if filter.insurance }}checked{{/if}}>
                     <span class="custom-control-indicator"></span>
-                    <span class="custom-control-description">{{localize 'filters.covered'}}</span>
+                    <span class="custom-control-description">{{localize req 'filters.covered'}}</span>
                 </label>
             </div>
             <!--/.col-->
             <div class="col-sm-3">
-                <button type="button" id="btn-more" class="btn btn-secondary collapsed filter-button" data-toggle="collapse" data-target="#moreFilters" aria-expanded="false"><i class="fas fa-angle-down"></i> {{localize 'filters.more'}}</button>
-                <button type="submit" id="btn-more" class="btn btn-primary filter-button">{{localize 'filters.apply'}}</button>
+                <button type="button" id="btn-more" class="btn btn-secondary collapsed filter-button" data-toggle="collapse" data-target="#moreFilters" aria-expanded="false"><i class="fas fa-angle-down"></i> {{localize req 'filters.more'}}</button>
+                <button type="submit" id="btn-more" class="btn btn-primary filter-button">{{localize req 'filters.apply'}}</button>
             </div>
             <!--/.col-->
         </div>
@@ -29,22 +29,22 @@
             <hr>
             <div class="row">
                 <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-                    <h3>{{localize 'filters.location'}}</h3>
+                    <h3>{{localize req 'filters.location'}}</h3>
                     <label class="custom-control custom-radio">
                         <input id="locationRadio1" name="filter[city]" value="home" type="radio" class="custom-control-input" {{#if (equals filter.city 'home') }}checked{{/if}}>
                         <span class="custom-control-indicator"></span>
-                        <span class="custom-control-description">{{localize 'filters.yourCity'}}</span>
+                        <span class="custom-control-description">{{localize req 'filters.yourCity'}}</span>
                     </label>
                     <label class="custom-control custom-radio">
                         <input id="locationRadio2" name="filter[city]" value="worldwide" type="radio" class="custom-control-input" {{#if (equals filter.city 'worldwide') }}checked{{/if}}>
                         <span class="custom-control-indicator"></span>
-                        <span class="custom-control-description">{{localize 'filters.worldwide'}}</span>
+                        <span class="custom-control-description">{{localize req 'filters.worldwide'}}</span>
                     </label>
                 </div>
                 <!--/.col-->
                 <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
 
-                    <h3>{{localize 'filters.maxPrice'}}: <span id="maxPriceLabel">{{filter.maxPrice}}</span> MPT</h3>
+                    <h3>{{localize req 'filters.maxPrice'}}: <span id="maxPriceLabel">{{filter.maxPrice}}</span> MPT</h3>
 
                     <input class="justify" type="range" min="0" max="100" id="maxPriceRange" name="filter[maxPrice]"
                         value="{{filter.maxPrice}}">
@@ -141,44 +141,25 @@
     <!--/.col-->
 
     <div class="col-xl-8 pull-xl-4 col-lg-12 pull-lg-0">
-        <h3>Departments</h3>
-
-        <ul class="nav-pills">
-            <li class="nav-link active"><a href="#">All</a></li>
-            <li class="nav-link"><a href="#">Allergology and Immunology</a> <span class="badge">0</span></li>
-            <li class="nav-link"><a href="#">Pharmacy</a> <span class="badge">0</span></li>
-            <li class="nav-link"><a href="#">Vaccination</a> <span class="badge">0</span></li>
-            <li class="nav-link"><a href="#">Rehabilitation treatment</a> <span class="badge">0</span></li>
-            <li class="nav-link"><a href="#">Gastroenterology</a> <span class="badge">0</span></li>
-            <li class="nav-link"><a href="#">Gynecology and Obstetrics</a> <span class="badge">0</span></li>
-            <li class="nav-link"><a href="#">Children's clinic</a> <span class="badge">0</span></li>
-            <li class="nav-link"><a href="#">Dermatovenereology</a> <span class="badge">0</span></li>
-            <li class="nav-link"><a href="#">Diagnosis and analysis</a> <span class="badge">0</span></li>
-            <li class="nav-link"><a href="#">Cosmetology</a> <span class="badge">0</span></li>
-            <li class="nav-link"><a href="#">Cardiology</a> <span class="badge">0</span></li>
-            <li class="nav-link"><a href="#">Laboratory diagnostics</a> <span class="badge">0</span></li>
-            <li class="nav-link"><a href="#">Coloproctology</a> <span class="badge">0</span></li>
-            <li class="nav-link"><a href="#">Ophthalmology</a> <span class="badge">0</span></li>
-        </ul>
 
         <div class="table-responsive services-table">
             <table summary="" class="table table-hover">
                 <thead>
                     <tr>
                         <th width="40%">
-                            <h5>{{localize 'service.table.service'}}</h5>
+                            <h5>{{localize req 'service.table.service'}}</h5>
                         </th>
                         <th>
-                            <h5>{{localize 'service.table.time'}}</h5>
+                            <h5>{{localize req 'service.table.time'}}</h5>
                         </th>
                         <th>
-                            <h5>{{localize 'service.table.price'}}</h5>
+                            <h5>{{localize req 'service.table.price'}}</h5>
                         </th>
                         <th>
-                            <h5>{{localize 'service.table.insurance'}}</h5>
+                            <h5>{{localize req 'service.table.insurance'}}</h5>
                         </th>
                         <th class="text-right">
-                            <h5>{{localize 'service.table.providers'}}</h5>
+                            <h5>{{localize req 'service.table.providers'}}</h5>
                         </th>
                     </tr>
                 </thead>
@@ -186,27 +167,26 @@
                     {{#each services as |service|}}
                     <tr>
                         <td>
-                            <h4><a href="/services/{{ service.id }}" title="{{ service.name }}">{{ service.name }}</a></h4>
+                            <h4><a href="/services/{{ service.id }}" title="{{ service.name }}">{{{ service.name }}}</a></h4>
                             <p>{{ service.short_descr }}</p>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                                 incididunt ut labore et dolore magna aliqua.</p>
                         </td>
                         <td>{{ service.time }}</td>
-                        <td class="price-td">{{localize 'common.fromPrice'}} <strong class="text-dark">${{
+                        <td class="price-td">{{localize ../req 'common.fromPrice'}} <strong class="text-dark">${{
                                 service.price.dollars }}</strong><br /><strong class="text-success">{{
                                 service.price.mpts }} MPT</strong></td>
                         <td class="text-center">
                             {{#if service.is_covered_by_insurance}}
-                            <i class="fas fa-plus text-success" data-toggle="tooltip" data-placement="top" title="{{localize 'filters.covered'}}"></i>
+                            <i class="fas fa-plus text-success" data-toggle="tooltip" data-placement="top" title="{{localize ../req 'filters.covered'}}"></i>
                             {{/if}}
                         </td>
                         <td>
                             <a class="btn btn-primary float-right" href="/doctors?service={{service.id}}"><strong>{{defaultIfEmpty
-                                    service.providers.doctors.length 0}}</strong> {{localize 'ratings.items.doctors'}}</a>
+                                    service.providers.doctors.length 0}}</strong> {{localize ../req 'ratings.items.doctors'}}</a>
                             <br /><br />
                             <a class="btn btn-secondary float-right" href="/clinics?service={{service.id}}"><strong>{{defaultIfEmpty
-                                    service.providers.hospitals.length 0}}</strong> {{localize
-                                'ratings.items.clinics'}}</a>
+                                    service.providers.hospitals.length 0}}</strong> {{localize ../req 'ratings.items.clinics'}}</a>
                         </td>
                     </tr>
                     {{/each}}

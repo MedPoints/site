@@ -1495,4 +1495,50 @@ ul.cat-list li {
      margin-left: 0;
      border-bottom-right-radius: .25rem;
      border-top-right-radius: .25rem;
- }
+}
+
+ .list-group-horizontal .list-group-item {
+    display: inline-block;
+}
+.list-group-horizontal .list-group-item {
+    margin-bottom: 0;
+    margin-left:-4px;
+    margin-right: 0;
+    border-right-width: 0;
+}
+.list-group-horizontal .list-group-item:first-child {
+    border-top-right-radius:0;
+    border-bottom-left-radius:4px;
+}
+.list-group-horizontal .list-group-item:last-child {
+    border-top-right-radius:4px;
+    border-bottom-left-radius:0;
+    border-right-width: 1px;
+}
+
+.account-edit-row {
+    padding-top: 1em;
+}
+
+.no-tickets {
+    padding: 1em 0;
+} 
+
+.booking-details {
+    position: relative;
+    min-height: 200px;
+}
+
+.loader {
+    position: absolute;
+    height: 50px;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+}
+
+.no-results-add-link {
+     display:block;
+     margin-top:25px;
+     text-decoration:underline;
+}
