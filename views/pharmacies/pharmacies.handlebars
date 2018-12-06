@@ -165,7 +165,7 @@
                     </div>
                     <!--/.col-->
                     <div class="col-xl-5 col-md-5 col-sm-8">
-                        <h3><a class="" href="/pharmacies/{{ pharmacy.id }}">{{ pharmacy.name }}</a></h3>
+                        <h3><a class="" href="/pharmacies/{{ pharmacy.id }}">{{{ pharmacy.name }}}</a></h3>
                         <p>
                             <a href="https://www.google.com/maps/embed/place?key=1&q={{pharmacy.location.address}}"
                                 data-name="{{ pharmacy.name }}" class="map-toggle">
@@ -213,9 +213,12 @@
                 </div>
                 <!--/.row-->
             </li>
+            {{else}}
+                <h2>{{localize req 'noResults'}}</h2>
+                <a href="/partnership" class="no-results-add-link"><h4>{{localize req 'addLinks.pharmacy'}}</h4></a>
             {{/each}}
         </ul>
-
+        {{#if pharmacies.length}}
         <div class="row pagination-line">
             <div class="col">
                 <nav aria-label="...">
@@ -225,6 +228,7 @@
             <!--/.col-->
         </div>
         <!--/.row-->
+        {{/if}}
 
     </div>
     <!--/.col-->

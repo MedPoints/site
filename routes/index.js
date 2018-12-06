@@ -44,7 +44,7 @@ router.post('/search', async (req, res) => {
 		case 'drugs':
 		case 'services':
 		case 'pharmacies':
-			res.redirect(`/${category}?name=${search}`);
+			res.redirect(`/${category.toLowerCase()}?name=${search}`);
 			return;
 		default:
 			res.redirect('/');
