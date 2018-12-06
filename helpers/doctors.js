@@ -1,7 +1,6 @@
 const higlight = require('./text-highlighter');
 
 exports.prepareDoctorData = (doctor, options, random) => {
-
     if (!doctor.avatar) {
         doctor.avatar = random.picture.large;
     }

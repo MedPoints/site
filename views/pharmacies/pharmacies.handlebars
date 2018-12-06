@@ -197,6 +197,7 @@
                     <!--/.col-->
                     <div class="col-xl-4 col-md-4 col-sm-12">
                         <div class="wave text-center">
+                            {{#if pharmacy.ratings.length}}
                             <h4>{{localize ../req 'ratings.rating'}} <strong class="text-success">{{pharmacy.rate}}</strong></h4>
                             <p>{{localize ../req 'ratings.basedOn'}}
                                 <strong>
@@ -204,6 +205,7 @@
                                         {{localize ../req 'ratings.opinions'}}</a>
                                 </strong>
                             </p>
+                            {{/if}}
                             <a class="btn btn-primary btn-lg justify" href="/drugs?pharmacyId={{pharmacy.id}}"><strong>{{
                                     pharmacy.drugs.length }}</strong> {{localize ../req 'ratings.items.drugs'}}</a>
                         </div>

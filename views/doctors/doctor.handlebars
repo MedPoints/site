@@ -77,9 +77,10 @@
 				
                     <div class="col-xl-6 col-lg-12">
                         <div class="wave text-center">
-                            <h4>{{localize req 'ratings.rating'}} <strong class="text-success">{{doctor.rate}}</strong></h4>
-                            <p>{{localize req 'ratings.basedOn'}} <strong><a class="" href="#opinions">{{doctor.ratings.length}} {{localize req 'ratings.opinions'}}</a></strong></p>
-
+                            {{#if ratings.length}}
+                                <h4>{{localize req 'ratings.rating'}} <strong class="text-success">{{doctor.rate}}</strong></h4>
+                                <p>{{localize req 'ratings.basedOn'}} <strong><a class="" href="#opinions">{{doctor.ratings.length}} {{localize req 'ratings.opinions'}}</a></strong></p>
+                            {{/if}}
                             <ul class="rating"> 
 							
                                 <li class="row">
