@@ -68,4 +68,6 @@ router.post('/subscribe', async (req, res) => {
 	res.send(JSON.stringify({result}));
 });
 
+router.use('/sitemap', require('./sitemap'))
+
 module.exports = router;

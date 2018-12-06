@@ -15,7 +15,7 @@ router.get('/explorer', catchErrors(explorer.getBlocks));
 router.get('/blog', (req, res) => res.render('pages/blog', {title: 'MedPoints™ Blog'}));
 router.get('/faq', (req, res) => res.render('pages/faq', {title: 'MedPoints™ FAQ'}));
 
-router.get('/sitemap', (req, res) => res.render('pages/sitemap', {PAGE_TITLE: 'Sitemap', pageName: 'sitemap', title: 'MedPoints™ Sitemap'}));
+//router.get('/sitemap', (req, res) => res.render('pages/sitemap', {PAGE_TITLE: 'Sitemap', pageName: 'sitemap', title: 'MedPoints™ Sitemap'}));
 router.get('/registration', (req, res) => res.render('pages/registration', {PAGE_TITLE: 'Registration', title: 'MedPoints™ Register'}));
 
 router.get('/insurance', (req, res) => res.render('pages/insurance', {title: 'MedPoints™ Insurance', PAGE_TITLE: 'Insurance program'}));
