@@ -1495,7 +1495,7 @@ ul.cat-list li {
      margin-left: 0;
      border-bottom-right-radius: .25rem;
      border-top-right-radius: .25rem;
- }
+}
 
  .list-group-horizontal .list-group-item {
     display: inline-block;
@@ -1561,4 +1561,8 @@ ul.cat-list li {
 
 .loader-image {
     height: 50px;
+}
+
+.site-footer a.active{
+     font-weight: bold;
 }

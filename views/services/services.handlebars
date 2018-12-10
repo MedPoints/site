@@ -141,7 +141,7 @@
     <!--/.col-->
 
     <div class="col-xl-8 pull-xl-4 col-lg-12 pull-lg-0">
-
+        {{#if services.length}}
         <div class="table-responsive services-table">
             <table summary="" class="table table-hover">
                 <thead>
@@ -194,8 +194,13 @@
             </table>
         </div>
         <!--end of .table-responsive-->
+        {{else}}
+            <h2>{{localize req 'noResults'}}</h2>
+            <a href="/partnership" class="no-results-add-link"><h4>{{localize req 'addLinks.service'}}</h4></a>
+        {{/if}}
     </div>
     <!--/.col-->
+    {{#if services.length}}
     <div class="row pagination-line pager">
         <div class="col">
             <nav aria-label="...">
@@ -203,5 +208,6 @@
             </nav>
         </div>
     </div>
+    {{/if}}
 </div>
 <!--/.row-->

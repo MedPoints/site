@@ -9,9 +9,9 @@ exports.getFoundationInfo = async (req, res) => {
 };
 
 exports.getFoundationCases = async (req, res) => {
-    res.redirect('/foundation', {title: `MedPoints™ Foundation Cases`,req,});
+    res.render('foundation/foundation-cases', {title: `MedPoints™ Foundation Cases`,req,});
 }
 
 exports.getFoundationCase = async (req, res) => {
-    res.redirect('/foundation', {title: `MedPoints™ Foundation Case`,req,});
+    res.render('foundation/foundation-case', {title: `MedPoints™ Foundation Case`,req,});
 };

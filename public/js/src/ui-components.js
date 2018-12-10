@@ -10,6 +10,8 @@ $(function() {
     initializeLocalizationControls();
     initializeEvents();
 
+    initializeEvents();
+
     $('[data-toggle="tooltip"]').tooltip();
     $('.gallery a.gallery-img').simpleLightbox();
 
@@ -349,4 +351,10 @@ function getQueryParams(qs) {
         params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2]);
     }
     return params;
+}
+function initializeEvents() {
+    $('#signUpButton').click(function(){
+        var value = $('#signUpInput').val();
+        console.log(value)
+    });
 }

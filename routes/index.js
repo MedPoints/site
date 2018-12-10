@@ -44,7 +44,7 @@ router.post('/search', async (req, res) => {
 		case 'drugs':
 		case 'services':
 		case 'pharmacies':
-			res.redirect(`/${category}?name=${search}`);
+			res.redirect(`/${category.toLowerCase()}?name=${search}`);
 			return;
 		default:
 			res.redirect('/');
@@ -67,5 +67,7 @@ router.post('/subscribe', async (req, res) => {
 	const result = request.data;
 	res.send(JSON.stringify({result}));
 });
+
+router.use('/sitemap', require('./sitemap'))
 
 module.exports = router;

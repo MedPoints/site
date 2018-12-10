@@ -503,7 +503,9 @@
     "addLinks": {
         "clinic": "Add clinic",
         "doctor": "Add doctor",
-        "drug": "Add drug"
+        "drug": "Add drug",
+        "pharmacy": "Add pharmacy",
+        "service": "Add service"
     },
 
     "addFavorites": "Add to favorites",
