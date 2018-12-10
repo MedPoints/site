@@ -1,0 +1,64 @@
+<div class="col-xl-4 push-xl-8 col-lg-12 push-lg-0">
+
+    <nav class="sticky-top">
+        <div id="map" style="height:400px">
+        </div><!--/.map-->
+    </nav>
+
+</div>
+<!--/.col-->
+
+<div class="col-xl-8 pull-xl-4 col-lg-12 pull-lg-0">
+{{!-- <div class="col-xl-12 col-lg-12"> --}}
+    <ul class="items-list doctors-items">
+
+        {{#each doctors as |doctor|}}
+        <li>
+            <div class="row">
+                <div class="col-xl-3 col-md-3 col-sm-4">
+                    <a class="avatar" href="/doctor"><div class="crop"><img src="{{doctor.avatar}}" alt="A doctor's photo" onerror="this.onerror=null;this.src='/img/logo_stub.svg';this.style.width='100px';" /></div></a>
+                    {{!-- <div class="text-success" data-toggle="tooltip" data-placement="top" title="Participant in the program of insurance points"><i class="fas fa-heartbeat"></i> Insurance</div> --}}
+                </div>
+                <!--/.col-->
+                <div class="col-xl-6 col-md-5 col-sm-8">
+                    <h3><a href="/doctors/{{doctor.id}}">{{{doctor.name}}}</a> <small>M.D</small></h3>
+                    <div><a href="/doctors">{{doctor.specialization}}</a></div>
+                    <h4><a href="/clinics/{{doctor.hispital.id}}">{{doctor.hospital.name}}</a></h4>
+                    <p><a class="map-toggle" data-name="{{doctor.hospital.name}}" href="/doctors">{{doctor.hospital.location.address}}</a></p>
+                    <div>{{{localize ../req "doctor.workExperience" years="9+"}}}</div>
+                    <div>{{{localize ../req "doctor.bonus" amount="100"}}}</div>
+                </div>
+                <div class="col-xl-3 col-md-4 col-sm-12">
+                    <div class="wave text-center">
+                        <h4>{{localize ../req 'ratings.rating'}} <strong class="text-success">{{doctor.rate}}</strong></h4>
+                        <p>{{localize ../req 'ratings.basedOn'}} <strong><a class="" href="/doctors/{{doctor.id}}#opinions">{{doctor.ratings.length}} {{localize ../req 'ratings.opinions'}}</a></strong></p>
+                        <a class="btn btn-primary btn-lg justify book-button" href="/booking/?doctorId={{doctor.id}}">{{localize ../req 'doctor.bookToVisit'}}</a>
+                    </div>
+                    <!--/.wave-->
+                </div>
+                <!--/.col-->
+            </div>
+            <!--/.row-->
+        </li>
+        {{else}}
+            <h2>{{localize req 'noResults'}}</h2>
+            <a href="/partnership" class="no-results-add-link"><h4>{{localize req 'addLinks.doctor'}}</h4></a>
+        {{/each}}
+    </ul>
+    {{#if doctors.length}}
+    <div class="row pagination-line">
+        <div class="col">
+            <nav aria-label="...">
+                {{> pager pagerInfo }}
+            </nav>
+        </div>
+    </div>
+    {{/if}}
+</div>
+<!--/.col-->
+
+<script type="text/javascript">
+    var locations = {{{jsonify hospitals}}};
+    var avgCoordinates = {{{jsonify avgCoordinates}}}
+    var doctors = {{{jsonify doctors}}}
+</script>
