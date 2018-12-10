@@ -1542,3 +1542,23 @@ ul.cat-list li {
      margin-top:25px;
      text-decoration:underline;
 }
+
+.loadable-container {
+    position: relative;
+}
+.loading-overlay {
+    position: absolute;
+    z-index: 10000;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    padding-top: 5rem;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.loader-image {
+    height: 50px;
+}
