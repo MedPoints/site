@@ -84,3 +84,65 @@ exports.getCount = async (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   res.send(JSON.stringify({ count}));
 };
+
+exports.getPharmaciesPartial = async (req, res) => {
+  const parameters = JSON.parse(JSON.stringify(req.query));
+  if (parameters.filter && parameters.filter.city === 'home') {
+    const {
+        location,
+    } = req.cookies;
+    if (location) {
+      const locationObject = JSON.parse(location);
+      parameters.filter.city = locationObject.city;
+    }
+  }
+
+  let url = queryPersistant.applyRequestQueryParameters(parameters, `${API_URL}/api/pharmacies`);  
+  const request = await axios.get(url);
+  
+  let pharmacies = request.data.result.data.map(pharmacy => preparePharmacyData(pharmacy, {
+    search: req.query.name
+  })) || [];
+  
+  let avgCoordinates = {lat: 0, lng: 0};
+  let count = 0;
+  for (let i = 0, length = pharmacies.length; i < length; i++) {
+    const pharmacy = pharmacies[i];
+    if (pharmacy.coordinations && pharmacy.coordinations.lat && pharmacy.coordinations.lon) {
+      count++;
+      avgCoordinates.lat += pharmacy.coordinations.lat;
+      avgCoordinates.lng += pharmacy.coordinations.lon;
+    }
+  }
+  if (count > 0) {
+    avgCoordinates.lat = avgCoordinates.lat / count;
+    avgCoordinates.lng = avgCoordinates.lng / count;  
+  }
+
+
+  const {
+    pages,
+    total
+  } = request.data.result.meta;
+  const pager = new Pager(
+    PAGE_SIZE, 
+    Number(req.query.page) || 1, 
+    pages,
+    total);
+  const pagerInfo = {
+    pager,
+    baseUrl: '/pharmacies',
+    parameters: req.query
+  };
+
+  res.render('layouts/partials/pharmacies-partial', { 
+    layout: false,
+    pharmacies, 
+    pagerInfo, 
+    PAGE_TITLE, 
+    avgCoordinates, 
+    title: `MedPoints™ Pharmacies`,
+    filter: req.query.filter,
+    req,
+  });
+};

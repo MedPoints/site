@@ -1,0 +1,91 @@
+<div class="col-xl-4 push-xl-8 col-lg-12 push-lg-0 map-container ">
+
+    <nav class="sticky-top">
+        <div id="map" class="map" style="height:400px">
+        </div>
+        <!--/.map-->
+    </nav>
+</div>
+<!--/.col-->
+
+<div class="col-xl-8 pull-xl-4 col-lg-12 pull-lg-0">
+    {{#if services.length}}
+    <div class="table-responsive services-table">
+        <table summary="" class="table table-hover">
+            <thead>
+                <tr>
+                    <th width="40%">
+                        <h5>{{localize req 'service.table.service'}}</h5>
+                    </th>
+                    <th>
+                        <h5>{{localize req 'service.table.time'}}</h5>
+                    </th>
+                    <th>
+                        <h5>{{localize req 'service.table.price'}}</h5>
+                    </th>
+                    <th>
+                        <h5>{{localize req 'service.table.insurance'}}</h5>
+                    </th>
+                    <th class="text-right">
+                        <h5>{{localize req 'service.table.providers'}}</h5>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each services as |service|}}
+                <tr>
+                    <td>
+                        <h4>
+                            <a href="/services/{{ service.id }}" title="{{ service.name }}">{{{ service.name }}}</a>
+                        </h4>
+                        <p>{{ service.short_descr }}</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                            et dolore magna aliqua.</p>
+                    </td>
+                    <td>{{ service.time }}</td>
+                    <td class="price-td">{{localize ../req 'common.fromPrice'}}
+                        <strong class="text-dark">${{ service.price.dollars }}</strong>
+                        <br />
+                        <strong class="text-success">{{ service.price.mpts }} MPT</strong>
+                    </td>
+                    <td class="text-center">
+                        {{#if service.is_covered_by_insurance}}
+                        <i class="fas fa-plus text-success" data-toggle="tooltip" data-placement="top" title="{{localize ../req 'filters.covered'}}"></i>
+                        {{/if}}
+                    </td>
+                    <td>
+                        <a class="btn btn-primary float-right" href="/doctors?service={{service.id}}">
+                            <strong>{{defaultIfEmpty service.providers.doctors.length 0}}</strong> {{localize ../req 'ratings.items.doctors'}}</a>
+                        <br />
+                        <br />
+                        <a class="btn btn-secondary float-right" href="/clinics?service={{service.id}}">
+                            <strong>{{defaultIfEmpty service.providers.hospitals.length 0}}</strong> {{localize ../req 'ratings.items.clinics'}}</a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+    <!--end of .table-responsive-->
+    {{else}}
+    <h2>{{localize req 'noResults'}}</h2>
+    <a href="/partnership" class="no-results-add-link">
+        <h4>{{localize req 'addLinks.service'}}</h4>
+    </a>
+    {{/if}}
+</div>
+<!--/.col-->
+{{#if services.length}}
+<div class="row pagination-line pager">
+    <div class="col">
+        <nav aria-label="...">
+            {{> pager pagerInfo }}
+        </nav>
+    </div>
+</div>
+{{/if}}
+
+<script type="text/javascript">
+    var hospitals = {{{ jsonify hospitals }}}
+    var avgCoordinates = {{{ jsonify avgCoordinates }}}
+</script>

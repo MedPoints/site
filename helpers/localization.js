@@ -6,7 +6,7 @@ class Localization {
 
     constructor(locale) {
         this.locale = locale || DEFAUL_LOCALE;
-        this.dictionary = JSON.parse(fs.readFileSync(`./public/data/lang/${locale}.json`, 'utf8'));
+        this.dictionary = JSON.parse(fs.readFileSync(`./public/data/lang/${this.locale}.json`, 'utf8'));
 
         var backupDictionary;
         if (locale === 'en') {

@@ -332,8 +332,27 @@ function getFilterQueryString() {
     var filterItems = $('.filter-item');
     $.each(filterItems, function (index, item) {
         var filterItemName = $(item).attr('name');
-        if ($(item).is(':checked')) {
-            currentQuery.set(filterItemName, $(item).val());
+        var filterType = $(item).attr('type');
+        switch (filterType) {
+            case 'radio':
+                if ($(item).is(':checked')) {
+                    currentQuery.set(filterItemName, $(item).val());
+                }
+                break;
+            case 'checkbox':
+                if ($(item).is(':checked')) {
+                    currentQuery.set(filterItemName, $(item).val());
+                } else {
+                    currentQuery.delete(filterItemName);
+                }
+                break;
+            case 'range':
+                if ($(item).val() > 0) {
+                    currentQuery.set(filterItemName, $(item).val());
+                } else {
+                    currentQuery.delete(filterItemName);
+                }
+                break;
         }
     });
 
