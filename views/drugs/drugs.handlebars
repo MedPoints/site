@@ -11,12 +11,12 @@
         <div class="row">
             <div class="col-sm-9">
                 <label class="custom-control custom-checkbox">
-                    <input type="checkbox" name="filter[prescription]" class="custom-control-input" {{#if filter.prescription }}checked{{/if}}>
+                    <input type="checkbox" name="filter[prescription]" class="custom-control-input filter-item" {{#if filter.prescription }}checked{{/if}}>
                     <span class="custom-control-indicator"></span>
                     <span class="custom-control-description">{{localize req 'filters.prescription'}}</span>
                 </label>
                 <label class="custom-control custom-checkbox">
-                    <input type="checkbox" name="filter[insurance]" class="custom-control-input" {{#if filter.insurance }}checked{{/if}}>
+                    <input type="checkbox" name="filter[insurance]" class="custom-control-input filter-item" {{#if filter.insurance }}checked{{/if}}>
                     <span class="custom-control-indicator"></span>
                     <span class="custom-control-description">{{localize req 'filters.covered'}}</span>
                 </label>
@@ -24,7 +24,6 @@
             <!--/.col-->
             <div class="col-sm-3">
                 <button type="button" id="btn-more" class="btn btn-secondary collapsed filter-button" data-toggle="collapse" data-target="#moreFilters" aria-expanded="false"><i class="fas fa-angle-down"></i> {{localize req 'filters.more'}}</button>
-                <button type="submit" id="btn-more" class="btn btn-primary filter-button">{{localize req 'filters.apply'}}</button>
             </div>
             <!--/.col-->
         </div>
@@ -37,12 +36,12 @@
 
                     <h3>{{localize req 'filters.location'}}</h3>
                     <label class="custom-control custom-radio">
-                        <input id="locationRadio1" name="filter[city]" value="home" type="radio" class="custom-control-input" {{#if (equals filter.city 'home') }}checked{{/if}}>
+                        <input id="locationRadio1" name="filter[city]" value="home" type="radio" class="custom-control-input filter-item" {{#if (equals filter.city 'home') }}checked{{/if}}>
                         <span class="custom-control-indicator"></span>
                         <span class="custom-control-description">{{localize req 'filters.yourCity'}}</span>
                     </label>
                     <label class="custom-control custom-radio">
-                        <input id="locationRadio2" name="filter[city]" value="worldwide" type="radio" class="custom-control-input" {{#if (equals filter.city 'worldwide') }}checked{{/if}}>
+                        <input id="locationRadio2" name="filter[city]" value="worldwide" type="radio" class="custom-control-input filter-item" {{#if (equals filter.city 'worldwide') }}checked{{/if}}>
                         <span class="custom-control-indicator"></span>
                         <span class="custom-control-description">{{localize req 'filters.worldwide'}}</span>
                     </label>
@@ -53,7 +52,7 @@
 
                     <h3>{{localize req 'filters.maxPrice'}}: <span id="maxPriceLabel">{{filter.maxPrice}}</span> MPT</h3>
 
-                    <input class="justify" type="range" min="0" max="100" id="maxPriceRange" name="filter[maxPrice]"
+                    <input class="justify filter-item" type="range" min="0" max="500" id="maxPriceRange" name="filter[maxPrice]"
                         value="{{filter.maxPrice}}">
                     <script>
                         var slider = document.getElementById("maxPriceRange");
@@ -77,123 +76,25 @@
 
 </section>
 
-<div class="row">
-
-    {{#if drugs.length}}
-    <div class="col-xl-3 push-xl-9 col-lg-12 push-lg-0">
-
-        <h3>{{localize req 'drug.categories'}}</h3>
-
-        <ul class="cat-list">
-            <li><a class="{{#if (compare selectedCategory '')}}active{{/if}}" href="/drugs">{{localize req 'drug.categoriesAll'}}</a></li>
-            {{#each categories as |category|}}
-            <li><a href="/drugs?groupId={{category.id}}" class="{{#if (compare ../selectedCategory category.id)}}active{{/if}}">{{category.name}}</a><span class="badge">{{category.drugs}}</span></li>
-            {{/each}}
-        </ul>
-        <!--/.cat-list-->
-
-    </div>
-    <!--/.col-->
-    {{/if}}
-
-    <div class="col-xl-9 pull-xl-3 col-lg-12 pull-lg-0">
-        {{#if drugs.length}}
-        <h3 class="alphabetical-index">Alphabetical index</h3>
-        <ul class="list-inline alphabetical-index-list">
-            <li class="list-inline-item {{#if (compare selectedName 'A')}}active{{/if}}"><a href="/drugs?name=A">A</a></li>
-            <li class="list-inline-item {{#if (compare selectedName 'B')}}active{{/if}}"><a href="/drugs?name=B">B</a></li>
-            <li class="list-inline-item {{#if (compare selectedName 'C')}}active{{/if}}"><a href="/drugs?name=C">C</a></li>
-            <li class="list-inline-item {{#if (compare selectedName 'D')}}active{{/if}}"><a href="/drugs?name=D">D</a></li>
-            <li class="list-inline-item {{#if (compare selectedName 'E')}}active{{/if}}"><a href="/drugs?name=E">E</a></li>
-            <li class="list-inline-item {{#if (compare selectedName 'F')}}active{{/if}}"><a href="/drugs?name=F">F</a></li>
-            <li class="list-inline-item {{#if (compare selectedName 'G')}}active{{/if}}"><a href="/drugs?name=G">G</a></li>
-            <li class="list-inline-item {{#if (compare selectedName 'H')}}active{{/if}}"><a href="/drugs?name=H">H</a></li>
-            <li class="list-inline-item {{#if (compare selectedName 'I')}}active{{/if}}"><a href="/drugs?name=I">I</a></li>
-            <li class="list-inline-item {{#if (compare selectedName 'J')}}active{{/if}}"><a href="/drugs?name=J">J</a></li>
-            <li class="list-inline-item {{#if (compare selectedName 'K')}}active{{/if}}"><a href="/drugs?name=K">K</a></li>
-            <li class="list-inline-item {{#if (compare selectedName 'L')}}active{{/if}}"><a href="/drugs?name=L">L</a></li>
-            <li class="list-inline-item {{#if (compare selectedName 'M')}}active{{/if}}"><a href="/drugs?name=M">M</a></li>
-            <li class="list-inline-item {{#if (compare selectedName 'N')}}active{{/if}}"><a href="/drugs?name=N">N</a></li>
-            <li class="list-inline-item {{#if (compare selectedName 'O')}}active{{/if}}"><a href="/drugs?name=O">O</a></li>
-            <li class="list-inline-item {{#if (compare selectedName 'P')}}active{{/if}}"><a href="/drugs?name=P">P</a></li>
-            <li class="list-inline-item {{#if (compare selectedName 'Q')}}active{{/if}}"><a href="/drugs?name=Q">Q</a></li>
-            <li class="list-inline-item {{#if (compare selectedName 'R')}}active{{/if}}"><a href="/drugs?name=R">R</a></li>
-            <li class="list-inline-item {{#if (compare selectedName 'S')}}active{{/if}}"><a href="/drugs?name=S">S</a></li>
-            <li class="list-inline-item {{#if (compare selectedName 'T')}}active{{/if}}"><a href="/drugs?name=T">T</a></li>
-            <li class="list-inline-item {{#if (compare selectedName 'U')}}active{{/if}}"><a href="/drugs?name=U">U</a></li>
-            <li class="list-inline-item {{#if (compare selectedName 'V')}}active{{/if}}"><a href="/drugs?name=V">V</a></li>
-            <li class="list-inline-item {{#if (compare selectedName 'W')}}active{{/if}}"><a href="/drugs?name=W">W</a></li>
-            <li class="list-inline-item {{#if (compare selectedName 'X')}}active{{/if}}"><a href="/drugs?name=X">X</a></li>
-            <li class="list-inline-item {{#if (compare selectedName 'Y')}}active{{/if}}"><a href="/drugs?name=Y">Y</a></li>
-            <li class="list-inline-item {{#if (compare selectedName 'Z')}}active{{/if}}"><a href="/drugs?name=Z">Z</a></li>
-        </ul>
-
-
-        <div class="table-responsive">
-            <table summary="" class="table table-hover">
-                <thead>
-                    <tr>
-                        <th width="40%">
-                            <h5>{{localize req 'drugs.table.name'}}</h5>
-                        </th>
-                        <th>
-                            <h5>{{localize req 'drugs.table.price'}}</h5>
-                        </th>
-                        <th>
-                            <h5>{{localize req 'drugs.table.insurance'}}</h5>
-                        </th>
-                        <th>
-                            <h5>{{localize req 'drugs.table.prescription'}}</h5>
-                        </th>
-                        <th class="text-right">
-                            <h5>{{localize req 'drugs.table.providers'}}</h5>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {{#each drugs as |drug|}}
-                    <tr>
-                        <td>
-                            <h4><a href="/drugs/{{ drug.id }}" title="">{{{ drug.name }}}</a></h4>
-                            <p>{{ drug.short_descr }}</p>
-                        </td>
-                        <td class="price-td">{{localize ../req 'common.fromPrice'}} <strong class="text-dark">${{
-                                drug.price.dollars }}</strong><br /><strong class="text-success">{{ drug.price.mpts }}
-                                MPT</strong></td>
-                        <td class="text-center">
-                            {{#if drug.is_covered_by_insurance}}
-                            <i class="fas fa-plus text-success" data-toggle="tooltip" data-placement="top" title="Can be purchased for insurance points"></i>
-                            {{/if}}
-                        </td>
-                        <td class="text-center">
-                            {{#if drug.is_by_prescription}}
-                            <i class="fas fa-plus text-success" data-toggle="tooltip" data-placement="top" title="Can be purchased for insurance points"></i>
-                            {{/if}}
-                        </td>
-                        <td><a class="btn btn-primary float-right" href="/pharmacies?drugId={{drug.id}}"><strong>{{
-                                    drug.providers.pharmacies }}</strong> {{localize ../req 'ratings.items.pharmacies'}}</a></td>
-                    </tr>
-                    {{/each}}
-                </tbody>
-            </table>
-        </div>
-        <!--end of .table-responsive-->
-        {{else}}
-            <h2>{{localize req 'noResults'}}</h2>
-            <a href="/partnership" class="no-results-add-link"><h4>{{localize req 'addLinks.drug'}}</h4></a>
-        {{/if}}
-
-        <br />
-        {{#if drugs.length}}
-        <div class="row pagination-line">
-            <div class="col">
-                <nav aria-label="...">
-                    {{> pager pagerInfo }}
-                </nav>
-            </div>
-        </div>
-        {{/if}}
-    </div>
-    <!--/.col-->
+<div class="row loadable-container" id="drugsContent">
+    {{> drugs-partial}}
 </div>
 <!--/.row-->
+
+<script type="text/javascript">
+    $(function () {
+        $('.filter-item').on('change', function (evt) {
+            evt.preventDefault();
+            loadPartialData({
+                showLoadingOverlay: true,
+                containerId: '#drugsContent',
+                loadUrl: prepareLoadUrl('/drugs/partial'),
+                callbackStart: function () {
+                    history.replaceState(null, null, '/drugs?' + getFilterQueryString())
+                },
+                callbackEnd: function () {
+                }
+            })
+        });
+    });
+</script>
