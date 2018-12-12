@@ -12,7 +12,7 @@ class Localization {
         if (locale === 'en') {
           backupDictionary = this.dictionary;
         } else {
-          backupDictionary = fs.readFileSync(`./public/data/lang/${DEFAUL_LOCALE}.json`, 'utf8');
+          backupDictionary = JSON.parse(fs.readFileSync(`./public/data/lang/${DEFAUL_LOCALE}.json`, 'utf8'));
         }
         this.backupDictionary = backupDictionary;
     }
