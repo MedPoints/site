@@ -11,12 +11,12 @@
         <div class="row">
             <div class="col-sm-9">
                 <label class="custom-control custom-checkbox">
-                    <input type="checkbox" name="filter[prescription]" class="custom-control-input filter-item" {{#if filter.prescription }}checked{{/if}}>
+                    <input type="checkbox" name="filter[prescription]" value="off" class="custom-control-input filter-item" {{#if filter.prescription }}checked{{/if}}>
                     <span class="custom-control-indicator"></span>
                     <span class="custom-control-description">{{localize req 'filters.prescription'}}</span>
                 </label>
                 <label class="custom-control custom-checkbox">
-                    <input type="checkbox" name="filter[insurance]" class="custom-control-input filter-item" {{#if filter.insurance }}checked{{/if}}>
+                    <input type="checkbox" name="filter[insurance]" value="on" class="custom-control-input filter-item" {{#if filter.insurance }}checked{{/if}}>
                     <span class="custom-control-indicator"></span>
                     <span class="custom-control-description">{{localize req 'filters.covered'}}</span>
                 </label>
