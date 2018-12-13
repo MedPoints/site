@@ -10,6 +10,7 @@ $(function() {
     initializeLocalizationControls();
     
     initializeEvents();
+    initializeDatepickers();
 
     $('[data-toggle="tooltip"]').tooltip();
     $('.gallery a.gallery-img').simpleLightbox();
@@ -38,6 +39,13 @@ function initializeEvents() {
     });
 }
 
+function initializeDatepickers() {
+    $('#bookingDate').datetimepicker({
+        format:'d.m.Y H:i',
+        step:5,
+        inline:true,
+    });
+}
 
 function initializeLocalizationControls() {
     var currentLocale = Cookies.get('locale') || 'en';

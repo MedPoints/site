@@ -109,10 +109,17 @@
                         </select>
                     </div>
                 </div>
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 details-container">
+                {{!-- <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 details-container">
                     <div class="form-group">
                         <label>{{localize req 'booking.form.bookingDate'}}</label><br />
                         <input class="form-control booking-control" type="date" id="bookingDate" required>
+                    </div>
+                </div> --}}
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 details-container">
+                    <div class="form-group">
+                        <label>{{localize req 'booking.form.bookingTime'}}</label><br />
+                        <input id="bookingDate" type="text" />
+                        <!-- <input class="form-control booking-control" type="date" id="bookingTime" required> -->
                     </div>
                 </div>
                 {{!-- <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 details-container">

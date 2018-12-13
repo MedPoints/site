@@ -52,7 +52,7 @@ $(function () {
         if (data.email !== data.confirmEmail)
             errors.push(window.localizer.localize('errors.emailsDoNotMatch'));
 
-        data.bookingDate = $('#bookingDate').val();
+        data.bookingDate = $('#bookingDate').datetimepicker('getValue');
         if (!data.bookingDate)
             errors.push(window.localizer.localize('errors.requiredBookingDate'));
 
@@ -143,7 +143,7 @@ function initBookingData() {
 }
 
 function updateBookingDetails() {
-    var bookingDate = $('#bookingDate').val();
+    var bookingDate = $('#bookingDate').datetimepicker('getValue');
     var serviceId = $('#serviceId').val();
     var doctorId = $('#doctorId').val();
     var clinicId = $('#clinicId').val();

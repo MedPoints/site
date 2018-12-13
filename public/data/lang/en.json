@@ -435,6 +435,7 @@
             "selectServiceAndClinic": "Select a service and a booking date",
             "service": "Service",
             "bookingDate": "Booking Date",
+            "bookingTime": "Booking Time",
             "clinic": "Clinic",
             "addAnEmail": "Add email, if you want to get notifications",
             "email": "Email",

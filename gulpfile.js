@@ -35,7 +35,8 @@ gulp.task('build:js', function(cb) {
         'public/js/lib/tether/*.js',
         'public/js/lib/jqueryui/*.js',
         'public/js/lib/conflictfixes/*.js',
-        'public/js/lib/*.js',
+        'public/js/lib/datetimepicker/*.js',
+        'public/js/lib/*.js'
         ])
         .pipe(concat('lib.bundle.js'));
     if (!argv.dev) {

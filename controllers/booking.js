@@ -105,7 +105,7 @@ exports.details = async (req, res) => {
 
     res.render('layouts/partials/booking-details', {
         layout: false,
-        bookingDate: moment(new Date(bookingDate)).format("DD.MM.YYYY"),
+        bookingDate: moment(new Date(bookingDate)).format("DD.MM.YYYY HH:mm"),
         clinic,
         doctor,
         service,
