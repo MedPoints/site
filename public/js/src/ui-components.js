@@ -275,3 +275,106 @@ function showCustomErrorModal(titleContent, bodyContent) {
     $('#modalErrorContent').html(bodyContent);
     $('#errorModal').modal('show');
 }
+
+// Loads a partial markup into a container
+// options : {
+//  containerId: container to load the content into
+//  callbackStart: callback which is invoked on start
+//  callbackEnd: callback which is invoked on end
+//  callbackError: callback which is invoked on error
+//  showLoadingOverlay: shows a loading overlay during the loading process,
+//  loadUrl: a URL to load the resource from
+//  data: data to pass to the loadable resource
+// }
+function loadPartialData(options) {
+    if (options.showLoadingOverlay) {
+        showLoadingOverlayInContainer(options.containerId);
+    }
+
+    if (options.callbackStart) {
+        options.callbackStart();
+    }
+    
+    $(options.containerId).load(
+        options.loadUrl, options.data, function() {
+            if (options.callbackEnd) {
+                options.callbackEnd();
+            }
+        });
+}
+
+function showLoadingOverlayInContainer(containerId) {
+    // A container should have the position: relative css property set
+    // otherwise the loading overlay will be displayed above other container
+    if (containerId) {
+        var containerNode = $('<div class="loading-overlay">');
+        var imageNode = $('<img class="loader-image" />');
+        imageNode.attr('src', '/img/loader.gif');
+        containerNode.append(imageNode);
+        $(containerId).append(containerNode);
+    }
+}
+
+function prepareLoadUrl(baseUrl) {
+    return baseUrl + '?' + getFilterQueryString();
+}
+
+function getFilterQueryString(options) {
+    var currentQuery = new URLSearchParams(window.location.search);
+    if (currentQuery.get('page')) {
+        delete currentQuery.delete('page');
+    }
+    if (currentQuery.get('count')) {
+        delete currentQuery.delete('count');
+    }
+
+    var filterItems = $('.filter-item');
+    $.each(filterItems, function (index, item) {
+        var filterItemName = $(item).attr('name');
+        var filterType = $(item).attr('type');
+        if (options && 
+            options.customItemsFilter && 
+            options.customItemsFilter[filterItemName]) {
+
+            options.customItemsFilter[filterItemName](item, currentQuery);
+        } else {
+            switch (filterType) {
+                case 'radio':
+                    if ($(item).is(':checked')) {
+                        currentQuery.set(filterItemName, $(item).val());
+                    }
+                    break;
+                case 'checkbox':
+                    if ($(item).is(':checked')) {
+                        currentQuery.set(filterItemName, $(item).val());
+                    } else {
+                        currentQuery.delete(filterItemName);
+                    }
+                    break;
+                case 'range':
+                    if ($(item).val() > 0) {
+                        currentQuery.set(filterItemName, $(item).val());
+                    } else {
+                        currentQuery.delete(filterItemName);
+                    }
+                    break;
+            }
+        }
+    });
+
+    return currentQuery.toString();
+}
+
+function getQueryParams(qs) {
+    qs = qs.split('+').join(' ');
+
+    var params = {},
+        tokens,
+        re = /[?&]?([^=]+)=([^&]*)/g;
+
+    while (tokens = re.exec(qs)) {
+        params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2]);
+    }
+    return params;
+}
+

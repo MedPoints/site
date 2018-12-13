@@ -139,3 +139,85 @@ exports.getCount = async (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   res.send(JSON.stringify({ count}));
 };
+
+exports.getServicesPartial = async (req, res) => {
+  const parameters = JSON.parse(JSON.stringify(req.query));
+  if (parameters.filter && parameters.filter.city === 'home') {
+    const {
+        location,
+    } = req.cookies;
+    if (location) {
+      const locationObject = JSON.parse(location);
+      parameters.filter.city = locationObject.city;
+    }
+  }
+  
+  let url = queryPersistant.applyRequestQueryParameters(parameters, `${API_URL}/api/services`);  
+  const request = await axios.get(url);
+  
+  let services = request.data.result.data.map(service => prepareServiceData(service, {
+    search: req.query.name
+  }));
+
+  let hospitals = [];
+  services.forEach(service => {
+    if (service.providers && service.providers.hospitals) {
+      service.providers.hospitals.forEach(hospital => {
+        if ((hospital.coordinations && hospital.coordinations.lat) &&
+          (hospital.coordinations && hospital.coordinations.lon))
+        hospitals.push({
+          id: hospital.id,
+          name: hospital.name,
+          coordinations: {
+            lat: hospital.coordinations.lat,
+            lng: hospital.coordinations.lon,
+          },
+          service: {
+            id: service.id,
+            name: service.name,
+          }
+        });
+      });
+    }
+  });
+
+  let avgCoordinates = {lat: 0, lng: 0};
+  let count = 0;
+  for (let i = 0, length = hospitals.length; i < length; i++) {
+    const hospital = hospitals[i];
+    count++;
+    avgCoordinates.lat += hospital.coordinations.lat;
+    avgCoordinates.lng += hospital.coordinations.lng;
+  }
+  if (count > 0) {
+    avgCoordinates.lat = avgCoordinates.lat / count;
+    avgCoordinates.lng = avgCoordinates.lng / count;  
+  }
+  
+  const {
+    pages,
+    total
+  } = request.data.result.meta;
+  const pager = new Pager(
+    PAGE_SIZE, 
+    Number(req.query.page) || 1, 
+    pages,
+    total);
+  const pagerInfo = {
+    pager,
+    baseUrl: '/services',
+    parameters: req.query
+  };
+
+  res.render('layouts/partials/services-partial', { 
+    layout: false,
+    services, 
+    hospitals, 
+    PAGE_TITLE, 
+    avgCoordinates, 
+    pagerInfo, 
+    title: `MedPoints™ Services`,
+    filter: req.query.filter,
+    req,
+  });
+};

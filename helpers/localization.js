@@ -6,13 +6,13 @@ class Localization {
 
     constructor(locale) {
         this.locale = locale || DEFAUL_LOCALE;
-        this.dictionary = JSON.parse(fs.readFileSync(`./public/data/lang/${locale}.json`, 'utf8'));
+        this.dictionary = JSON.parse(fs.readFileSync(`./public/data/lang/${this.locale}.json`, 'utf8'));
 
         var backupDictionary;
         if (locale === 'en') {
           backupDictionary = this.dictionary;
         } else {
-          backupDictionary = fs.readFileSync(`./public/data/lang/${DEFAUL_LOCALE}.json`, 'utf8');
+          backupDictionary = JSON.parse(fs.readFileSync(`./public/data/lang/${DEFAUL_LOCALE}.json`, 'utf8'));
         }
         this.backupDictionary = backupDictionary;
     }

@@ -172,7 +172,7 @@ exports.hbsHelpers = {
   localize: (req, path, options) => {
     return new Localization(req.cookies.locale).localize(path, options.hash);
   },
-  localization: (locale, options) => {
+  localization: (locale = 'en', options) => {
     const dictionary = fs.readFileSync(`public/data/lang/${locale}.json`, 'utf8');
     let backupDictionary;
     if (locale === 'en') {

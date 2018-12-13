@@ -119,3 +119,76 @@ exports.getHospitalsByDoctor = async (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   res.send(JSON.stringify({ status: 200, clinics }));
 };
+
+exports.getDoctorsPartial = async (req, res) => {
+  const parameters = JSON.parse(JSON.stringify(req.query));
+  if (parameters.filter && parameters.filter.city === 'home') {
+    const {
+        location,
+    } = req.cookies;
+    if (location) {
+      const locationObject = JSON.parse(location);
+      parameters.filter.city = locationObject.city;
+    }
+  }
+
+
+  const url = queryPersistant.applyRequestQueryParameters(parameters, `${API_URL}/api/doctors`);
+  const request = await axios.get(url);
+  let doctors = request.data.result.data.map( async (doctor,i) => {
+      const random = await axios.get('https://randomuser.me/api/1.0/?seed='+doctor.id);
+      return prepareDoctorData(doctor, {
+        search: req.query.name
+      },random.data.results[0]);
+  });
+
+  Promise.all(doctors).then((doctors) => {
+
+    const hospitals = doctors.map(doctor => doctor.hospital);
+  
+    let avgCoordinates = {lat: 0, lng: 0};
+    let count = 0;
+    for (let i = 0, length = doctors.length; i < length; i++) {
+      const doctor = doctors[i];
+      if (doctor.coordinations && doctor.coordinations.length) {
+        count++;
+        avgCoordinates.lat += doctor.coordinations[0].lat;
+        avgCoordinates.lng += doctor.coordinations[0].lon;
+      }
+    }
+    if (count > 0) {
+      avgCoordinates.lat = avgCoordinates.lat / count;
+      avgCoordinates.lng = avgCoordinates.lng / count;  
+    }
+
+    const {
+      pages,
+      total
+    } = request.data.result.meta;
+    const pager = new Pager(
+      PAGE_SIZE, 
+      Number(req.query.page) || 1, 
+      pages,
+      total,
+    );
+    const pagerInfo = {
+      pager,
+      baseUrl: '/doctors',
+      parameters: req.query
+    };
+
+
+    res.render('layouts/partials/doctors-partial', { 
+      layout: false,
+      doctors, 
+      hospitals, 
+      avgCoordinates, 
+      pagerInfo, 
+      PAGE_TITLE, 
+      title: `MedPoints™ Doctors`,
+      filter: req.query.filter,
+      req,
+    });
+
+  });
+};
