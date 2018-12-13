@@ -37,6 +37,10 @@ function initializeEvents() {
             });
         }
     });
+    $('.list-funds').click(function(){
+        console.log("aaaa")
+        showCustomErrorModal('We apologise','List funds under development');
+    });
 }
 
 function initializeDatepickers() {
