@@ -8,8 +8,7 @@ $(function() {
     initializeBellToggle();
     initializeAddressMapToggle();
     initializeLocalizationControls();
-    initializeEvents();
-
+    
     initializeEvents();
 
     $('[data-toggle="tooltip"]').tooltip();
@@ -275,11 +274,4 @@ function showCustomErrorModal(titleContent, bodyContent) {
     $('#modalErrorTitle').html(titleContent);
     $('#modalErrorContent').html(bodyContent);
     $('#errorModal').modal('show');
-}
-
-function initializeEvents() {
-    $('#signUpButton').click(function(){
-        var value = $('#signUpInput').val();
-        console.log(value)
-    });
 }
