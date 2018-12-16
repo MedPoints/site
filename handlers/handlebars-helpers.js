@@ -161,7 +161,10 @@ exports.hbsHelpers = {
     }
   },
   getDateString: (date) => {
-    return date.toDateString();
+    if (!date) {
+      return '';
+    }
+    return new Date(date).toDateString();
   },
   defaultIfEmpty: (val, defaultVal) => {
     return val || defaultVal;
