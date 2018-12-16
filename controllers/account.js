@@ -8,8 +8,6 @@ const BLOCKCHAIN_URL = config.get('BLOCKCHAIN_API_URL');
 
 const Localization = require('../helpers/localization').Localization;
 
-const PAGE_TITLE = 'Account';
-
 const { prepareClinicData } = require('./../helpers/clinics');
 const { prepareDoctorData } = require('./../helpers/doctors');
 const { prepareTransactionData, prepareAppointmentData, getTransactions } = require('./../helpers/account');
@@ -27,9 +25,11 @@ exports.getAccountInfo = async (req, res) => {
         page
     } = req.query;
 
+    const localization = new Localization(req.cookies.locale);
+
     // Check if user is logged in and render login page if not logged in
     if (!MedPoints_PrivateKey || !MedPoints_PublicKey) {
-        res.render('accounts/login', { isLoggedIn: false, PAGE_TITLE, title: 'MedPoints™ Account' });
+        res.render('accounts/login', { isLoggedIn: false, PAGE_TITLE: localization.localize('titles.account'), title: localization.localize('titles.account') });
         return;
     }
 
@@ -56,9 +56,9 @@ exports.getAccountInfo = async (req, res) => {
         ticketsCount: ticketsResponse.data.result.length,
         pagerInfo: dataPager,
         transactions, 
-        PAGE_TITLE,
+        PAGE_TITLE: localization.localize('titles.account'),
         appointmentsData,
-        title: 'MedPoints™ Account',
+        title: localization.localize('titles.account'),
         req,
     });
 };
@@ -72,10 +72,10 @@ exports.records = async (req, res) => {
     const {
         page
     } = req.query;
-
+    const localization = new Localization(req.cookies.locale);
     // Check if user is logged in and render login page if not logged in
     if (!MedPoints_PrivateKey || !MedPoints_PublicKey) {
-        res.render('accounts/login', { isLoggedIn: false, PAGE_TITLE, title: 'MedPoints™ Account' });
+        res.render('accounts/login', { isLoggedIn: false, PAGE_TITLE: localization.localize('titles.accountRecords'), title: localization.localize('titles.accountRecords') });
         return;
     }
 
@@ -99,8 +99,8 @@ exports.records = async (req, res) => {
         ticketsCount: ticketsResponse.data.result.length,
         pagerInfo: dataPager,
         transactions,
-        PAGE_TITLE: 'Records',
-        title: 'MedPoints™ Account Records',
+        PAGE_TITLE: localization.localize('titles.accountRecords'),
+        title: localization.localize('titles.accountRecords'),
         req,
     });
 };
@@ -112,9 +112,10 @@ exports.editInfo = async (req, res) => {
         MedPoints_PublicKey,
     } = req.cookies;
 
+    const localization = new Localization(req.cookies.locale);
     // Check if user is logged in and render login page if not logged in
     if (!MedPoints_PrivateKey || !MedPoints_PublicKey) {
-        res.render('accounts/login', { isLoggedIn: false, PAGE_TITLE, title: 'MedPoints™ Account' });
+        res.render('accounts/login', { isLoggedIn: false, PAGE_TITLE: localization.localize('titles.accountEdit'), title: localization.localize('titles.accountEdit') });
         return;
     }
 
@@ -126,8 +127,8 @@ exports.editInfo = async (req, res) => {
         appointmentsCount: blockchainResponse.data.length,
         ticketsCount: ticketsResponse.data.result.length,
         accountData: profileResponse.data.result,
-        PAGE_TITLE: 'Edit Account',
-        title: 'MedPoints™ Edit Account',
+        PAGE_TITLE: localization.localize('titles.accountEdit'),
+        title: localization.localize('titles.accountEdit'),
         req,
     });
 };
@@ -184,7 +185,8 @@ exports.updateAccount = async (req, res, next) => {
 };
 
 exports.success = async (req, res) => {
+    const localization = new Localization(req.cookies.locale);
     res.render('accounts/account-edit-success', { 
-        title: 'MedPoints™ Edit Account',
+        title: localization.localize('titles.accountEdit'),
     });
 };

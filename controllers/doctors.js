@@ -6,7 +6,7 @@ const { Pager, PAGE_SIZE } = require('./../helpers/pager');
 const { queryPersistant } = require('./../helpers/query-persistant');
 const { prepareDoctorData } = require('./../helpers/doctors');
  
-const PAGE_TITLE = 'Doctors';
+const Localization = require('../helpers/localization').Localization;
 
 exports.getDoctors = async (req, res) => {
   const parameters = JSON.parse(JSON.stringify(req.query));
@@ -65,14 +65,14 @@ exports.getDoctors = async (req, res) => {
       parameters: req.query
     };
 
-
+    const localization = new Localization(req.cookies.locale);
     res.render('doctors/doctors', { 
       doctors, 
       hospitals, 
       avgCoordinates, 
       pagerInfo, 
-      PAGE_TITLE, 
-      title: `MedPoints™ Doctors`,
+      PAGE_TITLE: localization.localize('titles.doctors'), 
+      title: localization.localize('titles.doctors'),
       filter: req.query.filter,
       req,
     });
@@ -87,7 +87,8 @@ exports.getDoctor = async (req, res) => {
   const random = await axios.get('https://randomuser.me/api/1.0/?seed='+id);
   const doctor = prepareDoctorData(request.data.result,{},random.data.results[0]);
   const coordinates = doctor.coordinations[0];
-  res.render('doctors/doctor', { doctor, coordinates, PAGE_TITLE, title: `MedPoints™ - Doctors - ${doctor.name}`,req, });
+  const localization = new Localization(req.cookies.locale);
+  res.render('doctors/doctor', { doctor, coordinates, PAGE_TITLE: `${localization.localize('titles.doctors')} - ${doctor.name}`, title: `${localization.localize('titles.doctors')} - ${doctor.name}`,req, });
 };
 
 exports.getSpecializations = async (req, res) => {
@@ -177,15 +178,15 @@ exports.getDoctorsPartial = async (req, res) => {
       parameters: req.query
     };
 
-
+    const localization = new Localization(req.cookies.locale);
     res.render('layouts/partials/doctors-partial', { 
       layout: false,
       doctors, 
       hospitals, 
       avgCoordinates, 
       pagerInfo, 
-      PAGE_TITLE, 
-      title: `MedPoints™ Doctors`,
+      PAGE_TITLE: localization.localize('titles.doctors'), 
+      title: localization.localize('titles.doctors'),
       filter: req.query.filter,
       req,
     });

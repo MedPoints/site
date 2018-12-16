@@ -6,7 +6,7 @@ const { Pager, PAGE_SIZE } = require('./../helpers/pager');
 const { prepareServiceData } = require('./../helpers/services');
 const { queryPersistant } = require('./../helpers/query-persistant');
 
-const PAGE_TITLE = 'Services';
+const Localization = require('../helpers/localization').Localization;
 
 exports.getServices = async (req, res) => {
   const parameters = JSON.parse(JSON.stringify(req.query));
@@ -76,14 +76,14 @@ exports.getServices = async (req, res) => {
     baseUrl: '/services',
     parameters: req.query
   };
-
+  const localization = new Localization(req.cookies.locale);
   res.render('services/services', { 
     services, 
     hospitals, 
-    PAGE_TITLE, 
+    PAGE_TITLE: localization.localize('titles.services'), 
     avgCoordinates, 
     pagerInfo, 
-    title: `MedPoints™ Services`,
+    title: localization.localize('titles.services'),
     filter: req.query.filter,
     req,
   });
@@ -129,8 +129,8 @@ exports.getService = async (req, res) => {
     avgCoordinates.lat = avgCoordinates.lat / count;
     avgCoordinates.lng = avgCoordinates.lng / count;  
   }
-
-  res.render('services/service', { service, hospitals, PAGE_TITLE, avgCoordinates, title: `MedPoints™ - Services - ${service.name}`,req, });
+  const localization = new Localization(req.cookies.locale);
+  res.render('services/service', { service, hospitals, PAGE_TITLE: `${localization.localize('titles.services')} - ${service.name}`, avgCoordinates, title: `${localization.localize('titles.services')} - ${service.name}`,req, });
 }
 
 exports.getCount = async (req, res) => {
@@ -208,15 +208,15 @@ exports.getServicesPartial = async (req, res) => {
     baseUrl: '/services',
     parameters: req.query
   };
-
+  const localization = new Localization(req.cookies.locale);
   res.render('layouts/partials/services-partial', { 
     layout: false,
     services, 
     hospitals, 
-    PAGE_TITLE, 
+    PAGE_TITLE: localization.localize('titles.services'),
     avgCoordinates, 
     pagerInfo, 
-    title: `MedPoints™ Services`,
+    title: localization.localize('titles.services'),
     filter: req.query.filter,
     req,
   });

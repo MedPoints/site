@@ -2,7 +2,7 @@
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="/">{{localize req 'breadcrumbs.home'}}</a></li>
         <li class="breadcrumb-item"><a href="/account">{{localize req 'breadcrumbs.accountRecords'}}</a></li>
-        <li class="breadcrumb-item active"><a href="/account/favorites">{{localize req 'breadcrumbs.favorites'}}</a></li>
+        <li class="breadcrumb-item active">{{localize req 'breadcrumbs.favorites'}}</li>
     </ol>
 </nav>
 
@@ -31,7 +31,7 @@
 
                 <ul class="list-group">
                     <li class="list-group-item">
-                        <a href="/account">{{localize req 'account.sidebar.appointments'}}</a>
+                        <a href="/account">{{localize req 'account.sidebar.appointments'}} <span class="badge">{{appointmentsCount}}</span></a>
                     </li>
                     <li class="list-group-item">
                         <a href="/account/records">{{localize req 'account.sidebar.records'}} <span class="badge">{{recordsCount}}</span></a>
@@ -39,11 +39,24 @@
                             <li><a href="javascript:void(0)" data-toggle="modal" data-target="#chooseDoctor"><i class="fas fa-plus-circle"></i> {{localize req 'account.sidebar.addRecord'}}</a></li>
                         </ul>
                     </li>
+                    <li class="list-group-item">
+						<a href="#" data-toggle="modal" data-target="#sorry"><b>MPT</b> = 120
+							<span class="badge">+ 0</span>
+						</a>
+						<ul>
+							<li>
+								<a href="#" data-toggle="modal" data-target="#sorry">
+									<i class="fas fa-plus-circle"></i> {{localize req 'account.sidebar.addBalance'}}</a>
+							</li>
+						</ul>
+					</li>
                     <li class="list-group-item active">
                         <a href="/account/favorites">Favorites</a>
                     </li>
                     <li class="list-group-item">
-                        <a href="/account-tickets">{{localize req 'account.sidebar.support'}}</span></a>
+                        <a href="/account-tickets">{{localize req 'account.sidebar.support'}}
+                        <span class="badge">{{ticketsCount}}</span>
+                        </a>
                         <ul>
                             <li><a href="/add-ticket"><i class="fas fa-plus-circle"></i> {{localize req 'account.sidebar.addTicket'}}</a></li>
                         </ul>

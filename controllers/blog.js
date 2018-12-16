@@ -9,7 +9,8 @@ exports.getBlogPosts = async (req, res) => {
         page,
         count
     } = req.query;
-    const PAGE_TITLE = new Localization(req.cookies.locale).localize('pageTitles.blog');
+    const localization = new Localization(req.cookies.locale);
+    const PAGE_TITLE = localization.localize('titles.blog');
 
     const blogArticles = getBlogPosts();
 
@@ -32,7 +33,8 @@ exports.getBlogPosts = async (req, res) => {
 exports.getBlogPost = async (req, res) => {
     const id = req.params.id;
     const blogArticle = getBlogPost(+id);
-    const PAGE_TITLE = new Localization(req.cookies.locale).localize('pageTitles.blog');
+    const localization = new Localization(req.cookies.locale);
+    const PAGE_TITLE = localization.localize('titles.blog');
 
 
     res.render('pages/text', { 

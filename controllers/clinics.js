@@ -13,8 +13,7 @@ const {
   queryPersistant
 } = require('./../helpers/query-persistant');
 
-
-const PAGE_TITLE = 'Clinics';
+const Localization = require('../helpers/localization').Localization;
 
 exports.getClinics = async (req, res) => {
   const parameters = JSON.parse(JSON.stringify(req.query));
@@ -68,12 +67,13 @@ exports.getClinics = async (req, res) => {
     parameters: req.query
   };
 
+  const localization = new Localization(req.cookies.locale);
   res.render('clinics/clinics', {
     hospitals,
     pagerInfo,
-    PAGE_TITLE,
+    PAGE_TITLE: localization.localize('titles.clinics'),
     avgCoordinates,
-    title: 'MedPoints™ Clinics',
+    title: localization.localize('titles.clinics'),
     filter: req.query.filter,
     req,
   });
@@ -122,10 +122,12 @@ exports.getClinic = async (req, res) => {
   const id = req.params.id;
   const request = await axios.get(`${API_URL}/api/hospitals?id=${id}`);
   const hospital = prepareClinicData(request.data.result);
+  const localization = new Localization(req.cookies.locale);
   res.render('clinics/clinic', {
     hospital,
     hospitalJson: JSON.stringify(hospital),
-    title: `MedPoints™ - Clinics - ${hospital.name}`,
+    PAGE_TITLE: `${localization.localize('titles.clinics')} - ${hospital.name}`,
+    title: `${localization.localize('titles.clinics')} - ${hospital.name}`,
     req,
   });
 };
@@ -190,14 +192,14 @@ exports.getClinicsPartial = async (req, res) => {
     baseUrl: '/clinics',
     parameters: req.query
   };
-
+  const localization = new Localization(req.cookies.locale);
   res.render('layouts/partials/clinics-partial', {
     layout: false,
     hospitals,
     pagerInfo,
-    PAGE_TITLE,
+    PAGE_TITLE: localization.localize('titles.clinics'),
     avgCoordinates,
-    title: 'MedPoints™ Clinics',
+    title: localization.localize('titles.clinics'),
     filter: req.query.filter,
     req,
   });

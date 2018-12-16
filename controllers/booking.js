@@ -20,6 +20,7 @@ exports.booking = async (req, res) => {
         doctorId = '',
     } = req.query
     let clinicId = '';
+    const localization = new Localization(req.cookies.locale);
 
     if (doctorId) {
         const request = await axios.get(`${API_URL}/api/doctors?id=${doctorId}`);
@@ -34,7 +35,8 @@ exports.booking = async (req, res) => {
     const isRegistered = MedPoints_PrivateKey && MedPoints_PublicKey;
 
     res.render('pages/booking', {
-        title: 'MedPoints™ Book a Visit',
+        title: localization.localize('titles.booking'), 
+        PAGE_TITLE: localization.localize('titles.booking'),
         doctorId,
         clinicId,
         isRegistered,

@@ -4,7 +4,7 @@ const { DataPager } = require('./../helpers/pager');
 const { prepareBlockData } = require('./../helpers/explorer');
 const API_URL = config.get('BLOCKCHAIN_API_URL');
 
-const PAGE_TITLE = 'Blockchain Explorer';
+const Localization = require('../helpers/localization').Localization;
 
 exports.getBlocks = async (req, res) => {
     const response = await axios.get(`${API_URL}/api/blockchain/blocks`);
@@ -18,7 +18,7 @@ exports.getBlocks = async (req, res) => {
     if (chain && chain.length > 0) {
         transactions = chain[chain.length - 1].Transactions;
     }
-
+    const localization = new Localization(req.cookies.locale);
     const dataPager = new DataPager(chain.reverse(), count, page);
     const pagerInfo = {
         pager: dataPager.pager,
@@ -29,9 +29,9 @@ exports.getBlocks = async (req, res) => {
     res.render('pages/explorer', { 
         blocks: dataPager.getPageData().map((block, index) => prepareBlockData(block, index, chain.length)),
         pagerInfo,
-        PAGE_TITLE, 
+        PAGE_TITLE: localization.localize('titles.explorer'), 
         transactions, 
-        title: `MedPoints™ Blockchain`,
+        title: localization.localize('titles.explorer'),
         req,
     });
 };

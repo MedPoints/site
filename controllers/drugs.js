@@ -7,8 +7,6 @@ const { queryPersistant } = require('./../helpers/query-persistant');
 
 const Localization = require('../helpers/localization').Localization;
 
-const PAGE_TITLE = 'Drugs';
-
 exports.getDrugs = async (req, res) => {
   const parameters = JSON.parse(JSON.stringify(req.query));
   if (parameters.filter && parameters.filter.city === 'home') {
@@ -50,11 +48,11 @@ exports.getDrugs = async (req, res) => {
   res.render('drugs/drugs', { 
     drugs, 
     pagerInfo, 
-    PAGE_TITLE: localization.localize('breadcrumbs.drugs'), 
+    PAGE_TITLE: localization.localize('titles.drugs'), 
     categories, 
     selectedName: parameters.name,
     selectedCategory: parameters.groupId || '',
-    title: `MedPoints™ Drugs`, 
+    title: localization.localize('titles.drugs'), 
     filter: req.query.filter,
     req,
   });
@@ -79,8 +77,8 @@ exports.getDrug = async (req, res) => {
   res.render('drugs/drug', { 
     drug, 
     providersLocations, 
-    PAGE_TITLE: localization.localize('breadcrumbs.drugs'), 
-    title: `MedPoints™ - Drugs - ${drug.name}`,
+    PAGE_TITLE: `${localization.localize('titles.drugs')} - ${drug.name}`, 
+    title: `${localization.localize('titles.drugs')} - ${drug.name}`,
     req, 
   });
 }
@@ -134,11 +132,11 @@ exports.getDrugsPartial = async (req, res) => {
     layout: false,
     drugs, 
     pagerInfo, 
-    PAGE_TITLE: localization.localize('breadcrumbs.drugs'), 
+    PAGE_TITLE: localization.localize('titles.drugs'), 
     categories, 
     selectedName: parameters.name,
     selectedCategory: parameters.groupId || '',
-    title: `MedPoints™ Drugs`, 
+    title: localization.localize('titles.drugs'), 
     filter: req.query.filter,
     req,
   });

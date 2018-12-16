@@ -7,7 +7,7 @@ const { Pager, PAGE_SIZE } = require('./../helpers/pager');
 const { preparePharmacyData } = require('./../helpers/pharmacies');
 const { queryPersistant } = require('./../helpers/query-persistant');
 
-const PAGE_TITLE = 'Pharmacies';
+const Localization = require('../helpers/localization').Localization;
 
 exports.getPharmacies = async (req, res) => {
   const parameters = JSON.parse(JSON.stringify(req.query));
@@ -58,13 +58,13 @@ exports.getPharmacies = async (req, res) => {
     baseUrl: '/pharmacies',
     parameters: req.query
   };
-
+  const localization = new Localization(req.cookies.locale);
   res.render('pharmacies/pharmacies', { 
     pharmacies, 
     pagerInfo, 
-    PAGE_TITLE, 
+    PAGE_TITLE: localization.localize('titles.pharmacies'), 
     avgCoordinates, 
-    title: `MedPoints™ Pharmacies`,
+    title: localization.localize('titles.pharmacies'),
     filter: req.query.filter,
     req,
   });
@@ -75,7 +75,10 @@ exports.getPharmacy = async (req, res) => {
   const request = await axios.get(`${API_URL}/api/pharmacies?id=${id}`);
   const pharmacy = preparePharmacyData(request.data.result);
 
-  res.render('pharmacies/pharmacy', { pharmacy, PAGE_TITLE, title: `MedPoints™ - Pharmacies - ${pharmacy.name}`,req, });
+  const localization = new Localization(req.cookies.locale);
+  res.render('pharmacies/pharmacy', { pharmacy, 
+    PAGE_TITLE: `${localization.localize('titles.pharmacies')} - ${pharmacy.name}`, 
+    title: `${localization.localize('titles.pharmacies')} - ${pharmacy.name}`,req, });
 };
 
 exports.getCount = async (req, res) => {
@@ -134,14 +137,14 @@ exports.getPharmaciesPartial = async (req, res) => {
     baseUrl: '/pharmacies',
     parameters: req.query
   };
-
+  const localization = new Localization(req.cookies.locale);
   res.render('layouts/partials/pharmacies-partial', { 
     layout: false,
     pharmacies, 
     pagerInfo, 
-    PAGE_TITLE, 
+    PAGE_TITLE: localization.localize('titles.pharmacies'), 
     avgCoordinates, 
-    title: `MedPoints™ Pharmacies`,
+    title: localization.localize('titles.pharmacies'),
     filter: req.query.filter,
     req,
   });
