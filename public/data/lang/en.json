@@ -114,6 +114,32 @@
         "map": "Map"
     },
 
+    "titles": {
+        "clinics": "MedPoints™ Clinics",
+        "doctors": "MedPoints™ Doctors",
+        "pharmacies": "MedPoints™ Pharmacies",
+        "drugs": "MedPoints™ Drugs",
+        "services": "MedPoints™ Services",
+        "termsOfUse": "MedPoints™ Terms Of Use",
+        "aboutUs": "MedPoints™ About Us",
+        "privacyPolicy": "MedPoints™ Privacy Policy",
+        "partnership": "MedPoints™ Partnership",
+        "blog": "MedPoints™ Blog",
+        "faq": "MedPoints™ FAQ",
+        "registration": "MedPoints™ Register",
+        "success": "MedPoints™ Successful Booking",
+        "confirm": "MedPoints™ Successful Email Confirmation",
+        "booking": "MedPoints™ Book a Visit",
+        "account": "MedPoints™ Account",
+        "accountRecords": "MedPoints™ Account Records",
+        "accountEdit": "MedPoints™ Edit Account",
+        "accountTickets": "MedPoints™ Your support tickets",
+        "accountAddTicket": "MedPoints™ Submit support ticket",
+        "explorer": "MedPoints™ Blockchain explorer",
+        "rates": "MedPoints™ Rates",
+        "favorites": "MedPoints™ Favorites"
+    },
+
     "breadcrumbs": {
         "home": "Home",
         "clinics": "Clinics",
@@ -137,7 +163,9 @@
         "registration": "Registration",
         "terms": "Terms Of Use",
         "confirmEmail": "Email Confirmation",
-        "favorites": "Favorites"
+        "favorites": "Favorites",
+        "explorer": "Blockchain explorer",
+        "addTicket":"Add ticket"
     },
 
     "filters": {

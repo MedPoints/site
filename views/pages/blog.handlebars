@@ -3,7 +3,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/">{{localize req 'breadcrumbs.home'}}</a></li>
-            <li class="breadcrumb-item active" aria-current="page">{{PAGE_TITLE}}</li>
+            <li class="breadcrumb-item active" aria-current="page">{{localize req 'breadcrumbs.blog'}}</li>
         </ol>
     </nav>
   
@@ -17,7 +17,7 @@
                         <div class="col"> 
                             <h2><a class="avatar" href="/blog/text/{{id}}">{{{title}}}</a></h2>
                             <p>{{{shortText}}}</p>
-                            <a  href="/blog/text/{{id}}">{{localize req 'readMore'}} <i class="fas fa-long-arrow-alt-right"></i></a>
+                            <a  href="/blog/text/{{id}}">{{localize ../req 'readMore'}} <i class="fas fa-long-arrow-alt-right"></i></a>
                         </div>
                         <!--/.col-->
                     </div>

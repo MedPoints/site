@@ -1,6 +1,7 @@
 const config = require('config');
 const axios = require('axios');
 const API_URL = config.get('API_URL');
+const BLOCKCHAIN_URL = config.get('BLOCKCHAIN_API_URL');
 const { DataPager } = require('./../helpers/pager');
 const { processFavoritesData } = require('./../helpers/favorites');
 const Localization = require('./../helpers/localization').Localization;
@@ -25,6 +26,9 @@ exports.getFavorites = async (req, res) => {
     const request = await axios.get(`${API_URL}/api/users/${MedPoints_PublicKey}/${MedPoints_PrivateKey}/favorites`);
     let selectedCategory = parameters.category || DEFAULT_CATEGORY;
 
+    // Get all blockchain blocks
+    const response = await axios.get(`${BLOCKCHAIN_URL}/${MedPoints_PrivateKey}/transactions`);
+    const ticketsResponse = await axios.get(`${API_URL}/api/tickets/${MedPoints_PublicKey}/${MedPoints_PrivateKey}`);
     const data = await processFavoritesData(request.data.result) || {pharmacies: [], doctors: [], clinics: []};
 
     
@@ -34,15 +38,17 @@ exports.getFavorites = async (req, res) => {
         baseUrl: '/account/favorites',
         parameters: req.query
       };
-
-
     return res.render('pages/favorites', {
+        recordsCount: response.data.length,
+        appointmentsCount: response.data.length,
+        ticketsCount: ticketsResponse.data.result.length,
         req,
         selectedCategory,
         selectedCategoryCaption: localization.localize(`categories.${selectedCategory}`),
         pagerInfo,
         data: dataPager.getPageData(),
-        title: `MedPoints™ Favorites`,
+        title: localization.localize(`titles.favorites`),
+        PAGE_TITLE: localization.localize(`titles.favorites`),
     });
 };
 

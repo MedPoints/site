@@ -7,21 +7,74 @@ const rates = require('../controllers/rates');
 const favourites = require('../controllers/favourites');
 const booking = require('../controllers/booking');
 
-router.get('/about', (req, res) => res.render('pages/about', {PAGE_TITLE: 'About Us', pageName: 'about', title: 'MedPoints™ About Us'}));
-router.get('/terms-of-use', (req, res) => res.render('pages/terms-of-use', {title: 'MedPoints™ Terms Of Use'}));
-router.get('/privacy-policy', (req, res) => res.render('pages/privacy-policy', {title: 'MedPoints™ Privacy Policy'}));
-router.get('/partnership', (req, res) => res.render('pages/partnership', {title: 'MedPoints™ Partnership'}));
+const Localization = require('../helpers/localization').Localization;
+
+router.get('/about', (req, res) => {
+    const localization = new Localization(req.cookies.locale);
+    res.render('pages/about', {
+        PAGE_TITLE: localization.localize('titles.aboutUs'), 
+        pageName: 'about', 
+        title: localization.localize('titles.aboutUs')
+    })
+});
+router.get('/terms-of-use', (req, res) => { 
+    const localization = new Localization(req.cookies.locale);
+    res.render('pages/terms-of-use', {
+        title: localization.localize('titles.termsOfUse'), 
+        PAGE_TITLE: localization.localize('titles.termsOfUse'),
+        req,
+    });
+});
+router.get('/privacy-policy', (req, res) => {
+    const localization = new Localization(req.cookies.locale);
+    res.render('pages/privacy-policy', {
+        title: localization.localize('titles.privacyPolicy'), 
+        PAGE_TITLE: localization.localize('titles.privacyPolicy'),
+        req,
+    });
+});
+router.get('/partnership', (req, res) => {
+    const localization = new Localization(req.cookies.locale);
+    res.render('pages/partnership', {
+        title: localization.localize('titles.partnership'), 
+        PAGE_TITLE: localization.localize('titles.partnership'),
+        req,
+    });
+});
 router.get('/explorer', catchErrors(explorer.getBlocks));
-router.get('/blog', (req, res) => res.render('pages/blog', {title: 'MedPoints™ Blog'}));
-router.get('/faq', (req, res) => res.render('pages/faq', {title: 'MedPoints™ FAQ'}));
+router.get('/faq', (req, res) => {
+    const localization = new Localization(req.cookies.locale);
+    res.render('pages/faq', {
+        title: localization.localize('titles.faq'), 
+        PAGE_TITLE: localization.localize('titles.faq')
+    });
+});
 
 //router.get('/sitemap', (req, res) => res.render('pages/sitemap', {PAGE_TITLE: 'Sitemap', pageName: 'sitemap', title: 'MedPoints™ Sitemap'}));
-router.get('/registration', (req, res) => res.render('pages/registration', {PAGE_TITLE: 'Registration', title: 'MedPoints™ Register'}));
+router.get('/registration', (req, res) => {
+    const localization = new Localization(req.cookies.locale);
+    res.render('pages/registration', {
+        title: localization.localize('titles.registration'), 
+        PAGE_TITLE: localization.localize('titles.registration')
+    });
+});
 
-router.get('/insurance', (req, res) => res.render('pages/insurance', {title: 'MedPoints™ Insurance', PAGE_TITLE: 'Insurance program'}));
+router.get('/insurance', (req, res) => res.render('pages/insurance', {title: 'MedPoints™ Insurance', PAGE_TITLE: 'Insurance programme'}));
 router.get('/search-results', (req, res) => res.render('pages/search-results', {title: 'MedPoints™ Search'}));
-router.get('/success', (req, res) => res.render('pages/success', {title: 'MedPoints™ Successful Booking'}));
-router.get('/confirm', (req, res) => res.render('pages/confirm', {title: 'MedPoints™ Successful Email Confirmation'}));
+router.get('/success', (req, res) => {
+    const localization = new Localization(req.cookies.locale);
+    res.render('pages/success', {
+        title: localization.localize('titles.success'), 
+        PAGE_TITLE: localization.localize('titles.success')
+    });
+});
+router.get('/confirm', (req, res) => {
+    const localization = new Localization(req.cookies.locale);
+    res.render('pages/confirm', {
+        title: localization.localize('titles.confirm'), 
+        PAGE_TITLE: localization.localize('titles.confirm')
+    });
+});
 router.get('/text', (req, res) => res.render('pages/text'));
 
 router.get('/booking', catchErrors(booking.booking));

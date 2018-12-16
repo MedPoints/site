@@ -5,6 +5,10 @@ $(function () {
         data.name = $('#yourName').val();
         data.email = $('#yourEmail').val();
         
+        if (!data.name) {
+            errors.push(window.localizer.localize('errors.requiredName'));
+        }
+
         if (!data.email) {
             errors.push(window.localizer.localize('errors.requiredEmail'));
         } else {
