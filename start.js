@@ -3,7 +3,7 @@ require('dotenv').config({ path: 'variables.env' });
 
 // Start our app!
 const app = require('./app');
-app.set('port', process.env.PORT || 80);
+app.set('port', process.env.PORT || 7788);
 const server = app.listen(app.get('port'), '0.0.0.0', () => {
   console.log(`Express running → PORT ${server.address().port}`);
 });
