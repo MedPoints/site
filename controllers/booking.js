@@ -74,9 +74,24 @@ exports.register = async (req, res) => {
             bookingDate,
         }),
     }
+    
     const localization = new Localization(req.cookies.locale);
     const request = await axios.post(`${BLOCKCHAIN_API_URL}/api/blockchain/transactions`, data);
     if (request.status === 200) {
+        try {
+            axios.post(`${API_URL}/api/notifications/renderBook`, {
+                email,
+                data: {
+                    doctor: doctorId,
+                    hospital: clinicId,
+                    service: serviceId,
+                    date: bookingDate,
+                }
+            });
+        } catch (err) {
+            console.log(err);
+        }    
+
         res.setHeader('Content-Type', 'application/json');
         res.send(JSON.stringify({ status: request.status, statusText: request.statusText }));
     } else {
