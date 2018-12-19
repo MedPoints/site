@@ -35,7 +35,7 @@ exports.getAccountInfo = async (req, res) => {
 
 
     // Get all blockchain blocks
-    const response = await axios.get(`${BLOCKCHAIN_URL}/${MedPoints_PrivateKey}/transactions`);
+    const response = await axios.get(`${BLOCKCHAIN_URL}/${MedPoints_PublicKey}/transactions`);
 
     // Prepare pager to get only current data page
     const dataPager = new DataPager(response.data, DEFAULT_PAGE_SIZE, page);

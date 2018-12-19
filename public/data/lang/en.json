@@ -477,7 +477,8 @@
         "totalCost": "Total cost",
         "yourBalance": "Your balance is",
         "terapist": "Terapist",
-        "price": "Price"
+        "price": "Price",
+        "check": "Check in blockchain explorer"
     },
 
     "account": {
