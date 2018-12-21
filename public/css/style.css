@@ -1566,3 +1566,7 @@ ul.cat-list li {
 .site-footer a.active{
      font-weight: bold;
 }
+
+#signUpInput.error {
+     border-color: #d9534f;
+}

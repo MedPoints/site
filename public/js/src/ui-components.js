@@ -30,15 +30,25 @@ repos($('.crop img'))
 function initializeEvents() {
     $('#signUpButton').click(function(){
         var value = $('#signUpInput').val();
+
+        if (!(/^[a-zA-Z0-9_\-\.]+@[a-zA-Zа-яА-Я0-9-]+\.[a-zA-Zа-яА-Я]+$/.test(value))){
+            $('#signUpInput').addClass('error');
+            return false;
+        }
+
         if (value){
             $.post('/subscribe',{email:value},function(success){
                 $('#signUpInput').val('');
-                alert('you have successfully signed up!')
+                showCustomErrorModal('Well done!','you have successfully signed up')
             });
         }
     });
+
+    $('#signUpInput').keyup(function(){
+        $('#signUpInput').removeClass('error');
+    });
+
     $('.list-funds').click(function(){
-        console.log("aaaa")
         showCustomErrorModal('We apologise','List funds under development');
     });
 }
