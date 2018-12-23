@@ -1570,3 +1570,7 @@ ul.cat-list li {
 #signUpInput.error {
      border-color: #d9534f;
 }
+
+.filter #btn-more {
+     float: right;
+}
