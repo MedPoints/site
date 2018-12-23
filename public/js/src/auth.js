@@ -22,6 +22,8 @@ $(function () {
         var supportLinkContainer = $('.support-tickets');
         var supportLink = supportLinkContainer.find('a');
         supportLink.attr('href', '/registration');
+    } else {
+        $('#joinInsuranceButton').attr('href','/account')
     }
 });
 

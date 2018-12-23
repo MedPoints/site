@@ -17,7 +17,7 @@ exports.prepareClinicData = (clinic, options) => {
     }
 
     if (options && options.search) {
-        clinic.name = higlight(clinic.name, options.search);
+       clinic.name = higlight(clinic.name, options.search);
     }
 
 
