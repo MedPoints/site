@@ -12,6 +12,10 @@ exports.prepareClinicData = (clinic, options) => {
         });
     }
 
+    if (!clinic.network) {
+        clinic.network = '-';
+    }
+
     if (options && options.search) {
         clinic.name = higlight(clinic.name, options.search);
     }
