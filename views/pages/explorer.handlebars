@@ -44,6 +44,7 @@
         <thead>
           <tr>
             <th translate="">{{localize req 'explorer.height'}}</th>
+            <th translate="">Date</th>
             <th translate="">{{localize req 'explorer.age'}}</th>
             <th class="text-right">
               {{localize req 'explorer.transactions'}}
@@ -55,6 +56,9 @@
             <tr>
               <td>
                 {{block.height}}
+              </td>
+              <td>
+                {{block.date}}
               </td>
               <td>
                 {{block.created}}
