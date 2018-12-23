@@ -1,4 +1,5 @@
 const qs = require('qs');
+const querystring = require('querystring');
 
 class QueryPersistant {
     constructor() {
@@ -14,12 +15,14 @@ class QueryPersistant {
                 for (let nestedParameter in nestedParametersObject) {
                     const nestedParameterString = `${parameter}[${nestedParameter}]`;
                     if (updatedUrl.indexOf(nestedParameterString) < 0) {
-                        updatedUrl += (this.isAppliedParameter(updatedUrl) ? '&' : '?') + encodeURI(`${nestedParameterString}=${parameters[parameter][nestedParameter]}`);
+                        const parameterValue = querystring.escape(parameters[parameter][nestedParameter]);
+                        updatedUrl += (this.isAppliedParameter(updatedUrl) ? '&' : '?') + encodeURI(`${nestedParameterString}=${parameterValue}`);
                     }
                 }
             } else {
                 if (updatedUrl.indexOf(parameter) < 0) {
-                    updatedUrl += (this.isAppliedParameter(updatedUrl) ? '&' : '?') + `${parameter}=${parameters[parameter]}`;
+                    const parameterValue = querystring.escape(parameters[parameter]);
+                    updatedUrl += (this.isAppliedParameter(updatedUrl) ? '&' : '?') + `${parameter}=${parameterValue}`;
                 }
             }
             
