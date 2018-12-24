@@ -81,6 +81,7 @@
 
         <thead>
           <tr>
+            <th>Date</th>
             <th>{{localize req 'explorer.hash'}}</th>
             {{!-- <th class="text-right" translate="">Value Out</th> --}}
           </tr>
@@ -88,6 +89,9 @@
         <tbody>
           {{#each transactions as |transaction|}}
           <tr>
+            <td>
+              {{transaction.formattedDate}}
+            </td>
             <td>
               {{transaction.Id}}
             </td>

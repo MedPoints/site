@@ -1,4 +1,5 @@
 const config = require('config');
+const moment = require('moment');
 const axios = require('axios');
 const { DataPager } = require('./../helpers/pager');
 const { prepareBlockData } = require('./../helpers/explorer');
@@ -16,7 +17,10 @@ exports.getBlocks = async (req, res) => {
 
     let transactions = [];
     if (chain && chain.length > 0) {
-        transactions = chain[chain.length - 1].Transactions;
+        transactions = chain[chain.length - 1].Transactions.map(t => {
+            return {...t,formattedDate: moment(t.Date).format('DD.MM.YYYY')}
+        })
+        console.log(transactions)
     }
     const localization = new Localization(req.cookies.locale);
     const dataPager = new DataPager(chain.reverse(), count, page);
