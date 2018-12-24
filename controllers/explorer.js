@@ -20,7 +20,6 @@ exports.getBlocks = async (req, res) => {
         transactions = chain[chain.length - 1].Transactions.map(t => {
             return {...t,formattedDate: moment(t.Date).format('DD.MM.YYYY')}
         })
-        console.log(transactions)
     }
     const localization = new Localization(req.cookies.locale);
     const dataPager = new DataPager(chain.reverse(), count, page);
