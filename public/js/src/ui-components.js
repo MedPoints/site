@@ -12,7 +12,9 @@ $(function() {
     initializeEvents();
     initializeDatepickers();
 
-    $('[data-toggle="tooltip"]').tooltip();
+    $('[data-toggle="tooltip"]').tooltip({
+        container: 'body',
+    });
     $('.gallery a.gallery-img').simpleLightbox();
 
     $("a.delete-parent").click(function(event) {

@@ -1361,7 +1361,6 @@ ul.cat-list li {
     padding-bottom:100%; 
     overflow:hidden;
     position:relative; 
-    float:left;
 }
 .crop img {
     position:absolute;
