@@ -1573,3 +1573,8 @@ ul.cat-list li {
 .filter #btn-more {
      float: right;
 }
+
+.participants {
+    display: block;
+    padding-bottom: 16px;
+}

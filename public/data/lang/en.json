@@ -291,6 +291,8 @@
     },
 
     "foundation": {
+        "participants": "<b>{num}</b> participants in the program",
+        "open": "{num} open cases", 
         "makeDonation": "Make donation to General fund",
         "points": "<small>Points from <strong>General fund</strong> serve for partial coverage in cases when required amount for the full treatment remains less then 10%, but the company's time has passed.</small>",
         "foundationText1": "<p>One of the most significant aspects of the MedPoints&#8482; system, we believe, is the functionality of a decentralized collection of funds to help seriously ill or needy people.</p><p>Cases requiring the collection of funds for treatment and / or emergency care can be added only by representatives of clinics and medical institutions.</p><p>Even if the necessary amount has not been achieved, all collected funds are sent to the account of the medical institution for the treatment of this particular case and the patient.</p><p>The MedPoints&#8482; system does not take a percentage of the fundraising, except standard payment required to conduct transactions within the system.</p>",
