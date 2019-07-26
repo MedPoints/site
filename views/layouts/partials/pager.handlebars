@@ -1,0 +1,30 @@
+{{#pagination pager }}
+<ul class="pagination">
+{{#unless startFromFirstPage}}
+    <li class="page-item">
+        <a class="page-link" href="{{#persistGetParameters ../this this 'previous'}}{{/persistGetParameters}}">&lt;</a>
+    </li>
+{{/unless}}
+
+{{#each pages}}
+    {{#if isCurrent}}
+        <li class="page-item active">
+            <span class="page-link">{{ page }}</span><span class="sr-only">(current)</span></span>
+        </li>
+    {{else if isDots}}
+        <li class="page-item"><span class="page-link">...</span></li>
+    {{else}}
+        <li class="page-item"><a class="page-link" href="{{#persistGetParameters ../../this this 'nth'}}{{/persistGetParameters}}">{{ page }}</a></li>
+    {{/if}}
+{{/each}}
+
+{{#unless endAtLastPage}}
+    <li class="page-item">
+        <a class="page-link" href="{{#persistGetParameters ../this this 'next'}}{{/persistGetParameters}}">&gt;</a>
+    </li>
+{{/unless}}
+    <li class="stick-right">
+        {{{totalText}}}
+    </li>
+</ul>
+{{/pagination}}

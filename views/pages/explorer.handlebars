@@ -1,0 +1,113 @@
+
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">{{localize req 'breadcrumbs.home'}}</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{localize req 'breadcrumbs.explorer'}}</li>
+    </ol>
+</nav>
+
+<div class="row">
+
+      {{!-- <div class="col-xl-4 push-xl-8 col-lg-12 push-lg-0">
+
+          <nav class="sticky-top">
+    
+      <form class="wave">
+      
+        <h3>Check transaction</h3>
+
+        <label for="transactionCode">Transaction code</label>
+        <input type="text" name="firstName" class="form-control" id="transactionCode" placeholder="Transaction code" required /> 
+  
+        <br />    
+
+        <p><button class="btn btn-primary justify">Check transaction status</button></p>    
+
+        <div>Transaction status <span class="text-success">Success</span></div>
+        confirmations 5/5     
+
+        </form>
+      <!--/.wave-->
+
+          </nav>
+    
+      </div> --}}
+      <!--/.col-->
+  
+      {{!-- <div class="col-xl-8 pull-xl-4 col-lg-12 pull-lg-0"> --}}
+      <div class="col-xl-12 col-lg-12">
+  
+    <h2>{{localize req 'explorer.latestBlocks'}}</h2>
+
+        <table class="table table-hover table-striped">
+        <thead>
+          <tr>
+            <th translate="">{{localize req 'explorer.height'}}</th>
+            <th translate="">Date</th>
+            <th translate="">{{localize req 'explorer.age'}}</th>
+            <th class="text-right">
+              {{localize req 'explorer.transactions'}}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each blocks as |block|}}
+            <tr>
+              <td>
+                {{block.height}}
+              </td>
+              <td>
+                {{block.date}}
+              </td>
+              <td>
+                {{block.created}}
+              </td>
+              <td class="text-right">{{block.transactionsCount}}</td>
+            </tr>
+          {{/each}}
+        </tbody>
+    </table>
+    
+    <br />
+
+    {{> pager pagerInfo }}
+    
+    <br />
+    
+    <h2>{{localize req 'explorer.latestTransactions'}}</h2>
+      
+    <table class="table table-hover table-striped">
+
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>{{localize req 'explorer.hash'}}</th>
+            {{!-- <th class="text-right" translate="">Value Out</th> --}}
+          </tr>
+        </thead>
+        <tbody>
+          {{#each transactions as |transaction|}}
+          <tr>
+            <td>
+              {{transaction.formattedDate}}
+            </td>
+            <td>
+              {{transaction.Id}}
+            </td>
+            {{!-- <td class="text-right">
+              0 MPT
+            </td> --}}
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>    
+    
+      <br />
+
+
+      </div>
+      <!--/.col--> 
+  
+  </div>
+  <!--/.row-->

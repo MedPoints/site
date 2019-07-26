@@ -1,0 +1,169 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="/">{{localize req 'breadcrumbs.home'}}</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">{{localize req 'breadcrumbs.pharmacies'}}</li>
+    </ol>
+</nav>
+<section class="bg-gray">
+
+    <form class="filter">
+        <div class="row">
+            <div class="col-sm-9">
+                <h3>{{localize req 'filters.location'}}</h3>
+                <label class="custom-control custom-radio">
+                    <input id="locationRadio1" name="filter[city]" value="home" type="radio" class="custom-control-input filter-item" {{#if (equals
+                        filter.city 'home') }}checked{{/if}}>
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description">{{localize req 'filters.yourCity'}}</span>
+                </label>
+                <label class="custom-control custom-radio">
+                    <input id="locationRadio2" name="filter[city]" value="worldwide" type="radio" class="custom-control-input filter-item" {{#if
+                        (equals filter.city 'worldwide') }}checked{{/if}}>
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description">{{localize req 'filters.worldwide'}}</span>
+                </label>
+            </div>
+            <!--/.col-->
+
+            <div class="col-sm-3">
+                {{!--
+                <button type="button" id="btn-more" class="btn btn-secondary collapsed filter-button" data-toggle="collapse"
+                    data-target="#moreFilters" aria-expanded="false">
+                    <i class="fas fa-angle-down"></i> {{localize req 'filters.more'}}</button> --}}
+            </div>
+            <!--/.col-->
+
+        </div>
+        <!--/.row-->
+
+        {{!--
+        <div class="collapse" id="moreFilters" aria-expanded="false" style="">
+
+            <hr>
+
+            <div class="row">
+                <div class="col-xl-3 col-md-6 col-sm-12">
+
+                    <h3>Sort by</h3>
+                    <label class="custom-control custom-radio">
+                        <input id="sortRadio1" name="filter[sort]" value="rating" type="radio" class="custom-control-input" {{#if (equals filter.sort
+                            'rating') }}checked{{/if}}>
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">By rating</span>
+                    </label>
+                    <label class="custom-control custom-radio">
+                        <input id="sortRadio1" name="filter[sort]" value="price" type="radio" class="custom-control-input" {{#if (equals filter.sort
+                            'price') }}checked{{/if}}>
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">By prices</span>
+                    </label>
+                </div>
+                <!--/.col-->
+                <div class="col-xl-3 col-md-6 col-sm-12">
+
+                    <h3>{{localize req 'filters.maxPrice'}}:
+                        <span id="maxPriceLabel">{{filter.maxPrice}}</span> MPT</h3>
+
+                    <input class="justify" type="range" min="0" max="100" id="maxPriceRange" name="filter[maxPrice]" value="{{filter.maxPrice}}">
+                    <script>
+                        var slider = document.getElementById("maxPriceRange");
+                        var output = document.getElementById("maxPriceLabel");
+                        output.innerHTML = slider.value;
+
+                        slider.oninput = function () {
+                            output.innerHTML = this.value;
+                        }
+                    </script>
+
+                </div>
+                <!--/.col-->
+            </div>
+            <!--/.row-->
+        </div> --}}
+        <!--/.collapse-->
+    </form>
+
+</section>
+
+<div class="row loadable-container" id="pharmaciesContent">
+    {{> pharmacies-partial}}
+</div>
+<!--/.row-->
+
+<script>
+    $('a[data-toggle="pill"]').on('shown.bs.tab', function (e) {
+        var target = $(e.target).attr("href") // activated tab
+        if (target === '#pills-2') {
+            initLocationsMap(); // google map init function
+        }
+    });
+
+    $(function () {
+        $('.filter-item').on('change', function (evt) {
+            evt.preventDefault();
+            loadPartialData({
+                showLoadingOverlay: true,
+                containerId: '#pharmaciesContent',
+                loadUrl: prepareLoadUrl('/pharmacies/partial'),
+                callbackStart: function () {
+                    history.replaceState(null, null, '/pharmacies?' + getFilterQueryString())
+                },
+                callbackEnd: function () {
+                    initLocationsMap();
+                }
+            })
+        });
+    });
+
+    function initLocationsMap() {
+        var center = avgCoordinates || {
+            lat: 39.529,
+            lng: -101.369
+        };
+
+        if (locations.length === 1) {
+            center.lat = locations[0].coordinations.lat;
+            center.lng = locations[0].coordinations.lon;
+        }
+        var map = new google.maps.Map(
+            document.getElementById('map'), {
+                center: center,
+                zoom: 3
+            }
+        );
+        var infowindow = new google.maps.InfoWindow({
+            content: ''
+        });
+
+        for (var i = 0, length = locations.length; i < length; i++) {
+            var hospital = locations[i];
+            var marker = new google.maps.Marker({
+                position: {
+                    lat: hospital.coordinations.lat,
+                    lng: hospital.coordinations.lon
+                },
+                title: hospital.name,
+                map: map,
+            });
+
+            google.maps.event.addListener(marker, 'click', (function (marker, content, infowindow) {
+                return function () {
+                    infowindow.setContent(content);
+                    infowindow.open(map, marker);
+                };
+            })(marker, getInfoWindowContent(hospital), infowindow));
+        }
+    }
+
+    function getInfoWindowContent(pharmacy) {
+        return '<div class="info-window">' +
+            '<h5>' + (pharmacy.name || '') + '</h5>' +
+            '<i>' + (pharmacy.address || '') + '</i><br/>' +
+            '<a href="/pharmacies/' + pharmacy.id.toString() + '">View Pharmacy</a>'
+        '</div>';
+    }
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA839hvZlHkWX80W6YRTuv3C7HToNVZhwc&callback=initLocationsMap">
+</script>

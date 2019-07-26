@@ -1,0 +1,267 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">{{localize req 'breadcrumbs.home'}}</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{localize req 'breadcrumbs.account'}}</li>
+    </ol>
+</nav>
+
+<div class="row">
+
+    <div class="col-xl-3 push-xl-9 col-lg-4 push-lg-8 col-md-5 push-md-7 col-sm-12 push-sm-0">
+        <nav class="sticky-top">
+
+            <div class="account-menu">
+
+                <ul class="list-group">
+                    <li class="list-group-item active">
+                        <a href="/account">{{localize req 'account.sidebar.appointments'}} <span class="badge">{{appointmentsCount}}</span></a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/account/records">{{localize req 'account.sidebar.records'}} <span class="badge">{{recordsCount}}</span></a>
+                        <ul>
+                            <li><a href="javascript:void(0)" data-toggle="modal" data-target="#chooseDoctor"><i class="fas fa-plus-circle"></i> {{localize req 'account.sidebar.addRecord'}}</a></li>
+                        </ul>
+                    </li>
+                    <li class="list-group-item">
+						<a href="#" data-toggle="modal" data-target="#sorry"><b>MPT</b> = 120
+							<span class="badge">+ 0</span>
+						</a>
+						<ul>
+							<li>
+								<a href="#" data-toggle="modal" data-target="#sorry">
+									<i class="fas fa-plus-circle"></i> {{localize req 'account.sidebar.addBalance'}}</a>
+							</li>
+						</ul>
+					</li>
+                    <li class="list-group-item">
+                        <a href="/account/favorites">Favorites</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/account-tickets">{{localize req 'account.sidebar.support'}}
+                        <span class="badge">{{ticketsCount}}</span>
+                        </a>
+                        <ul>
+                            <li><a href="/add-ticket"><i class="fas fa-plus-circle"></i> {{localize req 'account.sidebar.addTicket'}}</a></li>
+                        </ul>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/account/edit"><i class="fas fa-cog"></i> {{localize req 'account.sidebar.editProfile'}}</a>
+                    </li>
+                </ul>
+
+            </div>
+            <!--/.account-menu-->
+        </nav>
+    </div>
+    <!--/.col-->
+
+    <div class="col-xl-9 pull-xl-3 col-lg-8 pull-lg-4 col-md-7 pull-md-5 col-sm-12 pull-sm-0">
+        {{#if transactions}}
+        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-1" role="tab"
+                    aria-controls="pills-1" aria-selected="true"><i class="fas fa-list"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-2" role="tab" aria-controls="pills-2"
+                    aria-selected="false"><i class="far fa-calendar-alt"></i></a>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-1" role="tabpanel" aria-labelledby="pills-home-tab">
+                <ul class="items-list">
+
+                    {{#each transactions as |transaction|}}
+                    <li>
+                        <h3>{{transaction.Date}} <a href="/clinics/{{transaction.ClinicInfo.id}}">{{transaction.ClinicInfo.name}}</a>
+                            <small>Public</small>
+                            {{!-- <a class="btn-bell1 float-right"><i class="fas fa-bell text-success"></i></a> --}}
+                        </h3>
+                        <p>
+                            <a href="https://www.google.com/maps/embed/place?key=1&q={{transaction.ClinicInfo.location.address}}" data-name="{{transaction.ClinicInfo.name}}" class="map-toggle">
+                                {{transaction.ClinicInfo.location.address}}
+                            </a>
+                        </p>
+                        <ul class="stiled-list">
+                            <li>
+                                <h4>{{transaction.ServiceInfo.name}}</h4>
+                                {{!-- <div>at 8:00 AM office 22</div> --}}
+                                <div>Terapist <a href="/doctors/{{transaction.DoctorInfo.id}}">{{transaction.DoctorInfo.name}}</a></div>
+                            </li>
+                        </ul>
+                        {{!-- <p>Total cost <strong>3 MPT</strong></p> --}}
+                        <div class="card">
+                            <ul>
+                                <li>Transaction code <span id="transactionId" class="breakable">{{transaction.Id}}</span></li>
+                                <li><a class="copy-link btn-copy1" onclick="copyToClipboard($('#transactionId'))"><i class="far fa-copy"></i>
+                                        {{localize ../req 'common.copy'}}</a> / <a href="#" data-toggle="modal" data-target="#sorry">{{localize ../req 'booking.check'}}</a></li>
+                                <li>Transaction status <span class="text-info">In progress</span></li>
+                            </ul>
+                        </div>
+                        <!--/.card-->
+
+                    </li>
+                    {{/each}}
+
+                    {{!-- <li>
+
+                        <h3>2018-03-02 <a href="/clinic">General Hospital</a> <small>Public</small><a class="btn-bell2 float-right"><i
+                                    class="fas fa-bell text-success"></i></a></h3>
+                        <p>462 First Avenue, <a href="/clinics">New York</a>, <a href="/clinics">NY</a>, <a href="/clinics">United
+                                States</a><br /><a class="btn-map" href="#" data-toggle="collapse" data-target="#showMap"><i
+                                    class="fas fa-map-marker"></i> Show on map</a>
+                            <div class="collapse" id="showMap">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d84016.36429915384!2d2.161754161251458!3d48.848458114630624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e0!4m0!4m5!1s0x47e67031f8c20147%3A0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris%2C+3+Avenue+Victoria%2C+75004+Paris%2C+Francia!3m2!1d48.856836099999995!2d2.3504327!5e0!3m2!1sen!2sru!4v1517149847463"
+                                    width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                            </div>
+                            <!--/.collapse-->
+                        </p>
+                        <ul class="stiled-list">
+                            <li>
+                                <h4>First axamination</h4>
+                                <div>at 8:00 AM office 22</div>
+                                <div>Terapist <a href="/doctor">Smith John</a></div>
+                                <p>Price <strong>1 MPT</strong></p>
+                            </li>
+                            <li>
+                                <h4>Blood check</h4>
+                                <div>at 8:30 AM office 144A</div>
+                                <p>Price <strong>1 MPT</strong></p>
+                            </li>
+                            <li>
+                                <h4>Radiology check</h4>
+                                <div>at 9:00 AM office 55D</div>
+                                <p>Price <strong>1 MPT</strong></p>
+                            </li>
+                        </ul>
+                        <p>Total cost <strong>3 MPT</strong></p>
+                        <div class="card">
+                            <ul>
+                                <li>Transaction code <span id="transactionId">Ghhhsbb$hfhjaj77ghsFGGDa91PPvDa</span></li>
+                                <li><a class="copy-link btn-copy1" onclick="copyToClipboard('#transactionId')"><i class="far fa-copy"></i>
+                                        {{localize req 'common.copy'}}</a> / <a href="#" data-toggle="modal" data-target="#sorry">Check in
+                                        blockchain explorer</a></li>
+                                <li>Transaction status <span class="text-info">In progress</span> <small class="float-right">confirmations
+                                        2/5</small></li>
+                            </ul>
+                        </div>
+                        <!--/.card-->
+
+                    </li> --}}
+
+                </ul>
+                <!--/.-->
+
+                <div class="row pagination-line">
+                    <div class="col">
+                        {{> pager pagerInfo }}
+                    </div>
+                    <!--/.col-->
+                </div>
+                <!--/.row-->
+
+            </div>
+            <!--/.tab-pane-->
+            <div class="tab-pane fade" id="pills-2" role="tabpane2" aria-labelledby="pills-profile-tab">
+               <div id="my-calendar"></div>
+                <!-- Сalendar -->
+                <script src='/js/src/calendar.js'></script>
+                <script type="application/javascript">
+                    $(document).ready(function () {
+                        var calendarData = {{{jsonify appointmentsData}}};
+                        $("#my-calendar").zabuto_calendar({
+                            data: calendarData,
+                            modal: true,
+                            action: function () {
+                                var date = this.title;
+                                if (!date) {
+                                    return;
+                                } 
+
+                                var item = {};
+                                for (var i = 0, length = calendarData.length; i < length; i++) {
+                                    if (calendarData[i].date === date) {
+                                        item = calendarData[i];
+                                        break;
+                                    }
+                                }
+
+                                $('#calendarDetilsTitle').html(item.title);
+                                $('#calendarDetilsBody').html(item.body);
+                                $('#calendarDetils').modal('show');
+                            },
+                        });
+                    });
+                </script>
+
+            </div>
+            <!--/.tab-pane-->
+        </div>
+        <!--/.tab-content-->
+        {{else}}
+            <h2>{{localize req 'account.noAppointments'}}</h2>
+        {{/if}}
+        <hr />
+
+        {{!-- <h3>Not closed issues</h3>
+        <p>You have left unclosed contracts, we advise you to contact a specialist.</p>
+
+        <ul class="bodies row">
+
+            <li class="col-xl-2 col-lg-4 col-md-6 col-sm-12">
+                <img src="img/organs/men-1.svg" alt="" />
+                <h5>Hair and Skin</h5>
+                <ul>
+                    <li class="text-warning"><i class="fas fa-info-circle"></i> Rash</li>
+                </ul>
+            </li>
+            <!--/.col-->
+
+            <li class="col-xl-2 col-lg-4 col-md-6 col-sm-12">
+                <img src="img/organs/men-2.svg" alt="" />
+                <h5>Skeleton and Teeth</h5>
+            </li>
+            <!--/.col-->
+
+            <li class="col-xl-2 col-lg-4 col-md-6 col-sm-12">
+                <img src="img/organs/men-3.svg" alt="" />
+                <h5>Muscles and Tendons</h5>
+            </li>
+            <!--/.col-->
+
+            <li class="col-xl-2 col-lg-4 col-md-6 col-sm-12">
+                <img src="img/organs/men-4.svg" alt="" />
+                <h5>Heart and circulatory</h5>
+                <ul>
+                    <li class="text-success"><i class="fas fa-info-circle"></i> Blood test</li>
+                </ul>
+            </li>
+            <!--/.col-->
+
+            <li class="col-xl-2 col-lg-4 col-md-6 col-sm-12">
+                <img src="img/organs/men-5.svg" alt="" />
+                <h5>Nervous system</h5>
+            </li>
+            <!--/.col-->
+
+            <li class="col-xl-2 col-lg-4 col-md-6 col-sm-12">
+                <img src="img/organs/men-6.svg" alt="" />
+                <h5>Internal organs</h5>
+                <ul>
+                    <li class="text-danger"><i class="fas fa-exclamation-circle"></i> Examination of the liver</li>
+                </ul>
+            </li>
+            <!--/.col-->
+
+        </ul> --}}
+        <!--/.bodies /.row-->
+
+    </div>
+    <!--/.col-->
+</div>
+<!--/.row-->
+
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA839hvZlHkWX80W6YRTuv3C7HToNVZhwc">
+</script>

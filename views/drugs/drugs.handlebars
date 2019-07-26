@@ -1,0 +1,100 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">{{localize req 'breadcrumbs.home'}}</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{localize req 'breadcrumbs.drugs'}}</li>
+    </ol>
+</nav>
+
+<section class="bg-gray">
+
+    <form class="filter">
+        <div class="row">
+            <div class="col-sm-9">
+                <label class="custom-control custom-checkbox">
+                    <input type="checkbox" name="filter[prescription]" value="off" class="custom-control-input filter-item" {{#if filter.prescription }}checked{{/if}}>
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description">{{localize req 'filters.prescription'}}</span>
+                </label>
+                <label class="custom-control custom-checkbox">
+                    <input type="checkbox" name="filter[insurance]" value="on" class="custom-control-input filter-item" {{#if filter.insurance }}checked{{/if}}>
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description">{{localize req 'filters.covered'}}</span>
+                </label>
+            </div>
+            <!--/.col-->
+            <div class="col-sm-3">
+                <button type="button" id="btn-more" class="btn btn-secondary collapsed filter-button" data-toggle="collapse" data-target="#moreFilters" aria-expanded="false"><i class="fas fa-angle-down"></i> {{localize req 'filters.more'}}</button>
+            </div>
+            <!--/.col-->
+        </div>
+        <!--/.row-->
+
+        <div class="collapse" id="moreFilters" aria-expanded="false" style="">
+            <hr>
+            <div class="row">
+                <div class="col-xl-6 col-md-6 col-sm-12">
+
+                    <h3>{{localize req 'filters.location'}}</h3>
+                    <label class="custom-control custom-radio">
+                        <input id="locationRadio1" name="filter[city]" value="home" type="radio" class="custom-control-input filter-item" {{#if (equals filter.city 'home') }}checked{{/if}}>
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">{{localize req 'filters.yourCity'}}</span>
+                    </label>
+                    <label class="custom-control custom-radio">
+                        <input id="locationRadio2" name="filter[city]" value="worldwide" type="radio" class="custom-control-input filter-item" {{#if (equals filter.city 'worldwide') }}checked{{/if}}>
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">{{localize req 'filters.worldwide'}}</span>
+                    </label>
+                </div>
+                <!--/.col-->
+
+                <div class="col-xl-6 col-md-6 col-sm-12">
+
+                    <h3>{{localize req 'filters.maxPrice'}}: <span id="maxPriceLabel">{{filter.maxPrice}}</span> MPT</h3>
+
+                    <input class="justify filter-item" type="range" min="0" max="500" id="maxPriceRange" name="filter[maxPrice]"
+                        value="{{filter.maxPrice}}">
+                    <script>
+                        var slider = document.getElementById("maxPriceRange");
+                        var output = document.getElementById("maxPriceLabel");
+                        output.innerHTML = slider.value;
+
+                        slider.oninput = function () {
+                            output.innerHTML = this.value;
+                        }
+                    </script>
+
+
+                </div>
+                <!--/.col-->
+            </div>
+            <!--/.row-->
+        </div>
+        <!--/.collapse-->
+
+    </form>
+
+</section>
+
+<div class="row loadable-container" id="drugsContent">
+    {{> drugs-partial}}
+</div>
+<!--/.row-->
+
+<script type="text/javascript">
+    $(function () {
+        $('.filter-item').on('change', function (evt) {
+            evt.preventDefault();
+            loadPartialData({
+                showLoadingOverlay: true,
+                containerId: '#drugsContent',
+                loadUrl: prepareLoadUrl('/drugs/partial'),
+                callbackStart: function () {
+                    history.replaceState(null, null, '/drugs?' + getFilterQueryString())
+                },
+                callbackEnd: function () {
+                }
+            })
+        });
+    });
+</script>

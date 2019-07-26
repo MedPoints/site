@@ -1,0 +1,33 @@
+<?php define( '_ACCESS', 1 ); ?>
+
+<?php 
+
+    $pageName = "error-403"; // имя страницы + класс страницы
+    $page_title = "403 Forbidden"; // тайтл страницы
+    $page_description = "403 Forbidden"; // Описание страницы
+    $page_keywords = "403 Forbidden"; // ключевые слова
+
+?>
+
+<?php include($_SERVER["DOCUMENT_ROOT"]."/inc/header.php"); ?>
+ 
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">{{localize req 'breadcrumbs.home'}}</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><?=$page_title?></li>
+        </ol>
+    </nav>
+
+	<div class="row">
+
+    	<div class="col">
+
+        	<h2>403 Forbidden</h2>
+ 
+    	</div>
+    	<!--/.col-->
+
+	</div>
+	<!--/.row-->
+
+<?php include($_SERVER["DOCUMENT_ROOT"]."/inc/footer.php"); ?>

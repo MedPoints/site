@@ -1,0 +1,144 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="/">{{localize req 'breadcrumbs.home'}}</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="/account">{{localize req 'breadcrumbs.account'}}</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">{{localize req 'breadcrumbs.accountRecords'}}</li>
+    </ol>
+</nav>
+
+<div class="row continer-wrapper">
+
+	<div class="col-xl-3 push-xl-9 col-lg-4 push-lg-8 col-md-5 push-md-7 col-sm-12 push-sm-0">
+		<nav class="sticky-top">
+			<div class="account-menu">
+
+				<ul class="list-group">
+					<li class="list-group-item">
+						<a href="/account">{{localize req 'account.sidebar.appointments'}} <span class="badge">{{appointmentsCount}}</span></a>
+					</li>
+					<li class="list-group-item active">
+						<a href="/account/records">{{localize req 'account.sidebar.records'}}
+							<span class="badge">{{recordsCount}}</span>
+						</a>
+						<ul>
+							<li>
+								<a href="javascript:void(0)" data-toggle="modal" data-target="#chooseDoctor">
+									<i class="fas fa-plus-circle"></i> {{localize req 'account.sidebar.addRecord'}}</a>
+							</li>
+						</ul>
+					</li>
+                    <li class="list-group-item">
+						<a href="#" data-toggle="modal" data-target="#sorry"><b>MPT</b> = 120
+							<span class="badge">+ 0</span>
+						</a>
+						<ul>
+							<li>
+								<a href="#" data-toggle="modal" data-target="#sorry">
+									<i class="fas fa-plus-circle"></i> {{localize req 'account.sidebar.addBalance'}}</a>
+							</li>
+						</ul>
+					</li>
+					<li class="list-group-item">
+						<a href="/account/favorites">Favorites</a>
+					</li>
+					<li class="list-group-item">
+						<a href="/account-tickets">{{localize req 'account.sidebar.support'}}
+                        <span class="badge">{{ticketsCount}}</span>
+                        
+						</a>
+						<ul>
+							<li>
+								<a href="/add-ticket">
+									<i class="fas fa-plus-circle"></i> {{localize req 'account.sidebar.addTicket'}}</a>
+							</li>
+						</ul>
+					</li>
+					<li class="list-group-item">
+						<a href="/account/edit">
+							<i class="fas fa-cog"></i> {{localize req 'account.sidebar.editProfile'}}</a>
+					</li>
+				</ul>
+
+			</div>
+			<!--/.account-menu-->
+		</nav>
+	</div>
+	<!--/.col-->
+
+	<div class="col-xl-9 pull-xl-3 col-lg-8 pull-lg-4 col-md-7 pull-md-5 col-sm-12 pull-sm-0">
+        {{#if transactions}}
+        <ul class="items-list">
+
+            {{#each transactions as |transaction|}}
+            <li>
+                <h3>{{transaction.Date}}
+                    <a href="/clinics/{{transaction.ClinicInfo.id}}">{{transaction.ClinicInfo.name}}</a>
+                    <small>Public</small>
+                    {{!--
+                    <a class="btn-bell1 float-right">
+                        <i class="fas fa-bell text-success"></i>
+                    </a> --}}
+                </h3>
+                <p>
+                    <a href="https://www.google.com/maps/embed/place?key=1&q={{transaction.ClinicInfo.location.address}}" data-name="{{transaction.ClinicInfo.name}}"
+                        class="map-toggle">
+                        {{transaction.ClinicInfo.location.address}}
+                    </a>
+                </p>
+                <ul class="stiled-list">
+                    <li>
+                        <h4>{{transaction.ServiceInfo.name}}</h4>
+                        {{!--
+                        <div>at 8:00 AM office 22</div> --}}
+                        <div>Terapist
+                            <a href="/doctors/{{transaction.DoctorInfo.id}}">{{transaction.DoctorInfo.name}}</a>
+                        </div>
+                    </li>
+                </ul>
+                {{!--
+                <p>Total cost
+                    <strong>3 MPT</strong>
+                </p> --}}
+                <div class="card">
+                    <ul>
+                        <li>Transaction code
+                            <span id="transactionId" class="breakable">{{transaction.Id}}</span>
+                        </li>
+                        <li>
+                            <a class="copy-link btn-copy1" onclick="copyToClipboard($('#transactionId'))">
+                                <i class="far fa-copy"></i>
+                                {{localize req 'common.copy'}}</a> /
+                            <a href="#" data-toggle="modal" data-target="#sorry">Check in blockchain explorer</a>
+                        </li>
+                        <li>Transaction status
+                            <span class="text-info">In progress</span>
+                        </li>
+                    </ul>
+                </div>
+                <!--/.card-->
+
+            </li>
+            {{/each}}
+
+        </ul>
+        <!--/.-->
+
+        <div class="row pagination-line">
+            <div class="col">
+                {{> pager pagerInfo }}
+            </div>
+            <!--/.col-->
+        </div>
+        <!--/.row-->
+        {{else}}
+            <h2>{{localize req 'account.noRecords'}}</h2>
+        {{/if}}
+	</div>
+	<!--/.col-->
+</div>
+<!--/.row-->
+

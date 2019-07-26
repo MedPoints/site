@@ -1,0 +1,183 @@
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">{{localize req 'breadcrumbs.home'}}</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{localize req 'breadcrumbs.bookAVisit'}}</li>
+    </ol>
+</nav>
+
+<form >
+
+    <div class="row">
+
+        <div class="col-xl-4 col-lg-4 col-md-12">
+
+            <nav class="sticky-top">
+
+                <div class="wave booking-details" id="bookingDetails">
+                    <h3>{{localize req 'booking.selectServiceAndDate'}}</h3>
+                </div>
+                <!--/.wave-->
+
+            </nav>
+
+        </div>
+        <!--/.col-->
+
+        <div class="col-xl-8 col-lg-8 col-md-12">
+        {{!-- <div class="col-xl-12 col-lg-12 col-md-12"> --}}
+            <div class="unregistered-block" style="{{#if isRegistered}}display:none;{{/if}}">
+                <div class="unregistered-item">
+                    <h2>{{{localize req 'existingCustomer'}}}</h2>
+
+                    <br />
+                    <div class="alert alert-info" role="alert">
+                        {{{localize req 'welcome'}}}
+                    </div>
+                </div>
+                
+
+                <div class="form-group">
+                    <label for="walletId">{{localize req 'popups.walletDetails.walletId'}}</label>
+                    <input type="text" class="form-control" id="bookingWalletId" value="" disabled="disabled" />
+                    <a class="copy-link btn-copy1" onclick="copyToClipboard($('#bookingWalletId'))">{{localize req 'common.copy'}}</a>
+                </div>
+                <div class="form-group">
+                    <label for="walletKey">{{localize req 'popups.walletDetails.walletKey'}}</label>
+                    <input type="text" class="form-control" id="bookingWalletKey" value="" disabled="disabled" />
+                    <a class="copy-link btn-copy1" onclick="copyToClipboard($('#bookingWalletKey'))">{{localize req 'common.copy'}}</a>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <label for="firstName">{{localize req 'booking.form.firstName'}}</label>
+                        <input type="text" name="firstName" class="form-control" id="firstName" placeholder="{{localize req 'booking.form.firstName'}}" required />
+                    </div>
+                    <!--/.col-->
+                    <div class="col-6">
+                        <label for="lastName">{{localize req 'booking.form.lastName'}}</label>
+                        <input type="text" name="lastName" class="form-control" id="lastName" placeholder="{{localize req 'booking.form.lastName'}}" required />
+                    </div>
+                    <!--/.col--> 
+                </div>
+                <!--/.row-->
+                
+                <br />
+            </div>
+            
+
+            <div class="row">
+                <div class="col-6"> 
+                    
+                    <label>{{localize req 'booking.form.sex'}}</label><br />
+
+                    <label class="custom-control custom-radio">
+                        <input id="radio2" name="radio" type="radio" class="custom-control-input" checked="checked">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">{{localize req 'booking.form.sexTypes.male'}}</span>
+                    </label>
+                    <label class="custom-control custom-radio">
+                        <input id="radio3" name="radio" type="radio" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">{{localize req 'booking.form.sexTypes.female'}}</span>
+                    </label> 
+                    
+                </div>
+                <!--/.col-->
+                <div class="col-6"> 
+                    
+                    <label>{{localize req 'booking.form.dateOfBirth'}}</label>
+                    <input class="form-control" type="date" value="2011-08-19" id="dateOfBirth">
+                    
+                </div>
+                <!--/.col-->
+            </div>
+            <!--/.row-->
+
+            <br />
+
+            <hr />
+            
+            <h3>{{localize req 'booking.form.selectServiceAndClinic'}}</h3>
+                    
+            <div class="row booking-editors"> 
+            
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 details-container">
+                    <div class="form-group">
+                        <label for="serviceId">{{localize req 'booking.form.service'}}:</label><br />
+                        <select id="serviceId" name="service" class="booking-control booking-dropdown custom-select">
+                        </select>
+                    </div>
+                </div>
+                {{!-- <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 details-container">
+                    <div class="form-group">
+                        <label>{{localize req 'booking.form.bookingDate'}}</label><br />
+                        <input class="form-control booking-control" type="date" id="bookingDate" required>
+                    </div>
+                </div> --}}
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 details-container">
+                    <div class="form-group">
+                        <label>{{localize req 'booking.form.bookingTime'}}</label><br />
+                        <input id="bookingDate" type="text" />
+                        <!-- <input class="form-control booking-control" type="date" id="bookingTime" required> -->
+                    </div>
+                </div>
+                {{!-- <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 details-container">
+                    <div class="form-group">
+                        <label for="clinicId">{{localize req 'booking.form.clinic'}}:</label><br />
+                        <select id="clinicId" name="clinic" class="booking-control booking-dropdown custom-select">
+                        </select>
+                    </div>
+                </div> --}}
+                
+            </div> 
+            <input type="hidden" id="doctorId" name="doctorId" value={{doctorId}} />
+            <input type="hidden" id="clinicId" name="clinicId" value={{clinicId}} />
+            <hr />
+            
+            <h3>{{localize req 'booking.form.addAnEmail'}}</h3>
+                    
+            <div class="row"> 
+            
+                <div class="col-6">
+                    <label for="email">{{localize req 'booking.form.email'}}</label>
+                    <input type="text" name="email" class="form-control" id="email" placeholder="Email" />
+                </div>
+                <div class="col-6">
+                    <label for="email">{{localize req 'booking.form.confirmEmail'}}</label>
+                    <input type="text" name="confirmEmail" class="form-control" id="confirmEmail" placeholder="Confirm Email" />
+                </div>
+                <!--/.col-->
+                
+            </div>
+            <!--/.row--> 
+
+            <br />
+
+            <label class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" checked="checked">
+                <span class="custom-control-indicator"></span>
+                <span class="custom-control-description">{{localize req 'booking.form.acceptTermsOfUse'}}</span>
+            </label> {{{localize req 'booking.form.termsOfUse'}}}
+
+            <hr />
+            
+            <div class="row">
+                <div class="col">
+                    <button type="button" class="btn btn-primary justify" id="bookingButton">{{localize req 'booking.form.confirmBooking'}}</button>
+                    <br />
+                </div>
+                <!--/.col--> 
+            </div>
+            <!--/.row-->
+
+        </div>
+        <!--/.col-->
+    </div>
+    <!--/.row-->
+
+</form>
+
+<script src="/js/src/auth.js"></script>
+<script src="/js/src/registration.js"></script>
+<script src="/js/src/booking.js"></script>

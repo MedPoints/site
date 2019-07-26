@@ -1,0 +1,121 @@
+
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">{{localize req 'breadcrumbs.home'}}</a></li>
+            <li class="breadcrumb-item"><a href="/drugs">{{localize req 'breadcrumbs.drugs'}}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ drug.name }}</li>
+        </ol>
+    </nav>
+	
+	<div class="row">
+        <div class="col-xl-6 col-lg-8 col-md-12 col-sm-12">
+            <div class="row">
+                <div class="col">
+
+                    <img src="/img/_demo/drug1.jpg" alt="" class="img-thumbnail float-left">
+
+                    <div>{{localize req 'drug.group'}} <a href="/drugs/?group={{ drug.group.id }}">{{ drug.group.name }}</a></div>
+                    <div>{{localize req 'common.fromPriceFull'}} <strong class="text-dark">${{ drug.price.dollars }}</strong> <strong class="text-success">{{ drug.price.mpts }} MPT</strong></div>
+
+                    <hr />
+
+                    <div>
+                        {{{ drug.full_descr }}}
+                    </div>
+                </div>
+                <!--/.col-->
+            </div>
+            <!--/.row-->
+
+        </div>
+        <!--/.col-->
+        <div class="col-xl-6 col-lg-4 col-md-12 col-sm-12">
+
+            <nav class="sticky-top">
+
+                <div class="row">
+                    <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
+
+                        <div class="wave text-center">
+                            <p>{{localize req 'drug.available'}}</p>
+                            <a class="btn btn-primary btn-lg justify" href="/pharmacies?drugId={{drug.id}}"><strong>{{ drug.providers.pharmacies }}</strong> {{localize req 'ratings.items.pharmacies'}}</a>
+                        </div>
+                        <!--/.wave-->
+						
+                    </div>
+                    <!--/.col-->
+                    <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
+						<div class="map hidden-lg-down" style="height: 300px">
+            			</div><!--/.map-->
+						<div class="hidden-xl-up"><br /><a class="btn-map" href="#" data-toggle="collapse" data-target="#showMap"><i class="fas fa-map-marker"></i> {{localize req 'common.showOnMap'}}</a>
+							<div class="map" style="height: 300px"></div>
+                            <script>
+                                var providers = {{{jsonify providersLocations}}};
+                                function initLocationMap() {
+                                    $('.map').each(function (_, el) {
+                                        var center = {lat: 0, lng: 0};
+                                        if (providers.length > 0) {
+                                            center.lat = providers[0].coordinations.lat;
+                                            center.lng = providers[0].coordinations.lon;
+                                        } else { 
+                                            $(el).hide()
+                                            return; 
+                                        }
+                                        var map = new google.maps.Map(
+                                            el,
+                                            {center: center, zoom: 3}
+                                        );
+
+                                        
+                                        var infowindow = new google.maps.InfoWindow({
+                                            content: ''
+                                        });
+
+
+                                        for (var i = 0, length = providers.length; i < length; i++) {
+                                            var provider = providers[i];
+                                            var marker = new google.maps.Marker({
+                                                position: {lat: provider.coordinations.lat, lng: provider.coordinations.lon}, 
+                                                title: provider.name,
+                                                map: map,
+                                            });
+
+                                            google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow){ 
+                                                return function() {
+                                                    infowindow.setContent(content);
+                                                    infowindow.open(map, marker);
+                                                };
+                                            })(marker, getInfoWindowContent(provider), infowindow));  
+                                        }    
+                                    })
+                                    
+                                }
+
+                                function getInfoWindowContent(provider) {
+                                    return '<div class="info-window">' + 
+                                    '<h5>' + (provider.name || '') + '</h5>' +
+                                    '<i>' + (provider.location.address || '') + '</i><br/>' +
+                                    '<a href="/pharmacies/' + provider.id.toString() + '">View Pharmacy</a>' 
+                                    '</div>';
+                                }
+                            </script>
+                            <script async defer
+                                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA839hvZlHkWX80W6YRTuv3C7HToNVZhwc&callback=initLocationMap">
+                            </script>
+						</div>
+                    </div>
+                    <!--/.col-->
+                </div>
+                <!--/.row-->
+ 
+            </nav>
+ 
+        </div>
+        <!--/.col-->
+    </div>
+    <!--/.row-->
+	
+	<br />
+    <!--/.row-->
+ 

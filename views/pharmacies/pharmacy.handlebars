@@ -1,0 +1,232 @@
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">{{localize req 'breadcrumbs.home'}}</a></li>
+            <li class="breadcrumb-item"><a href="/pharmacies">{{localize req 'breadcrumbs.pharmacies'}}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ pharmacy.name }}</li>
+        </ol>
+    </nav>
+ 
+    <div class="row">
+        <div class="col-xl-6 col-md-12">
+            <div class="row">
+                <div class="col-xl-4 col-md-12">
+                    <div class="avatar crop">
+                        <img src="{{pharmacy.photos}}" alt="The clinic photo"
+                             onerror="this.onerror=null;this.src='/img/logo_stub.svg';this.style.width='100px';" />
+                    </div>
+                </div>
+                <div class="col-xl-8 col-md-12">
+                    <p>
+                        <a href="https://www.google.com/maps/embed/place?key=1&q={{pharmacy.location.address}}" data-name="{{ pharmacy.name }}" class="map-toggle">
+                            {{pharmacy.location.address}}
+                        </a>
+                    </p>
+                    <div class="row">
+                        <div class="col">
+							<div class="card">
+                               <ul>
+									{{#each pharmacy.work_time as |work_time|}}
+                                    <li><small>{{ work_time.weekdays }}:</small> <br />{{ work_time.time }}</li>
+                                    {{/each}}
+                               </ul>
+							</div><!--/.card-->
+                        </div>
+                        <!--/.col-->
+                        <div class="col"> 
+                            <div class="" data-toggle="tooltip" data-placement="top" title="" data-original-title="Available with bus routes"><i class="fas fa-bus"></i> Bus route</div>
+                            <div class="" data-toggle="tooltip" data-placement="top" title="" data-original-title="Has free parking"><i class="fas fa-car"></i> Free parking</div>
+                        </div>
+                        <!--/.col-->
+                    </div>
+                    <!--/.row-->
+                </div>
+                <!--/.col-->
+            </div>
+            <!--/.row-->
+
+            <hr />
+
+            <p>{{ pharmacy.short_descr }}</p>
+
+            <div class="table-responsive">
+                <table summary="" class="table table-hover">
+                    <tbody>
+                        <tr>
+                            <td><strong>{{localize req 'pharmacy.details.network'}}</strong></td>
+                            <td>{{pharmacy.network}}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>{{localize req 'pharmacy.details.site'}}</strong></td>
+                            <td><a href="{{pharmacy.site}}">{{localize req 'pharmacy.details.goToSite'}}</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!--/.table-responsive-->
+
+
+            <h3>{{localize req 'pharmacy.details.gallery'}}</h3>
+
+            <div class="gallery">
+                <ul class="owl-carousel owl-theme">
+                    {{#each pharmacy.photos as |photoLink|}}
+                        <li class="item"><a class="gallery-img" href="{{photoLink}}"><img src="{{photoLink}}"/></a></li>
+                    {{/each}}
+                </ul>
+            </div>
+
+
+        </div>
+        <!--/.col-->
+        <div class="col-xl-6 col-md-12">
+
+            <nav class="sticky-top">
+
+                <div class="row">
+				
+                    <div class="col-xl-6 col-lg-12">
+                        <div class="wave text-center">
+                            {{#if pharmacy.ratings.length}}
+                            <h4>{{localize req 'ratings.rating'}} <strong class="text-success">{{pharmacy.rate}}</strong></h4>
+                            <p>{{localize req 'ratings.basedOn'}} <strong><a class="" href="#opinions">{{pharmacy.ratings.length}} {{localize req 'ratings.opinions'}}</a></strong></p>
+                            {{/if}}
+                            <ul class="rating"> 
+							
+                                <li class="row">
+                                    <div class="col text-right">
+                                        {{localize req 'ratings.metricsService'}}
+                                    </div>
+                                    <div class="col">
+                                        <div class="progress progress-striped">
+                                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="{{percentage pharmacy.opinion.service 10}}" aria-valuemin="0" aria-valuemax="100" style="width: {{percentage pharmacy.opinion.service 10}}%">
+                                                <span class="sr-only">{{pharmacy.opinion.service}}/10</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/.col-->
+                                </li>
+                                <!-- end row -->
+                                <li class="row">
+                                    <div class="col text-right">
+                                        {{localize req 'ratings.metricsQuality'}}
+                                    </div>
+                                    <div class="col">
+                                        <div class="progress progress-striped">
+                                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="{{percentage pharmacy.opinion.service 10}}" aria-valuemin="0" aria-valuemax="100" style="width: {{percentage pharmacy.opinion.service 10}}%">
+                                                <span class="sr-only">{{pharmacy.opinion.service}}/10</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/.col-->
+                                </li>
+                                <!-- end row -->
+
+                            </ul>
+                            <!--/.rating-->
+							
+                            <p><a class="btn btn-primary btn-lg justify" href="/drugs?pharmacyId={{pharmacy.id}}"><strong>{{ pharmacy.drugs.length }}</strong> {{localize req 'ratings.items.drugs'}}</a></p>
+                            <p>
+                                <a class="btn btn-secondary justify" data-type="pharmacy" data-id="{{pharmacy.id}}" id="addToFavButton" href="javascript:void(0)">
+                                    <i class="far fa-heart"></i> {{localize req 'addFavorites'}}
+                                </a>
+                            </p>
+                        </div>
+                        <!--/.wave-->
+                    </div>
+                    <!--/.col-->
+                    
+					<div class="col-xl-6 col-lg-12">
+						<div class="map hidden-lg-down" style="height: 300px">
+						</div><!--/.map-->
+						<div class="hidden-xl-up"><br /><a class="btn-map" href="#" data-toggle="collapse" data-target="#showMap"><i class="fas fa-map-marker"></i> {{localize req 'common.showOnMap'}}</a>
+							<div class="map" style="height: 300px"></div>
+                            <script>
+                                var pharmacy = {{{jsonify pharmacy}}};
+                                function initLocationMap() {
+                                    $('.map').each(function (_, el) {
+                                        var center = {lat: pharmacy.coordinations.lat, lng: pharmacy.coordinations.lon};
+                                        var map = new google.maps.Map(
+                                            el,
+                                            {center: center, zoom: 9}
+                                        );
+
+                                        
+                                        var infowindow = new google.maps.InfoWindow({
+                                            content: ''
+                                        });
+                                        var marker = new google.maps.Marker({
+                                            position: {lat: pharmacy.coordinations.lat, lng: pharmacy.coordinations.lon}, 
+                                            title: pharmacy.name,
+                                            map: map,
+                                        });
+
+                                        google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow){ 
+                                            return function() {
+                                                infowindow.setContent(content);
+                                                infowindow.open(map, marker);
+                                            };
+                                        })(marker, getInfoWindowContent(pharmacy), infowindow));
+                                    })
+
+                                }
+
+                                function getInfoWindowContent(pharmacy) {
+                                    return '<div class="info-window">' +
+                                            '<h5>' + (pharmacy.name || '') + '</h5>' +
+                                            '<i>' + (pharmacy.location.address || '') + '</i><br/>' +
+                                            '<a href="/pharmacy/' + pharmacy.id.toString() + '">View Clinic</a>'
+                                    '</div>';
+                                }
+                            </script>
+                            <script async defer
+                                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA839hvZlHkWX80W6YRTuv3C7HToNVZhwc&callback=initLocationMap">
+                            </script>
+                        </div>
+                    </div>
+                    <!--/.col-->
+					
+                </div>
+                <!--/.row-->
+ 
+            </nav>
+ 
+        </div>
+        <!--/.col-->
+    </div>
+    <!--/.row-->
+
+	<br />
+
+    <section class="bg-gray">
+
+        <div class="reviews" id="opinions">
+            {{#if pharmacy.ratings.length}}
+            <h3>{{localize req 'ratings.opinions'}} <span class="badge">{{pharmacy.ratings.length}}</span></h3>
+            <ul class="owl-carousel owl-theme">
+                {{#each pharmacy.ratings as |rating|}}
+                <li class="item">
+                    <em>{{getDateString rating.dateCreated}}</em> 
+                    <span class="stars {{getRatingLabel rating.rate}}">
+							{{rating.rate}} / 10
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="far fa-star"></i>
+							<i class="far fa-star"></i>
+						</span>
+                    <p>{{rating.comment}}</p>
+                </li>
+                {{/each}}
+            </ul>
+            {{else}}
+                <h3 style="text-align:center;">{{{localize req 'ratings.noOpinions'}}}</h3>
+            {{/if}}
+        </div>
+        <!--/.reviews-->
+
+    </section>

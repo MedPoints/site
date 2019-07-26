@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="medpoints">
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="no-cache" />
+    <meta http-equiv="Cache-Control" content="no-cache" />
+
+    <link rel="icon" href="img/favicon.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon" />
+
+    <title>{{title}}</title>
+    <meta name="keywords" content="<?=$page_keywords?>" />
+    <meta name="description" content="<?=$page_description?>" />
+
+    <link href="/css/reset.css" rel="stylesheet">
+    <link href="https://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link href="/css/normalize.min.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/owl.carousel.css" rel="stylesheet">
+    <link href="/css/flag-icon.min.css" rel="stylesheet">
+    <link href="/css/simpleLightbox.min.css" rel="stylesheet">
+    <link href="/css/zabuto_calendar.min.css" rel="stylesheet">
+    <link href="/css/jquery.datetimepicker.min.css" rel="stylesheet">
+    {{{localization locale}}}
+    <script src="/js/src/localization.js"></script>
+    <script src="/js/src/popper.min.js"></script>
+    <script src="/js/dist/lib.bundle.js"></script>
+    <script src="/js/dist/layout.bundle.js"></script>
+    
+
+</head>
+
+<body class="{{pageName}}">
+    {{> choose-location }}
+    {{> sorry }}
+    {{> choose-doctor}}
+    {{> login }}
+    {{> wallet }}
+    {{> error-modal }}
+    {{> edit-payment }}
+    {{> add-balance }}
+    {{> list-funds }}
+    {{> free-license }}
+    {{> address }}
+    {{> calendar-details}}
+
+
+    <div class="ico-info-box">
+        {{{localize req 'main.welcome'}}}
+    </div>
+
+    <header>
+
+        <nav class="navbar navbar-toggleable-md">
+
+            <button id="btn-menu" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false"
+                aria-label="Toggle navigation"><i class="fas fa-bars" data-toggle="collapse" data-target="#navbarsExampleDefault"></i><span
+                    data-toggle="collapse" data-target="#navbarsExampleDefault"> {{localize req 'navigation.open'}}</span></button>
+
+            <a class="navbar-brand" href="/"><img src="/img/logo.svg" alt="" /></a>
+
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+
+                <ul class="navbar-nav mr-auto service-menu">
+                    <li class="nav-item">
+                        <span class="nav-link">{{localize req 'navigation.location'}}</span>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#chooseLocation"><span id="locationLabel">New
+                                York</span> &nbsp;<i class="fas fa-pencil-alt"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <span class="nav-link">{{localize req 'navigation.language'}}</span>
+                    </li>
+                    <li class="nav-item dropdown" id="langMenu">
+                        <a class="nav-link dropdown-toggle" href="#" id="langMenuItem" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                        <div class="dropdown-menu" aria-labelledby="langMenuItem">
+                            <a class="dropdown-item" data-locale="en" href="javascript:setLocale('en')"><i class="flag-icon flag-icon-gb"></i> <span class="lang-name">English</span></a>
+                            <a class="dropdown-item" data-locale="ru" href="javascript:setLocale('ru')"><i class="flag-icon flag-icon-ru"></i> <span class="lang-name">Русский</span></a>
+                            {{!-- <a class="dropdown-item" href="#"><i class="flag-icon flag-icon-de"></i> Deutsche</a>
+                            <a class="dropdown-item" href="#"><i class="flag-icon flag-icon-ru"></i> Русский</a>
+                            <a class="dropdown-item" href="#"><i class="flag-icon flag-icon-cn"></i> 中国</a>
+                            <a class="dropdown-item" href="#"><i class="flag-icon flag-icon-kr"></i> 한국어</a>
+                            <a class="dropdown-item" href="#"><i class="flag-icon flag-icon-jp"></i> 日本語</a>
+                            <a class="dropdown-item" href="#"><i class="flag-icon flag-icon-ae"></i> اللغة العربية</a>
+                            <a class="dropdown-item" href="#"><i class="flag-icon flag-icon-fr"></i> Française</a>
+                            <a class="dropdown-item" href="#"><i class="flag-icon flag-icon-es"></i> Español</a>
+                            <a class="dropdown-item" href="#"><i class="flag-icon flag-icon-it"></i> Italiana</a>
+                            <a class="dropdown-item" href="#"><i class="flag-icon flag-icon-pt"></i> Portugues</a> --}}
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <span class="nav-link">{{localize req 'navigation.font'}}</span>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link sizer" href="#" id="small" title="Small font size">A</a>
+                        <a class="nav-link sizer" href="#" id="medium" title="Medium font size">A</a>
+                        <a class="nav-link sizer" href="#" id="large" title="Large font size">A</a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav navbar-right">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/rates">1 <strong>MPT</strong> = 0.01 <i class="fas fa-dollar-sign"></i></a>
+                    </li>
+                    <li class="nav-item unregistered-item">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#login">{{localize req 'navigation.login'}}</a>
+                    </li>
+                    <li class="nav-item unregistered-item">
+                        <a class="nav-link" href="/registration">{{localize req 'navigation.register'}}</a>
+                    </li>
+                    <li class="nav-item registered-item">
+                        <a class="nav-link" href="/account">{{localize req 'navigation.account'}}</a>
+                    </li>
+                    <li class="nav-item registered-item">
+                        <a class="nav-link" id="logOutButton" href="javascript:void(0)">{{localize req 'navigation.logout'}}</a>
+                    </li>
+                    <li>
+
+                    </li>
+                </ul>
+
+            </div>
+
+        </nav>
+
+        <section class="jumbotron">
+            <div class="col-sm-12 mx-auto">
+
+                <div class="row">
+                    <div class="col-9">
+                        <h1 class="display-3">{{{PAGE_TITLE}}}</h1>
+                    </div>
+                    <!--/.col-->
+                    <!--/.row-->
+
+                </div>
+        </section>
+
+        <h1 class="page-title" id="js-intro">{{{PAGE_TITLE}}}</h1>
+
+        <div class="row">
+            <div class="col-xl-3 push-xl-9 col-lg-12 push-lg-0">
+                <div class="extra">
+                    <ul class="row">
+                        <li class="col-xl-12 col-lg-6 text-xl-right text-lg-left">
+                            <a href="/insurance"><i class="fas fa-heartbeat"></i> {{localize req 'navigation.insurance'}}</a>
+                        </li>
+                        <!--/.col-->
+                        <li class="col-xl-12 col-lg-6 text-xl-right text-lg-left">
+                    		<a href="/foundation/cases"><i class="far fa-life-ring"></i> {{localize req 'navigation.foundation'}}</a> 
+                    	</li>
+                    </ul>
+                    <!--/.row-->
+                </div>
+                <!--/.extra-->
+            </div>
+            <!--/.col-->
+            <div class="col-xl-9 pull-xl-3 col-lg-12 pull-lg-0">
+                <div class="cats">
+                    <ul class="row">
+                        <li class="col {{activeLink currentPath '/clinics'}}">
+                            <a class="" href="/clinics"><span id="clinicsCount">0</span>
+                                <h3>{{localize req 'navigation.clinics'}}</h3>
+                            </a>
+                        </li>
+                        <!--/.col-->
+                        <li class="col {{activeLink currentPath '/services'}}">
+                            <a class="" href="/services"><span id="servicesCount">0</span>
+                                <h3>{{localize req 'navigation.services'}}</h3>
+                            </a>
+                        </li>
+                        <li class="col {{activeLink currentPath '/doctors'}}">
+                            <a class="" href="/doctors"><span id="doctorsCount">0</span>
+                                <h3>{{localize req 'navigation.doctors'}}</h3>
+                            </a>
+                        </li>
+                        <!--/.col-->
+                        <li class="col {{activeLink currentPath '/pharmacies'}}">
+                            <a class="" href="/pharmacies"><span id="pharmaciesCount">0</span>
+                                <h3>{{localize req 'navigation.pharmacies'}}</h3>
+                            </a>
+                        </li>
+                        <!--/.col-->
+                        <li class="col {{activeLink currentPath '/drugs'}}">
+                            <a class="" href="/drugs"><span id="drugsCount">0</span>
+                                <h3>{{localize req 'navigation.drugs'}}</h3>
+                            </a>
+                        </li>
+                        <!--/.col-->
+                    </ul>
+                    <!--/.row-->
+                </div>
+                <!--/.cats-->
+            </div>
+            <!--/.col-->
+        </div>
+        <!--/.row-->
+
+    </header>
+
+    <div class="wrapper">
+
+        <form class="search" method="post" action="/search">
+
+            <div class="row">
+                <div class="col-xl-9 col-md-8 col-sm-12">
+                    <div class="input-group input-group-lg">
+                        <input type="text" class="form-control" value="{{req.query.name}}" name="search" placeholder="{{localize req 'search.searchPrompt'}}" />
+
+                        <select name="category" class="custom-select">
+                            <option selected>{{localize req 'search.options.clinics'}}</option>
+                            <option>{{localize req 'search.options.services'}}</option>
+                            <option>{{localize req 'search.options.doctors'}}</option>
+                            <option>{{localize req 'search.options.pharmacies'}}</option>
+                            <option>{{localize req 'search.options.drugs'}}</option>
+                        </select>
+
+                        <div class="input-group-btn">
+                            <button type="submit" class="btn btn-primary search-button">
+                                <i class="fas fa-search"></i><span class="search-button__text">{{localize req 'navigation.search'}}</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!--/.col-->
+                <div class="col-xl-1 col-md-2 col-sm-6">
+                    <a class="btn btn-primary btn-lg justify" href="#" data-toggle="modal" data-target="#sorry"><i
+                            class="fas fa-microphone"></i></a>
+                </div>
+                <!--/.col-->
+                <div class="col-xl-2 col-md-2 col-sm-6">
+                    <a class="btn btn-primary btn-lg justify" href="/partnership">{{localize req 'partnership.addButton'}}</a>
+                </div>
+                <!--/.col-->
+            </div>
+            <!--/.row-->
+
+        </form>
+        <!--/.search-->
+
+        {{{body}}}
+
+
+
+    </div>
+
+
+    <footer class="site-footer">
+
+        <div class="row">
+            <div class="col-xl-8 col-md-7 col-sm-12">
+
+                <div class="row">
+                    <div class="col-xl-4 col-md-4 col-sm-6">
+                        <h4>{{localize req 'footer.project.title'}}</h4>
+                        <ul>
+                            <li><a href="/about" {{#if (compare req.originalUrl '/about')}}class="active"{{/if}}>{{localize req 'footer.project.items.about'}}</a></li>
+                            <li><a href="/partnership" {{#if (compare req.originalUrl '/partnership')}}class="active"{{/if}}>{{localize req 'footer.project.items.partnership'}}</a></li>
+                            <li><a href="/explorer" {{#if (compare req.originalUrl '/explorer')}}class="active"{{/if}}>{{localize req 'footer.project.items.explorer'}}</a></li>
+                            <li><a href="/blog" {{#if (compare req.originalUrl '/blog')}}class="active"{{/if}}>{{localize req 'footer.project.items.blog'}}</a></li>
+                        </ul>
+                    </div>
+                    <!--/.col-->
+                    <div class="col-xl-4 col-md-4 col-sm-6">
+                        <h4>{{localize req 'footer.support.title'}}</h4>
+                        <ul>
+                            <li><a href="/faq" {{#if (compare req.originalUrl '/faq')}}class="active"{{/if}}>{{localize req 'footer.support.items.faq'}}</a></li>
+                            <li class="support-tickets"><a href="/account-tickets" {{#if (compare req.originalUrl '/account-tickets')}}class="active"{{/if}}>{{localize req 'footer.support.items.support'}}</a></li>
+                            <li><a href="/terms-of-use" {{#if (compare req.originalUrl '/terms-of-use')}}class="active"{{/if}}>{{localize req 'footer.support.items.terms'}}</a></li>
+                            <li><a href="/privacy-policy" {{#if (compare req.originalUrl '/privacy-policy')}}class="active"{{/if}}>{{localize req 'footer.support.items.policy'}}</a></li>
+                        </ul>
+                    </div>
+                    <!--/.col-->
+                    <div class="col-xl-4 col-md-4 col-sm-12">
+                        <h4>{{localize req 'footer.applications.title'}}</h4>
+                        <div class="row">
+                            <div class="col-xl-6 col-md-12 col-sm-6">
+                                <ul>
+                                    <li><i class="fas fa-mobile-alt"></i> {{localize req 'footer.applications.items.mobile'}}</li>
+                                    <li><a href="#" data-toggle="modal" data-target="#sorry">{{localize req 'footer.applications.items.apple'}}</a></li>
+                                    <li><a href="#" data-toggle="modal" data-target="#sorry">{{localize req 'footer.applications.items.android'}}</a></li>
+                                    <li><a href="#" data-toggle="modal" data-target="#sorry">{{localize req 'footer.applications.items.windows'}}</a></li>
+                                </ul>
+                            </div>
+                            <!--/.col-->
+                            <div class="col-xl-6 col-md-12 col-sm-6">
+                                <ul>
+                                    <li><i class="fas fa-desktop"></i> {{localize req 'footer.applications.items.desktop'}}</li>
+                                    <li><a href="#" data-toggle="modal" data-target="#sorry">{{localize req 'footer.applications.items.windows'}}</a></li>
+                                    <li><a href="#" data-toggle="modal" data-target="#sorry">{{localize req 'footer.applications.items.macos'}}</a></li>
+                                </ul>
+                            </div>
+                            <!--/.col-->
+                        </div>
+                        <!--/.row-->
+                    </div>
+                    <!--/.col-->
+                </div>
+                <!--/.row-->
+
+            </div>
+            <!--/.col-->
+            <div class="col-xl-4 col-md-5 col-sm-12">
+
+                <p>{{{localize req 'footer.signup.title'}}}<br /><small>{{localize req 'footer.signup.subtitle'}}</small></p>
+
+                <form>
+
+                    <div class="input-group">
+                    <input id="signUpInput" type="text" class="form-control" placeholder="{{localize req 'footer.signup.prompt'}}" />
+                        <div class="input-group-btn">
+                            <button id="signUpButton" type="button" class="btn btn-secondary">
+                                <i class="fas fa-envelope"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
+
+                <div class="row social-bottom">
+                    <div class="col-xl-6 col-md-12 col-sm-12">
+                        <small>{{localize req 'footer.signup.social'}}</small>
+                    </div>
+                    <!--/.col-->
+                    <div class="col-xl-6 col-md-12 col-sm-12">
+                        <ul class="list-inline">
+                            <li class="list-inline-item"><a href="#" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+                            </li>
+                            <li class="list-inline-item"><a href="#" target="_blank"><i class="fab fa-twitter"
+                                        aria-hidden="true"></i></a> </li>
+                            <li class="list-inline-item"><a href="#" target="_blank"><i class="fab fa-linkedin-in"
+                                        aria-hidden="true"></i></a> </li>
+                            <li class="list-inline-item"><a href="#" target="_blank"><i class="fab fa-github"
+                                        aria-hidden="true"></i></a> </li>
+                        </ul>
+                    </div>
+                    <!--/.col-->
+                </div>
+                <!--/.row /.social-bottom-->
+
+            </div>
+            <!--/.col-->
+        </div>
+        <!--/.row-->
+
+        <p>
+            <div class="alert alert-info text-center">
+                <h5>{{localize req 'footer.disclaimer.title'}}</h5> {{localize req 'footer.disclaimer.subtitle'}}
+            </div>
+        </p>
+
+        <div class="row">
+            <div class="col">
+                {{localize req 'footer.copyright.title'}} &copy;
+                <script type="text/javascript">
+                    var mdate = new Date();
+                    document.write(mdate.getFullYear());
+                </script>
+                {{{localize req 'footer.copyright.copyrightText'}}}
+            </div>
+            <!--/.col-->
+            {{!-- <div class="col text-right">
+                <a href="/sitemap"><i class="fas fa-sitemap"></i> {{localize req 'footer.sitemap'}}</a>
+            </div> --}}
+            <!--/.col-->
+        </div>
+        <!--/.row-->
+
+    </footer>
+
+
+    <script src="/js/src/auth.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/async@2.6.1/dist/async.min.js"></script>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/47967821?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div>
+    </noscript>
+
+</body>
+
+</html>

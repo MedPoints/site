@@ -1,0 +1,103 @@
+
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">{{localize req 'breadcrumbs.home'}}</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{localize req 'breadcrumbs.doctors'}}</li>
+    </ol>
+</nav>
+
+<section class="bg-gray">
+        <div class="filter">
+            <div class="row">
+                <div class="col">
+                    <h3>{{localize req 'filters.location'}}</h3>
+                    <label class="custom-control custom-radio">
+                        <input id="locationRadio1" name="filter[city]" value="home" type="radio" class="custom-control-input filter-item" {{#if (equals filter.city 'home') }}checked{{/if}}>
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">{{localize req 'filters.yourCity'}}</span>
+                    </label>
+                    <label class="custom-control custom-radio">
+                        <input id="locationRadio2" name="filter[city]" value="worldwide" type="radio" class="custom-control-input filter-item" {{#if (equals filter.city 'worldwide') }}checked{{/if}}>
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">{{localize req 'filters.worldwide'}}</span>
+                    </label>
+                </div>
+                <!--/.col-->
+            </div>
+            <!--/.row-->
+ 
+        </div>
+
+    </section>
+
+<div class="row loadable-container" id="doctorsContent">
+    {{> doctors-partial}}
+</div>
+<!--/.row-->
+
+<script>
+    $(function () {
+        $('.filter-item').on('change', function (evt) {
+            evt.preventDefault();
+            loadPartialData({
+                showLoadingOverlay: true,
+                containerId: '#doctorsContent',
+                loadUrl: prepareLoadUrl('/doctors/partial'),
+                callbackStart: function () {
+                    history.replaceState(null, null, '/doctors?' + getFilterQueryString())
+                },
+                callbackEnd: function () {
+                    initLocationsMap();
+                }
+            })
+        });
+    });
+
+    function initLocationsMap() {
+        var center = avgCoordinates || {lat: 39.529, lng: -101.369};
+        
+        if (locations.length === 1) {
+            center.lat = doctors[0].coordinations[0].lat;
+            center.lng = doctors[0].coordinations[0].lon;
+        }
+        var map = new google.maps.Map(
+            document.getElementById('map'),
+            {center: center, zoom: 3}
+        );
+
+        
+        var infowindow = new google.maps.InfoWindow({
+            content: ''
+        });
+
+        for (var i = 0, length = locations.length; i < length; i++) {
+            var hospital = locations[i];
+            var doctor = doctors[i];
+            var marker = new google.maps.Marker({
+                position: {lat: doctor.coordinations[0].lat, lng: doctor.coordinations[0].lon}, 
+                title: hospital.name,
+                map: map,
+            });
+
+            google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow){ 
+                return function() {
+                    infowindow.setContent(content);
+                    infowindow.open(map, marker);
+                };
+            })(marker, getInfoWindowContent(doctor), infowindow));  
+        }
+    }
+
+    function getInfoWindowContent(doctor) {
+        return '<div class="info-window">' + 
+        '<h5>' + (doctor.name || '') + '</h5>' +
+        '<i>' + (doctor.hospital.location.address || '') + '</i><br/><br/>' +
+        '<a href="/doctors/' + doctor.id.toString() + '">View Doctor</a>' 
+        '</div>';
+    }
+</script>
+
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA839hvZlHkWX80W6YRTuv3C7HToNVZhwc&callback=initLocationsMap">
+</script>

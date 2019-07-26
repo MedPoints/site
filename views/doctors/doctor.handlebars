@@ -1,0 +1,297 @@
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">{{localize req 'breadcrumbs.home'}}</a></li>
+            <li class="breadcrumb-item"><a href="/doctors">{{localize req 'breadcrumbs.doctors'}}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{doctor.name}}</li>
+        </ol>
+    </nav>
+
+    <div class="row">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+        {{!-- <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12"> --}}
+
+            <div class="row">
+                <div class="col-xl-4 col-md-12">
+                    <a class="avatar" href="/"><div class="crop"><img src="{{doctor.avatar}}" alt="" /></div></a>
+                </div>
+                <!--/.col-->
+                <div class="col-xl-8 col-md-12">
+                    <div><a href="/doctors">{{doctor.specialization}}</a></div>
+                    <h4><a  href="/clinics/{{doctor.hospital.id}}">{{doctor.hospital.name}}</h4>
+                    <p><a class="map-toggle" data-name="{{doctor.hospital.name}}" href="/doctors">{{doctor.hospital.location.address}}</a></p>
+                    <div>{{{localize req "doctor.workExperience" years="9+"}}}</div>
+                    <div>{{{localize req "doctor.bonus" amount="100"}}}</div>
+                </div>
+                <!--/.col-->
+            </div>
+            <!--/.row-->
+
+            <br />
+
+            <div class="row">
+                <div class="col">
+                    <h3>{{localize req 'doctor.statement'}}</h3>
+                    <p>{{doctor.statement}}</p>
+
+                    <hr />
+
+                    <h3>{{localize req 'doctor.allSpecializations'}}</h3>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">Abdominal Radiology</li>
+                        <li class="list-inline-item">Addiction Psychiatry</li>
+                        <li class="list-inline-item">Adolescent Medicine</li>
+                        <li class="list-inline-item">Cardiothoracic Radiology</li>
+                    </ul>
+                    {{!-- <ul class="list-inline">
+                        {{#each doctor.specializations as |specialization|}}
+                        <li class="list-inline-item">{{specialization}}</li>
+                        {{/each}}
+                    </ul> --}}
+
+                    <hr />
+
+                    <h3>{{localize req 'doctor.education'}}</h3>
+                    <ul>
+                        <li><i class="fas fa-graduation-cap"></i> <a class="" href="#">New York Medical College</a> - Doctor of Medicine <br><em>Graduate of 1994</em></li>
+                        <li><i class="fas fa-graduation-cap"></i> <a class="" href="#">Montefiore Medical Center</a> - Residency in Internal Medicine <br><em>Graduate of 1998</em></li>
+                        <li><i class="fas fa-graduation-cap"></i> <a class="" href="#">New York Medical College</a> - Master Internal Medicine <br><em>Graduate of 2003</em></li>
+                    </ul>
+                    {{!-- <ul>
+                        {{#each doctor.education as |ed|}}
+                        <li><i class="fas fa-graduation-cap"></i> <a class="" href="#">{{ed.university}}</a> - {{ed.degree}} <br /><em>{{localize req 'doctor.graduateOf'}} {{ed.graduated}}</em></li>
+                        {{/each}}
+                    </ul> --}}
+
+                </div>
+                <!--/.col-->
+            </div>
+            <!-- end row -->
+
+        </div>
+        <!--/.col-->
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+            <nav class="sticky-top">
+
+                <div class="row">
+				
+                    <div class="col-xl-6 col-lg-12">
+                        <div class="wave text-center">
+                            {{#if ratings.length}}
+                                <h4>{{localize req 'ratings.rating'}} <strong class="text-success">{{doctor.rate}}</strong></h4>
+                                <p>{{localize req 'ratings.basedOn'}} <strong><a class="" href="#opinions">{{doctor.ratings.length}} {{localize req 'ratings.opinions'}}</a></strong></p>
+                            {{/if}}
+                            <ul class="rating"> 
+							
+                                <li class="row">
+                                    <div class="col text-right">
+                                        {{localize req 'doctor.knowledge'}}
+                                    </div>
+                                    <div class="col">
+                                        <div class="progress progress-striped">
+                                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="{{percentage doctor.opinion.knowledge 10}}" aria-valuemin="0" aria-valuemax="100" style="width: {{percentage doctor.opinion.knowledge 10}}%">
+                                                <span class="sr-only">{{doctor.opinion.knowledge}}/10</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/.col-->
+                                </li>
+                                <!-- end row -->
+                                <li class="row">
+                                    <div class="col text-right">
+                                        {{localize req 'doctor.skills'}}
+                                    </div>
+                                    <div class="col">
+                                        <div class="progress progress-striped">
+                                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="{{percentage doctor.opinion.skills 10}}" aria-valuemin="0" aria-valuemax="100" style="width: {{percentage doctor.opinion.skills 10}}%">
+                                                <span class="sr-only">{{doctor.opinion.skills}}/10</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/.col-->
+                                </li>
+                                <!-- end row -->
+                                <li class="row">
+                                    <div class="col text-right">
+                                        {{localize req 'doctor.attention'}}
+                                    </div>
+                                    <div class="col">
+                                        <div class="progress progress-striped">
+                                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="{{percentage doctor.opinion.attention 10}}" aria-valuemin="0" aria-valuemax="100" style="width: {{percentage doctor.opinion.attention 10}}%">
+                                                <span class="sr-only">{{doctor.opinion.attention}}/10</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/.col-->
+                                </li>
+                                <!-- end row -->
+                                <li class="row">
+                                    <div class="col text-right">
+                                        {{localize req 'doctor.priceQuality'}}
+                                    </div>
+                                    <div class="col">
+                                        <div class="progress progress-striped">
+                                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="{{percentage doctor.opinion.priceQuality 10}}" aria-valuemin="0" aria-valuemax="100" style="width: {{percentage doctor.opinion.priceQuality 10}}%">
+                                                <span class="sr-only">{{doctor.opinion.priceQuality}}/10</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/.col-->
+                                </li>
+                                <!-- end row -->
+
+                            </ul>
+                            <!--/.rating-->
+							<a class="btn btn-primary btn-lg justify" href="/booking?doctorId={{doctor.id}}">{{localize req 'doctor.bookToVisit'}}</a>
+                            <p style="padding-top:1em;">
+                                <a class="btn btn-secondary justify" data-type="doctor" data-id="{{doctor.id}}" id="addToFavButton" href="javascript:void(0)">
+                                    <i class="far fa-heart"></i> {{localize req 'addFavorites'}}
+                                </a>
+                            </p>
+                            
+                        </div>
+                        <!--/.wave-->
+                    </div>
+                    <!--/.col-->
+                    <div class="col-xl-6 col-lg-12">
+						<div class="map hidden-lg-down" style="height: 300px">
+                        </div><!--/.map-->
+                        <div class="hidden-xl-up">
+                            
+                        <a class="btn-map" href="#" data-toggle="collapse" data-target="#map" aria-expanded="true">
+                            <i class="fas fa-map-marker"></i> <span id="mapLabel">{{localize req 'common.closeMap'}}</span>
+                        </a>
+                        <div class="map map--small collapse show" id="map">
+                        </div><!--/.collapse-->
+                    </div>
+                    <!--/.col-->
+                    <script>
+                        var coordinates = {{{jsonify coordinates}}};
+                        var hospital = {{{jsonify doctor.hospital}}};
+                        function initLocationsMap() {
+                            var center = {lat: coordinates.lat, lng: coordinates.lon};
+                            $('.map').each(function (_, el) {
+                                var map = new google.maps.Map(
+                                    el,
+                                    {center: center, zoom: 9}
+                                );
+                                var infowindow = new google.maps.InfoWindow({
+                                    content: ''
+                                });
+                                var marker = new google.maps.Marker({
+                                    position: center, 
+                                    title: hospital.name,
+                                    map: map,
+                                });
+
+                                google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow){ 
+                                    return function() {
+                                        infowindow.setContent(content);
+                                        infowindow.open(map, marker);
+                                    };
+                                })(marker, getInfoWindowContent(hospital), infowindow));      
+                            })
+                            
+                        }
+
+                        function getInfoWindowContent(hospital) {
+                            return '<div class="info-window">' + 
+                            '<h5>' + (hospital.name || '') + '</h5>' +
+                            '<i>' + (hospital.location.address || '') + '</i><br/>' +
+                            '<a href="/clinics/' + hospital.id.toString() + '">View Clinic</a>' 
+                            '</div>';
+                        }
+                    </script>
+                    <script async defer
+                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA839hvZlHkWX80W6YRTuv3C7HToNVZhwc&callback=initLocationsMap">
+                    </script>
+                </div>
+                <!--/.row-->
+ 
+            </nav>
+ 
+        </div>
+        <!--/.col-->
+    </div>
+    <!--/.row-->
+
+	<br />
+
+    <section class="doctor-services">
+        <div class="table-responsive">
+            <table summary="" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th width="40%">
+                            <h5>{{localize req 'service.table.services'}}</h5>
+                        </th>
+                        <th>
+                            <h5>{{localize req 'service.table.time'}}</h5>
+                        </th>
+                        <th>
+                            <h5>{{localize req 'service.table.price'}}</h5>
+                        </th>
+                        <th>
+                            <h5>{{localize req 'service.table.insurance'}}</h5>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each doctor.services as |service|}}
+                    <tr>
+                        <td>
+                            <h4><a href="/services/{{ service.id }}" title="{{ service.name }}">{{ service.name }}</a></h4>
+                            <p>{{ service.short_descr }}</p>
+                        </td>
+                        <td>{{ service.time }}</td>
+                        <td class="price-td">{{localize ../req 'common.fromPrice'}} <strong class="text-dark">${{ service.price.dollars }}</strong><br /><strong class="text-success">{{ service.price.mpts }} MPT</strong></td>
+                        <td class="text-center">
+                            {{#if service.is_covered_by_insurance}}
+                            <i class="fas fa-plus text-success" data-toggle="tooltip" data-placement="top" title="{{localize ../req 'filters.covered'}}"></i>
+                            {{/if}}
+                        </td>
+                        <td>
+                            <a class="btn btn-primary btn-lg justify" href="/booking?doctorId={{../doctor.id}}&serviceId={{service.id}}">{{localize ../req 'doctor.bookToVisit'}}</a>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <br />
+
+    <section class="bg-gray">
+        <div class="reviews" id="opinions">
+            {{#if doctor.ratings.length}}
+            <h3>{{localize req 'ratings.opinions'}} <span class="badge">{{doctor.ratings.length}}</span></h3>
+            <ul class="owl-carousel owl-theme">
+                {{#each doctor.ratings as |rating|}}
+                <li class="item">
+                    <em>{{getDateString rating.dateCreated}}</em> 
+                    <span class="stars {{getRatingLabel rating.rate}}">
+							{{rating.rate}} / 10
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="far fa-star"></i>
+							<i class="far fa-star"></i>
+						</span>
+                    <p>{{rating.comment}}</p>
+                </li>
+                {{/each}}
+            </ul>
+            {{else}}
+                <h3 style="text-align:center;">{{{localize req 'ratings.noOpinions'}}}</h3>
+                
+            {{/if}}
+        </div>
+        <!--/.reviews-->
+
+    </section>

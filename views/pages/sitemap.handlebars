@@ -1,0 +1,70 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">{{localize req 'breadcrumbs.home'}}</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Sitemap</li>
+    </ol>
+</nav>
+
+<ul>
+    <li><a href="/">Main page</a></li>
+    <li><a href="/clinics">Clinics</a></li>
+
+    <li>
+        <ul>
+            {{#each clinics as |clinic|}}
+                <li><a href="/clinics/{{clinic.id}}">{{clinic.name}}</a></li>
+            {{/each}}
+        </ul>
+    </li>
+    
+    <li><a href="/booking">Booking</a></li>
+    <li><a href="/rates">MedPoints rates</a></li>
+    <li><a href="/services">Services</a></li>
+    
+    <li>
+        <ul>
+            {{#each services as |service|}}
+                <li><a href="/services/{{service.id}}">{{service.name}}</a></li>
+            {{/each}}
+        </ul>
+    </li>
+
+    <li><a href="/doctors">Doctors</a></li>
+
+    <li>
+        <ul>
+            {{#each doctors as |doctor|}}
+                <li><a href="/doctors/{{doctor.id}}">{{doctor.name}}</a></li>
+            {{/each}}
+        </ul>
+    </li>
+
+    <li><a href="/pharmacies">Pharmacies</a></li>
+    
+    <li>
+        <ul>
+            {{#each pharmacies as |pharmacy|}}
+                <li><a href="/pharmacies/{{pharmacy.id}}">{{pharmacy.name}}</a></li>
+            {{/each}}
+        </ul>
+    </li>
+
+    <li><a href="/drugs">Drugs</a></li>
+    
+    <li>
+        <ul>
+            {{#each drugs as |drug|}}
+                <li><a href="/drugs/{{drug.id}}">{{drug.name}}</a></li>
+            {{/each}}
+        </ul>
+    </li>
+
+    <li><a href="/registration">Registration</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/terms-of-use">Terms of use</a></li>
+    <li><a href="/privacy-policy">Privacy Policy</a></li>
+    <li><a href="/partnership">Partnership</a></li>
+    <li><a href="/explorer">Blockchain explorer</a></li>
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="/faq">FAQ</a></li>
+</ul>

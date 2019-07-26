@@ -1,0 +1,17 @@
+{{#dataColumns data dataOptions }}
+
+{{#each dataGroups as |dataGroup|}}
+    <div class="col-xl-4 col-md-4 col-sm-6">
+        <ul>
+            {{#each dataGroup as |dataItem|}}
+                {{#if (getPropertyValue obj=dataItem propName=../../dataOptions.filterProperty)}}
+                    <li><a href="{{../../dataOptions.baseUrl}}{{../../dataOptions.filterQuery}}{{getPropertyValue obj=dataItem propName=../../dataOptions.filterProperty}}">{{{getPropertyValue obj=dataItem propName=../../dataOptions.labelProperty}}}</a> <span class="badge">{{getPropertyValue obj=dataItem propName=../../dataOptions.badgeProperty}}</span></li>
+                {{else}}
+                    <li><a href="{{../../dataOptions.baseUrl}}">{{getPropertyValue obj=dataItem propName=../../dataOptions.labelProperty}}</a> <span class="badge">{{{getPropertyValue obj=dataItem propName=../../dataOptions.badgeProperty}}}</span></li>
+                {{/if}}
+            {{/each}}
+        </ul>
+    </div>
+{{/each}}
+
+{{/dataColumns}}
