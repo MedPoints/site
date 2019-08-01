@@ -84,7 +84,13 @@ exports.getDoctors = async (req, res) => {
 exports.getDoctor = async (req, res) => {
   const slug = req.params.slug;
   const id = slug.split('-')[0];
+  const _slug = slug.split('-').splice(1).join('-');
   const request = await axios.get(`${API_URL}/api/doctors?id=${id}`);
+
+  if (!_slug || slug !== request.data.result.slug) {
+    return res.redirect(`/doctors/${request.data.result.slug}`);
+  }
+
   const random = await axios.get('https://randomuser.me/api/1.0/?seed='+id);
   const doctor = prepareDoctorData(request.data.result,{},random.data.results[0]);
   const coordinates = doctor.coordinations[0];
