@@ -21,9 +21,9 @@
                 </div>
                 <!--/.col-->
                 <div class="col-xl-6 col-md-5 col-sm-8">
-                    <h3><a href="/doctors/{{doctor.id}}">{{{doctor.name}}}</a> <small>M.D</small></h3>
+                    <h3><a href="/doctors/{{doctor.id}}/{{doctor.slug}}"></a>{{{doctor.name}}}</a> <small>M.D</small></h3>
                     <div><a href="/doctors">{{doctor.specialization}}</a></div>
-                    <h4><a href="/clinics/{{doctor.hispital.id}}">{{doctor.hospital.name}}</a></h4>
+                    <h4><a href="/clinics/{{doctor.hospital.id}}">{{doctor.hospital.name}}</a></h4>
                     <p><a class="map-toggle" data-name="{{doctor.hospital.name}}" href="/doctors">{{doctor.hospital.location.address}}</a></p>
                     <div>{{{localize ../req "doctor.workExperience" years="9+"}}}</div>
                     <div>{{{localize ../req "doctor.bonus" amount="100"}}}</div>
@@ -61,4 +61,5 @@
     var locations = {{{jsonify hospitals}}};
     var avgCoordinates = {{{jsonify avgCoordinates}}}
     var doctors = {{{jsonify doctors}}}
+    console.dir(doctors);
 </script>

@@ -9,7 +9,6 @@ const axios = require('axios');
 const config = require('config');
 const API_URL = config.get('API_URL');
 
-
 router.get('/', catchErrors(async (req, res) => {
 	var specializations = await getSpecializations(req, res);
 	var locations = await getClinicsByLocation(req, res);
@@ -55,6 +54,8 @@ router.use('/auth', require('./auth'));
 router.use('/book', require('./book'));
 router.use('/account', require('./account'));
 router.use('/', require('./pages'));
+
+
 
 router.use(function(req,res,next) {
 	res.locals.req = req;

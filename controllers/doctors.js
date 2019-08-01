@@ -38,6 +38,7 @@ exports.getDoctors = async (req, res) => {
     let count = 0;
     for (let i = 0, length = doctors.length; i < length; i++) {
       const doctor = doctors[i];
+      if (i === 0) console.log(doctor.slug);
       if (doctor.coordinations && doctor.coordinations.length) {
         count++;
         avgCoordinates.lat += doctor.coordinations[0].lat;
