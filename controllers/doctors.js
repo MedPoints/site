@@ -38,7 +38,6 @@ exports.getDoctors = async (req, res) => {
     let count = 0;
     for (let i = 0, length = doctors.length; i < length; i++) {
       const doctor = doctors[i];
-      if (i === 0) console.log(doctor.slug);
       if (doctor.coordinations && doctor.coordinations.length) {
         count++;
         avgCoordinates.lat += doctor.coordinations[0].lat;
@@ -83,7 +82,8 @@ exports.getDoctors = async (req, res) => {
 };
 
 exports.getDoctor = async (req, res) => {
-  const id = req.params.id;
+  const slug = req.params.slug;
+  const id = slug.split('-')[0];
   const request = await axios.get(`${API_URL}/api/doctors?id=${id}`);
   const random = await axios.get('https://randomuser.me/api/1.0/?seed='+id);
   const doctor = prepareDoctorData(request.data.result,{},random.data.results[0]);
