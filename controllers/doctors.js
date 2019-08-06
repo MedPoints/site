@@ -5,7 +5,7 @@ const API_URL = config.get('API_URL');
 const { Pager, PAGE_SIZE } = require('./../helpers/pager');
 const { queryPersistant } = require('./../helpers/query-persistant');
 const { prepareDoctorData } = require('./../helpers/doctors');
- 
+
 const Localization = require('../helpers/localization').Localization;
 
 exports.getDoctors = async (req, res) => {
@@ -112,7 +112,9 @@ exports.getCount = async (req, res) => {
 };
 
 exports.getServicesByDoctor = async (req, res) => {
-  const id = req.params.id;
+  const slug = req.params.slug;
+  const id = slug.split('-')[0];
+  const _slug = slug.split('-').splice(1).join('-');
   const request = await axios.get(`${API_URL}/api/doctors/${id}/services`);
   const services = request.data.result;
   res.setHeader('Content-Type', 'application/json');
@@ -120,7 +122,9 @@ exports.getServicesByDoctor = async (req, res) => {
 };
 
 exports.getHospitalsByDoctor = async (req, res) => {
-  const id = req.params.id;
+  const slug = req.params.slug;
+  const id = slug.split('-')[0];
+  const _slug = slug.split('-').splice(1).join('-');
   const service = req.query.service;
   const request = await axios.get(`${API_URL}/api/doctors/${id}/hospitals?service=${service}`);
   const clinics = request.data.result;

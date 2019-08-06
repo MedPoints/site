@@ -71,10 +71,16 @@ exports.getPharmacies = async (req, res) => {
 };
 
 exports.getPharmacy = async (req, res) => {
-  const id = req.params.id;
+  const slug = req.params.slug;
+  const id = slug.split('-')[0];
+  const _slug = slug.split('-').splice(1).join('-');
   const request = await axios.get(`${API_URL}/api/pharmacies?id=${id}`);
-  const pharmacy = preparePharmacyData(request.data.result);
 
+  if (!_slug || slug !== request.data.result.slug) {
+    return res.redirect(`/pharmacies/${request.data.result.slug}`);
+  }
+
+  const pharmacy = preparePharmacyData(request.data.result);
   const localization = new Localization(req.cookies.locale);
   res.render('pharmacies/pharmacy', { pharmacy, 
     PAGE_TITLE: `${localization.localize('titles.pharmacies')} - ${pharmacy.name}`, 

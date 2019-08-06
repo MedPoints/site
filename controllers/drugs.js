@@ -59,8 +59,15 @@ exports.getDrugs = async (req, res) => {
 };
 
 exports.getDrug = async (req, res) => {
-  const id = req.params.id;
+  const slug = req.params.slug;
+  const id = slug.split('-')[0];
+  const _slug = slug.split('-').splice(1).join('-');
   const request = await axios.get(`${API_URL}/api/drugs?id=${id}`);
+
+  if (!_slug || slug !== request.data.result.slug) {
+    return res.redirect(`/drugs/${request.data.result.slug}`);
+  }
+
   const drug = request.data.result;
 
   let providersLocations = [];

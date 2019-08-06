@@ -119,8 +119,15 @@ exports.getClinicsByLocation = async (req, res) => {
 };
 
 exports.getClinic = async (req, res) => {
-  const id = req.params.id;
+  const slug = req.params.slug;
+  const id = slug.split('-')[0];
+  const _slug = slug.split('-').splice(1).join('-');
   const request = await axios.get(`${API_URL}/api/hospitals?id=${id}`);
+
+  if (!_slug || slug !== request.data.result.slug) {
+    return res.redirect(`/clinics/${request.data.result.slug}`);
+  }
+
   const hospital = prepareClinicData(request.data.result);
   const localization = new Localization(req.cookies.locale);
   res.render('clinics/clinic', {

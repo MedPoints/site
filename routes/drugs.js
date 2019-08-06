@@ -5,7 +5,7 @@ const catchErrors = require('../handlers/errorHandlers').catchErrors;
 router.get('/', catchErrors(drugs.getDrugs));
 router.get('/partial', catchErrors(drugs.getDrugsPartial));
 router.get('/count', catchErrors(drugs.getCount));
-router.get('/:id', catchErrors(drugs.getDrug));
+router.get('/:slug', catchErrors(drugs.getDrug));
 
 
 module.exports = router;

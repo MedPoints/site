@@ -90,9 +90,15 @@ exports.getServices = async (req, res) => {
 };
 
 exports.getService = async (req, res) => {
-  const id = req.params.id;
+  const slug = req.params.slug;
+  const id = slug.split('-')[0];
+  const _slug = slug.split('-').splice(1).join('-');
   const request = await axios.get(`${API_URL}/api/services?id=${id}`);
   const service = request.data.result;
+
+  if (!_slug || slug !== request.data.result.slug) {
+    return res.redirect(`/services/${request.data.result.slug}`);
+  }
 
   let hospitals = [];
   const {

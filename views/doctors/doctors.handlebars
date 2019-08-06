@@ -93,7 +93,7 @@
         return '<div class="info-window">' + 
         '<h5>' + (doctor.name || '') + '</h5>' +
         '<i>' + (doctor.hospital.location.address || '') + '</i><br/><br/>' +
-        '<a href="/doctors/' + doctor.id.toString() + '">View Doctor</a>' 
+        '<a href="/doctors/' + doctor.slug.toString() + '">View Doctor</a>' 
         '</div>';
     }
 </script>

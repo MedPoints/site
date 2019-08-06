@@ -6,8 +6,8 @@ router.get('/', catchErrors(doctors.getDoctors));
 router.get('/partial', catchErrors(doctors.getDoctorsPartial));
 router.get('/count', catchErrors(doctors.getCount));
 router.get('/:slug', catchErrors(doctors.getDoctor));
-router.get('/:id/services', catchErrors(doctors.getServicesByDoctor));
-router.get('/:id/hospitals', catchErrors(doctors.getHospitalsByDoctor));
+router.get('/:slug/services', catchErrors(doctors.getServicesByDoctor));
+router.get('/:slug/hospitals', catchErrors(doctors.getHospitalsByDoctor));
 
 
 module.exports = router;
