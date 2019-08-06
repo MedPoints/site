@@ -3,7 +3,7 @@ const blog = require('../controllers/blog');
 const catchErrors = require('../handlers/errorHandlers').catchErrors;
 
 router.get('/', catchErrors(blog.getBlogPosts));
-router.get('/text/:id', catchErrors(blog.getBlogPost));
+router.get('/text/:slug', catchErrors(blog.getBlogPost));
 
 
 module.exports = router;

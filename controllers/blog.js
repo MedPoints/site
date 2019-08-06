@@ -31,11 +31,17 @@ exports.getBlogPosts = async (req, res) => {
 };
 
 exports.getBlogPost = async (req, res) => {
-    const id = req.params.id;
+    const slug = req.params.slug;
+    const id = slug.split('-')[0];
+    const _slug = slug.split('-').splice(1).join('-');
     const blogArticle = getBlogPost(+id);
+
+    if (!_slug || slug !== blogArticle.slug) {
+        return res.redirect(`/blog/text/${blogArticle.slug}`);
+    }
+    
     const localization = new Localization(req.cookies.locale);
     const PAGE_TITLE = localization.localize('titles.blog');
-
 
     res.render('pages/text', { 
         blogArticle,
