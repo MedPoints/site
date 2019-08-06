@@ -21,9 +21,9 @@
                 </div>
                 <!--/.col-->
                 <div class="col-xl-6 col-md-5 col-sm-8">
-                    <h3><a href="/doctors/{{doctor.slug}}">{{doctor.name}}</a> <small>M.D</small></h3>
+                    <h3><a href="/doctors/{{doctor.id}}">{{doctor.name}}</a> <small>M.D</small></h3>
                     <div><a href="/doctors">{{doctor.specialization}}</a></div>
-                    <h4><a href="/clinics/{{doctor.hospital.slug}}">{{doctor.hospital.name}}</a></h4>
+                    <h4><a href="/clinics/{{doctor.hospital.id}}">{{doctor.hospital.name}}</a></h4>
                     <p><a class="map-toggle" data-name="{{doctor.hospital.name}}" href="/doctors">{{doctor.hospital.location.address}}</a></p>
                     <div>{{{localize ../req "doctor.workExperience" years="9+"}}}</div>
                     <div>{{{localize ../req "doctor.bonus" amount="100"}}}</div>
@@ -31,8 +31,8 @@
                 <div class="col-xl-3 col-md-4 col-sm-12">
                     <div class="wave text-center">
                         <h4>{{localize ../req 'ratings.rating'}} <strong class="text-success">{{doctor.rate}}</strong></h4>
-                        <p>{{localize ../req 'ratings.basedOn'}} <strong><a class="" href="/doctors/{{doctor.slug}}#opinions">{{doctor.ratings.length}} {{localize ../req 'ratings.opinions'}}</a></strong></p>
-                        <a class="btn btn-primary btn-lg justify book-button" href="/booking/?doctorId={{doctor.slug}}">{{localize ../req 'doctor.bookToVisit'}}</a>
+                        <p>{{localize ../req 'ratings.basedOn'}} <strong><a class="" href="/doctors/{{doctor.id}}#opinions">{{doctor.ratings.length}} {{localize ../req 'ratings.opinions'}}</a></strong></p>
+                        <a class="btn btn-primary btn-lg justify book-button" href="/booking/?doctorId={{doctor.id}}">{{localize ../req 'doctor.bookToVisit'}}</a>
                     </div>
                     <!--/.wave-->
                 </div>
