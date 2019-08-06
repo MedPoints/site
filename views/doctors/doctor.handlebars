@@ -18,7 +18,7 @@
                 <!--/.col-->
                 <div class="col-xl-8 col-md-12">
                     <div><a href="/doctors">{{doctor.specialization}}</a></div>
-                    <h4><a  href="/clinics/{{doctor.hospital.slug}}">{{doctor.hospital.name}}</h4>
+                    <h4><a  href="/clinics/{{doctor.hospital.id}}">{{doctor.hospital.name}}</h4>
                     <p><a class="map-toggle" data-name="{{doctor.hospital.name}}" href="/doctors">{{doctor.hospital.location.address}}</a></p>
                     <div>{{{localize req "doctor.workExperience" years="9+"}}}</div>
                     <div>{{{localize req "doctor.bonus" amount="100"}}}</div>
@@ -142,9 +142,9 @@
 
                             </ul>
                             <!--/.rating-->
-							<a class="btn btn-primary btn-lg justify" href="/booking?doctorId={{doctor.slug}}">{{localize req 'doctor.bookToVisit'}}</a>
+							<a class="btn btn-primary btn-lg justify" href="/booking?doctorId={{doctor.id}}">{{localize req 'doctor.bookToVisit'}}</a>
                             <p style="padding-top:1em;">
-                                <a class="btn btn-secondary justify" data-type="doctor" data-id="{{doctor.slug}}" id="addToFavButton" href="javascript:void(0)">
+                                <a class="btn btn-secondary justify" data-type="doctor" data-id="{{doctor.id}}" id="addToFavButton" href="javascript:void(0)">
                                     <i class="far fa-heart"></i> {{localize req 'addFavorites'}}
                                 </a>
                             </p>
@@ -198,7 +198,7 @@
                             return '<div class="info-window">' + 
                             '<h5>' + (hospital.name || '') + '</h5>' +
                             '<i>' + (hospital.location.address || '') + '</i><br/>' +
-                            '<a href="/clinics/' + hospital.slug.toString() + '">View Clinic</a>' 
+                            '<a href="/clinics/' + hospital.id.toString() + '">View Clinic</a>' 
                             '</div>';
                         }
                     </script>
@@ -240,7 +240,7 @@
                     {{#each doctor.services as |service|}}
                     <tr>
                         <td>
-                            <h4><a href="/services/{{ service.slug }}" title="{{ service.name }}">{{ service.name }}</a></h4>
+                            <h4><a href="/services/{{ service.id }}" title="{{ service.name }}">{{ service.name }}</a></h4>
                             <p>{{ service.short_descr }}</p>
                         </td>
                         <td>{{ service.time }}</td>
@@ -251,7 +251,7 @@
                             {{/if}}
                         </td>
                         <td>
-                            <a class="btn btn-primary btn-lg justify" href="/booking?doctorId={{../doctor.slug}}&serviceId={{service.slug}}">{{localize ../req 'doctor.bookToVisit'}}</a>
+                            <a class="btn btn-primary btn-lg justify" href="/booking?doctorId={{../doctor.id}}&serviceId={{service.id}}">{{localize ../req 'doctor.bookToVisit'}}</a>
                         </td>
                     </tr>
                     {{/each}}
