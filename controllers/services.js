@@ -100,6 +100,9 @@ exports.getService = async (req, res) => {
     return res.redirect(`/services/${request.data.result.slug}`);
   }
 
+  const path = `/img/avatars/services/service-${Math.floor(Math.random() * 8) + 1}.svg`;
+  service.avatar = path;
+
   let hospitals = [];
   const {
     providers: {
