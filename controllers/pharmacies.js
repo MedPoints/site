@@ -24,10 +24,11 @@ exports.getPharmacies = async (req, res) => {
   let url = queryPersistant.applyRequestQueryParameters(parameters, `${API_URL}/api/pharmacies`);  
   const request = await axios.get(url);
   
-  let pharmacies = request.data.result.data.map(pharmacy => preparePharmacyData(pharmacy, {
-    search: req.query.name
-  }));
-  
+  let pharmacies = request.data.result.data.map(pharmacy => {
+    const path = `/img/avatars/pharmacies/pharmacy-${Math.floor(Math.random() * 8) + 1}.svg`;
+    return preparePharmacyData(pharmacy, {search: req.query.name}, path);
+  });
+
   let avgCoordinates = {lat: 0, lng: 0};
   let count = 0;
   for (let i = 0, length = pharmacies.length; i < length; i++) {
@@ -80,7 +81,8 @@ exports.getPharmacy = async (req, res) => {
     return res.redirect(`/pharmacies/${request.data.result.slug}`);
   }
 
-  const pharmacy = preparePharmacyData(request.data.result);
+  const path = `/img/avatars/pharmacies/pharmacy-${Math.floor(Math.random() * 8) + 1}.svg`;
+  const pharmacy = preparePharmacyData(request.data.result, {}, path);
   const localization = new Localization(req.cookies.locale);
   res.render('pharmacies/pharmacy', { pharmacy, 
     PAGE_TITLE: `${localization.localize('titles.pharmacies')} - ${pharmacy.name}`, 

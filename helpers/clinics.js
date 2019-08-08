@@ -1,6 +1,8 @@
 const higlight = require('./text-highlighter');
 
-exports.prepareClinicData = (clinic, options) => {
+exports.prepareClinicData = (clinic, options, path) => {
+    clinic.avatar = path;
+    
     let work_time = [];
     if (clinic.work_time) {
         work_time = clinic.work_time.split('\n').map((workTime) => {

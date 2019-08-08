@@ -13,7 +13,15 @@
             <div class="row">
                 <div class="col">
 
-                    <img src="img/_demo/foundation-case1.jpg" alt="" class="img-thumbnail float-left">
+                    <div style="width: 400px; ">
+                    {{!-- <div class="crop2"> --}}
+                        {{!-- <img src="/img/_demo/foundation-case1.jpg" alt="" class="img-thumbnail float-left"> --}}
+
+                        <img id="imgCase3" src="" alt="" class="float-left"/>
+                        <script>document.getElementById("imgCase3").src = `/img/avatars/cases/case-${Math.floor(Math.random() * 8) + 1}.svg`</script>
+
+                        {{!-- </div> --}}
+                        </div>
 
                     <h3>Julia Ostin <small>12 y.o.</small></h3>
                     <p><a href="/foundation-cases">New York</a>, <a href="/foundation-cases">NY</a>, <a href="/foundation-cases">United States</a></p>
@@ -23,7 +31,7 @@
                         <h4><a class="" href="/clinic">General Hospital</a> <small>Public</small></h4>
                     </div>
 
-                    <hr />
+                    {{!-- <hr /> --}}
 
                     <p>Lorem ipsum dolor sit amet, dolores mandamus moderatius ea ius, sed civibus vivendum imperdiet ei, amet tritani sea id. Ut veri diceret fierent mei, qui facilisi suavitate euripidis ad. In vim mucius menandri convenire, an brute zril
                         vis. Ancillae delectus necessitatibus no eam, at porro solet veniam mel, ad everti nostrud vim. Eam no menandri pertinacia deterruisset.</p>

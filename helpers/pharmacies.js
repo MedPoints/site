@@ -1,6 +1,8 @@
 const higlight = require('./text-highlighter');
 
-exports.preparePharmacyData = (pharmacy,options) => {
+exports.preparePharmacyData = (pharmacy,options,path) => {
+    pharmacy.avatar = path;
+
     let work_time = [];
     if (pharmacy.work_time) {
         work_time = pharmacy.work_time.map(workTime => {
