@@ -297,3 +297,19 @@
         <!--/.reviews-->
 
     </section>
+
+    <script>
+        const bars = Array.from(document.querySelectorAll(".progress-bar"));
+        for (const [i, bar] of bars.entries()) {
+            const param = (i === 0) ? {{doctor.opinion.knowledge}} 
+                : (i === 1) ? {{doctor.opinion.skills}} 
+                : (i === 2) ? {{doctor.opinion.attention}} 
+                : {{doctor.opinion.priceQuality}};
+
+            const className = (param >= 8) ? "bg-success"
+                : (param >= 5) ? "bg-warning"
+                : "bg-danger";
+
+            bar.className = `progress-bar ${className}`;
+        }
+    </script>
