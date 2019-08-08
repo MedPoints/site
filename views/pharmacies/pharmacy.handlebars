@@ -114,8 +114,8 @@
                                     </div>
                                     <div class="col">
                                         <div class="progress progress-striped">
-                                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="{{percentage pharmacy.opinion.service 10}}" aria-valuemin="0" aria-valuemax="100" style="width: {{percentage pharmacy.opinion.service 10}}%">
-                                                <span class="sr-only">{{pharmacy.opinion.service}}/10</span>
+                                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="{{percentage pharmacy.opinion.priceQuality 10}}" aria-valuemin="0" aria-valuemax="100" style="width: {{percentage pharmacy.opinion.priceQuality 10}}%">
+                                                <span class="sr-only">{{pharmacy.opinion.priceQuality}}/10</span>
                                             </div>
                                         </div>
                                     </div>
@@ -232,3 +232,17 @@
         <!--/.reviews-->
 
     </section>
+
+    <script>
+        const bars = Array.from(document.querySelectorAll(".progress-bar"));
+        for (const [i, bar] of bars.entries()) {
+            const param = (i === 0) ? {{pharmacy.opinion.service}} 
+                : {{pharmacy.opinion.priceQuality}};
+
+            const className = (param >= 8) ? "bg-success"
+                : (param >= 5) ? "bg-warning"
+                : "bg-danger";
+
+            bar.className = `progress-bar ${className}`;
+        }
+    </script>
