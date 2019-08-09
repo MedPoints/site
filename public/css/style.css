@@ -798,6 +798,23 @@ ul.nav-account {
 
 /* */
 
+.wave2{
+	display: block;
+	width: 100%;
+     background: #f5f5f5;
+     position: relative;
+     padding: 1rem 1rem 1.7rem 1rem;
+	overflow: hidden; 
+	width: 100%;
+	clear: both; 
+}
+
+ul.items-list li:hover .wave2{
+     background: #fcf8e3;
+}
+
+
+
 .wave{
 	display: block;
 	width: 100%;
