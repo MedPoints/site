@@ -1,2211 +1,3402 @@
 [
     { 
         "country" : "US", 
-        "name" : "Oakbrook Terrace"
+        "names" : [
+            "oakbrook terrace"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Canton"
+        "names" : [
+            "canton"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Wayne"
+        "names" : [
+            "wayne"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Alexandria"
+        "names" : [
+            "alexandria"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Gurnee"
+        "names" : [
+            "gurnee"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Exton"
+        "names" : [
+            "exton"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Glastonbury"
+        "names" : [
+            "glastonbury"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Kansas City"
+        "names" : [
+            "kansas city"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Philadelphia"
+        "names" : [
+            "philadelphia"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Columbia"
+        "names" : [
+            "columbia"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Naperville"
+        "names" : [
+            "naperville"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Brentwood"
+        "names" : [
+            "brentwood"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Feasterville Trevose"
+        "names" : [
+            "feasterville trevose"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Orland Park"
+        "names" : [
+            "orland park"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Annapolis"
+        "names" : [
+            "annapolis"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Schaumburg"
+        "names" : [
+            "schaumburg"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Baltimore"
+        "names" : [
+            "baltimore"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Merrillville"
+        "names" : [
+            "merrillville"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Geneva"
+        "names" : [
+            "geneva"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Mequon"
+        "names" : [
+            "mequon"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "North Haven"
+        "names" : [
+            "north haven"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Buffalo Grove"
+        "names" : [
+            "buffalo grove"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Portland"
+        "names" : [
+            "portland"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Chevy Chase"
+        "names" : [
+            "chevy chase"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Spokane"
+        "names" : [
+            "spokane"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Lemoyne"
+        "names" : [
+            "lemoyne"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Woodbridge"
+        "names" : [
+            "woodbridge"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Herndon"
+        "names" : [
+            "herndon"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Downers Grove"
+        "names" : [
+            "downers grove"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Bettendorf"
+        "names" : [
+            "bettendorf"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Chicago"
+        "names" : [
+            "chicago"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Medway"
+        "names" : [
+            "medway"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Lutherville Timonium"
+        "names" : [
+            "lutherville timonium"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Brookfield"
+        "names" : [
+            "brookfield"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Albuquerque"
+        "names" : [
+            "albuquerque"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "New York"
+        "names" : [
+            "new york"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Rugby"
+        "names" : [
+            "rugby"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Rockville"
+        "names" : [
+            "rockville"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Southbury"
+        "names" : [
+            "southbury"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Vienna"
+        "names" : [
+            "vienna"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Greenwich"
+        "names" : [
+            "greenwich"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Overland Park"
+        "names" : [
+            "overland park"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Fairfax"
+        "names" : [
+            "fairfax"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Cincinnati"
+        "names" : [
+            "cincinnati"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Pikesville"
+        "names" : [
+            "pikesville"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Wilton"
+        "names" : [
+            "wilton"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Skokie"
+        "names" : [
+            "skokie"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Cranford"
+        "names" : [
+            "cranford"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Allentown"
+        "names" : [
+            "allentown"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "St Anthony"
+        "names" : [
+            "st anthony"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Charlotte"
+        "names" : [
+            "charlotte"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Bellingham"
+        "names" : [
+            "bellingham"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Fort Collins"
+        "names" : [
+            "fort collins"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Boise"
+        "names" : [
+            "boise"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Meridian"
+        "names" : [
+            "meridian"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Cardiff By The Sea"
+        "names" : [
+            "cardiff by the sea"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Falls Church"
+        "names" : [
+            "falls church"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Peru"
+        "names" : [
+            "peru"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Sacramento"
+        "names" : [
+            "sacramento"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Los Alamitos"
+        "names" : [
+            "los alamitos"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Crown Point"
+        "names" : [
+            "crown point"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Pleasanton"
+        "names" : [
+            "pleasanton"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Lexington"
+        "names" : [
+            "lexington"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Norton"
+        "names" : [
+            "norton"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Evansville"
+        "names" : [
+            "evansville"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Bellevue"
+        "names" : [
+            "bellevue"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Kent"
+        "names" : [
+            "kent"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Springfield"
+        "names" : [
+            "springfield"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Knoxville"
+        "names" : [
+            "knoxville"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Vernon Hills"
+        "names" : [
+            "vernon hills"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Deerfield"
+        "names" : [
+            "deerfield"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Wichita"
+        "names" : [
+            "wichita"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Pewaukee"
+        "names" : [
+            "pewaukee"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Medford"
+        "names" : [
+            "medford"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Ventura"
+        "names" : [
+            "ventura"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Cabot"
+        "names" : [
+            "cabot"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Gilbert"
+        "names" : [
+            "gilbert"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Charlottesville"
+        "names" : [
+            "charlottesville"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Huntington Beach"
+        "names" : [
+            "huntington beach"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Hamilton Township"
+        "names" : [
+            "hamilton township"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Smyrna"
+        "names" : [
+            "smyrna"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Spring Hill"
+        "names" : [
+            "spring hill"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Gilroy"
+        "names" : [
+            "gilroy"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Phoenix"
+        "names" : [
+            "phoenix"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Petaluma"
+        "names" : [
+            "petaluma"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Towson"
+        "names" : [
+            "towson"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Stevens Point"
+        "names" : [
+            "stevens point"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Murray"
+        "names" : [
+            "murray"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Dunseith"
+        "names" : [
+            "dunseith"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Wareham"
+        "names" : [
+            "wareham"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Montville"
+        "names" : [
+            "montville"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "New Hyde Park"
+        "names" : [
+            "new hyde park"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Washington"
+        "names" : [
+            "washington"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Los Angeles"
+        "names" : [
+            "los angeles"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Wilmington"
+        "names" : [
+            "wilmington"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "San Diego"
+        "names" : [
+            "san diego"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Madison"
+        "names" : [
+            "madison"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Temecula, Rancho California"
+        "names" : [
+            "temecula", 
+            "rancho california"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Tustin"
+        "names" : [
+            "tustin"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Oak Lawn"
+        "names" : [
+            "oak lawn"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Arnold"
+        "names" : [
+            "arnold"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Colonial Heights"
+        "names" : [
+            "colonial heights"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Bend"
+        "names" : [
+            "bend"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Greenville"
+        "names" : [
+            "greenville"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Chelmsford, S Chelmsford, South Chelmsford, Kates Corner"
+        "names" : [
+            "chelmsford", 
+            "s chelmsford", 
+            "south chelmsford", 
+            "kates corner"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Grayslake"
+        "names" : [
+            "grayslake"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Chapel Hill"
+        "names" : [
+            "chapel hill"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "South Gate"
+        "names" : [
+            "south gate"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Sevierville"
+        "names" : [
+            "sevierville"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Evanston"
+        "names" : [
+            "evanston"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Huntsville"
+        "names" : [
+            "huntsville"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Arleta"
+        "names" : [
+            "arleta"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Waukesha"
+        "names" : [
+            "waukesha"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Birmingham"
+        "names" : [
+            "birmingham"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Honolulu"
+        "names" : [
+            "honolulu"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Pawhuska"
+        "names" : [
+            "pawhuska"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Orlando"
+        "names" : [
+            "orlando"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Berkeley"
+        "names" : [
+            "berkeley"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Osage Beach"
+        "names" : [
+            "osage beach"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "New Palestine"
+        "names" : [
+            "new palestine"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Clinton"
+        "names" : [
+            "clinton"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Richland"
+        "names" : [
+            "richland"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Leander"
+        "names" : [
+            "leander"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Dripping Springs"
+        "names" : [
+            "dripping springs"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Austin"
+        "names" : [
+            "austin"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Crossroads"
+        "names" : [
+            "crossroads"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Rio Rancho"
+        "names" : [
+            "rio rancho"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Biloxi"
+        "names" : [
+            "biloxi"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Syracuse"
+        "names" : [
+            "syracuse"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Sebring"
+        "names" : [
+            "sebring"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Fairhope"
+        "names" : [
+            "fairhope"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Fairfield"
+        "names" : [
+            "fairfield"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Pell City"
+        "names" : [
+            "pell city"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Irondale"
+        "names" : [
+            "irondale"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Fort Oglethorpe"
+        "names" : [
+            "fort oglethorpe"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Atlanta"
+        "names" : [
+            "atlanta"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Nashville"
+        "names" : [
+            "nashville"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Salt Lake City"
+        "names" : [
+            "salt lake city"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Columbus"
+        "names" : [
+            "columbus"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Rockville Centre"
+        "names" : [
+            "rockville centre"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Marietta"
+        "names" : [
+            "marietta"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Alpharetta"
+        "names" : [
+            "alpharetta"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Wichita Falls"
+        "names" : [
+            "wichita falls"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Lafayette"
+        "names" : [
+            "lafayette"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Daytona Beach"
+        "names" : [
+            "daytona beach"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Waco"
+        "names" : [
+            "waco"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Round Rock"
+        "names" : [
+            "round rock"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Flower Mound"
+        "names" : [
+            "flower mound"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Altadena"
+        "names" : [
+            "altadena"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Matthews"
+        "names" : [
+            "matthews"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "West Palm Beach"
+        "names" : [
+            "west palm beach"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Wentzville"
+        "names" : [
+            "wentzville"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Wappingers Falls"
+        "names" : [
+            "wappingers falls"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Newhall"
+        "names" : [
+            "newhall"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Boca Raton"
+        "names" : [
+            "boca raton"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Cicero"
+        "names" : [
+            "cicero"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Tupelo"
+        "names" : [
+            "tupelo"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "North Richland Hills"
+        "names" : [
+            "north richland hills"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Clearfield"
+        "names" : [
+            "clearfield"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Ridgeland"
+        "names" : [
+            "ridgeland"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Edmond"
+        "names" : [
+            "edmond"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Roseville"
+        "names" : [
+            "roseville"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Garnet Valley"
+        "names" : [
+            "garnet valley"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Daphne"
+        "names" : [
+            "daphne"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Conshohocken"
+        "names" : [
+            "conshohocken"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Dubuque"
+        "names" : [
+            "dubuque"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Tulsa"
+        "names" : [
+            "tulsa"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Newport News"
+        "names" : [
+            "newport news"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Auburn"
+        "names" : [
+            "auburn"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Saint Cloud"
+        "names" : [
+            "saint cloud"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "College Station"
+        "names" : [
+            "college station"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "San Antonio"
+        "names" : [
+            "san antonio"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Cleveland"
+        "names" : [
+            "cleveland"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Beachwood"
+        "names" : [
+            "beachwood"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Maitland"
+        "names" : [
+            "maitland"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Pompano Beach"
+        "names" : [
+            "pompano beach"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Montgomery"
+        "names" : [
+            "montgomery"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Dallas"
+        "names" : [
+            "dallas"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Rochelle"
+        "names" : [
+            "rochelle"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Kennesaw"
+        "names" : [
+            "kennesaw"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Fitchburg"
+        "names" : [
+            "fitchburg"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Goodyear"
+        "names" : [
+            "goodyear"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Lakewood"
+        "names" : [
+            "lakewood"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Pueblo"
+        "names" : [
+            "pueblo"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Arlington"
+        "names" : [
+            "arlington"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Amherst"
+        "names" : [
+            "amherst"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "San Francisco"
+        "names" : [
+            "san francisco"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Parker"
+        "names" : [
+            "parker"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Colorado Springs"
+        "names" : [
+            "colorado springs"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Davis Junction"
+        "names" : [
+            "davis junction"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "American Canyon"
+        "names" : [
+            "american canyon"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Saint Petersburg"
+        "names" : [
+            "saint petersburg"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Shreveport"
+        "names" : [
+            "shreveport"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Rockford"
+        "names" : [
+            "rockford"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Elizabeth"
+        "names" : [
+            "elizabeth"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Cheverly"
+        "names" : [
+            "cheverly"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Frederick"
+        "names" : [
+            "frederick"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Pensacola"
+        "names" : [
+            "pensacola"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Roscoe"
+        "names" : [
+            "roscoe"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Englewood"
+        "names" : [
+            "englewood"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "District Heights"
+        "names" : [
+            "district heights"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Valdosta"
+        "names" : [
+            "valdosta"
+        ]
     },
     { 
         "country" : "CA", 
-        "name" : "Toronto"
+        "names" : [
+            "toronto"
+        ]
     },
     { 
         "country" : "CA", 
-        "name" : "Etobicoke"
+        "names" : [
+            "etobicoke"
+        ]
     },
     { 
         "country" : "CA", 
-        "name" : "Whitby"
+        "names" : [
+            "whitby"
+        ]
     },
     { 
         "country" : "CA", 
-        "name" : "St. Catharines"
+        "names" : [
+            "st. catharines"
+        ]
     },
     { 
         "country" : "CA", 
-        "name" : "Mississauga"
+        "names" : [
+            "mississauga"
+        ]
     },
     { 
         "country" : "CA", 
-        "name" : "Burlington"
+        "names" : [
+            "burlington"
+        ]
     },
     { 
         "country" : "CA", 
-        "name" : "Ottawa"
+        "names" : [
+            "ottawa"
+        ]
     },
     { 
         "country" : "CA", 
-        "name" : "Windsor"
+        "names" : [
+            "windsor"
+        ]
     },
     { 
         "country" : "CA", 
-        "name" : "Markham"
+        "names" : [
+            "markham"
+        ]
     },
     { 
         "country" : "CA", 
-        "name" : "Langley"
+        "names" : [
+            "langley"
+        ]
     },
     { 
         "country" : "CA", 
-        "name" : "Montréal"
+        "names" : [
+            "montréal"
+        ]
     },
     { 
         "country" : "CA", 
-        "name" : "Kitchener"
+        "names" : [
+            "kitchener"
+        ]
     },
     { 
         "country" : "CA", 
-        "name" : "Thunder Bay"
+        "names" : [
+            "thunder bay"
+        ]
     },
     { 
         "country" : "CA", 
-        "name" : "Winnipeg"
+        "names" : [
+            "winnipeg"
+        ]
     },
     { 
         "country" : "CA", 
-        "name" : "West Vancouver"
+        "names" : [
+            "west vancouver"
+        ]
     },
     { 
         "country" : "CA", 
-        "name" : "Calgary"
+        "names" : [
+            "calgary"
+        ]
     },
     { 
         "country" : "CA", 
-        "name" : "Vancouver"
+        "names" : [
+            "vancouver"
+        ]
     },
     { 
         "country" : "CA", 
-        "name" : "Edmonton"
+        "names" : [
+            "edmonton"
+        ]
     },
     { 
         "country" : "CA", 
-        "name" : "London"
+        "names" : [
+            "london"
+        ]
     },
     { 
         "country" : "CA", 
-        "name" : "De Winton"
+        "names" : [
+            "de winton"
+        ]
     },
     { 
         "country" : "CA", 
-        "name" : "Whistler"
+        "names" : [
+            "whistler"
+        ]
     },
     { 
         "country" : "CA", 
-        "name" : "Cochrane"
+        "names" : [
+            "cochrane"
+        ]
     },
     { 
         "country" : "CA", 
-        "name" : "Peterborough"
+        "names" : [
+            "peterborough"
+        ]
     },
     { 
         "country" : "CA", 
-        "name" : "Guelph"
+        "names" : [
+            "guelph"
+        ]
     },
     { 
         "country" : "CA", 
-        "name" : "St. John's"
+        "names" : [
+            "st. john's"
+        ]
     },
     { 
         "country" : "CA", 
-        "name" : "Barrie"
+        "names" : [
+            "barrie"
+        ]
     },
     { 
         "country" : "CA", 
-        "name" : "Lindsay"
+        "names" : [
+            "lindsay"
+        ]
     },
     { 
         "country" : "CA", 
-        "name" : "Richmond Hill"
+        "names" : [
+            "richmond hill"
+        ]
     },
     { 
         "country" : "PE", 
-        "name" : "Cusco"
+        "names" : [
+            "cusco"
+        ]
     },
     { 
         "country" : "AR", 
-        "name" : "Tucumán"
+        "names" : [
+            "tucumán"
+        ]
     },
     { 
         "country" : "MX", 
-        "name" : "Tijuana"
+        "names" : [
+            "tijuana"
+        ]
     },
     { 
         "country" : "BR", 
-        "name" : "Rio de Janeiro"
+        "names" : [
+            "rio de janeiro"
+        ]
     },
     { 
         "country" : "BR", 
-        "name" : "Curitiba"
+        "names" : [
+            "curitiba"
+        ]
     },
     { 
         "country" : "BR", 
-        "name" : "Balneário Camboriú"
+        "names" : [
+            "balneário camboriú"
+        ]
     },
     { 
         "country" : "GB", 
-        "name" : "Saint Albans"
+        "names" : [
+            "saint albans"
+        ]
     },
     { 
         "country" : "GB", 
-        "name" : "Liverpool"
+        "names" : [
+            "liverpool"
+        ]
     },
     { 
         "country" : "GB", 
-        "name" : "Dagenham"
+        "names" : [
+            "dagenham"
+        ]
     },
     { 
         "country" : "GB", 
-        "name" : "Manchester"
+        "names" : [
+            "manchester"
+        ]
     },
     { 
         "country" : "GB", 
-        "name" : "Woodford Green"
+        "names" : [
+            "woodford green"
+        ]
     },
     { 
         "country" : "GB", 
-        "name" : "Brentford"
+        "names" : [
+            "brentford"
+        ]
     },
     { 
         "country" : "IE", 
-        "name" : "Intake, Dublin"
+        "names" : [
+            "intake", 
+            "dublin"
+        ]
     },
     { 
         "country" : "IE", 
-        "name" : "Mullingar"
+        "names" : [
+            "mullingar"
+        ]
     },
     { 
         "country" : "IE", 
-        "name" : "Galway"
+        "names" : [
+            "galway"
+        ]
     },
     { 
         "country" : "IE", 
-        "name" : "Tobercurry, Tubbercurry"
+        "names" : [
+            "tobercurry", 
+            "tubbercurry"
+        ]
     },
     { 
         "country" : "IE", 
-        "name" : "Dundrum, Dublin"
+        "names" : [
+            "dundrum", 
+            "dublin"
+        ]
     },
     { 
         "country" : "IE", 
-        "name" : "Gardens (st.canice Ph), Kilkenny"
+        "names" : [
+            "gardens (st.canice ph)", 
+            "kilkenny"
+        ]
     },
     { 
         "country" : "GB", 
-        "name" : "Glasgow"
+        "names" : [
+            "glasgow"
+        ]
     },
     { 
         "country" : "GB", 
-        "name" : "Stirling"
+        "names" : [
+            "stirling"
+        ]
     },
     { 
         "country" : "FR", 
-        "name" : "Paris"
+        "names" : [
+            "paris"
+        ]
     },
     { 
         "country" : "FR", 
-        "name" : "Lyon"
+        "names" : [
+            "lyon"
+        ]
     },
     { 
         "country" : "FR", 
-        "name" : "Abbeville"
+        "names" : [
+            "abbeville"
+        ]
     },
     { 
         "country" : "FR", 
-        "name" : "Aubervilliers"
+        "names" : [
+            "aubervilliers"
+        ]
     },
     { 
         "country" : "DE", 
-        "name" : "Sankt Wendel"
+        "names" : [
+            "sankt wendel"
+        ]
     },
     { 
         "country" : "FR", 
-        "name" : "Villejuif"
+        "names" : [
+            "villejuif"
+        ]
     },
     { 
         "country" : "DE", 
-        "name" : "Dornstetten"
+        "names" : [
+            "dornstetten"
+        ]
     },
     { 
         "country" : "DE", 
-        "name" : "Edenkoben"
+        "names" : [
+            "edenkoben"
+        ]
     },
     { 
         "country" : "DE", 
-        "name" : "Bad Aibling"
+        "names" : [
+            "bad aibling"
+        ]
     },
     { 
         "country" : "DE", 
-        "name" : "Brannenburg"
+        "names" : [
+            "brannenburg"
+        ]
     },
     { 
         "country" : "DE", 
-        "name" : "Kornwestheim"
+        "names" : [
+            "kornwestheim"
+        ]
     },
     { 
         "country" : "DE", 
-        "name" : "Baumholder"
+        "names" : [
+            "baumholder"
+        ]
     },
     { 
         "country" : "DE", 
-        "name" : "Bad Mergentheim"
+        "names" : [
+            "bad mergentheim"
+        ]
     },
     { 
         "country" : "DE", 
-        "name" : "Augsburg"
+        "names" : [
+            "augsburg"
+        ]
     },
     { 
         "country" : "DE", 
-        "name" : "Überlingen"
+        "names" : [
+            "überlingen"
+        ]
     },
     { 
         "country" : "DE", 
-        "name" : "Grafenwöhr"
+        "names" : [
+            "grafenwöhr"
+        ]
     },
     { 
         "country" : "DE", 
-        "name" : "Landstuhl"
+        "names" : [
+            "landstuhl"
+        ]
     },
     { 
         "country" : "DE", 
-        "name" : "Freiburg im Breisgau"
+        "names" : [
+            "freiburg im breisgau"
+        ]
     },
     { 
         "country" : "DE", 
-        "name" : "Lahr/Schwarzwald"
+        "names" : [
+            "lahr/schwarzwald"
+        ]
     },
     { 
         "country" : "DE", 
-        "name" : "Hamburg"
+        "names" : [
+            "hamburg"
+        ]
     },
     { 
         "country" : "DE", 
-        "name" : "Berlin"
+        "names" : [
+            "berlin"
+        ]
     },
     { 
         "country" : "DE", 
-        "name" : "Wiesbaden"
+        "names" : [
+            "wiesbaden"
+        ]
     },
     { 
         "country" : "DE", 
-        "name" : "Ansbach"
+        "names" : [
+            "ansbach"
+        ]
     },
     { 
         "country" : "DE", 
-        "name" : "München"
+        "names" : [
+            "münchen"
+        ]
     },
     { 
         "country" : "DE", 
-        "name" : "Mannheim"
+        "names" : [
+            "mannheim"
+        ]
     },
     { 
         "country" : "DE", 
-        "name" : "Bonn"
+        "names" : [
+            "bonn"
+        ]
     },
     { 
         "country" : "DE", 
-        "name" : "Ulm"
+        "names" : [
+            "ulm"
+        ]
     },
     { 
         "country" : "DE", 
-        "name" : "Aachen"
+        "names" : [
+            "aachen"
+        ]
     },
     { 
         "country" : "DE", 
-        "name" : "Kiel"
+        "names" : [
+            "kiel"
+        ]
     },
     { 
         "country" : "DE", 
-        "name" : "Frankfurt am Main"
+        "names" : [
+            "frankfurt am main"
+        ]
     },
     { 
         "country" : "DE", 
-        "name" : "Bad Emstal"
+        "names" : [
+            "bad emstal"
+        ]
     },
     { 
         "country" : "DE", 
-        "name" : "Heidelberg"
+        "names" : [
+            "heidelberg"
+        ]
     },
     { 
         "country" : "DE", 
-        "name" : "Melsungen"
+        "names" : [
+            "melsungen"
+        ]
     },
     { 
         "country" : "DE", 
-        "name" : "Stuttgart"
+        "names" : [
+            "stuttgart"
+        ]
     },
     { 
         "country" : "DE", 
-        "name" : "Kusterdingen"
+        "names" : [
+            "kusterdingen"
+        ]
     },
     { 
         "country" : "DE", 
-        "name" : "Potsdam"
+        "names" : [
+            "potsdam"
+        ]
     },
     { 
         "country" : "DE", 
-        "name" : "Hannover"
+        "names" : [
+            "hannover"
+        ]
     },
     { 
         "country" : "DE", 
-        "name" : "Hanover"
+        "names" : [
+            "hanover"
+        ]
     },
     { 
         "country" : "DE", 
-        "name" : "Erlangen"
+        "names" : [
+            "erlangen"
+        ]
     },
     { 
         "country" : "DE", 
-        "name" : "Bayreuth"
+        "names" : [
+            "bayreuth"
+        ]
     },
     { 
         "country" : "DE", 
-        "name" : "Ludwigsburg"
+        "names" : [
+            "ludwigsburg"
+        ]
     },
     { 
         "country" : "DE", 
-        "name" : "Bad Kreuznach"
+        "names" : [
+            "bad kreuznach"
+        ]
     },
     { 
         "country" : "DE", 
-        "name" : "Konstanz"
+        "names" : [
+            "konstanz"
+        ]
     },
     { 
         "country" : "DE", 
-        "name" : "Düsseldorf"
+        "names" : [
+            "düsseldorf"
+        ]
     },
     { 
         "country" : "IT", 
-        "name" : "Firenze"
+        "names" : [
+            "firenze"
+        ]
     },
     { 
         "country" : "IT", 
-        "name" : "Roma"
+        "names" : [
+            "roma"
+        ]
     },
     { 
         "country" : "IT", 
-        "name" : "Vicenza"
+        "names" : [
+            "vicenza"
+        ]
     },
     { 
         "country" : "IT", 
-        "name" : "Milano"
+        "names" : [
+            "milano"
+        ]
     },
     { 
         "country" : "IT", 
-        "name" : "Verona"
+        "names" : [
+            "verona"
+        ]
     },
     { 
         "country" : "IT", 
-        "name" : "Agrigento"
+        "names" : [
+            "agrigento"
+        ]
     },
     { 
         "country" : "IT", 
-        "name" : "Orvieto"
+        "names" : [
+            "orvieto"
+        ]
     },
     { 
         "country" : "IT", 
-        "name" : "Aviano"
+        "names" : [
+            "aviano"
+        ]
     },
     { 
         "country" : "IT", 
-        "name" : "Todi"
+        "names" : [
+            "todi"
+        ]
     },
     { 
         "country" : "IT", 
-        "name" : "Perugia"
+        "names" : [
+            "perugia"
+        ]
     },
     { 
         "country" : "IT", 
-        "name" : "Bologna"
+        "names" : [
+            "bologna"
+        ]
     },
     { 
         "country" : "IT", 
-        "name" : "Villa Guardia"
+        "names" : [
+            "villa guardia"
+        ]
     },
     { 
         "country" : "IT", 
-        "name" : "Torino"
+        "names" : [
+            "torino"
+        ]
     },
     { 
         "country" : "IT", 
-        "name" : "Piacenza"
+        "names" : [
+            "piacenza"
+        ]
     },
     { 
         "country" : "ES", 
-        "name" : "Alicante"
+        "names" : [
+            "alicante"
+        ]
     },
     { 
         "country" : "ES", 
-        "name" : "l'Alfàs del Pi"
+        "names" : [
+            "l'alfàs del pi"
+        ]
     },
     { 
         "country" : "ES", 
-        "name" : "Estepona"
+        "names" : [
+            "estepona"
+        ]
     },
     { 
         "country" : "ES", 
-        "name" : "Marbella"
+        "names" : [
+            "marbella"
+        ]
     },
     { 
         "country" : "ES", 
-        "name" : "Torrevieja"
+        "names" : [
+            "torrevieja"
+        ]
     },
     { 
         "country" : "ES", 
-        "name" : "Barcelona"
+        "names" : [
+            "barcelona"
+        ]
     },
     { 
         "country" : "ES", 
-        "name" : "Madrid"
+        "names" : [
+            "madrid"
+        ]
     },
     { 
         "country" : "ES", 
-        "name" : "Benijófar"
+        "names" : [
+            "benijófar"
+        ]
     },
     { 
         "country" : "ES", 
-        "name" : "Málaga"
+        "names" : [
+            "málaga"
+        ]
     },
     { 
         "country" : "ES", 
-        "name" : "Murcia"
+        "names" : [
+            "murcia"
+        ]
     },
     { 
         "country" : "ES", 
-        "name" : "Benalmádena"
+        "names" : [
+            "benalmádena"
+        ]
     },
     { 
         "country" : "ES", 
-        "name" : "Torrox"
+        "names" : [
+            "torrox"
+        ]
     },
     { 
         "country" : "ES", 
-        "name" : "Mijas"
+        "names" : [
+            "mijas"
+        ]
     },
     { 
         "country" : "ES", 
-        "name" : "Sevilla"
+        "names" : [
+            "sevilla"
+        ]
     },
     { 
         "country" : "ES", 
-        "name" : "Pamplona"
+        "names" : [
+            "pamplona"
+        ]
     },
     { 
         "country" : "ES", 
-        "name" : "Córdoba"
+        "names" : [
+            "córdoba"
+        ]
     },
     { 
         "country" : "ES", 
-        "name" : "Orihuela"
+        "names" : [
+            "orihuela"
+        ]
     },
     { 
         "country" : "ES", 
-        "name" : "Palma"
+        "names" : [
+            "palma"
+        ]
     },
     { 
         "country" : "ES", 
-        "name" : "Zaragoza"
+        "names" : [
+            "zaragoza"
+        ]
     },
     { 
         "country" : "ES", 
-        "name" : "Nerja"
+        "names" : [
+            "nerja"
+        ]
     },
     { 
         "country" : "ES", 
-        "name" : "Valencia"
+        "names" : [
+            "valencia"
+        ]
     },
     { 
         "country" : "ES", 
-        "name" : "Teulada"
+        "names" : [
+            "teulada"
+        ]
     },
     { 
         "country" : "ES", 
-        "name" : "Ciutadella de Menorca"
+        "names" : [
+            "ciutadella de menorca"
+        ]
     },
     { 
         "country" : "ES", 
-        "name" : "Almuñécar"
+        "names" : [
+            "almuñécar"
+        ]
     },
     { 
         "country" : "ES", 
-        "name" : "Esplugues de Llobregat"
+        "names" : [
+            "esplugues de llobregat"
+        ]
     },
     { 
         "country" : "ES", 
-        "name" : "Xàbia"
+        "names" : [
+            "xàbia"
+        ]
     },
     { 
         "country" : "ES", 
-        "name" : "Yecla"
+        "names" : [
+            "yecla"
+        ]
     },
     { 
         "country" : "ES", 
-        "name" : "Benissa"
+        "names" : [
+            "benissa"
+        ]
     },
     { 
         "country" : "ES", 
-        "name" : "Leioa"
+        "names" : [
+            "leioa"
+        ]
     },
     { 
         "country" : "ES", 
-        "name" : "Puerto de la Cruz"
+        "names" : [
+            "puerto de la cruz"
+        ]
     },
     { 
         "country" : "PT", 
-        "name" : "Albufeira"
+        "names" : [
+            "albufeira"
+        ]
     },
     { 
         "country" : "PT", 
-        "name" : "Lisboa"
+        "names" : [
+            "lisboa"
+        ]
     },
     { 
         "country" : "PT", 
-        "name" : "Sintra"
+        "names" : [
+            "sintra"
+        ]
     },
     { 
         "country" : "PT", 
-        "name" : "Santa Maria da Feira"
+        "names" : [
+            "santa maria da feira"
+        ]
     },
     { 
         "country" : "PT", 
-        "name" : "Cascais"
+        "names" : [
+            "cascais"
+        ]
     },
     { 
         "country" : "PT", 
-        "name" : "Lagos"
+        "names" : [
+            "lagos"
+        ]
     },
     { 
         "country" : "PT", 
-        "name" : "Figueira da Foz"
+        "names" : [
+            "figueira da foz"
+        ]
     },
     { 
         "country" : "PT", 
-        "name" : "Oeiras"
+        "names" : [
+            "oeiras"
+        ]
     },
     { 
         "country" : "PT", 
-        "name" : "Faro"
+        "names" : [
+            "faro"
+        ]
     },
     { 
         "country" : "PT", 
-        "name" : "Montijo"
+        "names" : [
+            "montijo"
+        ]
     },
     { 
         "country" : "PT", 
-        "name" : "Funchal"
+        "names" : [
+            "funchal"
+        ]
     },
     { 
         "country" : "PT", 
-        "name" : "Porto"
+        "names" : [
+            "porto"
+        ]
     },
     { 
         "country" : "PT", 
-        "name" : "Óbidos"
+        "names" : [
+            "óbidos"
+        ]
     },
     { 
         "country" : "BR", 
-        "name" : "Itajubá"
+        "names" : [
+            "itajubá"
+        ]
     },
     { 
         "country" : "PT", 
-        "name" : "Loures"
+        "names" : [
+            "loures"
+        ]
     },
     { 
         "country" : "PT", 
-        "name" : "Coimbra"
+        "names" : [
+            "coimbra"
+        ]
     },
     { 
         "country" : "PT", 
-        "name" : "Loulé"
+        "names" : [
+            "loulé"
+        ]
     },
     { 
         "country" : "PT", 
-        "name" : "Amadora"
+        "names" : [
+            "amadora"
+        ]
     },
     { 
         "country" : "PT", 
-        "name" : "Horta"
+        "names" : [
+            "horta"
+        ]
     },
     { 
         "country" : "PT", 
-        "name" : "Vila Nova de Gaia"
+        "names" : [
+            "vila nova de gaia"
+        ]
     },
     { 
         "country" : "PT", 
-        "name" : "Ferreira do Alentejo"
+        "names" : [
+            "ferreira do alentejo"
+        ]
     },
     { 
         "country" : "PT", 
-        "name" : "Viseu"
+        "names" : [
+            "viseu"
+        ]
     },
     { 
         "country" : "PT", 
-        "name" : "Portimão"
+        "names" : [
+            "portimão"
+        ]
     },
     { 
         "country" : "AT", 
-        "name" : "Wien"
+        "names" : [
+            "wien"
+        ]
     },
     { 
         "country" : "SK", 
-        "name" : "Bratislava"
+        "names" : [
+            "bratislava"
+        ]
     },
     { 
         "country" : "AT", 
-        "name" : "Salzburg"
+        "names" : [
+            "salzburg"
+        ]
     },
     { 
         "country" : "HU", 
-        "name" : "Sopron"
+        "names" : [
+            "sopron"
+        ]
     },
     { 
         "country" : "AT", 
-        "name" : "Innsbruck"
+        "names" : [
+            "innsbruck"
+        ]
     },
     { 
         "country" : "AT", 
-        "name" : "Wiener Neustadt"
+        "names" : [
+            "wiener neustadt"
+        ]
     },
     { 
         "country" : "HU", 
-        "name" : "Mosonmagyaróvár"
+        "names" : [
+            "mosonmagyaróvár"
+        ]
     },
     { 
         "country" : "AT", 
-        "name" : "Klagenfurt am Wörthersee"
+        "names" : [
+            "klagenfurt am wörthersee"
+        ]
     },
     { 
         "country" : "BE", 
-        "name" : "Overijse"
+        "names" : [
+            "overijse"
+        ]
     },
     { 
         "country" : "BE", 
-        "name" : "La Hulpe"
+        "names" : [
+            "la hulpe"
+        ]
     },
     { 
         "country" : "BE", 
-        "name" : "Bruxelles"
+        "names" : [
+            "bruxelles"
+        ]
     },
     { 
         "country" : "BE", 
-        "name" : "Antwerpen"
+        "names" : [
+            "antwerpen"
+        ]
     },
     { 
         "country" : "BE", 
-        "name" : "Leuven"
+        "names" : [
+            "leuven"
+        ]
     },
     { 
         "country" : "BE", 
-        "name" : "Melle"
+        "names" : [
+            "melle"
+        ]
     },
     { 
         "country" : "BE", 
-        "name" : "Charleroi"
+        "names" : [
+            "charleroi"
+        ]
     },
     { 
         "country" : "NL", 
-        "name" : "Amsterdam"
+        "names" : [
+            "amsterdam"
+        ]
     },
     { 
         "country" : "NL", 
-        "name" : "Den Haag, 's-Gravenhage"
+        "names" : [
+            "den haag", 
+            "'s-gravenhage"
+        ]
     },
     { 
         "country" : "NL", 
-        "name" : "Rotterdam"
+        "names" : [
+            "rotterdam"
+        ]
     },
     { 
         "country" : "NL", 
-        "name" : "Maastricht"
+        "names" : [
+            "maastricht"
+        ]
     },
     { 
         "country" : "NL", 
-        "name" : "Amstelveen"
+        "names" : [
+            "amstelveen"
+        ]
     },
     { 
         "country" : "NL", 
-        "name" : "Eindhoven"
+        "names" : [
+            "eindhoven"
+        ]
     },
     { 
         "country" : "NL", 
-        "name" : "Barendrecht"
+        "names" : [
+            "barendrecht"
+        ]
     },
     { 
         "country" : "NL", 
-        "name" : "Dordrecht"
+        "names" : [
+            "dordrecht"
+        ]
     },
     { 
         "country" : "DK", 
-        "name" : "København K, København"
+        "names" : [
+            "københavn k", 
+            "københavn"
+        ]
     },
     { 
         "country" : "DK", 
-        "name" : "Grenaa"
+        "names" : [
+            "grenaa"
+        ]
     },
     { 
         "country" : "DK", 
-        "name" : "Hellerup, København"
+        "names" : [
+            "hellerup", 
+            "københavn"
+        ]
     },
     { 
         "country" : "DK", 
-        "name" : "Søborg, København"
+        "names" : [
+            "søborg", 
+            "københavn"
+        ]
     },
     { 
         "country" : "DK", 
-        "name" : "Varde"
+        "names" : [
+            "varde"
+        ]
     },
     { 
         "country" : "DK", 
-        "name" : "København, København K"
+        "names" : [
+            "københavn", 
+            "københavn k"
+        ]
     },
     { 
         "country" : "DK", 
-        "name" : "Slagelse"
+        "names" : [
+            "slagelse"
+        ]
     },
     { 
         "country" : "DK", 
-        "name" : "Frederiksberg, København"
+        "names" : [
+            "frederiksberg", 
+            "københavn"
+        ]
     },
     { 
         "country" : "DK", 
-        "name" : "Aarhus, Aarhus N"
+        "names" : [
+            "aarhus", 
+            "aarhus n"
+        ]
     },
     { 
         "country" : "DK", 
-        "name" : "Randers, Randers C"
+        "names" : [
+            "randers", 
+            "randers c"
+        ]
     },
     { 
         "country" : "NO", 
-        "name" : "Bergen"
+        "names" : [
+            "bergen"
+        ]
     },
     { 
         "country" : "NO", 
-        "name" : "Oslo"
+        "names" : [
+            "oslo"
+        ]
     },
     { 
         "country" : "NO", 
-        "name" : "Stavanger"
+        "names" : [
+            "stavanger"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Norway"
+        "names" : [
+            "norway"
+        ]
     },
     { 
         "country" : "CH", 
-        "name" : "Genève"
+        "names" : [
+            "genève"
+        ]
     },
     { 
         "country" : "CH", 
-        "name" : "Lustmühle, Teufen AR"
+        "names" : [
+            "lustmühle", 
+            "teufen ar"
+        ]
     },
     { 
         "country" : "CH", 
-        "name" : "Nyon"
+        "names" : [
+            "nyon"
+        ]
     },
     { 
         "country" : "CH", 
-        "name" : "Chêne-Bougeries"
+        "names" : [
+            "chêne-bougeries"
+        ]
     },
     { 
         "country" : "CH", 
-        "name" : "Montreux"
+        "names" : [
+            "montreux"
+        ]
     },
     { 
         "country" : "CH", 
-        "name" : "Zürich"
+        "names" : [
+            "zürich"
+        ]
     },
     { 
         "country" : "CH", 
-        "name" : "Lausanne"
+        "names" : [
+            "lausanne"
+        ]
     },
     { 
         "country" : "CH", 
-        "name" : "S. Vittore, San Vittore"
+        "names" : [
+            "s. vittore", 
+            "san vittore"
+        ]
     },
     { 
         "country" : "CH", 
-        "name" : "Zollikon"
+        "names" : [
+            "zollikon"
+        ]
     },
     { 
         "country" : "CH", 
-        "name" : "Winterthur"
+        "names" : [
+            "winterthur"
+        ]
     },
     { 
         "country" : "CH", 
-        "name" : "Gland"
+        "names" : [
+            "gland"
+        ]
     },
     { 
         "country" : "CH", 
-        "name" : "Paradiso, Lugano"
+        "names" : [
+            "paradiso", 
+            "lugano"
+        ]
     },
     { 
         "country" : "CH", 
-        "name" : "Meyrin"
+        "names" : [
+            "meyrin"
+        ]
     },
     { 
         "country" : "CH", 
-        "name" : "Meiringen, Schattenhalb"
+        "names" : [
+            "meiringen", 
+            "schattenhalb"
+        ]
     },
     { 
         "country" : "CH", 
-        "name" : "Rheinfelden"
+        "names" : [
+            "rheinfelden"
+        ]
     },
     { 
         "country" : "CH", 
-        "name" : "Basel"
+        "names" : [
+            "basel"
+        ]
     },
     { 
         "country" : "CH", 
-        "name" : "Morges"
+        "names" : [
+            "morges"
+        ]
     },
     { 
         "country" : "BG", 
-        "name" : "Burgas"
+        "names" : [
+            "burgas"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Paragould"
+        "names" : [
+            "paragould"
+        ]
     },
     { 
         "country" : "GR", 
-        "name" : "Athina, Αθήνα"
+        "names" : [
+            "athina", 
+            "αθήνα"
+        ]
     },
     { 
         "country" : "GR", 
-        "name" : "Larisa, Λάρισα"
+        "names" : [
+            "larisa", 
+            "λάρισα"
+        ]
     },
     { 
         "country" : "GR", 
-        "name" : "Chalandri, Χαλάνδρι"
+        "names" : [
+            "chalandri", 
+            "χαλάνδρι"
+        ]
     },
     { 
         "country" : "GR", 
-        "name" : "Thiva, Θήβα"
+        "names" : [
+            "thiva", 
+            "θήβα"
+        ]
     },
     { 
         "country" : "GR", 
-        "name" : "Thessaloniki"
+        "names" : [
+            "thessaloniki"
+        ]
     },
     { 
         "country" : "GR", 
-        "name" : "Μαλεβίζιο, Malevizio"
+        "names" : [
+            "μαλεβίζιο", 
+            "malevizio"
+        ]
     },
     { 
         "country" : "GR", 
-        "name" : "Irakleio, Ηράκλειο"
+        "names" : [
+            "irakleio", 
+            "ηράκλειο"
+        ]
     },
     { 
         "country" : "BR", 
-        "name" : "Brasília de Minas"
+        "names" : [
+            "brasília de minas"
+        ]
     },
     { 
         "country" : "CZ", 
-        "name" : "Brno, Brno 3"
+        "names" : [
+            "brno", 
+            "brno 3"
+        ]
     },
     { 
         "country" : "CZ", 
-        "name" : "Praha 1, Praha"
+        "names" : [
+            "praha 1", 
+            "praha"
+        ]
     },
     { 
         "country" : "PL", 
-        "name" : "Dywity"
+        "names" : [
+            "dywity"
+        ]
     },
     { 
         "country" : "PL", 
-        "name" : "Dobre Miasto, Dobre Miasto gmina"
+        "names" : [
+            "dobre miasto", 
+            "dobre miasto gmina"
+        ]
     },
     { 
         "country" : "PL", 
-        "name" : "Wrocław"
+        "names" : [
+            "wrocław"
+        ]
     },
     { 
         "country" : "PL", 
-        "name" : "Jelenia Góra"
+        "names" : [
+            "jelenia góra"
+        ]
     },
     { 
         "country" : "PL", 
-        "name" : "Stryków, Stryków gmina"
+        "names" : [
+            "stryków", 
+            "stryków gmina"
+        ]
     },
     { 
         "country" : "CY", 
-        "name" : "Λακατάμια, Lakatamia"
+        "names" : [
+            "λακατάμια", 
+            "lakatamia"
+        ]
     },
     { 
         "country" : "IN", 
-        "name" : "Bengaluru"
+        "names" : [
+            "bengaluru"
+        ]
     },
     { 
         "country" : "MM", 
-        "name" : "Dagon Myothit (East)"
+        "names" : [
+            "dagon myothit (east)"
+        ]
     },
     { 
         "country" : "HK", 
-        "name" : "Hong Kong"
+        "names" : [
+            "hong kong"
+        ]
     },
     { 
         "country" : "VN", 
-        "name" : "Hồ Chí Minh, Thành Phố Hồ Chí Minh, Sài Gòn"
+        "names" : [
+            "hồ chí minh", 
+            "thành phố hồ chí minh", 
+            "sài gòn"
+        ]
     },
     { 
         "country" : "MY", 
-        "name" : "Klang"
+        "names" : [
+            "klang"
+        ]
     },
     { 
         "country" : "MY", 
-        "name" : "Kuala Lumpur"
+        "names" : [
+            "kuala lumpur"
+        ]
     },
     { 
         "country" : "PH", 
-        "name" : "Quezon City"
+        "names" : [
+            "quezon city"
+        ]
     },
     { 
         "country" : "PH", 
-        "name" : "Pasay City"
+        "names" : [
+            "pasay city"
+        ]
     },
     { 
         "country" : "PH", 
-        "name" : "Manila"
+        "names" : [
+            "manila"
+        ]
     },
     { 
         "country" : "SG", 
-        "name" : "Singapore"
+        "names" : [
+            "singapore"
+        ]
     },
     { 
         "country" : "MY", 
-        "name" : "Kuching"
+        "names" : [
+            "kuching"
+        ]
     },
     { 
         "country" : "PH", 
-        "name" : "San Pedro"
+        "names" : [
+            "san pedro"
+        ]
     },
     { 
         "country" : "TH", 
-        "name" : "Krung Thep Maha Nakhon, กรุงเทพฯ, กรุงเทพมหานคร, Bangkok"
+        "names" : [
+            "krung thep maha nakhon", 
+            "กรุงเทพฯ", 
+            "กรุงเทพมหานคร", 
+            "bangkok"
+        ]
     },
     { 
         "country" : "MY", 
-        "name" : "Tangkak"
+        "names" : [
+            "tangkak"
+        ]
     },
     { 
         "country" : "MY", 
-        "name" : "Muar"
+        "names" : [
+            "muar"
+        ]
     },
     { 
         "country" : "MY", 
-        "name" : "Nusajaya"
+        "names" : [
+            "nusajaya"
+        ]
     },
     { 
         "country" : "IN", 
-        "name" : "Patiala"
+        "names" : [
+            "patiala"
+        ]
     },
     { 
         "country" : "PH", 
-        "name" : "Mandaluyong City"
+        "names" : [
+            "mandaluyong city"
+        ]
     },
     { 
         "country" : "MY", 
-        "name" : "Skudai"
+        "names" : [
+            "skudai"
+        ]
     },
     { 
         "country" : "PH", 
-        "name" : "Makati City"
+        "names" : [
+            "makati city"
+        ]
     },
     { 
         "country" : "TR", 
-        "name" : "İstanbul"
+        "names" : [
+            "istanbul"
+        ]
     },
     { 
         "country" : "IN", 
-        "name" : "New Delhi, Delhi"
+        "names" : [
+            "new delhi", 
+            "delhi"
+        ]
     },
     { 
         "country" : "PH", 
-        "name" : "Santa Rosa City"
+        "names" : [
+            "santa rosa city"
+        ]
     },
     { 
         "country" : "VN", 
-        "name" : "Hanoi"
+        "names" : [
+            "hanoi"
+        ]
     },
     { 
         "country" : "MY", 
-        "name" : "Kulai B"
+        "names" : [
+            "kulai b"
+        ]
     },
     { 
         "country" : "IN", 
-        "name" : "Faridabad"
+        "names" : [
+            "faridabad"
+        ]
     },
     { 
         "country" : "IN", 
-        "name" : "Gurgaon"
+        "names" : [
+            "gurgaon"
+        ]
     },
     { 
         "country" : "MY", 
-        "name" : "Cheras"
+        "names" : [
+            "cheras"
+        ]
     },
     { 
         "country" : "PH", 
-        "name" : "Parañaque City"
+        "names" : [
+            "parañaque city"
+        ]
     },
     { 
         "country" : "MY", 
-        "name" : "Segamat"
+        "names" : [
+            "segamat"
+        ]
     },
     { 
         "country" : "MY", 
-        "name" : "Paya Terubong"
+        "names" : [
+            "paya terubong"
+        ]
     },
     { 
         "country" : "PH", 
-        "name" : "Caloocan City"
+        "names" : [
+            "caloocan city"
+        ]
     },
     { 
         "country" : "PH", 
-        "name" : "Marikina City"
+        "names" : [
+            "marikina city"
+        ]
     },
     { 
         "country" : "VN", 
-        "name" : "Thành Phố Vũng Tàu, Vũng Tàu"
+        "names" : [
+            "thành phố vũng tàu", 
+            "vũng tàu"
+        ]
     },
     { 
         "country" : "TH", 
-        "name" : "Bangkok, กรุงเทพฯ, Krung Thep Maha Nakhon, กรุงเทพมหานคร"
+        "names" : [
+            "bangkok", 
+            "กรุงเทพฯ", 
+            "krung thep maha nakhon", 
+            "กรุงเทพมหานคร"
+        ]
     },
     { 
         "country" : "TW", 
-        "name" : "Chiayi City"
+        "names" : [
+            "chiayi city"
+        ]
     },
     { 
         "country" : "TW", 
-        "name" : "Kaohsiung City"
+        "names" : [
+            "kaohsiung city"
+        ]
     },
     { 
         "country" : "ES", 
-        "name" : "Andorra"
+        "names" : [
+            "andorra"
+        ]
     },
     { 
         "country" : "BR", 
-        "name" : "Serra"
+        "names" : [
+            "serra"
+        ]
     },
     { 
         "country" : "MN", 
-        "name" : "Ulaanbaatar"
+        "names" : [
+            "ulaanbaatar"
+        ]
     },
     { 
         "country" : "MY", 
-        "name" : "Bukit Mertajam"
+        "names" : [
+            "bukit mertajam"
+        ]
     },
     { 
         "country" : "MY", 
-        "name" : "Batu Caves"
+        "names" : [
+            "batu caves"
+        ]
     },
     { 
         "country" : "BR", 
-        "name" : "São Jorge do Ivaí"
+        "names" : [
+            "são jorge do ivaí"
+        ]
     },
     { 
         "country" : "ID", 
-        "name" : "Bekasi"
+        "names" : [
+            "bekasi"
+        ]
     },
     { 
         "country" : "ID", 
-        "name" : "Medan"
+        "names" : [
+            "medan"
+        ]
     },
     { 
         "country" : "TH", 
-        "name" : "กรุงเทพฯ, Krung Thep Maha Nakhon, กรุงเทพมหานคร, Bangkok"
+        "names" : [
+            "กรุงเทพฯ", 
+            "krung thep maha nakhon", 
+            "กรุงเทพมหานคร", 
+            "bangkok"
+        ]
     },
     { 
         "country" : "IL", 
-        "name" : "Haifa"
+        "names" : [
+            "haifa"
+        ]
     },
     { 
         "country" : "IL", 
-        "name" : "Tel Aviv - Yafo"
+        "names" : [
+            "tel aviv - yafo"
+        ]
     },
     { 
         "country" : "IL", 
-        "name" : "Rishon LeZion"
+        "names" : [
+            "rishon lezion"
+        ]
     },
     { 
         "country" : "IL", 
-        "name" : "שער מנשה, Shaar Menashe"
+        "names" : [
+            "שער מנשה", 
+            "shaar menashe"
+        ]
     },
     { 
         "country" : "IL", 
-        "name" : "Netanya, נתניה"
+        "names" : [
+            "netanya", 
+            "נתניה"
+        ]
     },
     { 
         "country" : "US", 
-        "name" : "Jerusalem"
+        "names" : [
+            "jerusalem"
+        ]
     },
     { 
         "country" : "IL", 
-        "name" : "Raanana"
+        "names" : [
+            "raanana"
+        ]
     },
     { 
         "country" : "IL", 
-        "name" : "Kiryat Ata"
+        "names" : [
+            "kiryat ata"
+        ]
     },
     { 
         "country" : "IL", 
-        "name" : "Ramle"
+        "names" : [
+            "ramle"
+        ]
     },
     { 
         "country" : "AE", 
-        "name" : "Dubai"
+        "names" : [
+            "dubai"
+        ]
     },
     { 
         "country" : "AE", 
-        "name" : "Ajman"
+        "names" : [
+            "ajman"
+        ]
     },
     { 
         "country" : "LV", 
-        "name" : "Rīga"
+        "names" : [
+            "rīga"
+        ]
     },
     { 
         "country" : "LV", 
-        "name" : "Jūrmala"
+        "names" : [
+            "jūrmala"
+        ]
     },
     { 
         "country" : "LT", 
-        "name" : "Kaunas"
+        "names" : [
+            "kaunas"
+        ]
     },
     { 
         "country" : "LT", 
-        "name" : "Vilnius"
+        "names" : [
+            "vilnius"
+        ]
     },
     { 
         "country" : "LT", 
-        "name" : "Klaipėda"
+        "names" : [
+            "klaipėda"
+        ]
     },
     { 
         "country" : "LT", 
-        "name" : "Vilniaus rajonas"
+        "names" : [
+            "vilniaus rajonas"
+        ]
     },
     { 
         "country" : "EE", 
-        "name" : "Tallinn"
+        "names" : [
+            "tallinn"
+        ]
     },
     { 
         "country" : "EE", 
-        "name" : "Tartu"
+        "names" : [
+            "tartu"
+        ]
     },
     { 
         "country" : "EE", 
-        "name" : "Viimsi"
+        "names" : [
+            "viimsi"
+        ]
     },
     { 
         "country" : "BY", 
-        "name" : "Минск, Minsk"
+        "names" : [
+            "минск", 
+            "minsk"
+        ]
     },
     { 
         "country" : "BY", 
-        "name" : "Витебский городской совет, Vitebskiy gorodskoy sovet"
+        "names" : [
+            "витебский городской совет", 
+            "vitebskiy gorodskoy sovet"
+        ]
     },
     { 
         "country" : "BY", 
-        "name" : "Minsk"
+        "names" : [
+            "minsk"
+        ]
     },
     { 
         "country" : "RU", 
-        "name" : "Ардатов, Ardatov"
+        "names" : [
+            "ардатов", 
+            "ardatov"
+        ]
     },
     { 
         "country" : "RU", 
-        "name" : "Канск, Kansk"
+        "names" : [
+            "канск", 
+            "kansk"
+        ]
     },
     { 
         "country" : "RU", 
-        "name" : "Буинск, Buinsk"
+        "names" : [
+            "буинск", 
+            "buinsk"
+        ]
     },
     { 
         "country" : "RU", 
-        "name" : "Кинешма, Kineshma"
+        "names" : [
+            "кинешма", 
+            "kineshma"
+        ]
     },
     { 
         "country" : "RU", 
-        "name" : "Пенза, Penza"
+        "names" : [
+            "пенза", 
+            "penza"
+        ]
     },
     { 
         "country" : "RU", 
-        "name" : "Мариинск, Mariinsk"
+        "names" : [
+            "мариинск", 
+            "mariinsk"
+        ]
     },
     { 
         "country" : "RU", 
-        "name" : "Краснотурьинск, Krasnotur'insk"
+        "names" : [
+            "краснотурьинск", 
+            "krasnotur'insk"
+        ]
     },
     { 
         "country" : "BY", 
-        "name" : "Полоцкий городской совет, Polotskiy gorodskoy sovet"
+        "names" : [
+            "полоцкий городской совет", 
+            "polotskiy gorodskoy sovet"
+        ]
     },
     { 
         "country" : "RU", 
-        "name" : "Дальнегорск, Dal'negorsk"
+        "names" : [
+            "дальнегорск", 
+            "dal'negorsk"
+        ]
     },
     { 
         "country" : "BY", 
-        "name" : "Гомельский городской совет, Gomel'skiy gorodskoy sovet"
+        "names" : [
+            "гомельский городской совет", 
+            "gomel'skiy gorodskoy sovet"
+        ]
     },
     { 
         "country" : "RU", 
-        "name" : "Миасс, Miass"
+        "names" : [
+            "миасс", 
+            "miass"
+        ]
     },
     { 
         "country" : "RU", 
-        "name" : "Любанское, Lyubanskoye"
+        "names" : [
+            "любанское", 
+            "lyubanskoye"
+        ]
     },
     { 
         "country" : "UA", 
-        "name" : "Київ, Kyiv"
+        "names" : [
+            "київ", 
+            "kyiv"
+        ]
     },
     { 
         "country" : "UA", 
-        "name" : "Яворів, Yavoriv"
+        "names" : [
+            "яворів", 
+            "yavoriv"
+        ]
     },
     { 
         "country" : "UA", 
-        "name" : "Одеса, Odesa"
+        "names" : [
+            "одеса", 
+            "odesa"
+        ]
     },
     { 
         "country" : "UA", 
-        "name" : "Маріуполь, Mariupol"
+        "names" : [
+            "маріуполь", 
+            "mariupol"
+        ]
     },
     { 
         "country" : "RU", 
-        "name" : "Лисинское, Lisinskoye"
+        "names" : [
+            "лисинское", 
+            "lisinskoye"
+        ]
     },
     { 
         "country" : "UA", 
-        "name" : "Житомир, Zhytomyr"
+        "names" : [
+            "житомир", 
+            "zhytomyr"
+        ]
     },
     { 
         "country" : "UA", 
-        "name" : "Запоріжжя, Zaporizhzhia"
+        "names" : [
+            "запоріжжя", 
+            "zaporizhzhia"
+        ]
     },
     { 
         "country" : "UA", 
-        "name" : "Фастів, Fastiv"
+        "names" : [
+            "фастів", 
+            "fastiv"
+        ]
     },
     { 
         "country" : "UA", 
-        "name" : "Дніпропетровськ, Dnipropetrovs'k"
+        "names" : [
+            "дніпропетровськ", 
+            "dnipropetrovs'k"
+        ]
     },
     { 
         "country" : "UA", 
-        "name" : "Харків, Kharkiv"
+        "names" : [
+            "харків", 
+            "kharkiv"
+        ]
     },
     { 
         "country" : "BY", 
-        "name" : "Давид-Городокский городской совет, David-Gorodokskiy gorodskoy sovet"
+        "names" : [
+            "давид-городокский городской совет", 
+            "david-gorodokskiy gorodskoy sovet"
+        ]
     },
     { 
         "country" : "RU", 
-        "name" : "Усолье-Сибирское, Usol'ye-Sibirskoye"
+        "names" : [
+            "усолье-сибирское", 
+            "usol'ye-sibirskoye"
+        ]
     },
     { 
         "country" : "UA", 
-        "name" : "Кременчук, Kremenchuk"
+        "names" : [
+            "кременчук", 
+            "kremenchuk"
+        ]
     },
     { 
         "country" : "UA", 
-        "name" : "Вінниця, Vinnytsya"
+        "names" : [
+            "вінниця", 
+            "vinnytsya"
+        ]
     },
     { 
         "country" : "RU", 
-        "name" : "Obruchevsky District"
+        "names" : [
+            "obruchevsky district"
+        ]
     },
     { 
         "country" : "RU", 
-        "name" : "Moscow"
+        "names" : [
+            "moscow"
+        ]
     },
     { 
         "country" : "RU", 
-        "name" : "Nagatino-Sadovniki District"
+        "names" : [
+            "nagatino-sadovniki district"
+        ]
     },
     { 
         "country" : "RU", 
-        "name" : "Москва, Moskva"
+        "names" : [
+            "москва", 
+            "moskva"
+        ]
     },
     { 
         "country" : "RU", 
-        "name" : "Odintsovo"
+        "names" : [
+            "odintsovo"
+        ]
     },
     { 
         "country" : "RU", 
-        "name" : "округ № 65"
+        "names" : [
+            "округ № 65"
+        ]
     },
     { 
         "country" : "RU", 
-        "name" : "Тверь, Tver'"
+        "names" : [
+            "тверь", 
+            "tver'"
+        ]
     },
     { 
         "country" : "RU", 
-        "name" : "округ Шувалово-Озерки"
+        "names" : [
+            "округ шувалово-озерки"
+        ]
     },
     { 
         "country" : "RU", 
-        "name" : "Обнинск, Obninsk"
+        "names" : [
+            "обнинск", 
+            "obninsk"
+        ]
     },
     { 
         "country" : "RU", 
-        "name" : "Pyatigorsk"
+        "names" : [
+            "pyatigorsk"
+        ]
     },
     { 
         "country" : "RU", 
-        "name" : "Челябинск, Chelyabinsk"
+        "names" : [
+            "челябинск", 
+            "chelyabinsk"
+        ]
     },
     { 
         "country" : "RU", 
-        "name" : "Улан-Удэ, Ulan-Ude"
+        "names" : [
+            "улан-удэ", 
+            "ulan-ude"
+        ]
     },
     { 
         "country" : "RU", 
-        "name" : "Екатеринбург, Yekaterinburg"
+        "names" : [
+            "екатеринбург", 
+            "yekaterinburg"
+        ]
     },
     { 
         "country" : "RU", 
-        "name" : "Волгоград, Volgograd"
+        "names" : [
+            "волгоград", 
+            "volgograd"
+        ]
     },
     { 
         "country" : "RU", 
-        "name" : "Пермь, Perm"
+        "names" : [
+            "пермь", 
+            "perm"
+        ]
     },
     { 
         "country" : "RU", 
-        "name" : "округ Аптекарский остров"
+        "names" : [
+            "округ аптекарский остров"
+        ]
     },
     { 
         "country" : "RU", 
-        "name" : "Самара, Samara"
+        "names" : [
+            "самара", 
+            "samara"
+        ]
     },
     { 
         "country" : "RU", 
-        "name" : "Ростов-на-Дону, Rostov-na-Donu"
+        "names" : [
+            "ростов-на-дону", 
+            "rostov-na-donu"
+        ]
     },
     { 
         "country" : "RU", 
-        "name" : "Новосибирск, Novosibirsk"
+        "names" : [
+            "новосибирск", 
+            "novosibirsk"
+        ]
     },
     { 
         "country" : "RU", 
-        "name" : "Krasnodar"
+        "names" : [
+            "krasnodar"
+        ]
     },
     { 
         "country" : "RU", 
-        "name" : "Курган, Kurgan"
+        "names" : [
+            "курган", 
+            "kurgan"
+        ]
     },
     { 
         "country" : "RU", 
-        "name" : "Krasnoyarsk"
+        "names" : [
+            "krasnoyarsk"
+        ]
     },
     { 
         "country" : "RU", 
-        "name" : "Астрахань, Astrakhan'"
+        "names" : [
+            "астрахань", 
+            "astrakhan'"
+        ]
     },
     { 
         "country" : "RU", 
-        "name" : "Георгиевский округ"
+        "names" : [
+            "георгиевский округ"
+        ]
     }
     ]
     

@@ -1,13 +1,20 @@
 const fs = require('fs');
 
 exports.getCities = async (req, res) => {
-  const {
-      filter
-  } = req.query;
+  const { filter } = req.query;
   const cities = JSON.parse(fs.readFileSync('./public/data/cities.json', 'utf8'));
-  const filteredCities = cities.filter(city => city.name.startsWith(filter)).map(city => {
-      return { label: city.name, value: city.name };
+  const parsedCities = [];
+  for (const city of cities) {
+    city.names.forEach(el => parsedCities.push(el));
+  }
+  const filteredCities = parsedCities.filter(city => city.startsWith(filter.toLowerCase())).map(city => {
+    const _city = `${city[0].toUpperCase()}${city.slice(1)}`;
+    return { label: _city, value: _city };
   });
+
+  if (!filteredCities.length) {
+    filteredCities.push({ label: "No matches found", value: "No matches found" });
+  }
 
   res.setHeader('Content-Type', 'application/json');
   res.send(JSON.stringify({ cities: filteredCities }));

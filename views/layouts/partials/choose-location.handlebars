@@ -9,7 +9,7 @@
               </div>
               <div class="modal-body ui-front" id="autocompleteBody">
                   <label>{{localize req 'popups.chooseLocation.prompt'}}</label>
-                  <input type="text" id="locationAutocomplete" class="form-control" placeholder="example: New-York" />
+                  <input type="text" id="locationAutocomplete" class="form-control" placeholder="example: New York" onchange="this.value = (this.value === 'No matches found') ? '' : this.value"/>
               </div>
               <!--/.modal-body-->
               <div class="modal-footer">
