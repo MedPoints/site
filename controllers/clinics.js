@@ -23,7 +23,7 @@ exports.getClinics = async (req, res) => {
     } = req.cookies;
     if (location) {
       const locationObject = JSON.parse(location);
-      parameters.filter.city = locationObject.city;
+      parameters.filter.city = locationObject.origin;
     }
   }
 

@@ -3,626 +3,730 @@
         "country" : "US", 
         "names" : [
             "oakbrook terrace"
-        ]
+        ], 
+        "origin" : "Oakbrook Terrace"
     },
     { 
         "country" : "US", 
         "names" : [
             "canton"
-        ]
+        ], 
+        "origin" : "Canton"
     },
     { 
         "country" : "US", 
         "names" : [
             "wayne"
-        ]
+        ], 
+        "origin" : "Wayne"
     },
     { 
         "country" : "US", 
         "names" : [
             "alexandria"
-        ]
+        ], 
+        "origin" : "Alexandria"
     },
     { 
         "country" : "US", 
         "names" : [
             "gurnee"
-        ]
+        ], 
+        "origin" : "Gurnee"
     },
     { 
         "country" : "US", 
         "names" : [
             "exton"
-        ]
+        ], 
+        "origin" : "Exton"
     },
     { 
         "country" : "US", 
         "names" : [
             "glastonbury"
-        ]
+        ], 
+        "origin" : "Glastonbury"
     },
     { 
         "country" : "US", 
         "names" : [
             "kansas city"
-        ]
+        ], 
+        "origin" : "Kansas City"
     },
     { 
         "country" : "US", 
         "names" : [
             "philadelphia"
-        ]
+        ], 
+        "origin" : "Philadelphia"
     },
     { 
         "country" : "US", 
         "names" : [
             "columbia"
-        ]
+        ], 
+        "origin" : "Columbia"
     },
     { 
         "country" : "US", 
         "names" : [
             "naperville"
-        ]
+        ], 
+        "origin" : "Naperville"
     },
     { 
         "country" : "US", 
         "names" : [
             "brentwood"
-        ]
+        ], 
+        "origin" : "Brentwood"
     },
     { 
         "country" : "US", 
         "names" : [
             "feasterville trevose"
-        ]
+        ], 
+        "origin" : "Feasterville Trevose"
     },
     { 
         "country" : "US", 
         "names" : [
             "orland park"
-        ]
+        ], 
+        "origin" : "Orland Park"
     },
     { 
         "country" : "US", 
         "names" : [
             "annapolis"
-        ]
+        ], 
+        "origin" : "Annapolis"
     },
     { 
         "country" : "US", 
         "names" : [
             "schaumburg"
-        ]
+        ], 
+        "origin" : "Schaumburg"
     },
     { 
         "country" : "US", 
         "names" : [
             "baltimore"
-        ]
+        ], 
+        "origin" : "Baltimore"
     },
     { 
         "country" : "US", 
         "names" : [
             "merrillville"
-        ]
+        ], 
+        "origin" : "Merrillville"
     },
     { 
         "country" : "US", 
         "names" : [
             "geneva"
-        ]
+        ], 
+        "origin" : "Geneva"
     },
     { 
         "country" : "US", 
         "names" : [
             "mequon"
-        ]
+        ], 
+        "origin" : "Mequon"
     },
     { 
         "country" : "US", 
         "names" : [
             "north haven"
-        ]
+        ], 
+        "origin" : "North Haven"
     },
     { 
         "country" : "US", 
         "names" : [
             "buffalo grove"
-        ]
+        ], 
+        "origin" : "Buffalo Grove"
     },
     { 
         "country" : "US", 
         "names" : [
             "portland"
-        ]
+        ], 
+        "origin" : "Portland"
     },
     { 
         "country" : "US", 
         "names" : [
             "chevy chase"
-        ]
+        ], 
+        "origin" : "Chevy Chase"
     },
     { 
         "country" : "US", 
         "names" : [
             "spokane"
-        ]
+        ], 
+        "origin" : "Spokane"
     },
     { 
         "country" : "US", 
         "names" : [
             "lemoyne"
-        ]
+        ], 
+        "origin" : "Lemoyne"
     },
     { 
         "country" : "US", 
         "names" : [
             "woodbridge"
-        ]
+        ], 
+        "origin" : "Woodbridge"
     },
     { 
         "country" : "US", 
         "names" : [
             "herndon"
-        ]
+        ], 
+        "origin" : "Herndon"
     },
     { 
         "country" : "US", 
         "names" : [
             "downers grove"
-        ]
+        ], 
+        "origin" : "Downers Grove"
     },
     { 
         "country" : "US", 
         "names" : [
             "bettendorf"
-        ]
+        ], 
+        "origin" : "Bettendorf"
     },
     { 
         "country" : "US", 
         "names" : [
             "chicago"
-        ]
+        ], 
+        "origin" : "Chicago"
     },
     { 
         "country" : "US", 
         "names" : [
             "medway"
-        ]
+        ], 
+        "origin" : "Medway"
     },
     { 
         "country" : "US", 
         "names" : [
             "lutherville timonium"
-        ]
+        ], 
+        "origin" : "Lutherville Timonium"
     },
     { 
         "country" : "US", 
         "names" : [
             "brookfield"
-        ]
+        ], 
+        "origin" : "Brookfield"
     },
     { 
         "country" : "US", 
         "names" : [
             "albuquerque"
-        ]
+        ], 
+        "origin" : "Albuquerque"
     },
     { 
         "country" : "US", 
         "names" : [
             "new york"
-        ]
+        ], 
+        "origin" : "New York"
     },
     { 
         "country" : "US", 
         "names" : [
             "rugby"
-        ]
+        ], 
+        "origin" : "Rugby"
     },
     { 
         "country" : "US", 
         "names" : [
             "rockville"
-        ]
+        ], 
+        "origin" : "Rockville"
     },
     { 
         "country" : "US", 
         "names" : [
             "southbury"
-        ]
+        ], 
+        "origin" : "Southbury"
     },
     { 
         "country" : "US", 
         "names" : [
             "vienna"
-        ]
+        ], 
+        "origin" : "Vienna"
     },
     { 
         "country" : "US", 
         "names" : [
             "greenwich"
-        ]
+        ], 
+        "origin" : "Greenwich"
     },
     { 
         "country" : "US", 
         "names" : [
             "overland park"
-        ]
+        ], 
+        "origin" : "Overland Park"
     },
     { 
         "country" : "US", 
         "names" : [
             "fairfax"
-        ]
+        ], 
+        "origin" : "Fairfax"
     },
     { 
         "country" : "US", 
         "names" : [
             "cincinnati"
-        ]
+        ], 
+        "origin" : "Cincinnati"
     },
     { 
         "country" : "US", 
         "names" : [
             "pikesville"
-        ]
+        ], 
+        "origin" : "Pikesville"
     },
     { 
         "country" : "US", 
         "names" : [
             "wilton"
-        ]
+        ], 
+        "origin" : "Wilton"
     },
     { 
         "country" : "US", 
         "names" : [
             "skokie"
-        ]
+        ], 
+        "origin" : "Skokie"
     },
     { 
         "country" : "US", 
         "names" : [
             "cranford"
-        ]
+        ], 
+        "origin" : "Cranford"
     },
     { 
         "country" : "US", 
         "names" : [
             "allentown"
-        ]
+        ], 
+        "origin" : "Allentown"
     },
     { 
         "country" : "US", 
         "names" : [
             "st anthony"
-        ]
+        ], 
+        "origin" : "St Anthony"
     },
     { 
         "country" : "US", 
         "names" : [
             "charlotte"
-        ]
+        ], 
+        "origin" : "Charlotte"
     },
     { 
         "country" : "US", 
         "names" : [
             "bellingham"
-        ]
+        ], 
+        "origin" : "Bellingham"
     },
     { 
         "country" : "US", 
         "names" : [
             "fort collins"
-        ]
+        ], 
+        "origin" : "Fort Collins"
     },
     { 
         "country" : "US", 
         "names" : [
             "boise"
-        ]
+        ], 
+        "origin" : "Boise"
     },
     { 
         "country" : "US", 
         "names" : [
             "meridian"
-        ]
+        ], 
+        "origin" : "Meridian"
     },
     { 
         "country" : "US", 
         "names" : [
             "cardiff by the sea"
-        ]
+        ], 
+        "origin" : "Cardiff By The Sea"
     },
     { 
         "country" : "US", 
         "names" : [
             "falls church"
-        ]
+        ], 
+        "origin" : "Falls Church"
     },
     { 
         "country" : "US", 
         "names" : [
             "peru"
-        ]
+        ], 
+        "origin" : "Peru"
     },
     { 
         "country" : "US", 
         "names" : [
             "sacramento"
-        ]
+        ], 
+        "origin" : "Sacramento"
     },
     { 
         "country" : "US", 
         "names" : [
             "los alamitos"
-        ]
+        ], 
+        "origin" : "Los Alamitos"
     },
     { 
         "country" : "US", 
         "names" : [
             "crown point"
-        ]
+        ], 
+        "origin" : "Crown Point"
     },
     { 
         "country" : "US", 
         "names" : [
             "pleasanton"
-        ]
+        ], 
+        "origin" : "Pleasanton"
     },
     { 
         "country" : "US", 
         "names" : [
             "lexington"
-        ]
+        ], 
+        "origin" : "Lexington"
     },
     { 
         "country" : "US", 
         "names" : [
             "norton"
-        ]
+        ], 
+        "origin" : "Norton"
     },
     { 
         "country" : "US", 
         "names" : [
             "evansville"
-        ]
+        ], 
+        "origin" : "Evansville"
     },
     { 
         "country" : "US", 
         "names" : [
             "bellevue"
-        ]
+        ], 
+        "origin" : "Bellevue"
     },
     { 
         "country" : "US", 
         "names" : [
             "kent"
-        ]
+        ], 
+        "origin" : "Kent"
     },
     { 
         "country" : "US", 
         "names" : [
             "springfield"
-        ]
+        ], 
+        "origin" : "Springfield"
     },
     { 
         "country" : "US", 
         "names" : [
             "knoxville"
-        ]
+        ], 
+        "origin" : "Knoxville"
     },
     { 
         "country" : "US", 
         "names" : [
             "vernon hills"
-        ]
+        ], 
+        "origin" : "Vernon Hills"
     },
     { 
         "country" : "US", 
         "names" : [
             "deerfield"
-        ]
+        ], 
+        "origin" : "Deerfield"
     },
     { 
         "country" : "US", 
         "names" : [
             "wichita"
-        ]
+        ], 
+        "origin" : "Wichita"
     },
     { 
         "country" : "US", 
         "names" : [
             "pewaukee"
-        ]
+        ], 
+        "origin" : "Pewaukee"
     },
     { 
         "country" : "US", 
         "names" : [
             "medford"
-        ]
+        ], 
+        "origin" : "Medford"
     },
     { 
         "country" : "US", 
         "names" : [
             "ventura"
-        ]
+        ], 
+        "origin" : "Ventura"
     },
     { 
         "country" : "US", 
         "names" : [
             "cabot"
-        ]
+        ], 
+        "origin" : "Cabot"
     },
     { 
         "country" : "US", 
         "names" : [
             "gilbert"
-        ]
+        ], 
+        "origin" : "Gilbert"
     },
     { 
         "country" : "US", 
         "names" : [
             "charlottesville"
-        ]
+        ], 
+        "origin" : "Charlottesville"
     },
     { 
         "country" : "US", 
         "names" : [
             "huntington beach"
-        ]
+        ], 
+        "origin" : "Huntington Beach"
     },
     { 
         "country" : "US", 
         "names" : [
             "hamilton township"
-        ]
+        ], 
+        "origin" : "Hamilton Township"
     },
     { 
         "country" : "US", 
         "names" : [
             "smyrna"
-        ]
+        ], 
+        "origin" : "Smyrna"
     },
     { 
         "country" : "US", 
         "names" : [
             "spring hill"
-        ]
+        ], 
+        "origin" : "Spring Hill"
     },
     { 
         "country" : "US", 
         "names" : [
             "gilroy"
-        ]
+        ], 
+        "origin" : "Gilroy"
     },
     { 
         "country" : "US", 
         "names" : [
             "phoenix"
-        ]
+        ], 
+        "origin" : "Phoenix"
     },
     { 
         "country" : "US", 
         "names" : [
             "petaluma"
-        ]
+        ], 
+        "origin" : "Petaluma"
     },
     { 
         "country" : "US", 
         "names" : [
             "towson"
-        ]
+        ], 
+        "origin" : "Towson"
     },
     { 
         "country" : "US", 
         "names" : [
             "stevens point"
-        ]
+        ], 
+        "origin" : "Stevens Point"
     },
     { 
         "country" : "US", 
         "names" : [
             "murray"
-        ]
+        ], 
+        "origin" : "Murray"
     },
     { 
         "country" : "US", 
         "names" : [
             "dunseith"
-        ]
+        ], 
+        "origin" : "Dunseith"
     },
     { 
         "country" : "US", 
         "names" : [
             "wareham"
-        ]
+        ], 
+        "origin" : "Wareham"
     },
     { 
         "country" : "US", 
         "names" : [
             "montville"
-        ]
+        ], 
+        "origin" : "Montville"
     },
     { 
         "country" : "US", 
         "names" : [
             "new hyde park"
-        ]
+        ], 
+        "origin" : "New Hyde Park"
     },
     { 
         "country" : "US", 
         "names" : [
             "washington"
-        ]
+        ], 
+        "origin" : "Washington"
     },
     { 
         "country" : "US", 
         "names" : [
             "los angeles"
-        ]
+        ], 
+        "origin" : "Los Angeles"
     },
     { 
         "country" : "US", 
         "names" : [
             "wilmington"
-        ]
+        ], 
+        "origin" : "Wilmington"
     },
     { 
         "country" : "US", 
         "names" : [
             "san diego"
-        ]
+        ], 
+        "origin" : "San Diego"
     },
     { 
         "country" : "US", 
         "names" : [
             "madison"
-        ]
+        ], 
+        "origin" : "Madison"
     },
     { 
         "country" : "US", 
         "names" : [
             "temecula", 
             "rancho california"
-        ]
+        ], 
+        "origin" : "Temecula, Rancho California"
     },
     { 
         "country" : "US", 
         "names" : [
             "tustin"
-        ]
+        ], 
+        "origin" : "Tustin"
     },
     { 
         "country" : "US", 
         "names" : [
             "oak lawn"
-        ]
+        ], 
+        "origin" : "Oak Lawn"
     },
     { 
         "country" : "US", 
         "names" : [
             "arnold"
-        ]
+        ], 
+        "origin" : "Arnold"
     },
     { 
         "country" : "US", 
         "names" : [
             "colonial heights"
-        ]
+        ], 
+        "origin" : "Colonial Heights"
     },
     { 
         "country" : "US", 
         "names" : [
             "bend"
-        ]
+        ], 
+        "origin" : "Bend"
     },
     { 
         "country" : "US", 
         "names" : [
             "greenville"
-        ]
+        ], 
+        "origin" : "Greenville"
     },
     { 
         "country" : "US", 
@@ -631,2020 +735,2352 @@
             "s chelmsford", 
             "south chelmsford", 
             "kates corner"
-        ]
+        ], 
+        "origin" : "Chelmsford, S Chelmsford, South Chelmsford, Kates Corner"
     },
     { 
         "country" : "US", 
         "names" : [
             "grayslake"
-        ]
+        ], 
+        "origin" : "Grayslake"
     },
     { 
         "country" : "US", 
         "names" : [
             "chapel hill"
-        ]
+        ], 
+        "origin" : "Chapel Hill"
     },
     { 
         "country" : "US", 
         "names" : [
             "south gate"
-        ]
+        ], 
+        "origin" : "South Gate"
     },
     { 
         "country" : "US", 
         "names" : [
             "sevierville"
-        ]
+        ], 
+        "origin" : "Sevierville"
     },
     { 
         "country" : "US", 
         "names" : [
             "evanston"
-        ]
+        ], 
+        "origin" : "Evanston"
     },
     { 
         "country" : "US", 
         "names" : [
             "huntsville"
-        ]
+        ], 
+        "origin" : "Huntsville"
     },
     { 
         "country" : "US", 
         "names" : [
             "arleta"
-        ]
+        ], 
+        "origin" : "Arleta"
     },
     { 
         "country" : "US", 
         "names" : [
             "waukesha"
-        ]
+        ], 
+        "origin" : "Waukesha"
     },
     { 
         "country" : "US", 
         "names" : [
             "birmingham"
-        ]
+        ], 
+        "origin" : "Birmingham"
     },
     { 
         "country" : "US", 
         "names" : [
             "honolulu"
-        ]
+        ], 
+        "origin" : "Honolulu"
     },
     { 
         "country" : "US", 
         "names" : [
             "pawhuska"
-        ]
+        ], 
+        "origin" : "Pawhuska"
     },
     { 
         "country" : "US", 
         "names" : [
             "orlando"
-        ]
+        ], 
+        "origin" : "Orlando"
     },
     { 
         "country" : "US", 
         "names" : [
             "berkeley"
-        ]
+        ], 
+        "origin" : "Berkeley"
     },
     { 
         "country" : "US", 
         "names" : [
             "osage beach"
-        ]
+        ], 
+        "origin" : "Osage Beach"
     },
     { 
         "country" : "US", 
         "names" : [
             "new palestine"
-        ]
+        ], 
+        "origin" : "New Palestine"
     },
     { 
         "country" : "US", 
         "names" : [
             "clinton"
-        ]
+        ], 
+        "origin" : "Clinton"
     },
     { 
         "country" : "US", 
         "names" : [
             "richland"
-        ]
+        ], 
+        "origin" : "Richland"
     },
     { 
         "country" : "US", 
         "names" : [
             "leander"
-        ]
+        ], 
+        "origin" : "Leander"
     },
     { 
         "country" : "US", 
         "names" : [
             "dripping springs"
-        ]
+        ], 
+        "origin" : "Dripping Springs"
     },
     { 
         "country" : "US", 
         "names" : [
             "austin"
-        ]
+        ], 
+        "origin" : "Austin"
     },
     { 
         "country" : "US", 
         "names" : [
             "crossroads"
-        ]
+        ], 
+        "origin" : "Crossroads"
     },
     { 
         "country" : "US", 
         "names" : [
             "rio rancho"
-        ]
+        ], 
+        "origin" : "Rio Rancho"
     },
     { 
         "country" : "US", 
         "names" : [
             "biloxi"
-        ]
+        ], 
+        "origin" : "Biloxi"
     },
     { 
         "country" : "US", 
         "names" : [
             "syracuse"
-        ]
+        ], 
+        "origin" : "Syracuse"
     },
     { 
         "country" : "US", 
         "names" : [
             "sebring"
-        ]
+        ], 
+        "origin" : "Sebring"
     },
     { 
         "country" : "US", 
         "names" : [
             "fairhope"
-        ]
+        ], 
+        "origin" : "Fairhope"
     },
     { 
         "country" : "US", 
         "names" : [
             "fairfield"
-        ]
+        ], 
+        "origin" : "Fairfield"
     },
     { 
         "country" : "US", 
         "names" : [
             "pell city"
-        ]
+        ], 
+        "origin" : "Pell City"
     },
     { 
         "country" : "US", 
         "names" : [
             "irondale"
-        ]
+        ], 
+        "origin" : "Irondale"
     },
     { 
         "country" : "US", 
         "names" : [
             "fort oglethorpe"
-        ]
+        ], 
+        "origin" : "Fort Oglethorpe"
     },
     { 
         "country" : "US", 
         "names" : [
             "atlanta"
-        ]
+        ], 
+        "origin" : "Atlanta"
     },
     { 
         "country" : "US", 
         "names" : [
             "nashville"
-        ]
+        ], 
+        "origin" : "Nashville"
     },
     { 
         "country" : "US", 
         "names" : [
             "salt lake city"
-        ]
+        ], 
+        "origin" : "Salt Lake City"
     },
     { 
         "country" : "US", 
         "names" : [
             "columbus"
-        ]
+        ], 
+        "origin" : "Columbus"
     },
     { 
         "country" : "US", 
         "names" : [
             "rockville centre"
-        ]
+        ], 
+        "origin" : "Rockville Centre"
     },
     { 
         "country" : "US", 
         "names" : [
             "marietta"
-        ]
+        ], 
+        "origin" : "Marietta"
     },
     { 
         "country" : "US", 
         "names" : [
             "alpharetta"
-        ]
+        ], 
+        "origin" : "Alpharetta"
     },
     { 
         "country" : "US", 
         "names" : [
             "wichita falls"
-        ]
+        ], 
+        "origin" : "Wichita Falls"
     },
     { 
         "country" : "US", 
         "names" : [
             "lafayette"
-        ]
+        ], 
+        "origin" : "Lafayette"
     },
     { 
         "country" : "US", 
         "names" : [
             "daytona beach"
-        ]
+        ], 
+        "origin" : "Daytona Beach"
     },
     { 
         "country" : "US", 
         "names" : [
             "waco"
-        ]
+        ], 
+        "origin" : "Waco"
     },
     { 
         "country" : "US", 
         "names" : [
             "round rock"
-        ]
+        ], 
+        "origin" : "Round Rock"
     },
     { 
         "country" : "US", 
         "names" : [
             "flower mound"
-        ]
+        ], 
+        "origin" : "Flower Mound"
     },
     { 
         "country" : "US", 
         "names" : [
             "altadena"
-        ]
+        ], 
+        "origin" : "Altadena"
     },
     { 
         "country" : "US", 
         "names" : [
             "matthews"
-        ]
+        ], 
+        "origin" : "Matthews"
     },
     { 
         "country" : "US", 
         "names" : [
             "west palm beach"
-        ]
+        ], 
+        "origin" : "West Palm Beach"
     },
     { 
         "country" : "US", 
         "names" : [
             "wentzville"
-        ]
+        ], 
+        "origin" : "Wentzville"
     },
     { 
         "country" : "US", 
         "names" : [
             "wappingers falls"
-        ]
+        ], 
+        "origin" : "Wappingers Falls"
     },
     { 
         "country" : "US", 
         "names" : [
             "newhall"
-        ]
+        ], 
+        "origin" : "Newhall"
     },
     { 
         "country" : "US", 
         "names" : [
             "boca raton"
-        ]
+        ], 
+        "origin" : "Boca Raton"
     },
     { 
         "country" : "US", 
         "names" : [
             "cicero"
-        ]
+        ], 
+        "origin" : "Cicero"
     },
     { 
         "country" : "US", 
         "names" : [
             "tupelo"
-        ]
+        ], 
+        "origin" : "Tupelo"
     },
     { 
         "country" : "US", 
         "names" : [
             "north richland hills"
-        ]
+        ], 
+        "origin" : "North Richland Hills"
     },
     { 
         "country" : "US", 
         "names" : [
             "clearfield"
-        ]
+        ], 
+        "origin" : "Clearfield"
     },
     { 
         "country" : "US", 
         "names" : [
             "ridgeland"
-        ]
+        ], 
+        "origin" : "Ridgeland"
     },
     { 
         "country" : "US", 
         "names" : [
             "edmond"
-        ]
+        ], 
+        "origin" : "Edmond"
     },
     { 
         "country" : "US", 
         "names" : [
             "roseville"
-        ]
+        ], 
+        "origin" : "Roseville"
     },
     { 
         "country" : "US", 
         "names" : [
             "garnet valley"
-        ]
+        ], 
+        "origin" : "Garnet Valley"
     },
     { 
         "country" : "US", 
         "names" : [
             "daphne"
-        ]
+        ], 
+        "origin" : "Daphne"
     },
     { 
         "country" : "US", 
         "names" : [
             "conshohocken"
-        ]
+        ], 
+        "origin" : "Conshohocken"
     },
     { 
         "country" : "US", 
         "names" : [
             "dubuque"
-        ]
+        ], 
+        "origin" : "Dubuque"
     },
     { 
         "country" : "US", 
         "names" : [
             "tulsa"
-        ]
+        ], 
+        "origin" : "Tulsa"
     },
     { 
         "country" : "US", 
         "names" : [
             "newport news"
-        ]
+        ], 
+        "origin" : "Newport News"
     },
     { 
         "country" : "US", 
         "names" : [
             "auburn"
-        ]
+        ], 
+        "origin" : "Auburn"
     },
     { 
         "country" : "US", 
         "names" : [
             "saint cloud"
-        ]
+        ], 
+        "origin" : "Saint Cloud"
     },
     { 
         "country" : "US", 
         "names" : [
             "college station"
-        ]
+        ], 
+        "origin" : "College Station"
     },
     { 
         "country" : "US", 
         "names" : [
             "san antonio"
-        ]
+        ], 
+        "origin" : "San Antonio"
     },
     { 
         "country" : "US", 
         "names" : [
             "cleveland"
-        ]
+        ], 
+        "origin" : "Cleveland"
     },
     { 
         "country" : "US", 
         "names" : [
             "beachwood"
-        ]
+        ], 
+        "origin" : "Beachwood"
     },
     { 
         "country" : "US", 
         "names" : [
             "maitland"
-        ]
+        ], 
+        "origin" : "Maitland"
     },
     { 
         "country" : "US", 
         "names" : [
             "pompano beach"
-        ]
+        ], 
+        "origin" : "Pompano Beach"
     },
     { 
         "country" : "US", 
         "names" : [
             "montgomery"
-        ]
+        ], 
+        "origin" : "Montgomery"
     },
     { 
         "country" : "US", 
         "names" : [
             "dallas"
-        ]
+        ], 
+        "origin" : "Dallas"
     },
     { 
         "country" : "US", 
         "names" : [
             "rochelle"
-        ]
+        ], 
+        "origin" : "Rochelle"
     },
     { 
         "country" : "US", 
         "names" : [
             "kennesaw"
-        ]
+        ], 
+        "origin" : "Kennesaw"
     },
     { 
         "country" : "US", 
         "names" : [
             "fitchburg"
-        ]
+        ], 
+        "origin" : "Fitchburg"
     },
     { 
         "country" : "US", 
         "names" : [
             "goodyear"
-        ]
+        ], 
+        "origin" : "Goodyear"
     },
     { 
         "country" : "US", 
         "names" : [
             "lakewood"
-        ]
+        ], 
+        "origin" : "Lakewood"
     },
     { 
         "country" : "US", 
         "names" : [
             "pueblo"
-        ]
+        ], 
+        "origin" : "Pueblo"
     },
     { 
         "country" : "US", 
         "names" : [
             "arlington"
-        ]
+        ], 
+        "origin" : "Arlington"
     },
     { 
         "country" : "US", 
         "names" : [
             "amherst"
-        ]
+        ], 
+        "origin" : "Amherst"
     },
     { 
         "country" : "US", 
         "names" : [
             "san francisco"
-        ]
+        ], 
+        "origin" : "San Francisco"
     },
     { 
         "country" : "US", 
         "names" : [
             "parker"
-        ]
+        ], 
+        "origin" : "Parker"
     },
     { 
         "country" : "US", 
         "names" : [
             "colorado springs"
-        ]
+        ], 
+        "origin" : "Colorado Springs"
     },
     { 
         "country" : "US", 
         "names" : [
             "davis junction"
-        ]
+        ], 
+        "origin" : "Davis Junction"
     },
     { 
         "country" : "US", 
         "names" : [
             "american canyon"
-        ]
+        ], 
+        "origin" : "American Canyon"
     },
     { 
         "country" : "US", 
         "names" : [
             "saint petersburg"
-        ]
+        ], 
+        "origin" : "Saint Petersburg"
     },
     { 
         "country" : "US", 
         "names" : [
             "shreveport"
-        ]
+        ], 
+        "origin" : "Shreveport"
     },
     { 
         "country" : "US", 
         "names" : [
             "rockford"
-        ]
+        ], 
+        "origin" : "Rockford"
     },
     { 
         "country" : "US", 
         "names" : [
             "elizabeth"
-        ]
+        ], 
+        "origin" : "Elizabeth"
     },
     { 
         "country" : "US", 
         "names" : [
             "cheverly"
-        ]
+        ], 
+        "origin" : "Cheverly"
     },
     { 
         "country" : "US", 
         "names" : [
             "frederick"
-        ]
+        ], 
+        "origin" : "Frederick"
     },
     { 
         "country" : "US", 
         "names" : [
             "pensacola"
-        ]
+        ], 
+        "origin" : "Pensacola"
     },
     { 
         "country" : "US", 
         "names" : [
             "roscoe"
-        ]
+        ], 
+        "origin" : "Roscoe"
     },
     { 
         "country" : "US", 
         "names" : [
             "englewood"
-        ]
+        ], 
+        "origin" : "Englewood"
     },
     { 
         "country" : "US", 
         "names" : [
             "district heights"
-        ]
+        ], 
+        "origin" : "District Heights"
     },
     { 
         "country" : "US", 
         "names" : [
             "valdosta"
-        ]
+        ], 
+        "origin" : "Valdosta"
     },
     { 
         "country" : "CA", 
         "names" : [
             "toronto"
-        ]
+        ], 
+        "origin" : "Toronto"
     },
     { 
         "country" : "CA", 
         "names" : [
             "etobicoke"
-        ]
+        ], 
+        "origin" : "Etobicoke"
     },
     { 
         "country" : "CA", 
         "names" : [
             "whitby"
-        ]
+        ], 
+        "origin" : "Whitby"
     },
     { 
         "country" : "CA", 
         "names" : [
             "st. catharines"
-        ]
+        ], 
+        "origin" : "St. Catharines"
     },
     { 
         "country" : "CA", 
         "names" : [
             "mississauga"
-        ]
+        ], 
+        "origin" : "Mississauga"
     },
     { 
         "country" : "CA", 
         "names" : [
             "burlington"
-        ]
+        ], 
+        "origin" : "Burlington"
     },
     { 
         "country" : "CA", 
         "names" : [
             "ottawa"
-        ]
+        ], 
+        "origin" : "Ottawa"
     },
     { 
         "country" : "CA", 
         "names" : [
             "windsor"
-        ]
+        ], 
+        "origin" : "Windsor"
     },
     { 
         "country" : "CA", 
         "names" : [
             "markham"
-        ]
+        ], 
+        "origin" : "Markham"
     },
     { 
         "country" : "CA", 
         "names" : [
             "langley"
-        ]
+        ], 
+        "origin" : "Langley"
     },
     { 
         "country" : "CA", 
         "names" : [
             "montréal"
-        ]
+        ], 
+        "origin" : "Montréal"
     },
     { 
         "country" : "CA", 
         "names" : [
             "kitchener"
-        ]
+        ], 
+        "origin" : "Kitchener"
     },
     { 
         "country" : "CA", 
         "names" : [
             "thunder bay"
-        ]
+        ], 
+        "origin" : "Thunder Bay"
     },
     { 
         "country" : "CA", 
         "names" : [
             "winnipeg"
-        ]
+        ], 
+        "origin" : "Winnipeg"
     },
     { 
         "country" : "CA", 
         "names" : [
             "west vancouver"
-        ]
+        ], 
+        "origin" : "West Vancouver"
     },
     { 
         "country" : "CA", 
         "names" : [
             "calgary"
-        ]
+        ], 
+        "origin" : "Calgary"
     },
     { 
         "country" : "CA", 
         "names" : [
             "vancouver"
-        ]
+        ], 
+        "origin" : "Vancouver"
     },
     { 
         "country" : "CA", 
         "names" : [
             "edmonton"
-        ]
+        ], 
+        "origin" : "Edmonton"
     },
     { 
         "country" : "CA", 
         "names" : [
             "london"
-        ]
+        ], 
+        "origin" : "London"
     },
     { 
         "country" : "CA", 
         "names" : [
             "de winton"
-        ]
+        ], 
+        "origin" : "De Winton"
     },
     { 
         "country" : "CA", 
         "names" : [
             "whistler"
-        ]
+        ], 
+        "origin" : "Whistler"
     },
     { 
         "country" : "CA", 
         "names" : [
             "cochrane"
-        ]
+        ], 
+        "origin" : "Cochrane"
     },
     { 
         "country" : "CA", 
         "names" : [
             "peterborough"
-        ]
+        ], 
+        "origin" : "Peterborough"
     },
     { 
         "country" : "CA", 
         "names" : [
             "guelph"
-        ]
+        ], 
+        "origin" : "Guelph"
     },
     { 
         "country" : "CA", 
         "names" : [
             "st. john's"
-        ]
+        ], 
+        "origin" : "St. John's"
     },
     { 
         "country" : "CA", 
         "names" : [
             "barrie"
-        ]
+        ], 
+        "origin" : "Barrie"
     },
     { 
         "country" : "CA", 
         "names" : [
             "lindsay"
-        ]
+        ], 
+        "origin" : "Lindsay"
     },
     { 
         "country" : "CA", 
         "names" : [
             "richmond hill"
-        ]
+        ], 
+        "origin" : "Richmond Hill"
     },
     { 
         "country" : "PE", 
         "names" : [
             "cusco"
-        ]
+        ], 
+        "origin" : "Cusco"
     },
     { 
         "country" : "AR", 
         "names" : [
             "tucumán"
-        ]
+        ], 
+        "origin" : "Tucumán"
     },
     { 
         "country" : "MX", 
         "names" : [
             "tijuana"
-        ]
+        ], 
+        "origin" : "Tijuana"
     },
     { 
         "country" : "BR", 
         "names" : [
             "rio de janeiro"
-        ]
+        ], 
+        "origin" : "Rio de Janeiro"
     },
     { 
         "country" : "BR", 
         "names" : [
             "curitiba"
-        ]
+        ], 
+        "origin" : "Curitiba"
     },
     { 
         "country" : "BR", 
         "names" : [
             "balneário camboriú"
-        ]
+        ], 
+        "origin" : "Balneário Camboriú"
     },
     { 
         "country" : "GB", 
         "names" : [
             "saint albans"
-        ]
+        ], 
+        "origin" : "Saint Albans"
     },
     { 
         "country" : "GB", 
         "names" : [
             "liverpool"
-        ]
+        ], 
+        "origin" : "Liverpool"
     },
     { 
         "country" : "GB", 
         "names" : [
             "dagenham"
-        ]
+        ], 
+        "origin" : "Dagenham"
     },
     { 
         "country" : "GB", 
         "names" : [
             "manchester"
-        ]
+        ], 
+        "origin" : "Manchester"
     },
     { 
         "country" : "GB", 
         "names" : [
             "woodford green"
-        ]
+        ], 
+        "origin" : "Woodford Green"
     },
     { 
         "country" : "GB", 
         "names" : [
             "brentford"
-        ]
+        ], 
+        "origin" : "Brentford"
     },
     { 
         "country" : "IE", 
         "names" : [
             "intake", 
             "dublin"
-        ]
+        ], 
+        "origin" : "Intake, Dublin"
     },
     { 
         "country" : "IE", 
         "names" : [
             "mullingar"
-        ]
+        ], 
+        "origin" : "Mullingar"
     },
     { 
         "country" : "IE", 
         "names" : [
             "galway"
-        ]
+        ], 
+        "origin" : "Galway"
     },
     { 
         "country" : "IE", 
         "names" : [
             "tobercurry", 
             "tubbercurry"
-        ]
+        ], 
+        "origin" : "Tobercurry, Tubbercurry"
     },
     { 
         "country" : "IE", 
         "names" : [
             "dundrum", 
             "dublin"
-        ]
+        ], 
+        "origin" : "Dundrum, Dublin"
     },
     { 
         "country" : "IE", 
         "names" : [
             "gardens (st.canice ph)", 
             "kilkenny"
-        ]
+        ], 
+        "origin" : "Gardens (st.canice Ph), Kilkenny"
     },
     { 
         "country" : "GB", 
         "names" : [
             "glasgow"
-        ]
+        ], 
+        "origin" : "Glasgow"
     },
     { 
         "country" : "GB", 
         "names" : [
             "stirling"
-        ]
+        ], 
+        "origin" : "Stirling"
     },
     { 
         "country" : "FR", 
         "names" : [
             "paris"
-        ]
+        ], 
+        "origin" : "Paris"
     },
     { 
         "country" : "FR", 
         "names" : [
             "lyon"
-        ]
+        ], 
+        "origin" : "Lyon"
     },
     { 
         "country" : "FR", 
         "names" : [
             "abbeville"
-        ]
+        ], 
+        "origin" : "Abbeville"
     },
     { 
         "country" : "FR", 
         "names" : [
             "aubervilliers"
-        ]
+        ], 
+        "origin" : "Aubervilliers"
     },
     { 
         "country" : "DE", 
         "names" : [
             "sankt wendel"
-        ]
+        ], 
+        "origin" : "Sankt Wendel"
     },
     { 
         "country" : "FR", 
         "names" : [
             "villejuif"
-        ]
+        ], 
+        "origin" : "Villejuif"
     },
     { 
         "country" : "DE", 
         "names" : [
             "dornstetten"
-        ]
+        ], 
+        "origin" : "Dornstetten"
     },
     { 
         "country" : "DE", 
         "names" : [
             "edenkoben"
-        ]
+        ], 
+        "origin" : "Edenkoben"
     },
     { 
         "country" : "DE", 
         "names" : [
             "bad aibling"
-        ]
+        ], 
+        "origin" : "Bad Aibling"
     },
     { 
         "country" : "DE", 
         "names" : [
             "brannenburg"
-        ]
+        ], 
+        "origin" : "Brannenburg"
     },
     { 
         "country" : "DE", 
         "names" : [
             "kornwestheim"
-        ]
+        ], 
+        "origin" : "Kornwestheim"
     },
     { 
         "country" : "DE", 
         "names" : [
             "baumholder"
-        ]
+        ], 
+        "origin" : "Baumholder"
     },
     { 
         "country" : "DE", 
         "names" : [
             "bad mergentheim"
-        ]
+        ], 
+        "origin" : "Bad Mergentheim"
     },
     { 
         "country" : "DE", 
         "names" : [
             "augsburg"
-        ]
+        ], 
+        "origin" : "Augsburg"
     },
     { 
         "country" : "DE", 
         "names" : [
             "überlingen"
-        ]
+        ], 
+        "origin" : "Überlingen"
     },
     { 
         "country" : "DE", 
         "names" : [
             "grafenwöhr"
-        ]
+        ], 
+        "origin" : "Grafenwöhr"
     },
     { 
         "country" : "DE", 
         "names" : [
             "landstuhl"
-        ]
+        ], 
+        "origin" : "Landstuhl"
     },
     { 
         "country" : "DE", 
         "names" : [
             "freiburg im breisgau"
-        ]
+        ], 
+        "origin" : "Freiburg im Breisgau"
     },
     { 
         "country" : "DE", 
         "names" : [
             "lahr/schwarzwald"
-        ]
+        ], 
+        "origin" : "Lahr/Schwarzwald"
     },
     { 
         "country" : "DE", 
         "names" : [
             "hamburg"
-        ]
+        ], 
+        "origin" : "Hamburg"
     },
     { 
         "country" : "DE", 
         "names" : [
             "berlin"
-        ]
+        ], 
+        "origin" : "Berlin"
     },
     { 
         "country" : "DE", 
         "names" : [
             "wiesbaden"
-        ]
+        ], 
+        "origin" : "Wiesbaden"
     },
     { 
         "country" : "DE", 
         "names" : [
             "ansbach"
-        ]
+        ], 
+        "origin" : "Ansbach"
     },
     { 
         "country" : "DE", 
         "names" : [
             "münchen"
-        ]
+        ], 
+        "origin" : "München"
     },
     { 
         "country" : "DE", 
         "names" : [
             "mannheim"
-        ]
+        ], 
+        "origin" : "Mannheim"
     },
     { 
         "country" : "DE", 
         "names" : [
             "bonn"
-        ]
+        ], 
+        "origin" : "Bonn"
     },
     { 
         "country" : "DE", 
         "names" : [
             "ulm"
-        ]
+        ], 
+        "origin" : "Ulm"
     },
     { 
         "country" : "DE", 
         "names" : [
             "aachen"
-        ]
+        ], 
+        "origin" : "Aachen"
     },
     { 
         "country" : "DE", 
         "names" : [
             "kiel"
-        ]
+        ], 
+        "origin" : "Kiel"
     },
     { 
         "country" : "DE", 
         "names" : [
             "frankfurt am main"
-        ]
+        ], 
+        "origin" : "Frankfurt am Main"
     },
     { 
         "country" : "DE", 
         "names" : [
             "bad emstal"
-        ]
+        ], 
+        "origin" : "Bad Emstal"
     },
     { 
         "country" : "DE", 
         "names" : [
             "heidelberg"
-        ]
+        ], 
+        "origin" : "Heidelberg"
     },
     { 
         "country" : "DE", 
         "names" : [
             "melsungen"
-        ]
+        ], 
+        "origin" : "Melsungen"
     },
     { 
         "country" : "DE", 
         "names" : [
             "stuttgart"
-        ]
+        ], 
+        "origin" : "Stuttgart"
     },
     { 
         "country" : "DE", 
         "names" : [
             "kusterdingen"
-        ]
+        ], 
+        "origin" : "Kusterdingen"
     },
     { 
         "country" : "DE", 
         "names" : [
             "potsdam"
-        ]
+        ], 
+        "origin" : "Potsdam"
     },
     { 
         "country" : "DE", 
         "names" : [
             "hannover"
-        ]
+        ], 
+        "origin" : "Hannover"
     },
     { 
         "country" : "DE", 
         "names" : [
             "hanover"
-        ]
+        ], 
+        "origin" : "Hanover"
     },
     { 
         "country" : "DE", 
         "names" : [
             "erlangen"
-        ]
+        ], 
+        "origin" : "Erlangen"
     },
     { 
         "country" : "DE", 
         "names" : [
             "bayreuth"
-        ]
+        ], 
+        "origin" : "Bayreuth"
     },
     { 
         "country" : "DE", 
         "names" : [
             "ludwigsburg"
-        ]
+        ], 
+        "origin" : "Ludwigsburg"
     },
     { 
         "country" : "DE", 
         "names" : [
             "bad kreuznach"
-        ]
+        ], 
+        "origin" : "Bad Kreuznach"
     },
     { 
         "country" : "DE", 
         "names" : [
             "konstanz"
-        ]
+        ], 
+        "origin" : "Konstanz"
     },
     { 
         "country" : "DE", 
         "names" : [
             "düsseldorf"
-        ]
+        ], 
+        "origin" : "Düsseldorf"
     },
     { 
         "country" : "IT", 
         "names" : [
             "firenze"
-        ]
+        ], 
+        "origin" : "Firenze"
     },
     { 
         "country" : "IT", 
         "names" : [
             "roma"
-        ]
+        ], 
+        "origin" : "Roma"
     },
     { 
         "country" : "IT", 
         "names" : [
             "vicenza"
-        ]
+        ], 
+        "origin" : "Vicenza"
     },
     { 
         "country" : "IT", 
         "names" : [
             "milano"
-        ]
+        ], 
+        "origin" : "Milano"
     },
     { 
         "country" : "IT", 
         "names" : [
             "verona"
-        ]
+        ], 
+        "origin" : "Verona"
     },
     { 
         "country" : "IT", 
         "names" : [
             "agrigento"
-        ]
+        ], 
+        "origin" : "Agrigento"
     },
     { 
         "country" : "IT", 
         "names" : [
             "orvieto"
-        ]
+        ], 
+        "origin" : "Orvieto"
     },
     { 
         "country" : "IT", 
         "names" : [
             "aviano"
-        ]
+        ], 
+        "origin" : "Aviano"
     },
     { 
         "country" : "IT", 
         "names" : [
             "todi"
-        ]
+        ], 
+        "origin" : "Todi"
     },
     { 
         "country" : "IT", 
         "names" : [
             "perugia"
-        ]
+        ], 
+        "origin" : "Perugia"
     },
     { 
         "country" : "IT", 
         "names" : [
             "bologna"
-        ]
+        ], 
+        "origin" : "Bologna"
     },
     { 
         "country" : "IT", 
         "names" : [
             "villa guardia"
-        ]
+        ], 
+        "origin" : "Villa Guardia"
     },
     { 
         "country" : "IT", 
         "names" : [
             "torino"
-        ]
+        ], 
+        "origin" : "Torino"
     },
     { 
         "country" : "IT", 
         "names" : [
             "piacenza"
-        ]
+        ], 
+        "origin" : "Piacenza"
     },
     { 
         "country" : "ES", 
         "names" : [
             "alicante"
-        ]
+        ], 
+        "origin" : "Alicante"
     },
     { 
         "country" : "ES", 
         "names" : [
             "l'alfàs del pi"
-        ]
+        ], 
+        "origin" : "l'Alfàs del Pi"
     },
     { 
         "country" : "ES", 
         "names" : [
             "estepona"
-        ]
+        ], 
+        "origin" : "Estepona"
     },
     { 
         "country" : "ES", 
         "names" : [
             "marbella"
-        ]
+        ], 
+        "origin" : "Marbella"
     },
     { 
         "country" : "ES", 
         "names" : [
             "torrevieja"
-        ]
+        ], 
+        "origin" : "Torrevieja"
     },
     { 
         "country" : "ES", 
         "names" : [
             "barcelona"
-        ]
+        ], 
+        "origin" : "Barcelona"
     },
     { 
         "country" : "ES", 
         "names" : [
             "madrid"
-        ]
+        ], 
+        "origin" : "Madrid"
     },
     { 
         "country" : "ES", 
         "names" : [
             "benijófar"
-        ]
+        ], 
+        "origin" : "Benijófar"
     },
     { 
         "country" : "ES", 
         "names" : [
             "málaga"
-        ]
+        ], 
+        "origin" : "Málaga"
     },
     { 
         "country" : "ES", 
         "names" : [
             "murcia"
-        ]
+        ], 
+        "origin" : "Murcia"
     },
     { 
         "country" : "ES", 
         "names" : [
             "benalmádena"
-        ]
+        ], 
+        "origin" : "Benalmádena"
     },
     { 
         "country" : "ES", 
         "names" : [
             "torrox"
-        ]
+        ], 
+        "origin" : "Torrox"
     },
     { 
         "country" : "ES", 
         "names" : [
             "mijas"
-        ]
+        ], 
+        "origin" : "Mijas"
     },
     { 
         "country" : "ES", 
         "names" : [
             "sevilla"
-        ]
+        ], 
+        "origin" : "Sevilla"
     },
     { 
         "country" : "ES", 
         "names" : [
             "pamplona"
-        ]
+        ], 
+        "origin" : "Pamplona"
     },
     { 
         "country" : "ES", 
         "names" : [
             "córdoba"
-        ]
+        ], 
+        "origin" : "Córdoba"
     },
     { 
         "country" : "ES", 
         "names" : [
             "orihuela"
-        ]
+        ], 
+        "origin" : "Orihuela"
     },
     { 
         "country" : "ES", 
         "names" : [
             "palma"
-        ]
+        ], 
+        "origin" : "Palma"
     },
     { 
         "country" : "ES", 
         "names" : [
             "zaragoza"
-        ]
+        ], 
+        "origin" : "Zaragoza"
     },
     { 
         "country" : "ES", 
         "names" : [
             "nerja"
-        ]
+        ], 
+        "origin" : "Nerja"
     },
     { 
         "country" : "ES", 
         "names" : [
             "valencia"
-        ]
+        ], 
+        "origin" : "Valencia"
     },
     { 
         "country" : "ES", 
         "names" : [
             "teulada"
-        ]
+        ], 
+        "origin" : "Teulada"
     },
     { 
         "country" : "ES", 
         "names" : [
             "ciutadella de menorca"
-        ]
+        ], 
+        "origin" : "Ciutadella de Menorca"
     },
     { 
         "country" : "ES", 
         "names" : [
             "almuñécar"
-        ]
+        ], 
+        "origin" : "Almuñécar"
     },
     { 
         "country" : "ES", 
         "names" : [
             "esplugues de llobregat"
-        ]
+        ], 
+        "origin" : "Esplugues de Llobregat"
     },
     { 
         "country" : "ES", 
         "names" : [
             "xàbia"
-        ]
+        ], 
+        "origin" : "Xàbia"
     },
     { 
         "country" : "ES", 
         "names" : [
             "yecla"
-        ]
+        ], 
+        "origin" : "Yecla"
     },
     { 
         "country" : "ES", 
         "names" : [
             "benissa"
-        ]
+        ], 
+        "origin" : "Benissa"
     },
     { 
         "country" : "ES", 
         "names" : [
             "leioa"
-        ]
+        ], 
+        "origin" : "Leioa"
     },
     { 
         "country" : "ES", 
         "names" : [
             "puerto de la cruz"
-        ]
+        ], 
+        "origin" : "Puerto de la Cruz"
     },
     { 
         "country" : "PT", 
         "names" : [
             "albufeira"
-        ]
+        ], 
+        "origin" : "Albufeira"
     },
     { 
         "country" : "PT", 
         "names" : [
             "lisboa"
-        ]
+        ], 
+        "origin" : "Lisboa"
     },
     { 
         "country" : "PT", 
         "names" : [
             "sintra"
-        ]
+        ], 
+        "origin" : "Sintra"
     },
     { 
         "country" : "PT", 
         "names" : [
             "santa maria da feira"
-        ]
+        ], 
+        "origin" : "Santa Maria da Feira"
     },
     { 
         "country" : "PT", 
         "names" : [
             "cascais"
-        ]
+        ], 
+        "origin" : "Cascais"
     },
     { 
         "country" : "PT", 
         "names" : [
             "lagos"
-        ]
+        ], 
+        "origin" : "Lagos"
     },
     { 
         "country" : "PT", 
         "names" : [
             "figueira da foz"
-        ]
+        ], 
+        "origin" : "Figueira da Foz"
     },
     { 
         "country" : "PT", 
         "names" : [
             "oeiras"
-        ]
+        ], 
+        "origin" : "Oeiras"
     },
     { 
         "country" : "PT", 
         "names" : [
             "faro"
-        ]
+        ], 
+        "origin" : "Faro"
     },
     { 
         "country" : "PT", 
         "names" : [
             "montijo"
-        ]
+        ], 
+        "origin" : "Montijo"
     },
     { 
         "country" : "PT", 
         "names" : [
             "funchal"
-        ]
+        ], 
+        "origin" : "Funchal"
     },
     { 
         "country" : "PT", 
         "names" : [
             "porto"
-        ]
+        ], 
+        "origin" : "Porto"
     },
     { 
         "country" : "PT", 
         "names" : [
             "óbidos"
-        ]
+        ], 
+        "origin" : "Óbidos"
     },
     { 
         "country" : "BR", 
         "names" : [
             "itajubá"
-        ]
+        ], 
+        "origin" : "Itajubá"
     },
     { 
         "country" : "PT", 
         "names" : [
             "loures"
-        ]
+        ], 
+        "origin" : "Loures"
     },
     { 
         "country" : "PT", 
         "names" : [
             "coimbra"
-        ]
+        ], 
+        "origin" : "Coimbra"
     },
     { 
         "country" : "PT", 
         "names" : [
             "loulé"
-        ]
+        ], 
+        "origin" : "Loulé"
     },
     { 
         "country" : "PT", 
         "names" : [
             "amadora"
-        ]
+        ], 
+        "origin" : "Amadora"
     },
     { 
         "country" : "PT", 
         "names" : [
             "horta"
-        ]
+        ], 
+        "origin" : "Horta"
     },
     { 
         "country" : "PT", 
         "names" : [
             "vila nova de gaia"
-        ]
+        ], 
+        "origin" : "Vila Nova de Gaia"
     },
     { 
         "country" : "PT", 
         "names" : [
             "ferreira do alentejo"
-        ]
+        ], 
+        "origin" : "Ferreira do Alentejo"
     },
     { 
         "country" : "PT", 
         "names" : [
             "viseu"
-        ]
+        ], 
+        "origin" : "Viseu"
     },
     { 
         "country" : "PT", 
         "names" : [
             "portimão"
-        ]
+        ], 
+        "origin" : "Portimão"
     },
     { 
         "country" : "AT", 
         "names" : [
             "wien"
-        ]
+        ], 
+        "origin" : "Wien"
     },
     { 
         "country" : "SK", 
         "names" : [
             "bratislava"
-        ]
+        ], 
+        "origin" : "Bratislava"
     },
     { 
         "country" : "AT", 
         "names" : [
             "salzburg"
-        ]
+        ], 
+        "origin" : "Salzburg"
     },
     { 
         "country" : "HU", 
         "names" : [
             "sopron"
-        ]
+        ], 
+        "origin" : "Sopron"
     },
     { 
         "country" : "AT", 
         "names" : [
             "innsbruck"
-        ]
+        ], 
+        "origin" : "Innsbruck"
     },
     { 
         "country" : "AT", 
         "names" : [
             "wiener neustadt"
-        ]
+        ], 
+        "origin" : "Wiener Neustadt"
     },
     { 
         "country" : "HU", 
         "names" : [
             "mosonmagyaróvár"
-        ]
+        ], 
+        "origin" : "Mosonmagyaróvár"
     },
     { 
         "country" : "AT", 
         "names" : [
             "klagenfurt am wörthersee"
-        ]
+        ], 
+        "origin" : "Klagenfurt am Wörthersee"
     },
     { 
         "country" : "BE", 
         "names" : [
             "overijse"
-        ]
+        ], 
+        "origin" : "Overijse"
     },
     { 
         "country" : "BE", 
         "names" : [
             "la hulpe"
-        ]
+        ], 
+        "origin" : "La Hulpe"
     },
     { 
         "country" : "BE", 
         "names" : [
             "bruxelles"
-        ]
+        ], 
+        "origin" : "Bruxelles"
     },
     { 
         "country" : "BE", 
         "names" : [
             "antwerpen"
-        ]
+        ], 
+        "origin" : "Antwerpen"
     },
     { 
         "country" : "BE", 
         "names" : [
             "leuven"
-        ]
+        ], 
+        "origin" : "Leuven"
     },
     { 
         "country" : "BE", 
         "names" : [
             "melle"
-        ]
+        ], 
+        "origin" : "Melle"
     },
     { 
         "country" : "BE", 
         "names" : [
             "charleroi"
-        ]
+        ], 
+        "origin" : "Charleroi"
     },
     { 
         "country" : "NL", 
         "names" : [
             "amsterdam"
-        ]
+        ], 
+        "origin" : "Amsterdam"
     },
     { 
         "country" : "NL", 
         "names" : [
             "den haag", 
             "'s-gravenhage"
-        ]
+        ], 
+        "origin" : "Den Haag, 's-Gravenhage"
     },
     { 
         "country" : "NL", 
         "names" : [
             "rotterdam"
-        ]
+        ], 
+        "origin" : "Rotterdam"
     },
     { 
         "country" : "NL", 
         "names" : [
             "maastricht"
-        ]
+        ], 
+        "origin" : "Maastricht"
     },
     { 
         "country" : "NL", 
         "names" : [
             "amstelveen"
-        ]
+        ], 
+        "origin" : "Amstelveen"
     },
     { 
         "country" : "NL", 
         "names" : [
             "eindhoven"
-        ]
+        ], 
+        "origin" : "Eindhoven"
     },
     { 
         "country" : "NL", 
         "names" : [
             "barendrecht"
-        ]
+        ], 
+        "origin" : "Barendrecht"
     },
     { 
         "country" : "NL", 
         "names" : [
             "dordrecht"
-        ]
+        ], 
+        "origin" : "Dordrecht"
     },
     { 
         "country" : "DK", 
         "names" : [
             "københavn k", 
             "københavn"
-        ]
+        ], 
+        "origin" : "København K, København"
     },
     { 
         "country" : "DK", 
         "names" : [
             "grenaa"
-        ]
+        ], 
+        "origin" : "Grenaa"
     },
     { 
         "country" : "DK", 
         "names" : [
             "hellerup", 
             "københavn"
-        ]
+        ], 
+        "origin" : "Hellerup, København"
     },
     { 
         "country" : "DK", 
         "names" : [
             "søborg", 
             "københavn"
-        ]
+        ], 
+        "origin" : "Søborg, København"
     },
     { 
         "country" : "DK", 
         "names" : [
             "varde"
-        ]
+        ], 
+        "origin" : "Varde"
     },
     { 
         "country" : "DK", 
         "names" : [
             "københavn", 
             "københavn k"
-        ]
+        ], 
+        "origin" : "København, København K"
     },
     { 
         "country" : "DK", 
         "names" : [
             "slagelse"
-        ]
+        ], 
+        "origin" : "Slagelse"
     },
     { 
         "country" : "DK", 
         "names" : [
             "frederiksberg", 
             "københavn"
-        ]
+        ], 
+        "origin" : "Frederiksberg, København"
     },
     { 
         "country" : "DK", 
         "names" : [
             "aarhus", 
             "aarhus n"
-        ]
+        ], 
+        "origin" : "Aarhus, Aarhus N"
     },
     { 
         "country" : "DK", 
         "names" : [
             "randers", 
             "randers c"
-        ]
+        ], 
+        "origin" : "Randers, Randers C"
     },
     { 
         "country" : "NO", 
         "names" : [
             "bergen"
-        ]
+        ], 
+        "origin" : "Bergen"
     },
     { 
         "country" : "NO", 
         "names" : [
             "oslo"
-        ]
+        ], 
+        "origin" : "Oslo"
     },
     { 
         "country" : "NO", 
         "names" : [
             "stavanger"
-        ]
+        ], 
+        "origin" : "Stavanger"
     },
     { 
         "country" : "US", 
         "names" : [
             "norway"
-        ]
+        ], 
+        "origin" : "Norway"
     },
     { 
         "country" : "CH", 
         "names" : [
             "genève"
-        ]
+        ], 
+        "origin" : "Genève"
     },
     { 
         "country" : "CH", 
         "names" : [
             "lustmühle", 
             "teufen ar"
-        ]
+        ], 
+        "origin" : "Lustmühle, Teufen AR"
     },
     { 
         "country" : "CH", 
         "names" : [
             "nyon"
-        ]
+        ], 
+        "origin" : "Nyon"
     },
     { 
         "country" : "CH", 
         "names" : [
             "chêne-bougeries"
-        ]
+        ], 
+        "origin" : "Chêne-Bougeries"
     },
     { 
         "country" : "CH", 
         "names" : [
             "montreux"
-        ]
+        ], 
+        "origin" : "Montreux"
     },
     { 
         "country" : "CH", 
         "names" : [
             "zürich"
-        ]
+        ], 
+        "origin" : "Zürich"
     },
     { 
         "country" : "CH", 
         "names" : [
             "lausanne"
-        ]
+        ], 
+        "origin" : "Lausanne"
     },
     { 
         "country" : "CH", 
         "names" : [
             "s. vittore", 
             "san vittore"
-        ]
+        ], 
+        "origin" : "S. Vittore, San Vittore"
     },
     { 
         "country" : "CH", 
         "names" : [
             "zollikon"
-        ]
+        ], 
+        "origin" : "Zollikon"
     },
     { 
         "country" : "CH", 
         "names" : [
             "winterthur"
-        ]
+        ], 
+        "origin" : "Winterthur"
     },
     { 
         "country" : "CH", 
         "names" : [
             "gland"
-        ]
+        ], 
+        "origin" : "Gland"
     },
     { 
         "country" : "CH", 
         "names" : [
             "paradiso", 
             "lugano"
-        ]
+        ], 
+        "origin" : "Paradiso, Lugano"
     },
     { 
         "country" : "CH", 
         "names" : [
             "meyrin"
-        ]
+        ], 
+        "origin" : "Meyrin"
     },
     { 
         "country" : "CH", 
         "names" : [
             "meiringen", 
             "schattenhalb"
-        ]
+        ], 
+        "origin" : "Meiringen, Schattenhalb"
     },
     { 
         "country" : "CH", 
         "names" : [
             "rheinfelden"
-        ]
+        ], 
+        "origin" : "Rheinfelden"
     },
     { 
         "country" : "CH", 
         "names" : [
             "basel"
-        ]
+        ], 
+        "origin" : "Basel"
     },
     { 
         "country" : "CH", 
         "names" : [
             "morges"
-        ]
+        ], 
+        "origin" : "Morges"
     },
     { 
         "country" : "BG", 
         "names" : [
             "burgas"
-        ]
+        ], 
+        "origin" : "Burgas"
     },
     { 
         "country" : "US", 
         "names" : [
             "paragould"
-        ]
+        ], 
+        "origin" : "Paragould"
     },
     { 
         "country" : "GR", 
         "names" : [
             "athina", 
             "αθήνα"
-        ]
+        ], 
+        "origin" : "Athina, Αθήνα"
     },
     { 
         "country" : "GR", 
         "names" : [
             "larisa", 
             "λάρισα"
-        ]
+        ], 
+        "origin" : "Larisa, Λάρισα"
     },
     { 
         "country" : "GR", 
         "names" : [
             "chalandri", 
             "χαλάνδρι"
-        ]
+        ], 
+        "origin" : "Chalandri, Χαλάνδρι"
     },
     { 
         "country" : "GR", 
         "names" : [
             "thiva", 
             "θήβα"
-        ]
+        ], 
+        "origin" : "Thiva, Θήβα"
     },
     { 
         "country" : "GR", 
         "names" : [
             "thessaloniki"
-        ]
+        ], 
+        "origin" : "Thessaloniki"
     },
     { 
         "country" : "GR", 
         "names" : [
             "μαλεβίζιο", 
             "malevizio"
-        ]
+        ], 
+        "origin" : "Μαλεβίζιο, Malevizio"
     },
     { 
         "country" : "GR", 
         "names" : [
             "irakleio", 
             "ηράκλειο"
-        ]
+        ], 
+        "origin" : "Irakleio, Ηράκλειο"
     },
     { 
         "country" : "BR", 
         "names" : [
             "brasília de minas"
-        ]
+        ], 
+        "origin" : "Brasília de Minas"
     },
     { 
         "country" : "CZ", 
         "names" : [
             "brno", 
             "brno 3"
-        ]
+        ], 
+        "origin" : "Brno, Brno 3"
     },
     { 
         "country" : "CZ", 
         "names" : [
             "praha 1", 
             "praha"
-        ]
+        ], 
+        "origin" : "Praha 1, Praha"
     },
     { 
         "country" : "PL", 
         "names" : [
             "dywity"
-        ]
+        ], 
+        "origin" : "Dywity"
     },
     { 
         "country" : "PL", 
         "names" : [
             "dobre miasto", 
             "dobre miasto gmina"
-        ]
+        ], 
+        "origin" : "Dobre Miasto, Dobre Miasto gmina"
     },
     { 
         "country" : "PL", 
         "names" : [
             "wrocław"
-        ]
+        ], 
+        "origin" : "Wrocław"
     },
     { 
         "country" : "PL", 
         "names" : [
             "jelenia góra"
-        ]
+        ], 
+        "origin" : "Jelenia Góra"
     },
     { 
         "country" : "PL", 
         "names" : [
             "stryków", 
             "stryków gmina"
-        ]
+        ], 
+        "origin" : "Stryków, Stryków gmina"
     },
     { 
         "country" : "CY", 
         "names" : [
             "λακατάμια", 
             "lakatamia"
-        ]
+        ], 
+        "origin" : "Λακατάμια, Lakatamia"
     },
     { 
         "country" : "IN", 
         "names" : [
             "bengaluru"
-        ]
+        ], 
+        "origin" : "Bengaluru"
     },
     { 
         "country" : "MM", 
         "names" : [
             "dagon myothit (east)"
-        ]
+        ], 
+        "origin" : "Dagon Myothit (East)"
     },
     { 
         "country" : "HK", 
         "names" : [
             "hong kong"
-        ]
+        ], 
+        "origin" : "Hong Kong"
     },
     { 
         "country" : "VN", 
@@ -2652,55 +3088,64 @@
             "hồ chí minh", 
             "thành phố hồ chí minh", 
             "sài gòn"
-        ]
+        ], 
+        "origin" : "Hồ Chí Minh, Thành Phố Hồ Chí Minh, Sài Gòn"
     },
     { 
         "country" : "MY", 
         "names" : [
             "klang"
-        ]
+        ], 
+        "origin" : "Klang"
     },
     { 
         "country" : "MY", 
         "names" : [
             "kuala lumpur"
-        ]
+        ], 
+        "origin" : "Kuala Lumpur"
     },
     { 
         "country" : "PH", 
         "names" : [
             "quezon city"
-        ]
+        ], 
+        "origin" : "Quezon City"
     },
     { 
         "country" : "PH", 
         "names" : [
             "pasay city"
-        ]
+        ], 
+        "origin" : "Pasay City"
     },
     { 
         "country" : "PH", 
         "names" : [
             "manila"
-        ]
+        ], 
+        "origin" : "Manila"
     },
     { 
         "country" : "SG", 
         "names" : [
             "singapore"
-        ]
+        ], 
+        "origin" : "Singapore"
     },
     { 
         "country" : "MY", 
         "names" : [
             "kuching"
-        ]
+        ], 
+        "origin" : "Kuching"
     },
     { 
         "country" : "PH", 
         "names" : [
             "san pedro"
-        ]
+        ], 
+        "origin" : "San Pedro"
     },
     { 
         "country" : "TH", 
@@ -2709,135 +3154,157 @@
             "กรุงเทพฯ", 
             "กรุงเทพมหานคร", 
             "bangkok"
-        ]
+        ], 
+        "origin" : "Krung Thep Maha Nakhon, กรุงเทพฯ, กรุงเทพมหานคร, Bangkok"
     },
     { 
         "country" : "MY", 
         "names" : [
             "tangkak"
-        ]
+        ], 
+        "origin" : "Tangkak"
     },
     { 
         "country" : "MY", 
         "names" : [
             "muar"
-        ]
+        ], 
+        "origin" : "Muar"
     },
     { 
         "country" : "MY", 
         "names" : [
             "nusajaya"
-        ]
+        ], 
+        "origin" : "Nusajaya"
     },
     { 
         "country" : "IN", 
         "names" : [
             "patiala"
-        ]
+        ], 
+        "origin" : "Patiala"
     },
     { 
         "country" : "PH", 
         "names" : [
             "mandaluyong city"
-        ]
+        ], 
+        "origin" : "Mandaluyong City"
     },
     { 
         "country" : "MY", 
         "names" : [
             "skudai"
-        ]
+        ], 
+        "origin" : "Skudai"
     },
     { 
         "country" : "PH", 
         "names" : [
             "makati city"
-        ]
+        ], 
+        "origin" : "Makati City"
     },
     { 
         "country" : "TR", 
         "names" : [
             "istanbul"
-        ]
+        ], 
+        "origin" : "İstanbul"
     },
     { 
         "country" : "IN", 
         "names" : [
             "new delhi", 
             "delhi"
-        ]
+        ], 
+        "origin" : "New Delhi, Delhi"
     },
     { 
         "country" : "PH", 
         "names" : [
             "santa rosa city"
-        ]
+        ], 
+        "origin" : "Santa Rosa City"
     },
     { 
         "country" : "VN", 
         "names" : [
             "hanoi"
-        ]
+        ], 
+        "origin" : "Hanoi"
     },
     { 
         "country" : "MY", 
         "names" : [
             "kulai b"
-        ]
+        ], 
+        "origin" : "Kulai B"
     },
     { 
         "country" : "IN", 
         "names" : [
             "faridabad"
-        ]
+        ], 
+        "origin" : "Faridabad"
     },
     { 
         "country" : "IN", 
         "names" : [
             "gurgaon"
-        ]
+        ], 
+        "origin" : "Gurgaon"
     },
     { 
         "country" : "MY", 
         "names" : [
             "cheras"
-        ]
+        ], 
+        "origin" : "Cheras"
     },
     { 
         "country" : "PH", 
         "names" : [
             "parañaque city"
-        ]
+        ], 
+        "origin" : "Parañaque City"
     },
     { 
         "country" : "MY", 
         "names" : [
             "segamat"
-        ]
+        ], 
+        "origin" : "Segamat"
     },
     { 
         "country" : "MY", 
         "names" : [
             "paya terubong"
-        ]
+        ], 
+        "origin" : "Paya Terubong"
     },
     { 
         "country" : "PH", 
         "names" : [
             "caloocan city"
-        ]
+        ], 
+        "origin" : "Caloocan City"
     },
     { 
         "country" : "PH", 
         "names" : [
             "marikina city"
-        ]
+        ], 
+        "origin" : "Marikina City"
     },
     { 
         "country" : "VN", 
         "names" : [
             "thành phố vũng tàu", 
             "vũng tàu"
-        ]
+        ], 
+        "origin" : "Thành Phố Vũng Tàu, Vũng Tàu"
     },
     { 
         "country" : "TH", 
@@ -2846,67 +3313,78 @@
             "กรุงเทพฯ", 
             "krung thep maha nakhon", 
             "กรุงเทพมหานคร"
-        ]
+        ], 
+        "origin" : "Bangkok, กรุงเทพฯ, Krung Thep Maha Nakhon, กรุงเทพมหานคร"
     },
     { 
         "country" : "TW", 
         "names" : [
             "chiayi city"
-        ]
+        ], 
+        "origin" : "Chiayi City"
     },
     { 
         "country" : "TW", 
         "names" : [
             "kaohsiung city"
-        ]
+        ], 
+        "origin" : "Kaohsiung City"
     },
     { 
         "country" : "ES", 
         "names" : [
             "andorra"
-        ]
+        ], 
+        "origin" : "Andorra"
     },
     { 
         "country" : "BR", 
         "names" : [
             "serra"
-        ]
+        ], 
+        "origin" : "Serra"
     },
     { 
         "country" : "MN", 
         "names" : [
             "ulaanbaatar"
-        ]
+        ], 
+        "origin" : "Ulaanbaatar"
     },
     { 
         "country" : "MY", 
         "names" : [
             "bukit mertajam"
-        ]
+        ], 
+        "origin" : "Bukit Mertajam"
     },
     { 
         "country" : "MY", 
         "names" : [
             "batu caves"
-        ]
+        ], 
+        "origin" : "Batu Caves"
     },
     { 
         "country" : "BR", 
         "names" : [
             "são jorge do ivaí"
-        ]
+        ], 
+        "origin" : "São Jorge do Ivaí"
     },
     { 
         "country" : "ID", 
         "names" : [
             "bekasi"
-        ]
+        ], 
+        "origin" : "Bekasi"
     },
     { 
         "country" : "ID", 
         "names" : [
             "medan"
-        ]
+        ], 
+        "origin" : "Medan"
     },
     { 
         "country" : "TH", 
@@ -2915,488 +3393,562 @@
             "krung thep maha nakhon", 
             "กรุงเทพมหานคร", 
             "bangkok"
-        ]
+        ], 
+        "origin" : "กรุงเทพฯ, Krung Thep Maha Nakhon, กรุงเทพมหานคร, Bangkok"
     },
     { 
         "country" : "IL", 
         "names" : [
             "haifa"
-        ]
+        ], 
+        "origin" : "Haifa"
     },
     { 
         "country" : "IL", 
         "names" : [
             "tel aviv - yafo"
-        ]
+        ], 
+        "origin" : "Tel Aviv - Yafo"
     },
     { 
         "country" : "IL", 
         "names" : [
             "rishon lezion"
-        ]
+        ], 
+        "origin" : "Rishon LeZion"
     },
     { 
         "country" : "IL", 
         "names" : [
             "שער מנשה", 
             "shaar menashe"
-        ]
+        ], 
+        "origin" : "שער מנשה, Shaar Menashe"
     },
     { 
         "country" : "IL", 
         "names" : [
             "netanya", 
             "נתניה"
-        ]
+        ], 
+        "origin" : "Netanya, נתניה"
     },
     { 
         "country" : "US", 
         "names" : [
             "jerusalem"
-        ]
+        ], 
+        "origin" : "Jerusalem"
     },
     { 
         "country" : "IL", 
         "names" : [
             "raanana"
-        ]
+        ], 
+        "origin" : "Raanana"
     },
     { 
         "country" : "IL", 
         "names" : [
             "kiryat ata"
-        ]
+        ], 
+        "origin" : "Kiryat Ata"
     },
     { 
         "country" : "IL", 
         "names" : [
             "ramle"
-        ]
+        ], 
+        "origin" : "Ramle"
     },
     { 
         "country" : "AE", 
         "names" : [
             "dubai"
-        ]
+        ], 
+        "origin" : "Dubai"
     },
     { 
         "country" : "AE", 
         "names" : [
             "ajman"
-        ]
+        ], 
+        "origin" : "Ajman"
     },
     { 
         "country" : "LV", 
         "names" : [
             "rīga"
-        ]
+        ], 
+        "origin" : "Rīga"
     },
     { 
         "country" : "LV", 
         "names" : [
             "jūrmala"
-        ]
+        ], 
+        "origin" : "Jūrmala"
     },
     { 
         "country" : "LT", 
         "names" : [
             "kaunas"
-        ]
+        ], 
+        "origin" : "Kaunas"
     },
     { 
         "country" : "LT", 
         "names" : [
             "vilnius"
-        ]
+        ], 
+        "origin" : "Vilnius"
     },
     { 
         "country" : "LT", 
         "names" : [
             "klaipėda"
-        ]
+        ], 
+        "origin" : "Klaipėda"
     },
     { 
         "country" : "LT", 
         "names" : [
             "vilniaus rajonas"
-        ]
+        ], 
+        "origin" : "Vilniaus rajonas"
     },
     { 
         "country" : "EE", 
         "names" : [
             "tallinn"
-        ]
+        ], 
+        "origin" : "Tallinn"
     },
     { 
         "country" : "EE", 
         "names" : [
             "tartu"
-        ]
+        ], 
+        "origin" : "Tartu"
     },
     { 
         "country" : "EE", 
         "names" : [
             "viimsi"
-        ]
+        ], 
+        "origin" : "Viimsi"
     },
     { 
         "country" : "BY", 
         "names" : [
             "минск", 
             "minsk"
-        ]
+        ], 
+        "origin" : "Минск, Minsk"
     },
     { 
         "country" : "BY", 
         "names" : [
             "витебский городской совет", 
             "vitebskiy gorodskoy sovet"
-        ]
+        ], 
+        "origin" : "Витебский городской совет, Vitebskiy gorodskoy sovet"
     },
     { 
         "country" : "BY", 
         "names" : [
             "minsk"
-        ]
+        ], 
+        "origin" : "Minsk"
     },
     { 
         "country" : "RU", 
         "names" : [
             "ардатов", 
             "ardatov"
-        ]
+        ], 
+        "origin" : "Ардатов, Ardatov"
     },
     { 
         "country" : "RU", 
         "names" : [
             "канск", 
             "kansk"
-        ]
+        ], 
+        "origin" : "Канск, Kansk"
     },
     { 
         "country" : "RU", 
         "names" : [
             "буинск", 
             "buinsk"
-        ]
+        ], 
+        "origin" : "Буинск, Buinsk"
     },
     { 
         "country" : "RU", 
         "names" : [
             "кинешма", 
             "kineshma"
-        ]
+        ], 
+        "origin" : "Кинешма, Kineshma"
     },
     { 
         "country" : "RU", 
         "names" : [
             "пенза", 
             "penza"
-        ]
+        ], 
+        "origin" : "Пенза, Penza"
     },
     { 
         "country" : "RU", 
         "names" : [
             "мариинск", 
             "mariinsk"
-        ]
+        ], 
+        "origin" : "Мариинск, Mariinsk"
     },
     { 
         "country" : "RU", 
         "names" : [
             "краснотурьинск", 
             "krasnotur'insk"
-        ]
+        ], 
+        "origin" : "Краснотурьинск, Krasnotur'insk"
     },
     { 
         "country" : "BY", 
         "names" : [
             "полоцкий городской совет", 
             "polotskiy gorodskoy sovet"
-        ]
+        ], 
+        "origin" : "Полоцкий городской совет, Polotskiy gorodskoy sovet"
     },
     { 
         "country" : "RU", 
         "names" : [
             "дальнегорск", 
             "dal'negorsk"
-        ]
+        ], 
+        "origin" : "Дальнегорск, Dal'negorsk"
     },
     { 
         "country" : "BY", 
         "names" : [
             "гомельский городской совет", 
             "gomel'skiy gorodskoy sovet"
-        ]
+        ], 
+        "origin" : "Гомельский городской совет, Gomel'skiy gorodskoy sovet"
     },
     { 
         "country" : "RU", 
         "names" : [
             "миасс", 
             "miass"
-        ]
+        ], 
+        "origin" : "Миасс, Miass"
     },
     { 
         "country" : "RU", 
         "names" : [
             "любанское", 
             "lyubanskoye"
-        ]
+        ], 
+        "origin" : "Любанское, Lyubanskoye"
     },
     { 
         "country" : "UA", 
         "names" : [
             "київ", 
             "kyiv"
-        ]
+        ], 
+        "origin" : "Київ, Kyiv"
     },
     { 
         "country" : "UA", 
         "names" : [
             "яворів", 
             "yavoriv"
-        ]
+        ], 
+        "origin" : "Яворів, Yavoriv"
     },
     { 
         "country" : "UA", 
         "names" : [
             "одеса", 
             "odesa"
-        ]
+        ], 
+        "origin" : "Одеса, Odesa"
     },
     { 
         "country" : "UA", 
         "names" : [
             "маріуполь", 
             "mariupol"
-        ]
+        ], 
+        "origin" : "Маріуполь, Mariupol"
     },
     { 
         "country" : "RU", 
         "names" : [
             "лисинское", 
             "lisinskoye"
-        ]
+        ], 
+        "origin" : "Лисинское, Lisinskoye"
     },
     { 
         "country" : "UA", 
         "names" : [
             "житомир", 
             "zhytomyr"
-        ]
+        ], 
+        "origin" : "Житомир, Zhytomyr"
     },
     { 
         "country" : "UA", 
         "names" : [
             "запоріжжя", 
             "zaporizhzhia"
-        ]
+        ], 
+        "origin" : "Запоріжжя, Zaporizhzhia"
     },
     { 
         "country" : "UA", 
         "names" : [
             "фастів", 
             "fastiv"
-        ]
+        ], 
+        "origin" : "Фастів, Fastiv"
     },
     { 
         "country" : "UA", 
         "names" : [
             "дніпропетровськ", 
             "dnipropetrovs'k"
-        ]
+        ], 
+        "origin" : "Дніпропетровськ, Dnipropetrovs'k"
     },
     { 
         "country" : "UA", 
         "names" : [
             "харків", 
             "kharkiv"
-        ]
+        ], 
+        "origin" : "Харків, Kharkiv"
     },
     { 
         "country" : "BY", 
         "names" : [
             "давид-городокский городской совет", 
             "david-gorodokskiy gorodskoy sovet"
-        ]
+        ], 
+        "origin" : "Давид-Городокский городской совет, David-Gorodokskiy gorodskoy sovet"
     },
     { 
         "country" : "RU", 
         "names" : [
             "усолье-сибирское", 
             "usol'ye-sibirskoye"
-        ]
+        ], 
+        "origin" : "Усолье-Сибирское, Usol'ye-Sibirskoye"
     },
     { 
         "country" : "UA", 
         "names" : [
             "кременчук", 
             "kremenchuk"
-        ]
+        ], 
+        "origin" : "Кременчук, Kremenchuk"
     },
     { 
         "country" : "UA", 
         "names" : [
             "вінниця", 
             "vinnytsya"
-        ]
+        ], 
+        "origin" : "Вінниця, Vinnytsya"
     },
     { 
         "country" : "RU", 
         "names" : [
             "obruchevsky district"
-        ]
+        ], 
+        "origin" : "Obruchevsky District"
     },
     { 
         "country" : "RU", 
         "names" : [
             "moscow"
-        ]
+        ], 
+        "origin" : "Moscow"
     },
     { 
         "country" : "RU", 
         "names" : [
             "nagatino-sadovniki district"
-        ]
+        ], 
+        "origin" : "Nagatino-Sadovniki District"
     },
     { 
         "country" : "RU", 
         "names" : [
             "москва", 
             "moskva"
-        ]
+        ], 
+        "origin" : "Москва, Moskva"
     },
     { 
         "country" : "RU", 
         "names" : [
             "odintsovo"
-        ]
+        ], 
+        "origin" : "Odintsovo"
     },
     { 
         "country" : "RU", 
         "names" : [
             "округ № 65"
-        ]
+        ], 
+        "origin" : "округ № 65"
     },
     { 
         "country" : "RU", 
         "names" : [
             "тверь", 
             "tver'"
-        ]
+        ], 
+        "origin" : "Тверь, Tver'"
     },
     { 
         "country" : "RU", 
         "names" : [
             "округ шувалово-озерки"
-        ]
+        ], 
+        "origin" : "округ Шувалово-Озерки"
     },
     { 
         "country" : "RU", 
         "names" : [
             "обнинск", 
             "obninsk"
-        ]
+        ], 
+        "origin" : "Обнинск, Obninsk"
     },
     { 
         "country" : "RU", 
         "names" : [
             "pyatigorsk"
-        ]
+        ], 
+        "origin" : "Pyatigorsk"
     },
     { 
         "country" : "RU", 
         "names" : [
             "челябинск", 
             "chelyabinsk"
-        ]
+        ], 
+        "origin" : "Челябинск, Chelyabinsk"
     },
     { 
         "country" : "RU", 
         "names" : [
             "улан-удэ", 
             "ulan-ude"
-        ]
+        ], 
+        "origin" : "Улан-Удэ, Ulan-Ude"
     },
     { 
         "country" : "RU", 
         "names" : [
             "екатеринбург", 
             "yekaterinburg"
-        ]
+        ], 
+        "origin" : "Екатеринбург, Yekaterinburg"
     },
     { 
         "country" : "RU", 
         "names" : [
             "волгоград", 
             "volgograd"
-        ]
+        ], 
+        "origin" : "Волгоград, Volgograd"
     },
     { 
         "country" : "RU", 
         "names" : [
             "пермь", 
             "perm"
-        ]
+        ], 
+        "origin" : "Пермь, Perm"
     },
     { 
         "country" : "RU", 
         "names" : [
             "округ аптекарский остров"
-        ]
+        ], 
+        "origin" : "округ Аптекарский остров"
     },
     { 
         "country" : "RU", 
         "names" : [
             "самара", 
             "samara"
-        ]
+        ], 
+        "origin" : "Самара, Samara"
     },
     { 
         "country" : "RU", 
         "names" : [
             "ростов-на-дону", 
             "rostov-na-donu"
-        ]
+        ], 
+        "origin" : "Ростов-на-Дону, Rostov-na-Donu"
     },
     { 
         "country" : "RU", 
         "names" : [
             "новосибирск", 
             "novosibirsk"
-        ]
+        ], 
+        "origin" : "Новосибирск, Novosibirsk"
     },
     { 
         "country" : "RU", 
         "names" : [
             "krasnodar"
-        ]
+        ], 
+        "origin" : "Krasnodar"
     },
     { 
         "country" : "RU", 
         "names" : [
             "курган", 
             "kurgan"
-        ]
+        ], 
+        "origin" : "Курган, Kurgan"
     },
     { 
         "country" : "RU", 
         "names" : [
             "krasnoyarsk"
-        ]
+        ], 
+        "origin" : "Krasnoyarsk"
     },
     { 
         "country" : "RU", 
         "names" : [
             "астрахань", 
             "astrakhan'"
-        ]
+        ], 
+        "origin" : "Астрахань, Astrakhan'"
     },
     { 
         "country" : "RU", 
         "names" : [
             "георгиевский округ"
-        ]
+        ], 
+        "origin" : "Георгиевский округ"
     }
     ]
     
