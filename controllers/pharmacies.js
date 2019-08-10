@@ -111,9 +111,10 @@ exports.getPharmaciesPartial = async (req, res) => {
   let url = queryPersistant.applyRequestQueryParameters(parameters, `${API_URL}/api/pharmacies`);  
   const request = await axios.get(url);
   
-  let pharmacies = request.data.result.data.map(pharmacy => preparePharmacyData(pharmacy, {
-    search: req.query.name
-  })) || [];
+  let pharmacies = request.data.result.data.map(pharmacy => {
+    const path = `/img/avatars/pharmacies/pharmacy-${Math.floor(Math.random() * 8) + 1}.svg`;
+    return preparePharmacyData(pharmacy, {search: req.query.name}, path);
+  }) || [];
   
   let avgCoordinates = {lat: 0, lng: 0};
   let count = 0;

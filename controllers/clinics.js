@@ -164,9 +164,10 @@ exports.getClinicsPartial = async (req, res) => {
 
   let url = queryPersistant.applyRequestQueryParameters(parameters, `${API_URL}/api/hospitals`);
   const request = await axios.get(url);
-  let hospitals = request.data.result.data.map(clinic => prepareClinicData(clinic, {
-    search: req.query.name
-  }));
+  let hospitals = request.data.result.data.map(clinic => {
+    const path = `/img/avatars/hospitals/hospital-${Math.floor(Math.random() * 7) + 1}.svg`;
+    return prepareClinicData(clinic, {search: req.query.name}, path);
+  });
 
   let avgCoordinates = {
     lat: 0,

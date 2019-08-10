@@ -146,10 +146,8 @@ exports.getDoctorsPartial = async (req, res) => {
   const url = queryPersistant.applyRequestQueryParameters(parameters, `${API_URL}/api/doctors`);
   const request = await axios.get(url);
   let doctors = request.data.result.data.map( async (doctor,i) => {
-      const random = await axios.get('https://randomuser.me/api/1.0/?seed='+doctor.id);
-      return prepareDoctorData(doctor, {
-        search: req.query.name
-      },random.data.results[0]);
+    const path = `/img/avatars/doctors/doctor-${Math.floor(Math.random() * 4) + 1}.svg`;
+    return await prepareDoctorData(doctor, {search: req.query.name}, path);
   });
 
   Promise.all(doctors).then((doctors) => {
