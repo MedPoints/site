@@ -2,10 +2,15 @@ const config = require('config');
 // const axios = require('axios');
 // const API_URL = config.get('API_URL');
 
-const PAGE_TITLE = 'Foundation';
+const Localization = require('../helpers/localization').Localization;
 
 exports.getFoundationInfo = async (req, res) => {
-  res.render('foundation/foundation', { PAGE_TITLE, title: `MedPoints™ Foundation`,req, });
+  const localization = new Localization(req.cookies.locale);
+  res.render('foundation/foundation', { 
+    PAGE_TITLE: localization.localize('titles.foundation'), 
+    title: localization.localize('titles.foundation'),
+    req, 
+  });
 };
 
 exports.getFoundationCases = async (req, res) => {

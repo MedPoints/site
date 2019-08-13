@@ -55,7 +55,10 @@
     },
 
     "partnership": {
-        "addButton": "Add"
+        "addButton": "Add",
+        "imgPath": "img/smart-contract-eng.svg",
+        "textBeforeImg": "<p>Until now, the problem of health insurance is acute all over the world. It would seem that the primary service that guarantees the normal existence of man and is a luxury for most citizens even of the most advanced economiсs of the world.</p><p>Among the most pressing problems of this industry is:</p><ul><li><i class='fas fa-check'></i> Non-rising insurance prices</li><li><i class='fas fa-check'></i> Many thousands of queues in state programs</li><li><i class='fas fa-check'></i> Only partial coverage of insurance costs for medical service in serious cases</li><li><i class='fas fa-check'></i> Fraud by private insurance companies</li><li><i class='fas fa-check'></i> Delays in payments for insurance</li></ul><p>The problems of health insurance couse the inaccessibility or self-denial of a person from receiving the necessary treatment. And if the consequences of such situations do not make themselves felt at once, then they are totaly manifested in the future.</p><p>In our <strong>Insurance points program</strong>, we use the model of obtaining timely medical care for system <strong>Points</strong> tied to the MPT token. Regular replenishment of the account balance and growth of the token will allow each participant to receive more medical services over time in the same amount of <strong>Points</strong>.</p> ",
+        "textAfterImg": "<p>Cooperation with the MedPoints™ system encourages the provision of professional medical services at a high level, which ultimately affects not only the profits of each particular market participant, but also the well-being of society.</p>"
     },
 
     "footer": {
@@ -106,7 +109,7 @@
     },
 
     "main": {
-        "welcome": "Welcome to MedPoints&#8482;! This is a basic demo that simulates user experience, but does not contain the full functionality at the moment. <br /> If you want to become part of the project and support its development, please join our <a href=\"https://medpoints.io\" target=\"_blank\">ICO company</a>."
+        "welcome": "Welcome to MedPoints&#8482;! This is a basic demo that simulates user experience, but does not contain the full functionality at the moment. <br /> If you want to become part of the project and support its development, please join our <a href=\"https://medpoints.io\" target=\"_blank\">IEO company</a>."
     },
 
     "index": {
@@ -137,7 +140,8 @@
         "accountAddTicket": "MedPoints™ Submit support ticket",
         "explorer": "MedPoints™ Blockchain explorer",
         "rates": "MedPoints™ Rates",
-        "favorites": "MedPoints™ Favorites"
+        "favorites": "MedPoints™ Favorites",
+        "foundation": "MedPoints™ Foundation"
     },
 
     "breadcrumbs": {
@@ -165,7 +169,10 @@
         "confirmEmail": "Email Confirmation",
         "favorites": "Favorites",
         "explorer": "Blockchain explorer",
-        "addTicket":"Add ticket"
+        "addTicket":"Add ticket",
+        "foundation": "Foundation",
+        "partnership": "Partnership",
+        "insurance": "Insurance"
     },
 
     "filters": {
@@ -231,13 +238,16 @@
         "busroute": "Bus route",
         "freepark": "Free parking",
         "helpfoundation": "Help foundation",
-        "insurance": "Insurance"
+        "insurance": "Insurance",
+        "gallery": "Clinic gallery",
+        "public": "Public"
     },
 
     "service": {
         "table": {
             "title": "Price comparison for <strong>New patient visit</strong> in <strong>New York</strong>",
             "service": "Service",
+            "services": "Services",
             "time": "Time",
             "insurance": "Insurance",
             "providers": "Providers",
@@ -291,6 +301,7 @@
     },
 
     "foundation": {
+        "imgPath": "img/foundation-eng.svg",
         "makeDonation": "Make donation to General fund",
         "points": "<small>Points from <strong>General fund</strong> serve for partial coverage in cases when required amount for the full treatment remains less then 10%, but the company's time has passed.</small>",
         "foundationText1": "<p>One of the most significant aspects of the MedPoints&#8482; system, we believe, is the functionality of a decentralized collection of funds to help seriously ill or needy people.</p><p>Cases requiring the collection of funds for treatment and / or emergency care can be added only by representatives of clinics and medical institutions.</p><p>Even if the necessary amount has not been achieved, all collected funds are sent to the account of the medical institution for the treatment of this particular case and the patient.</p><p>The MedPoints&#8482; system does not take a percentage of the fundraising, except standard payment required to conduct transactions within the system.</p>",
@@ -535,6 +546,30 @@
         "drug": "Add drug",
         "pharmacy": "Add pharmacy",
         "service": "Add service"
+    },
+
+    "insurance": {
+        "imgPath": "img/insurance-eng.svg",
+        "textBeforeImg": "<h3>How does the <strong>Insurance points program</strong> work in the MedPoints&#8482; system?</h3><p>The system of insurance <strong>Points</strong> in the MedPoints&#8482; network is a protocol through which, as a result of regular user contributions, formed his insurance fund, which the patient can spend on services marked in smart contract with medical institution.</p><p>The list of specific cases, services and places of their provision is formed individually {{localize req 'ratings.basedOn'}} agreements with the medical institutions, their territorial and legal representation.</p><p>A user with a balance is sufficient to connect the <strong>Insurance points program</strong>. Patient itself chooses which insurance cases will be included in the smart-contract.</p><p>Services for an insurance case are provided by medical institutions participating in the <strong>Insurance points program</strong> according to the rules of MedPoints&#8482; platform.</p><p>The order and amount of contributions are also prescribed in a smart-contract and depend on the number of insurance cases chosen by the patient.</p><p>A smart-contract for the provision of medical insurance services is valid until the moment of an insured event or termination of contributions.</p><h5>Benefits for patients:</h5><ul>    <li><i class='fas fa-check'></i> Guarantees the receipt of qualified medical assistance from the funds accumulated within the framework of the insurance program</li>    <li><i class='fas fa-check'></i> Gives the possibility to receive medical services in any clinics all over the world</li>    <li><i class='fas fa-check'></i> Provides special prices from medical institutions</li>    <li><i class='fas fa-check'></i> Raises personal responsibility for the state of their health, and creates conditions for interest in maintaining and strengthening health</li></ul><p>Voluntary medical insurance within the framework of the program MedPoints&#8482; allows all its participants to exchange MPT accumulation <strong>Points</strong> for medical services of institutions around the world</p><p>The system encourages the participants of the <strong>Insurance points program</strong> for the regular replenishment of the fund by the accrual of additional <strong>Points</strong></p><h5>Advantages for medical institutions:</h5><ul>    <li>Guarantees the provider of medical care payment from insured citizens</li>    <li>Establish economic interest in the results of their work</li></ul><h5>Advantages for all</h5><ul>    <li><i class='fas fa-check'></i> The amount of insurance contributions is of a contractual nature and is established by agreement of the parties</li>    <li><i class='fas fa-check'></i> Decentralization of the <strong>Insurance points program</strong> excludes all possible risks associated with the involvement of a third party in the channel 'Doctor - Patient'. All interactions between medical institutions are governed by the general rules of the system and rigidly fixed in a smart-contract</li>    <li><i class='fas fa-check'></i> <strong>Insurance points program</strong> serves for demonopolization of the public health system with all its attendant shortcomings</li>    <li><i class='fas fa-check'></i> Ensuring participation in the system of medical insurance for health care providers regardless of the form of their property</li></ul><p>Some of the patient services (not noticed in the smart-contract) are not covered by the MedPoints ™ insurance program.</p><p>These services include:</p><ul>    <li><i class='far fa-minus-square'></i> Self-initiated surveys</li>    <li><i class='far fa-minus-square'></i> Anonymous diagnostic and prophylactic measures</li>    <li><i class='far fa-minus-square'></i> Home-based procedures</li>    <li><i class='far fa-minus-square'></i> Preventive vaccinations at the request of citizens</li>    <li><i class='far fa-minus-square'></i> Spa treatment</li>    <li><i class='far fa-minus-square'></i> Cosmetology services</li>    <li><i class='far fa-minus-square'></i> Dental prosthetics</li>    <li><i class='far fa-minus-square'></i> Training in the care of patients</li>    <li><i class='far fa-minus-square'></i> Additional services</li></ul><p>The MedPoints insurance program is confirmed by direct agreements with representatives of the medical institutions and regulated within the rules of the system, as well as the current legislation of the host country.</p>",
+        "textAfterImg": "<p>Until now, the problem of health insurance is acute all over the world. It would seem that the primary service that guarantees the normal existence of man and is a luxury for most citizens even of the most advanced economiсs of the world.</p><p>Among the most pressing problems of this industry is:</p><ul><li><i class='fas fa-check'></i> Non-rising insurance prices</li><li><i class='fas fa-check'></i> Many thousands of queues in state programs</li><li><i class='fas fa-check'></i> Only partial coverage of insurance costs for medical service in serious cases</li><li><i class='fas fa-check'></i> Fraud by private insurance companies</li><li><i class='fas fa-check'></i> Delays in payments for insurance</li></ul><p>The problems of health insurance couse the inaccessibility or self-denial of a person from receiving the necessary treatment. And if the consequences of such situations do not make themselves felt at once, then they are totaly manifested in the future.</p><p>In our <strong>Insurance points program</strong>, we use the model of obtaining timely medical care for system <strong>Points</strong> tied to the MPT token. Regular replenishment of the account balance and growth of the token will allow each participant to receive more medical services over time in the same amount of <strong>Points</strong>.</p>"
+    },
+
+    "weekdays": {
+        "monday": "Monday",
+        "tuesday": "Tuesday",
+        "wednesday": "Wednesday",
+        "thursday": "Thursday",
+        "friday": "Friday",
+        "saturday": "Saturday",
+        "sunday": "Sunday"
+    },
+
+    "tooltips": {
+        "participantInsurance": "Participant in the program of insurance points",
+        "participantHelp": "Participant in the program of Help foundation",
+        "transfer": "Provides a transfer from the airport",
+        "bus": "Available with bus routes",
+        "parking": "Has free parking"
     },
 
     "blogs": [

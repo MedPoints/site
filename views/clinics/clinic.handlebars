@@ -19,12 +19,12 @@
                             onerror="this.onerror=null;this.src='/img/logo_stub.svg';this.style.width='100px';" />
                     </div>
                     </div>
-                    <div class="text-success" data-toggle="tooltip" data-placement="top" title="Participant in the program of insurance points" data-original-title=""><i class="fas fa-heartbeat"></i> {{localize req 'clinic.insurance'}}</div>
-                    <div class="text-success" data-toggle="tooltip" data-placement="top" title="Participant in the program of Help foundation" data-original-title="" aria-describedby="tooltip255942"><i class="far fa-life-ring"></i> {{localize req 'clinic.helpfoundation'}}</div>
+                    <div class="text-success" data-toggle="tooltip" data-placement="top" title={{localize req 'tooltips.participantInsurance'}} data-original-title=""><i class="fas fa-heartbeat"></i> {{localize req 'clinic.insurance'}}</div>
+                    <div class="text-success" data-toggle="tooltip" data-placement="top" title={{localize req 'tooltips.participantHelp'}} data-original-title="" aria-describedby="tooltip255942"><i class="far fa-life-ring"></i> {{localize req 'clinic.helpfoundation'}}</div>
                 </div>
                 <!--/.col-->
                 <div class="col-xl-8 col-md-12">
-                    <h3>Public</h3>
+                    <h3>{{localize req 'clinic.public'}}</h3>
                     <div>
                         {{#each hospital.specializations as |specialization| }}
                             <a href="/clinics?specializationId={{specialization.id}}">{{specialization.name}}</a>&nbsp;
@@ -47,9 +47,9 @@
                         </div>
                         <!--/.col-->
                         <div class="col">
-                            <div class="color-gray" data-toggle="tooltip" data-placement="top" title="" data-original-title="Provides a transfer from the airport"><i class="fas fa-plane"></i> {{localize req 'clinic.transfer'}}</div>
-                            <div class="" data-toggle="tooltip" data-placement="top" title="" data-original-title="Available with bus routes"><i class="fas fa-bus"></i> {{localize req 'clinic.busroute'}}</div>
-                            <div class="" data-toggle="tooltip" data-placement="top" title="" data-original-title="Has free parking"><i class="fas fa-car"></i> {{localize req 'clinic.freepark'}}</div>
+                            <div class="color-gray" data-toggle="tooltip" data-placement="top" title="" data-original-title={{localize req 'tooltips.transfer'}}><i class="fas fa-plane"></i> {{localize req 'clinic.transfer'}}</div>
+                            <div class="" data-toggle="tooltip" data-placement="top" title="" data-original-title={{localize req 'tooltips.bus'}}><i class="fas fa-bus"></i> {{localize req 'clinic.busroute'}}</div>
+                            <div class="" data-toggle="tooltip" data-placement="top" title="" data-original-title={{localize req 'tooltips.parking'}}><i class="fas fa-car"></i> {{localize req 'clinic.freepark'}}</div>
                         </div>
                         <!--/.col-->
                     </div>
@@ -94,7 +94,7 @@
 
             <hr />
 
-            <h3>Clinic gallery</h3>
+            <h3>{{localize req 'clinic.gallery'}}</h3>
 
             <div class="gallery">
                 <ul class="owl-carousel owl-theme">

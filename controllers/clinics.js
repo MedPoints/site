@@ -27,11 +27,13 @@ exports.getClinics = async (req, res) => {
     }
   }
 
+  const localization = new Localization(req.cookies.locale);
+
   let url = queryPersistant.applyRequestQueryParameters(parameters, `${API_URL}/api/hospitals`);
   const request = await axios.get(url);
   let hospitals = request.data.result.data.map(clinic => {
     const path = `/img/avatars/hospitals/hospital-${Math.floor(Math.random() * 7) + 1}.svg`;
-    return prepareClinicData(clinic, {search: req.query.name}, path);
+    return prepareClinicData(clinic, {search: req.query.name, localization: localization}, path);
   });
 
   let avgCoordinates = {
@@ -68,7 +70,7 @@ exports.getClinics = async (req, res) => {
     parameters: req.query
   };
 
-  const localization = new Localization(req.cookies.locale);
+  
   res.render('clinics/clinics', {
     hospitals,
     pagerInfo,
@@ -129,9 +131,10 @@ exports.getClinic = async (req, res) => {
     return res.redirect(`/clinics/${request.data.result.slug}`);
   }
 
-  const path = `/img/avatars/hospitals/hospital-${Math.floor(Math.random() * 7) + 1}.svg`;
-  const hospital = prepareClinicData(request.data.result, {}, path);
   const localization = new Localization(req.cookies.locale);
+  const path = `/img/avatars/hospitals/hospital-${Math.floor(Math.random() * 7) + 1}.svg`;
+  const hospital = prepareClinicData(request.data.result, {localization: localization}, path);
+  
   res.render('clinics/clinic', {
     hospital,
     hospitalJson: JSON.stringify(hospital),
@@ -162,11 +165,12 @@ exports.getClinicsPartial = async (req, res) => {
     }
   }
 
+  const localization = new Localization(req.cookies.locale);
   let url = queryPersistant.applyRequestQueryParameters(parameters, `${API_URL}/api/hospitals`);
   const request = await axios.get(url);
   let hospitals = request.data.result.data.map(clinic => {
     const path = `/img/avatars/hospitals/hospital-${Math.floor(Math.random() * 7) + 1}.svg`;
-    return prepareClinicData(clinic, {search: req.query.name}, path);
+    return prepareClinicData(clinic, {search: req.query.name, localization: localization}, path);
   });
 
   let avgCoordinates = {
@@ -202,7 +206,7 @@ exports.getClinicsPartial = async (req, res) => {
     baseUrl: '/clinics',
     parameters: req.query
   };
-  const localization = new Localization(req.cookies.locale);
+  
   res.render('layouts/partials/clinics-partial', {
     layout: false,
     hospitals,
