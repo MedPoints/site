@@ -12,7 +12,7 @@ exports.getBlogPosts = async (req, res) => {
     const localization = new Localization(req.cookies.locale);
     const PAGE_TITLE = localization.localize('titles.blog');
 
-    const blogArticles = getBlogPosts();
+    const blogArticles = getBlogPosts(localization);
 
     const dataPager = new DataPager(blogArticles, count, page);
     const pagerInfo = {
@@ -34,15 +34,16 @@ exports.getBlogPost = async (req, res) => {
     const slug = req.params.slug;
     const id = slug.split('-')[0];
     const _slug = slug.split('-').splice(1).join('-');
-    const blogArticle = getBlogPost(+id);
+
+    const localization = new Localization(req.cookies.locale);
+    const PAGE_TITLE = localization.localize('titles.blog');
+
+    const blogArticle = getBlogPost(+id, localization);
 
     if (!_slug || slug !== blogArticle.slug) {
         return res.redirect(`/blog/text/${blogArticle.slug}`);
     }
     
-    const localization = new Localization(req.cookies.locale);
-    const PAGE_TITLE = localization.localize('titles.blog');
-
     res.render('pages/text', { 
         blogArticle,
         PAGE_TITLE, 
