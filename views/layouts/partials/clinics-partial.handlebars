@@ -47,6 +47,7 @@
                     </p>
                     <div class="row">
                         <div class="col">
+                            {{#if hospital.work_time.length}}
                             <div class="card">
                                 <ul>
                                     {{#each hospital.work_time as |work_time|}}
@@ -56,6 +57,8 @@
                                     {{/each}}
                                 </ul>
                             </div>
+                            {{/if}}
+                            
                             <!--/.card-->
                         </div>
                         <!--/.col-->
@@ -118,3 +121,14 @@
     var locations = {{{ jsonify hospitals }}};
     var avgCoordinates = {{{ jsonify avgCoordinates }}};
 </script>
+
+{{!-- <script>
+    const cards = Array.from(document.querySelectorAll(".card"));
+    const hospitals = {{{ jsonify hospitals }}};
+    for (const [i, hospital] of hospitals.entries()) {
+        console.log(hospital);
+        if (hospital.work_time && hospital.work_time.length) {
+            cards[i].style.display = "";
+        }
+    }
+</script> --}}
