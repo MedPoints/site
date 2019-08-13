@@ -356,7 +356,8 @@
     "successAddToFavourites": "Added to Favorites",
     "customErrorWindowTitle": "An error occurred",
     "errorsByCode": {
-        "USER_NOT_CONFIRMED": "You need to confirm your email before proceeding."
+        "USER_NOT_CONFIRMED": "You need to confirm your email before proceeding.",
+        "USER_NOT_EXIST": "Data does not match. Please register and try again."
     },
     "errors": {
         "requiredFieldsError": "Required fields",

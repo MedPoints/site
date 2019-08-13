@@ -45,7 +45,7 @@ exports.authenticate = async (req, res) => {
             privateKey,
         });
     } catch (err) {
-        res.send(JSON.stringify({ status: 500, ...err.response.data }));
+        return res.send(JSON.stringify({ status: 500, ...err.response.data }));
     }
     
     const result = request.data;

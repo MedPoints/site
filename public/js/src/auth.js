@@ -80,11 +80,17 @@ function logIn(walletId, walletKey, callback) {
             if (res.error) {
                 if (res.error === 'USER_NOT_CONFIRMED') {
                     showCustomErrorModal(
-                        window.localizer.localize('errors.confirmEmailErrorTitle'),
-                        window.localizer.localize('errors.confirmEmailError')
+                        window.localizer.localize('errorsByCode.USER_NOT_CONFIRMED'),
                     );
                 }
-                callback({error: true});
+                if (res.error === 'USER_NOT_EXIST') {
+                    showCustomErrorModal(
+                        window.localizer.localize('errorsByCode.USER_NOT_EXIST'),
+                    );
+                }
+                if (callback) {
+                    callback({error: true});
+                }
             } else {
                 Cookies.set('MedPoints_PrivateKey', res.result.privateKey);
                 Cookies.set('MedPoints_PublicKey', res.result.publicKey);
