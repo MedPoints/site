@@ -309,6 +309,9 @@
     },
 
     "tickets": {
+        "all": "All tickets",
+        "open": "Open",
+        "closed": "Closed",
         "addTicket": "Add ticket",
         "noTickets": "No Tickets",
         "table": {

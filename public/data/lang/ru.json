@@ -131,9 +131,9 @@
         "success": "MedPoints™ Успешная запись",
         "confirm": "MedPoints™ Успешное подтверждение E-mail адреса",
         "booking": "MedPoints™ Записаться на прием",
-        "account": "MedPoints™ Акаунт",
+        "account": "MedPoints™ Аккаунт",
         "accountRecords": "MedPoints™ Записи",
-        "accountEdit": "MedPoints™ Редактировать акаунт",
+        "accountEdit": "MedPoints™ Редактировать аккаунт",
         "accountTickets": "MedPoints™ Запросы в поддержку",
         "accountAddTicket": "MedPoints™ Запрос в поддержку",
         "explorer": "MedPoints™ Обозреватель блоков",
@@ -152,7 +152,7 @@
         "foundationCases": "Кампании Фонда",
         "foundationCase": "Кампания Фонда",
         "account": "Учетная запись",
-        "editAccount": "Редактировать Учетную запись",
+        "editAccount": "Редактировать аккаунт",
         "tickets": "Обращения за помощью",
         "bookAVisit": "Записаться на прием",
         "success": "Успешно",
@@ -167,6 +167,7 @@
         "favorites": "Избранное",
         "terms": "Условия использования сайта",
         "foundation": "Фонд помощи",
+        "addTicket":"Добавить обращение",
         "partnership": "Партнерство"
     },
 
@@ -304,7 +305,11 @@
     },
 
     "tickets": {
+        "all": "Все обращения",
+        "open": "Открытые",
+        "closed": "Закрытые",
         "addTicket": "Добавить обращение",
+        "noTickets": "Нет обращений",
         "table": {
             "title": "Заголовок",
             "description": "Описание",
@@ -479,6 +484,8 @@
         "registerButton": "Зарегистрироваться",
         "saveChanges": "Сохранить изменения",
         "success": "Информация вашей учетной записи была успешно обновлена.",
+        "noAppointments": "У вас нет встреч в данный момент",
+        "noRecords": "У вас нет записей в данный момент",
         "modals": {
             "chooseDoctor": {
                 "title": "Требуются дополнительные действия",
