@@ -9,54 +9,8 @@
     </nav>
 
     <div class="row">
+
         
-        <div class="col-xl-3 push-xl-9 col-lg-4 push-lg-8 col-md-5 push-md-7 col-sm-12 push-sm-0">
-        <nav class="sticky-top">
-
-            <div class="account-menu">
-
-                <ul class="list-group">
-                    <li class="list-group-item active">
-                        <a href="/account">{{localize req 'account.sidebar.appointments'}} <span class="badge">{{appointmentsCount}}</span></a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="/account/records">{{localize req 'account.sidebar.records'}} <span class="badge">{{recordsCount}}</span></a>
-                        <ul>
-                            <li><a href="javascript:void(0)" data-toggle="modal" data-target="#chooseDoctor"><i class="fas fa-plus-circle"></i> {{localize req 'account.sidebar.addRecord'}}</a></li>
-                        </ul>
-                    </li>
-                    <li class="list-group-item">
-						<a href="#" data-toggle="modal" data-target="#sorry"><b>MPT</b> = 120
-							<span class="badge">+ 0</span>
-						</a>
-						<ul>
-							<li>
-								<a href="#" data-toggle="modal" data-target="#sorry">
-									<i class="fas fa-plus-circle"></i> {{localize req 'account.sidebar.addBalance'}}</a>
-							</li>
-						</ul>
-					</li>
-                    <li class="list-group-item">
-                        <a href="/account/favorites">{{localize req 'account.sidebar.favourites'}}</a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="/account-tickets">{{localize req 'account.sidebar.support'}}
-                        <span class="badge">{{ticketsCount}}</span>
-                        </a>
-                        <ul>
-                            <li><a href="/add-ticket"><i class="fas fa-plus-circle"></i> {{localize req 'account.sidebar.addTicket'}}</a></li>
-                        </ul>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="/account/edit"><i class="fas fa-cog"></i> {{localize req 'account.sidebar.editProfile'}}</a>
-                    </li>
-                </ul>
-
-            </div>
-            <!--/.account-menu-->
-        </nav>
-    </div>
-    <!--/.col-->
 
         <!--/.col--> 
         {{#if requireLogIn}}
@@ -201,6 +155,54 @@
         </div>
         {{/if}}
         <!--/.col-->
+
+        <div class="col-xl-3 push-xl-9 col-lg-4 push-lg-8 col-md-5 push-md-7 col-sm-12 push-sm-0">
+        <nav class="sticky-top">
+
+            <div class="account-menu">
+
+                <ul class="list-group">
+                    <li class="list-group-item active">
+                        <a href="/account">{{localize req 'account.sidebar.appointments'}} <span class="badge">{{appointmentsCount}}</span></a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/account/records">{{localize req 'account.sidebar.records'}} <span class="badge">{{recordsCount}}</span></a>
+                        <ul>
+                            <li><a href="javascript:void(0)" data-toggle="modal" data-target="#chooseDoctor"><i class="fas fa-plus-circle"></i> {{localize req 'account.sidebar.addRecord'}}</a></li>
+                        </ul>
+                    </li>
+                    <li class="list-group-item">
+						<a href="#" data-toggle="modal" data-target="#sorry"><b>MPT</b> = 120
+							<span class="badge">+ 0</span>
+						</a>
+						<ul>
+							<li>
+								<a href="#" data-toggle="modal" data-target="#sorry">
+									<i class="fas fa-plus-circle"></i> {{localize req 'account.sidebar.addBalance'}}</a>
+							</li>
+						</ul>
+					</li>
+                    <li class="list-group-item">
+                        <a href="/account/favorites">{{localize req 'account.sidebar.favourites'}}</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/account-tickets">{{localize req 'account.sidebar.support'}}
+                        <span class="badge">{{ticketsCount}}</span>
+                        </a>
+                        <ul>
+                            <li><a href="/add-ticket"><i class="fas fa-plus-circle"></i> {{localize req 'account.sidebar.addTicket'}}</a></li>
+                        </ul>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/account/edit"><i class="fas fa-cog"></i> {{localize req 'account.sidebar.editProfile'}}</a>
+                    </li>
+                </ul>
+
+            </div>
+            <!--/.account-menu-->
+        </nav>
+    </div>
+    <!--/.col-->
     </div>
     <!--/.row--> 
  
