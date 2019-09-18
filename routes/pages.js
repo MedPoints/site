@@ -59,7 +59,7 @@ router.get('/registration', (req, res) => {
     });
 });
 
-router.get('/insurance', (req, res) => res.render('pages/insurance', {title: 'MedPoints™ Insurance', PAGE_TITLE: 'Insurance programme'}));
+
 router.get('/search-results', (req, res) => res.render('pages/search-results', {title: 'MedPoints™ Search'}));
 router.get('/success', (req, res) => {
     const localization = new Localization(req.cookies.locale);

@@ -58,8 +58,7 @@ exports.createTicket = async (req, res) => {
 exports.addTickets = async (req, res) => {
     
     const localization = new Localization(req.cookies.locale);
-    // res.render('pages/add-ticket', { 
-    res.render('add/add-ticket', { 
+    res.render('pages/add-ticket', { 
         PAGE_TITLE: localization.localize('titles.accountAddTicket'), 
         title: localization.localize('titles.accountAddTicket'),
         req, 
