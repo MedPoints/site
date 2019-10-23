@@ -45,10 +45,8 @@
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
             <h2>{{{localize req 'about.friendly.title'}}}</h2>
             <p></p>
-            <a href="https://youtube.com" target="_blank"><img class="img-responsive" src="http://via.placeholder.com/650x450" alt="" /></a>
+            <iframe class="about-youtube" src={{{localize req 'about.friendly.src'}}} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 			<br />
-			<br />
-			<a href="https://youtube.com" target="_blank"><i class="fas fa-play"></i> {{{localize req 'about.friendly.watchVideo'}}}</a>
 			<hr />
 			<p>{{{localize req 'about.friendly.description'}}}</p>
         </div>
@@ -56,16 +54,20 @@
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
             <h2>{{{localize req 'about.functional.title'}}}</h2>
             <p></p>
-            <a href="https://youtube.com" target="_blank"><img class="img-responsive" src="http://via.placeholder.com/650x450" alt="" /></a>
+            <iframe class="about-youtube" src={{{localize req 'about.functional.src'}}} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 			<br />
-			<br />
-			<a href="https://youtube.com" target="_blank"><i class="fas fa-play"></i> {{{localize req 'about.functional.watchVideo'}}}</a>
 			<hr />
 			<p>{{{localize req 'about.functional.description'}}}</p>
         </div>
         <!--/.col--> 
+        
+
     </div>
     <!--/.row-->
+
+    <h2>{{{localize req 'about.possibilities.title'}}}</h2>
+    <br />
+    <div>{{{localize req 'about.possibilities.description'}}}</div>
 {{!-- 	
 	<h2>{{{localize req 'about.beneficial.title'}}}</h2>
 	

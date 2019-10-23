@@ -1601,3 +1601,10 @@ ul.cat-list li {
 .site-footer a.active{
      font-weight: bold;
 }
+
+
+.about-youtube {
+     min-width: 100%;
+     max-width: 100%;
+     height: 450px;
+}
