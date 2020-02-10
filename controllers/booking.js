@@ -51,6 +51,7 @@ exports.register = async (req, res) => {
         serviceId,
         bookingDate,
         walletId,
+        walletKey,
         firstName,
         lastName,
         email,
@@ -58,9 +59,8 @@ exports.register = async (req, res) => {
         dateOfBirth,
     } = req.body;
 
-
     const data = {
-        UserAddress: walletId,
+        UserAddress: walletKey,
         DoctorId: doctorId,
         ClinicId: clinicId,
         ServiceId: serviceId,
@@ -100,8 +100,11 @@ exports.details = async (req, res) => {
         console.log('Date request error: ' + err);
     });
 
+    const localization = new Localization(req.cookies.locale);
+
     const random = await axios.get('https://randomuser.me/api/1.0/?seed='+doctorRequest.data.result.id);
-    const clinic = prepareClinicData(clinicRequest.data.result);
+    const path = `/img/avatars/hospitals/hospital-${Math.floor(Math.random() * 7) + 1}.svg`;
+    const clinic = prepareClinicData(clinicRequest.data.result, {localization: localization}, path);
     const doctor = prepareDoctorData(doctorRequest.data.result, '', random.data.results[0]);
     const service = serviceRequest.data.result;
 

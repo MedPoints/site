@@ -68,6 +68,9 @@ $(function () {
         data.walletId = $('#bookingWalletId').val();
         if (!data.walletId)
             errors.push(window.localizer.localize('errors.requiredWallet'));
+        data.walletKey = $('#bookingWalletKey').val();
+        if (!data.walletKey)
+            errors.push(window.localizer.localize('errors.requiredWallet'));
         
         if (errors.length > 0) {
             var errorContent = '';

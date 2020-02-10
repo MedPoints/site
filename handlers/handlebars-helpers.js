@@ -172,7 +172,7 @@ exports.hbsHelpers = {
   compare: (val, compareVal) => {
     return val === compareVal;
   },
-  localize: (req, path, options) => {
+  localize: (req, path, options) => {    
     return new Localization(req.cookies.locale).localize(path, options.hash);
   },
   localization: (locale = 'en', options) => {

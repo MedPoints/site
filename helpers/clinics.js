@@ -1,15 +1,16 @@
 const higlight = require('./text-highlighter');
 
 exports.prepareClinicData = (clinic, options, path) => {
-    clinic.avatar = path;
+    if (!clinic.avatar) {
+        clinic.avatar = path;
+    }
     
     let work_time = [];
-    if (clinic.work_time) {
+    if (clinic.work_time && options && options.localization) {
         work_time = clinic.work_time.split('\n').map((workTime) => {
             const workTimeParts = workTime.split(' ');
             return {
                 weekdays: options.localization.localize(`weekdays.${workTimeParts[0].toLowerCase()}`),
-                // weekdays: workTimeParts[0],
                 time: workTimeParts[1],
             }
         });

@@ -46,9 +46,10 @@ exports.getAccountInfo = async (req, res) => {
       };
 
     // Get current data page
-    let transactions = await getTransactions(dataPager.getPageData());
+    let transactions = await getTransactions(dataPager.getPageData(), localization);
+
     const ticketsResponse = await axios.get(`${API_URL}/api/tickets/${MedPoints_PublicKey}/${MedPoints_PrivateKey}`);
-    const appointmentsData = transactions.map(transaction => prepareAppointmentData(transaction))
+    const appointmentsData = transactions.map(transaction => prepareAppointmentData(transaction));
 
     res.render('accounts/account', { 
         recordsCount: response.data.length,
@@ -92,7 +93,7 @@ exports.records = async (req, res) => {
       };
 
     // Get current data page
-    let transactions = await getTransactions(dataPager.getPageData());
+    let transactions = await getTransactions(dataPager.getPageData(), localization);
     res.render('accounts/account-records', { 
         recordsCount: response.data.length,
         appointmentsCount: response.data.length,

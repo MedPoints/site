@@ -27,7 +27,7 @@ exports.prepareAppointmentData = (transaction) => {
     };
 };
 
-exports.getTransactions = async (transactions) => {
+exports.getTransactions = async (transactions, localization) => {
     let resultTransactions = [];
 
     // Get clinic, doctor and service info for a transaction
@@ -44,8 +44,9 @@ exports.getTransactions = async (transactions) => {
             console.log('Date request error: ' + err);
         });
 
-        const random = await axios.get('https://randomuser.me/api/1.0/?seed='+doctor.id);
-        const clinic = prepareClinicData(clinicRequest.data.result);
+        const random = await axios.get('https://randomuser.me/api/1.0/?seed='+doctorRequest.data.result.id);
+        const path = `/img/avatars/hospitals/hospital-${Math.floor(Math.random() * 7) + 1}.svg`;
+        const clinic = prepareClinicData(clinicRequest.data.result, {localization: localization}, path);
         const doctor = prepareDoctorData(doctorRequest.data.result, '', random.data.results[0]);
         const service = serviceRequest.data.result;
         transaction.ClinicInfo = clinic;

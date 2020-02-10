@@ -6,7 +6,8 @@ const axios = require('axios');
 
 exports.processFavoritesData = async (data) => {
     if (data.clinics) {
-        data.clinics = data.clinics.map(clinic => prepareClinicData(clinic));
+        const path = `/img/avatars/hospitals/hospital-${Math.floor(Math.random() * 7) + 1}.svg`;
+        data.clinics = data.clinics.map(clinic => prepareClinicData(clinic, {}, path));
     }
 
     if (data.doctors) {
