@@ -1,0 +1,134 @@
+
+{{#if transactions}}
+        <ul class="items-list">
+
+            {{#each transactions as |transaction|}}
+            <li class="row">
+
+                <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12"> 
+                <h3>{{transaction.Date}}
+                    {{!-- <a href="/clinics/{{transaction.ClinicInfo.id}}">{{transaction.ClinicInfo.name}}</a>
+                    <small>Public</small> --}}
+                    {{!--
+                    <a class="btn-bell1 float-right">
+                        <i class="fas fa-bell text-success"></i>
+                    </a> --}}
+                </h3>
+                {{!-- <p>
+                    <a href="https://www.google.com/maps/embed/place?key=1&q={{transaction.ClinicInfo.location.address}}" data-name="{{transaction.ClinicInfo.name}}"
+                        class="map-toggle">
+                        {{transaction.ClinicInfo.location.address}}
+                    </a>
+                </p>
+                <ul class="stiled-list">
+                    <li>
+                        <h4>{{transaction.ServiceInfo.name}}</h4>
+                        <div>at 8:00 AM office 22</div> 
+                        <div>Terapist
+                            <a href="/doctors/{{transaction.DoctorInfo.id}}">{{transaction.DoctorInfo.name}}</a>
+                        </div>
+                    </li>
+                </ul>
+                <p>Total cost
+                    <strong>3 MPT</strong>
+                </p> --}}
+                </div>
+
+
+
+
+
+<div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
+    {{#if transaction.files}}
+                <h3>Documents</h3>
+                <div class="gallery">
+                    <ul class="owl-carousel owl-theme">
+                        {{#each transaction.files as |file|}}
+                        <li class="item">
+                            
+                            {{#if (equals file.ext 'jpg')}}
+                            <a class="gallery-img" href="{{file.path}}" title="{{file.name}}">
+                                <img src="{{file.path}}" alt="{{file.fullname}}" />
+                            </a>
+
+                            {{else if (equals file.ext 'jpeg')}}
+                            <a class="gallery-img" href="{{file.path}}" title="{{file.name}}">
+                                <img src="{{file.path}}" alt="{{file.fullname}}" />
+                            </a>
+
+                            {{else if (equals file.ext 'doc')}}
+                            <div>
+                                <a href="{{file.path}}" title="{{file.name}}">
+                                    <i class="far fa-file fa-2x"></i>
+                                    <br />{{file.fullname}}
+                                </a>
+                            </div>
+
+                            {{else if (equals file.ext 'pdf')}}
+                            <div>
+                                <a href="{{file.path}}" title="{{file.name}}">
+                                    <i class="far fa-file-pdf fa-2x"></i>
+                                    <br />{{file.fullname}}
+                                </a>
+                            </div>
+                            
+                            {{/if}}
+                            
+                        </li>
+                        {{!-- <li class="item"><a class="gallery-img" href="img/_demo/record2.jpg" title="Document title 2"><img src="img/_demo/record2.jpg" alt="Gallery image 2" /></a></li>
+                        <li class="item">
+                            <div><a href="img/_demo/test.doc" title=""><i class="far fa-file fa-2x"></i><br />Examine results.doc</a></div>
+                        </li>
+                        <li class="item"><a class="gallery-img" href="img/_demo/record3.jpg" title="Document title 1"><img src="img/_demo/record3.jpg" alt="Gallery image 1" /></a></li>
+                        <li class="item"><a class="gallery-img" href="img/_demo/record4.jpg" title="Document title 2"><img src="img/_demo/record4.jpg" alt="Gallery image 2" /></a></li>
+                        <li class="item">
+                            <div><a href="img/_demo/test.pdf" title=""><i class="far fa-file-pdf fa-2x"></i><br />Radiology results.pdf</a></div>
+                        </li>
+                        <li class="item"><a class="gallery-img" href="img/_demo/record5.jpg" title="Document title 3"><img src="img/_demo/record5.jpg" alt="Gallery image 3" /></a></li>
+                        <li class="item"><a class="gallery-img" href="img/_demo/record6.jpg" title="Document title 1"><img src="img/_demo/record6.jpg" alt="Gallery image 1" /></a></li>
+                        <li class="item"><a class="gallery-img" href="img/_demo/record7.jpg" title="Document title 2"><img src="img/_demo/record7.jpg" alt="Gallery image 2" /></a></li>  --}}
+                        {{/each}}
+                    </ul>
+                </div>
+                {{/if}}
+</div>
+
+
+
+
+<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                {{!-- <div class="card">
+                    <ul>
+                        <li>Transaction code
+                            <span id="transactionId" class="breakable">{{transaction.Id}}</span>
+                        </li>
+                        <li>
+                            <a class="copy-link btn-copy1" onclick="copyToClipboard($('#transactionId'))">
+                                <i class="far fa-copy"></i>
+                                Copy</a> /
+                            <a href="#" data-toggle="modal" data-target="#sorry">Check in blockchain explorer</a>
+                        </li>
+                        <li>Transaction status
+                            <span class="text-info">In progress</span>
+                        </li>
+                    </ul>
+                </div> --}}
+                <!--/.card-->
+                </div>
+
+            </li>
+            {{/each}}
+
+        </ul>
+        
+
+        <div class="row pagination-line">
+            <div class="col">
+                {{> pager pagerInfo }}
+            </div>
+            <!--/.col-->
+        </div>
+        <!--/.row-->
+        {{else}}
+            <h2>{{localize req 'account.noRecords'}}</h2>
+        {{/if}} 

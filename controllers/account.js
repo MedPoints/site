@@ -1,5 +1,8 @@
 const config = require('config');
 const axios = require('axios');
+const fs = require('fs');
+const path = require('path');
+const moment = require('moment');
 
 const Promise = require('bluebird');
 
@@ -90,20 +93,104 @@ exports.records = async (req, res) => {
         pager: dataPager.pager,
         baseUrl: '/account/records',
         parameters: req.query
-      };
+    };
 
     // Get current data page
     let transactions = await getTransactions(dataPager.getPageData(), localization);
+    
+
+    const dirPath = `./uploads/${MedPoints_PublicKey}`;
+    let filesSorted = [];
+
+    if (fs.existsSync(dirPath)) {
+        fs.readdirSync(dirPath).forEach(name => {
+            const stat = fs.statSync(path.join(dirPath, name));
+
+            const file = {
+                fullname: name,
+                name: path.parse(name).name,
+                path: `/${MedPoints_PublicKey}/${name}`,
+                ext: path.extname(name).slice(1),
+                timestamp: stat.mtime,
+                date: moment(stat.mtime).format('YYYY-MM-DD'),
+            };
+
+            const fileObj = filesSorted.find(obj => obj.date === file.date);
+
+            if (fileObj) {
+                fileObj.files.push(file);
+            } else {
+                filesSorted.push({
+                    date: file.date,
+                    files: [file],
+                });
+            }
+        });
+    }
+
+    // for (const transaction of transactions) {
+    //     transaction.files = files.filter(file => file.date === transaction.Date);
+    // }
+
     res.render('accounts/account-records', { 
         recordsCount: response.data.length,
         appointmentsCount: response.data.length,
         ticketsCount: ticketsResponse.data.result.length,
         pagerInfo: dataPager,
-        transactions,
+        // transactions,
+        filesSorted,
         PAGE_TITLE: localization.localize('titles.accountRecords'),
         title: localization.localize('titles.accountRecords'),
         req,
     });
+};
+
+exports.addRecord = async (req, res) => {
+    const {
+        MedPoints_PrivateKey,
+        MedPoints_PublicKey,
+    } = req.cookies;
+
+    const localization = new Localization(req.cookies.locale);
+
+    if (!MedPoints_PrivateKey || !MedPoints_PublicKey) {
+        res.render('accounts/login', { isLoggedIn: false, PAGE_TITLE: localization.localize('titles.accountRecords'), title: localization.localize('titles.accountRecords') });
+        return;
+    }
+    
+    res.render('accounts/account-add-record', { 
+        PAGE_TITLE: localization.localize('titles.accountAddRecord'), 
+        title: localization.localize('titles.accountAddRecord'),
+        req, 
+    });
+};
+
+exports.uploadRecord = async (req, res) => {
+    const {
+        MedPoints_PrivateKey,
+        MedPoints_PublicKey,
+    } = req.cookies;
+
+    const localization = new Localization(req.cookies.locale);
+
+    if (!MedPoints_PrivateKey || !MedPoints_PublicKey) {
+        res.render('accounts/login', { isLoggedIn: false, PAGE_TITLE: localization.localize('titles.accountRecords'), title: localization.localize('titles.accountRecords') });
+        return;
+    }
+
+    const dirPath = `./uploads/${MedPoints_PublicKey}`;
+
+    if (!fs.existsSync(dirPath)) {
+        fs.mkdirSync(dirPath);
+    }
+
+    if (req.files && req.files.length) {
+        for (const file of req.files) {
+            fs.renameSync(path.join(file.destination, file.filename), path.join(dirPath, file.filename));
+        }
+    }
+
+    res.redirect(`/account/records/`);
 };
 
 

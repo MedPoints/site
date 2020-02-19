@@ -134,6 +134,7 @@
         "confirm": "MedPoints™ Successful Email Confirmation",
         "booking": "MedPoints™ Book a Visit",
         "account": "MedPoints™ Account",
+        "accountAddRecord": "MedPoints™ Add record",
         "accountRecords": "MedPoints™ Account Records",
         "accountEdit": "MedPoints™ Edit Account",
         "accountTickets": "MedPoints™ Your support tickets",
@@ -172,7 +173,9 @@
         "addTicket":"Add ticket",
         "foundation": "Foundation",
         "partnership": "Partnership",
-        "insurance": "Insurance"
+        "insurance": "Insurance",
+        "medicalRecords": "Medical records",
+        "addRecord": "Add record"
     },
 
     "filters": {
@@ -508,6 +511,17 @@
         "success": "Your account information was updated successfully.",
         "noAppointments": "You currently have no appointments",
         "noRecords": "You currently have no records",
+        "addRecord": "Add record",
+        "addRecordPage": {
+            "uploadHint": "You can upload files in doc, pdf, txt, jpg, jpeg, png, xml formats",
+            "maxSize": "Maximum file size: 1MB",
+            "addMore": "Add more files",
+            "file": "File",
+            "addedFiles": "Added files",
+            "maxNumFiles": "10 max",
+            "chooseFile": "Choose file...",
+            "browse": "Browse"
+        },
         "modals": {
             "chooseDoctor": {
                 "title": "Additional actions required",

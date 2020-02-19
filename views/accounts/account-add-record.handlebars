@@ -1,0 +1,253 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">{{localize req 'breadcrumbs.home'}}</a></li>
+        <li class="breadcrumb-item"><a href="/account">{{localize req 'breadcrumbs.account'}}</a></li>
+        <li class="breadcrumb-item"><a href="/account/records">{{localize req 'breadcrumbs.medicalRecords'}}</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{localize req 'breadcrumbs.addRecord'}}</li>
+    </ol>
+</nav>
+
+
+<div class="row">
+    <div class="col-xl-3 push-xl-9 col-lg-4 push-lg-8 col-md-5 push-md-7 col-sm-12 push-sm-0"> 
+        <nav class="sticky-top"> 
+            <div class="account-menu">
+
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <a href="/account">{{localize req 'account.sidebar.appointments'}} <span class="badge">{{appointmentsCount}}</span></a>
+                    </li>
+                    <li class="list-group-item active">
+                        <a href="/account/records">{{localize req 'account.sidebar.records'}} <span class="badge">{{recordsCount}}</span></a>
+                        <ul>
+                            <li><a href="/account/add-record"><i class="fas fa-plus-circle"></i> {{localize req 'account.sidebar.addRecord'}}</a></li>
+                        </ul>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#" data-toggle="modal" data-target="#sorry"><b>MPT</b> = 120
+                            <span class="badge">+ 0</span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="#" data-toggle="modal" data-target="#sorry">
+                                    <i class="fas fa-plus-circle"></i> {{localize req 'account.sidebar.addBalance'}}</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/account/favorites">{{localize req 'account.sidebar.favourites'}}</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/account-tickets">{{localize req 'account.sidebar.support'}}
+                        <span class="badge">{{ticketsCount}}</span>
+                        </a>
+                        <ul>
+                            <li><a href="/add-ticket"><i class="fas fa-plus-circle"></i> {{localize req 'account.sidebar.addTicket'}}</a></li>
+                        </ul>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/account/edit"><i class="fas fa-cog"></i> {{localize req 'account.sidebar.editProfile'}}</a>
+                    </li>
+                </ul>
+
+            </div>
+            <!--/.account-menu-->
+        </nav> 
+    </div>
+    <!--/.col--> 
+    <div class="col-xl-9 pull-xl-3 col-lg-8 pull-lg-4 col-md-7 pull-md-5 col-sm-12 pull-sm-0"> 
+        
+
+    
+        <form action="/account/upload-record" enctype="multipart/form-data" method="POST">
+            <div class="row">
+                <div class="col-xl-8 col-lg-7 col-md-12 col-sm-12">
+
+                    <h5>{{localize req 'account.addRecordPage.uploadHint'}}</h5>
+
+                    <p>{{localize req 'account.addRecordPage.maxSize'}}</p>
+                    
+                    <br />
+                        
+                        <div class="input-fields-wrap">
+                        <a class="add-field-button"><i class="fas fa-plus"></i> {{localize req 'account.addRecordPage.addMore'}}</a>
+
+                        <div class="form-group row">
+                            {{!-- <div class="col-2 col-form-label">{{localize req 'account.addRecordPage.file'}} 1</div> --}}
+                            <div class="col-9">
+                                <label class="custom-file">
+                                    <input type="file" id="file1" name="file" class="custom-file-input" accept=".jpg,.jpeg,.png,.doc,.docx,.xml,application/msword,application/pdf,text/plain">
+                                    <span class="custom-file-control add-file" data-after="{{localize req 'account.addRecordPage.chooseFile'}}" data-before="{{localize req 'account.addRecordPage.browse'}}"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <!--/.form-group--> 
+                    </div>
+                    <!--/.input-fields-wrap-->
+
+                </div>
+                <!--/.col-->
+                
+                <div class="col-xl-4 col-lg-5 col-md-12 col-sm-12">
+
+                    <nav class="sticky-top">
+
+                        <div class="wave">
+                        
+                            <p>{{localize req 'account.addRecordPage.addedFiles'}} - <span id="numAddedFiles">0</span> / <span>{{localize req 'account.addRecordPage.maxNumFiles'}}</span></p>
+
+                            <ul id="filesList"></ul>
+                            {{!-- <div>Total weight - <strong>25 345 kb</strong></div>
+                            <p>Transaction Fee = <strong>0.0001 MPT</strong></p>  --}}
+            
+                            <div class="form-group">
+                                <input class="btn btn-primary justify" type="submit" value="{{localize req 'account.addRecord'}}"/>
+                            </div>
+
+                        </div>
+                        <!--/.wave-->
+
+                    </nav>
+
+                </div>
+                <!--/.col-->
+            </div>
+            <!--/.row-->
+        </form>
+    
+    
+
+        
+    </div>
+    <!--/.col-->
+</div>
+<!--/.row-->
+ 
+<script>
+$(document).ready(function() {
+
+    let addedFiles = [];
+
+    const fileTypes = [
+        "image/jpeg",
+        "image/png",
+        "application/msword",
+        "application/pdf",
+        "text/plain",
+        "text/xml",
+    ];
+
+    const addInput = function() {
+        let numInputs = document.querySelectorAll(".form-group.row").length;
+
+        if (numInputs < 10) {
+            numInputs++;
+            const filename = `${window.localizer.localize('account.addRecordPage.file')} ${numInputs}`;
+
+            $(".input-fields-wrap").append(`<div class="form-group row"><div class="col-9"><label class="custom-file"><input type="file" id="file${numInputs}" name="file" class="custom-file-input" accept=".jpg,.jpeg,.png,.doc,.docx,.xml,application/msword,application/pdf,text/plain"><span class="custom-file-control add-file" data-after="{{localize req 'account.addRecordPage.chooseFile'}}" data-before="{{localize req 'account.addRecordPage.browse'}}"></span></label></div><a href="#" class="remove-field" id="remove${numInputs}"><i class="fas fa-times"></i></a></div><!--/.form-group-->`); //add input box
+
+            document.querySelector(`input[id="file${numInputs}"]`).addEventListener("change", chooseFile);
+            document.querySelector(`a[id="remove${numInputs}"]`).addEventListener("click", removeInput);
+        }
+    }
+
+    const removeInput = function() {
+        const fileId = this.parentElement.dataset.fileId;
+
+        if (fileId) {
+            const i = addedFiles.findIndex(el => el.fileId === fileId);
+            if (i !== -1) {
+                addedFiles.splice(i, 1);
+            }
+
+            if (document.querySelector(`a[data-file-id="${fileId}"]`)) {
+                document.querySelector(`a[data-file-id="${fileId}"]`).parentElement.remove();
+            }
+        }
+
+        document.querySelector("#numAddedFiles").textContent = addedFiles.length;
+        this.parentElement.remove();
+    }
+
+    const chooseFile = function() {
+        if (this.files.length && this.files[0]) {
+            const file = this.files[0];
+
+            if (file.size > 1000000) {
+                return this.parentElement.parentElement.parentElement.remove();
+            }
+            if (!fileTypes.includes(file.type)) {
+                return this.parentElement.parentElement.parentElement.remove();
+            }
+            if (addedFiles.length > 9) {
+                return this.parentElement.parentElement.parentElement.remove();
+            }
+            if (addedFiles.find(el => el.name === file.name)) {
+                return this.parentElement.parentElement.parentElement.remove();
+            }
+
+            const fileId = `${file.name}-${addedFiles.length}`;
+            file.fileId = fileId;
+            addedFiles.push(file);
+
+            this.parentElement.querySelector(".custom-file-control").dataset.after = file.name;
+
+            this.parentElement.parentElement.parentElement.dataset.fileId = fileId;
+
+            $("#filesList").append(`<li class="parent"><a href="#" target="_blank">${file.name}</a> <a class="float-right delete-parent" data-file-id="${fileId}" href="#"><i class="fas fa-times"></i></a></li>`);
+
+            document.querySelector(`a[data-file-id="${fileId}"]`).addEventListener("click", removeFile);
+        } else {
+            this.parentElement.querySelector(".custom-file-control").dataset.after = window.localizer.localize('account.addRecordPage.chooseFile');
+            const fileId = this.parentElement.parentElement.parentElement.dataset.fileId;
+
+            if (fileId) {
+                const i = addedFiles.findIndex(el => el.fileId === fileId);
+                if (i !== -1) {
+                    addedFiles.splice(i, 1);
+                }
+
+                if (document.querySelector(`a[data-file-id="${fileId}"]`)) {
+                    document.querySelector(`a[data-file-id="${fileId}"]`).parentElement.remove();
+                }
+            }
+        }
+
+        document.querySelector("#numAddedFiles").textContent = addedFiles.length;
+    }
+
+    const removeFile = function() {
+        const i = addedFiles.findIndex(el => el.fileId === this.dataset.fileId);
+        if (i !== -1) {
+            addedFiles.splice(i, 1);
+            this.parentElement.remove();
+            document.querySelector("#numAddedFiles").textContent = addedFiles.length;
+            if (document.querySelector(`div[data-file-id="${this.dataset.fileId}"]`)) {
+                document.querySelector(`div[data-file-id="${this.dataset.fileId}"]`).remove();
+            }
+        }
+    }
+
+    const uploadFiles = function() {
+        const form = document.createElement("form");
+        form.method = "post";
+        form.action = "/account/upload-record";
+        form.enctype="multipart/form-data";
+
+        for (const file of addedFiles) {
+            const input = document.createElement('input');
+            input.name = file.name;
+            input.files.push(file);
+            form.appendChild(input);
+        }
+
+        document.body.appendChild(form);
+        form.submit();
+    }
+
+    document.querySelector(".add-field-button").addEventListener("click", addInput);
+    document.querySelector(".custom-file-input").addEventListener("change", chooseFile);
+
+});
+</script>
+ 

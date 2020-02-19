@@ -25,10 +25,7 @@
 							<span class="badge">{{recordsCount}}</span>
 						</a>
 						<ul>
-							<li>
-								<a href="javascript:void(0)" data-toggle="modal" data-target="#chooseDoctor">
-									<i class="fas fa-plus-circle"></i> {{localize req 'account.sidebar.addRecord'}}</a>
-							</li>
+							<li><a href="/account/add-record"><i class="fas fa-plus-circle"></i> {{localize req 'account.sidebar.addRecord'}}</a></li>
 						</ul>
 					</li>
                     <li class="list-group-item">
@@ -70,75 +67,75 @@
 	<!--/.col-->
 
 	<div class="col-xl-9 pull-xl-3 col-lg-8 pull-lg-4 col-md-7 pull-md-5 col-sm-12 pull-sm-0">
-        {{#if transactions}}
+        {{#if filesSorted}}
+
         <ul class="items-list">
 
-            {{#each transactions as |transaction|}}
-            <li>
-                <h3>{{transaction.Date}}
-                    <a href="/clinics/{{transaction.ClinicInfo.id}}">{{transaction.ClinicInfo.name}}</a>
-                    <small>Public</small>
-                    {{!--
-                    <a class="btn-bell1 float-right">
-                        <i class="fas fa-bell text-success"></i>
-                    </a> --}}
-                </h3>
-                <p>
-                    <a href="https://www.google.com/maps/embed/place?key=1&q={{transaction.ClinicInfo.location.address}}" data-name="{{transaction.ClinicInfo.name}}"
-                        class="map-toggle">
-                        {{transaction.ClinicInfo.location.address}}
-                    </a>
-                </p>
-                <ul class="stiled-list">
-                    <li>
-                        <h4>{{transaction.ServiceInfo.name}}</h4>
-                        {{!--
-                        <div>at 8:00 AM office 22</div> --}}
-                        <div>Terapist
-                            <a href="/doctors/{{transaction.DoctorInfo.id}}">{{transaction.DoctorInfo.name}}</a>
-                        </div>
-                    </li>
-                </ul>
-                {{!--
-                <p>Total cost
-                    <strong>3 MPT</strong>
-                </p> --}}
-                <div class="card">
-                    <ul>
-                        <li>Transaction code
-                            <span id="transactionId" class="breakable">{{transaction.Id}}</span>
-                        </li>
-                        <li>
-                            <a class="copy-link btn-copy1" onclick="copyToClipboard($('#transactionId'))">
-                                <i class="far fa-copy"></i>
-                                {{localize req 'common.copy'}}</a> /
-                            <a href="#" data-toggle="modal" data-target="#sorry">Check in blockchain explorer</a>
-                        </li>
-                        <li>Transaction status
-                            <span class="text-info">In progress</span>
-                        </li>
-                    </ul>
+            {{#each filesSorted as |fileObj|}}
+            <li class="row">
+                <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12"> 
+                    <h3>{{fileObj.date}}</h3>
                 </div>
-                <!--/.card-->
+
+                <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                    <h3>Documents</h3>
+                    <div class="gallery">
+                        <ul class="owl-carousel owl-theme">
+                            {{#each fileObj.files as |file|}}
+                            <li class="item">
+                                
+                                {{#if (equals file.ext 'jpg')}}
+                                <a class="gallery-img" href="{{file.path}}" title="{{file.name}}">
+                                    <img src="{{file.path}}" alt="{{file.fullname}}" />
+                                </a>
+
+                                {{else if (equals file.ext 'jpeg')}}
+                                <a class="gallery-img" href="{{file.path}}" title="{{file.name}}">
+                                    <img src="{{file.path}}" alt="{{file.fullname}}" />
+                                </a>
+
+                                {{else if (equals file.ext 'doc')}}
+                                <div>
+                                    <a href="{{file.path}}" title="{{file.name}}">
+                                        <i class="far fa-file fa-2x"></i>
+                                        <br />{{file.fullname}}
+                                    </a>
+                                </div>
+
+                                {{else if (equals file.ext 'pdf')}}
+                                <div>
+                                    <a href="{{file.path}}" title="{{file.name}}">
+                                        <i class="far fa-file-pdf fa-2x"></i>
+                                        <br />{{file.fullname}}
+                                    </a>
+                                </div>
+                                
+                                {{/if}}
+                                
+                            </li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                </div>
 
             </li>
             {{/each}}
 
         </ul>
-        <!--/.-->
 
-        <div class="row pagination-line">
+
+        {{!-- <div class="row pagination-line">
             <div class="col">
                 {{> pager pagerInfo }}
             </div>
             <!--/.col-->
-        </div>
-        <!--/.row-->
+        </div> --}}
+
         {{else}}
             <h2>{{localize req 'account.noRecords'}}</h2>
         {{/if}}
+
 	</div>
 	<!--/.col-->
 </div>
 <!--/.row-->
-

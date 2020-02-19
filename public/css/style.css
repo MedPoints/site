@@ -1060,6 +1060,15 @@ body.large .custom-file-control::before {
 bottom: 0px;
 border: none; 
 }
+
+.add-file::before {
+     content: attr(data-before) !important;
+}
+
+.add-file::after {
+     content: attr(data-after) !important;
+}
+
 	
 body.large .tooltip {
 	font-size: 1.5rem;

@@ -21,7 +21,6 @@
   },
   "homepage": "https://github.com/MedPoints/site#readme",
   "dependencies": {
-    "lodash": ">=4.17.5",
     "axios": "^0.18.0",
     "bluebird": "^3.5.2",
     "body-parser": "^1.18.3",
@@ -30,8 +29,11 @@
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
+    "lodash": ">=4.17.5",
     "moment": "^2.22.2",
-    "qs": "^6.5.2"
+    "multer": "^1.4.2",
+    "qs": "^6.5.2",
+    "rimraf": "^3.0.2"
   },
   "devDependencies": {
     "gulp": "^3.9.1",

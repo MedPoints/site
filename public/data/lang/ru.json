@@ -132,7 +132,8 @@
         "confirm": "MedPoints™ Успешное подтверждение E-mail адреса",
         "booking": "MedPoints™ Записаться на прием",
         "account": "MedPoints™ Аккаунт",
-        "accountRecords": "MedPoints™ Записи",
+        "accountRecords": "MedPoints™ Карты",
+        "accountAddRecord": "MedPoints™ Добавить карту",
         "accountEdit": "MedPoints™ Редактировать аккаунт",
         "accountTickets": "MedPoints™ Запросы в поддержку",
         "accountAddTicket": "MedPoints™ Запрос в поддержку",
@@ -168,7 +169,9 @@
         "terms": "Условия использования сайта",
         "foundation": "Фонд помощи",
         "addTicket":"Добавить обращение",
-        "partnership": "Партнерство"
+        "partnership": "Партнерство",
+        "medicalRecords": "Медицинские карты",
+        "addRecord": "Добавить карту"
     },
 
     "filters": {
@@ -491,7 +494,18 @@
         "saveChanges": "Сохранить изменения",
         "success": "Информация вашей учетной записи была успешно обновлена.",
         "noAppointments": "У вас нет встреч в данный момент",
-        "noRecords": "У вас нет записей в данный момент",
+        "noRecords": "У вас нет карт в данный момент",
+        "addRecord": "Добавить карту",
+        "addRecordPage": {
+            "uploadHint": "Вы можете загрузить файлы в форматах: doc, pdf, txt, jpg, jpeg, png, xml",
+            "maxSize": "Максимальный размер файла: 1МБ",
+            "addMore": "Добавить больше файлов",
+            "file": "Файл",
+            "addedFiles": "Добавленные файлы",
+            "maxNumFiles": "10 максимум",
+            "chooseFile": "Выберите файл...",
+            "browse": "Обзор"
+        },
         "modals": {
             "chooseDoctor": {
                 "title": "Требуются дополнительные действия",
