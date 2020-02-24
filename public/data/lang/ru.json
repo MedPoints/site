@@ -511,7 +511,7 @@
             "types": "Типы карт",
             "all": "Все",
             "linked": "Привязанные",
-            "separated": "Отдельные"
+            "separate": "Отдельные"
         },
         "modals": {
             "chooseDoctor": {
