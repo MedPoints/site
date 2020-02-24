@@ -507,6 +507,12 @@
             "chooseFile": "Выберите файл...",
             "browse": "Обзор"
         },
+        "recordsPage": {
+            "types": "Типы карт",
+            "all": "Все",
+            "linked": "Привязанные",
+            "separated": "Отдельные"
+        },
         "modals": {
             "chooseDoctor": {
                 "title": "Требуются дополнительные действия",

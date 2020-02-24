@@ -10,6 +10,29 @@
     </ol>
 </nav>
 
+<div class="row">
+    <div class="col">
+        <h4>{{localize req 'account.recordsPage.types'}}</h4>
+        <label class="custom-control custom-radio">
+            <input name="filterRecords" value="all" type="radio" class="custom-control-input filter-item" checked>
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">{{localize req 'account.recordsPage.all'}}</span>
+        </label>
+        <label class="custom-control custom-radio">
+            <input name="filterRecords" value="linked" type="radio" class="custom-control-input filter-item" >
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">{{localize req 'account.recordsPage.linked'}}</span>
+        </label>
+        <label class="custom-control custom-radio">
+            <input name="filterRecords" value="separate" type="radio" class="custom-control-input filter-item" >
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">{{localize req 'account.recordsPage.separate'}}</span>
+        </label>
+    </div>
+    <!--/.col-->
+</div>
+<!--/.row-->
+
 <div class="row continer-wrapper">
 
 	<div class="col-xl-3 push-xl-9 col-lg-4 push-lg-8 col-md-5 push-md-7 col-sm-12 push-sm-0">
@@ -66,48 +89,123 @@
 	</div>
 	<!--/.col-->
 
+    
+
 
     <div class="col-xl-9 pull-xl-3 col-lg-8 pull-lg-4 col-md-7 pull-md-5 col-sm-12 pull-sm-0">
         
 
         <ul class="items-list">
 
-            {{#if transactions}}
+            <div id="linkedDiv">
+                {{#if transactions}}
 
-                {{#each transactions as |transaction|}}
+                    {{#each transactions as |transaction|}}
+                    <li class="row">
+                        <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12"> 
+                            <h3>{{transaction.Date}} <a href="/clinics/{{transaction.ClinicInfo.id}}">{{transaction.ClinicInfo.name}}</a>
+                                <small>Public</small>
+                            </h3>
+                            <p>
+                                <a href="https://www.google.com/maps/embed/place?key=1&q={{transaction.ClinicInfo.location.address}}" data-name="{{transaction.ClinicInfo.name}}" class="map-toggle">
+                                    {{transaction.ClinicInfo.location.address}}
+                                </a>
+                            </p>
+                            <ul class="stiled-list">
+                                <li>
+                                    <h4>{{transaction.ServiceInfo.name}}</h4>
+                                    <div>Terapist <a href="/doctors/{{transaction.DoctorInfo.id}}">{{transaction.DoctorInfo.name}}</a></div>
+                                </li>
+                            </ul>
+                            <div class="card">
+                                <ul>
+                                    <li>Transaction code <span id="transactionId" class="breakable">{{transaction.Id}}</span></li>
+                                    <li><a class="copy-link btn-copy1" onclick="copyToClipboard($('#transactionId'))"><i class="far fa-copy"></i>
+                                            Copy</a> / <a href="#" data-toggle="modal" data-target="#sorry">Check in
+                                            blockchain explorer</a></li>
+                                    <li>Transaction status <span class="text-info">In progress</span></li>
+                                </ul>
+                            </div>
+                            <!--/.card-->
+                        </div>
+
+                        <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                            <h3>Documents</h3>
+                            <div class="gallery">
+                                <ul class="owl-carousel owl-theme">
+                                    {{#each transaction.uploads as |file|}}
+                                    <li class="item">
+
+                                        {{#if (equals file.ext 'jpg')}}
+                                        <a class="gallery-img" href="{{file.path}}" title="{{file.name}}">
+                                            <img src="{{file.path}}" alt="{{file.fullname}}" />
+                                        </a>
+
+                                        {{else if (equals file.ext 'jpeg')}}
+                                        <a class="gallery-img" href="{{file.path}}" title="{{file.name}}">
+                                            <img src="{{file.path}}" alt="{{file.fullname}}" />
+                                        </a>
+
+                                        {{else if (equals file.ext 'png')}}
+                                        <a class="gallery-img" href="{{file.path}}" title="{{file.name}}">
+                                            <img src="{{file.path}}" alt="{{file.fullname}}" />
+                                        </a>
+
+                                        {{else if (equals file.ext 'doc')}}
+                                        <div>
+                                            <a href="{{file.path}}" title="{{file.name}}">
+                                                <i class="far fa-file fa-2x"></i>
+                                                <br />{{file.fullname}}
+                                            </a>
+                                        </div>
+
+                                        {{else if (equals file.ext 'pdf')}}
+                                        <div>
+                                            <a href="{{file.path}}" title="{{file.name}}">
+                                                <i class="far fa-file-pdf fa-2x"></i>
+                                                <br />{{file.fullname}}
+                                            </a>
+                                        </div>
+
+                                        {{else}}
+                                        <div>
+                                            <a href="{{file.path}}" title="{{file.name}}">
+                                                <i class="far fa-file fa-2x"></i>
+                                                <br />{{file.fullname}}
+                                            </a>
+                                        </div>
+
+                                        {{/if}}
+
+                                    </li>
+                                    {{/each}}
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    {{/each}}
+
+                {{else}}
+                    <h2>{{localize req 'account.noLinkedRecords'}}</h2>
+                {{/if}}
+            </div>
+
+            <div id="spaceDiv">
+                <br /><br /><br /><br /><br /><br />
+            </div>
+
+            <div id="separateDiv">
+                {{#each filesSorted as |fileObj|}}
                 <li class="row">
                     <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12"> 
-                        <h3>{{transaction.Date}} <a href="/clinics/{{transaction.ClinicInfo.id}}">{{transaction.ClinicInfo.name}}</a>
-                            <small>Public</small>
-                        </h3>
-                        <p>
-                            <a href="https://www.google.com/maps/embed/place?key=1&q={{transaction.ClinicInfo.location.address}}" data-name="{{transaction.ClinicInfo.name}}" class="map-toggle">
-                                {{transaction.ClinicInfo.location.address}}
-                            </a>
-                        </p>
-                        <ul class="stiled-list">
-                            <li>
-                                <h4>{{transaction.ServiceInfo.name}}</h4>
-                                <div>Terapist <a href="/doctors/{{transaction.DoctorInfo.id}}">{{transaction.DoctorInfo.name}}</a></div>
-                            </li>
-                        </ul>
-                        <div class="card">
-                            <ul>
-                                <li>Transaction code <span id="transactionId" class="breakable">{{transaction.Id}}</span></li>
-                                <li><a class="copy-link btn-copy1" onclick="copyToClipboard($('#transactionId'))"><i class="far fa-copy"></i>
-                                        Copy</a> / <a href="#" data-toggle="modal" data-target="#sorry">Check in
-                                        blockchain explorer</a></li>
-                                <li>Transaction status <span class="text-info">In progress</span></li>
-                            </ul>
-                        </div>
-                        <!--/.card-->
+                        <h3>{{fileObj.date}}</h3>
                     </div>
 
                     <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
                         <h3>Documents</h3>
                         <div class="gallery">
                             <ul class="owl-carousel owl-theme">
-                                {{#each transaction.uploads as |file|}}
+                                {{#each fileObj.files as |file|}}
                                 <li class="item">
 
                                     {{#if (equals file.ext 'jpg')}}
@@ -116,6 +214,11 @@
                                     </a>
 
                                     {{else if (equals file.ext 'jpeg')}}
+                                    <a class="gallery-img" href="{{file.path}}" title="{{file.name}}">
+                                        <img src="{{file.path}}" alt="{{file.fullname}}" />
+                                    </a>
+
+                                    {{else if (equals file.ext 'png')}}
                                     <a class="gallery-img" href="{{file.path}}" title="{{file.name}}">
                                         <img src="{{file.path}}" alt="{{file.fullname}}" />
                                     </a>
@@ -151,72 +254,10 @@
                             </ul>
                         </div>
                     </div>
+
                 </li>
                 {{/each}}
-
-            {{else}}
-                <h2>{{localize req 'account.noLinkedRecords'}}</h2>
-            {{/if}}
-
-            <br /><br /><br /><br /><br /><br />
-
-            {{#each filesSorted as |fileObj|}}
-            <li class="row">
-                <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12"> 
-                    <h3>{{fileObj.date}}</h3>
-                </div>
-
-                <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
-                    <h3>Documents</h3>
-                    <div class="gallery">
-                        <ul class="owl-carousel owl-theme">
-                            {{#each fileObj.files as |file|}}
-                            <li class="item">
-
-                                {{#if (equals file.ext 'jpg')}}
-                                <a class="gallery-img" href="{{file.path}}" title="{{file.name}}">
-                                    <img src="{{file.path}}" alt="{{file.fullname}}" />
-                                </a>
-
-                                {{else if (equals file.ext 'jpeg')}}
-                                <a class="gallery-img" href="{{file.path}}" title="{{file.name}}">
-                                    <img src="{{file.path}}" alt="{{file.fullname}}" />
-                                </a>
-
-                                {{else if (equals file.ext 'doc')}}
-                                <div>
-                                    <a href="{{file.path}}" title="{{file.name}}">
-                                        <i class="far fa-file fa-2x"></i>
-                                        <br />{{file.fullname}}
-                                    </a>
-                                </div>
-
-                                {{else if (equals file.ext 'pdf')}}
-                                <div>
-                                    <a href="{{file.path}}" title="{{file.name}}">
-                                        <i class="far fa-file-pdf fa-2x"></i>
-                                        <br />{{file.fullname}}
-                                    </a>
-                                </div>
-
-                                {{else}}
-                                <div>
-                                    <a href="{{file.path}}" title="{{file.name}}">
-                                        <i class="far fa-file fa-2x"></i>
-                                        <br />{{file.fullname}}
-                                    </a>
-                                </div>
-
-                                {{/if}}
-
-                            </li>
-                            {{/each}}
-                        </ul>
-                    </div>
-                </div>
-
-            </li>
-            {{/each}}
+            </div>
 
         </ul>
 
@@ -235,3 +276,39 @@
 	
 </div>
 <!--/.row-->
+
+<script>
+$(document).ready(function() {
+
+    const prevRadio = null;
+
+    const filterRecords = function() {
+        const linkedDiv = document.querySelector("#linkedDiv");
+        const separateDiv = document.querySelector("#separateDiv");
+        const spaceDiv = document.querySelector("#spaceDiv");
+        const paginationLine = document.querySelector(".pagination-line");
+
+        const type = this.value;
+
+        if (type === "all") {
+            linkedDiv.style.display = null;
+            separateDiv.style.display = null;
+            spaceDiv.style.display = null;
+            paginationLine.style.display = null;
+        } else if (type === "linked") {
+            linkedDiv.style.display = null;
+            separateDiv.style.display = "none";
+            spaceDiv.style.display = "none";
+            paginationLine.style.display = null;
+        } else if (type === "separate") {
+            linkedDiv.style.display = "none";
+            separateDiv.style.display = null;
+            spaceDiv.style.display = "none";
+            paginationLine.style.display = "none";
+        }
+    }
+
+    document.querySelectorAll('input[name="filterRecords"]').forEach(el => el.addEventListener("change", filterRecords));
+
+});
+</script>

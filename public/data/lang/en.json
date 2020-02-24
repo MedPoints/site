@@ -523,6 +523,12 @@
             "chooseFile": "Choose file...",
             "browse": "Browse"
         },
+        "recordsPage": {
+            "types": "Types of records",
+            "all": "All",
+            "linked": "Linked",
+            "separate": "Separate"
+        },
         "modals": {
             "chooseDoctor": {
                 "title": "Additional actions required",
