@@ -54,12 +54,37 @@ exports.getAccountInfo = async (req, res) => {
     const ticketsResponse = await axios.get(`${API_URL}/api/tickets/${MedPoints_PublicKey}/${MedPoints_PrivateKey}`);
     const appointmentsData = transactions.map(transaction => prepareAppointmentData(transaction));
 
+    const dates = {
+        from: "",
+        to: "",
+    };
+
+    for (const transaction of transactions) {
+        if (!dates.from) {
+            dates.from = transaction.Date;
+        }
+        if (!dates.to) {
+            dates.to = transaction.Date;
+        }
+
+        const transTime = moment(transaction.Date, 'YYYY-MM-DD').unix();
+        const fromTime = moment(dates.from, 'YYYY-MM-DD').unix();
+        const toTime = moment(dates.to, 'YYYY-MM-DD').unix();
+
+        if (transTime < fromTime) {
+            dates.from = transaction.Date;
+        } else if (transTime > toTime) {
+            dates.to = transaction.Date;
+        }
+    }
+
     res.render('accounts/account', { 
         recordsCount: response.data.length,
         appointmentsCount: response.data.length,
         ticketsCount: ticketsResponse.data.result.length,
         pagerInfo: dataPager,
         transactions, 
+        dates,
         PAGE_TITLE: localization.localize('titles.account'),
         appointmentsData,
         title: localization.localize('titles.account'),
@@ -133,13 +158,65 @@ exports.records = async (req, res) => {
         });
     }
 
+    const filteredTransactions = transactions.filter(el => el.uploads && el.uploads.length);
+
+    const dates = {
+        linked: {
+            from: "",
+            to: "",
+        },
+        separate: {
+            from: "",
+            to: "",
+        }
+    };
+
+    for (const transaction of filteredTransactions) {
+        if (!dates.linked.from) {
+            dates.linked.from = transaction.Date;
+        }
+        if (!dates.linked.to) {
+            dates.linked.to = transaction.Date;
+        }
+
+        const transTime = moment(transaction.Date, 'YYYY-MM-DD').unix();
+        const fromTime = moment(dates.linked.from, 'YYYY-MM-DD').unix();
+        const toTime = moment(dates.linked.to, 'YYYY-MM-DD').unix();
+
+        if (transTime < fromTime) {
+            dates.linked.from = transaction.Date;
+        } else if (transTime > toTime) {
+            dates.linked.to = transaction.Date;
+        }
+    }
+
+    for (const fileObj of filesSorted) {
+        if (!dates.separate.from) {
+            dates.separate.from = fileObj.date;
+        }
+        if (!dates.separate.to) {
+            dates.separate.to = fileObj.date;
+        }
+
+        const fileTime = moment(fileObj.date, 'YYYY-MM-DD').unix();
+        const fromTime = moment(dates.separate.from, 'YYYY-MM-DD').unix();
+        const toTime = moment(dates.separate.to, 'YYYY-MM-DD').unix();
+
+        if (fileTime < fromTime) {
+            dates.separate.from = fileObj.date;
+        } else if (fileTime > toTime) {
+            dates.separate.to = fileObj.date;
+        }
+    }
+
     res.render('accounts/account-records', { 
         recordsCount: response.data.length,
         appointmentsCount: response.data.length,
         ticketsCount: ticketsResponse.data.result.length,
         pagerInfo: dataPager,
-        transactions: transactions.filter(el => el.uploads && el.uploads.length),
+        transactions: filteredTransactions,
         filesSorted,
+        dates,
         PAGE_TITLE: localization.localize('titles.accountRecords'),
         title: localization.localize('titles.accountRecords'),
         req,

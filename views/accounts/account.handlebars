@@ -6,6 +6,23 @@
 </nav>
 
 <div class="row">
+    <div class="col">
+        <h4>{{localize req 'account.period'}}</h4>
+
+        <label class="date-control">
+            <span>{{localize req 'account.recordsPage.from'}}</span>
+            <input class="form-control date-picker" type="date" value="{{dates.from}}" data-side="from">
+        </label>
+        
+
+        <label class="date-control">
+            <span>{{localize req 'account.recordsPage.to'}}</span>
+            <input class="form-control date-picker" type="date" value="{{dates.to}}" data-side="to">
+        </label>
+    </div>
+</div>
+
+<div class="row">
 
     <div class="col-xl-3 push-xl-9 col-lg-4 push-lg-8 col-md-5 push-md-7 col-sm-12 push-sm-0">
         <nav class="sticky-top">
@@ -73,7 +90,7 @@
                 <ul class="items-list">
 
                     {{#each transactions as |transaction|}}
-                    <li>
+                    <li class="transaction-row" data-date="{{transaction.Date}}">
                         <h3>{{transaction.Date}} <a href="/clinics/{{transaction.ClinicInfo.id}}">{{transaction.ClinicInfo.name}}</a>
                             <small>Public</small>
                             {{!-- <a class="btn-bell1 float-right"><i class="fas fa-bell text-success"></i></a> --}}
@@ -159,63 +176,51 @@
         {{/if}}
         <hr />
 
-        {{!-- <h3>Not closed issues</h3>
-        <p>You have left unclosed contracts, we advise you to contact a specialist.</p>
-
-        <ul class="bodies row">
-
-            <li class="col-xl-2 col-lg-4 col-md-6 col-sm-12">
-                <img src="img/organs/men-1.svg" alt="" />
-                <h5>Hair and Skin</h5>
-                <ul>
-                    <li class="text-warning"><i class="fas fa-info-circle"></i> Rash</li>
-                </ul>
-            </li>
-            <!--/.col-->
-
-            <li class="col-xl-2 col-lg-4 col-md-6 col-sm-12">
-                <img src="img/organs/men-2.svg" alt="" />
-                <h5>Skeleton and Teeth</h5>
-            </li>
-            <!--/.col-->
-
-            <li class="col-xl-2 col-lg-4 col-md-6 col-sm-12">
-                <img src="img/organs/men-3.svg" alt="" />
-                <h5>Muscles and Tendons</h5>
-            </li>
-            <!--/.col-->
-
-            <li class="col-xl-2 col-lg-4 col-md-6 col-sm-12">
-                <img src="img/organs/men-4.svg" alt="" />
-                <h5>Heart and circulatory</h5>
-                <ul>
-                    <li class="text-success"><i class="fas fa-info-circle"></i> Blood test</li>
-                </ul>
-            </li>
-            <!--/.col-->
-
-            <li class="col-xl-2 col-lg-4 col-md-6 col-sm-12">
-                <img src="img/organs/men-5.svg" alt="" />
-                <h5>Nervous system</h5>
-            </li>
-            <!--/.col-->
-
-            <li class="col-xl-2 col-lg-4 col-md-6 col-sm-12">
-                <img src="img/organs/men-6.svg" alt="" />
-                <h5>Internal organs</h5>
-                <ul>
-                    <li class="text-danger"><i class="fas fa-exclamation-circle"></i> Examination of the liver</li>
-                </ul>
-            </li>
-            <!--/.col-->
-
-        </ul> --}}
-        <!--/.bodies /.row-->
-
     </div>
     <!--/.col-->
 </div>
 <!--/.row-->
+
+<script>
+$(document).ready(function() {
+
+    const filterDate = function(event) {
+
+        let from = (this.dataset.side === "from") 
+        ? new Date(event.target.value)
+        : new Date(document.querySelector(`.date-picker[data-side="from"]`).value);
+
+        let to = (this.dataset.side === "from") 
+        ? new Date(document.querySelector(`.date-picker[data-side="to"]`).value)
+        : new Date(event.target.value);
+
+        if (from > to) {
+            this.value = event.target.defaultValue;
+
+            if (this.dataset.side === "from") {
+                from = new Date(this.value);
+            } else {
+                to = new Date(this.value);
+            }
+        }
+
+        const rows = document.querySelectorAll(".transaction-row");
+
+        for (const row of rows) {
+            const date = new Date(row.dataset.date);
+            if (date < from || date > to) {
+                row.style.display = "none";
+            } else {
+                row.style.display = null;
+            }
+        }
+        
+    }
+
+    document.querySelectorAll('.date-picker').forEach(el => el.addEventListener("change", filterDate));
+
+});
+</script>
 
 <script async defer
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA839hvZlHkWX80W6YRTuv3C7HToNVZhwc">

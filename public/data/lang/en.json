@@ -512,6 +512,7 @@
         "noAppointments": "You currently have no appointments",
         "noLinkedRecords": "You have no records added to appointments",
         "addRecord": "Add record",
+        "period": "Period of appointments",
         "addRecordPage": {
             "uploadHint": "You can upload files in doc, pdf, txt, jpg, jpeg, png, xml formats",
             "aloneRecord": "Do not add to appointment",
@@ -527,7 +528,11 @@
             "types": "Types of records",
             "all": "All",
             "linked": "Linked",
-            "separate": "Separate"
+            "separate": "Separate",
+            "periodLinked": "Period linked records",
+            "periodSeparate": "Period separate records",
+            "from": "From",
+            "to": "To"
         },
         "modals": {
             "chooseDoctor": {

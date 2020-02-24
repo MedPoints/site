@@ -29,9 +29,37 @@
             <span class="custom-control-description">{{localize req 'account.recordsPage.separate'}}</span>
         </label>
     </div>
-    <!--/.col-->
+
+    <div class="col">
+        <h4>{{localize req 'account.recordsPage.periodLinked'}}</h4>
+
+        <label class="date-control">
+            <span>{{localize req 'account.recordsPage.from'}}</span>
+            <input class="form-control date-picker" type="date" value="{{dates.linked.from}}" data-type="linked" data-side="from">
+        </label>
+        
+
+        <label class="date-control">
+            <span>{{localize req 'account.recordsPage.to'}}</span>
+            <input class="form-control date-picker" type="date" value="{{dates.linked.to}}" data-type="linked" data-side="to">
+        </label>
+    </div>
+
+    <div class="col">
+        <h4>{{localize req 'account.recordsPage.periodSeparate'}}</h4>
+
+        <label class="date-control">
+            <span>{{localize req 'account.recordsPage.from'}}</span>
+            <input class="form-control date-picker" type="date" value="{{dates.separate.from}}" data-type="separate" data-side="from">
+        </label>
+
+
+        <label class="date-control">
+            <span>{{localize req 'account.recordsPage.to'}}</span>
+            <input class="form-control date-picker" type="date" value="{{dates.separate.to}}" data-type="separate" data-side="to">
+        </label>
+    </div>
 </div>
-<!--/.row-->
 
 <div class="row continer-wrapper">
 
@@ -87,7 +115,6 @@
 			<!--/.account-menu-->
 		</nav>
 	</div>
-	<!--/.col-->
 
     
 
@@ -101,7 +128,7 @@
                 {{#if transactions}}
 
                     {{#each transactions as |transaction|}}
-                    <li class="row">
+                    <li class="row transaction-row" data-date="{{transaction.Date}}">
                         <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12"> 
                             <h3>{{transaction.Date}} <a href="/clinics/{{transaction.ClinicInfo.id}}">{{transaction.ClinicInfo.name}}</a>
                                 <small>Public</small>
@@ -196,7 +223,7 @@
 
             <div id="separateDiv">
                 {{#each filesSorted as |fileObj|}}
-                <li class="row">
+                <li class="row file-row"  data-date="{{fileObj.date}}">
                     <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12"> 
                         <h3>{{fileObj.date}}</h3>
                     </div>
@@ -266,7 +293,6 @@
             <div class="col">
                 {{> pager pagerInfo }}
             </div>
-            <!--/.col-->
         </div>
 
 	</div>
@@ -275,12 +301,9 @@
 
 	
 </div>
-<!--/.row-->
 
 <script>
 $(document).ready(function() {
-
-    const prevRadio = null;
 
     const filterRecords = function() {
         const linkedDiv = document.querySelector("#linkedDiv");
@@ -308,7 +331,42 @@ $(document).ready(function() {
         }
     }
 
+    const filterDate = function(event) {
+
+        let from = (this.dataset.side === "from") 
+        ? new Date(event.target.value)
+        : new Date(document.querySelector(`.date-picker[data-type="${this.dataset.type}"][data-side="from"]`).value);
+
+        let to = (this.dataset.side === "from") 
+        ? new Date(document.querySelector(`.date-picker[data-type="${this.dataset.type}"][data-side="to"]`).value)
+        : new Date(event.target.value);
+
+        if (from > to) {
+            this.value = event.target.defaultValue;
+
+            if (this.dataset.side === "from") {
+                from = new Date(this.value);
+            } else {
+                to = new Date(this.value);
+            }
+        }
+
+        const sel = (this.dataset.type === "linked") ? ".transaction-row" : ".file-row";
+        const rows = document.querySelectorAll(sel);
+
+        for (const row of rows) {
+            const date = new Date(row.dataset.date);
+            if (date < from || date > to) {
+                row.style.display = "none";
+            } else {
+                row.style.display = null;
+            }
+        }
+        
+    }
+
     document.querySelectorAll('input[name="filterRecords"]').forEach(el => el.addEventListener("change", filterRecords));
+    document.querySelectorAll('.date-picker').forEach(el => el.addEventListener("change", filterDate));
 
 });
 </script>

@@ -1061,6 +1061,14 @@ bottom: 0px;
 border: none; 
 }
 
+.date-control {
+     margin-right: 1rem;
+}
+
+.date-control input {
+     margin-top: .4rem;
+}
+
 .add-file::before {
      content: attr(data-before) !important;
 }

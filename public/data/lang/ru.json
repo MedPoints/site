@@ -496,6 +496,7 @@
         "noAppointments": "У вас нет встреч в данный момент",
         "noLinkedRecords": "У вас нет карт, прикрепленных к направлениям",
         "addRecord": "Добавить карту",
+        "period": "Период направлений",
         "addRecordPage": {
             "uploadHint": "Вы можете загрузить файлы в форматах: doc, pdf, txt, jpg, jpeg, png, xml",
             "aloneRecord": "Не прикреплять к направлению",
@@ -511,7 +512,11 @@
             "types": "Типы карт",
             "all": "Все",
             "linked": "Привязанные",
-            "separate": "Отдельные"
+            "separate": "Отдельные",
+            "periodLinked": "Период привязанных карт",
+            "periodSeparate": "Период отдельных карт",
+            "from": "От",
+            "to": "До"
         },
         "modals": {
             "chooseDoctor": {
