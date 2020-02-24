@@ -13,7 +13,7 @@ const Localization = require('../helpers/localization').Localization;
 
 const { prepareClinicData } = require('./../helpers/clinics');
 const { prepareDoctorData } = require('./../helpers/doctors');
-const { prepareTransactionData, prepareAppointmentData, getTransactions } = require('./../helpers/account');
+const { prepareTransactionData, prepareAppointmentData, getTransactions, addUploadsToTransactions } = require('./../helpers/account');
 const { DataPager } = require('./../helpers/pager');
 const DEFAULT_PAGE_SIZE = 10;
 
@@ -83,7 +83,6 @@ exports.records = async (req, res) => {
         return;
     }
 
-
     // Get all blockchain blocks
     const response = await axios.get(`${BLOCKCHAIN_URL}/${MedPoints_PrivateKey}/transactions`);
     const ticketsResponse = await axios.get(`${API_URL}/api/tickets/${MedPoints_PublicKey}/${MedPoints_PrivateKey}`);
@@ -97,22 +96,28 @@ exports.records = async (req, res) => {
 
     // Get current data page
     let transactions = await getTransactions(dataPager.getPageData(), localization);
-    
+
+    // Get all user uploads
+    const uploadsResponse = await axios.get(`${API_URL}/api/uploads/${MedPoints_PublicKey}`);
 
     const dirPath = `./uploads/${MedPoints_PublicKey}`;
     let filesSorted = [];
 
     if (fs.existsSync(dirPath)) {
-        fs.readdirSync(dirPath).forEach(name => {
-            const stat = fs.statSync(path.join(dirPath, name));
 
+        const uploadsNotLinked = uploadsResponse.data.result.filter(upload => upload.transactionId === "noTransaction");
+        const uploadsLinked = uploadsResponse.data.result.filter(upload => upload.transactionId !== "noTransaction");
+
+        transactions = addUploadsToTransactions(MedPoints_PublicKey, transactions, uploadsLinked);
+
+        uploadsNotLinked.forEach(upload => {
             const file = {
-                fullname: name,
-                name: path.parse(name).name,
-                path: `/${MedPoints_PublicKey}/${name}`,
-                ext: path.extname(name).slice(1),
-                timestamp: stat.mtime,
-                date: moment(stat.mtime).format('YYYY-MM-DD'),
+                fullname: upload.fullname,
+                name: `${upload.filename}-${upload.timestamp}`,
+                path: `/${MedPoints_PublicKey}/${upload.fullname}`,
+                ext: upload.extension,
+                timestamp: upload.timestamp,
+                date: moment.unix(upload.timestamp/1000).format('YYYY-MM-DD'),
             };
 
             const fileObj = filesSorted.find(obj => obj.date === file.date);
@@ -128,16 +133,12 @@ exports.records = async (req, res) => {
         });
     }
 
-    // for (const transaction of transactions) {
-    //     transaction.files = files.filter(file => file.date === transaction.Date);
-    // }
-
     res.render('accounts/account-records', { 
         recordsCount: response.data.length,
         appointmentsCount: response.data.length,
         ticketsCount: ticketsResponse.data.result.length,
         pagerInfo: dataPager,
-        // transactions,
+        transactions: transactions.filter(el => el.uploads && el.uploads.length),
         filesSorted,
         PAGE_TITLE: localization.localize('titles.accountRecords'),
         title: localization.localize('titles.accountRecords'),
@@ -151,14 +152,29 @@ exports.addRecord = async (req, res) => {
         MedPoints_PublicKey,
     } = req.cookies;
 
+    const {
+        page,
+    } = req.query;
+
     const localization = new Localization(req.cookies.locale);
 
     if (!MedPoints_PrivateKey || !MedPoints_PublicKey) {
         res.render('accounts/login', { isLoggedIn: false, PAGE_TITLE: localization.localize('titles.accountRecords'), title: localization.localize('titles.accountRecords') });
         return;
     }
-    
+
+    const response = await axios.get(`${BLOCKCHAIN_URL}/${MedPoints_PrivateKey}/transactions`);
+    const ticketsResponse = await axios.get(`${API_URL}/api/tickets/${MedPoints_PublicKey}/${MedPoints_PrivateKey}`);
+
+    const dataPager = new DataPager(response.data, DEFAULT_PAGE_SIZE, page);
+    let transactions = await getTransactions(dataPager.getPageData(), localization);
+
     res.render('accounts/account-add-record', { 
+        recordsCount: response.data.length,
+        appointmentsCount: response.data.length,
+        ticketsCount: ticketsResponse.data.result.length,
+        pagerInfo: dataPager,
+        transactions,
         PAGE_TITLE: localization.localize('titles.accountAddRecord'), 
         title: localization.localize('titles.accountAddRecord'),
         req, 
@@ -184,9 +200,24 @@ exports.uploadRecord = async (req, res) => {
         fs.mkdirSync(dirPath);
     }
 
-    if (req.files && req.files.length) {
-        for (const file of req.files) {
-            fs.renameSync(path.join(file.destination, file.filename), path.join(dirPath, file.filename));
+    if (req.body && req.body.transactionId) {
+        const transactionId = req.body.transactionId;
+
+        if (req.files && req.files.length) {
+            for (const file of req.files) {
+                fs.renameSync(path.join(file.destination, file.filename), path.join(dirPath, file.filename));
+
+                const name = path.parse(file.filename).name;
+
+                await axios.post(`${API_URL}/api/uploads`, {
+                    publicKey: MedPoints_PublicKey,
+                    transactionId: transactionId,
+                    fullname: file.filename,
+                    filename: name.split("-").slice(0, -1).join("-"),
+                    timestamp: name.split("-").pop(),
+                    extension: path.extname(file.filename).slice(1),
+                });
+            }
         }
     }
 

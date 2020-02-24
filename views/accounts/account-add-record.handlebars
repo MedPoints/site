@@ -59,16 +59,42 @@
         
 
     
-        <form action="/account/upload-record" enctype="multipart/form-data" method="POST">
+        <form id="form" action="/account/upload-record" enctype="multipart/form-data" method="POST">
             <div class="row">
                 <div class="col-xl-8 col-lg-7 col-md-12 col-sm-12">
 
                     <h5>{{localize req 'account.addRecordPage.uploadHint'}}</h5>
 
+                    <br />
+
+                    <ul class="list-group">
+
+                        {{#each transactions as |transaction|}}
+
+                        <li>
+                            <label class="custom-control custom-radio">
+                                <input name="radioTransaction" type="radio" class="custom-control-input" data-transaction-id="{{transaction.Id}}">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">{{transaction.Date}}, <a href="/clinics/{{transaction.ClinicInfo.id}}">{{transaction.ClinicInfo.name}}</a></span>
+                            </label>
+                        </li>
+
+                        {{/each}}
+
+                        <li>
+                            <label class="custom-control custom-radio">
+                                <input name="radioTransaction" type="radio" class="custom-control-input" data-transaction-id="noTransaction" checked>
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">{{localize req 'account.addRecordPage.aloneRecord'}}</span>
+                            </label>
+                        </li>
+
+                    </ul>
+
+                    <br />
+
                     <p>{{localize req 'account.addRecordPage.maxSize'}}</p>
                     
-                    <br />
-                        
                         <div class="input-fields-wrap">
                         <a class="add-field-button"><i class="fas fa-plus"></i> {{localize req 'account.addRecordPage.addMore'}}</a>
 
@@ -136,6 +162,12 @@ $(document).ready(function() {
         "text/plain",
         "text/xml",
     ];
+
+    const submitForm = function(event) {
+        const id = document.querySelector('input[name="radioTransaction"]:checked').dataset.transactionId;
+        $(this).append(`<input type="hidden" name="transactionId" value="${id}" />`);
+        return true;
+    }
 
     const addInput = function() {
         let numInputs = document.querySelectorAll(".form-group.row").length;
@@ -228,26 +260,9 @@ $(document).ready(function() {
         }
     }
 
-    const uploadFiles = function() {
-        const form = document.createElement("form");
-        form.method = "post";
-        form.action = "/account/upload-record";
-        form.enctype="multipart/form-data";
-
-        for (const file of addedFiles) {
-            const input = document.createElement('input');
-            input.name = file.name;
-            input.files.push(file);
-            form.appendChild(input);
-        }
-
-        document.body.appendChild(form);
-        form.submit();
-    }
-
+    document.querySelector("#form").addEventListener("submit", submitForm);
     document.querySelector(".add-field-button").addEventListener("click", addInput);
     document.querySelector(".custom-file-input").addEventListener("change", chooseFile);
 
 });
 </script>
- 

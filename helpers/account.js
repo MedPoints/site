@@ -27,6 +27,30 @@ exports.prepareAppointmentData = (transaction) => {
     };
 };
 
+exports.addUploadsToTransactions = (publicKey, transactions, uploads) => {
+    for (const upload of uploads) {
+        const transaction = transactions.find(el => el.Id === upload.transactionId);
+        if (!transaction) {
+            continue;
+        }
+
+        if (!transaction.uploads) {
+            transaction.uploads = [];
+        }
+
+        const file = {
+            fullname: upload.fullname,
+            name: `${upload.filename}-${upload.timestamp}`,
+            path: `/${publicKey}/${upload.fullname}`,
+            ext: upload.extension,
+        };
+
+        transaction.uploads.push(file);
+    }
+
+    return transactions;
+}
+
 exports.getTransactions = async (transactions, localization) => {
     let resultTransactions = [];
 
@@ -44,10 +68,10 @@ exports.getTransactions = async (transactions, localization) => {
             console.log('Date request error: ' + err);
         });
 
-        const random = await axios.get('https://randomuser.me/api/1.0/?seed='+doctorRequest.data.result.id);
-        const path = `/img/avatars/hospitals/hospital-${Math.floor(Math.random() * 7) + 1}.svg`;
-        const clinic = prepareClinicData(clinicRequest.data.result, {localization: localization}, path);
-        const doctor = prepareDoctorData(doctorRequest.data.result, '', random.data.results[0]);
+        const pathDoctor = `/img/avatars/doctors/doctor-${Math.floor(Math.random() * 4) + 1}.svg`;
+        const pathClinic = `/img/avatars/hospitals/hospital-${Math.floor(Math.random() * 7) + 1}.svg`;
+        const clinic = prepareClinicData(clinicRequest.data.result, {localization: localization}, pathClinic);
+        const doctor = prepareDoctorData(doctorRequest.data.result, '', pathDoctor);
         const service = serviceRequest.data.result;
         transaction.ClinicInfo = clinic;
         transaction.DoctorInfo = doctor;

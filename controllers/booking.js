@@ -102,10 +102,10 @@ exports.details = async (req, res) => {
 
     const localization = new Localization(req.cookies.locale);
 
-    const random = await axios.get('https://randomuser.me/api/1.0/?seed='+doctorRequest.data.result.id);
-    const path = `/img/avatars/hospitals/hospital-${Math.floor(Math.random() * 7) + 1}.svg`;
-    const clinic = prepareClinicData(clinicRequest.data.result, {localization: localization}, path);
-    const doctor = prepareDoctorData(doctorRequest.data.result, '', random.data.results[0]);
+    const pathDoctor = `/img/avatars/doctors/doctor-${Math.floor(Math.random() * 4) + 1}.svg`;
+    const pathClinic = `/img/avatars/hospitals/hospital-${Math.floor(Math.random() * 7) + 1}.svg`;
+    const clinic = prepareClinicData(clinicRequest.data.result, {localization: localization}, pathClinic);
+    const doctor = prepareDoctorData(doctorRequest.data.result, '', pathDoctor);
     const service = serviceRequest.data.result;
 
     res.render('layouts/partials/booking-details', {

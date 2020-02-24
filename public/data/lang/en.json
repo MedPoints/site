@@ -510,10 +510,11 @@
         "saveChanges": "Save changes",
         "success": "Your account information was updated successfully.",
         "noAppointments": "You currently have no appointments",
-        "noRecords": "You currently have no records",
+        "noLinkedRecords": "You have no records added to appointments",
         "addRecord": "Add record",
         "addRecordPage": {
             "uploadHint": "You can upload files in doc, pdf, txt, jpg, jpeg, png, xml formats",
+            "aloneRecord": "Do not add to appointment",
             "maxSize": "Maximum file size: 1MB",
             "addMore": "Add more files",
             "file": "File",

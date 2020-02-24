@@ -13,8 +13,8 @@ exports.processFavoritesData = async (data) => {
     if (data.doctors) {
         data.doctors = data.doctors.filter(doctor => !!doctor);
         data.doctors = data.doctors.map(async doctor => {
-            const random = await axios.get('https://randomuser.me/api/1.0/?seed='+doctor.id);
-            return prepareDoctorData(doctor, '', random.data.results[0]);
+            const path = `/img/avatars/doctors/doctor-${Math.floor(Math.random() * 4) + 1}.svg`;
+            return prepareDoctorData(doctor, '', path);
         });
         await Promise.all(data.doctors).then((result) => {
             data.doctors = result;
