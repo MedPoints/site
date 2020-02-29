@@ -52,6 +52,8 @@ exports.getAccountInfo = async (req, res) => {
     let transactions = await getTransactions(dataPager.getPageData(), localization);
 
     const ticketsResponse = await axios.get(`${API_URL}/api/tickets/${MedPoints_PublicKey}/${MedPoints_PrivateKey}`);
+    const foundationsResponse = await axios.get(`${API_URL}/api/foundations/${MedPoints_PublicKey}`);
+    const uploadsResponse = await axios.get(`${API_URL}/api/uploads/${MedPoints_PublicKey}`);
     const appointmentsData = transactions.map(transaction => prepareAppointmentData(transaction));
 
     const dates = {
@@ -80,7 +82,8 @@ exports.getAccountInfo = async (req, res) => {
     }
 
     res.render('accounts/account', { 
-        recordsCount: response.data.length,
+        recordsCount: uploadsResponse.data.result.length,
+        foundationsCount: foundationsResponse.data.result.length,
         appointmentsCount: response.data.length,
         ticketsCount: ticketsResponse.data.result.length,
         pagerInfo: dataPager,
@@ -112,6 +115,7 @@ exports.records = async (req, res) => {
     // Get all blockchain blocks
     const response = await axios.get(`${BLOCKCHAIN_URL}/${MedPoints_PrivateKey}/transactions`);
     const ticketsResponse = await axios.get(`${API_URL}/api/tickets/${MedPoints_PublicKey}/${MedPoints_PrivateKey}`);
+    const foundationsResponse = await axios.get(`${API_URL}/api/foundations/${MedPoints_PublicKey}`);
     // Prepare pager to get only current data page
     const dataPager = new DataPager(response.data, DEFAULT_PAGE_SIZE, page);
     const pagerInfo = {
@@ -211,7 +215,8 @@ exports.records = async (req, res) => {
     }
 
     res.render('accounts/account-records', { 
-        recordsCount: response.data.length,
+        recordsCount: uploadsResponse.data.result.length,
+        foundationsCount: foundationsResponse.data.result.length,
         appointmentsCount: response.data.length,
         ticketsCount: ticketsResponse.data.result.length,
         pagerInfo: dataPager,
@@ -243,12 +248,15 @@ exports.addRecord = async (req, res) => {
 
     const response = await axios.get(`${BLOCKCHAIN_URL}/${MedPoints_PrivateKey}/transactions`);
     const ticketsResponse = await axios.get(`${API_URL}/api/tickets/${MedPoints_PublicKey}/${MedPoints_PrivateKey}`);
+    const foundationsResponse = await axios.get(`${API_URL}/api/foundations/${MedPoints_PublicKey}`);
+    const uploadsResponse = await axios.get(`${API_URL}/api/uploads/${MedPoints_PublicKey}`);
 
     const dataPager = new DataPager(response.data, DEFAULT_PAGE_SIZE, page);
     let transactions = await getTransactions(dataPager.getPageData(), localization);
 
     res.render('accounts/account-add-record', { 
-        recordsCount: response.data.length,
+        recordsCount: uploadsResponse.data.result.length,
+        foundationsCount: foundationsResponse.data.result.length,
         appointmentsCount: response.data.length,
         ticketsCount: ticketsResponse.data.result.length,
         pagerInfo: dataPager,
@@ -328,6 +336,7 @@ exports.getFoundations = async (req, res) => {
     // Get current data page
     let transactions = await getTransactions(dataPager.getPageData(), localization);
 
+    const uploadsResponse = await axios.get(`${API_URL}/api/uploads/${MedPoints_PublicKey}`);
     const ticketsResponse = await axios.get(`${API_URL}/api/tickets/${MedPoints_PublicKey}/${MedPoints_PrivateKey}`);
     const appointmentsData = transactions.map(transaction => prepareAppointmentData(transaction));
 
@@ -347,7 +356,8 @@ exports.getFoundations = async (req, res) => {
     });
 
     res.render('accounts/account-foundations', { 
-        recordsCount: response.data.length,
+        recordsCount: uploadsResponse.data.result.length,
+        foundationsCount: foundationsResponse.data.result.length,
         appointmentsCount: response.data.length,
         ticketsCount: ticketsResponse.data.result.length,
         pagerInfo: dataPager,
@@ -418,8 +428,11 @@ exports.editInfo = async (req, res) => {
     const blockchainResponse = await axios.get(`${BLOCKCHAIN_URL}/${MedPoints_PrivateKey}/transactions`);
     const profileResponse = await axios.get(`${API_URL}/api/users/${MedPoints_PublicKey}/${MedPoints_PrivateKey}`);
     const ticketsResponse = await axios.get(`${API_URL}/api/tickets/${MedPoints_PublicKey}/${MedPoints_PrivateKey}`);
+    const foundationsResponse = await axios.get(`${API_URL}/api/foundations/${MedPoints_PublicKey}`);
+    const uploadsResponse = await axios.get(`${API_URL}/api/uploads/${MedPoints_PublicKey}`);
     res.render('accounts/account-edit', { 
-        recordsCount: blockchainResponse.data.length,
+        recordsCount: uploadsResponse.data.result.length,
+        foundationsCount: foundationsResponse.data.result.length,
         appointmentsCount: blockchainResponse.data.length,
         ticketsCount: ticketsResponse.data.result.length,
         accountData: profileResponse.data.result,
