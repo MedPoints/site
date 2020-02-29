@@ -75,3 +75,27 @@ exports.addFavourites = async (req, res) => {
         throw new Error(localization.localize('errors.requestError'));
     }
 };
+
+exports.removeFavourites = async (req, res) => {
+    const {
+        id,
+        type,
+    } = req.body;
+    const {
+        MedPoints_PrivateKey,
+        MedPoints_PublicKey,
+    } = req.cookies;
+
+    const data = {
+        id,
+        type,
+    };
+    const localization = new Localization(req.cookies.locale);
+    const request = await axios.post(`${API_URL}/api/users/${MedPoints_PublicKey}/${MedPoints_PrivateKey}/favorites/remove`, data);
+    if (request.status === 200) {
+        res.setHeader('Content-Type', 'application/json');
+        res.send(JSON.stringify({ status: request.status, statusText: request.statusText }));
+    } else {
+        throw new Error(localization.localize('errors.requestError'));
+    }
+};

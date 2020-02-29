@@ -139,6 +139,7 @@
         "accountEdit": "MedPoints™ Edit Account",
         "accountTickets": "MedPoints™ Your support tickets",
         "accountAddTicket": "MedPoints™ Submit support ticket",
+        "accountFoundations": "MedPoints™ Account foundations",
         "explorer": "MedPoints™ Blockchain explorer",
         "rates": "MedPoints™ Rates",
         "favorites": "MedPoints™ Favorites",
@@ -160,6 +161,7 @@
         "bookAVisit": "Book a visit",
         "success": "Success",
         "accountRecords": "Records",
+        "accountFoundations": "Account foundations",
         "rates": "Rates",
         "about": "About",
         "blog": "Blog",
@@ -305,6 +307,8 @@
 
     "foundation": {
         "imgPath": "img/foundation-eng.svg",
+        "participants": "participants in the program",
+        "openCases": "open cases",
         "makeDonation": "Make donation to General fund",
         "points": "<small>Points from <strong>General fund</strong> serve for partial coverage in cases when required amount for the full treatment remains less then 10%, but the company's time has passed.</small>",
         "foundationText1": "<p>One of the most significant aspects of the MedPoints&#8482; system, we believe, is the functionality of a decentralized collection of funds to help seriously ill or needy people.</p><p>Cases requiring the collection of funds for treatment and / or emergency care can be added only by representatives of clinics and medical institutions.</p><p>Even if the necessary amount has not been achieved, all collected funds are sent to the account of the medical institution for the treatment of this particular case and the patient.</p><p>The MedPoints&#8482; system does not take a percentage of the fundraising, except standard payment required to conduct transactions within the system.</p>",
@@ -371,6 +375,7 @@
     "errorAuthTitle": "Authorization",
     "errorFavourites": "Please log in to be able to add this item to your favorites",
     "successAddToFavourites": "Added to Favorites",
+    "successRemoveFromFavourites": "Removed from Favorites",
     "customErrorWindowTitle": "An error occurred",
     "errorsByCode": {
         "USER_NOT_CONFIRMED": "You need to confirm your email before proceeding.",
@@ -534,6 +539,13 @@
             "from": "From",
             "to": "To"
         },
+        "foundationsPage": {
+            "direction": "Direction",
+            "value": "Value",
+            "time": "Time",
+            "transactionInfo": "Transaction info",
+            "foundationsFor": "Foundations for"
+        },
         "modals": {
             "chooseDoctor": {
                 "title": "Additional actions required",
@@ -543,6 +555,7 @@
         "sidebar": {
             "appointments": "Appointments",
             "records": "Records",
+            "foundations": "Foundations",
             "addRecord": "Add record",
             "support": "Support",
             "addTicket": "Add ticket",
@@ -550,6 +563,15 @@
             "favourites": "Favourites",
             "addBalance": "Add balance"
         }
+    },
+
+    "transactions": {
+        "code": "Transaction code",
+        "copy": "Copy",
+        "check": "Check in blockchain explorer",
+        "status": "Transaction status",
+        "inProgress": "In progress",
+        "success": "Success"
     },
 
     "rates": {
@@ -647,6 +669,7 @@
     ],
 
     "addFavorites": "Add to favorites",
+    "removeFavorites": "Remove from favorites",
     "loginRequest": "<p>You need to <a class='link' href='#' data-toggle='modal' data-target='#login'>Log In</a>, in order to view your favourites.</p>",
     "readMore": "read more",
     "confirmEmail": "Thank you for registration, your email has been successfully confirmed. All alerts will be sent to this adress.",

@@ -88,7 +88,6 @@ router.post('/createTicket', catchErrors(tickets.createTicket));
 router.post('/askQuestion', catchErrors(tickets.sendQuestion));
 
 router.post('/addFavourites', catchErrors(favourites.addFavourites));
-
-//router.get('/foundation-cases', (req, res) => res.render('pages/foundation/', {title: 'MedPoints™ FAQ'}));
+router.post('/removeFavourites', catchErrors(favourites.removeFavourites));
 
 module.exports = router;

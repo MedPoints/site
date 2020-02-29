@@ -24,10 +24,12 @@ router.get('/edit', catchErrors(account.editInfo));
 router.get('/records', catchErrors(account.records));
 router.get('/add-record', catchErrors(account.addRecord));
 router.post('/upload-record', upload.array("file"), catchErrors(account.uploadRecord));
+router.get('/foundations', catchErrors(account.getFoundations));
+router.post('/add-foundation', catchErrors(account.addFoundation));
 router.post('/updateAccount', catchErrors(account.updateAccount));
 router.get('/success', catchErrors(account.success));
 router.get('/favorites', catchErrors(favorites.getFavorites));
-router.get('/getUserAppointments', catchErrors(account.getAccountAppointments));
+// router.get('/getUserAppointments', catchErrors(account.getAccountAppointments));
 
 
 module.exports = router;

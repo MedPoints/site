@@ -1,38 +1,77 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">{{localize req 'breadcrumbs.home'}}</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{localize req 'breadcrumbs.foundation'}}</li>
+    </ol>
+</nav>
 
+<div class="row">
 
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/">{{localize req 'breadcrumbs.home'}}</a></li>
-            <li class="breadcrumb-item active" aria-current="page">{{localize req 'breadcrumbs.foundation'}}</li>
-        </ol>
-    </nav>
-	
-	<div class="row">
-        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12"></div>
-        {{!-- <div class="col-xl-9 col-lg-8 col-md-12 col-sm-12"> --}}
+    <div class="col-xl-9 col-lg-8 col-md-12 col-sm-12">
 
-            <div class="row">
-				
-                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">  
-                    {{{localize req 'foundation.foundationText1'}}}
-                </div>
-                <!--/.col-->
-			
-                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12"> 
-                    <img class="img-responsive" src={{localize req 'foundation.imgPath'}} alt="" />  
-                </div>
-                <!--/.col--> 
-				
-                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">  
-                    {{{localize req 'foundation.foundationText2'}}}
-                </div>
-                <!--/.col-->
-				
+        <div class="row">
+            
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">  
+                {{{localize req 'foundation.foundationText1'}}}
             </div>
-            <!--/.row-->
-
+            <!--/.col-->
+        
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12"> 
+                <img class="img-responsive" src={{localize req 'foundation.imgPath'}} alt="" />  
+            </div>
+            <!--/.col--> 
+            
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">  
+                {{{localize req 'foundation.foundationText2'}}}
+            </div>
+            <!--/.col-->
+            
         </div>
-        <!--/.col-->
+        <!--/.row-->
+
     </div>
-    <!--/.row-->
+    <!--/.col-->
+
+
+    <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12">
+
+        <nav class="sticky-top">
+            <div class="text-center">
+
+                <div class="wave text-center">  
+                    <p><a href="/clinics"><strong>1000</strong> {{localize req 'foundation.participants'}}</a></p> 
+                    <button class="btn btn-primary btn-lg justify" id="btnCases"><strong>3</strong> {{localize req 'foundation.openCases'}}</button>
+                </div>
+                <!--/.wave-->
+
+                <br />
+
+                <a href="#" data-toggle="modal" data-target="#listFunds">{{localize req 'foundation.makeDonation'}}</a>
+
+                <br />
+
+                {{{localize req 'foundation.points'}}}
+
+                <br />
+
+                <br />
+
+            </div><!--/.-->
+
+        </nav>
+
+    </div>
+    <!--/.col-->
+</div>
+<!--/.row-->
  
+ <script>
+ $(document).ready(function() {
+
+     const gotoCases = function() {
+         window.location = "/foundation/cases";
+     }
+
+     document.querySelector("#btnCases").addEventListener("click", gotoCases);
+ });
+ </script>

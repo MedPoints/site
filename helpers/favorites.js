@@ -22,7 +22,8 @@ exports.processFavoritesData = async (data) => {
     }
 
     if (data.pharmacies) {
-        data.pharmacies = data.pharmacies.map(pharmacy => preparePharmacyData(pharmacy));
+        const path = `/img/avatars/pharmacies/pharmacy-${Math.floor(Math.random() * 8) + 1}.svg`;
+        data.pharmacies = data.pharmacies.map(pharmacy => preparePharmacyData(pharmacy, {}, path));
     }
 
     return data;

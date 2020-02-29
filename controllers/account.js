@@ -60,6 +60,7 @@ exports.getAccountInfo = async (req, res) => {
     };
 
     for (const transaction of transactions) {
+
         if (!dates.from) {
             dates.from = transaction.Date;
         }
@@ -301,6 +302,105 @@ exports.uploadRecord = async (req, res) => {
     res.redirect(`/account/records/`);
 };
 
+exports.getFoundations = async (req, res) => {
+    const {
+        MedPoints_PrivateKey,
+        MedPoints_PublicKey,
+    } = req.cookies;
+
+    const {
+        page
+    } = req.query;
+
+    const localization = new Localization(req.cookies.locale);
+
+    // Check if user is logged in and render login page if not logged in
+    if (!MedPoints_PrivateKey || !MedPoints_PublicKey) {
+        res.render('accounts/login', { isLoggedIn: false, PAGE_TITLE: localization.localize('titles.account'), title: localization.localize('titles.account') });
+        return;
+    }
+
+    const response = await axios.get(`${BLOCKCHAIN_URL}/${MedPoints_PrivateKey}/transactions`);
+
+    // Prepare pager to get only current data page
+    const dataPager = new DataPager(response.data, DEFAULT_PAGE_SIZE, page);
+
+    // Get current data page
+    let transactions = await getTransactions(dataPager.getPageData(), localization);
+
+    const ticketsResponse = await axios.get(`${API_URL}/api/tickets/${MedPoints_PublicKey}/${MedPoints_PrivateKey}`);
+    const appointmentsData = transactions.map(transaction => prepareAppointmentData(transaction));
+
+    // Get foundations data
+    const foundationsResponse = await axios.get(`${API_URL}/api/foundations/${MedPoints_PublicKey}`);
+    foundationsResponse.data.result.map(foundation => {
+        foundation.locale = {
+            foundationsFor: localization.localize('account.foundationsPage.foundationsFor'),
+            trCode: localization.localize('transactions.code'),
+            trCopy: localization.localize('transactions.copy'),
+            trCheck: localization.localize('transactions.check'),
+            trStatus: localization.localize('transactions.status'),
+            status: localization.localize('transactions.inProgress'),
+        };
+        foundation.date = moment.unix(foundation.timestamp/1000).format('YYYY-MM-DD');
+        foundation.time = moment.unix(foundation.timestamp/1000).format('HH:mm:ss');
+    });
+
+    res.render('accounts/account-foundations', { 
+        recordsCount: response.data.length,
+        appointmentsCount: response.data.length,
+        ticketsCount: ticketsResponse.data.result.length,
+        pagerInfo: dataPager,
+        PAGE_TITLE: localization.localize('titles.accountFoundations'),
+        appointmentsData,
+        foundations: foundationsResponse.data.result,
+        title: localization.localize('titles.accountFoundations'),
+        req,
+    });
+};
+
+exports.addFoundation = async (req, res) => {
+    const {
+        MedPoints_PrivateKey,
+        MedPoints_PublicKey,
+    } = req.cookies;
+
+    const {
+        page,
+    } = req.query;
+
+    const localization = new Localization(req.cookies.locale);
+
+    if (!MedPoints_PrivateKey || !MedPoints_PublicKey) {
+        res.render('accounts/login', { isLoggedIn: false, PAGE_TITLE: localization.localize('titles.accountRecords'), title: localization.localize('titles.accountRecords') });
+        return;
+    }
+
+    const generateId = (length) => {
+       let result = '';
+       const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+       for (let i = 0; i < length; i++) {
+          result += characters.charAt(Math.floor(Math.random() * characters.length));
+       }
+       return result;
+    }
+
+    if (req.body) {
+        const { name, link, treatment } = req.body;
+        if (name && link && treatment) {
+            await axios.post(`${API_URL}/api/foundations`, {
+                publicKey: MedPoints_PublicKey,
+                transactionId: generateId(48),
+                name: name,
+                link: link,
+                treatment: treatment,
+                timestamp: Date.now(),
+            });
+        }
+    }
+
+    res.status(200).end();
+};
 
 exports.editInfo = async (req, res) => {
     const {

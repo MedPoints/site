@@ -62,6 +62,9 @@
                         </ul>
                     </li>
                     <li class="list-group-item">
+                        <a href="/account/foundations">{{localize req 'account.sidebar.foundations'}}</a>
+                    </li>
+                    <li class="list-group-item">
                         <a href="/account/edit"><i class="fas fa-cog"></i> {{localize req 'account.sidebar.editProfile'}}</a>
                     </li>
                 </ul>
@@ -78,12 +81,9 @@
                 <li>
                     <div class="row">
                         <div class="col-xl-3 col-md-3 col-sm-4">
-                            <a class="avatar" href="/clinics/{{hospital.id}}">
-                                <div class="crop">
-                                    <img src="{{hospital.photos}}" alt="The clinic photo"
-                                        onerror="this.onerror=null;this.src='/img/logo_stub.svg';this.style.width='100px';" />
-                                </div>
-                            </a>
+                            <div class="wave2 text-center">
+                            <a class="avatar" href="/"><div class="crop2"><img src="{{hospital.avatar}}" alt="" /></div></a>
+                            </div>
                             <div class="text-success" data-toggle="tooltip" data-placement="top" title={{localize ../req 'tooltips.participantInsurance'}} data-original-title=""><i class="fas fa-heartbeat"></i> {{localize ../req 'clinic.insurance'}}</div>
                             <div class="text-success" data-toggle="tooltip" data-placement="top" title={{localize ../req 'tooltips.participantHelp'}} data-original-title="" aria-describedby="tooltip255942"><i class="far fa-life-ring"></i> {{localize ../req 'clinic.helpfoundation'}}</div>
                         </div>
@@ -126,7 +126,10 @@
                                 <h4 hidden>{{localize ../req 'ratings.rating'}} <strong class="text-success">9.99</strong></h4>
                                 <p  hidden>{{localize ../req 'ratings.basedOn'}} <strong><a class="" href="/clinics/test#opinions">58 {{localize ../req 'ratings.opinions'}}</a></strong></p>
                                 <a class="btn btn-primary btn-lg justify" href="/doctors/?hospital={{hospital.id}}"><strong>{{defaultIfEmpty hospital.doctors 0}}</strong> {{localize ../req 'ratings.items.doctors'}}</a>
-                                <div><a class="" href="/services/?hospital={{hospital.id}}"><strong>{{defaultIfEmpty hospital.services 0}}</strong> {{localize ../req 'ratings.items.services'}}</a></div>
+                                <p><a class="" href="/services/?hospital={{hospital.id}}"><strong>{{defaultIfEmpty hospital.services 0}}</strong> {{localize ../req 'ratings.items.services'}}</a></p>
+                                <button class="btn btn-secondary justify remove-fav" data-type="clinic" data-id="{{hospital.id}}">
+                                    <i class="far fa-heart"></i> {{localize ../req 'removeFavorites'}}
+                                </button>
                             </div>
                             <!--/.wave-->
                         </div>
@@ -150,11 +153,9 @@
                 <li>
                     <div class="row">
                         <div class="col-xl-3 col-md-3 col-sm-4">
-                            <a class="avatar" href="/pharmacies/{{ pharmacy.id }}">
-                                <div class="crop">
-                                    <img src="{{pharmacy.photos}}" alt="The pharmacy photo" onerror="this.onerror=null;this.src='/img/logo_stub.svg';this.style.width='100px';" />
-                                </div>
-                            </a>
+                            <div class="wave2 text-center">
+                            <a class="avatar" href="/"><div class="crop2"><img src="{{pharmacy.avatar}}" alt="" /></div></a>
+                            </div>
                         </div>
                         <!--/.col-->
                         <div class="col-xl-5 col-md-5 col-sm-8">
@@ -199,6 +200,9 @@
                                 </p>
                                 <a class="btn btn-primary btn-lg justify" href="/drugs?pharmacyId={{pharmacy.id}}"><strong>{{
                                         pharmacy.drugs.length }}</strong> {{localize ../req 'ratings.items.drugs'}}</a>
+                                <button class="btn btn-secondary justify remove-fav" data-type="pharmacy" data-id="{{pharmacy.id}}">
+                                    <i class="far fa-heart"></i> {{localize ../req 'removeFavorites'}}
+                                </button>
                             </div>
                             <!--/.wave-->
                         </div>
@@ -223,14 +227,17 @@
                 <li>
                     <div class="row">
                         <div class="col-xl-3 col-md-3 col-sm-4">
-                            <a class="avatar" href="/doctor"><div class="crop"><img src="{{doctor.avatar}}" alt="A doctor's photo" onerror="this.onerror=null;this.src='/img/logo_stub.svg';this.style.width='100px';" /></div></a>
+                            <div class="wave2 text-center">
+                            <a class="avatar" href="/"><div class="crop2"><img src="{{doctor.avatar}}" alt="" /></div></a>
+                            </div>
+                            
                             {{!-- <div class="text-success" data-toggle="tooltip" data-placement="top" title="{{localize ../req 'tooltips.participantInsurance'}}><i class="fas fa-heartbeat"></i> Insurance</div> --}}
                         </div>
                         <!--/.col-->
                         <div class="col-xl-6 col-md-5 col-sm-8">
                             <h3><a href="/doctors/{{doctor.id}}">{{{doctor.name}}}</a> <small>M.D</small></h3>
                             <div><a href="/doctors">{{doctor.specialization}}</a></div>
-                            <h4><a href="/clinics/{{doctor.hispital.id}}">{{doctor.hospital.name}}</a></h4>
+                            <h4><a href="/clinics/{{doctor.hospital.id}}">{{doctor.hospital.name}}</a></h4>
                             <p><a class="map-toggle" data-name="{{doctor.hospital.name}}" href="/doctors">{{doctor.hospital.location.address}}</a></p>
                             <div>{{{localize ../req "doctor.workExperience" years="9+"}}}</div>
                             <div>{{{localize ../req "doctor.bonus" amount="100"}}}</div>
@@ -240,6 +247,9 @@
                                 <h4>{{localize ../req 'ratings.rating'}} <strong class="text-success">{{doctor.rate}}</strong></h4>
                                 <p>{{localize ../req 'ratings.basedOn'}} <strong><a class="" href="/doctors/{{doctor.id}}#opinions">{{doctor.ratings.length}} {{localize ../req 'ratings.opinions'}}</a></strong></p>
                                 <a class="btn btn-primary btn-lg justify book-button" href="/booking/?doctorId={{doctor.id}}">{{localize ../req 'doctor.bookToVisit'}}</a>
+                                <button class="btn btn-secondary justify remove-fav" data-type="doctor" data-id="{{doctor.id}}">
+                                    <i class="far fa-heart"></i> {{localize ../req 'removeFavorites'}}
+                                </button>
                             </div>
                             <!--/.wave-->
                         </div>
@@ -261,3 +271,31 @@
     </div>
     <!--/.col-->
 </div>
+
+<script>
+$(document).ready(function() {
+
+    const removeFav = function() {
+        const xhr = new XMLHttpRequest();
+        const url = '/removeFavourites';
+
+        const data = {
+            type: this.dataset.type,
+            id: this.dataset.id,
+        };
+
+        xhr.open('POST', url, true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+
+        xhr.onreadystatechange = () => {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                this.textContent = window.localizer.localize('successRemoveFromFavourites');
+            }
+        };
+        xhr.send(JSON.stringify(data));
+    }
+
+    document.querySelectorAll('.remove-fav').forEach(el => el.addEventListener("click", removeFav));
+
+});
+</script>
