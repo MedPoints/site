@@ -138,6 +138,7 @@
         "accountTickets": "MedPoints™ Запросы в поддержку",
         "accountAddTicket": "MedPoints™ Запрос в поддержку",
         "accountFoundations": "MedPoints™ Кампании фонда",
+        "accountBalance": "MedPoints™ Баланс",
         "explorer": "MedPoints™ Обозреватель блоков",
         "rates": "MedPoints™ Курсы",
         "favorites": "MedPoints™ Избранное",
@@ -160,6 +161,7 @@
         "success": "Успешно",
         "accountRecords": "Карты",
         "accountFoundations": "Кампании фонда",
+        "accountBalance": "Баланс",
         "rates": "Курсы",
         "about": "О проекте",
         "blog": "Блог",
@@ -522,6 +524,13 @@
             "periodSeparate": "Период отдельных карт",
             "from": "От",
             "to": "До"
+        },
+        "balancePage": {
+            "direction": "Направление",
+            "value": "Количество",
+            "time": "Время",
+            "transactionInfo": "Информация о транзакции",
+            "replenishment": "Пополнение баланса"
         },
         "foundationsPage": {
             "direction": "Направление",

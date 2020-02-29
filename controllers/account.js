@@ -18,6 +18,17 @@ const { DataPager } = require('./../helpers/pager');
 const DEFAULT_PAGE_SIZE = 10;
 
 
+const generateId = (length) => {
+   let result = '';
+   const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+   for (let i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() * characters.length));
+   }
+   return result;
+}
+
+
+
 exports.getAccountInfo = async (req, res) => {
     const {
         MedPoints_PrivateKey,
@@ -36,6 +47,10 @@ exports.getAccountInfo = async (req, res) => {
         return;
     }
 
+    if (req.query.amount) {
+        await addBalance(req.query.amount, MedPoints_PublicKey);
+        res.redirect(`/account/`);
+    }
 
     // Get all blockchain blocks
     const response = await axios.get(`${BLOCKCHAIN_URL}/${MedPoints_PrivateKey}/transactions`);
@@ -53,6 +68,8 @@ exports.getAccountInfo = async (req, res) => {
 
     const ticketsResponse = await axios.get(`${API_URL}/api/tickets/${MedPoints_PublicKey}/${MedPoints_PrivateKey}`);
     const foundationsResponse = await axios.get(`${API_URL}/api/foundations/${MedPoints_PublicKey}`);
+    const tokensResponse = await axios.get(`${API_URL}/api/tokens/${MedPoints_PublicKey}/count`);
+    const tokensCount = tokensResponse.data.result.count / 0.001;
     const uploadsResponse = await axios.get(`${API_URL}/api/uploads/${MedPoints_PublicKey}`);
     const appointmentsData = transactions.map(transaction => prepareAppointmentData(transaction));
 
@@ -86,6 +103,7 @@ exports.getAccountInfo = async (req, res) => {
         foundationsCount: foundationsResponse.data.result.length,
         appointmentsCount: response.data.length,
         ticketsCount: ticketsResponse.data.result.length,
+        tokensCount,
         pagerInfo: dataPager,
         transactions, 
         dates,
@@ -115,6 +133,8 @@ exports.records = async (req, res) => {
     // Get all blockchain blocks
     const response = await axios.get(`${BLOCKCHAIN_URL}/${MedPoints_PrivateKey}/transactions`);
     const ticketsResponse = await axios.get(`${API_URL}/api/tickets/${MedPoints_PublicKey}/${MedPoints_PrivateKey}`);
+    const tokensResponse = await axios.get(`${API_URL}/api/tokens/${MedPoints_PublicKey}/count`);
+    const tokensCount = tokensResponse.data.result.count / 0.001;
     const foundationsResponse = await axios.get(`${API_URL}/api/foundations/${MedPoints_PublicKey}`);
     // Prepare pager to get only current data page
     const dataPager = new DataPager(response.data, DEFAULT_PAGE_SIZE, page);
@@ -219,6 +239,7 @@ exports.records = async (req, res) => {
         foundationsCount: foundationsResponse.data.result.length,
         appointmentsCount: response.data.length,
         ticketsCount: ticketsResponse.data.result.length,
+        tokensCount,
         pagerInfo: dataPager,
         transactions: filteredTransactions,
         filesSorted,
@@ -248,6 +269,8 @@ exports.addRecord = async (req, res) => {
 
     const response = await axios.get(`${BLOCKCHAIN_URL}/${MedPoints_PrivateKey}/transactions`);
     const ticketsResponse = await axios.get(`${API_URL}/api/tickets/${MedPoints_PublicKey}/${MedPoints_PrivateKey}`);
+    const tokensResponse = await axios.get(`${API_URL}/api/tokens/${MedPoints_PublicKey}/count`);
+    const tokensCount = tokensResponse.data.result.count / 0.001;
     const foundationsResponse = await axios.get(`${API_URL}/api/foundations/${MedPoints_PublicKey}`);
     const uploadsResponse = await axios.get(`${API_URL}/api/uploads/${MedPoints_PublicKey}`);
 
@@ -259,6 +282,7 @@ exports.addRecord = async (req, res) => {
         foundationsCount: foundationsResponse.data.result.length,
         appointmentsCount: response.data.length,
         ticketsCount: ticketsResponse.data.result.length,
+        tokensCount,
         pagerInfo: dataPager,
         transactions,
         PAGE_TITLE: localization.localize('titles.accountAddRecord'), 
@@ -333,24 +357,14 @@ exports.getFoundations = async (req, res) => {
     // Prepare pager to get only current data page
     const dataPager = new DataPager(response.data, DEFAULT_PAGE_SIZE, page);
 
-    // Get current data page
-    let transactions = await getTransactions(dataPager.getPageData(), localization);
-
     const uploadsResponse = await axios.get(`${API_URL}/api/uploads/${MedPoints_PublicKey}`);
     const ticketsResponse = await axios.get(`${API_URL}/api/tickets/${MedPoints_PublicKey}/${MedPoints_PrivateKey}`);
-    const appointmentsData = transactions.map(transaction => prepareAppointmentData(transaction));
+    const tokensResponse = await axios.get(`${API_URL}/api/tokens/${MedPoints_PublicKey}/count`);
+    const tokensCount = tokensResponse.data.result.count / 0.001;
 
     // Get foundations data
     const foundationsResponse = await axios.get(`${API_URL}/api/foundations/${MedPoints_PublicKey}`);
     foundationsResponse.data.result.map(foundation => {
-        foundation.locale = {
-            foundationsFor: localization.localize('account.foundationsPage.foundationsFor'),
-            trCode: localization.localize('transactions.code'),
-            trCopy: localization.localize('transactions.copy'),
-            trCheck: localization.localize('transactions.check'),
-            trStatus: localization.localize('transactions.status'),
-            status: localization.localize('transactions.inProgress'),
-        };
         foundation.date = moment.unix(foundation.timestamp/1000).format('YYYY-MM-DD');
         foundation.time = moment.unix(foundation.timestamp/1000).format('HH:mm:ss');
     });
@@ -360,9 +374,9 @@ exports.getFoundations = async (req, res) => {
         foundationsCount: foundationsResponse.data.result.length,
         appointmentsCount: response.data.length,
         ticketsCount: ticketsResponse.data.result.length,
+        tokensCount,
         pagerInfo: dataPager,
         PAGE_TITLE: localization.localize('titles.accountFoundations'),
-        appointmentsData,
         foundations: foundationsResponse.data.result,
         title: localization.localize('titles.accountFoundations'),
         req,
@@ -375,24 +389,11 @@ exports.addFoundation = async (req, res) => {
         MedPoints_PublicKey,
     } = req.cookies;
 
-    const {
-        page,
-    } = req.query;
-
     const localization = new Localization(req.cookies.locale);
 
     if (!MedPoints_PrivateKey || !MedPoints_PublicKey) {
         res.render('accounts/login', { isLoggedIn: false, PAGE_TITLE: localization.localize('titles.accountRecords'), title: localization.localize('titles.accountRecords') });
         return;
-    }
-
-    const generateId = (length) => {
-       let result = '';
-       const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-       for (let i = 0; i < length; i++) {
-          result += characters.charAt(Math.floor(Math.random() * characters.length));
-       }
-       return result;
     }
 
     if (req.body) {
@@ -404,6 +405,104 @@ exports.addFoundation = async (req, res) => {
                 name: name,
                 link: link,
                 treatment: treatment,
+                timestamp: Date.now(),
+            });
+        }
+    }
+
+    res.status(200).end();
+};
+
+exports.getBalance = async (req, res) => {
+    const {
+        MedPoints_PrivateKey,
+        MedPoints_PublicKey,
+    } = req.cookies;
+
+    const {
+        page
+    } = req.query;
+
+    const localization = new Localization(req.cookies.locale);
+
+    // Check if user is logged in and render login page if not logged in
+    if (!MedPoints_PrivateKey || !MedPoints_PublicKey) {
+        res.render('accounts/login', { isLoggedIn: false, PAGE_TITLE: localization.localize('titles.account'), title: localization.localize('titles.account') });
+        return;
+    }
+
+    const response = await axios.get(`${BLOCKCHAIN_URL}/${MedPoints_PrivateKey}/transactions`);
+
+    // Prepare pager to get only current data page
+    const dataPager = new DataPager(response.data, DEFAULT_PAGE_SIZE, page);
+
+    const uploadsResponse = await axios.get(`${API_URL}/api/uploads/${MedPoints_PublicKey}`);
+    const ticketsResponse = await axios.get(`${API_URL}/api/tickets/${MedPoints_PublicKey}/${MedPoints_PrivateKey}`);
+    const foundationsResponse = await axios.get(`${API_URL}/api/foundations/${MedPoints_PublicKey}`);
+
+    // Get tokens data
+    const tokensResponse = await axios.get(`${API_URL}/api/tokens/${MedPoints_PublicKey}`);
+    tokensResponse.data.result.map(transaction => {
+        transaction.classes = {
+            alert: transaction.type === "add" ? "alert-success" : "alert-danger",
+            fa: transaction.type === "add" ? "fa-plus" : "fa-minus",
+        };
+        if (transaction.name.includes("replenishment")) {
+            transaction.name = localization.localize('account.balancePage.replenishment');
+        }
+        transaction.balanceToken = transaction.balanceUSD / 0.001;
+        transaction.date = moment.unix(transaction.timestamp/1000).format('YYYY-MM-DD');
+        transaction.time = moment.unix(transaction.timestamp/1000).format('HH:mm:ss');
+    });
+    const tokensCountResponse = await axios.get(`${API_URL}/api/tokens/${MedPoints_PublicKey}/count`);
+    const tokensCount = tokensCountResponse.data.result.count / 0.001;
+
+    res.render('accounts/account-balance', { 
+        recordsCount: uploadsResponse.data.result.length,
+        foundationsCount: foundationsResponse.data.result.length,
+        appointmentsCount: response.data.length,
+        ticketsCount: ticketsResponse.data.result.length,
+        tokensCount,
+        pagerInfo: dataPager,
+        PAGE_TITLE: localization.localize('titles.accountBalance'),
+        transactions: tokensResponse.data.result,
+        title: localization.localize('titles.accountBalance'),
+        req,
+    });
+};
+
+exports.addBalance = async (req, res) => {
+    const {
+        MedPoints_PrivateKey,
+        MedPoints_PublicKey,
+    } = req.cookies;
+
+    const localization = new Localization(req.cookies.locale);
+
+    if (!MedPoints_PrivateKey || !MedPoints_PublicKey) {
+        res.render('accounts/login', { isLoggedIn: false, PAGE_TITLE: localization.localize('titles.accountRecords'), title: localization.localize('titles.accountRecords') });
+        return;
+    }
+
+    if (req.body) {
+        const { amount } = req.body;
+        if (amount) {
+            if (isNaN(parseFloat(amount))) {
+                return res.status(200).end();
+            }
+
+            const sum = Math.round(parseFloat(amount));
+
+            if (sum <= 0 || sum > 1000) {
+                return res.status(200).end();
+            }
+
+            await axios.post(`${API_URL}/api/tokens`, {
+                publicKey: MedPoints_PublicKey,
+                transactionId: generateId(48),
+                name: "Balance replenishment",
+                type: "add",
+                balanceUSD: sum,
                 timestamp: Date.now(),
             });
         }
@@ -429,12 +528,15 @@ exports.editInfo = async (req, res) => {
     const profileResponse = await axios.get(`${API_URL}/api/users/${MedPoints_PublicKey}/${MedPoints_PrivateKey}`);
     const ticketsResponse = await axios.get(`${API_URL}/api/tickets/${MedPoints_PublicKey}/${MedPoints_PrivateKey}`);
     const foundationsResponse = await axios.get(`${API_URL}/api/foundations/${MedPoints_PublicKey}`);
+    const tokensResponse = await axios.get(`${API_URL}/api/tokens/${MedPoints_PublicKey}/count`);
+    const tokensCount = tokensResponse.data.result.count / 0.001;
     const uploadsResponse = await axios.get(`${API_URL}/api/uploads/${MedPoints_PublicKey}`);
     res.render('accounts/account-edit', { 
         recordsCount: uploadsResponse.data.result.length,
         foundationsCount: foundationsResponse.data.result.length,
         appointmentsCount: blockchainResponse.data.length,
         ticketsCount: ticketsResponse.data.result.length,
+        tokensCount,
         accountData: profileResponse.data.result,
         PAGE_TITLE: localization.localize('titles.accountEdit'),
         title: localization.localize('titles.accountEdit'),

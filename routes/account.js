@@ -26,10 +26,11 @@ router.get('/add-record', catchErrors(account.addRecord));
 router.post('/upload-record', upload.array("file"), catchErrors(account.uploadRecord));
 router.get('/foundations', catchErrors(account.getFoundations));
 router.post('/add-foundation', catchErrors(account.addFoundation));
+router.get('/balance', catchErrors(account.getBalance));
+router.post('/add-balance', catchErrors(account.addBalance));
 router.post('/updateAccount', catchErrors(account.updateAccount));
 router.get('/success', catchErrors(account.success));
 router.get('/favorites', catchErrors(favorites.getFavorites));
-// router.get('/getUserAppointments', catchErrors(account.getAccountAppointments));
 
 
 module.exports = router;

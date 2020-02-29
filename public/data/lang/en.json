@@ -140,6 +140,7 @@
         "accountTickets": "MedPoints™ Your support tickets",
         "accountAddTicket": "MedPoints™ Submit support ticket",
         "accountFoundations": "MedPoints™ Account foundations",
+        "accountBalance": "MedPoints™ Account balance",
         "explorer": "MedPoints™ Blockchain explorer",
         "rates": "MedPoints™ Rates",
         "favorites": "MedPoints™ Favorites",
@@ -162,6 +163,7 @@
         "success": "Success",
         "accountRecords": "Records",
         "accountFoundations": "Account foundations",
+        "accountBalance": "Account balance",
         "rates": "Rates",
         "about": "About",
         "blog": "Blog",
@@ -538,6 +540,13 @@
             "periodSeparate": "Period separate records",
             "from": "From",
             "to": "To"
+        },
+        "balancePage": {
+            "direction": "Direction",
+            "value": "Value",
+            "time": "Time",
+            "transactionInfo": "Transaction info",
+            "replenishment": "Balance replenishment"
         },
         "foundationsPage": {
             "direction": "Direction",

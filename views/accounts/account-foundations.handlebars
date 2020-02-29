@@ -28,12 +28,10 @@
                         </ul>
                     </li>
                     <li class="list-group-item">
-                        <a href="#" data-toggle="modal" data-target="#sorry"><b>MPT</b> = 120
-                            <span class="badge">+ 0</span>
-                        </a>
+                        <a href="/account/balance"><b>MPT</b> = {{tokensCount}}</a>
                         <ul>
                             <li>
-                                <a href="#" data-toggle="modal" data-target="#sorry">
+                                <a href="#" data-toggle="modal" data-target="#addBalance">
                                     <i class="fas fa-plus-circle"></i> {{localize req 'account.sidebar.addBalance'}}</a>
                             </li>
                         </ul>
@@ -93,7 +91,7 @@
                             <tr>
                                 <td class="alert-danger text-center">
                                     <i class="fas fa-minus"></i>
-                                    <div>{{foundation.locale.foundationsFor}}</div>
+                                    <div>{{localize ../req 'account.foundationsPage.foundationsFor'}}</div>
                                     <a class="" href="{{foundation.link}}">{{foundation.name}}</a> 
                                     <br />
                                     <small>{{foundation.treatment}}</small>
