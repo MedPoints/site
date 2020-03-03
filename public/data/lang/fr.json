@@ -1,0 +1,620 @@
+{
+
+    "common": {
+        "title": "MedPoints&#8482; - <br />Service international<strong> de visite chez le médecin</strong> basé sur un registre distribué",
+        "showOnMap": "Afficher sur la carte",
+        "fromPrice": "A partir de",
+        "fromPriceFull": "Prix à partir de",
+        "time": "Temps",
+        "copy": "Copier"
+    },
+    "navigation": {
+        "clinics": "Cliniques",
+        "services": "Services",
+        "doctors": "Médecins",
+        "pharmacies": "Pharmacies",
+        "drugs": "Médicaments",
+
+        "blog": "Blog",
+
+        "open": "Ouvrir le menu",
+        "location": "Prendre rendez-vous à",
+        "font": "Police",
+        "login": "Connexion",
+        "logout": "Déconnexion",
+        "register": "Inscription",
+        "showWallet": "Afficher mon porte-monnaie",
+        "language": "Langue",
+        "account": "Compte",
+
+        "insurance": "Programme d’assurance",
+        "foundation": "Fonds d'assistance",
+        "search": "recherche"
+    },
+
+    "pageTitles": {
+        "index": "MedPoints™ - <br /> Service international<strong> de visite chez le médecin</strong> basé sur un registre distribué",
+        "search": "Recherche",
+        "rates": "Tarifs MedPoints™"
+    },
+
+    "search": {
+        "searchDoctor": " Rechercher un médecin par <strong> par division</strong>",
+        "searchClinic": " Rechercher une clinique par <strong> par emplacement</strong>",
+        "searchPrompt": "Entrez votre requête de recherche...",
+        "options": {
+            "default": "Catégories",
+            "clinics": "Cliniques",
+            "doctors": "Médecins",
+            "pharmacies": "Pharmacies",
+            "drugs": "Médicaments",
+            "services": "Services"
+        }
+    },
+
+    "partnership": {
+        "addButton": "Ajouter",
+        "imgPath": "img/smart-contract-ru.svg",
+        "textBeforeImg": "<p> Le marché des services médicaux offre de grandes opportunités pour la mise en œuvre des technologies blockchain, mais jusqu'à présent, seuls quelques projets trouvent une application pratique de la décentralisation dans la logique de l'interaction médecin-patient.</p> <div class ='row'><div class='col'> <p> Pour les représentants des établissements médicaux nous fournissons un canal de nouveaux clients et des logiciels pratiques pour le traitement des commandes en croissance permanente.</p><ul><li><i class='fas fa-check'></i> Le canal de communication privé avec les patients </li><li><i class='fas fa-check'> </i>Le fichier structuré de visites des patients</li><li><i class='fas fa-check'> </i>L’expansion géographique</li><li><i class='fas fa-check'></i>Élimine le travail inutile avec les papiers</li><li><i class='fas fa-check'></i> Offre la possibilité de représenter vos spécialistes, services, produits</li><li><i class='fas fa-check'></i>Numérise les transactions de fourniture de services médicaux</li><li><i class='fas fa-check'></i> Élimine le besoin d'assistance juridique * </li><li><i class ='fas fa-check'></i>Un outil accessible à tous qui ne nécessite pas de coûts ou de connaissances supplémentaires</li ></ul><p>* Selon les lois en vigueur du pays de séjour.</p><p>La participation au système MedPoints ™ ne nécessite aucun paiement de la part des établissements ou leurs représentants. Tout membre du système ayant le statut de partenaire contribue au projet en fournissant une puissance de calcul.</p><p>Cela ne signifie pas que pour accéder au flux de clients du monde entier, vous avez besoin d'un superordinateur, il suffit d'installer un logiciel sous licence gratuit sur un ordinateur dans le bureau et former le gestionnaire à travailler avec une interface logicielle simple.</p></div></div>",
+
+        "textAfterImg": "<p> La collaboration avec le système MedPoints ™ favorise la fourniture de services médicaux professionnels à un niveau élevé, ce qui affecte finalement non seulement le profit de chaque acteur du marché spécifique, mais également le niveau de bien-être de la société.</p>"
+    },
+
+    "footer": {
+        "project": {
+            "title": "Projet",
+            "items": {
+                "about": "A propos du projet",
+                "partnership": "Partenariat",
+                "explorer": "Navigateur de blocs",
+                "blog": "Blog"
+            }
+        },
+        "support": {
+            "title": "Assistance",
+            "items": {
+                "faq": "Foire aux questions",
+                "support": "Assistance",
+                "terms": "Conditions d'utilisation du site Web",
+                "policy": "Politique de confidentialité"
+            }
+        },
+        "applications": {
+            "title": "Application",
+            "items": {
+                "mobile": "Mobile",
+                "apple": "Apple",
+                "android": "Android",
+                "desktop": "PC",
+                "windows": "Windows",
+                "macos": "Mac OS"
+            }
+        },
+        "signup": {
+            "title": "Abonnez-vous aux mises à jour MedPoints&#8482;",
+            "subtitle": "Pas de spam ni d'annonces",
+            "prompt": "Entrez votre email",
+            "social": "Suivez les mises à jour dans les groupes officiels du projet"
+        },
+        "disclaimer": {
+            "title": "Les données du site sont fournies à titre informatif uniquement.",
+            "subtitle": "Les cliniques et les médecins ne sont pas partenaires du système. Les descriptions de médicaments et services spécifiques peuvent ne pas être entièrement exactes."
+        },
+        "copyright": {
+            "title": "Tous droits réservés.",
+            "copyrightTitle": "MedPoints&#8482; Tous droits réservés."
+        },
+        "sitemap": "Plan du site"
+    },
+
+    "main": {
+        "welcome": "MedPoints&#8482 vous souhaite la bienvenue! C’est une version de démonstration qui simule l'interaction de l'utilisateur, mais ne dispose pas actuellement de toutes les fonctionnalités. <br /> Si vous souhaitez faire partie du projet et soutenir son développement, veuillez rejoindre notre <a href=\"https://medpoints.io\" target=\"_blank\"> société IEO </a>."
+    },
+
+    "index": {
+        "list": "Liste",
+        "map": "Plan"
+    },
+
+    "titles": {
+        "clinics": "MedPoints™ Cliniques",
+        "doctors": "MedPoints™ Médecins",
+        "pharmacies": "MedPoints™ Pharmacies",
+        "drugs": "MedPoints™ Médicaments",
+        "services": "MedPoints™ Services",
+        "termsOfUse": "MedPoints™ Conditions d'utilisation du site Web",
+        "aboutUs": "MedPoints™ A propos du projet",
+        "privacyPolicy": "MedPoints™ Politique de confidentialité",
+        "partnership": "MedPoints™ Partenariat",
+        "blog": "MedPoints™ Blog",
+        "faq": "MedPoints™ Foire aux questions",
+        "registration": "MedPoints™ Inscription",
+        "success": "MedPoints™ Inscription réussite",
+        "confirm": "MedPoints™ Confirmation réussite de l’adresse e-mail",
+        "booking": "MedPoints™ Prendre rendez-vous",
+        "account": "MedPoints™ Compte",
+        "accountRecords": "MedPoints™ Cartes",
+        "accountAddRecord": "MedPoints™ Ajouter une carte",
+        "accountEdit": "MedPoints™ Editer le compte",
+        "accountTickets": "MedPoints™ Demandes à l’assistance",
+        "accountAddTicket": "MedPoints™ Demande à l’assistance",
+        "explorer": "MedPoints™ Navigateur de blocs",
+        "rates": "MedPoints™ Taux",
+        "favorites": "MedPoints™ Favoris",
+        "foundation": "MedPoints™ Fonds d’assistance"
+    },
+
+    "breadcrumbs": {
+        "home": "Page d’accueil",
+        "clinics": "Cliniques",
+        "doctors": "Médecins",
+        "pharmacies": "Pharmacies",
+        "drugs": "Médicaments",
+        "services": "Services",
+        "foundationCases": "Campagnes du Fonds",
+        "foundationCase": "Campagne du Fonds",
+        "account": "Compte",
+        "editAccount": "Editer le compte",
+        "tickets": "Appels à l’aide",
+        "bookAVisit": "Prendre rendez-vous",
+        "success": "Réussi",
+        "accountRecords": "Identifiants",
+        "rates": "Taux",
+        "about": "A propos du projet",
+        "blog": "Blog",
+        "faq": "Foire aux questions",
+        "policy": "Politique de confidentialité",
+        "registration": "Inscription",
+        "explorer": "Navigateur de blocs",
+        "favorites": "Favoris",
+        "terms": "Conditions d’utilisation du site Web",
+        "foundation": "Fonds d’assistance",
+        "addTicket":"Ajouter un appel",
+        "partnership": "Partenariat",
+        "medicalRecords": "Dossiers médicaux",
+        "addRecord": "Ajouter un dossier"
+    },
+
+    "filters": {
+        "yourCity": "Dans votre ville",
+        "worldwide": "Sans restriction de territoire",
+        "maxPrice": "Prix maximum",
+        "covered": "Peut être couvert par des points d’assurance",
+        "location": "Emplacement",
+        "prescription": "Sorti (e) sans presciptions",
+        "airportTransfer": "Transfert vers l’aéroport/de l’aéroport",
+        "insuranceMember": "Membre du programme d’assurance MPT",
+        "apply": "Appliquer des filtres",
+        "more": "Plus de filtres"
+    },
+
+    "registration": {
+        "alreadyRegistered": "<strong> Bienvenue!</strong> Vous êtes déjà inscrit. Si vous souhaitez vous réinscrire, veuillez vous déconnecter et actualiser cette page.",
+        "existing": "Client inscrit?",
+        "clickToLogIn": "Cliquez ici pour vous connecter.",
+        "login": "<strong> Bienvenue!</strong>Nous avons créé pour vous un <strong> identifiant </strong> et une <strong>clé</strong> uniques pour l'autorisation sur la plateforme.",
+        "registerButton": "Inscription",
+        "terms": "<a href='/terms-of-use' target='_blank'>Conditions d’utilisation du site Web</a> et <a href='/privacy-policy' target='_blank'>Politique de confidentialité</a>",
+        "accept": "J’accepte",
+        "form": {
+            "firstName":"Prénom",
+            "lastName":"Nom",
+            "email":"E-mail",
+            "id":"Identifiant du porte-monnaie",
+            "key":"Clé du porte-monnaie"
+        }
+    },
+
+    "ratings": {
+        "rating": "Evaluation",
+        "basedOn": "basée sur",
+        "opinions": "les commentaires",
+        "metricsQuality": "Prix / Qualité",
+        "metricsService": "Service",
+        "noOpinions": "Pas de commentaires. <b>Ajoutez le commentaire après la clôture du contrat de service en ligne. </b> ",
+        "items": {
+            "drugs": "Médicaments",
+            "doctors": "Médecins",
+            "clinics": "Cliniques",
+            "services": "Services",
+            "pharmacies": "Pharmacies"
+        }
+    },
+
+    "pharmacy": {
+        "details": {
+            "network": "Réseau",
+            "site": "Site",
+            "goToSite": "Accéder au site",
+            "gallery": "Galerie pharmaceutique"
+        }
+    },
+
+    "clinic": {
+        "details": {
+            "network": "Réseau"
+        },
+        "transfer": "Transfert vers l’aéroport/de l’aéroport",
+        "busroute": "Ligne de bus",
+        "freepark": "Stationnement gratuit",
+        "helpfoundation": "Fonds d’assistance",
+        "insurance": "Assurance",
+        "gallery": "Photos de la clinique",
+        "public": "Publique"
+    },
+
+    "service": {
+        "table": {
+            "title": "Comparaison de prix pour la<strong>première visite</strong> à <strong>New York </strong>",
+            "service": "Service",
+            "services": "Services",
+            "time": "Temps",
+            "insurance": "Assurance",
+            "providers": "Prestataires",
+            "price": "Prix",
+            "clinic": "Clinique"
+        }
+    },
+
+    "drugs": {
+        "table": {
+            "name": "Prix",
+            "price": "Prix",
+            "insurance": "Assurance",
+            "prescription": "Par prescription",
+            "providers": "Prestataires"
+        }
+    },
+
+    "doctor": {
+        "workExperience": "Expérience de travail<strong>{years}</strong> ans",
+        "bonus": "Première visite de = <strong>{amount} MPT</strong> <br /> + <strong class='text-success'>{amount} bonus MPT</strong>pour les prochaines visites",
+        "bookToVisit": "S’inscrire",
+        "statement": "Conclusion professionnelle",
+        "allSpecializations": "Toutes les spécialisations",
+        "education": "Formation",
+        "graduateOf": "diplômé",
+        "knowledge": "Connaissances",
+        "skills": "Compétences",
+        "attention": "Examen",
+        "priceQuality": "Prix / Qualité",
+        "table": {
+            "service": "Services du médecin",
+            "time": "Temps",
+            "insurance": "Assurance",
+            "price": "Prix"
+        }
+    },
+
+    "drug": {
+        "categories": "Catégories",
+        "categoriesAll": "Toutes",
+        "group": "Groupe",
+        "available": "Disponible à",
+        "table": {
+            "name": "Nom",
+            "providers": "Prestataires",
+            "prescription": "Par prescription uniquement",
+            "insurance": "Assurance",
+            "price": "Prix"
+        }
+    },
+
+    "foundation": {
+        "imgPath": "img/foundation-ru.svg",
+        "makeDonation": "Faire un don au fonds commun ",
+        "points": "<small>Les points du <strong>Fonds commun</strong> servent de couverture partielle lorsque le montant requis pour un traitement complet reste inférieur à 10% et la durée de la campagne a expiré.</small>",
+        "foundationText1": "<p>L'une des caractéristiques les plus importantes du système MedPoints&#8482;, à notre avis, est une fonction de collecte de fonds décentralisée pour aider les personnes gravement malades ou en besoin.</p><p>Les campagnes de collecte de fonds pour le traitement et/ou les soins d’urgence ne peuvent être ajoutées que par les représentants des cliniques ou des établissements médicaux.</p><p>Même si le montant nécessaire n'a pas été collecté, tous les fonds sont envoyés sur le compte de l'établissement médical pour apporter une assistance dans ce cas particulier à ce patient..</p><p>Le système MedPoints&#8482; ne facture pas de frais pour la collecte de fonds, à l'exclusion des frais standard requis pour les transactions au sein du système.</p>",
+        "foundationText2": "<p>Le fait que toutes les transactions soient effectuées via une plateforme décentralisée garantit que toutes les sommes collectées seront dirigées pour résoudre un cas spécifique et ne tomberont pas entre les mains de tiers ou d'arnaqueurs.</p><p>Un élément distinct d’assistance médicale dans le cadre du projet MedPoints&#8482; est<strong>le Fonds commun</strong>, qui n'est pas lié à une campagne de collecte de fonds spécifique dans lequel chacun peut contribuer n'importe quel montant à tout moment. Les points du <strong>Fonds commun</strong> servent de couverture partielle dans le cas où le montant requis pour un traitement complet reste inférieur à 10%, et la durée de la campagne a expiré.</p>"
+    },
+
+    "tickets": {
+        "all": "Tous appels",
+        "open": "Ouverts",
+        "closed": "Fermés",
+        "addTicket": "Ajouter un appel",
+        "noTickets": "Pas d’appels",
+        "table": {
+            "title": "Titre",
+            "description": "Description",
+            "time": "Temps",
+            "status": "Statut"
+        },
+
+        "addTicketPage": {
+            "title": "Titre",
+            "titleHelp": "Introduire un titre",
+            "subject": "Sujet",
+            "subjectItems": {
+                "help": "Aide",
+                "insurance": "Assurance",
+                "booking": "Prise de rendez-vous",
+                "other": "Autre"
+            }
+        }
+    },
+
+    "popups": {
+        "chooseLocation": {
+            "title": "Choisissez votre emplacement",
+            "saveLocation": "Sauvegardez votre emplacement",
+            "prompt": "Commencez à introduire le nom de votre ville (minimum 3 lettres)"
+        },
+        "demo": {
+            "title": "Limitations de démonstration",
+            "description": "Désolé, cette fonction n’est pas encore disponible.."
+        },
+        "logIn": {
+            "title": "Se connecter au Site MedPoints",
+            "walletId": "Identifiant du porte-monnaie",
+            "walletKey": "Clé du porte-monnaie",
+            "rememberMe": "Me retenir",
+            "problems": "Problèmes d’autorisation?",
+            "logIn": "Se connecter"
+        },
+        "walletDetails": {
+            "title": "Détails de votre porte-monnaie",
+            "walletId": "Identifiant du porte-monnaie",
+            "walletKey": "Clé du porte-monnaie"
+        }
+    },
+
+    "controls": {
+        "selectService": "Choisissez un service",
+        "selectClinic": "Choisissez une clinique"
+    },
+
+    "errorWindowTitle": "Erreurs de validation des données",
+    "errorAuthTitle": "Se connecter",
+    "errorFavourites": "Veuillez vous connecter pour pouvoir ajouter cet article à vos Favoris",
+    "successAddToFavourites": "Ajouté à vos Favoris",
+    "customErrorWindowTitle": "Une erreur s’est produite",
+    "errorsByCode": {
+        "USER_NOT_CONFIRMED": "Vous devez vérifier votre adresse e-mail pour continuer..",
+        "USER_NOT_EXIST": "Les données ne correspondent pas. Veuillez vous inscrire et réessayer.."
+    },
+    "errors": {
+        "bothKeyAndId": "L’identifiant de porte-monnaie et la clé de porte-monnaie sont requis",
+        "newWallet": "Erreur lors de la création d’un nouveau porte-monnaie.",
+        "requestError": "Une erreur s’est produite lors du traitement de la demande. Réessayez.",
+        "booking": "Une erreur s’est produite lors de la prise de rendez-vous. Veuillez réessayer plus tard ou contacter notre équipe d'assistance.",
+        "account": " Une erreur s’est produite lors de la mise à jour de votre compte. Veuillez réessayer plus tard ou contacter notre équipe d'assistance.",
+        "visitDoctor": "Veuillez accéder la page du médecin et cliquer sur le bouton «Prendre rendez-vous» pour continuer",
+        "terms": "Pour continuer, acceptez nos Conditions d’utilisation du site Web et la Politique de confidentialité",
+        "requiredFirstName": "Entrez le prénom",
+        "requiredName": "Entrez votre nom",
+        "requiredLastName": "Entrez votre nom de famille",
+        "requiredEmail": "Entrez votre adresse e-mail",
+        "requiredQuestion": "Entrez la question",
+        "requiredConfirmEmail": "Entrez l’e-mail de confirmation",
+        "emailsDoNotMatch": "Les adresses e-mail ne correspondent pas",
+        "requiredBookingDate": "Entrez la date du rendez-vous",
+        "requiredDoctor": "Choisissez un médecin",
+        "requiredService": "Choisissez un service",
+        "requiredWallet": "Pour prendre rendez-vous, vous avez besoin d’un porte-monnaie. Veuillez vous inscrire ou actualiser cette page.",
+        "incorrectEmail": "L’adresse e-mail que vous avez introduite n’est pas valide.",
+        "requiredTitle": "Titre requis",
+        "requiredSubject": "Sujet requis",
+        "requiresLogin": "Pour accéder aux appels, vous avez besoin de vous connecter",
+        "bookingRequest": "Une erreur s’est produite lors de la prise de rendez-vous. Veuillez réessayer plus tard..",
+        "accountUpdateRequest": "Une erreur s’est produite lors de la mise à jour du compte. Veuillez réessayer plus tard..",
+        "mustBeNumber": "La valeur «Montant» doit être numérique"
+    },
+
+    "about": {
+        "title": "Qu’est-ce que le système<strong>MedPoints&#8482;</strong>?",
+        "description": "<p><strong>MedPoints&#8482;</strong>est une plate-forme décentralisée qui permet à ses membres de recevoir des <strong>services médicaux </strong> hautement qualifiés dans le monde entier.</p> <p>Les <strong>cliniques et experts médicaux </strong>les plus avancés ont déjà apprécié tous les avantages de l'utilisation de notre outil en ligne, c'est pourquoi ils proposent des offres spéciales et des remises à tous les membres de notre système.</p>",
+        "bestClinics": "<h3>Les meilleures cliniques</h3><p>Nous coopérons avec les cliniques, où travaillent des spécialistes hautement qualifiés.</p>",
+        "provenDoctors": "<h3>Les médecins reconnus</h3><p> Sur notre site les profils des meilleurs médecins reconnus sont publiés.</p>",
+        "specialPrices": "<h3>Prix spéciaux </h3><p>Tous les membres du système MedPoints bénéficient de tarifs préférentiels de la part des établissements médicaux.</p>",
+        "genuineReviews": "<h3>Véritables avis uniquement</h3><p>Seuls de véritables avis de patients ayant consulté des médecins sont disponibles sur notre site.</p>",
+        "friendly": {
+            "title": "Orienté vers le patient <strong>",
+            "watchVideo": "Regarder la vidéo sur YouTube",
+            "src": "https://www.youtube.com/embed/4ng_nKxWXg8",
+            "description": "Pour les patients de MedPoints&#8482; c'est une source d'information sur les services médicaux des médecins dans le monde entier, avec des évaluations honnêtes et un retour d’expérience en temps réel, c'est une application mobile qui permet de prendre rendez-vous avec tout spécialiste en 3 clics seulement."
+        },
+        "functional": {
+            "title": "Pratique<strong>pour les professionnels de santé</strong>",
+            "watchVideo": "Regarder la vidéo sur YouTube",
+            "src": "https://www.youtube.com/embed/MDOl3gqcu2Q",
+            "description": "Pour les établissements médicaux MedPoints&#8482; est une source de nouveaux clients réguliers. Il s'agit d'un logiciel pratique et simple qui combine les fonctions de prise de rendez-vous, d'enregistrement et de stockage des données du client."
+        },
+        "possibilities": {
+            "title": "Caractéristiques clés du système",
+            "description": "<h3>Recherche</h3><p>Le choix de la meilleure institution médicale est la première tâche que nous essayons de résoudre. Pour ce faire, dans notre système nous avons prévu un mécanisme de recherche à plusieurs niveaux pour un certain nombre de variables. Tout participant peut trouver un spécialiste , un établissement ou un service médical qui correspond à ses besoins spécifiques.</p><p>Nous fournissons plusieurs directions de recherche d’un bon spécialiste:</p><ul><li><i class=‘fas fa-check '></i> par emplacement (pour les clients qui recherchent des cliniques plus proches de leur emplacement); </li> <li><i class='fas fa-check' > </i> par direction (pour les clients qui choisissent le meilleur rapport qualité/prix); </li> <li><i class='fas fa-check '></i> par le nom de l'établissement ou le nom du médecin (recherche intuitive dans toute la base de données des spécialistes; généralement ces clients viennent sur la recommandation ou veulent vérifier la réputation de quelqu'un); </li> <li><i class=‘fas fa-check ‘></i> selon la liste des services fournis;</li> <li><i class=‘fas fa-check ‘></i> selon le guide pharmacologique;</li> <li><i class=‘fas fa-check ‘></i> selon les symptômes (dans les projets de développement).</li></ul><p> Pour un affichage plus précis des résultats dans chaque section du site, les paramètres de filtrage sont disponibles séparément.</p><br /><h3>Classement</h3><p> Le classement est le deuxième facteur le plus important lors du choix d'une clinique, nous avons donc mis en évidence plusieurs aspects de sa formation.</p><p>Le classement de l’établissement médical, du médecin ou de la pharmacie est formé sur la base des évaluations que le patient donne au moment de la publication de son commentaire. Ce n'est qu'après la clôture du contrat de réservation intelligente que l'utilisateur a la possibilité d'ajouter des commentaires au système. Cela exclut la possibilité d'ajouter des commentaires artificiels.</p><p>Afin d'augmenter la pertinence des évaluations, l'ajout d'un commentaire sur la visite et la qualité des services chez un spécialiste ou dans une clinique concernée est obligatoire pour le patient après chaque visite.</p><p>Le Classement général du médecin est divisée en 4 composantes: </p><ul><li> <i class=‘fas fa-check ‘></i> connaissances du spécialiste; </li> <li><i class=‘fas fa-check ‘></i> compétences pratiques; </li> <li> <i class=‘fas fa-check ‘></i> attention au patient; </li> <li><i class=‘fas fa-check ‘></i> le rapport prix/qualité de service.</li></ul><p>Le Classement de l'établissement est basé sur: </p>< ul> <li> <i class=‘fas fa-check ‘></i> l’accessibilité; </li> <li> <i class=‘fas fa-check ‘></i> le niveau de service; </li> <li> <i class=‘fas fa-check ‘></i> la pureté; </li> <li><i class=‘fas fa-check ‘></i> le rapport qualité/prix. </li></ul><p> Le Classement de la pharmacie est basée sur: </p><ul> <li> <i class=‘fas fa-check ‘></i> le niveau de service; </li> <li> <i class=‘fas fa-check ‘></i> le rapport qualité/prix. </li></ul><p> Le système de commentaires avec le classement crée une concurrence saine et encourage les spécialistes et les établissements à lutter pour la fidélité de chaque patient. En conséquence, un niveau plus élevé de services est créé.</p><p> La communauté d'utilisateurs décentralisée est une garantie de commentaires honnêtes, par conséquent, il est avantageux pour les établissements de fournir des services de qualité avec une attitude respectueuse envers le patient.</p><p> Afin d'éliminer les établissements de réputation douteuse, nous avons prévu un mécanisme qui exclut une clinique ou une entreprise pharmacologique du réseau s’ils sont classés en dessous d'une valeur seuil. Après le retrait, la clinique ou la pharmacie ne pourra pas demander le partenariat pendant 1 an. Un tel mécanisme incitera les établissements médicaux à fournir uniquement des services de haute qualité avec un niveau élevé de services à la clientèle. Après un an, l'établissement médical exclu peut déposer une nouvelle demande de participation au système. Ce temps est prévu car souvent cette période est suffisante pour changer complètement le personnel de l'établissement, et une nouvelle équipe peut faire ses preuves en repartissant d’une page blanche.</p><p> Le fait que toute action d'un professionnel puisse affecter à l'avenir le classement de tout établissement encourage les participants au système à atteindre un nouveau niveau de qualité de services et à réduire ainsi le risque d'erreurs fatales dues à la négligence.</p><p> Les établissements médicaux participant aux programmes d'assurance et à la collecte de fonds pour les personnes dans le besoin reçoivent de points supplémentaires pour le classement. Ce programme est mis en œuvre dans le but d'attirer autant de partenaires que possible vers un modèle financier actif de règlements mutuels pour la fourniture de services médicaux au sein du système.</p><br /><h3>Réservation</h3><p> Après que l'utilisateur a choisi une clinique et/ou un médecin, il peut:</p><ul> <li> <i class=‘fas fa-check ‘></i> choisir la date qui lui convient dans le calendrier d'un spécialiste concerné et prendre rendez-vous; </li> <li> <i class=‘fas fa-check ‘></i> réserver des fonds pour la prestation de service/services. </li></ul><p> Après avoir confirmé la réservation et l'heure de rendez-vous par la clinique, le système forme un contrat intelligent pour la prestation de services et crée une inscription dans le calendrier personnel dans l’espace personnel de l'utilisateur.</p><p> Après avoir obtenu le service, le patient peut confirmer sur place le transfert des points MedPoints™ sur le compte de la clinique via l'application mobile ou le site Web.</p><p> Si nécessaire, l'établissement médical peut en outre demander l'accès aux données médicales du patient. C’est l’utilisateur qui choisit lui-même les enregistrements à ouvrir.</p><p> Nous prévoyons de stimuler le paiement avec des points MPT grâce au système flexible de bonus, incluant des remises pour les visites répétées dans l’établissement concerné, et des offres de prix spéciales des partenaires du système.</p><br /><h3>Le système de règlements</h3><p> S’il s’agit des règlements transnationaux, la question de la disponibilité d'instruments de paiement pratiques et fiables est particulièrement aiguë. L'inflation, le ratio des taux de change et les régulateurs nationaux ne font qu'exacerber le problème. </p><p> L'expérience du Bitcoin et la technologie blockchain ont déjà prouvé qu'ils peuvent aider à résoudre ce problème. Actuellement, il existe plus de 1 500 monnaies numériques avec leurs avantages et leurs inconvénients. </p><p> MedPoints™ inclut sa propre unité de paiement – un point MPT égal à un token du même nom. </p><p> Les caractéristiques du MPT sont:</p><ul> <li> <i class=‘fas fa-check ‘></i> l'absence de commission fixe et le calcul automatique en fonction de la quantité de données transférées; </li> <li> <i class=‘fas fa-check ‘></i> la vitesse de transaction élevée, assurée par les soi-disant couloirs - le paiement des services ne se produit qu'après la clôture du contrat intelligent, qui, à son tour, peut comprendre plusieurs séances d’alimentation du bilan et de règlement des services de la clinique; </li></ul><p> Chaque composant du réseau, y compris le site Web, l'application et le programme pour les établissements médicaux, a des porte-monnaies intégrés dans lesquels le solde de l'utilisateur, mais également l'historique complet des transactions sont affichés en temps réel.</p>< br /><h3> La numérisation des enregistrements médicaux</h3><p> Le système MedPoints™ permet aux patients de numériser et de stocker les enregistrements médicaux dans n'importe quel format. </p><p> Le chiffrement des données à toutes les étapes garantit que seul le propriétaire de l'enregistrement y a pleinement accès, ce qui est une condition essentielle pour garantir la confidentialité et la sécurité des documents stockés. </p><p> Chaque enregistrement fait partie d'un livre distribué et ne peut pas être modifié ou falsifié. </p><p> Divers prestataires de soins de santé peuvent demander l’accès au dossier médical d’un patient. Le patient peut autoriser l'accès au dossier médical complet ou à un nombre limité d’enregistrements. Associé à la possibilité de définir des périodes d'autorisation pour des organismes concernés, cet outil offre à chaque patient de nombreuses fonctionnalités pour gérer ses dossiers médicaux numérisés. </p><p> Le système optimise automatiquement les fichiers téléchargés au format png et jpg/jpeg. Les images optimisées pèsent nettement moins que les originaux, ce qui affecte positivement le coût de la numérisation et encourage les patients à télécharger autant de données que possible à partir de leur dossier médical.</p>"
+        },
+        "beneficial": {
+            "title": "Rentable <strong>pour les investisseurs </strong >",
+            "description": "Pour les investisseurs de MedPoints&#8482; il s'agit du droit d'accès au MPT, garanti par de l'argent réel reçu des nouveaux membres et des utilisateurs réguliers. Tout membre de la plateforme dont le solde dépasse la limite peut devenir investisseur et recevoir des intérêts de chaque transaction dans le système."
+        }
+    },
+
+    "faq": {
+        "thanks": "<h3> Nous vous remercions pour votre question. Nos responsables vous contacteront bientôt </h3>",
+        "asqQuestion": "Posez votre question",
+        "name": "votre nom",
+        "email": "Votre email",
+        "text": "Entrez votre question",
+        "send": "Envyer la question",
+        "aboutProject": "A propos du projet ",
+        "projectQuestions": "<h4> Qu'est-ce que MedPoints&#8482;?</h4><div> MedPoints&#8482; est un service décentralisé pour trouver des médecins et prendre rendez-vous avec eux. Nous aidons nos visiteurs à choisir un bon spécialiste au meilleur endroit pour eux.</div ><h4> Est-ce que MedPoints&#8482; est une clinique?</h4><div>Non , MedPoints&#8482; est un service où vous pouvez trouver une clinique qui vous convient et prendre rendez-vous. MedPoints&#8482; ne fournit pas de services médicaux.</div><h4> Puis-je prendre rendez-vous avec tout médecin?</h4><div> Oui, c’est possible si un tel spécialiste a déjà été ajouté par une clinique partenaire. La base de données du service est mise à jour quotidiennement avec de nouveaux membres.</div><h4>MedPoints&#8482; est-il gratuit pour les patients?</h4><div>; MedPoints&#8482; est une plate-forme de registre distribuée, afin de maintenir sa fonctionnalité, il est nécessaire de prélever une commission pour certaines actions sur le site. Ces dépenses des patients sont compensées par des offres de prix spéciales des partenaires du système.</div><h4 >Combien coûte le service de rendez-vous avec le médecin via MedPoints&#8482;?</h4><div> Le coût d'un rendez-vous avec le médecin dépend de la clinique dans laquelle il travaille. Pour notre part, nous garantissons que nous ne surestimerons pas le prix des services et que les prix correspondent aux prix officiels des cliniques.</div><h4> Puis-je ajouter mon enfant?</h4><div>Oui, vous pouvez ajouter les données sur votre enfant, mais lorsque vous visitez un médecin, vous devez avoir tous les documents nécessaires confirmant que vous êtes l'un des parents ou le tuteur officiel.</div>",
+        "aboutStoring": "A propos du stockage de données",
+        "storingQuestions": "<h4> Comment les informations personnelles sont-elles stockées?</h4><div>Vos informations personnelles sur les antécédents médicaux et les transactions sont stockées sous une forme distribuée, pas sur votre téléphone ou autre logiciel. Personne sauf vous ne peut lire ni modifier vos données.</div><h4>Comment puis-je accéder à mon compte?</h4><div>Lors de l'inscription sur la plateforme, 2 clés seront générées pour vous, avec lesquelles vous pourrez accéder à votre compte. Gardez ces informations confidentielles et ne les divulguez à personne. La décentralisation ne prévoit pas la restauration de l'accès au moyen de demandes d'assistance, car personne, y compris les développeurs, n'a accès à ces données.</div><h4>Combien de temps conservez-vous les données des patients?</h4><div>Vos informations sont stockées jusqu’à ce que votre compte est actif dans le système. Une fois le compte est supprimé, toutes les informations personnelles sont également supprimées et ne seront plus disponibles après la formation d'un nouveau bloc de données dans la chaîne.</div><h4>Mes données sont-elles disponibles à des tiers?</h4><div> MedPoints&#8482; ne peut pas et n’échangera pas vos données avec qui que ce soit",
+        "aboutBooking": "À propos des rendez-vous",
+        "bookingQuestions": "<h4> Comment choisir un médecin sur MedPoints&#8482;?</h4><div>Nous offrons plusieurs options de recherche pour les professionnels et des questionnaires détaillés avec des évaluations et des commentaires honnêtes. Vous pouvez choisir un médecin qui répond à vos critères. Vous pouvez filtrer la liste selon l'expérience et le coût de la visite. Vous pouvez également trier les spécialistes selon les critères d'admission à domicile et/ou de soins pour enfants.</div><h4>Comment le rendez-vous chez le médecin est-il payé?</h4><div>Le rendez-vous chez le médecin est payé dans le cadre du contrat interactif de services de la clinique. Il peut ne pas inclure de services supplémentaires qui seront nécessaires lors d'une visite à la clinique.</div><h4>Comment puis-je laisser un commentaire?</h4><div>Le système de retour d’expérience est requis pour chaque patient. Il peut s'agir de quelques mots ou simplement d'un signe plus. Pour nous, il est important que chaque spécialiste et chaque clinique dispose du plus grand nombre de commentaires possible afin de créer l'évaluation la plus précise des services qu'ils fournissent.</div><h4>La confirmation de la clinique arrive-t-elle vite?</h4><div>La vitesse de traitement d'une demande dépend de plusieurs facteurs:<ul><li> Trafic dans le réseau de registres distribués</li><li> Nombre d'opérateurs actifs de la clinique</li><li>Heure de visite (les horaires des établissements médicaux peuvent être différents de votre fuseau horaire)</li></ul>La combinaison de ces facteurs affecte la vitesse de confirmation des rendez-vous et peut prendre de 5 minutes à 24 heures.</div><h4>Comment ajouter une plainte à la clinique?</h4><div>Nous n’examinons pas les plaintes en privé, mais vous pouvez laisser le commentaire avec une évaluation correspondante, et si le classement de la clinique descend en dessous de la ligne rouge, elle sera automatiquement exclue de la base de données pour 1 an.</div>",
+        "aboutPartnership": "A propos du partenariat",
+        "partnershipQuestions": "<h4> Comment puis-je ajouter un médecin?</h4><div>Pour vous inscrire en tant que médecin ou tout autre professionnel de santé dans le système, vous devez être membre du personnel de la clinique enregistrée au système, car seules les cliniques peuvent ajouter le personnel et les services médicaux.</div><h4>Comment enregistrer une clinique et/ou un centre médical?</h4><div>Toute clinique, quelle que soit sa situation géographique, peut faire partie du système MedPoints&#8482;, il suffit de télécharger le logiciel pour un système d'exploitation spécifique sur l'ordinateur de la clinique, passer la vérification et entrer les informations la concernant, la liste des divisions, des médecins et des services offerts. Le processus d'ajout implique l'importation de données du tableau xml.</div><h4>La clinique a-t-elle besoin d'un compte?</h4><div>Lors de l'activation du logiciel sur votre ordinateur, un porte-monnaie sera automatiquement créé et utilisé pour payer les services de la clinique. Vous n'avez pas besoin d’alimenter en plus le solde.</div><h4>Combien coûte le service?</h4><div>Tous les partenaires paient des fonds de leurs ordinateurs, car toutes les transactions sont traitées par eux. Des investissements supplémentaires des cliniques, des entreprises pharmacologiques et de leurs bureaux de représentation ne sont pas nécessaires.</div><h4>Bloquez-vous des comptes? Comment l’éviter?</h4><div>Le compte ne peut être bloqué que dans un seul cas - si le classement de la clinique descend en dessous de la ligne rouge. La réinscription d'un tel établissement médical ne sera possible qu'après 1 an.</div><h4>Pourquoi les comptes exclus seront-ils à nouveau disponibles après 1 an?</h4><div> Le marché des services médicaux est un domaine d'activité dynamique, et en 12 mois non seulement la direction, mais aussi le personnel de l'établissement peuvent changer, ce qui donne aux nouveaux membres le droit de faire leurs preuves dans le système;</div>",
+        "aboutPrescriptions": "A propos des prescriptions",
+        "prescriptionsQuestions": "<h4> Puis-je obtenir une vraie prescription?</h4><div>En vertu des accords valables et des lois en vigueur sur le commerce des médicaments, nous ne pouvons pas assurer à 100% la fonction d'obtention des prescriptions valides dans toutes les pharmacies. Cependant, à mesure que le réseau s'élargit, le nombre d'établissements médicaux en interaction augmentera et, par conséquent, vous aurez la possibilité d'utiliser votre prescription virtuelle dans plus de réseaux pharmacologiques.</div><h4>Les prescriptions sont-elles confidentielles?</h4><div>L’information sur votre prescription est disponible à vous, au prescripteur et à l'établissement médical où il travaille. Personne d'autre n'a accès aux informations sur vos prescriptions.</div><h4>Quelles prescriptions un médecin peut-il faire?</h4><div>Dans le cadre des prescriptions numériques, le médecin peut vous donner une prescription de tout médicament, sauf le groupe de substances narcotiques et de médicaments expérimentaux.<br /><sup>*</sup>La circulation de toutes les substances narcotiques est réglementée par la législation en vigueur du pays de résidence.<br /><sup>*</sup> Nous n’offrons la possibilité de recevoir des prescriptions électroniques qu’aux patients âgés de plus de 18 ans.</div>»",
+        "aboutGeneral": "Questions générales",
+        "generalQuestions": "<h4> Comment puis-je payer pour les services?</h4><div>Nous acceptons toutes les principales cartes de crédit et virements via PayPal pour alimenter votre compte dans le système.</div><h4>Puis-je utiliser le système pour les soins d'urgence?</h4><div> A MedPoints&#8482; nous avons essayé de créer une plateforme avec le traitement le plus rapide possible des demandes à des médecins spécialistes, cependant, il y a plusieurs paramètres variables dans ce canal de communication qui ne sont pas directement liés à la plateforme, donc si vous pensez que votre problème nécessite des soins d'urgence, nous vous conseillons de contacter le service médical d’urgence et, si possible, d’appeler une ambulance.</div><h4>Quels médecins travaillent dans le système?</h4><div>Tous les médecins dont les profils sont disponibles dans le système MedPoints&#8482; sont des médecins spécialistes certifiés ayant un emploi officiel dans l'une des cliniques partenaires.</div><h4>Comment puis-je communiquer avec le médecin dans une autre langue?</h4><div> Pour le moment, le système fonctionne en plusieurs langues. Quant à la communication en direct, la plateforme ne fournit pas de services de traduction. Au moins pour l'instant.</div>"
+
+    },
+
+    "explorer": {
+        "latestBlocks": "Historique des blocs",
+        "height": "Niveau",
+        "age": "Date",
+        "transactions": "Transactions",
+        "latestTransactions": "Transactions les plus récentes",
+        "hash": "Hashtag"
+    },
+
+    "existingCustomer": "Client existant? <a href='#' data-toggle='modal' data-target='#login'> Cliquez ici pour vous connecter</a>",
+    "welcome": "<strong>Bienvenue!</strong> Nous avons créé pour vous un identifiant et une clé d'autorisation unique sur la plateforme.",
+    "success": "Le rendez-vous a été fixé. Vous recevrez d’autres notifications par e-mail.",
+
+    "booking": {
+        "form": {
+            "firstName": "Prénom",
+            "lastName": "Nom",
+            "sex": "Sexe",
+            "sexTypes": {
+                "male": "Masculin",
+                "female": "Féminin"
+            },
+            "dateOfBirth": "Date de naissance",
+            "selectServiceAndClinic": "Sélectionner le service et la clinique",
+            "service": "Service",
+            "bookingDate": "Date de rendez-vous",
+            "clinic": "Clinique",
+            "addAnEmail": "Ajoutez une adresse e-mail si vous souhaitez recevoir des notifications",
+            "email": "Adresse e-mail",
+            "confirmEmail": "Confirmer l’adresse e-mail",
+            "acceptTermsOfUse": "J’accepte",
+            "termsOfUse": "<a href='/terms-of-use' target='_blank'> Conditions d'utilisation du site</a> et<a href='/privacy-policy'>Politique de confidentialité</a>",
+            "confirmBooking": "Confirmer le rendez-vous et le paiement"
+        },
+        "selectServiceAndDate": "Sélectionnez le service et les informations sur la réservation pour voir les détails de rendez-vous"
+    },
+
+    "account": {
+        "login": "Vous devez vous connecter ou vous inscrire pour voir les informations de votre compte",
+        "loginButton": "Se connecter",
+        "registerButton": "S’inscrire",
+        "saveChanges": "Sauvegarder les modifications",
+        "success": "Vos informations de compte ont été mises à jour.",
+        "noAppointments": "Vous n'avez pas de rendez-vous actuels",
+        "noRecords": "Vous n'avez pas de cartes actuels ",
+        "addRecord": "Ajouter une carte",
+        "addRecordPage": {
+            "uploadHint": "Vous pouvez télécharger les fichiers en formats: doc, pdf, txt, jpg, jpeg, png, xml",
+            "maxSize": " Taille maximale du fichier: 1Mo",
+            "addMore": "Ajouter plus de fichiers",
+            "file": "Fichier",
+            "addedFiles": "Fichiers ajoutés",
+            "maxNumFiles": "10 maximum",
+            "chooseFile": "Sélectionner un fichier...",
+            "browse": "Parcourir"
+        },
+        "modals": {
+            "chooseDoctor": {
+                "title": "Actions supplémentaires requises",
+                "text": "<p>Pour créer une nouvelle visite, vous devez prendre rendez-vous avec le médecin. Pour ce faire, procédez comme suit: </p><ul class =\"custom-list\"><li>Accédez au <a href =\"/services\">\"Services\"</a> </li><li> Recherchez le service que vous souhaitez recevoir et appuyez sur \"médecins\". </li><li> Appuyez sur\"Prendre rendez-vous\". </li><li> Introduisez les données requises dans le formulaire et organisez une visite. </li></ul>"
+            }
+        },
+        "sidebar": {
+            "appointments": "Visites chez le médecin",
+            "records": "Cartes",
+            "addRecord": "Ajouter une carte",
+            "addBalance": "Ajouter un compte",
+            "support": "Assistance",
+            "favourites": "Favoris",
+            "addTicket": "Ajouter un appel",
+            "editProfile": "Editer le profil"
+        }
+    },
+
+    "categories": {
+        "clinics": "Cliniques",
+        "pharmacies": "Pharmacies",
+        "doctors": "Médecins"
+    },
+
+    "rates": {
+        "subtitle": "Échangez une autre devise contre MPT sur votre compte",
+        "form": {
+            "addBalanceButton": "Ajouter à votre solde",
+            "calculateExchangeRate": "Calculer le taux de change",
+            "numberOfMpt": "Quantité de MPT",
+            "currency": "Devise",
+            "amount": "Montant",
+            "currencies": {
+                "btc": " Bitcoin",
+                "eth": "Ethereum",
+                "xrp": "Ripple",
+                "bch": "Monnaies Bitcoin",
+                "ltc": "Litecoin"
+            }
+        }
+    },
+
+    "insurance": {
+        "imgPath": "img/insurance-ru.svg",
+        "textBeforeImg": "<p> Le système de points d'assurance de la plateforme MedPoints™ est un analogue de l'assurance maladie volontaire et permet aux citoyens de recevoir des services supplémentaires en plus des programmes d’AMO, mais avec les fonds personnels déduits volontairement des porte-monnaies internes.</p><p>   Le système de points d'assurance du réseau MedPoints™ est un protocole au sein duquel, grâce aux contributions régulières des utilisateurs, un fonds d'assurance est constitué que le patient peut dépenser pour les services spécifiés dans le cadre d'un contrat intelligent avec un établissement médical. Le paiement des services s’effectue du fonds général du système.</p><p>    La liste des cas spécifiques, services et lieux de leur prestation est établie individuellement, sur la base d'accords avec les établissements médicaux, leurs bureaux de représentation territoriaux et juridiques. </p> <p>    L’assirance médicale volontaire selon le programme MedPoints™ permet à tous ses membres d'échanger des points cumulatifs MPT contre des services des établissements médicaux du monde entier.</p> <p>    Seules les particuliers de plus de 18 ans peuvent adhérer au programme.</p><p>    Tout utilisateur avec le solde suffisant pour adhérer au programme d'assurance médicale, choisit lui-même les événements assurés qui seront spécifiés dans le contrat intelligent.</p><p>     En cas de survenue d’un événement assuré les services sont fournis par les établissements médicaux participant au programme de points d'assurance sur la plateforme MedPoints™.</p><p>    La police d'assurance dans le programme MedPoints™ est un contrat intelligent en vertu duquel les services sont fournis.</p><p>      Les modalités et le montant des contributions sont également spécifiés dans le contrat intelligent et dépendent du nombre d'événements d'assurance choisis par l'utilisateur.</p><p>   Le contrat intelligent de services d'assurance médicale est valable jusqu'au moment de l'événement assuré ou jusqu'à la cessatin de la réception des primes d'assurance.</p><p>    L'assurance médicale n'est pas valable en cas de décès d'un participant au programme. </p><p>     L'objet du système est un participant au système d'assurance maladie, sa santé et sa capacité. </p><p>     Un événement assuré est une maladie, blessure, accident concret, état particulier (grossesse, période post-partum, soins aux malades etc.) inclus dans le programme d'assurance. </p><p>    Le programme d'assurance est une liste des événements d'assurance à payer des points des fonds d'assurance. </p><p>   Le programme d'assurance MedPoints™ est confirmé par des accords directs avec des représentants des établissements médicaux et est réglementé dans le cadre des règles du système, ainsi que de la législation en vigueur du pays de séjour. </p><p>      La police d'assurance dans le système est un contrat intelligent, en vertu duquel les paiements sont effectués pour chaque cas spécifique. </p><h5>Un contrat intelligent doit inclure: </h5><ul>    <li><i class=‘fas fa-check‘></i> Nom, prénom, patronyme/li>   <li><i class=‘fas fa-check‘></i> Sexe </li>    <li><i class=‘fas fa-check‘></i> Âge </li>    <li><i class=‘fas fa-check‘></i> Adresse de l'assuré </li>   <li><i class=‘fas fa-check‘></i> Durée du contrat </li>    <li><i class=‘fas fa-check‘></i> Liste des événements d'assurance </li> </ul><h5>Les avantages pour les patients: </h5><ul>        <li><i class=‘fas fa-check‘></i> Garantit les soins médicaux qualifiés grâce aux fonds accumulés dans le cadre du programme d'assurance   </li>    <li><i class=‘fas fa-check‘></i> Permet de recevoir des services médicaux dans n'importe quelle clinique du monde</ li >   <li><i class=‘fas fa-check‘></i> Offre des prix spéciaux des établissements médicaux</li>    <li><i class=‘fas fa-check‘></i> Apprend à être responsable de l’état de santé, ainsi que crée des conditions d'intérêt pour sa préservation et son renforcement</li></ul><h5>Les avantages pour les établissements de santé:</h5><ul>    <li><i class=‘fas fa-check‘></i> Garantit le paiement des frais liés à la prestation de soins médicaux aux citoyens assurés</li>    <li><i class=‘fas fa-check‘></i> Crée un intérêt économique dans les résultats de leur travail</li></ul><h5> Les avantages pour tous</h5><ul>    <li><i class=‘fas fa-check‘></i> Les montants des primes d'assurance sont de nature contractuelle et fixées à l’accord des parties</li>    <li><i class=‘fas fa-check‘></i> La décentralisation du système d'assurance médicale élimine tous les risques possibles liés à l'implication d'un tiers dans le canal 'médecin – patient.' Toutes les interactions entre les établissements médicaux sont régies par les règles générales du réseau et sont strictement fixées dans un contrat intelligent</li>    <li><i class=‘fas fa-check‘></i> La démonopolisation du système de santé public</li>    <li><i class=‘fas fa-check‘></i> L’assurance de la participation au système d'assurance médicale des prestataires de services médicaux quelle que soit leur forme de propriété</li></ul>",
+        "textAfterImg": "<p>    Certains services de soins aux patients (non décrits dans le contrat intelligent) ne sont pas couverts par les points accumulés dans le cadre du programme d'assurance MedPoints™.</p><p>Ces services incluent: </p><ul>    <li><i class='fas fa-check'></i> Les examens de son propre chef</li>   <li><i class='fas fa-check'></i> Mesures de diagnostic et de prévention anonymes</li>   <li><i class='fas fa-check'></i> Procédures effectuées à domicile   </li>    < li><i class='fas fa-check'></i> Vaccinations préventives à la demande des citoyens</li>   <li><i class='fas fa-check'></i> Traitement au sanatorium</ li>    <li><i class='fas fa-check'></i> Services de cosmétologie</li>    <li><i class='fas fa-check'></i> Prothèses dentaires</li>   <li><i class='fas fa-check'></i> Formation de compétences infirmières</li>   <li><i class='fas fa-check'></i> Services supplémentaires</li></ul><p>   Le système encourage les membres du programme d'assurance à reconstituer régulièrement le fonds par attribution des points supplémentaires. </p> "
+    },
+
+    "weekdays": {
+        "monday": "Lundi",
+        "tuesday": "Mardi",
+        "wednesday": "Mercredi",
+        "thursday": "Jeudi",
+        "friday": "Vendredi",
+        "saturday": "Samedi",
+        "sunday": "Dimanche"
+    },
+
+    "tooltips": {
+        "participantInsurance": "Membre du programme de points d'assurance",
+        "participantHelp": "Membre du programme du fonds d’assistance",
+        "transfer": "Fournit un transfert aéroport",
+        "bus": "Service de bus disponible",
+        "parking": "Stationnement gratuit disponible"
+    },
+
+    "blogs": [
+        {
+            "id": 1,
+            "title": "Améliorations cosmétiques sur le site",
+            "slug": "1-making-cosmetic-improvements-to-the-site",
+            "shortText": "Après une longue pause associée à la chute du marché des crypto-monnaies, notre équipe a repris le travail actif sur le projet. Pendant la période où chacun de nous était engagé dans des projets parallèles, nous avons réussi à nous reposer (dans le bon sens) de MedPoints et à avoir une nouvelle vision sur nombreux aspects du système.",
+            "text": "Après une longue pause associée à la chute du marché des crypto-monnaies, notre équipe a repris le travail actif sur le projet. Pendant la période où chacun de nous était engagé dans des projets parallèles, nous avons réussi à nous reposer (dans le bon sens) de MedPoints et à avoir une nouvelle vision sur nombreux aspects du système.<br /><br />Nous avons identifié quelques bugs mineurs dans le système et amélioré la convivialité du site. Nous avons également travaillé sur la localisation du Site et corrigé les bugs dans la partie utilisateur. <br /><br /> La 'Tendance haussière' actuelle sur le marché des crypto-monnaies nous permet aujourd'hui de passer plus de temps à travailler sur un projet que nous considérons tous comme l'un des plus importants dans notre carrière. Nous espérons que vous le trouverez intéressant et vous nous soutiendrez sur l’étape de conception et de développement du système."
+        },
+        {
+            "id": 2,
+            "title": "Fin des travaux de la partie utilisateur du projet",
+            "slug": "2-finishing-of-the-project-front",
+            "shortText": "Aujourd'hui, nous avons terminé le développement de la partie utilisateur du projet. Nous avons essayé de le rendre simple et fonctionnel. Nous avons accordé une attention particulière à la possibilité de changer la taille de la police sur les pages du Site, ce qui permettra aux personnes ayant des problèmes de vision de travailler avec le système sans aucune difficulté.",
+            "text": "Aujourd'hui, nous avons terminé le développement de la partie utilisateur du projet. Nous avons essayé de le rendre simple et fonctionnel. Nous avons accordé une attention particulière à la possibilité de changer la taille de la police sur les pages du Site, ce qui permettra aux personnes ayant des problèmes de vision de travailler avec le système sans aucune difficulté.<br />Le travail sur la partie comprenait les étapes suivantes:<ol><li>1. Recherche<br /><div style='padding: 1em;'> À ce stade, une étude théorique et la sélection d'outils, de technologies et de bibliothèques ont été réalisées. Un schéma fonctionnel de la future conception a été développé.</div></li><li>2. Conception de l'architecture des services REST<br /><div style='padding: 1em;'> La base de données a été connectée.<br />Les principales dépendances du projet ont été ajoutées.<br />L'infrastructure de base a été configurée.<br />La base de données pour le projet de blockchain a été sélectionnée.<br /></div></li><li>3. Création d'un modèle de la partie client<br /><div style='padding: 1em;'>Un modèle et une logique d'interaction de l'utilisateur avec le système ont été développés, un modèle d'interface client en ligne a été créé.<br />Si vous avez des questions ou des suggestions à propos du système, veuillez nous écrire sur les canaux officiels du projet.</div></li></p>"
+        },
+        {
+            "id": 3,
+            "title": "Fin du développement de serveur MVP",
+            "slug": "3-end-of-development-of-the-mvp-back-end",
+            "shortText": "Pour démontrer l'efficacité de l'idée de prise de rendez-vous chez le médecin avec le contrat intelligent, nous avons créé un système de démonstration avec un nombre suffisant de fonctions pour tester notre propre protocole de blockchain.",
+            "text": "Pour démontrer l'efficacité de l'idée de prise de rendez-vous chez le médecin avec le contrat intelligent, nous avons créé un système de démonstration avec un nombre suffisant de fonctions pour tester notre propre protocole de blockchain.<br />Le travail sur le back-end comprenait:<br /><ol><li> 1. La programmation des couches architecturales et de service du bloc<br /><div style='padding: 1em;'> À ce stade, l'architecture de base du niveau blockchain a été créée. Les couches de base de données, les communications réseau connectées et blocs ont été ajoutés.<br /></div><li>2. La programmation de la logique métier et l’implémentation du client utilisateur.<br /><div style='padding: 1em;'> À ce stade, l'intégration du service REST et de la blockchain a été effectuée. Les travaux de création de client et de son intégration avec le service REST ont été commencé.<br /></div></li><li>3. L’importation des données de démonstration<br /><div style='padding: 1em;'>Des informations ont été collectées et des modules ont été développés pour importer des données de démonstration. Les filtres ont été connectés au répertoire externe.<br /></div></li>Si vous avez des questions ou des suggestions à propos du système, veuillez nous écrire sur les canaux officiels du projet.</p>"
+        },
+        {
+            "id": 4,
+            "title": "Lancement d'une version de démonstration du projet blockchain",
+            "slug": "4-running-the-demo-version-of-blockchain",
+            "shortText": "Aujourd'hui, nous avons le minimum de fonctionnalités requises de notre propre chaîne de blocs, qui permet de prendre rendez-vous avec un spécialiste sous forme d'un contrat intelligent.",
+            "text": "Aujourd'hui, nous avons le minimum de fonctionnalités requises de notre propre chaîne de blocs, qui permet de prendre rendez-vous avec un spécialiste sous forme d'un contrat intelligent.</p><p>À ce stade, la fonctionnalité du système exclut l'utilisation de logiciels par les établissements, de sorte que toutes les transactions se produisent sans paiement et en mode démo.</p><p>Les informations non directement liées à la réservation sont toujours stockées dans la base de données locale, mais dans à l'avenir, cette fonctionnalité sera également reconstruite pour un registre distribué.</p>"
+        },
+        {
+            "id": 5,
+            "title": "Lancement du navigateur de blocs",
+            "slug": "5-launching-the-blockchain-explorer",
+            "shortText": "Pour afficher les transactions dans un réseau d’essai, nous avons créé un navigateur de blocs en temps réel.",
+            "text": "Pour afficher les transactions dans un réseau d’essai, nous avons créé un navigateur de blocs en temps réel.<br /><br />Après avoir effectué une simple inscription et l’essai du système de prise de rendez-vous chez le médecin avec un contrat intelligent, vous pouvez immédiatement voir votre transaction dans le bloc.<br /><br />Un explorateur de chaîne de blocs a été développé pour suivre les transactions et démontrer la fonctionnalité de l'ensemble de modules regroupés.</p>"
+        }
+    ],
+
+    "addFavorites": "Ajouter aux Favoris",
+    "readMore": "lire plus",
+    "terms": "<p>En se connectant au site MedPoints&#8482; et en l'utilisant (notre ou ce 'Site'), vous acceptez les Conditions d'utilisation du site ci-dessous, qui peuvent être modifiées, ajustées et complétées à tout moment (ensemble, ces 'conditions'), ainsi que toutes les lois et les actes réglementaires applicables. Veuillez lire attentivement les conditions suivantes. Si vous n'êtes pas d'accord avec toutes les conditions, veuillez ne pas utiliser ce site ni aucune information, liens ni matériaux qu'il contient. La connexion et l'utilisation de ce site signifient que vous acceptez et vous engagez à respecter chacune des conditions énoncées ci-dessous, y compris notre politique de confidentialité, incorporée par référence dans ces conditions. Si vous utilisez notre site au nom de votre organisation, cela signifie que ladite organisation accepte ces conditions.</p><p>Ces conditions peuvent être modifiées, ajustées, complétées et mises à jour par MedPoints&#8482; («medpoints.online», «medpoints.io», «nous», «à nous» ou «notre») à notre discrétion à tout moment et sans préavis. Nous vous recommandons de vérifier régulièrement les mises à jour. Votre utilisation continue de ce site confirmera votre acceptation de ces conditions, qui peuvent être modifiées, ajustées, complétées et mises à jour par nous. Si vous n'acceptez pas ces conditions modifiées, vous devez cesser d'utiliser ce site et toutes informations, liens ou matériaux qu'il contient.</p><h2>L’utilisation du site</h2><p>Le but de notre site est de vous fournir des informations générales sur les logiciels conçus par MedPoints&#8482;. Vous ne devez violer aucune des conditions suivantes ni notre politique d'utilisation acceptable énoncée ci-dessous.</p><h2>Le logiciel Open Source</h2><p>Nous pouvons (mais ne sommes pas obligés) créer un code source pour le logiciel que nous avons conçu, disponible à télécharger en tant que logiciel open source. Vous vous engagez à respecter les termes de tout accord de licence applicable à ce logiciel open source. Vous n'indiquerez pas que vous êtes associé à nous dans le cadre de l'utilisation, de la modification ou de la distribution de ce logiciel open source.</p><p>Lorsque nous publions un logiciel sur nos ressources et vous fournissons un accès et la possibilité d'utiliser un tel logiciel par le biais de sites, y compris ce site, ces conditions s'appliqueront à cet accès et à cette utilisation, ainsi qu'à tout accord de licence que nous pouvons conclure avec vous.</p><h2>Les matériaux tiers</h2><p>Nous pouvons afficher le contenu tiers, la publicité, des liens, promotions, logos et autres documents présents sur ce site (ensemble «Matériaux tiers») seulement à titre indicatif. Nous n'approuvons, ni contrôlons, ni soutenons ni parrainons aucun tiers ni matériau tiers, nous ne faisons aucune déclaration ni donnons de garantie concernant ces matériaux tiers, y compris leur exactitude, validité, légalité, droits d'auteur ou la pertinence de ces documents. Votre utilisation de tout matériau tiers ou interaction avec des tiers fournissant des matériaux tiers ne concerne que vous et ces tiers, et nous ne sommes pas responsables de cette utilisation ni interaction. Nous ne sommes pas responsables des documents publiés sur des sites tiers qui renvoient vers notre site, ce qui n'implique pas non plus que nous consultions ou approuvions ces sites ou leurs matériaux, ni garantissons que les liens vers ces sites fonctionnent ou sont actuels.</p><h2>Les Matériaux d'utilisateur</h2><p>Si vous publiez, téléchargez, introduisez ou nous fournissez vos données personnelles, y compris votre nom, adresse e-mail, adresse IP, adresse de crypto-monnaie, texte, code ou autres informations et documents, vous inscrivez à notre newsletter ou créez un compte sur notre site Web (ensemble «Matériaux d’utilisateur»), vous devez vous assurer que les Matériaux d’utilisateur que vous fournissez sont toujours authentiques, exactes, à jour et complets, et que tous Matériaux d’utilisateur que vous publiez, téléchargez, inscrivez et nous fournissez ou transmettez via notre site, ne violent pas le droit de propriété intellectuelle d'un tiers. Nous ne possédons, ni contrôlons ni approuvons aucuns Matériaux d’utilisateur qui sont transmis, stockés ou traités via notre site ou qui nous sont envoyés, et nous ne sommes pas responsables des Matériaux d’utilisateur. Vous êtes seul responsable de tous les Matériaux utilisateur, ainsi que de votre utilisation des fonctions interactives, liens, informations ou matériaux sur notre site, vous déclarez et garantissez également que (i) vous possédez tous les droits de propriété intellectuelle (ou avez reçu toutes les autorisations nécessaires) pour fournir vos Matériaux d’utilisateur et émettre des licences en vertu de ces conditions; (ii) vos soumissions d'utilisateur ne violent aucun accord ou obligation de confidentialité; et (iii) vos Matériaux d’utilisateur ne porteront atteinte ni détourneront aucun droit de propriété intellectuelle ni autres droits de propriété, y compris le droit d'utilisation publique ou de maintenir la confidentialité de toute personne physique ou morale.</p><p>Vous portez l'entière responsabilité du maintien de la confidentialité de vos Matériaux d’utilisateur et de toute information privée vous concernant. De plus, vous êtes entièrement responsable de toutesles actions, sans exception, qui se produisent sous votre compte (le cas échéant). Vous acceptez de nous informer immédiatement de toute utilisation non autorisée de vos Matériaux d’utilisateur, de votre compte ou de tout autre cas d'atteinte à la sécurité. Nous ne sommes pas responsables des pertes ou dommages que vous pourriez subir du fait de l'utilisation par des tiers de vos Matériaux d’utilisateur ou de votre compte, avec ou sans votre accord. Cependant, vous pouvez être tenu responsable des pertes subies par les Parties MedPoints&#8482; (tel que défini ci-dessous) ou par une autre partie dans le cadre de l'utilisation de vos Matériaux d’utilisateur ou de votre compte. Vous ne pouvez pas utiliser les Matériaux ni le compte utilisateur tiers sans autorisation d'une telle personne ou organisme.</p><p>En publiant, téléchargeant, introduisant ou fournissant vos Matériaux d’utilisateur pour nous, vous fournissez à MedPoints&#8482;, ses filiales et les sous-licenciés nécessaires le droit non exclusif, universel, perpétuel et permission d'utiliser, reproduire, copier, éditer, modifier, traduire, reformater, créer des produits dérivés, distribuer, transmettre, afficher publiquement vos Matériaux d’utilisateur et de sous-licencier ces droits à des tiers.</p><p>Vous devez immédiatement mettre à jour et nous informer de toute modification apportée à vos Matériaux d’utilisateur en mettant à jour vos données personnelles en nous contactant à support@medpoints.online, ou en apportant des modifications à votre compte sur le Site, afin que nous puissions communiquer avec vous rapidement et vous fournir des informations exactes et à jour.</p><p>Bien que nous ne soyons pas tenus de vérifier, modifier ou contrôler les Matériaux d’utilisateur, nous nous réservons le droit de supprimer, vérifier ou modifier les Matériaux d’utilisateur à notre discretion. En outre, si nous avons des raisons de croire qu'il existe un risque d'atteinte à la sécurité, de piratage ou d'utilisation abusive de notre Site, ou si vous violez l'une de vos obligations conformément aux présentes conditions ou à la Politique de confidentialité, nous pouvons suspendre votre utilisation de ce Site à tout moment et pour quelque raison que ce soit.</p><p>Tous les Matériaux d'utilisateur que vous soumettez à ce Site peuvent être disponibles pour les moteurs de recherche du monde entier.</p><h2> Retour d'expérience</h2><p>Si vous décidez de poser des questions, placer des commentaires, des suggestions, des idées, des matériaux originaux ou créatifs ou d'autres informations (ensemble «Retour d’expérience»), vous le faites à votre discretion, et non{{localize req req 'ratings.basedOn'}} à notre demande ou forte recommandation. Le retour d’experience n'inclut pas de Matériaux d’utilisateur. Nous nous réservons le droit d'utiliser le retour d’expérience à n'importe quelle fin à titre gratuit et sans vous payer de rémunération. Ne nous fournissez pas de Retour d’expérience si vous vous attendez à être payé ou si vous souhaitez continuer à le posséder ou à revendiquer vos droits. Le but de ces conditions est d'éviter d'éventuels différends ou litiges, si les produits, services, idées ou stratégies commerciales MedPoints&#8482; peuvent sembler similaires aux idées qui nous sont fournies en tant que Retour d’expérience. Si vous décidez de nous faire part de votre Retour d’expérience, vous reconnaissez et comprenez que les Parties MedPoints&#8482; ne garantissons pas que votre Retour d’expérience sera traité comme confidentiel ou d’auteur.</p><h2>Les informations généralisées</h2><p>Nous pouvons collecter des informations et des statistiques d’une manière généralisée sur tous les visiteurs de ce Site, qui peuvent inclure les informations fournies par vous. Ces informations nous aident à développer et à organiser nos pages Web de manière conviviale pour l’utilisateur et à améliorer constamment notre Site afin de mieux répondre aux besoins des utilisateurs de notre Site. Nous pouvons partager ces données généralisées avec certains tiers afin de favoriser la réalisation de ces objectifs. Nous traitons les données personnelles conformément à notre Politique de confidentialité.</p><h2>La propriété intellectuelle</h2><p> MedPoints&#8482; et ses donneurs de licence se réservent tous les droits, la propriété et les droits de propriété sur ce Site et ses produits et services, y compris tous les droits d'auteur, brevets, secrets commerciaux, labels, autres droits de propriété intellectuelle, marques de commerce, logos, slogans, images graphiques originales, icônes de boutons, scripts, vidéo, texte, images, logiciels, code, fichiers, matériaux, informations et autres matériaux disponibles sur notre Site, et rien sur ce Site ne peut être copié, imité ou utilisé, en tout ou en partie, sans notre autorisation écrite préalable ou l'autorisation du donneur de licence concerné. MedPoints&#8482; se réserve tous les droits non expressément accordés.</p><p>Toute reproduction non autorisée est interdite.</p><p>Vous ne pouvez accéder, utiliser et imprimer les informations et documents sur ce Site qu'à des fins non lucratives ou une utilisation personnelle, à condition que vous ayez le droit d'accéder à ces informations ou matériau et laissiez inchangées toutes les indications de droit d'auteur et de propriété d'auteur.</p><p>Vous ne devez pas reproduire, adapter, stocker, transmettre, distribuer, imprimer, démontrer, mettre en production en série, publier ou créer autrement des produits dérivés à partir de n'importe quelle partie des matériaux, du format ou de la conception de ce Site.</p><p>Si vous souhaitez reproduire d'une manière ou d'une autre ou utiliser les matériaux de ce Site, vous devez obtenir notre autorisation pour une telle utilisation. Rien dans ces conditions ne peut être interprété comme attribution d’un droit ou d’une licence sur un brevet, une marque, un droit d'auteur ou d'autres droits de propriété de MedPoints&#8482 ou de tout tiers.</p><h2>La Politique d'utilisation acceptable</h2><p> Vous ne devez utiliser les matériaux ou les services fournis via ce Site que conformément à leur destination déclarée. Vous ne devez pas utiliser ce Site: </p><p> (a) pour publier, placer, envoyer, télécharger, soumettre, afficher ou diffuser toute information ou matériau et/ou pour fournir ou impliquer autrement à des activités illégales, discriminatoires, harcelantes, diffamatoires, déshonorantes, abusives, menaçantes, nuisibles, agressives, obscènes, illicites ou inacceptables d’une autre façon; </p><p> (b) pour afficher, télécharger ou transmettre du matériau qui encourage une conduite pouvant constituer une infraction pénale, engager une responsabilité civile ou violer autrement des lois, actes réglementaires ou codes applicables;</p><p> (c) en violation des droits légaux (tels que le droit à la confidentialité et à l’utilisation publique) de tiers ou empêcher les tiers d'utiliser ce Site; </p><p>(d) en violation des lois ou actes réglementaires applicables;</p><p>(e) d'une manière qui pourrait violer, nuire ou interdire l'utilisation de ce Site ou des liens vers ce Site d'autres utilisateurs, ainsi que ceelle qui peut endommager, désactiver, surcharger ou perturber le fonctionnement de ce Site ou de nos serveurs, ou de tout réseau connecté à l'un de nos serveurs, de quelque manière que ce soit;</p><p>(f) pour créer une fausse identité afin de tromper les autres ou de se faire passer illégalement pour une autre personne ou représentant d'une autre entreprise, y compris un utilisateur autorisé de ce Site ou représentant de MedPoints&#8482;, ou de tromper sur la relation avec toute personne, entreprise ou groupe;</p><p> g) pour nous induire en erreur ou désinformer nos représentants et des tiers qui peuvent s'appuyer sur les informations que vous fournissez, en fournissant des informations inexactes ou fausses, y compris par dissimulation des informations;</p><p>(h) pour cacher l'origine de tout matériau transmis par le biais des services fournis par ce Site (soit en falsifiant des messages/titres de paquets, soit en traitant autrement les informations d'identification habituelles);</p><p>(i) en violation ou pour détournement de tout droit de propriété intellectuelle ou industrielle de quelque nature que ce soit de tout tiers (tel que le droits d'auteur, marques commerciales, brevets ou secrets commerciaux ou autres droits de propriété de toute partie) ou pour commettre une infraction;</p><p> (j) pour télécharger des fichiers contenant des virus, chevaux de Troie, vers, bombes temporaires, simulateurs, fichiers endommagés ou tout autre logiciel ou programme similaire qui pourrait nuire au fonctionnement d'un autre ordinateur ou propriété;</p><p>(k) pour l'envoi, le téléchargement, l'affichage ou la distribution, ou la fourniture d'une autre manière de matériaux contenant ou liés à spam, courrier indésirable, toute publicité, lettres de bonheur, avertissements de virus (sans confirmation préalable de l'authenticité de l'avertissement) ou toute autre forme de publicité ou de matériel publicitaire non autorisé;</p><p>(l) pour accéder à tous matériaux, zones ou fonctions de ce Site qui sont interdits ou restreints pour vous, ou pour essayer de contourner ou déjouer les mesures utilisées pour empêcher ou limiter l'accès à tous matériaux, zones ou fonctions de ce Site;</p><p>(m) afin d’accéder illécitement ou de perturber les serveurs qui hébergent ce Site ou de fournir de services sur ce Site, ou tout autre serveur de tout réseau connecté, en violation des règles ou procédures associées à l'utilisation de ces serveurs;</p><p>(n) dans le but de tenter d'obtenir un accès non autorisé à tout service ou produit, à d'autres comptes, systèmes informatiques ou réseaux connectés à l'un de nos serveurs, par piratage, recherche de mot de passe ou toute autre méthode;</p><p>(o) dans le but d’obtenir ou de tenter d'obtenir de tous matériaux ou informations d'une manière qui n'a pas été expressément fournie par le biais de ce Site ou de ses services;</p><p>(p)pour collecter des données généralisées ou autres, des informations sur d'autres personnes, y compris des adresses e-mail, et/ou la distribution ou la vente de ces informations sous quelque forme que ce soit;</p><p>(q) dans le but d'utiliser de toute partie de ce Site à d'autres fins que prévu;</p><p>(r) dans le but d'utiliser ce Site pour engager toute activité ou la promouvoir en violation de ces conditions.</p><h2>Remboursement</h2><p>Dans tous les cas prévus par la loi, vous nous rembourserez, défendrez et donnerez décharge, ainsi qu’à nos anciens, actuels et futurs employés, dirigeants, administrateurs, entrepreneurs, consultants, actionnaires, fournisseurs, vendeurs, fournisseurs de services, sociétés contrôlantes, filiales, sociétés affiliées, agents, représentants, successeurs légaux, ayants droit et cessionnaires (ensemble «Parties 'MedPoints&#8482;») concernant et en relation avec toutes les réclamations, dommages, obligations, pertes, coûts et dépenses (y compris les honoraires d'avocat) découlant ou liés à: (i) votre accès à notre Site, produits ou services, ou leur utilisation; (ii) vos Matériaux d’utilisateur; (iii) tout Retour d’expérience que vous fournissez; ou (iv) violation de ces conditions de votre part.</p><p>Nous nous réservons le droit d'exercer un contrôle exclusif à vos frais de la défense dans toute action remboursable conformément à ces conditions. Ces remboursements sont ajoutés à d'autres montants de remboursement et pas à leur lieu convenus dans l’accord écrit entre vous et MedPoints&#8482;.</p><h2>Clause de non-responsabilité</h2><p> CE SITE ET TOUTES LES INFORMATIONS, PRODUITS ET SERVICES FOURNIS VIA CE SITE, SONT FOURNIS 'TELS QUELS' ET AUX CONDITIONS DE 'TEL QUE DISPONIBLE', SANS AUCUNE ASSURANCE, PROMESSE NI GARANTIE DE QUELQUE SORTE, Y COMPRIS, SANS RESTRICTIONS, TOUTES ASSURANCES, PROMESSES, OU GARANTIES D’EXACTITUDE, D’AUTHENTICITE, D’INTEGRITE, DE CONFORMITE, DE DISPONIBILITE, DE POSSIBILITE D’APPLICATION OU DE FONCTIONNEMENT DE CE SITE, DE TOUT PRODUIT OU SERVICE QUE NOUS POUVONS FOURNIR À TRAVERS CELUI-CI, OU D'INFORMATIONS ET DE MATÉRIAUX CONTENUS SUR CE DERNIER.</p><p>CHAQUE PARTIE MedPoints&#8482; DECLINE TOUTES AFFIRMATIONS ET GARANTIES, EXPRESSES, IMPLICITES OU PREVUES PAR LA LOI, COMPTE TENU DE CE QUI PRECEDE, Y COMPRIS: (A) TOUTES GARANTIES CONCERNANT LES MATERIAUX, DONNEES, SERVICES, DISPONIBILITE, ACCES ININTERROMPU OU SERVICES ET PRODUITS OFFERTS VIA CE SITE OU DANS SON CADRE; (B) TOUTES GARANTIES QUE CE SITE OU LE SERVEUR SUR LEQUEL IL EST PLACÉ NE CONTIENT PAS DE VIRUS, VERS, CHEVAUX DE TROIE OU AUTRES COMPOSANTS MALVEILLANTS; (C) TOUTES GARANTIES QUE CE SITE, SES MATÉRIAUX OU TOUS SERVICES OU PRODUITS FOURNIS PAR CELUI-CI NE CONTIENNENT PAS D'ERREURS OU QUE LES ERREURS CONTENUS SUR CE SITE, DANS SES MATÉRIAUX OU SERVICES OU PRODUITS SERONT ELIMINES; (D) TOUTES GARANTIES DE LA LEGALITE DE LA LOI DE PROPRIÉTÉ ET GARANTIES IMPLICITES DE QUALITÉ MARCHANDE OU D'ADÉQUATION À L’UTILISATION A DESTINATION; (E) TOUTES GARANTIES QUE CE SITE SERA COMPATIBLE AVEC VOTRE ORDINATEUR OU AUTRE ÉQUIPEMENT ÉLECTRONIQUE; (F) TOUTES GARANTIES D'ABSENCE DE CONTREFAÇON DES DROITS DE PROPRIÉTÉ INTELLECTUELLE. LES MATÉRIAUX ET IMAGES GRAPHIQUES CONNEXES PUBLIÉS SUR CE SITE PEUVENT CONTENIR DES INEXACTITUDES TECHNIQUES OU ERREURS D'IMPRESSION. LES INFORMATIONS CONTENUES SUR CE SITE SONT MODIFIÉES PÉRIODIQUEMENT. LES PARTIES MedPoints&#8482; PEUVENT RECTIFIER ET/OU MODIFIER LE SITE, LES PRODUITS, SERVICES ET/OU MATÉRIAUX DÉCRITS SUR CE SITE, À TOUT MOMENT, SANS PREAVIS OU CONSENTEMENT DE L'UTILISATEUR.</p>p>En outre, dans tous les cas prévus par la loi, aucune des Parties MedPoints&#8482; ne sera pas responsable des:</p><p>(a) pertes, obligations financières, coûts, dépenses ou dommages subis à la suite ou en liaison avec tout accès ou utilisation de ce Site ou de l'un de ses matériaux;</p>< p> (b) toute confiance dans les sources d'informations, ou une décision prise sur la base d'informations ou de documents publiés ou exclus de ce site;</p><p>(c) toute question relative à ce site ou à l'un de ses matériaux dus à des circonstances indépendantes de notre volonté;</p><p>(d) caractéristiques fonctionnelles des données du site et toutes erreurs, retards, interruptions ou inaccessibilité de ce site et de tous services ou produits fournis par le biais de ce site qui peuvent survenir en raison de l'utilisation élargie de ce site, de défaillances intermittentes ou du besoin de corrections, de maintenance continue ou de mise en œuvre de nouveaux matériels, produits ou services; et</p><p>(e) toute information ou matériaux sur tout site exploité par un tiers auquel on peut accéder à partir de ce site.</p><p>EN AUCUN CAS LES PARTIES MedPoints&#8482; NE SERONT PAS TENUES RESPONSABLES DES RECLAMATIONS, DOMMAGES, OBLIGATIONS, PERTES, FRAIS OU DÉPENSES DE QUELQUE NATURE QUE CE SOIT, DIRECTS OU INDIRECTS, MINEURS, RECUPERABLES, ACCIDENTELS, REELS, EXEMPLAIRES, PUNITIFS ЩГ SPÉCIAUX (Y COMPRIS LES PERTES DE BÉNÉFICES , PROFIT, REVENUS, DONNEES, IMPOSSIBILITÉ D'UTILISATION, RÉPUTATION OU AUTRES PERTES INCORPORELLES), SANS DISTINCTION SI LES PARTIES MEDPOINTS.ONLINE ÉTAIENT INFORMEES DE L’EVENTUALITE DESDITS DOMMAGES, OBLIGATIONS, PERTES, FRAIS OU DÉPENSES A LA SUITE OU EN LIAISON AVEC: (A) L'UTILISATION OU LE FONCTIONNEMENT DE CE SITE; (B) TOUTE DISPOSITION OU MANQUEMENT DE CE SITE OU SES SERVICES (Y COMPRIS TOUS LIENS VERS NOTRE SITE); (C) TOUTE INFORMATION DISPONIBLE SUR CE SITE; (D) TOUT PRODUIT OU MATÉRIAUX DE TOUT TIERS; (E) ACCÈS, UTILISATION OU MODIFICATION NON AUTORISÉS DANS LE TRANSFERT DE DONNÉES OU DE MATÉRIAUX DE NOUS OU A NOUS; OU (F) NON RECEPTION D’UNE MANIERE OU DE L’AUTRE DE TOUTES DONNEES, MATÉRIAUX, FONDS OU OBJETS DE DROIT DE PROPRIÉTÉ DE VOTRE PART.</p><h2> Autres dispositions</h2><p>Ces conditions régissent les relations entre nous et vous. Ils ne créent aucun droit pour les bénéficiaires tiers.</p><p>Si vous ne respectez pas ces conditions et nous ne prenons pas immédiatement les mesures appropriées, cela ne signifie pas que nous renonçons à tout droit que nous pouvons avoir (par exemple, à prendre des mesures à l'avenir).</p><p>S'il s'avère que l'une des conditions n'est pas valable, elle doit être modifiée de manière à devenir valable sans que cela affecte les autres termes contenus dans ce document.</p><p>La société se réserve tous les droits de modifier complètement ou partiellement ce document à tout moment, sans consentement préalable de l'autre Partie, ou d'en informer autrement cette Partie en publiant une version modifiée de ce document sur le site officiel.</p><h3> Contacts </h3> <p> Pour toute question concernant ces conditions, veuillez nous contacter à <a href='mailto:support@medpoints.online'> support@medpoints.online </a> </p>",
+    "policyText": "<p> Cette politique de confidentialité a été conçue pour fournir de meilleurs services à ceux qui s'inquiètent de la façon dont leurs 'Informations d'identification personnelle' sont utilisées sur Internet. Veuillez lire attentivement notre politique de confidentialité pour avoir une idée claire de ce comment nous collectons, utilisons, protégeons et traitons vos informations d'identification personnelle conformément à la politique de notre site.</p><p>Quelles informations personnelles recueillons-nous lorsque vous visitez notre site? </p><p>Lors de votre inscription sur notre site Internet, selon le cas spécifique, il vous sera demandé d’introduire votre nom, adresse e-mail, adresse postale, numéro de téléphone, informations de carte de crédit, informations nécessaires pour vérifier la sensibilisation des clients et vérifier dans le cadre de la prévention du blanchiment d'argent, dans le cas concernés, ou d'autres informations pour vous aider avec votre interface.</p><h2>Quand collectons-nous des informations?</h2><p>Nous collectons des informations lors de votre inscription sur notre site Web, de vos contributions, de votre abonnement à des newsletters et dans d’autres cas si nécessaire </p><p>Comment utilisons-nous vos informations?</p><p>Nous pouvons utiliser les informations collectées de la manière suivante:</p><ul><li>Pour personnaliser votre interface et nous permettre de vous fournir les matériaux et les offres qui vous intéressent le plus.</li><li>Pour améliorer notre site, pour vous fournir de meilleurs services.</li><li>Pour fournir de meilleures réponses aux demandes de service.</ li ><li>Pour l'administration des matériaux, la publicité, les sondages et autres services du site.</li><li>Pour un traitement rapide de vos transactions.</li><li>Pour envoyer périodiquement des courriels concernant votre contribution ou nos produits et services.</li><li>Pour y répondre après la correspondance (demandes par chat, e-mail ou téléphone)</li></ul><h2>Comment protégeons-nous vos informations?</h2><p>Notre site est régulièrement vérifié pour les failles de sécurité et les failles connues afin que votre visite sur notre site soit aussi sûre que possible.</p><p>Vos informations personnelles sont situées dans des réseaux sécurisés et ne sont accessibles qu'à un nombre limité de personnes, ayant les droits d’accès d'un niveau plus élevé à ces systèmes, et elles sont tenues de maintenir la confidentialité des informations. De plus, toutes les informations que vous fournissez sont cryptées à l'aide de la technologie SSL (Secure Connection Protocol). Nous mettons en œuvre diverses mesures de sécurité lorsque vous apportez une contribution ou utilisez le site pour assurer la sécurité de vos informations personnelles. Toutes les transactions sont traitées via le fournisseur de passerelle, ne sont pas stockées ni traitées sur nos serveurs.</p><h2>Utilisons-nous des cookies?</h2><p>Oui. Les cookies sont de petits fichiers qu'un site ou son fournisseur de services envoie au disque dur de votre ordinateur via un navigateur Web (avec votre autorisation), ils permettent au site ou au fournisseur de services de reconnaître votre navigateur, de recevoir et de mémoriser certaines informations. Par exemple, nous utilisons des cookies pour mémoriser et traiter votre compte. Ils sont également utilisés pour nous aider à déterminer vos préférences en fonction des activités précédentes ou actuelles, ce qui nous permet de vous fournir de meilleurs services. Nous utilisons également des cookies pour collecter des données agrégées sur le trafic du site et l'échange de données afin de vous offrir les meilleures interfaces et outils du site Web à l'avenir.</p><p>Nous utilisons des cookies pour: </p><ul><li>La mémorisation et le traitement de votre compte.</li><li>La définition et l’enregistrement des préférences des utilisateurs pour les visites futures.</li><li>Le suivi des annonces.</li><li>La collecte de données généralisées sur le trafic du site et l’échange des données pour vous offrir les meilleures interfaces et outils de site Web à l'avenir. Nous pouvons également utiliser des services tiers de confiance qui suivent ces informations en notre nom. Vous pouvez choisir que votre ordinateur vous avertisse de l'envoi d'un cookie à chaque fois, ou vous pouvez désactiver tous les cookies. Cela se fait via les paramètres du navigateur. Les navigateurs étant légèrement différents, consultez le menu d'aide de votre navigateur pour savoir comment modifier correctement vos cookies.</li></ul><p>Désactivez les cookies dans votre navigateur:</p><p>Si désactiver les cookies, certaines fonctions qui augmentent l'efficacité du site peuvent ne pas fonctionner correctement.</p><h2>La divulgation à des tiers</h2><p>Nous ne vendons pas, ni échangeons ni transférons de toute autre manière vos données personnelles d’identification à des tiers. Cela ne s'applique pas aux partenaires d'hébergement du site et aux autres personnes qui nous aident à gérer notre site, à mener nos activités ou à servir nos utilisateurs, à condition que ces parties acceptent de garder ces informations confidentielles. Nous pouvons également divulguer des informations lorsque leur divulgation est nécessaire dans le cadre du respect de la loi, en garantissant le respect des politiques de notre site ou en protégeant nos droits, notre propriété ou sécurité et ceux des tiers. Cependant, des informations d'identification non personnelles du visiteur du site peuvent être fournies à d'autres parties à des fins de marketing, de publicité et à d'autres fins.</p><h2>Les liens vers des sites tiers</h2><p>Parfois, nous pouvons inclure ou proposer des produits ou services tiers sur notre site. Ces sites tiers ont des politiques de confidentialité distinctes et indépendantes. Par conséquent, nous ne sommes pas responsables des matériaux et des activités de ces sites liés. Cependant, nous nous efforçons de protéger l'intégrité de notre site et vous informerons de tout changement à la politique de confidentialité sur notre page Politique de confidentialité. Vous pouvez modifier vos informations personnelles en vous connectant à votre compte.</p><p>Si vous souhaitez vous désabonner de la réception d'e-mails à l'avenir, vous pouvez nous écrire à: support@medpoints.online et nous vous retirerons immédiatement de toutes les listes de diffusion. Si vous souhaitez que nous arrêtions de collecter, d'utiliser, de protéger ou de traiter autrement vos informations d'identification personnelle, vous pouvez nous écrire à: support@medpoints.online et nous répondrons immédiatement à votre demande. Dans ce cas, vous devez comprendre et accepter que vous ne pourrez plus utiliser notre site et ses fonctionnalités.</p><h2>Contacts</h2><p>Si vous avez des questions sur la politique de confidentialité, veuillez nous contacter à: <a href='mailto:support@medpoints.online'> support@medpoints.online </a> </p>"
+}
+
