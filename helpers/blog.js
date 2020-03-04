@@ -1,5 +1,5 @@
 const getBlogPosts = (localization) => {
-    return localization.localize('blogs');
+    return localization.localize('blogs').reverse();
 };
 
 const getBlogPost = (id, localization) => {

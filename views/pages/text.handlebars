@@ -12,6 +12,13 @@
 		<div class="col">
 
     		<h2>{{{blogArticle.title}}}</h2>
+
+            <br />
+
+            {{#if blogArticle.date}}
+            <div><b>{{blogArticle.date}}</b></div>
+            <br />
+            {{/if}}
 	
 			<p>{{{blogArticle.text}}}</p>
     	</div>

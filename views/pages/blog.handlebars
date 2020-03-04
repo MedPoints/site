@@ -16,6 +16,10 @@
                     <div class="row">
                         <div class="col"> 
                             <h2><a class="avatar" href="/blog/text/{{id}}">{{{title}}}</a></h2>
+                            {{#if date}}
+                            <div><b>{{date}}</b></div>
+                            <br />
+                            {{/if}}
                             <p>{{{shortText}}}</p>
                             <a  href="/blog/text/{{id}}">{{localize ../req 'readMore'}} <i class="fas fa-long-arrow-alt-right"></i></a>
                         </div>
