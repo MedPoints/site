@@ -7,7 +7,7 @@ const prepareTransactions = require('./../helpers/rates').prepareTransactions;
 const calculateAmount = require('./../helpers/rates').calculateAmount
 
 const MPT_CURRENCY_CODE = 'USD';
-const DOLLAR_RATE = 0.01;
+const DOLLAR_RATE = 0.001;
 const EXCHANGE_API = 'https://min-api.cryptocompare.com/data/price';
 
 exports.getRates = async (req, res) => {

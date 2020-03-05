@@ -73,6 +73,40 @@ code {
      height: 32px;
 }
 
+
+/*Cookie Consent Begin*/
+#myCookieConsent {
+  z-index: 999;
+  min-height: 20px;
+  padding: 10px 20px;
+  background: rgba(0,0,0,0.6);
+  overflow: hidden;
+  position: fixed;
+  color: #fff;
+  bottom: 0px;
+  right: 10px;
+  display: none;
+  left: 0;
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+}
+#myCookieConsent div {
+  padding: 5px 0 0;
+}
+#myCookieConsent a {
+  display: inline-block;
+  padding: 5px 40px;
+}
+#myCookieConsent a:hover {
+/* color: #fda016; */
+}
+#myCookieConsent a#cookieButton {
+  float: right;
+}
+/*Cookie Consent End*/
+
+
 /*  */
 
 .alert {

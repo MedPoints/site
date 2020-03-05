@@ -8,6 +8,11 @@
         "time": "Время",
         "copy": "Копировать"
     },
+    "cookie": {
+        "understood": "Понятно",
+        "text": "Этот вебсайт использует cookies.",
+        "details": "Подробнее"
+    },
     "navigation": {
         "clinics": "Клиники",
         "services": "Услуги",
@@ -492,6 +497,20 @@
             "confirmBooking": "Подтвердить запись на прием и оплату"
         },
         "selectServiceAndDate": "Выберите услугу и данные бронирования, чтобы увидеть подробности записи"
+    },
+
+    "balance": {
+        "addBalance": "Добавить счет",
+        "cardNumber": "Номер карты",
+        "cardHolder": "Держатель карты (на латинице)",
+        "expirationDate": "Окончание срока действия",
+        "cvcCode": "CVC/CVV код",
+        "amount": "Количество",
+        "max": "максимум 1000",
+        "typeNumber": "Введите число",
+        "addFunds": "Добавить",
+        "or": "Или",
+        "cancel": "Отмена"
     },
 
     "account": {

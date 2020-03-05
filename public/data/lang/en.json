@@ -9,6 +9,11 @@
         "time": "Time",
         "copy": "Copy"
     },
+    "cookie": {
+        "understood": "Understood",
+        "text": "This website is using cookies.",
+        "details": "More details"
+    },
     "navigation": {
         "clinics": "Clinics",
         "services": "Services",
@@ -508,6 +513,20 @@
         "yourBalance": "Your balance is",
         "terapist": "Terapist",
         "price": "Price"
+    },
+
+    "balance": {
+        "addBalance": "Add balance",
+        "cardNumber": "Card number",
+        "cardHolder": "Card holder (in latin)",
+        "expirationDate": "Expiration date",
+        "cvcCode": "CVC/CVV code",
+        "amount": "Amount",
+        "max": "max 1000",
+        "typeNumber": "Type number",
+        "addFunds": "Add funds",
+        "or": "Or",
+        "cancel": "Cancel"
     },
 
     "account": {

@@ -38,7 +38,7 @@
     <!--/.col-->
     <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 padded-input">
         <label>&nbsp;</label>
-        <button class="btn btn-secondary justify disabled" id="addBalance" data-toggle="modal" data-target="#sorry" href="javascript:void(0)">{{localize req 'rates.form.addBalanceButton'}}</button>
+        <button class="btn btn-primary justify" id="btnAddBalance">{{localize req 'rates.form.addBalanceButton'}}</button>
         {{!-- <button class="btn btn-primary justify" id="calculateRate" href="javascript:void(0)">{{localize req 'rates.form.calculateExchangeRate'}}</button> --}}
     </div>
     <!--/.col-->
@@ -147,4 +147,40 @@ zoomChart();
 function zoomChart() {
     chart.zoomToIndexes(chart.dataProvider.length - 40, chart.dataProvider.length - 1);
 }
+</script>
+
+<script>
+$(document).ready(function() {
+
+   const addFunds = function() {
+       let amount = document.querySelector("#exchangeRate").value;
+       if (!amount || isNaN(+amount)) {
+           return;
+       }
+
+       amount = Math.round(+amount) * 0.001;
+       if (!amount) {
+           return;
+       }
+
+       const xhr = new XMLHttpRequest();
+       const url = '/account/add-balance';
+
+       const data = {
+           amount: amount,
+       };
+
+       xhr.open('POST', url, true);
+       xhr.setRequestHeader('Content-Type', 'application/json');
+
+       xhr.onreadystatechange = () => {
+           if (xhr.readyState === 4 && xhr.status === 200) {
+               window.location = "/account/balance";
+           }
+       };
+       xhr.send(JSON.stringify(data));
+   }
+
+    document.querySelector("#btnAddBalance").addEventListener("click", addFunds);
+});
 </script>

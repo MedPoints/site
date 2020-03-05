@@ -454,6 +454,7 @@ exports.getBalance = async (req, res) => {
         transaction.date = moment.unix(transaction.timestamp/1000).format('YYYY-MM-DD');
         transaction.time = moment.unix(transaction.timestamp/1000).format('HH:mm:ss');
     });
+    tokensResponse.data.result = tokensResponse.data.result.reverse();
     const tokensCountResponse = await axios.get(`${API_URL}/api/tokens/${MedPoints_PublicKey}/count`);
     const tokensCount = tokensCountResponse.data.result.count / 0.001;
 
@@ -491,7 +492,7 @@ exports.addBalance = async (req, res) => {
                 return res.status(200).end();
             }
 
-            const sum = Math.round(parseFloat(amount));
+            const sum = parseFloat(amount);
 
             if (sum <= 0 || sum > 1000) {
                 return res.status(200).end();
