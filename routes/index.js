@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const path = require('path');
 const getSpecializations = require('../controllers/doctors').getSpecializations;
 const getClinicsByLocation = require('../controllers/clinics').getClinicsByLocation;
 const getCities = require('../controllers/cities').getCities;
@@ -27,6 +28,20 @@ router.get('/', catchErrors(async (req, res) => {
 		title: 'MedPoints™',
 	})
 }));
+
+router.get('/.well-known/acme-challenge/:name', catchErrors(async (req, res) => {
+	const options = {
+			root: path.join(__dirname, '../.well-known/acme-challenge/'),
+			dotfiles: 'allow',
+			headers: {
+				'x-timestamp': Date.now(),
+				'x-sent': true
+			}
+	};
+
+	res.sendFile(req.params.name, options);
+}));
+
 router.use('/cities', catchErrors(getCities));
 router.use('/doctors', require('./doctors'));
 router.use('/clinics', require('./clinics'));
