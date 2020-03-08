@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const exphbs  = require('express-handlebars');
 const path = require('path');
+const helmet = require('helmet');
 const routes = require('./routes/index');
 const errorHandlers = require('./handlers/errorHandlers');
 const hbsHelpers = require('./handlers/handlebars-helpers').hbsHelpers;
@@ -13,6 +14,8 @@ const DEFAUL_LOCALE = 'en';
 
 // create our Express app
 const app = express();
+
+app.use(helmet());
 
 // view engine setup
 const hbsOptions = {
@@ -33,7 +36,7 @@ app.use(express.static(path.join(__dirname, '.well-known'), { dotfiles: 'allow' 
 // Takes the raw requests and turns them into usable properties on req.body
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cookieParser())
+app.use(cookieParser());
 
 app.use((req, res, next) => {
   // res.locals.h = helpers;

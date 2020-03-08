@@ -31,11 +31,3 @@ try {
 } catch (e) {
     console.log(`Error: Cannot start HTTPS server: ${e.message}`);
 }
-
-
-
-
-
-// const httpServer = app.listen(app.get('port'), app.get('host'), () => {
-//     console.log(`Express running → PORT ${httpServer.address().port}`);
-// });
