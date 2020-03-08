@@ -4,5 +4,6 @@ node_modules/
 *.log.*
 .idea
 .vscode
+.well-known/**
 variables.env
 variables.env.now
