@@ -25,6 +25,7 @@ try {
     const httpsServer = https.createServer(credentials, app);
 
     httpsServer.listen(443, () => {
+        global.httpsTrue = true;
         console.log('HTTPS server running on port: 443');
     });
 

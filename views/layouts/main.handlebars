@@ -73,8 +73,13 @@
     </div>
 
     <div id="myCookieConsent">
-        <a class="btn btn-primary" id="cookieButton">{{localize req 'cookie.understood'}}</a>
-        <div>{{localize req 'cookie.text'}} &nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-primary" href="https://html-online.com/privacy-terms-and-conditions/">{{localize req 'cookie.details'}}</a></div>
+        
+        <div>
+            {{localize req 'cookie.text'}} &nbsp;&nbsp;&nbsp;&nbsp;
+            <a class="btn btn-primary" href="/privacy-terms-and-conditions">{{localize req 'cookie.details'}}</a>
+            <a class="btn btn-primary" id="cookieButton">{{localize req 'cookie.understood'}}</a>
+        </div>
+        
     </div>
 
     <script>

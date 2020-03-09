@@ -33,6 +33,14 @@ router.get('/privacy-policy', (req, res) => {
         req,
     });
 });
+router.get('/privacy-terms-and-conditions', (req, res) => {
+    const localization = new Localization(req.cookies.locale);
+    res.render('pages/privacy-terms-and-conditions', {
+        title: localization.localize('titles.privacyPolicy'), 
+        PAGE_TITLE: localization.localize('titles.privacyPolicy'),
+        req,
+    });
+});
 router.get('/partnership', (req, res) => {
     const localization = new Localization(req.cookies.locale);
     res.render('pages/partnership', {

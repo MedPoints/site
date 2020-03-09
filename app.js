@@ -15,6 +15,15 @@ const DEFAUL_LOCALE = 'en';
 // create our Express app
 const app = express();
 
+const ensureSecure = (req, res, next) => {
+  if(req.secure || !global.httpsTrue){
+    return next();
+  };
+  res.redirect('https://' + req.hostname + req.url);
+}
+
+app.all('*', ensureSecure);
+
 app.use(helmet());
 
 // view engine setup
