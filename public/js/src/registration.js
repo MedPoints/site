@@ -46,7 +46,12 @@ $(function() {
             return;
         }
 
-        register(registerData);
+        grecaptcha.ready(function() {
+            grecaptcha.execute('6Ld1YuAUAAAAAIT3BASzH4jdtG9Mgch-STqkLNFV', {action: 'registration'}).then(function(token) {
+                registerData.token = token;
+                register(registerData);
+            });
+        });
     });
 });
 
@@ -80,9 +85,17 @@ function register(registerData) {
         method: 'POST',
         data: registerData,
         success: function (res) {
-            Cookies.set('MedPoints_PrivateKey', res.result.privateKey);
-            Cookies.set('MedPoints_PublicKey', res.result.publicKey);
-            window.location.href = '/';
+            if (res.error) {
+                if (res.error === 'WRONG_CAPTCHA') {
+                    showCustomErrorModal(
+                        window.localizer.localize('errorsByCode.WRONG_CAPTCHA'),
+                    );
+                }
+            } else {
+                Cookies.set('MedPoints_PrivateKey', res.result.privateKey);
+                Cookies.set('MedPoints_PublicKey', res.result.publicKey);
+                window.location.href = '/';
+            }
         },
         error: function (res) {
             showCustomErrorModal(

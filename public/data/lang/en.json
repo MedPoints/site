@@ -386,7 +386,8 @@
     "customErrorWindowTitle": "An error occurred",
     "errorsByCode": {
         "USER_NOT_CONFIRMED": "You need to confirm your email before proceeding.",
-        "USER_NOT_EXIST": "Data does not match. Please register and try again."
+        "USER_NOT_EXIST": "Data does not match. Please register and try again.",
+        "WRONG_CAPTCHA": "Action is blocked. Please try again later"
     },
     "errors": {
         "requiredFieldsError": "Required fields",

@@ -6,16 +6,7 @@ $(function () {
     });
 
     $('#logInButton').on('click', function () {
-        var walletId = $('#walletId').val();
-        var walletKey = $('#walletKey').val();
-        if (walletId && walletKey) {
-            logIn(walletId, walletKey);
-        } else {
-            showCustomErrorModal(
-                window.localizer.localize('errors.requiredFieldsError'),
-                window.localizer.localize('errors.bothKeyAndId')
-            );
-        }
+        handleClick();
     });
 
     if (!isRegistered()) {
@@ -23,7 +14,26 @@ $(function () {
         var supportLink = supportLinkContainer.find('a');
         supportLink.attr('href', '/registration');
     }
+
+    
 });
+
+function handleClick() {
+    var walletId = $('#walletId').val();
+    var walletKey = $('#walletKey').val();
+    if (walletId && walletKey) {
+        grecaptcha.ready(function() {
+            grecaptcha.execute('6Ld1YuAUAAAAAIT3BASzH4jdtG9Mgch-STqkLNFV', {action: 'login'}).then(function(token) {
+                logIn(walletId, walletKey, null, token);
+            });
+        });
+    } else {
+        showCustomErrorModal(
+            window.localizer.localize('errors.requiredFieldsError'),
+            window.localizer.localize('errors.bothKeyAndId')
+        );
+    }
+}
 
 function generateNewWallet(callback) {
     $.ajax({
@@ -68,13 +78,14 @@ function logOut() {
     window.location.reload();
 }
 
-function logIn(walletId, walletKey, callback) {
+function logIn(walletId, walletKey, callback, token) {
     $.ajax({
         url: '/auth/authenticate',
         method: 'POST',
         data: {
             publicKey: walletId,
             privateKey: walletKey,
+            token: token,
         },
         success: function (res) {
             if (res.error) {
@@ -86,6 +97,11 @@ function logIn(walletId, walletKey, callback) {
                 if (res.error === 'USER_NOT_EXIST') {
                     showCustomErrorModal(
                         window.localizer.localize('errorsByCode.USER_NOT_EXIST'),
+                    );
+                }
+                if (res.error === 'WRONG_CAPTCHA') {
+                    showCustomErrorModal(
+                        window.localizer.localize('errorsByCode.WRONG_CAPTCHA'),
                     );
                 }
                 if (callback) {
