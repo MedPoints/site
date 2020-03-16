@@ -77,12 +77,23 @@ router.use(function(req,res,next) {
 	next();
 })
 
-router.post('/subscribe', async (req, res) => {
+router.post('/subscribe', catchErrors(async (req, res) => {
 	const { email } = req.body;
-	const request = await axios.post(`${API_URL}/api/subscriptions/add`,{email});
-	const result = request.data;
+	let result = {};
+	
+	try {
+		const request = await axios.post(`${API_URL}/api/subscriptions/add`, {email});
+		result = request.data;
+	} catch (e) {
+		if (e.message.includes("422")) {
+			result.result = "VALIDATION_ERROR";
+		} else {
+			result.result = "ERROR";
+		}
+	}
+
 	res.send(JSON.stringify({result}));
-});
+}));
 
 router.use('/sitemap', require('./sitemap'))
 

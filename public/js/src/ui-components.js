@@ -10,8 +10,6 @@ $(function() {
     initializeLocalizationControls();
     initializeEvents();
 
-    initializeEvents();
-
     $('[data-toggle="tooltip"]').tooltip();
     $('.gallery a.gallery-img').simpleLightbox();
 
@@ -28,15 +26,33 @@ $(window).resize(function () {
 repos($('.crop img'))
 
 function initializeEvents() {
-    $('#signUpButton').click(function(){
-        var value = $('#signUpInput').val();
-        if (value){
-            $.post('/subscribe',{email:value},function(success){
-                $('#signUpInput').val('');
-                alert('you have successfully signed up!')
-            });
+  $("#signUpButton").click(function () {
+    var email = $("#signUpInput").val();
+    if(email){
+      $.post('/subscribe',{email:email},function(res){
+        const result = JSON.parse(res).result.result;
+        const signUpText = document.querySelector("#signUpText");
+        const signUpInput = document.querySelector("#signUpInput");
+        const signUpButton = document.querySelector("#signUpButton");
+        if (result === "OK") {
+          signUpText.textContent = window.localizer.localize('footer.signup.success');
+          signUpInput.style.borderColor = null;
+          signUpButton.style.borderColor = null;
+          $('#signUpInput').val('');
+        } else {
+          if (result === "ALREADY_EXISTS") {
+            signUpText.textContent = window.localizer.localize('footer.signup.alreadyExists');
+          } else if (result === "VALIDATION_ERROR") {
+            signUpText.textContent = window.localizer.localize('footer.signup.validationError');
+          } else {
+            signUpText.textContent = window.localizer.localize('footer.signup.error');
+          }
+          signUpInput.style.borderColor = "red";
+          signUpButton.style.borderColor = "red";
         }
-    });
+      });
+    }
+  })
 }
 
 
@@ -377,10 +393,4 @@ function getQueryParams(qs) {
         params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2]);
     }
     return params;
-}
-function initializeEvents() {
-    $('#signUpButton').click(function(){
-        var value = $('#signUpInput').val();
-        console.log(value)
-    });
 }

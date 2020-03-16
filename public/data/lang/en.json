@@ -100,7 +100,11 @@
             "title": "Sign up for updates of MedPoints&#8482;",
             "subtitle": "Without any spam and advertising",
             "prompt": "Your e-mail here",
-            "social": "Follow the updates in the official project groups"
+            "social": "Follow the updates in the official project groups",
+            "success": "Successfully subscribed",
+            "alreadyExists": "E-mail already subscribed",
+            "error": "An error occurred",
+            "validationError": "Not valid e-mail"
         },
         "disclaimer": {
             "title": "Information on the site is provided for informational purposes only.",

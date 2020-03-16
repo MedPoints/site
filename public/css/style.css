@@ -670,6 +670,7 @@ section {
 .filter-button {
     min-width: 128px;
     margin-top: 8px;
+    float: right;
 }
 /* Gallery */
 
