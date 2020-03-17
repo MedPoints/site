@@ -28,12 +28,12 @@ repos($('.crop img'))
 function initializeEvents() {
   $("#signUpButton").click(function () {
     var email = $("#signUpInput").val();
-    if(email){
+    const signUpText = document.querySelector("#signUpText");
+    const signUpInput = document.querySelector("#signUpInput");
+    const signUpButton = document.querySelector("#signUpButton");
+    if (email) {
       $.post('/subscribe',{email:email},function(res){
         const result = JSON.parse(res).result.result;
-        const signUpText = document.querySelector("#signUpText");
-        const signUpInput = document.querySelector("#signUpInput");
-        const signUpButton = document.querySelector("#signUpButton");
         if (result === "OK") {
           signUpText.textContent = window.localizer.localize('footer.signup.success');
           signUpInput.style.borderColor = null;
@@ -51,6 +51,10 @@ function initializeEvents() {
           signUpButton.style.borderColor = "red";
         }
       });
+    } else {
+        signUpText.textContent = window.localizer.localize('footer.signup.enter');
+        signUpInput.style.borderColor = "red";
+        signUpButton.style.borderColor = "red";
     }
   })
 }

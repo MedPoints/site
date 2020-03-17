@@ -102,6 +102,7 @@
             "prompt": "Your e-mail here",
             "social": "Follow the updates in the official project groups",
             "success": "Successfully subscribed",
+            "enter": "Enter valid e-mail",
             "alreadyExists": "E-mail already subscribed",
             "error": "An error occurred",
             "validationError": "Not valid e-mail"
