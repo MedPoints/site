@@ -3,17 +3,7 @@ require('dotenv').config({ path: 'variables.env' });
 const fs = require('fs');
 const http = require('http');
 const https = require('https');
-
-
 const app = require('./app');
-app.set('port', process.env.PORT || 80);
-app.set('host', process.env.HOST || '0.0.0.0');
-
-
-const httpServer = http.createServer(app);
-httpServer.listen(app.get('port'), app.get('host'), () => {
-    console.log(`HTTP server running on port: ${httpServer.address().port}`);
-});
 
 try {
     const credentials = {
@@ -23,12 +13,20 @@ try {
     };
 
     const httpsServer = https.createServer(credentials, app);
+    const httpsPORT = process.env.HTTPS_PORT || 443;
 
-    httpsServer.listen(443, () => {
+    httpsServer.listen(httpsPORT, () => {
         global.httpsTrue = true;
-        console.log('HTTPS server running on port: 443');
+        console.log(`HTTPS server running on port: ${httpsPORT}`);
     });
 
 } catch (e) {
     console.log(`Error: Cannot start HTTPS server: ${e.message}`);
+
+    const httpServer = http.createServer(app);
+    const httpPORT = process.env.HTTP_PORT || 80;
+
+    httpServer.listen(httpPORT, () => {
+        console.log(`HTTP server running on port: ${httpPORT}`);
+    });
 }
