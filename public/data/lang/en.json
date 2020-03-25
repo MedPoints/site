@@ -207,7 +207,7 @@
 
     "registration": {
         "alreadyRegistered": "<strong>Welcome!</strong> You are already logged in. If you want to register again, please log out and refresh this page.",
-        "existing": "Exisitng Customer?",
+        "existing": "Existing Customer?",
         "clickToLogIn": "Click here to login",
         "login": "<strong>Welcome!</strong> We have generated for you a unique <strong>ID</strong> and a <strong>KEY</strong> for authorization on the platform.",
         "registerButton": "Registration",
@@ -488,7 +488,7 @@
         "hash": "Hash"
     },
 
-    "existingCustomer": "Exisitng Customer? <a href='#' data-toggle='modal' data-target='#login'>Click here to login</a>",
+    "existingCustomer": "Existing Customer? <a href='#' data-toggle='modal' data-target='#login'>Click here to login</a>",
     "welcome": "<strong>Welcome!</strong> We have generated for you a unique ID and a key for authorization on the service.",
     "success": "Booking was successfull. You will receive further notifications via an email.",
 
