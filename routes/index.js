@@ -68,6 +68,7 @@ router.post('/search', async (req, res) => {
 router.use('/auth', require('./auth'));
 router.use('/book', require('./book'));
 router.use('/account', require('./account'));
+router.use('/cabinets', require('./cabinets'));
 router.use('/', require('./pages'));
 
 
