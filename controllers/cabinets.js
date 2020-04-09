@@ -15,3 +15,10 @@ exports.getDoctor = async (req, res) => {
   };
   res.send(doctor);
 };
+
+exports.getDrugs = async (req, res) => {
+  const { count } = req.query;
+  let url = count ? `${API_URL}/api/drugs?count=${count}` : `${API_URL}/api/drugs`;
+  const request = await axios.get(url);
+  res.send(request.data.result);
+};

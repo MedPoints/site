@@ -11,4 +11,6 @@ router.use((req, res, next) => {
 router.get('/get-doctor', cabinets.getDoctor);
 router.get('/get-doctor/:id', cabinets.getDoctor);
 
+router.get('/get-drugs', cabinets.getDrugs);
+
 module.exports = router;

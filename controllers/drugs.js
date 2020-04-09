@@ -19,12 +19,12 @@ exports.getDrugs = async (req, res) => {
     }
   }
 
-  let url = queryPersistant.applyRequestQueryParameters(parameters, `${API_URL}/api/drugs`);  
+  let url = queryPersistant.applyRequestQueryParameters(parameters, `${API_URL}/api/drugs`);
   const request = await axios.get(url);
   let drugs = request.data.result.data.map(drug => prepareDrugData(drug, {
     search: req.query.name
   }));
-  
+
   const {
     pages,
     total
