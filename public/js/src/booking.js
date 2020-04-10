@@ -15,7 +15,7 @@ $(function () {
                     $('#email').val(data.email);
                 }
             }
-        });
+        }, "booking");
     } else {
         generateNewWallet(function (walletData) {
             $('#bookingWalletId').val(walletData.PublicKey);
