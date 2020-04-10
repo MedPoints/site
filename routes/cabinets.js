@@ -13,4 +13,7 @@ router.get('/get-doctor/:id', cabinets.getDoctor);
 
 router.get('/get-drugs', cabinets.getDrugs);
 
+router.get('/get-blocks', cabinets.getBlocks);
+router.get('/get-blocks-count', cabinets.getBlocksCount);
+
 module.exports = router;
