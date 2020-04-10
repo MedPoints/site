@@ -72,7 +72,6 @@ exports.authenticate = async (req, res) => {
     }
 
     if (!captchaRes.success || captchaRes.action !== "login" || !captchaRes.score || captchaRes.score < 0.5) {
-        console.log(captchaRes);
         if (!request.data.error) {
             request.data.error = "WRONG_CAPTCHA";
         }
