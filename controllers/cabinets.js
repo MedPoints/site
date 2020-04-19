@@ -8,7 +8,7 @@ const BLOCKCHAIN_API_URL = config.get('BLOCKCHAIN_API_URL');
 const Localization = require('../helpers/localization').Localization;
 
 exports.getDoctor = async (req, res) => {
-  const id = req.params.id || "5bf1b6928436ac253aec0e8b"; // Ignacia Calhoun
+  const id = req.query.id || "5bf1b6928436ac253aec0e8b"; // Ignacia Calhoun
   const request = await axios.get(`${API_URL}/api/doctors?id=${id}`);
 
   const doctor = {
