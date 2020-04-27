@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const catchErrors = require('../handlers/errorHandlers').catchErrors;
 
+const auth = require('../controllers/auth');
 const explorer = require('../controllers/explorer');
 const tickets = require('../controllers/tickets');
 const rates = require('../controllers/rates');
@@ -83,6 +84,7 @@ router.get('/confirm', (req, res) => {
         PAGE_TITLE: localization.localize('titles.confirm')
     });
 });
+router.get('/confirmation', catchErrors(auth.confirm));
 router.get('/text', (req, res) => res.render('pages/text'));
 
 router.get('/booking', catchErrors(booking.booking));

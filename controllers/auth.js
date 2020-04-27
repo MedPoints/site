@@ -4,6 +4,8 @@ const BLOCKCHAIN_API_URL = config.get('BLOCKCHAIN_API_URL');
 const API_URL = config.get('API_URL');
 const CAPTCHA_KEY = config.get('CAPTCHA_SECRET_KEY');
 
+const Localization = require('../helpers/localization').Localization;
+
 exports.generate = async (req, res) => {
     const request = await axios.post(`${BLOCKCHAIN_API_URL}/api/blockchain/wallets`);
     const result = request.data;
@@ -79,4 +81,40 @@ exports.authenticate = async (req, res) => {
     
     const result = request.data;
     res.send(JSON.stringify({ status: 200, ...result }));
+};
+
+exports.confirm = async (req, res) => {
+    const localization = new Localization(req.cookies.locale);
+    const renderObj = {
+        title: localization.localize('titles.confirm'), 
+        PAGE_TITLE: localization.localize('titles.confirm'),
+    };
+
+    const errors = {
+        "ALREADY_CONFIRMED": "Your email has been already successfully confirmed.",
+        "CONFIRMATION_FAILED": "Confirmation failed. Please check your email for valid link.",
+        "ERROR": "Error occured during confirmation. Please check your email for valid link.",
+        "NO_TOKEN": "No confirmation token. Please check your email for valid link.",
+    };
+
+    if (!req.query.token) {
+        renderObj.error = errors["NO_TOKEN"];
+        return res.render('pages/confirm', renderObj);
+    }
+
+    try {
+
+        const confirmResponse = await axios.get(`http://46.101.121.69:8080/api/users/confirm?token=${req.query.token}`);
+
+        if (confirmResponse.data && confirmResponse.data.result === "OK") {
+            return res.redirect("/confirm/");
+        } else {
+            renderObj.error = errors["ERROR"];
+        }
+
+    } catch (err) {
+        renderObj.error = errors[err.response.data.error] || errors["ERROR"];
+    }
+
+    res.render('pages/confirm', renderObj);
 };
