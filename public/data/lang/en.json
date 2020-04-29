@@ -554,7 +554,8 @@
             "addedFiles": "Added files",
             "maxNumFiles": "10 max",
             "chooseFile": "Choose file...",
-            "browse": "Browse"
+            "browse": "Browse",
+            "description": "Description"
         },
         "recordsPage": {
             "types": "Types of records",

@@ -163,23 +163,23 @@
                                     <li class="item">
 
                                         {{#if (equals file.ext 'jpg')}}
-                                        <a class="gallery-img" href="{{file.path}}" title="{{file.name}}">
+                                        <a class="gallery-img" href="{{file.path}}" title="{{file.description}}">
                                             <img src="{{file.path}}" alt="{{file.fullname}}" />
                                         </a>
 
                                         {{else if (equals file.ext 'jpeg')}}
-                                        <a class="gallery-img" href="{{file.path}}" title="{{file.name}}">
+                                        <a class="gallery-img" href="{{file.path}}" title="{{file.description}}">
                                             <img src="{{file.path}}" alt="{{file.fullname}}" />
                                         </a>
 
                                         {{else if (equals file.ext 'png')}}
-                                        <a class="gallery-img" href="{{file.path}}" title="{{file.name}}">
+                                        <a class="gallery-img" href="{{file.path}}" title="{{file.description}}">
                                             <img src="{{file.path}}" alt="{{file.fullname}}" />
                                         </a>
 
                                         {{else if (equals file.ext 'doc')}}
                                         <div>
-                                            <a href="{{file.path}}" title="{{file.name}}">
+                                            <a href="{{file.path}}" title="{{file.description}}">
                                                 <i class="far fa-file fa-2x"></i>
                                                 <br />{{file.fullname}}
                                             </a>
@@ -187,7 +187,7 @@
 
                                         {{else if (equals file.ext 'pdf')}}
                                         <div>
-                                            <a href="{{file.path}}" title="{{file.name}}">
+                                            <a href="{{file.path}}" title="{{file.description}}">
                                                 <i class="far fa-file-pdf fa-2x"></i>
                                                 <br />{{file.fullname}}
                                             </a>
@@ -195,7 +195,7 @@
 
                                         {{else}}
                                         <div>
-                                            <a href="{{file.path}}" title="{{file.name}}">
+                                            <a href="{{file.path}}" title="{{file.description}}">
                                                 <i class="far fa-file fa-2x"></i>
                                                 <br />{{file.fullname}}
                                             </a>
@@ -235,23 +235,23 @@
                                 <li class="item">
 
                                     {{#if (equals file.ext 'jpg')}}
-                                    <a class="gallery-img" href="{{file.path}}" title="{{file.name}}">
+                                    <a class="gallery-img" href="{{file.path}}" title="{{file.description}}">
                                         <img src="{{file.path}}" alt="{{file.fullname}}" />
                                     </a>
 
                                     {{else if (equals file.ext 'jpeg')}}
-                                    <a class="gallery-img" href="{{file.path}}" title="{{file.name}}">
+                                    <a class="gallery-img" href="{{file.path}}" title="{{file.description}}">
                                         <img src="{{file.path}}" alt="{{file.fullname}}" />
                                     </a>
 
                                     {{else if (equals file.ext 'png')}}
-                                    <a class="gallery-img" href="{{file.path}}" title="{{file.name}}">
+                                    <a class="gallery-img" href="{{file.path}}" title="{{file.description}}">
                                         <img src="{{file.path}}" alt="{{file.fullname}}" />
                                     </a>
 
                                     {{else if (equals file.ext 'doc')}}
                                     <div>
-                                        <a href="{{file.path}}" title="{{file.name}}">
+                                        <a href="{{file.path}}" title="{{file.description}}">
                                             <i class="far fa-file fa-2x"></i>
                                             <br />{{file.fullname}}
                                         </a>
@@ -259,7 +259,7 @@
 
                                     {{else if (equals file.ext 'pdf')}}
                                     <div>
-                                        <a href="{{file.path}}" title="{{file.name}}">
+                                        <a href="{{file.path}}" title="{{file.description}}">
                                             <i class="far fa-file-pdf fa-2x"></i>
                                             <br />{{file.fullname}}
                                         </a>
@@ -267,7 +267,7 @@
 
                                     {{else}}
                                     <div>
-                                        <a href="{{file.path}}" title="{{file.name}}">
+                                        <a href="{{file.path}}" title="{{file.description}}">
                                             <i class="far fa-file fa-2x"></i>
                                             <br />{{file.fullname}}
                                         </a>

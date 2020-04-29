@@ -168,6 +168,7 @@ exports.records = async (req, res) => {
                 ext: upload.extension,
                 timestamp: upload.timestamp,
                 date: moment.unix(upload.timestamp/1000).format('YYYY-MM-DD'),
+                description: upload.description || "",
             };
 
             const fileObj = filesSorted.find(obj => obj.date === file.date);
@@ -314,8 +315,16 @@ exports.uploadRecord = async (req, res) => {
         const transactionId = req.body.transactionId;
 
         if (req.files && req.files.length) {
-            for (const file of req.files) {
+            for (const [i, file] of req.files.entries()) {
                 fs.renameSync(path.join(file.destination, file.filename), path.join(dirPath, file.filename));
+
+                let description = "";
+
+                if (req.body.description) {
+                    description = (typeof req.body.description === "string") ? req.body.description : req.body.description[i];
+                }
+
+                description = description || "";
 
                 const name = path.parse(file.filename).name;
 
@@ -326,6 +335,7 @@ exports.uploadRecord = async (req, res) => {
                     filename: name.split("-").slice(0, -1).join("-"),
                     timestamp: name.split("-").pop(),
                     extension: path.extname(file.filename).slice(1),
+                    description: description,
                 });
             }
         }

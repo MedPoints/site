@@ -538,7 +538,8 @@
             "addedFiles": "Добавленные файлы",
             "maxNumFiles": "10 максимум",
             "chooseFile": "Выберите файл...",
-            "browse": "Обзор"
+            "browse": "Обзор",
+            "description": "Описание"
         },
         "recordsPage": {
             "types": "Типы карт",

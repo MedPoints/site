@@ -43,6 +43,7 @@ exports.addUploadsToTransactions = (publicKey, transactions, uploads) => {
             name: `${upload.filename}-${upload.timestamp}`,
             path: `/${publicKey}/${upload.fullname}`,
             ext: upload.extension,
+            description: upload.description || "",
         };
 
         transaction.uploads.push(file);
