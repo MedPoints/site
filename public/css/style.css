@@ -1672,6 +1672,13 @@ ul.cat-list li {
      margin-top: 10px;
 }
 
+.upload-desc-text {
+     margin-top: 10px;
+     color: #333333;
+     display: block;
+     text-align:center;
+}
+
 .wordwrap { 
    white-space: pre-wrap;      /* CSS3 */   
    white-space: -moz-pre-wrap; /* Firefox */    
