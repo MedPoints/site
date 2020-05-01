@@ -168,7 +168,7 @@ exports.records = async (req, res) => {
                 ext: upload.extension,
                 timestamp: upload.timestamp,
                 date: moment.unix(upload.timestamp/1000).format('YYYY-MM-DD'),
-                description: upload.description || "",
+                description: upload.description || upload.fullname,
             };
 
             const fileObj = filesSorted.find(obj => obj.date === file.date);

@@ -1665,3 +1665,17 @@ ul.cat-list li {
      max-width: 100%;
      height: 450px;
 }
+
+
+
+.upload-desc {
+     margin-top: 10px;
+}
+
+.wordwrap { 
+   white-space: pre-wrap;      /* CSS3 */   
+   white-space: -moz-pre-wrap; /* Firefox */    
+   white-space: -pre-wrap;     /* Opera <7 */   
+   white-space: -o-pre-wrap;   /* Opera 7 */    
+   word-wrap: break-word;      /* IE */
+}

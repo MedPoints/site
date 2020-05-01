@@ -101,14 +101,14 @@
 
                         <div class="form-group row">
                             {{!-- <div class="col-2 col-form-label">{{localize req 'account.addRecordPage.file'}} 1</div> --}}
-                            <div class="col-4">
+                            <div class="col-9">
                                 <label class="custom-file">
                                     <input type="file" id="file1" name="file" class="custom-file-input" accept=".jpg,.jpeg,.png,.doc,.docx,.xml,application/msword,application/pdf,text/plain">
                                     <span class="custom-file-control add-file" data-after="{{localize req 'account.addRecordPage.chooseFile'}}" data-before="{{localize req 'account.addRecordPage.browse'}}"></span>
                                 </label>
                             </div>
-                            <div class="col-4">
-                                <input type="text" name="description" class="form-control" placeholder="{{localize req 'account.addRecordPage.description'}}">
+                            <div class="col-9">
+                                <textarea name="description" class="form-control upload-desc" maxlength=100 placeholder="{{localize req 'account.addRecordPage.description'}}"></textarea>
                             </div>
                         </div>
                         <!--/.form-group--> 
@@ -181,7 +181,7 @@ $(document).ready(function() {
             numInputs++;
             const filename = `${window.localizer.localize('account.addRecordPage.file')} ${numInputs}`;
 
-            $(".input-fields-wrap").append(`<div class="form-group row"><div class="col-4"><label class="custom-file"><input type="file" id="file${numInputs}" name="file" class="custom-file-input" accept=".jpg,.jpeg,.png,.doc,.docx,.xml,application/msword,application/pdf,text/plain"><span class="custom-file-control add-file" data-after="{{localize req 'account.addRecordPage.chooseFile'}}" data-before="{{localize req 'account.addRecordPage.browse'}}"></span></label></div><div class="col-4"><input type="text" name="description" class="form-control" placeholder="{{localize req 'account.addRecordPage.description'}}"></div><a href="#" class="remove-field" id="remove${numInputs}"><i class="fas fa-times"></i></a></div><!--/.form-group-->`); //add input box
+            $(".input-fields-wrap").append(`<div class="form-group row"><div class="col-9"><label class="custom-file"><input type="file" id="file${numInputs}" name="file" class="custom-file-input" accept=".jpg,.jpeg,.png,.doc,.docx,.xml,application/msword,application/pdf,text/plain"><span class="custom-file-control add-file" data-after="{{localize req 'account.addRecordPage.chooseFile'}}" data-before="{{localize req 'account.addRecordPage.browse'}}"></span></label></div><div class="col-9"><textarea name="description" class="form-control upload-desc" maxlength=100 placeholder="{{localize req 'account.addRecordPage.description'}}"></textarea></div><a href="#" class="remove-field" id="remove${numInputs}"><i class="fas fa-times"></i></a></div><!--/.form-group-->`); //add input box
 
             document.querySelector(`input[id="file${numInputs}"]`).addEventListener("change", chooseFile);
             document.querySelector(`a[id="remove${numInputs}"]`).addEventListener("click", removeInput);
