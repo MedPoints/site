@@ -1,7 +1,8 @@
 const config = require('config');
 const axios = require('axios');
+const mysql = require("mysql2/promise");
 const API_URL = config.get('API_URL');
-const BLOCKCHAIN_API_URL = config.get('BLOCKCHAIN_API_URL');
+const BLOCKCHAIN_URL = config.get('BLOCKCHAIN_API_URL');
 
 const { prepareClinicData } = require('./../helpers/clinics');
 const { prepareDoctorData } = require('./../helpers/doctors');
@@ -9,6 +10,8 @@ const { prepareDoctorData } = require('./../helpers/doctors');
 const moment = require('moment');
 
 const Localization = require('../helpers/localization').Localization;
+
+const { getFullInfo } = require('./../helpers/booking');
 
 exports.booking = async (req, res) => {
     const {
@@ -64,25 +67,67 @@ exports.register = async (req, res) => {
         DoctorId: doctorId,
         ClinicId: clinicId,
         ServiceId: serviceId,
-        Date: moment(new Date()).format('YYYY-MM-DD'),
+        Date: bookingDate,
         Description: JSON.stringify({
             firstName,
             lastName,
             email,
             sex,
             dateOfBirth,
-            bookingDate,
+            bookingDate: moment(new Date()).format('YYYY-MM-DD'),
         }),
     }
     const localization = new Localization(req.cookies.locale);
-    const request = await axios.post(`${BLOCKCHAIN_API_URL}/api/blockchain/transactions`, data);
+    const request = await axios.post(`${BLOCKCHAIN_URL}/api/blockchain/transactions`, data);
     if (request.status === 200) {
+        await addBookingToDB(walletKey);
         res.setHeader('Content-Type', 'application/json');
         res.send(JSON.stringify({ status: request.status, statusText: request.statusText }));
     } else {
         throw new Error(localization.localize('errors.bookingRequest'));
     }
 };
+
+
+
+
+async function addBookingToDB (walletKey) {
+    const transactionsRes = await axios.get(`${BLOCKCHAIN_URL}/${walletKey}/transactions`);
+    const transaction = await getFullInfo(transactionsRes.data[transactionsRes.data.length-1]);
+    if (!transaction.clinicId || !transaction.doctorId) {
+        return console.log(`Broken transaction`);
+    }
+
+    try {
+        const connection = await mysql.createConnection({
+          host: "localhost",
+          user: "root",
+          database: "cabinets",
+          password: "FFi1$dvVcNmxp67sX3%f_11"
+        });
+
+        const values = {
+            hash: transaction.hash,
+            doctor: transaction.doctorId,
+            doctor_name: transaction.doctorName,
+            clinic: transaction.clinicId,
+            clinic_name: transaction.clinicName,
+            patient_name: transaction.patientName,
+            gender: transaction.gender,
+            date_of_birth: transaction.dateOfBirth,
+            service_name: transaction.serviceName,
+            date_original: transaction.date,
+            date: moment(transaction.date).unix(),
+        };
+
+        const sql = `INSERT INTO appointment SET ?`;
+
+        await connection.query(sql, values);
+        await connection.end();
+    } catch (e) {
+        console.error(e.message);
+    }
+}
 
 exports.details = async (req, res) => {
     const {

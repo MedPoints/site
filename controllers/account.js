@@ -104,7 +104,7 @@ exports.getAccountInfo = async (req, res) => {
         appointmentsCount: response.data.length,
         ticketsCount: ticketsResponse.data.result.length,
         tokensCount,
-        pagerInfo: dataPager,
+        pagerInfo,
         transactions, 
         dates,
         PAGE_TITLE: localization.localize('titles.account'),
