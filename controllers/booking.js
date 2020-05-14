@@ -80,7 +80,7 @@ exports.register = async (req, res) => {
     const localization = new Localization(req.cookies.locale);
     const request = await axios.post(`${BLOCKCHAIN_URL}/api/blockchain/transactions`, data);
     if (request.status === 200) {
-        await addBookingToDB(walletKey);
+        await addBookingAndPatientToDB(walletKey);
         res.setHeader('Content-Type', 'application/json');
         res.send(JSON.stringify({ status: request.status, statusText: request.statusText }));
     } else {
@@ -91,10 +91,10 @@ exports.register = async (req, res) => {
 
 
 
-async function addBookingToDB (walletKey) {
+async function addBookingAndPatientToDB (walletKey) {
     const transactionsRes = await axios.get(`${BLOCKCHAIN_URL}/${walletKey}/transactions`);
     const transaction = await getFullInfo(transactionsRes.data[transactionsRes.data.length-1]);
-    if (!transaction.clinicId || !transaction.doctorId) {
+    if (!transaction.clinicId || !transaction.doctorId || !transaction.patientId) {
         return console.log(`Broken transaction`);
     }
 
@@ -106,12 +106,13 @@ async function addBookingToDB (walletKey) {
           password: "FFi1$dvVcNmxp67sX3%f_11"
         });
 
-        const values = {
+        const appointmentValues = {
             hash: transaction.hash,
             doctor: transaction.doctorId,
             doctor_name: transaction.doctorName,
             clinic: transaction.clinicId,
             clinic_name: transaction.clinicName,
+            patient: transaction.patientId,
             patient_name: transaction.patientName,
             gender: transaction.gender,
             date_of_birth: transaction.dateOfBirth,
@@ -120,9 +121,26 @@ async function addBookingToDB (walletKey) {
             date: moment(transaction.date).unix(),
         };
 
-        const sql = `INSERT INTO appointment SET ?`;
+        let sql = 'INSERT INTO `appointment` SET ?';
+        await connection.query(sql, appointmentValues);
 
-        await connection.query(sql, values);
+        sql = 'SELECT * FROM `patient` WHERE `patient_id` = ?';
+        const [patientRows] = await connection.query(sql, [transaction.patientId]);
+
+        if (patientRows.length === 0) {
+            const patientValues = {
+                name: transaction.patientName,
+                email: transaction.email,
+                gender: transaction.gender,
+                patient_id: transaction.patientId,
+                date_of_birth: transaction.dateOfBirth,
+            };
+
+            sql = 'INSERT INTO `patient` SET ?';
+            await connection.query(sql, patientValues);
+        }
+
+
         await connection.end();
     } catch (e) {
         console.error(e.message);

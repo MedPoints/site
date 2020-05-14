@@ -27,9 +27,11 @@ exports.getFullInfo = async (transaction) => {
       doctorName: doctorRequest.data.result.name,
       clinicId: transaction.ClinicId,
       clinicName: clinicRequest.data.result.name,
+      patientId: transaction.UserAddress,
       patientName: patientName,
       gender: desc.sex || "",
       dateOfBirth: desc.dateOfBirth || "",
+      email: desc.email || "",
       serviceName: serviceRequest.data.result.name,
       date: moment(transaction.Date).format('YYYY-MM-DD'),
     };
