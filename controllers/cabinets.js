@@ -50,9 +50,9 @@ exports.getBlocksCount = async (req, res) => {
 };
 
 exports.addGroup = async (req, res) => {
-  const { name } = req.body;
+  const { id, name } = req.body;
 
-  if (!name) {
+  if (!name || !id) {
     return res.send("");
   }
 
@@ -67,8 +67,8 @@ exports.addGroup = async (req, res) => {
 
     const groupId = response.data.result._id;
 
-    let sql = 'UPDATE `medicine_category` SET `mainId` = ?, `removable` = 1 ORDER BY id DESC LIMIT 1';
-    await db(sql, [groupId]);
+    let sql = 'UPDATE `medicine_category` SET `mainId` = ?, `removable` = 1 WHERE `id` = ?';
+    await db(sql, [groupId, id]);
 
     res.send("");
 
@@ -142,9 +142,9 @@ exports.deleteGroup = async (req, res) => {
 
 
 exports.addDrug = async (req, res) => {
-  const { name, category, categoryId, price_dollars, price_mpt, description } = req.body;
+  const { id, name, category, categoryId, price_dollars, price_mpt, description } = req.body;
 
-  if (!name || !categoryId) {
+  if (!name || !categoryId || !id) {
     return res.send("");
   }
 
@@ -170,8 +170,8 @@ exports.addDrug = async (req, res) => {
 
     const drugId = response.data.result._id;
 
-    let sql = 'UPDATE `medicine` SET `mainId` = ? ORDER BY id DESC LIMIT 1';
-    await db(sql, [drugId]);
+    let sql = 'UPDATE `medicine` SET `mainId` = ? WHERE `id` = ?';
+    await db(sql, [drugId, id]);
 
     res.send("");
 
