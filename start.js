@@ -33,6 +33,6 @@ try {
 }
 
 (async () => {
-    await timer.run(1, 60);
+    await timer.run(1, 10);
 })();
 
