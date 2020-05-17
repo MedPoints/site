@@ -20,6 +20,7 @@ exports.getDrugs = async (req, res) => {
   }
 
   let url = queryPersistant.applyRequestQueryParameters(parameters, `${API_URL}/api/drugs`);
+  url = url.replace("group=", "groupId=");
   const request = await axios.get(url);
   let drugs = request.data.result.data.map(drug => prepareDrugData(drug, {
     search: req.query.name
@@ -62,10 +63,13 @@ exports.getDrug = async (req, res) => {
   const slug = req.params.slug;
   const id = slug.split('-')[0];
   const _slug = slug.split('-').splice(1).join('-');
+  
   const request = await axios.get(`${API_URL}/api/drugs?id=${id}`);
 
-  if (!_slug || slug !== request.data.result.slug) {
-    return res.redirect(`/drugs/${request.data.result.slug}`);
+  if (request.data.result.slug) {
+    if (!_slug || slug !== request.data.result.slug) {
+      return res.redirect(`/drugs/${request.data.result.slug}`);
+    }
   }
 
   const drug = request.data.result;

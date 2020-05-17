@@ -4,6 +4,7 @@ const fs = require('fs');
 const http = require('http');
 const https = require('https');
 const app = require('./app');
+const timer = require('./timer');
 
 try {
     const credentials = {
@@ -30,3 +31,8 @@ try {
         console.log(`HTTP server running on port: ${httpPORT}`);
     });
 }
+
+(async () => {
+    await timer.run(1, 3);
+})();
+
