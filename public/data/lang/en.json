@@ -807,6 +807,62 @@
             "date": "2020-03-03",
             "shortText": "We continue to expand the geography of the project by adding new language versions of the MVP.",
             "text": "We continue to expand the geography of the project by adding new language versions of the MVP. At the moment we have connected the translation of the system into German, French and Italian.<br><br>Willkommen zurück, Bienvenue & benvenuto!"
+        },
+        {
+            "id": 20,
+            "title": "Safety standards",
+            "slug": "20-safety-standards",
+            "shortText": "An ssl certificate was installed using <b>letsencrypt</b>. Automatic certificate renewal is enabled. Security verified by <a href=\"http://ssllabs.com/ssltest\">ssltest</a> where site received rating B.",
+            "text": "An ssl certificate was installed using <b>letsencrypt</b>. Automatic certificate renewal is enabled. Security verified by <a href=\"http://ssllabs.com/ssltest\">ssltest</a> where site received rating B.<br><br>A helmet module has also been added to protect against a variety of attacks on the express server.<br><br>The DDOS attack blocking system from <a href=\"http://cloudflare.com\">cloudflare</a> is connected to the system."
+        },
+        {
+            "id": 21,
+            "title": "Booking and blockchain",
+            "slug": "21-booking-and-blockchain",
+            "shortText": "Booking in the MedPoints system is worked through the <a href=\"https://github.com/MedPoints/storage\">blockchain emulator</a>.",
+            "text": "Booking in the MedPoints system is worked through the <a href=\"https://github.com/MedPoints/storage\">blockchain emulator</a><br><br>To make an appointment, the user needs to enter his wallet data, select a service and fill in the required fields. The blockchain is involved in this process, to which the system accesses and transfers all the necessary data.<br><br><code>const data = {\nUserAddress: walletId,\nDoctorId: doctorId,\nClinicId: clinicId,\nServiceId: serviceId,\nDate: moment(new Date()).format('YYYY-MM-DD'),\nDescription: JSON.stringify({\nfirstName,\nlastName,\nemail,\nsex,\ndateOfBirth,\nbookingDate,\n}),\n}\nconst localization = new Localization(req.cookies.locale);\nconst request = await axios.post(`${BLOCKCHAIN_API_URL}/api/blockchain/transactions`, data);</code>"
+        },
+        {
+            "id": 22,
+            "title": "Mail confirmation",
+            "slug": "22-mail-confirmation",
+            "shortText": "When registering, a letter with a valid token and a link to the main site comes to the mail.",
+            "text": "When registering, a letter with a valid token and a link to the main site comes to the mail.<br><br>Also added errors that will appear if the confirmation link is not valid:<br><br><code>  const errors = {\n      \"ALREADY_CONFIRMED\": \"Your email has been already successfully confirmed.\",\n      \"CONFIRMATION_FAILED\": \"Confirmation failed. Please check your email for valid link.\",\n      \"ERROR\": \"Error occured during confirmation. Please check your email for valid link.\",\n      \"NO_TOKEN\": \"No confirmation token. Please check your email for valid link.\",\n  };</code>"
+        },
+        {
+            "id": 23,
+            "title": "Downloadable Documents",
+            "slug": "23-downloadable-documents",
+            "shortText": "Added a line for the description to the uploaded documents. This description will appear when you hover cursor over the document in <a href=\"/account/records/\">records</a>",
+            "text": "Added a line for the description to the uploaded documents. This description will appear when you hover cursor over the document in <a href=\"/account/records/\">records</a>:<br><br><code>if (req.body.description) {\n      description = (typeof req.body.description === \"string\") ? req.body.description : req.body.description[i];\n}</code>"
+        },
+        {
+            "id": 24,
+            "title": "Cabinets for Doctors, Pharmacists and representatives of medical institutions",
+            "slug": "24-cabinets-for-doctors-pharmacists-and-hospitals",
+            "shortText": "A system emulating the work of software for Doctors, Pharmacists and medical representatives was built and implemented.",
+            "text": "A system emulating the work of software for Doctors, Pharmacists and medical representatives was built and implemented.<br><br>A new subdomain <a href=\"https://cabinets.medpoints.online\">cabinets</a> has been added for a personal account with separation of users by roles."
+        },
+        {
+            "id": 25,
+            "title": "Functional cabinets for doctors",
+            "slug": "25-functional-cabinets-for-doctors",
+            "shortText": "In cabinet the doctor will have access to the functionality of displaying appointments.",
+            "text": "In cabinet the doctor will have access to the functionality of displaying appointments. At the moment there is a calendar, tables with entries for today and summary for all time. It is also possible to view a list of patients with their record histories and detailed information about each.<br><br>In addition, there is a page with blocks from the blockchain, similar to <a href=\"https://medpoints.online/explorer\">explorer</a>"
+        },
+        {
+            "id": 26,
+            "title": "Pharmacist drug registration system",
+            "slug": "26-pharmacist-drug-registration-system",
+            "shortText": "The pharmacist has the opportunity to add medicinal groups and the medicines themselves.",
+            "text": "The pharmacist has the opportunity to add medicinal groups and the medicines themselves. Convenient structuring with the ability to export tables as pdf, excel, csv and print."
+        },
+        {
+            "id": 27,
+            "title": "Administrative panel for a representative of a medical institution",
+            "slug": "27-administrative-panel-for-hospitals",
+            "shortText": "Added functionality of a representative of a medical institution. ",
+            "text": "Added functionality of a representative of a medical institution. He can view the list of doctors, change the data on them, view the records for doctors, hospital departments, patient lists and change the parameters of his clinic.<br><br>Data is structured in a table with the ability to copy, export, print and search."
         }
     ],
 

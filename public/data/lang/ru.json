@@ -783,6 +783,62 @@
             "date": "2020-03-03",
             "shortText": "Мы продолжаем расширять географию проекта путем добавления новых языковых версий MVP.",
             "text": "Мы продолжаем расширять географию проекта путем добавления новых языковых версий MVP. В Данный момент мы подключили перевод системы на Немецкий, Французский и Итальянские языки<br><br>Willkommen zurück, Bienvenue и benvenuto!"
+        },
+        {
+            "id": 20,
+            "title": "Стандарты безопасности",
+            "slug": "20-safety-standards",
+            "shortText": "Был установлен ssl сертификат с помощью <b>letsencrypt</b>. Включено автоматическое обновление сертификатов. Безопасность проверена с помощью <a href=\"http://ssllabs.com/ssltest\">ssltest</a> где сайт получил оценку B.",
+            "text": "Был установлен ssl сертификат с помощью <b>letsencrypt</b>. Включено автоматическое обновление сертификатов. Безопасность проверена с помощью <a href=\"http://ssllabs.com/ssltest\">ssltest</a> где сайт получил оценку B.<br><br>Также добавлен модуль helmet для защиты от разнообразных атак на сервер express.<br><br>Подключена система блокировки DDOS-атак от <a href=\"http://cloudflare.com\">cloudflare</a>."
+        },
+        {
+            "id": 21,
+            "title": "Бронирование и блокчейн",
+            "slug": "21-booking-and-blockchain",
+            "shortText": "Бронирование в системе MedPoints осуществляется через <a href=\"https://github.com/MedPoints/storage\">эмулятор блокчейна</a>.",
+            "text": "Бронирование в системе MedPoints осуществляется через <a href=\"https://github.com/MedPoints/эмулятор блокчейна\">storage</a><br><br>Для записи на прием, пользователю необходимо ввести данные своего кошелька, выбрать услугу и заполнить необходимые поля. В этом процессе участвует блокчейн, к которому обращается система и передает все необходимые данные.<br><br><code>const data = {\nUserAddress: walletId,\nDoctorId: doctorId,\nClinicId: clinicId,\nServiceId: serviceId,\nDate: moment(new Date()).format('YYYY-MM-DD'),\nDescription: JSON.stringify({\nfirstName,\nlastName,\nemail,\nsex,\ndateOfBirth,\nbookingDate,\n}),\n}\nconst localization = new Localization(req.cookies.locale);\nconst request = await axios.post(`${BLOCKCHAIN_API_URL}/api/blockchain/transactions`, data);</code>"
+        },
+        {
+            "id": 22,
+            "title": "Подтверждение почты",
+            "slug": "22-mail-confirmation",
+            "shortText": "При регистрации, на почту теперь приходит письмо с валидным токеном и ссылкой на основной сайт.",
+            "text": "При регистрации, на почту теперь приходит письмо с валидным токеном и ссылкой на основной сайт.<br><br>Также добавлены ошибки, которые будут появляться если подтверждающая ссылка не валидна:<br><br><code>const errors = {\n      \"ALREADY_CONFIRMED\": \"Your email has been already successfully confirmed.\",\n      \"CONFIRMATION_FAILED\": \"Confirmation failed. Please check your email for valid link.\",\n      \"ERROR\": \"Error occured during confirmation. Please check your email for valid link.\",\n      \"NO_TOKEN\": \"No confirmation token. Please check your email for valid link.\",\n  };</code>"
+        },
+        {
+            "id": 23,
+            "title": "Загружаемые документы",
+            "slug": "23-downloadable-documents",
+            "shortText": "К загружаемым документам добавлена строка, отвечающая за описание. Это описание будет появляться при наведении курсора на документ в <a href=\"/account/records/\">records</a>",
+            "text": "К загружаемым документам добавлена строка, отвечающая за описание. Это описание будет появляться при наведении курсора на документ в <a href=\"/account/records/\">records</a>:<br><br><code>if (req.body.description) {\n      description = (typeof req.body.description === \"string\") ? req.body.description : req.body.description[i];\n}</code>"
+        },
+        {
+            "id": 24,
+            "title": "Кабинеты для Врачей, Фармацевтов и представителей мед. учреждений",
+            "slug": "24-cabinets-for-doctors-pharmacists-and-hospitals",
+            "shortText": "Была построена и внедрена система эмулирующая работу ПО для Врачей, Фармацевтов и представителей мед. учреждений.",
+            "text": "Была построена и внедрена система эмулирующая работу ПО для Врачей, Фармацевтов и представителей мед. учреждений.<br><br>Был добавлен новый поддомен <a href=\"https://cabinets.medpoints.online\">cabinets</a> для личного кабинета с разделением пользователей по ролям."
+        },
+        {
+            "id": 25,
+            "title": "Функциональные кабинеты для врача",
+            "slug": "25-functional-cabinets-for-doctors",
+            "shortText": "Врачу будет доступен функционал отображения записей на прием. На данный момент есть календарь, таблицы с записями на сегодня и сводные за все время.",
+            "text": "Врачу будет доступен функционал отображения записей на прием. На данный момент есть календарь, таблицы с записями на сегодня и сводные за все время. Также есть возможность просмотра списка пациентов с их историями записей и подробной информацией о каждом.<br><br>Кроме того, есть страница с блоками из блокчейна, аналогичная <a href=\"https://medpoints.online/explorer\">explorer</a>"
+        },
+        {
+            "id": 26,
+            "title": "Система учета лекарств для фармацевта",
+            "slug": "26-pharmacist-drug-registration-system",
+            "shortText": "Фармацевту доступна возможность добавлять лекарственные группы и сами медикаменты.",
+            "text": "Фармацевту доступна возможность добавлять лекарственные группы и сами медикаменты. Удобная структуризация с возможностью экспорта таблиц в виде pdf, excel, csv и вывода на печать."
+        },
+        {
+            "id": 27,
+            "title": "Административная панель для представителя медицинского учреждения",
+            "slug": "27-administrative-panel-for-hospitals",
+            "shortText": "Добавлен функционал представителя медицинского учреждения.",
+            "text": "Добавлен функционал представителя медицинского учреждения. Он может просмотреть список врачей, изменить данные по ним, просмотреть записи к врачам, отделения больницы, списки пациентов и изменить параметры своей клиники.<br><br>Данные структурируются в виде таблицы с возможностью копирования, экспорта, печати и поиска."
         }
     ],
 
