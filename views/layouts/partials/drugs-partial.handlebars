@@ -3,6 +3,8 @@
 
     <h3>{{localize req 'drug.categories'}}</h3>
 
+    <div class="drugs-list">
+
     <ul class="cat-list">
         <li>
             <a class="{{#if (compare selectedCategory '')}}active{{/if}}" href="/drugs">{{localize req 'drug.categoriesAll'}}</a>
@@ -15,6 +17,8 @@
         {{/each}}
     </ul>
     <!--/.cat-list-->
+
+    </div>
 
 </div>
 <!--/.col-->

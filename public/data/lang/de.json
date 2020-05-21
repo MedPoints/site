@@ -55,7 +55,7 @@
     "partnership": {
         "addButton": "Hinzufügen",
         "imgPath": "img/smart-contract-ru.svg",
-        "textBeforeImg": "<p>Der Markt der medizinischen Dienstleistungen bietet enorme Möglichkeiten für die Einführung von Blockchain-Technologien an, aber bisher nur einzelne Projekte finden die praktische Anwendung der Dezentralisierung in der Logik der Interaktion zwischen Arzt und Patient.</p><div class='row'><div class='col'><p>Den Vertretern medizinischer Einrichtungen stellen wir einen ständig wachsenden Kanal zur Gewinnung neuer Kunden und eine benutzerfreundliche Software zur Auftragsbearbeitung bereit.</p><ul><li><i class='fas fa-check'></i> Der private Kommunikationskanal mit den Patienten</li><li><i class='fas fa-check'></i> Strukturierte Kartei medizinischer Aufzeichnungen von Patienten</li><li><i class='fas fa-check'></i> Erweiterung der Geographie</li><li><i class='fas fa-check'></i> Entlastung von unnötiger Papierarbeit</li><li><i class='fas fa-check'></i> Möglichkeit zur Vertretung eigener Spezialisten, Dienstleistungen und Produkten</li><li><i class='fas fa-check'></i> Digitalisierung von Transaktionen im Bereich der Erbringung medizinischer Leistungen</li><li><i class='fas fa-check'></i> Wegfall des Bedarfs an einer juristischen Begleitung *</li><li><i class='fas fa-check'></i> Ein für jeden verfügbares Werkzeug, das keine zusätzliche Kosten oder Kenntnisse erfordert</li></ul><p>* In Übereinstimmung mit geltender Gesetzgebung Ihres Aufenthaltslandes.</p><p>Die Teilnahme am  MedPoints ™-System ist für medizinische Einrichtungen und ihre Vertretungen kostenlos. Jeder Teilnehmer des Systems im Rang eines Partners trägt zum Projekt durch die Bereitstellung der Rechenkapazität bei.</p><p>Dies bedeutet nicht, dass Sie einen Supercomputer brauchen, um einen Zugriff auf Kundenströme aus der ganzen Welt zu erhalten. Es reicht aus, kostenlose lizenzierte Software auf einen Desktop-Computer in Ihrem Büro zu installieren und Ihre Mitarbeiter darin zu schulen, mit bedienerfreundlicher Software-Benutzeroberfläche zu arbeiten.</p></div></div>",
+        "textBeforeImg": "<p>We are open to any kind of cooperation. If you have ideas, wishes or commercial offers, then send them to <a href='maito:partnership@medpoints.online'>partnership@medpoints.online</a> or contact us through the official channels of the project in social networks and instant messengers.</p>",
         "textAfterImg": "<p>Die Zusammenarbeit mit dem MedPoints™-System unterstützt die Bereitstellung professioneller medizinischer Dienstleistungen auf hohem Niveau, was im Endergebnis nicht nur Gewinne jedes einzelnen Marktteilnehmers beeinflusst, sondern einen wichtigen Beitrag zum gesellschaftlichen Gemeinwohl leistet.</p>"
     },
 
@@ -66,6 +66,7 @@
                 "about": "Über Projekt",
                 "partnership": "Partnerschaft",
                 "explorer": "Blockchain-Explorer",
+                "cabinets": "Cabinets",
                 "blog": "Blog"
             }
         },

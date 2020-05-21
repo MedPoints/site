@@ -62,7 +62,7 @@
     "partnership": {
         "addButton": "Add",
         "imgPath": "img/smart-contract-eng.svg",
-        "textBeforeImg": "<p>Until now, the problem of health insurance is acute all over the world. It would seem that the primary service that guarantees the normal existence of man and is a luxury for most citizens even of the most advanced economiсs of the world.</p><p>Among the most pressing problems of this industry is:</p><ul><li><i class='fas fa-check'></i> Non-rising insurance prices</li><li><i class='fas fa-check'></i> Many thousands of queues in state programs</li><li><i class='fas fa-check'></i> Only partial coverage of insurance costs for medical service in serious cases</li><li><i class='fas fa-check'></i> Fraud by private insurance companies</li><li><i class='fas fa-check'></i> Delays in payments for insurance</li></ul><p>The problems of health insurance couse the inaccessibility or self-denial of a person from receiving the necessary treatment. And if the consequences of such situations do not make themselves felt at once, then they are totaly manifested in the future.</p><p>In our <strong>Insurance points program</strong>, we use the model of obtaining timely medical care for system <strong>Points</strong> tied to the MPT token. Regular replenishment of the account balance and growth of the token will allow each participant to receive more medical services over time in the same amount of <strong>Points</strong>.</p> ",
+        "textBeforeImg": "<p>We are open to any kind of cooperation. If you have ideas, wishes or commercial offers, then send them to <a href='maito:partnership@medpoints.online'>partnership@medpoints.online</a> or contact us through the official channels of the project in social networks and instant messengers.</p>",
         "textAfterImg": "<p>Cooperation with the MedPoints™ system encourages the provision of professional medical services at a high level, which ultimately affects not only the profits of each particular market participant, but also the well-being of society.</p>"
     },
 
@@ -73,6 +73,7 @@
                 "about": "About",
                 "partnership": "Partnership",
                 "explorer": "Blockchain explorer",
+                "cabinets": "Cabinets",
                 "blog": "Blog"
             }
         },

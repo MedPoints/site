@@ -41,9 +41,9 @@ exports.getDrugs = async (req, res) => {
     parameters: req.query
   };
 
-  const groupsUrl = `${API_URL}/api/groups`;
+  const groupsUrl = `${API_URL}/api/groups?count=2000`;
   const categoriesRequest = await axios.get(groupsUrl);
-  const categories = categoriesRequest.data.result.data;
+  const categories = categoriesRequest.data.result.data.sort((a, b) => a.name.localeCompare(b.name));
   const localization = new Localization(req.cookies.locale);
 
   res.render('drugs/drugs', { 

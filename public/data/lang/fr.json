@@ -55,8 +55,7 @@
     "partnership": {
         "addButton": "Ajouter",
         "imgPath": "img/smart-contract-ru.svg",
-        "textBeforeImg": "<p> Le marché des services médicaux offre de grandes opportunités pour la mise en œuvre des technologies blockchain, mais jusqu'à présent, seuls quelques projets trouvent une application pratique de la décentralisation dans la logique de l'interaction médecin-patient.</p> <div class ='row'><div class='col'> <p> Pour les représentants des établissements médicaux nous fournissons un canal de nouveaux clients et des logiciels pratiques pour le traitement des commandes en croissance permanente.</p><ul><li><i class='fas fa-check'></i> Le canal de communication privé avec les patients </li><li><i class='fas fa-check'> </i>Le fichier structuré de visites des patients</li><li><i class='fas fa-check'> </i>L’expansion géographique</li><li><i class='fas fa-check'></i>Élimine le travail inutile avec les papiers</li><li><i class='fas fa-check'></i> Offre la possibilité de représenter vos spécialistes, services, produits</li><li><i class='fas fa-check'></i>Numérise les transactions de fourniture de services médicaux</li><li><i class='fas fa-check'></i> Élimine le besoin d'assistance juridique * </li><li><i class ='fas fa-check'></i>Un outil accessible à tous qui ne nécessite pas de coûts ou de connaissances supplémentaires</li ></ul><p>* Selon les lois en vigueur du pays de séjour.</p><p>La participation au système MedPoints ™ ne nécessite aucun paiement de la part des établissements ou leurs représentants. Tout membre du système ayant le statut de partenaire contribue au projet en fournissant une puissance de calcul.</p><p>Cela ne signifie pas que pour accéder au flux de clients du monde entier, vous avez besoin d'un superordinateur, il suffit d'installer un logiciel sous licence gratuit sur un ordinateur dans le bureau et former le gestionnaire à travailler avec une interface logicielle simple.</p></div></div>",
-
+        "textBeforeImg": "<p>We are open to any kind of cooperation. If you have ideas, wishes or commercial offers, then send them to <a href='maito:partnership@medpoints.online'>partnership@medpoints.online</a> or contact us through the official channels of the project in social networks and instant messengers.</p>",
         "textAfterImg": "<p> La collaboration avec le système MedPoints ™ favorise la fourniture de services médicaux professionnels à un niveau élevé, ce qui affecte finalement non seulement le profit de chaque acteur du marché spécifique, mais également le niveau de bien-être de la société.</p>"
     },
 
@@ -67,6 +66,7 @@
                 "about": "A propos du projet",
                 "partnership": "Partenariat",
                 "explorer": "Navigateur de blocs",
+                "cabinets": "Cabinets",
                 "blog": "Blog"
             }
         },
