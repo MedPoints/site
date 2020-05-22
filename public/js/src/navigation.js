@@ -85,7 +85,7 @@ function initLocation() {
  * using the ip-api service
  */
 function ipLookUp (callback) {
-    $.ajax('http://ip-api.com/json')
+    $.ajax('https://pro.ip-api.com/json/?key=SvzNBdEuM94psbP')
         .then(
             function success(response) {
                 callback(response);
