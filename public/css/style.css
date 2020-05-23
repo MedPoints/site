@@ -1691,3 +1691,19 @@ ul.cat-list li {
    white-space: -o-pre-wrap;   /* Opera 7 */    
    word-wrap: break-word;      /* IE */
 }
+
+.cats ul li a {
+     outline: none;
+}
+
+.cats ul li a h3 {
+     font-size: 1.5rem;
+}
+
+.items-list .col-xl-5.col-md-5.col-sm-8 .card {
+     font-size: 14px;
+}
+
+.items-list .col-xl-5.col-md-5.col-sm-8 .card small {
+     font-size: 12px;
+}
