@@ -55,7 +55,7 @@
     "partnership": {
         "addButton": "Ajouter",
         "imgPath": "img/smart-contract-ru.svg",
-        "textBeforeImg": "<p>We are open to any kind of cooperation. If you have ideas, wishes or commercial offers, then send them to <a href='maito:partnership@medpoints.online'>partnership@medpoints.online</a> or contact us through the official channels of the project in social networks and instant messengers.</p>",
+        "textBeforeImg": "<p>Nous sommes ouverts à tout type de coopération. Si vous avez des idées, des souhaits ou des offres commerciales, envoyez-les à <a href='maito:partenariat@medpoints.online'>partenariat@medpoints.online</a> ou contactez-nous via les canaux officiels du projet dans les réseaux sociaux et les messageries instantanées.</p>",
         "textAfterImg": "<p> La collaboration avec le système MedPoints ™ favorise la fourniture de services médicaux professionnels à un niveau élevé, ce qui affecte finalement non seulement le profit de chaque acteur du marché spécifique, mais également le niveau de bien-être de la société.</p>"
     },
 
