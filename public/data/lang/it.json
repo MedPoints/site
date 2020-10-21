@@ -191,6 +191,7 @@
     "registration": {
         "alreadyRegistered": "<strong>Benvenuto!</strong> Sei già registrato. Se vuoi registrarti di nuovo, prego, uscire dal sistema e aggiorna la pagina.",
         "existing": "Cliente esistente?",
+        "usersCount": "Registered users:",
         "clickToLogIn": "Premi per accedere",
         "login": "<strong>Benvenuto!</strong> Abbiamo creato per te un unico <strong>identificatore</strong> e <strong>chiave</strong> per l’autorizzazione sulla piattaforma.",
         "registerButton": "Registrazione",

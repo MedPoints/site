@@ -191,6 +191,7 @@
     "registration": {
         "alreadyRegistered": "<strong> Bienvenue!</strong> Vous êtes déjà inscrit. Si vous souhaitez vous réinscrire, veuillez vous déconnecter et actualiser cette page.",
         "existing": "Client inscrit?",
+        "usersCount": "Registered users:",
         "clickToLogIn": "Cliquez ici pour vous connecter.",
         "login": "<strong> Bienvenue!</strong>Nous avons créé pour vous un <strong> identifiant </strong> et une <strong>clé</strong> uniques pour l'autorisation sur la plateforme.",
         "registerButton": "Inscription",

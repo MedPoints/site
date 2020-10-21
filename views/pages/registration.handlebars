@@ -11,7 +11,15 @@
 </div>
 
 <div class="registerContainer">
-    <h2>{{localize req 'registration.existing'}} <a href="#" data-toggle="modal" data-target="#login">{{localize req 'registration.clickToLogIn'}}</a></h2>
+    <div class="row align-items-end">
+        <div class="col-9">
+            <h2>{{localize req 'registration.existing'}} <a href="#" data-toggle="modal" data-target="#login">{{localize req 'registration.clickToLogIn'}}</a></h2>
+        </div>
+        <div class="col-3 text-right">
+            <h5>{{localize req 'registration.usersCount'}} <mark>{{count}}</mark></h5>
+        </div>
+    </div>
+    
 
     <br />
 

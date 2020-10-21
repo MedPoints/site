@@ -191,6 +191,7 @@
     "registration": {
         "alreadyRegistered": "<strong>Willkommen!</strong> Sie sind bereits registriert. Wenn Sie sich erneut registrieren wollen, bitte melden Sie sich vom System ab und aktualisieren Sie diese Seite.",
         "existing": "Existierender Kunde?",
+        "usersCount": "Registered users:",
         "clickToLogIn": "Klicken Sie hier, um einzuloggen",
         "login": "<strong>Willkommen!</strong> Wir haben für Sie eine eindeutige <strong>ID</strong> und <strong>Schlüssel</strong> zur Autorisierung auf der Plattform generiert.",
         "registerButton": "Registrierung",

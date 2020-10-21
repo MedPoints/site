@@ -209,6 +209,7 @@
     "registration": {
         "alreadyRegistered": "<strong>Welcome!</strong> You are already logged in. If you want to register again, please log out and refresh this page.",
         "existing": "Existing Customer?",
+        "usersCount": "Registered users:",
         "clickToLogIn": "Click here to login",
         "login": "<strong>Welcome!</strong> We have generated for you a unique <strong>ID</strong> and a <strong>KEY</strong> for authorization on the platform.",
         "registerButton": "Registration",
