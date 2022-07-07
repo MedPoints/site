@@ -30,7 +30,7 @@
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
-    "moment": "^2.22.2",
+    "moment": "^2.29.4",
     "qs": "^6.5.2"
   },
   "devDependencies": {
