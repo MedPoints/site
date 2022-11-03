@@ -34,7 +34,7 @@
     "qs": "^6.5.2"
   },
   "devDependencies": {
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
     "gulp-uglify-cli": "^0.1.7",
     "nodemon": "^1.17.5",
