@@ -31,7 +31,7 @@
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
     "moment": "^2.22.2",
-    "qs": "^6.5.2"
+    "qs": "^6.5.3"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
